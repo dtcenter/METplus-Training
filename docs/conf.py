@@ -17,7 +17,7 @@ print(sys.path)
 
 # -- Project information -----------------------------------------------------
 
-project = 'MET'
+project = 'METplus-Training'
 author = 'UCAR/NCAR, NOAA, and CSU/CIRA'
 version = '3.1'
 release = f'{version}'
