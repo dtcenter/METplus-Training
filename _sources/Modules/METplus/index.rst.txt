@@ -12,11 +12,3 @@ These are the METplus Training Modules.
    module2
    module3
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-      
