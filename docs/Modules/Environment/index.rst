@@ -19,4 +19,5 @@ Please select one of the training environment options listed below to get starte
    docker
    aws
    cheyenne 
+   manage_externals
 

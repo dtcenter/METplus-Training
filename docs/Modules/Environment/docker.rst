@@ -3,7 +3,11 @@
 Docker Container
 ================
 
-**ADD LINK TO VIDEO HERE**
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/MlVI2YAa6Ok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Developed for **METplus Version 3.1**.
 
 In this video, we will setup the METplus training environment using a Docker Container.
 
