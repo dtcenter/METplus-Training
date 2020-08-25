@@ -19,10 +19,12 @@ Installing Docker requires privileged user access to your machine. If you do not
 please consider one of the other options for setting up a METplus Training environment.
 
 We will begin by launching a terminal window in which we can execute commands. Do this by opening the
-**Terminal** app on a Mac or launching a terminal emulator on Windows, such as (TODO: state recommended terminal emulators here).
+**Terminal** app on a Mac or launching a terminal emulator on Windows. Windows users are advised to
+download and install a Linux xterm emulator such as `MobaXterm <https://mobaxterm.mobatek.net>`_
+or `Cygwin <http://cygwin.com>`_ for use with containers.
 
-Let's test that Docker is running properly on your machine. Copy the command listed below and
-paste it into your terminal window. Hit enter to execute the command:
+After you have launched a terminal window, let's test that Docker is running properly on your machine.
+Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:
 
 .. code-block::
 
