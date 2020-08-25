@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Manage Externals &mdash; METplus-Training 3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="METplus Training Modules" href="../METplus/index.html" />
+    <link rel="prev" title="3. Cheyenne Supercomputer" href="cheyenne.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> METplus-Training
+          
+
+          
+            
+            <img src="../../_static/METplus_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METplus Training Modules</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Training Environment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="docker.html">1. Docker Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws.html">2. Amazon Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheyenne.html">3. Cheyenne Supercomputer</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Manage Externals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">METplus-Training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Training Environment</a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>Manage Externals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Modules/Environment/manage_externals.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="manage-externals">
+<span id="environment-manage-externals"></span><h1><span class="section-number">4. </span>Manage Externals<a class="headerlink" href="#manage-externals" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OSTRdIrEDZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus version 3.1</strong>.</p>
+<p>This is the manage externals piece of the METplus tutorial.</p>
+<p>We have a couple directories in the newest release of METplus that relate to building components. If you clone METplus, you will see them in the top level. The one I’m going to talk about right now is build components. We are calling all of the things that go along with METplus, such as METviewer, METcalcpy, and METplotpy, components. Manage externals is a tool to help you download and build all of these components along with METplus.</p>
+<p>If you don’t have access to one of the HPC computers where everything is installed for you, and you need to either install this yourself on a common machine or you want to install it on your own machine, this is a way to do it. Manage externals is a set of scripts that the CESM group at NCAR has created and that allows you, using this <strong>externals.config</strong> file, to specify other GitHub repositories that you want to automatically clone and put in a directory either on the same level as your METplus or somewhere else of your choosing.</p>
+<p>Right now we have it set up to clone the latest build of MET and clone the latest build of METviewer, which will then put it in a directory one level up from METplus, which I will show you later after I go through this example of how it’ll grab those two repositories. They’ll be some future components that we’re going to add as well.</p>
+<p>To start with, we are going to clone the METplus repository from GitHub:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dtcenter</span><span class="o">/</span><span class="n">METplus</span>
+</pre></div>
+</div>
+<p>Change directories into build_components and show the external.config file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">METplus</span><span class="o">/</span><span class="n">build_components</span>
+<span class="n">cat</span> <span class="n">Externals</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p>The first file we want to look at is Externals.cfg.
+If you create your own Externals.cfg file, you can clone other things as well. If you have your scripts in another GitHub repository, or other code repositories like SVN, you can modify the config file to point wherever you need,  it should be fairly easy to understand.</p>
+<p>Lets go on to the build_MET.sh script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">less</span> <span class="n">build_MET</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>We have created this build MET script file. This script runs manage_externals to clone the repositories set up in your Externals.cfg file and then does some preparation to build MET. First it grabs a tar file from the dtcenter.org web site that contain the external libraries that MET needs to run, then it grabs a MET compile script that Julie Prestopnik has created that will build the external libraries and then build MET.</p>
+<p>(<em>Show the section with the MET build script.</em>)</p>
+<p>We have this tested for a couple different machines, but the list is not comprehensive and many machines can be a little tricky to build on. The key things to modify if you’re going to try and do this is this env_vars.bash and changing your test base, changing your CC Flags, changing your LD flags are all important for installing on your own system.</p>
+<p>This capability is in its early development stage and has not been widely tested, it will probably get you 90% of the way towards compiling MET. All the external libraries should be built and a lot of the beginning stages of MET will get built. It probably won’t get you the whole way but there shouldn’t be too many additional things you have to change to get there. If you have a local machine you want to install on or a share machine that doesn’t have MET already installed in a common area, this is where you want to start for building your own MET and METplus and eventually the other METplus components once METplus v4.0 is released next spring.</p>
+<p>This is the actual GitHub repository that I’m showing.</p>
+<p>Here is the section of the <a class="reference external" href="https://dtcenter.github.io/METplus/Users_Guide/installation.html#build-components-and-using-manage-externals">METplus Users Guide</a> which describes using manage externals and building your own METplus.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../METplus/index.html" class="btn btn-neutral float-right" title="METplus Training Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cheyenne.html" class="btn btn-neutral float-left" title="3. Cheyenne Supercomputer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, UCAR/NCAR, NOAA, and CSU/CIRA
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -96,6 +96,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1. Docker Container</a></li>
 <li class="toctree-l2"><a class="reference internal" href="aws.html">2. Amazon Web Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cheyenne.html">3. Cheyenne Supercomputer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage_externals.html">4. Manage Externals</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Modules</a></li>
@@ -170,7 +171,7 @@
             
   <div class="section" id="docker-container">
 <span id="environment-docker"></span><h1><span class="section-number">1. </span>Docker Container<a class="headerlink" href="#docker-container" title="Permalink to this headline">¶</a></h1>
-<p><strong>ADD LINK TO VIDEO HERE</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MlVI2YAa6Ok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>In this video, we will setup the METplus training environment using a Docker Container.</p>
 <p>We assume that you are working on a machine on which the Docker software has already been installed.
 If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
@@ -178,9 +179,11 @@ website at <a class="reference external" href="https://www.docker.com">https://w
 <p>Installing Docker requires privileged user access to your machine. If you do not have that level of access,
 please consider one of the other options for setting up a METplus Training environment.</p>
 <p>We will begin by launching a terminal window in which we can execute commands. Do this by opening the
-<strong>Terminal</strong> app on a Mac or launching a terminal emulator on Windows, such as (TODO: state recommended terminal emulators here).</p>
-<p>Let’s test that Docker is running properly on your machine. Copy the command listed below and
-paste it into your terminal window. Hit enter to execute the command:</p>
+<strong>Terminal</strong> app on a Mac or launching a terminal emulator on Windows. Windows users are advised to
+download and install a Linux xterm emulator such as <a class="reference external" href="https://mobaxterm.mobatek.net">MobaXterm</a>
+or <a class="reference external" href="http://cygwin.com">Cygwin</a> for use with containers.</p>
+<p>After you have launched a terminal window, let’s test that Docker is running properly on your machine.
+Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
 </pre></div>
 </div>

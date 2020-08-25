@@ -4,6 +4,15 @@ METplus Training
 
 Developed by the `Developmental Testbed Center <https://dtcenter.org/>`_, Boulder, CO
 
+
+**WARNING! WARNING! WARNING!**
+------------------------------
+
+**August 2020: These training modules are under active development and not yet intended for use!**
+
+**WARNING! WARNING! WARNING!**
+------------------------------
+
 **Welcome to the METplus Training modules!**
 
 Please see the `METplus Website <http://dtcenter.org/community-code/metplus>`_ to learn more about this project.
