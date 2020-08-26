@@ -11,6 +11,10 @@ Developed for **METplus Version 3.1**.
 
 (*Introduction*)
 
+If you would like to follow along with the exercises in this video, please select one of the options to set up your own :ref:`Training Environment <training_environment>`.
+
+In this video, we will ...
+
 .. code-block::
 
   echo "This is a code block."
