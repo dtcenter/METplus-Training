@@ -38,10 +38,13 @@ This **docker run** command first looks for an image named **hello-world** on yo
 If found, it creates a software container from that image and executes the default command.
 Or, more likely, if **hello-world** does not yet exist on your machine, Docker will automatically
 download it from DockerHub at https://hub.docker.com prior to executing the default command.
-We'll talk more about the **--rm** option that we used later on.
+We'll talk more about the **\-\-rm** option that we used later on.
 
 If successful, you should see a **Hello from Docker!** message followed by some information and links.
 If this command did not run succesfully, please exit this video and work on your Docker installation.
+
+Launching
+---------
 
 Now that we've verified that Docker is running well, we only need to run one more command to
 setup your METplus training environment:
@@ -57,10 +60,10 @@ Once the download is complete, it will execute the **/bin/bash** command inside 
 effectively logging you into it. The **-it** options provide an interactive terminal session enabling
 you to execute commands inside the container. Every **docker run** command creates a new software
 container from the image being run, and those containers persist until they are removed. The
-**--rm** option automatically removes that container from your machine once you exit the container.
-We recommend using the **--rm** option to avoid stale containers consuming disk space.
-However, if you'd like the container to persist after you exit, simply remove that **--rm** option. 
-The **--name** option assigns a specific name to our container, rather than letting Docker choose
+**\-\-rm** option automatically removes that container from your machine once you exit the container.
+We recommend using the **\-\-rm** option to avoid stale containers consuming disk space.
+However, if you'd like the container to persist after you exit, simply remove that **\-\-rm** option. 
+The **\-\-name** option assigns a specific name to our container, rather than letting Docker choose
 one for us.
 
 Now that we've successfully downloaded and logged into the METplus-Training container, let's
@@ -76,21 +79,74 @@ MET_BUILD_BASE, and METPLUS_DATA.
   echo ${METPLUS_DATA} 
 
 You are now ready to proceed to the training modules! Just execute all future training module
-commands from inside this container. When you are all finished and ready to exit this container,
-simply type:
+commands from inside this container.
+
+Exiting
+-------
+
+Once you have finished running through some METplus training exercises from another module,
+you will want to exit this container and cleanup. To exit the container, simply type:
 
 .. code-block::
 
   exit
 
-Beware that when you exit a container created using the **--rm** option, it will automatically be
-deleted, along with any data you may have created inside of it. If you would like the container to
-persist, omit the **--rm** option. After exiting the container, run the following commands to start
-it back up and log back into it with the bash shell.
+From outside the container, you can list both the **images** and **containers** on your machine
+by running these commands.
+
+.. code-block::
+
+  docker images
+  docker ps -a
+
+At a minimum, we should see images for **hello-world** and **metplus-training**.
+And **docker ps -a** should show us no containers since the **\-\-rm** option
+automatically removed them once we exited. If you would like the container to
+persist after exiting, omit the **\-\-rm** option.
+
+Restarting
+----------
+
+To illustrate this, let's run the follow commands to relaunch a container without
+the **\-\-rm** option, simply exit back out of it, and then list the containers on
+your machine.
+
+.. code-block::
+
+  docker run -it --name metplus dtcenter/metplus-training /bin/bash
+  exit
+  docker ps -a
+
+We should now see a container named **metplus** that exited a short time ago.
+If you would like to log back into that container to do some more training exercises,
+run the following commands to start it back up and launch the bash shell.
 
 .. code-block::
 
   docker start metplus
   docker exec -it metplus /bin/bash
 
+Cleaning up
+-----------
+
+Now let's say that you are all finished with the training exercises and want to
+cleanup your machine. You can exit the **metplus** container and delete both the
+containers and images from your machine by running these commands.
+
+.. code-block::
+
+  exit
+  docker rm -f metplus
+  docker rmi -f metplus-training hello-world 
+
+The **metplus** container and images for **metplus-training** and **hello-world** should
+no longer appear when you run the **docker ps -a** and **docker images** commands.
+
+.. code-block::
+
+  docker ps -a
+  docker images
+
+Thank you for watching this video. I hope you find running the METplus-Training exercises 
+inside a Docker container to be useful.
 
