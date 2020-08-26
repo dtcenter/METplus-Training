@@ -51,7 +51,6 @@ The VALID_INCREMENT variable determines the interval between run times. The vali
 
 The default units for valid increment are seconds if no unit identifier is present. Year, month, day, hour, minute, and second can be defined by adding the letter of the corresponding Python strftime directive to the end of the value. For example, a capital letter M corresponds to minute and a lowercase letter m corresponds to month::
 
-  # one minute increment
   VALID_INCREMENT = 1M
 
 Looping by Initialization Time
