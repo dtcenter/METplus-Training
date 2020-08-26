@@ -8,5 +8,5 @@ These are the MET Training Modules.
    :titlesonly:
    :numbered: 4
 
-   compiling
+   met_installation
 

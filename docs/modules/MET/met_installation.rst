@@ -1,7 +1,7 @@
-.. _met_compiling:
+.. _met_installation:
 
-Compiling MET Software
-======================
+Compiling and Installing MET
+============================
 
 .. raw:: html
 
