@@ -9,4 +9,5 @@ These are the MET Training Modules.
    :numbered: 4
 
    met_installation
+   met_tool_gen_vx_mask
 
