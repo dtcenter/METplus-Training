@@ -8,7 +8,5 @@ These are the METplus Training Modules.
    :titlesonly:
    :numbered: 4
 
-   module1
-   module2
-   module3
+   tutorial_setup
 
