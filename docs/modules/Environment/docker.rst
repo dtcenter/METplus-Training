@@ -20,8 +20,8 @@ website at https://www.docker.com.
 Installing Docker requires privileged user access to your machine. If you do not have that level of access,
 please consider one of the other options for setting up a METplus training environment.
 
-We will begin by launching a terminal window in which we can execute commands. Do this by opening the
-**Terminal** app on a Mac or launching a terminal emulator on Windows. Windows users are advised to
+We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
+opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows. Windows users are advised to
 download and install a Linux xterm emulator such as `MobaXterm <https://mobaxterm.mobatek.net>`_
 or `Cygwin <http://cygwin.com>`_ for use with containers.
 
