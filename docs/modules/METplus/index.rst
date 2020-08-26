@@ -12,3 +12,4 @@ These are the METplus Training Modules.
    tutorial_setup
    common_config_vars
    use_case_example_wrapper
+   use_case_track_and_intensity
