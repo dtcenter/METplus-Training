@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Common Configuration Variables &mdash; METplus-Training 3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MET Training Modules" href="../MET/index.html" />
+    <link rel="prev" title="2. METplus Tutorial Setup" href="tutorial_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> METplus-Training
+          
+
+          
+            
+            <img src="../../_static/METplus_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METplus Training Modules</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Training Environment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="metplus_installation.html">1. Installing METplus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial_setup.html">2. METplus Tutorial Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Common Configuration Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#time-looping">3.1. Time Looping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#looping-by-valid-time">3.1.1. Looping by Valid Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#looping-by-initialization-time">3.1.2. Looping by Initialization Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#looping-over-forecast-leads">3.1.3. Looping over Forecast Leads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipping-times">3.1.4. Skipping Times</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-order">3.2. Loop Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-info">3.3. Field Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thresholds">3.4. Thresholds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-options">3.5. Extra options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wrapper-specific">3.6. Wrapper-specific</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directory-template-info">3.7. Directory/Template Info</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">METplus-Training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">METplus Training Modules</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Common Configuration Variables</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/METplus/common_config_vars.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-configuration-variables">
+<span id="metplus-common-config-vars"></span><h1><span class="section-number">3. </span>Common Configuration Variables<a class="headerlink" href="#common-configuration-variables" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<p>(<em>Introduction</em>)</p>
+<p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables</em>)</p>
+<p>This video will cover METplus wrapper configuration variables that are used in most use cases. They control things like time looping and information about input fields and file paths. The configurations covered in this video are described in detail in <a class="reference external" href="https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables">Chapter 3 section 3</a> of the METplus User’s Guide.</p>
+<div class="section" id="time-looping">
+<h2><span class="section-number">3.1. </span>Time Looping<a class="headerlink" href="#time-looping" title="Permalink to this headline">¶</a></h2>
+<p>The METplus wrappers allow you to set a range of run times to process. For each run time, the wrappers will build commands to run the MET tools. The LOOP_BY variable determines if the run times should loop over initialization (INIT) times or valid (VALID) times. If LOOP_BY is set to INIT (or RETRO), then your configuration file must contain INIT_TIME_FMT, INIT_BEG, INIT_END, and INIT_INCREMENT. If LOOP_BY is set to VALID (or REALTIME), then your configuration file must contain VALID _TIME_FMT, VALID _BEG, VALID _END, and VALID _INCREMENT. Let’s focus on looping by valid time for now.</p>
+<div class="section" id="looping-by-valid-time">
+<h3><span class="section-number">3.1.1. </span>Looping by Valid Time<a class="headerlink" href="#looping-by-valid-time" title="Permalink to this headline">¶</a></h3>
+<p>VALID_TIME_FMT defines the format of VALID_BEG and VALID_END. It uses Python’s strftime notation and accepts any strftime directives. A list of all possible directives can be found at strftime.org.</p>
+<p>(<em>show https://strftime.org</em>)</p>
+<p>The example configuration shown here will loop by valid time from February 1st, 2020 until February 3rd, 2020. The valid time format is set to contain year, month, and day, so the valid begin and end values match that format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">VALID</span>
+
+<span class="n">VALID_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span>
+
+<span class="n">VALID_BEG</span> <span class="o">=</span> <span class="mi">20200201</span>
+<span class="n">VALID_END</span> <span class="o">=</span> <span class="mi">20200203</span>
+</pre></div>
+</div>
+<p>This next example contains the hour in the valid time format and the valid begin and end values. Execution will start at 12Z on February 1st, 2020 and will end at 18Z on February 1st, 2020:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">VALID</span>
+
+<span class="n">VALID_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span><span class="o">%</span><span class="n">H</span>
+
+<span class="n">VALID_BEG</span> <span class="o">=</span> <span class="mi">2020020112</span>
+<span class="n">VALID_END</span> <span class="o">=</span> <span class="mi">2020020318</span>
+</pre></div>
+</div>
+<p>The VALID_INCREMENT variable determines the interval between run times. The valid begin time will be processed, then the valid increment will be added to that time to determine the next run time. If the new run time is greater than the valid end time, then execution will stop. The value must be at least one minute:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALID_INCREMENT</span> <span class="o">=</span> <span class="mi">3600</span>
+</pre></div>
+</div>
+<p>The default units for valid increment are seconds if no unit identifier is present. Year, month, day, hour, minute, and second can be defined by adding the letter of the corresponding Python strftime directive to the end of the value. For example, a capital letter M corresponds to minute and a lowercase letter m corresponds to month:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># one minute increment</span>
+<span class="n">VALID_INCREMENT</span> <span class="o">=</span> <span class="mi">1</span><span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="looping-by-initialization-time">
+<h3><span class="section-number">3.1.2. </span>Looping by Initialization Time<a class="headerlink" href="#looping-by-initialization-time" title="Permalink to this headline">¶</a></h3>
+<p>If your use case needs to loop over initialization times instead of valid times, set the LOOP_BY variable to INIT and set the appropriate variables to define the initialization time format, begin time, end time, and increment.</p>
+<p>The configuration shown here will loop by initialization time from March 31, 2020 until April 1st, 2020 in 6 hour increments:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">INIT</span>
+
+<span class="n">INIT_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span>
+
+<span class="n">INIT_BEG</span> <span class="o">=</span> <span class="mi">20200331</span>
+<span class="n">INIT_END</span> <span class="o">=</span> <span class="mi">20200401</span>
+
+<span class="n">INIT_INCREMENT</span> <span class="o">=</span> <span class="mi">6</span><span class="n">H</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="looping-over-forecast-leads">
+<h3><span class="section-number">3.1.3. </span>Looping over Forecast Leads<a class="headerlink" href="#looping-over-forecast-leads" title="Permalink to this headline">¶</a></h3>
+<p>For each run time defined by the INIT or VALID variables, you can iterate over a list of forecast leads. The LEAD_SEQ variable is used to define a comma-separated list of forecast leads to process relative to the current initialization or valid time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LEAD_SEQ</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span>
+</pre></div>
+</div>
+<p>The default unit for the lead sequence is hour, so this configuration will process the 3 hour, 6 hour, and 9 hour forecast leads. You can define other units, such as minutes, by adding the appropriate Python strftime directive letter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LEAD_SEQ</span> <span class="o">=</span> <span class="mi">15</span><span class="n">M</span><span class="p">,</span> <span class="mi">30</span><span class="n">M</span>
+</pre></div>
+</div>
+<p>This will process the 15 minute and 30 minute forecast leads.</p>
+<p>If LOOP_BY is set to INIT, then each forecast lead will be added to the current initialization run time. If LOOP_BY is set to VALID, then each forecast lead will be subtracted from the current valid run time.</p>
+</div>
+<div class="section" id="skipping-times">
+<h3><span class="section-number">3.1.4. </span>Skipping Times<a class="headerlink" href="#skipping-times" title="Permalink to this headline">¶</a></h3>
+<p>(<em>show examples from https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#skipping-times</em>)</p>
+<p>A new feature added to the METplus wrappers in version 3.1 is the ability to skip certain times. The variable SKIP_TIMES in the [config] section controls this functionality. The times to skip are defined with Python string formatting directives followed by a colon, then a list of values that match the format, separated by a comma. Each rule must be surrounded by double quotation marks.</p>
+<p>There are a few examples listed in the METplus User’s Guide:</p>
+<p>[ example 1 ]</p>
+<p>This will skip the month of March, the 3rd month.</p>
+<p>[ example 2 ]</p>
+<p>This will skip every 30th and 31st day of each month.</p>
+<p>You can specify multiple string formatting directives in a single time format definition.</p>
+<p>[ example 5 ]</p>
+<p>This configuration will skip the specific year, month, day of December 31, 1999 and October 31, 2014.</p>
+<p>You can define multiple time skipping rules. Each runtime will be compared to all of the rules and will be skipped if it matches any of them. Separate out each rule with a comma. Again, be sure that each rule is surrounded by double quotation marks.</p>
+<p>[ example 3 ]</p>
+<p>This will skip every 30th and 31st day and every 3rd month.</p>
+<p>You can also use begin/end/increment syntax to create a list of values without typing out each value.
+[ example 4 ]
+If you only want to skip certain times for a single wrapper, you can use a wrapper-specific variable. Using a wrapper-specific variable will ignore the generic SKIP_TIMES values.
+[ example 6 ]
+This will skip the months March through November for GridStat wrapper only. All other wrappers in the PROCESS_LIST will skip the 31st day of each month. Note that the SKIP_TIMES values are not applied to GridStat in this case.</p>
+</div>
+</div>
+<div class="section" id="loop-order">
+<h2><span class="section-number">3.2. </span>Loop Order<a class="headerlink" href="#loop-order" title="Permalink to this headline">¶</a></h2>
+<p>The LOOP_ORDER variable determines the order to run processes. Acceptable values for this variables are ‘processes’ and ‘times’ which define which to loop over first. The configuration shown here runs two processes, PCPCombine and GridStat, and two valid times: February 1st, 2020 at 12Z and February 1, 2020 at 13Z:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCESS_LIST</span> <span class="o">=</span> <span class="n">PCPCombine</span><span class="p">,</span> <span class="n">GridStat</span>
+
+<span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">VALID</span>
+
+<span class="n">VALID_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span><span class="o">%</span><span class="n">H</span>
+
+<span class="n">VALID_BEG</span> <span class="o">=</span> <span class="mi">2020020112</span>
+
+<span class="n">VALID_END</span> <span class="o">=</span> <span class="mi">2020020113</span>
+
+<span class="n">VALID_INCREMENT</span> <span class="o">=</span> <span class="mi">1</span><span class="n">H</span>
+</pre></div>
+</div>
+<p>If LOOP_ORDER = processes, then the PROCESS_LIST will be looped over first. For each item in the process list, that process will run for every run time specified before moving on to the next process in the list. The order of execution will be as shown:</p>
+<ul class="simple">
+<li><p>PCPCombine at February 1st, 2020 &#64;12Z</p></li>
+<li><p>PCPCombine at February 1st, 2020 &#64;13Z</p></li>
+<li><p>GridStat at February 1st, 2020 &#64;12Z</p></li>
+<li><p>GridStat at February 1st, 2020 &#64;13Z</p></li>
+</ul>
+<p>If LOOP_ORDER = times, then the run times will be looped over first. For each run time, all of the processes in the process list will run before moving on to the next run time. The order of execution will be as shown:</p>
+<ul class="simple">
+<li><p>PCPCombine at February 1st, 2020 &#64;12Z</p></li>
+<li><p>GridStat at February 1st, 2020 &#64;12Z</p></li>
+<li><p>PCPCombine at February 1st, 2020 &#64;13Z</p></li>
+<li><p>GridStat at February 1st, 2020 &#64;13Z</p></li>
+</ul>
+<p>Please note that some of the MET tools must be run with LOOP_ORDER = processes. For example, if running an analysis tool that processes data over a range of times, such as StatAnalysis or SeriesAnalysis, any tools run earlier in the process list will need to be called for all run times so that all of the data is available for the analysis tools to use.</p>
+<p>(<em>Advanced topics: INIT_SEQ, Realtime Looping (now/today, shift, truncate), Custom Looping- should these go in another video?</em>)</p>
+<p>There are a few additional sections in the User’s Guide that cover advanced topics that are not covered in this video. These include functionality for configuring real time looping, looping over custom strings like ensemble names, and defining a list of available initialization times of your forecast data to dynamically generate a list of forecast leads for each valid run time.</p>
+<p>(<em>begin_end_incr syntax - used in multiple places (lead sequence, custom loop list, etc.) - should this go in another video? Useful tricks?</em>)</p>
+</div>
+<div class="section" id="field-info">
+<h2><span class="section-number">3.3. </span>Field Info<a class="headerlink" href="#field-info" title="Permalink to this headline">¶</a></h2>
+<p>Many MET tools utilize configuration files to define the fields to process:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//
+// Forecast and observation fields to be verified
+//
+fcst = {
+  field = [
+    {
+      name       = &quot;APCP&quot;;
+      level      = [ &quot;A03&quot; ];
+      cat_thresh = [ &gt;0.0, &gt;=5.0 ];
+    },
+    {
+      name       = &quot;TMP&quot;;
+      level      = [ &quot;P250&quot;, “P500”, “P750”, “P1000” ];
+    },
+    {
+      name       = &quot;RH&quot;;
+      level      = [ &quot;P150&quot;, “P250” ];
+    }
+  ];
+}
+obs = fcst;
+</pre></div>
+</div>
+<p>The configuration files read by the METplus wrapper allow users to define these fields in one place so changes are not needed in every MET configuration file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCST_VAR1_NAME</span> <span class="o">=</span> <span class="n">APCP</span>
+<span class="n">FCST_VAR1_LEVELS</span> <span class="o">=</span> <span class="n">A03</span><span class="p">,</span> <span class="n">A06</span>
+<span class="n">FCST_VAR1_THRESH</span> <span class="o">=</span> <span class="o">&gt;</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">&gt;=</span><span class="mf">5.0</span>
+
+<span class="n">OBS_VAR1_NAME</span> <span class="o">=</span> <span class="n">APCP</span>
+<span class="n">OBS_VAR1_LEVELS</span> <span class="o">=</span> <span class="n">A03</span><span class="p">,</span> <span class="n">A06</span>
+<span class="n">OBS_VAR1_THRESH</span> <span class="o">=</span> <span class="o">&gt;</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">&gt;=</span><span class="mf">5.0</span>
+
+<span class="n">FCST_VAR2_NAME</span> <span class="o">=</span> <span class="n">TMP</span>
+<span class="n">FCST_VAR2_LEVELS</span> <span class="o">=</span> <span class="n">P250</span><span class="p">,</span> <span class="n">P500</span><span class="p">,</span> <span class="n">P750</span><span class="p">,</span> <span class="n">P1000</span>
+
+<span class="n">OBS_VAR2_NAME</span> <span class="o">=</span> <span class="n">TMP</span>
+<span class="n">OBS_VAR2_LEVELS</span> <span class="o">=</span> <span class="n">P250</span><span class="p">,</span> <span class="n">P500</span><span class="p">,</span> <span class="n">P750</span><span class="p">,</span> <span class="n">P1000</span>
+
+<span class="n">FCST_VAR3_NAME</span> <span class="o">=</span> <span class="n">RH</span>
+<span class="n">FCST_VAR3_LEVELS</span> <span class="o">=</span> <span class="n">P150</span><span class="p">,</span> <span class="n">P250</span>
+<span class="n">FCST_VAR3_OPTIONS</span> <span class="o">=</span> <span class="n">GRIB_lvl_typ</span> <span class="o">=</span> <span class="mi">105</span><span class="p">;</span>
+
+<span class="n">OBS_VAR3_NAME</span> <span class="o">=</span> <span class="n">RH</span>
+<span class="n">OBS_VAR3_LEVELS</span> <span class="o">=</span> <span class="n">P150</span><span class="p">,</span> <span class="n">P250</span>
+</pre></div>
+</div>
+<p>The field name for forecast data is defined with FCST_VAR&lt;n&gt;_NAME, where &lt;n&gt; is any integer. A comma-separated list of levels can be defined for each name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCST_VAR1_NAME</span> <span class="o">=</span> <span class="n">APCP</span>
+<span class="n">FCST_VAR1_LEVELS</span> <span class="o">=</span> <span class="n">A03</span><span class="p">,</span> <span class="n">A06</span>
+</pre></div>
+</div>
+<p>If forecast name/level values are set for a given VAR&lt;n&gt;, then a corresponding observation name/level value must be set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OBS_VAR1_NAME</span> <span class="o">=</span> <span class="n">APCP</span>
+<span class="n">OBS_VAR1_LEVELS</span> <span class="o">=</span> <span class="n">A03</span><span class="p">,</span> <span class="n">A06</span>
+</pre></div>
+</div>
+<p>If the values for both forecast and observation fields are the same, then variables beginning with BOTH_ may be used instead to describe both datasets:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BOTH_VAR1_NAME</span> <span class="o">=</span> <span class="n">APCP</span>
+<span class="n">BOTH_VAR1_LEVELS</span> <span class="o">=</span> <span class="n">A03</span><span class="p">,</span> <span class="n">A06</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="thresholds">
+<h2><span class="section-number">3.4. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h2>
+<p>Threshold values can be defined with [FCST/OBS/BOTH]_VAR&lt;n&gt;_THRESH variables. The value is a comma-separated list of values that must start with a comparison operator and contain at least one digit. The comparison operators can be defined with symbols:</p>
+<p>&gt;,&gt;=,==,!=,&lt;,&lt;=</p>
+<p>Or their alphabetic equivalent:</p>
+<p>gt,ge,eq,ne,lt,le</p>
+<p>Complex thresholds can be combined with the “and” operator, notated with two ampersands (&amp;&amp;) or the “or” operator, notated with two vertical bars (||).</p>
+<p>Here is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCST_VAR1_THRESH</span> <span class="o">=</span> <span class="o">&gt;</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">&gt;=</span><span class="mf">5.0</span>
+<span class="n">OBS_VAR1_THRESH</span> <span class="o">=</span> <span class="n">gt0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">ge2</span><span class="o">.</span><span class="mi">54</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extra-options">
+<h2><span class="section-number">3.5. </span>Extra options<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h2>
+<p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#fcst-var-n-options-obs-var-n-options</em>)</p>
+<p>There are additional options that can be defined in the MET configuration field dictionary, such as ???. See the MET User’s Guide for more information on what can be added. There are defined with the [FCST/OBS/BOTH]_VAR&lt;n&gt;_OPTIONS variables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCST_VAR3_OPTIONS</span> <span class="o">=</span> <span class="n">GRIB_lvl_typ</span> <span class="o">=</span> <span class="mi">105</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Each option must end with a semi-colon. Multiple options can be defined:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FCST_VAR3_OPTIONS</span> <span class="o">=</span> <span class="n">GRIB_lvl_typ</span> <span class="o">=</span> <span class="mi">105</span><span class="p">;</span> <span class="n">set_attr_name</span> <span class="o">=</span> <span class="s2">&quot;TEMP&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="wrapper-specific">
+<h2><span class="section-number">3.6. </span>Wrapper-specific<a class="headerlink" href="#wrapper-specific" title="Permalink to this headline">¶</a></h2>
+<p>(* show <a class="reference external" href="https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*">https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*</a>)</p>
+<p>New to METplus 3.0 is the ability to specify VAR&lt;n&gt; items differently across comparison wrappers. In previous versions, it was assumed that the list of forecast and observation files that were processed would be applied to any MET Stat tool used, such as GridStat, PointStat, EnsembleStat, MODE, or MTD. This prevented the ability to run, for example, EnsembleStat, then pass the output into GridStat.</p>
+<p>(<em>show example 1</em>)</p>
+<p>If the generic FCST_VAR&lt;n&gt;_NAME variables are used, the same values will be applied to all tools that don’t have wrapper specific fields defined. If wrapper specific fields are defined, any generic fields will be ignored.</p>
+<p>(<em>show example 2</em>)</p>
+<p>In this example, GridStat will process HGT at pressure levels 500 and 750 and TMP at pressure levels 500 and 750, while EnsembleStat will only process HGT at pressure level 500. To configure EnsembleStat to also process TMP, the user will have to define it explicitly with FCST_ENSEMBLE_STAT_VAR2_NAME.
+This functionality applies to GridStat, EnsembleStat, PointStat, MODE, and MTD wrappers only.
+For more information on GRIB_lvl_typ and other file-specific commands, review the MET User’s Guide, Chapter 3.</p>
+</div>
+<div class="section" id="directory-template-info">
+<h2><span class="section-number">3.7. </span>Directory/Template Info<a class="headerlink" href="#directory-template-info" title="Permalink to this headline">¶</a></h2>
+<p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)</p>
+<p>Follow along User’s Guide info?</p>
+<p>Sub-topics: Using templates (obs, fcst, data assimilation), time shifting, file windows</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MET/index.html" class="btn btn-neutral float-right" title="MET Training Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial_setup.html" class="btn btn-neutral float-left" title="2. METplus Tutorial Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, UCAR/NCAR, NOAA, and CSU/CIRA
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
