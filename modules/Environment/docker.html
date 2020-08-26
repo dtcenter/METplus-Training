@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Docker Container &mdash; METplus-Training 3.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> METplus-Training
+          
+
+          
+            
+            <img src="../../_static/METplus_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">1. Docker Container</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">METplus-Training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>Docker Container</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/Environment/docker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docker-container">
+<span id="environment-docker"></span><h1><span class="section-number">1. </span>Docker Container<a class="headerlink" href="#docker-container" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<p>(<em>Introduction</em>)</p>
+<p>In this video, we will setup the METplus training environment using a Docker Container.</p>
+<p>We assume that you are working on a machine on which the Docker software has already been installed.
+If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
+website at <a class="reference external" href="https://www.docker.com">https://www.docker.com</a>.</p>
+<p>Installing Docker requires privileged user access to your machine. If you do not have that level of access,
+please consider one of the other options for setting up a METplus Training environment.</p>
+<p>We will begin by launching a terminal window in which we can execute commands. Do this by opening the
+<strong>Terminal</strong> app on a Mac or launching a terminal emulator on Windows. Windows users are advised to
+download and install a Linux xterm emulator such as <a class="reference external" href="https://mobaxterm.mobatek.net">MobaXterm</a>
+or <a class="reference external" href="http://cygwin.com">Cygwin</a> for use with containers.</p>
+<p>After you have launched a terminal window, let’s test that Docker is running properly on your machine.
+Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
+</pre></div>
+</div>
+<p>All commands shown in code blocks like this may be copied and pasted in this way.</p>
+<p>This <strong>docker run</strong> command first looks for an image named <strong>hello-world</strong> on your machine.
+If found, it creates a software container from that image and executes the default command.
+Or, more likely, if <strong>hello-world</strong> does not yet exist on your machine, Docker will automatically
+download it from DockerHub at <a class="reference external" href="https://hub.docker.com">https://hub.docker.com</a> prior to executing the default command.
+We’ll talk more about the <strong>–rm</strong> option that we used later on.</p>
+<p>If successful, you should see a <strong>Hello from Docker!</strong> message followed by some information and links.
+If this command did not run succesfully, please exit this video and work on your Docker installation.</p>
+<p>Now that we’ve verified that Docker is running well, we only need to run one more command to
+setup your METplus Training Environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+<p>This automatically downloads the latest version of the <strong>metplus-training</strong> image from the
+DTC organization on DockerHub, unless you have already done so.
+This image is much larger than <strong>hello-world</strong> and will take much longer to retrieve.
+Once the download is complete, it will execute the <strong>/bin/bash</strong> command inside the container,
+effectively logging you into it. The <strong>-it</strong> options provide an interactive terminal session enabling
+you to execute commands inside the container. Every <strong>docker run</strong> command creates a new software
+container from the image being run, and those containers persist until they are removed. The
+<strong>–rm</strong> option automatically removes that container from your machine once you exit the container.
+We recommend using the <strong>–rm</strong> option to avoid stale containers consuming disk space.
+However, if you’d like the container to persist after you exit, simply remove that <strong>–rm</strong> option.
+The <strong>–name</strong> option assigns a specific name to our container, rather than letting Docker choose
+one for us.</p>
+<p>Now that we’ve successfully downloaded and logged into the METplus-Training container, let’s
+review a few important environment variables that will be used in the training modules.
+Execute the following commands to see the values for METPLUS_TUTORIAL_DIR, METPLUS_BUILD_BASE,
+MET_BUILD_BASE, and METPLUS_DATA.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo ${METPLUS_TUTORIAL_DIR}
+echo ${METPLUS_BUILD_BASE}
+echo ${MET_BUILD_BASE}
+echo ${METPLUS_DATA}
+</pre></div>
+</div>
+<p>You are now ready to proceed to the training modules! Just execute all future training module
+commands from inside this container. When you are all finished and ready to exit this container,
+simply type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
+</pre></div>
+</div>
+<p>Beware that when you exit a container created using the <strong>–rm</strong> option, it will automatically be
+deleted, along with any data you may have created inside of it. If you would like the container to
+persist, omit the <strong>–rm</strong> option. After exiting the container, run the following commands to start
+it back up and log back into it with the bash shell.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">start</span> <span class="n">metplus</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">metplus</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, UCAR/NCAR, NOAA, and CSU/CIRA
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
