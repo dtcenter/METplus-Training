@@ -27,7 +27,7 @@ Now, we will go back to the Download page again and will right click on “tar_f
 
 Now we will unpack the files we downloaded.  We will run the command:
 
-.. code-block:
+.. code-block::
 
   tar zxf tar_files.tgz
 
@@ -35,7 +35,7 @@ To unpack the tar_files directory containing the MET library dependencies.
 
 We will run the command:
 
-.. code-block:
+.. code-block::
 
   tar zxf compile_MET_all.sh.tgz 
 
@@ -43,7 +43,7 @@ To unpack the compile script.
 
 Now that we have unpacked the files, we can go ahead and remove the tarred gzipped files. So
 
-.. code-block:
+.. code-block::
 
   rm tar_files.tgz compile_MET_all.sh.tgz
 
@@ -73,38 +73,17 @@ FInally, the SET_D64BIT should be set to FALSE if your version of the GRIB2C lib
 
 Now we are ready to run the installation script to install MET and its library dependencies.  To do this, we will make sure we are in our top level TEST_BASE directory and will run:
 
-.. code-block:
+.. code-block::
 
   ./compile_MET_all.sh install_met_env.hera
 
 As the script runs, you’ll see the libraries installed in the following order: GSL, BUFRLIB, ZLIB, LIBPNG, JASPER, G2CLIB, HDF4, HDF-EOS, HDF5, NetCDF-C and NetCDF-CXX packages.  Then, the MET package will be installed.  Once the MET installation is finished you will see the text “Finished compiling at” followed by the date and time.  It is always a good idea to check for errors in the make_test.log file, so we’ll run:
 
-.. code-block:
+.. code-block::
   
   grep -i error  met-9.1/make_test.log
 
 If you received any errors in your make_test.log file or your installation did not go smoothly is some other aspect, please email met_help@ucar.edu with a description of the problem you experienced, and we will provide assistance.  This information is located on the MET website under “User Support” (click on tab to demonstrate).  Otherwise, congratulations on your successful compilation and installation of the MET package.  
 
 Thank you for watching!
-
-
-
-
-
-
-
-
-
-
-
-
-
-Notes
-Example MetPy Monday Conda Installation: https://www.youtube.com/watch?v=-fOfyHYpKck
-Used this for reference: https://docs.google.com/document/d/1JEszOfMCmFHrQAZz5W1DBj8TDcPOeCQbQXg7QIbN6fY/edit
-which is from Tara in the meeting notes from the 20200716 Meeting for METplus Repo, Wrappers, etc.
-
-https://ral.ucar.edu/staff/jpresto/work/MET_jpresto/Users_Guide/installation.html
-
-Note: Take a look at the tutorial to see how installation is integrated.
 
