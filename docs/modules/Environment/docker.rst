@@ -18,7 +18,7 @@ If you do not have Docker installed on your machine, please exit this video and 
 website at https://www.docker.com.
 
 Installing Docker requires privileged user access to your machine. If you do not have that level of access,
-please consider one of the other options for setting up a METplus Training environment.
+please consider one of the other options for setting up a METplus training environment.
 
 We will begin by launching a terminal window in which we can execute commands. Do this by opening the
 **Terminal** app on a Mac or launching a terminal emulator on Windows. Windows users are advised to
@@ -44,7 +44,7 @@ If successful, you should see a **Hello from Docker!** message followed by some 
 If this command did not run succesfully, please exit this video and work on your Docker installation.
 
 Now that we've verified that Docker is running well, we only need to run one more command to
-setup your METplus Training Environment:
+setup your METplus training environment:
 
 .. code-block::
 
