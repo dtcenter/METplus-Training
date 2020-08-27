@@ -1,15 +1,13 @@
-========================
-METplus Training Modules
-========================
+=======================
+METplus Training Topics 
+=======================
 
-These are the METplus Training Modules.
+These are the METplus Training Topics.
 		  
 .. toctree::
    :titlesonly:
    :numbered: 4
 
-   metplus_installation
-   tutorial_setup
    common_config_vars
    use_case_example_wrapper
    use_case_track_and_intensity

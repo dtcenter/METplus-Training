@@ -9,6 +9,8 @@ Docker Container
 
 Developed for **METplus Version 3.1**.
 
+**Follow Along!** with these exercises.
+
 (*Introduction*)
 
 In this video, we will setup the METplus training environment using a Docker Container.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Example METplus Wrapper &mdash; METplus-Training 3.1 documentation</title>
+  <title>2. Example METplus Wrapper &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="MET Training Modules" href="../MET/index.html" />
-    <link rel="prev" title="3. Common Configuration Variables" href="common_config_vars.html" /> 
+    <link rel="next" title="3. Track and Intensity Use Case" href="use_case_track_and_intensity.html" />
+    <link rel="prev" title="1. Common Configuration Variables" href="common_config_vars.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,22 +90,22 @@
               
             
             
-              <p class="caption"><span class="caption-text">METplus Training Modules</span></p>
+              <p class="caption"><span class="caption-text">METplus Training</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Training Environment</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="metplus_installation.html">1. Installing METplus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial_setup.html">2. METplus Tutorial Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">3. Common Configuration Variables</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Example METplus Wrapper</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#review-user-configuration-file">4.1. Review user configuration file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#review-conf-file">4.2. Review conf file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">1. Common Configuration Variables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Example METplus Wrapper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#review-user-configuration-file">2.1. Review user configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#review-conf-file">2.2. Review conf file</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">3. Track and Intensity Use Case</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Topics</a></li>
 </ul>
 
             
@@ -152,9 +152,9 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">METplus Training Modules</a> &raquo;</li>
+          <li><a href="index.html">METplus Training Topics</a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>Example METplus Wrapper</li>
+      <li><span class="section-number">2. </span>Example METplus Wrapper</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -174,13 +174,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="example-metplus-wrapper">
-<span id="metplus-example-wrapper"></span><h1><span class="section-number">4. </span>Example METplus Wrapper<a class="headerlink" href="#example-metplus-wrapper" title="Permalink to this headline">¶</a></h1>
+<span id="metplus-example-wrapper"></span><h1><span class="section-number">2. </span>Example METplus Wrapper<a class="headerlink" href="#example-metplus-wrapper" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Introduction</em>)</p>
 <p>If you would like to follow along with the exercises in this video, please select one of the options to set up your own <a class="reference internal" href="../Environment/index.html#training-environment"><span class="std std-ref">Training Environment</span></a>.</p>
 <p>In this tutorial video I will show you how to set up the METplus wrappers to run the Example wrapper. The Example wrapper does not run any of the MET applications, but it does demonstrate how some of the commonly used METplus configuration variables are used. It is a good starting point to understand how the wrappers are used.</p>
 <div class="section" id="review-user-configuration-file">
-<h2><span class="section-number">4.1. </span>Review user configuration file<a class="headerlink" href="#review-user-configuration-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Review user configuration file<a class="headerlink" href="#review-user-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>Before we run the wrapper, we need to make sure that METplus is configured correctly. If you are following the online tutorial, you likely already set up your environment by sourcing the tutorial setup scripts. If not, and you haven’t already created a tutorial (or user) configuration file, you will have to do so before running the example. To review, here is what I have in my tutorial configuration file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">dir</span><span class="p">]</span>
 <span class="n">OUTPUT_BASE</span> <span class="o">=</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">output</span>
@@ -191,7 +191,7 @@
 </div>
 </div>
 <div class="section" id="review-conf-file">
-<h2><span class="section-number">4.2. </span>Review conf file<a class="headerlink" href="#review-conf-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Review conf file<a class="headerlink" href="#review-conf-file" title="Permalink to this headline">¶</a></h2>
 <p>Show how config values correspond to log output from wrapper</p>
 <p>In this video we will cover how to run the Example wrapper. This wrapper was designed to demonstrate how the METplus time looping variables work and how they interact with the filename templates to find the files to process.</p>
 <p>For more detail on how the time looping variables can be configured, please refer to the <a class="reference internal" href="common_config_vars.html#metplus-common-config-vars"><span class="std std-ref">Common Configuration Variables</span></a> video.</p>
@@ -250,10 +250,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../MET/index.html" class="btn btn-neutral float-right" title="MET Training Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="use_case_track_and_intensity.html" class="btn btn-neutral float-right" title="3. Track and Intensity Use Case" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="common_config_vars.html" class="btn btn-neutral float-left" title="3. Common Configuration Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="common_config_vars.html" class="btn btn-neutral float-left" title="1. Common Configuration Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

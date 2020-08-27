@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. Manage Externals &mdash; METplus-Training 3.1 documentation</title>
+  <title>Manage Externals &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="METplus Training Modules" href="../METplus/index.html" />
-    <link rel="prev" title="3. Cheyenne Supercomputer" href="cheyenne.html" /> 
+    <link rel="next" title="Docker Container" href="docker.html" />
+    <link rel="prev" title="Installing METplus" href="metplus_installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,18 +90,21 @@
               
             
             
-              <p class="caption"><span class="caption-text">METplus Training Modules</span></p>
+              <p class="caption"><span class="caption-text">METplus Training</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Training Environment</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="docker.html">1. Docker Container</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html">2. Amazon Web Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cheyenne.html">3. Cheyenne Supercomputer</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4. Manage Externals</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation and Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="met_installation.html">Compiling MET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metplus_installation.html">Installing METplus</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manage Externals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Docker Container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws.html">Amazon Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheyenne.html">Cheyenne Supercomputer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Topics</a></li>
 </ul>
 
             
@@ -148,9 +151,9 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Training Environment</a> &raquo;</li>
+          <li><a href="index.html">Installation and Setup</a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>Manage Externals</li>
+      <li>Manage Externals</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,8 +173,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="manage-externals">
-<span id="environment-manage-externals"></span><h1><span class="section-number">4. </span>Manage Externals<a class="headerlink" href="#manage-externals" title="Permalink to this headline">¶</a></h1>
+<span id="environment-manage-externals"></span><h1>Manage Externals<a class="headerlink" href="#manage-externals" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OSTRdIrEDZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus version 3.1</strong>.</p>
+<p><strong>Follow Along!</strong> with these exercises.</p>
 <p>This is the manage externals piece of the METplus tutorial.</p>
 <p>We have a couple directories in the newest release of METplus that relate to building components. If you clone METplus, you will see them in the top level. The one I’m going to talk about right now is build components. We are calling all of the things that go along with METplus, such as METviewer, METcalcpy, and METplotpy, components. Manage externals is a tool to help you download and build all of these components along with METplus.</p>
 <p>If you don’t have access to one of the HPC computers where everything is installed for you, and you need to either install this yourself on a common machine or you want to install it on your own machine, this is a way to do it. Manage externals is a set of scripts that the CESM group at NCAR has created and that allows you, using this <strong>externals.config</strong> file, to specify other GitHub repositories that you want to automatically clone and put in a directory either on the same level as your METplus or somewhere else of your choosing.</p>
@@ -207,10 +211,10 @@ If you create your own Externals.cfg file, you can clone other things as well. I
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../METplus/index.html" class="btn btn-neutral float-right" title="METplus Training Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="docker.html" class="btn btn-neutral float-right" title="Docker Container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cheyenne.html" class="btn btn-neutral float-left" title="3. Cheyenne Supercomputer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="metplus_installation.html" class="btn btn-neutral float-left" title="Installing METplus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

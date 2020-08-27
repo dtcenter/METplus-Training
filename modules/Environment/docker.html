@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Docker Container &mdash; METplus-Training 3.1 documentation</title>
+  <title>Docker Container &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Amazon Web Services" href="aws.html" />
-    <link rel="prev" title="Training Environment" href="index.html" /> 
+    <link rel="next" title="Amazon Web Services" href="aws.html" />
+    <link rel="prev" title="Manage Externals" href="manage_externals.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,24 +90,27 @@
               
             
             
-              <p class="caption"><span class="caption-text">METplus Training Modules</span></p>
+              <p class="caption"><span class="caption-text">METplus Training</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Training Environment</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Docker Container</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#launching">1.1. Launching</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exiting">1.2. Exiting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#restarting">1.3. Restarting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cleaning-up">1.4. Cleaning up</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation and Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="met_installation.html">Compiling MET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metplus_installation.html">Installing METplus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage_externals.html">Manage Externals</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Docker Container</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#launching">Launching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exiting">Exiting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restarting">Restarting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cleaning-up">Cleaning up</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="aws.html">2. Amazon Web Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cheyenne.html">3. Cheyenne Supercomputer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manage_externals.html">4. Manage Externals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws.html">Amazon Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cheyenne.html">Cheyenne Supercomputer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METplus/index.html">METplus Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Topics</a></li>
 </ul>
 
             
@@ -154,9 +157,9 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Training Environment</a> &raquo;</li>
+          <li><a href="index.html">Installation and Setup</a> &raquo;</li>
         
-      <li><span class="section-number">1. </span>Docker Container</li>
+      <li>Docker Container</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,8 +179,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="docker-container">
-<span id="environment-docker"></span><h1><span class="section-number">1. </span>Docker Container<a class="headerlink" href="#docker-container" title="Permalink to this headline">¶</a></h1>
+<span id="environment-docker"></span><h1>Docker Container<a class="headerlink" href="#docker-container" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<p><strong>Follow Along!</strong> with these exercises.</p>
 <p>(<em>Introduction</em>)</p>
 <p>In this video, we will setup the METplus training environment using a Docker Container.</p>
 <p>We assume that you are working on a machine on which the Docker software has already been installed.
@@ -203,7 +207,7 @@ We’ll talk more about the <strong>--rm</strong> option that we used later on.<
 <p>If successful, you should see a <strong>Hello from Docker!</strong> message followed by some information and links.
 If this command did not run succesfully, please exit this video and work on your Docker installation.</p>
 <div class="section" id="launching">
-<h2><span class="section-number">1.1. </span>Launching<a class="headerlink" href="#launching" title="Permalink to this headline">¶</a></h2>
+<h2>Launching<a class="headerlink" href="#launching" title="Permalink to this headline">¶</a></h2>
 <p>Now that we’ve verified that Docker is running well, we only need to run one more command to
 setup your METplus training environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
@@ -235,7 +239,7 @@ echo ${METPLUS_DATA}
 commands from inside this container.</p>
 </div>
 <div class="section" id="exiting">
-<h2><span class="section-number">1.2. </span>Exiting<a class="headerlink" href="#exiting" title="Permalink to this headline">¶</a></h2>
+<h2>Exiting<a class="headerlink" href="#exiting" title="Permalink to this headline">¶</a></h2>
 <p>Once you have finished running through some METplus training exercises from another module,
 you will want to exit this container and cleanup. To exit the container, simply type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
@@ -253,7 +257,7 @@ automatically removed them once we exited. If you would like the container to
 persist after exiting, omit the <strong>--rm</strong> option.</p>
 </div>
 <div class="section" id="restarting">
-<h2><span class="section-number">1.3. </span>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">¶</a></h2>
+<h2>Restarting<a class="headerlink" href="#restarting" title="Permalink to this headline">¶</a></h2>
 <p>To illustrate this, let’s run the follow commands to relaunch a container without
 the <strong>--rm</strong> option, simply exit back out of it, and then list the containers on
 your machine.</p>
@@ -271,7 +275,7 @@ run the following commands to start it back up and launch the bash shell.</p>
 </div>
 </div>
 <div class="section" id="cleaning-up">
-<h2><span class="section-number">1.4. </span>Cleaning up<a class="headerlink" href="#cleaning-up" title="Permalink to this headline">¶</a></h2>
+<h2>Cleaning up<a class="headerlink" href="#cleaning-up" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s say that you are all finished with the training exercises and want to
 cleanup your machine. You can exit the <strong>metplus</strong> container and delete both the
 containers and images from your machine by running these commands.</p>
@@ -299,10 +303,10 @@ inside a Docker container to be useful.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="aws.html" class="btn btn-neutral float-right" title="2. Amazon Web Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="aws.html" class="btn btn-neutral float-right" title="Amazon Web Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Training Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="manage_externals.html" class="btn btn-neutral float-left" title="Manage Externals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
