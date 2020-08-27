@@ -9,6 +9,8 @@ Installing METplus
 
 Developed for **METplus Version 3.1**.
 
+**Follow Along!** with these exercises.
+
 *Preparation:*
 
 * *Have modules loaded if working on a machine where modules are used*

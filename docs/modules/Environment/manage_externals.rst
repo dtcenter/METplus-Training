@@ -9,6 +9,8 @@ Manage Externals
 
 Developed for **METplus version 3.1**.
 
+**Follow Along!** with these exercises.
+
 This is the manage externals piece of the METplus tutorial.
 
 We have a couple directories in the newest release of METplus that relate to building components. If you clone METplus, you will see them in the top level. The one I'm going to talk about right now is build components. We are calling all of the things that go along with METplus, such as METviewer, METcalcpy, and METplotpy, components. Manage externals is a tool to help you download and build all of these components along with METplus.

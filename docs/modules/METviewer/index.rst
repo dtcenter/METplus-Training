@@ -1,8 +1,8 @@
-==========================
-METviewer Training Modules
-==========================
+=========================
+METviewer Training Topics 
+=========================
 
-These are the METplus Training Modules.
+These are the METviewer Training Topics.
 		  
 .. toctree::
    :titlesonly:

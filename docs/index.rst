@@ -21,7 +21,7 @@ These training materials describe the use of the
 `METplus Software <https://github.com/dtcenter/METplus>`_ and its components (
 `MET <https://github.com/dtcenter/MET>`_, 
 `METviewer <https://github.com/dtcenter/METviewer>`_, 
-METexpress, 
+`METexpress <https://github.com/dtcenter/METexpress>`_, 
 `METplotpy <https://github.com/dtcenter/METplotpy>`_, 
 `METcalcpy <https://github.com/dtcenter/METcalcpy>`_, and 
 `METdatadb <https://github.com/dtcenter/METdatadb>`_).
@@ -31,9 +31,10 @@ Or, if you prefer, you may navigate directly to the training modules and simply 
 
 .. toctree::
    :hidden:
-   :caption: METplus Training Modules
+   :caption: METplus Training
 
    modules/Environment/index
+   modules/Tutorial/index
    modules/METplus/index
    modules/MET/index
    modules/METviewer/index
