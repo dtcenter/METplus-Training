@@ -25,7 +25,7 @@ If you want to familiarize yourself with plot_tcmpr.R, refer to the TC-Stat tool
 
 If you haven’t already done so, you can also follow Session 5 of the tutorial: Trk&Int/Feature Relative >MET Tool: TC-STAT. ( **WEB BROWSER** *Show web page of tutorial for TC-Stat section*).   
 
-This use case uses output from the MET tc-pairs tool.  You can refer to section 20.2.3 of the MET Users Guide for a description of the tc-pairs output format. ( **WEB BROWSER** *Go to web browser with MET User's guide web page* ).
+This TCMPR plotter use case uses output from the MET tc-pairs tool.  You can refer to section 20.2.3 of the MET Users Guide for a description of the tc-pairs output format. ( **WEB BROWSER** *Go to web browser with MET User's guide web page* ).
 
 The TCMPR plotter wrapper makes use of three configuration files (in addition to the other default METplus configuration files described in Session 1: METplus Setup/Directories and Configurations files- Overview).  
 
@@ -35,7 +35,8 @@ These configuration files are:
 
 TCMPRPlotterConfig_Customize, 
 
-TCMPRPlotter.conf, 
+TCMPRPlotter.conf,
+
 and track_and_intensity.output.conf. 
 
 You will create the track_and_intensity_output.conf, it is your custom config file. (**XTERM** *create this file*) 
@@ -52,8 +53,8 @@ You can override the following values  that are defined in the TCMPRPlotter.conf
 
 The settings in the TCMPRPlotter.conf file and track_and_intensity.output.conf file are used by the METplus wrapper to run MET’s R plotting script.  
 
-(**XTERM** *open the TCMPRPlotterConfig_Customize.conf file*)
-Before we proceed, let’s look at the  TCMPRPlotterConfig_Customize.conf file, which is used by the R script to set plot attributes.  
+(**XTERM** *open the TCMPRPlotterConfig_Customize file*)
+Before we proceed, let’s look at the  TCMPRPlotterConfig_Customize file, which is used by the R script to set plot attributes.  
 
 When you open the file, you can see that it has only one key-value setting, img_res = 72. This value dictates the image size of the plot that is created.  If this value is left unset (that is, set to nothing), the R script plot_tcmpr.R will use the default value of 300. This value results in an extremely large plot in your display.  The default value is also used if this configuration file is omitted/non-existent.
 
@@ -62,10 +63,9 @@ Let’s begin by setting up the use case.  For the next steps, make sure you are
 
 Open the custom configuration file called track_and_intensity.output.conf and set the OUTPUT_BASE value with the path to the output directory you just created. (**WEB BROWSER** *point to/mouse to the first blue box with the example*) 
 
-Now set the INPUT_BASE to the full path corresponding to the output directory from the TC-Pairs Tool tutorial (this is the directory that contains your tc_pairs.tcst file). Close the file. 
+Now set the INPUT_BASE to the full path corresponding to the output directory from the TC-Pairs Tool tutorial (this is the directory that contains your tc_pairs.tcst file). Remember to close the file. 
 
-(**XTERM**)
-Unassigned settings under the [config] section corresponding to the plot_tcmpr.R options will use default values that are established in the plot_tcmpr.R script.
+
 
 You can take a moment to look at what is defined in the parm/use_cases/met_tool_wrapper/TCMPRPlotter/TCMPRPlotter.conf, under the [config] section. 
 ( **XTERM** *open this file* ) 
@@ -74,11 +74,16 @@ Sections are indicated with the section name, surrounded by square brackets.( **
 
 The plotting settings of interest will begin with ‘TCMPR_PLOTTER’, followed by a descriptive name (**XTERM** *scroll down to TCMPR_PLOTTER section*)
 
-For example TCMPR_PLOTTER_TITLE sets the title of the plot (**XTERM** *highlight TCMPR_PLOTTER_TITLE*).  
+(**XTERM**)
+Unassigned settings under the [config] section will use default values that are established in the plot_tcmpr.R script.
+
+For example TCMPR_PLOTTER_TITLE sets the title of the plot, if left unassigned, a default title is created(**XTERM** *highlight TCMPR_PLOTTER_TITLE*).  
 
 The settings from the default and configuration files will allow you to generate a boxplot and plots of the mean and median for the A- and B-track MSLP, the A- and B-track maximum wind, and the track errors(**XTERM** *scroll down to TCMPR_PLOTTER_DEP_VARS and highlight the MSLP, MAX_WIND, TK_ERR*) .
 
 (**WEB BROWSER** *go to Example 1*)
+Let's go to example 1. 
+
 Now you are ready to run the track and intensity use case. We will read in the .tcst files as input to the plot_tcmpr.R script, and create static image files with a ‘.png’ extension.
 
 From the command line, run the master_metplus.py command in the dark grey box:
