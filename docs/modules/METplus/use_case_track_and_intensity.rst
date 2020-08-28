@@ -15,7 +15,9 @@ If you would like to follow along with the exercises in this video, please selec
 
 This video describes the track and intensity use case that involves the TCMPR (tropical cyclone matched pair) plotter ( **WEB BROWSER** *Begin with view of this section of the tutorial in the web browser* ). 
 
+
 Before you proceed, make sure you have run the tutorial from `Session 5: TC-Pairs Tool <https://dtcenter.org/metplus-practical-session-guide-version-3-0/session-5-trkintfeature-relative>`_ and have saved all corresponding output.( **WEB BROWSER** *Show web page of tutorial pointing to this* )
+
 
 The TCMPR plotter wraps the plot_tcmpr.R, the R plotting script that is part of your MET installation.( **WEB BROWSER** *highlight github MET repo*) 
 
@@ -27,19 +29,31 @@ This use case uses output from the MET tc-pairs tool.  You can refer to section 
 
 The TCMPR plotter wrapper makes use of three configuration files (in addition to the other default METplus configuration files described in Session 1: METplus Setup/Directories and Configurations files- Overview).  
 
-These configuration files are: TCMPRPlotterConfig_Customize, TCMPRPlotter.conf, and track_and_intensity.output.conf. track_and_intensity_output.conf is a custom configuration file that you will create, that is why it doesn't appear in this directory (XTERM *highlight these files in your directory*). 
+
+(XTERM *highlight these files in your directory*)
+These configuration files are: 
+
+TCMPRPlotterConfig_Customize, 
+
+TCMPRPlotter.conf, 
+and track_and_intensity.output.conf. 
+
+You will create the track_and_intensity_output.conf, it is your custom config file. (**XTERM** *create this file*) 
 
 The TCMPRPlotterConfig_Customize file is used by MET’s R script that generates the plot, and is used to set attributes of the plot.  
 
 The TCMPRPlotter.conf file is a default configuration file that encapsulates common settings.  
 
+(**XTERM** *Highlight the path to the TCMPRPlotter directory*)
 It is located in the parm/use_cases/met_tool_wrapper/TCMPRPlotter directory of your METPlus directory.  
 
-You can override the following values (WEB BROWSER *point to/mouse third blue box*) that are defined in the TCMPRPlotter.conf file by defining these in the custom config file, track_and_intensity.output.conf. 
+(**WEB BROWSER** *point to/mouse third blue box*)
+You can override the following values  that are defined in the TCMPRPlotter.conf file by defining these in the custom config file, track_and_intensity.output.conf. 
 
 The settings in the TCMPRPlotter.conf file and track_and_intensity.output.conf file are used by the METplus wrapper to run MET’s R plotting script.  
 
-Before we proceed, let’s look at the  TCMPRPlotterConfig_Customize.conf file, which is used by the R script to set plot attributes.  (**XTERM** *open the TCMPRPlotterConfig_Customize.conf file*)
+(**XTERM** *open the TCMPRPlotterConfig_Customize.conf file*)
+Before we proceed, let’s look at the  TCMPRPlotterConfig_Customize.conf file, which is used by the R script to set plot attributes.  
 
 When you open the file, you can see that it has only one key-value setting, img_res = 72. This value dictates the image size of the plot that is created.  If this value is left unset (that is, set to nothing), the R script plot_tcmpr.R will use the default value of 300. This value results in an extremely large plot in your display.  The default value is also used if this configuration file is omitted/non-existent.
 
