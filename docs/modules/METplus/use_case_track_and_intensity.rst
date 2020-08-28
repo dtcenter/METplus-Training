@@ -27,9 +27,9 @@ This use case uses output from the MET tc-pairs tool.  You can refer to section 
 
 The TCMPR plotter wrapper makes use of three configuration files (in addition to the other default METplus configuration files described in Session 1: METplus Setup/Directories and Configurations files- Overview).  
 
-These configuration files are: TCMPRPlotterConfig_Customize.conf, TCMPRPlotter.conf, and track_and_intensity.output.conf. track_and_intensity_output.conf is a custom configuration file that you will create, that is why it doesn't appear in this directory (XTERM *highlight these files in your directory*). 
+These configuration files are: TCMPRPlotterConfig_Customize, TCMPRPlotter.conf, and track_and_intensity.output.conf. track_and_intensity_output.conf is a custom configuration file that you will create, that is why it doesn't appear in this directory (XTERM *highlight these files in your directory*). 
 
-The TCMPRPlotterConfig_Customize.conf file is used by MET’s R script that generates the plot, and is used to set attributes of the plot.  
+The TCMPRPlotterConfig_Customize file is used by MET’s R script that generates the plot, and is used to set attributes of the plot.  
 
 The TCMPRPlotter.conf file is a default configuration file that encapsulates common settings.  
 
