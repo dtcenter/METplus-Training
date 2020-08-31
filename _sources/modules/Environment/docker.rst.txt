@@ -15,6 +15,11 @@ Docker Container
 
   **Follow Along!** with these exercises using **met_tool_wrapper** data.
 
+*Preparation:*
+
+* *Pull the metplus-training image (docker pull dtcenter/metplus-training)*
+* *Pull the metplus-data image (docker pull dtcenter/metplus-data:3.1-met_tool_wrapper)*
+
 (*Introduction*)
 
 In this video, we will setup the METplus training environment using Docker containers.
