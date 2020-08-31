@@ -97,12 +97,13 @@ Sample Input Datasets
 As I mentioned earlier, many training exercises require sample input datasets. We have provided these datsets as
 data containers in the `dtcenter/metplus-data <https://hub.docker.com/repository/docker/dtcenter/metplus-data/general>`_
 repository on DockerHub. The input datasets are differentiated by their tag name. Each tag begins with the
-METplus version number followed by a description of the data. Run the following command to see the tags
-currently available in the metplus-data repository.
+METplus version number followed by a description of the data.
 
-.. code-block::
+If you are logged into a DockerHub account you can view the metplus-data repository tags here: 
+https://hub.docker.com/repository/docker/dtcenter/metplus-data/tags
 
-  curl https://registry.hub.docker.com/v1/repositories/dtcenter/metplus-data/tags 
+Otherwise, you can view the tags from the DockerHub registry here: 
+https://registry.hub.docker.com/v1/repositories/dtcenter/metplus-data/tags
 
 For example, the **3.1-met_tool_wrapper** tag contains data for the MET tool wrappers in METplus version 3.1.
 Let's pull that image and use it to create a data container that we'll name **met_tool_wrapper**.
@@ -216,7 +217,7 @@ containers and images from your machine by running these commands.
 
   exit
   docker rm -f metplus met_tool_wrapper
-  docker rmi -f hello-world metplus-data:3.1-met_tool_wrapper metplus-training
+  docker rmi -f hello-world dtcenter/metplus-data:3.1-met_tool_wrapper dtcenter/metplus-training
 
 The **metplus** software container, the **met_tool_wrapper** data container and images
 for **hello-world**, **metplus-data**, and **metplus-training** should
