@@ -31,6 +31,19 @@ RUN if [ -z ${METPLUS_VERSION+x} ]; then \
 WORKDIR /metplus
 
 #
+# Setup the environment for interactive bash/csh container shells.
+#
+RUN mkdir -p /metplus/METplus_Tutorial \
+ && echo export METPLUS_TUTORIAL_DIR=/metplus/METplus_Tutorial >> /etc/bashrc \
+ && echo setenv METPLUS_TUTORIAL_DIR /metplus/METplus_Tutorial >> /etc/csh.cshrc \
+ && echo export METPLUS_BUILD_BASE=/metplus/METplus >> /etc/bashrc \
+ && echo setenv METPLUS_BUILD_BASE /metplus/METplus >> /etc/csh.cshrc \
+ && echo export MET_BUILD_BASE=/usr/local >> /etc/bashrc \
+ && echo setenv MET_BUILD_BASE /usr/local >> /etc/csh.cshrc \
+ && echo export METPLUS_DATA=/data/input/METplus_Data >> /etc/bashrc \
+ && echo setenv METPLUS_DATA /data/input/METplus_Data >> /etc/csh.cshrc
+
+#
 # Install additional tools for METplus Training modules
 #
 # RUN yum -y update \
