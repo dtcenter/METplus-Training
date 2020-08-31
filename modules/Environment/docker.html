@@ -271,7 +271,7 @@ I have already pulled this image, so don’t worry if your commands take much lo
 <p>The <strong>docker pull</strong> command retrieves the image from DockerHub, while the <strong>docker create</strong> command instantiates
 that image as a data container locally. Next, we’ll relaunch a METplus software container, but this time
 using the <strong>--volumes-from</strong> option to mount the <strong>met_tool_wrapper</strong> sample data container.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="o">--</span><span class="n">volumes</span><span class="o">-</span><span class="kn">from</span> <span class="nn">met_tool_wrapper</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span><span class="p">:</span><span class="n">develop</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="o">--</span><span class="n">volumes</span><span class="o">-</span><span class="kn">from</span> <span class="nn">met_tool_wrapper</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 </pre></div>
 </div>
 <p>Once inside the container, list out the input data directory.</p>
@@ -319,9 +319,9 @@ by running these commands.</p>
 <span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
-<p>At a minimum, we should see images for <strong>hello-world</strong>, <strong>metplus-training</strong>, and the <strong>met-tool-wrapper</strong> data.
+<p>At a minimum, you should see images for <strong>hello-world</strong>, <strong>metplus-training</strong>, and the <strong>met-tool-wrapper</strong> data.
 And <strong>docker ps -a</strong> should only show the <strong>met-tool-wrapper</strong> data container. All of the other containers created
-by <strong>docker run</strong> were automatically removed once we exited them since we used the <strong>--rm</strong> option.
+by <strong>docker run</strong> were automatically removed once you exited them since we used the <strong>--rm</strong> option.
 If you would like the container to persist after exiting, omit the <strong>--rm</strong> option.</p>
 </div>
 <div class="section" id="restarting-a-container">
@@ -334,7 +334,7 @@ your machine.</p>
 <span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
-<p>We should now see a container named <strong>metplus</strong> that exited a short time ago.
+<p>You should now see a container named <strong>metplus</strong> that exited a short time ago.
 If you would like to log back into that container to do some more training exercises,
 run the following commands to start it back up and launch the bash shell.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">start</span> <span class="n">metplus</span>
