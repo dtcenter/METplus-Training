@@ -17,7 +17,7 @@ Training Module Template
 
 *Preparation:*
 
-* *List preparation instructions for the presenter.)*
+* *List preparation instructions for the presenter.*
 
 (*Introduction*)
 
