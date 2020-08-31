@@ -7,9 +7,17 @@ Training Module Template
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Developed for **METplus Version 3.1**.
+.. note::
 
-**Follow Along!** with these exercises.
+  Developed for **METplus Version 3.1**.
+
+.. note::
+
+  **Follow Along!** with these exercises using **LIST REQUIRED INPUT DATA** data.
+
+*Preparation:*
+
+* *List preparation instructions for the presenter.)*
 
 (*Introduction*)
 
