@@ -119,7 +119,7 @@ using the **\-\-volumes-from** option to mount the **met_tool_wrapper** sample d
 
 .. code-block::
 
-  docker run -it --rm --name metplus --volumes-from met_tool_wrapper dtcenter/metplus-training:develop /bin/bash
+  docker run -it --rm --name metplus --volumes-from met_tool_wrapper dtcenter/metplus-training /bin/bash
 
 Once inside the container, list out the input data directory.
 
@@ -178,9 +178,9 @@ by running these commands.
   docker images
   docker ps -a
 
-At a minimum, we should see images for **hello-world**, **metplus-training**, and the **met-tool-wrapper** data.
+At a minimum, you should see images for **hello-world**, **metplus-training**, and the **met-tool-wrapper** data.
 And **docker ps -a** should only show the **met-tool-wrapper** data container. All of the other containers created
-by **docker run** were automatically removed once we exited them since we used the **\-\-rm** option.
+by **docker run** were automatically removed once you exited them since we used the **\-\-rm** option.
 If you would like the container to persist after exiting, omit the **\-\-rm** option.
 
 Restarting a Container
@@ -196,7 +196,7 @@ your machine.
   exit
   docker ps -a
 
-We should now see a container named **metplus** that exited a short time ago.
+You should now see a container named **metplus** that exited a short time ago.
 If you would like to log back into that container to do some more training exercises,
 run the following commands to start it back up and launch the bash shell.
 
