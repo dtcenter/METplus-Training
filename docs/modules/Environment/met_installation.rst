@@ -82,7 +82,7 @@ Next in the configuration file is TEST_BASE, which should be set to the installa
 
 Then, we will set the COMPILER.  The format here is the name of the compiler, followed by an underscore, followed by the version number.  In this case, we are using intel_18.0.5.274  because we're using version 18.0.5.274 of the intel compiler.  For the GNU family of compilers, use "gnu" for the compiler name.  For the Intel family of compilers, use "intel", "ics", "ips" or another name, depending on your system.  For the PGI family of compilers, use "pgi" for the compiler name.  
 
-The next variable to set is the MET_SUBDIR, which is the location where the top level MET subdir, for example met-9.1, should be placed. I typcially set this to the ${TEST_BASE} environment variable. 
+The next variable to set is the MET_SUBDIR, which is the location where the top level MET subdir, for example met-9.1, should be placed. I typcially set this to the value of the TEST_BASE environment variable. 
 
 Next, we need to tell the script the name of the MET_TARBALL. In this case, the value is met-9.1.20200810.tar.gz.
 
@@ -90,7 +90,7 @@ For this tutorial, we are compiling MET and its dependent libraries on a machine
 
 The next environment variable is PYTHON_MODULE.  If you are on a machine that does not use modulefiles, simply exclude this variable entirely from your file.  If you are on a machine that does use modulefiles, you will need to set this variable. The format is the name of the Python module to load followed by an underscore and then the version number.  In this case, the value is anaconda_latest, but it could also look something like python_3.6.3. 
 
-If you wish to have the Python embedding functionality, you'll want to set the next three environment variables - MET_PYTHON, MET_PYTHON_CC, and MET_PYTHON_LD. MET_PYTHON should be set to location containing the bin, include, lib and share subdirectories for Python.  In this case, that location is /contrib/anaconda/anaconda3/latest, but it is often in a location such as /usr/local/python3.  MET_PYTHON_CC should be set to dash upper case I, "-I", followed by the directory containing the Python include files.  In this case, the value is ${MET_PYTHON}include/python3.7m. You may be able to get this information by running "python3-config --cflags", however, in some cases, like on this machine the running the python3-config command provides additional information that is not necessary to include.
+If you wish to have the Python embedding functionality, you'll want to set the next three environment variables - MET_PYTHON, MET_PYTHON_CC, and MET_PYTHON_LD. MET_PYTHON should be set to the location containing the bin, include, lib and share subdirectories for Python.  In this case, we're using an anaconda location, but often it is in a location in /usr/local/python3.  MET_PYTHON_CC should be set to dash upper case I, "-I", followed by the directory containing the Python include files.  In this case, the value is ${MET_PYTHON}/include/python3.7m. You may be able to get this information by running "python3-config --cflags", however, in some cases, like on this machine the running the python3-config command provides additional information that is not necessary to include.
 
 .. code-block::
    
@@ -104,7 +104,7 @@ MET_PYTHON_LD should be set to dash upper case L, "-L", followed by the director
 
 Please note that the backslashes are necessary in the example shown. 
 
-FInally, the variable SET_D64BIT should be set to FALSE if your version of the GRIB2C library was not compiled with the -D__64BIT__ option, but set to TRUE if your version of the GRIB2C library was compiled with the -D__64BIT__ option. The -D__64BIT__ option should either be used for compiling both the GRIB2C library and MET, or for neither.  By default, compile_MET_all.sh will install the GRIB2C library without the -D__64BIT__ option.
+Finally, the variable SET_D64BIT should be set to FALSE if your version of the GRIB2C library was not compiled with the -D__64BIT__ option, but set to TRUE if your version of the GRIB2C library was compiled with the -D__64BIT__ option. The -D__64BIT__ option should either be used for compiling both the GRIB2C library and MET, or for neither.  By default, compile_MET_all.sh will install the GRIB2C library without the -D__64BIT__ option.
 
 Now we are ready to run the installation script to install MET and its library dependencies.  To do this, we will make sure we are in our top level TEST_BASE directory and will run:
 
@@ -114,7 +114,7 @@ Now we are ready to run the installation script to install MET and its library d
 
 As the script runs, you'll see screen output telling you the libraries that are being installed, and then you'll see the MET package being installed.  Once the MET installation is finished you will see the text "Finished compiling at" followed by the date and time.
 
-Because the installation can take a while, I ran through it previously in this same area and saved off the screen output and installation in a 9.1_pre-install directory, which I'll take you to now so we can take a look at that screen output.  Looking at the screen output we can see some output from our environment followed by the compilation of each libary and then the installation of MET.  We can also see the output of the MET variables being set in the script.  At the bottom, we see the message that MET finished compiling.
+Because the installation can take a while, I ran through it previously in this same area and saved off the screen output and the installation in a 9.1_preinstall directory, which I'll take you to now so we can take a look at that screen output.  Looking at the screen output we can see some of the settings from our environment followed by the compilation of each libary and then the installation of MET.  We can also see the output of the MET variables being set in the script.  At the bottom, we see the message that MET finished compiling.
 
 
 It is always a good idea to check for errors in the make_test.log file, so we'll run:
@@ -123,7 +123,7 @@ It is always a good idea to check for errors in the make_test.log file, so we'll
   
   grep -i error  met-9.1/make_test.log
 
-And, fortunately, we don't see any errors. If you received any errors in your make_test.log file or your installation did not go smoothly is some other aspect, please email met_help@ucar.edu with a description of the problem you experienced, and we will provide assistance.  This information is located on the MET website under `"User Support" <https://dtcenter.org/community-code/model-evaluation-tools-met/user-support>`_.  Otherwise, congratulations on your successful installation of the MET package.  
+And, fortunately, we don't see any errors. If you received any errors in your make_test.log file or your installation did not go smoothly in some other aspect, please email met_help@ucar.edu with a description of the problem you experienced, and we will provide assistance.  This information is located on the MET website under `"User Support" <https://dtcenter.org/community-code/model-evaluation-tools-met/user-support>`_.  Otherwise, congratulations on your successful installation of the MET package.  
 
 Thank you for watching!
 
