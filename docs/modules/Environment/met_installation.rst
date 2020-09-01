@@ -61,7 +61,7 @@ Now that we have unpacked the files, we can go ahead and remove the tarred gzipp
   rm tar_files.tgz compile_MET_all.sh.tgz
 
 
-  While the tar_files directory contains MET's library dependencies, it does not contain the MET package.  So, you'll need to get the MET package for the version of MET that you'd like to install. We recommend getting the latest stable release of MET.  In this case, that version is 9.1.
+While the tar_files directory contains MET's library dependencies, it does not contain the MET package.  So, you'll need to get the MET package for the version of MET that you'd like to install. We recommend getting the latest stable release of MET.  In this case, that version is 9.1.
 
 Once again, we will go to the Download page, find the version under "Recommended", right click on the met-9.1.tar.gz file, and select "Copy Link Address". Going back to the terminal window, we will go into the tar_files directory, type "wget", space, and then paste in the link that we copied and hit enter.
 
