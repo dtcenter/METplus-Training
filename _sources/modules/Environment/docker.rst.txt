@@ -5,7 +5,7 @@ Docker Container
 
 .. raw:: html
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://youtu.be/b6GNX0H0_18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. note::
 
@@ -27,7 +27,12 @@ In this video, we will setup the METplus training environment using Docker conta
 Docker Software
 ---------------
 
-We assume that you are working on a machine on which the Docker software has already been installed.
+We assume that you are working on a machine on which the Docker software has already been installed and is available in your path.
+
+.. code-block::
+
+  which docker
+
 If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
 website at https://www.docker.com.
 
@@ -35,18 +40,17 @@ Installing Docker requires privileged user access to your machine. If you do not
 please consider one of the other options for setting up a METplus training environment.
 
 We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
-opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows. Windows users are advised to
-download and install a Linux xterm emulator such as `MobaXterm <https://mobaxterm.mobatek.net>`_
-or `Cygwin <http://cygwin.com>`_ for use with containers.
+opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows.
 
 After you have launched a terminal window, let's test that Docker is running properly on your machine.
-Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:
+So we will start by running the Docker Hello World command:
 
 .. code-block::
 
   docker run --rm hello-world
 
-All commands shown in code blocks like this may be copied and pasted in this way.
+If you are following along with the script of this video, all commands shown in code blocks may be copied
+and pasted into you terminal window.
 
 This **docker run** command first looks for an image named **hello-world** on your machine.
 If found, it creates a software container from that image and executes the default command.
@@ -85,11 +89,34 @@ However, if you'd like the container to persist after you exit, simply remove th
 The **\-\-name** option assigns a specific name to our container, rather than letting Docker choose
 one for us.
 
-For now, simply exit the container to return to your local machine.
+Notice that my prompt changed once I ran that command which is a good reminder that I'm now inside the
+container. Now let's run the **point_stat** tool which is one of the MET verification tools.
+The **which** command shows us where **point_stat** is installed.
+
+.. code-block::
+
+  which point_stat
+  point_stat
+  
+And running **point_stat** with no arguments prints its usage statement.
+
+All of the MET tools, as well as the METplus python wrappers, are readily available inside this container.
+
+.. code-block::
+
+  which master_metplus.py
+  master_metplus.py
+
+Here is where METplus is installed and here is the usage statement for **master_metplus.py**.
+
+This container makes it very easy to get up and running with the METplus components.
+For now, let's simply exit this container to return to your local machine.
 
 .. code-block::
 
   exit
+
+Notice that the prompt changed again, which tells me that I've exited this container.
 
 Sample Input Datasets
 ---------------------
@@ -126,7 +153,7 @@ Once inside the container, list out the input data directory.
 
 .. code-block::
 
-  ls /data/input/METplus_Data
+  ls /data/input/METplus_Data/met_test
 
 The **met_test** dirctory contains the sample input data that we mounted using the **\-\-volumes-from** option.
 If you'd like to mount multiple input datasets, just use the **\-\-volumes-from** option multiple times to

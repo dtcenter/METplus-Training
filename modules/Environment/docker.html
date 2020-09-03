@@ -183,7 +183,7 @@
             
   <div class="section" id="docker-container">
 <span id="environment-docker"></span><h1>Docker Container<a class="headerlink" href="#docker-container" title="Permalink to this headline">¶</a></h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="admonition note">
+<iframe width="560" height="315" src="https://youtu.be/b6GNX0H0_18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Developed for <strong>METplus Version 3.1</strong>.</p>
 </div>
@@ -200,21 +200,23 @@
 <p>In this video, we will setup the METplus training environment using Docker containers.</p>
 <div class="section" id="docker-software">
 <h2>Docker Software<a class="headerlink" href="#docker-software" title="Permalink to this headline">¶</a></h2>
-<p>We assume that you are working on a machine on which the Docker software has already been installed.
-If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
+<p>We assume that you are working on a machine on which the Docker software has already been installed and is available in your path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">docker</span>
+</pre></div>
+</div>
+<p>If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
 website at <a class="reference external" href="https://www.docker.com">https://www.docker.com</a>.</p>
 <p>Installing Docker requires privileged user access to your machine. If you do not have that level of access,
 please consider one of the other options for setting up a METplus training environment.</p>
 <p>We will begin by launching a terminal window in which we can execute commands. Do this by running <strong>xterm</strong> on a Linux machine,
-opening the <strong>Terminal</strong> app on a Mac, or launching a terminal emulator on Windows. Windows users are advised to
-download and install a Linux xterm emulator such as <a class="reference external" href="https://mobaxterm.mobatek.net">MobaXterm</a>
-or <a class="reference external" href="http://cygwin.com">Cygwin</a> for use with containers.</p>
+opening the <strong>Terminal</strong> app on a Mac, or launching a terminal emulator on Windows.</p>
 <p>After you have launched a terminal window, let’s test that Docker is running properly on your machine.
-Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:</p>
+So we will start by running the Docker Hello World command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">hello</span><span class="o">-</span><span class="n">world</span>
 </pre></div>
 </div>
-<p>All commands shown in code blocks like this may be copied and pasted in this way.</p>
+<p>If you are following along with the script of this video, all commands shown in code blocks may be copied
+and pasted into you terminal window.</p>
 <p>This <strong>docker run</strong> command first looks for an image named <strong>hello-world</strong> on your machine.
 If found, it creates a software container from that image and executes the default command.
 Or, more likely, if <strong>hello-world</strong> does not yet exist on your machine, Docker will automatically
@@ -246,10 +248,26 @@ We recommend using the <strong>--rm</strong> option to avoid stale containers co
 However, if you’d like the container to persist after you exit, simply remove that <strong>--rm</strong> option.
 The <strong>--name</strong> option assigns a specific name to our container, rather than letting Docker choose
 one for us.</p>
-<p>For now, simply exit the container to return to your local machine.</p>
+<p>Notice that my prompt changed once I ran that command which is a good reminder that I’m now inside the
+container. Now let’s run the <strong>point_stat</strong> tool which is one of the MET verification tools.
+The <strong>which</strong> command shows us where <strong>point_stat</strong> is installed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">point_stat</span>
+<span class="n">point_stat</span>
+</pre></div>
+</div>
+<p>And running <strong>point_stat</strong> with no arguments prints its usage statement.</p>
+<p>All of the MET tools, as well as the METplus python wrappers, are readily available inside this container.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">which</span> <span class="n">master_metplus</span><span class="o">.</span><span class="n">py</span>
+<span class="n">master_metplus</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Here is where METplus is installed and here is the usage statement for <strong>master_metplus.py</strong>.</p>
+<p>This container makes it very easy to get up and running with the METplus components.
+For now, let’s simply exit this container to return to your local machine.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span>
 </pre></div>
 </div>
+<p>Notice that the prompt changed again, which tells me that I’ve exited this container.</p>
 </div>
 <div class="section" id="sample-input-datasets">
 <h2>Sample Input Datasets<a class="headerlink" href="#sample-input-datasets" title="Permalink to this headline">¶</a></h2>
@@ -275,7 +293,7 @@ using the <strong>--volumes-from</strong> option to mount the <strong>met_tool_w
 </pre></div>
 </div>
 <p>Once inside the container, list out the input data directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">METplus_Data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">METplus_Data</span><span class="o">/</span><span class="n">met_test</span>
 </pre></div>
 </div>
 <p>The <strong>met_test</strong> dirctory contains the sample input data that we mounted using the <strong>--volumes-from</strong> option.

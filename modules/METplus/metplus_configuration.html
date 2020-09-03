@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Common Configuration Variables" href="common_config_vars.html" />
+    <link rel="next" title="3. Common Configuration Variables" href="common_config_vars.html" />
     <link rel="prev" title="METplus Training Topics" href="index.html" /> 
 </head>
 
@@ -102,13 +102,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#input-base">2.3. INPUT_BASE</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#time-looping">3. Time Looping</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#looping-by-valid-time">3.1. Looping by Valid Time</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">4. Common Configuration Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">5. Example METplus Wrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">6. Track and Intensity Use Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">3. Common Configuration Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Example METplus Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Topics</a></li>
@@ -183,47 +179,62 @@
   <p>UNFINISHED!
 METplus Configuration
 =====================</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YqcZaWgjHTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Setup: Go to https://github.com/dtcenter/METplus in a browser</em>)
 (<em>Setup: Open Notepad and save an empty file called user.system.conf</em>)
-(<em>Setup: Open images - title.png, setup_methods.png, met_ls.png</em>)
-(<em>Setup: Pull up title.png</em>)</p>
+(<em>Setup: Open images - title.png, setup_methods_1.png, setup_methods_2.png, setup_methods_3.png, met_ls.png</em>)</p>
+<p>(<em>Setup: Create user.system.conf file so it can be run from Docker</em>)
+(<em>Setup: Open terminal and start docker by running docker run –rm -it dtcenter/metplus:3.1 /bin/bash</em>)
+(<em>Setup: run PS1=’${debian_chroot:+($debian_chroot)}w$ ‘ to remove username/host.</em>)
+(<em>Setup: Change color scheme to white background and black text</em>)</p>
+<p>(<em>Setup: Pull up title.png</em>)</p>
 <p>This video will cover how to configure the METplus wrappers in your environment. There are many METplus configuration
-variables that can be used to customize your verification, but there are only a few that MUST be changed from the
+variables that can be used to customize your evaluation, but there are only a few that MUST be changed from the
 default values. I am going to show you how to determine what values to plug into these variables so you can start
 running use cases.</p>
+<p>(<em>Pull up terminal, run master_metplus.py</em>)</p>
+<p>master_metplus.py is the script that is used to run the METplus wrappers. If you call the script with no arguments,
+you will see a usage statement explaining how to configure the tool. Using the -c argument, you can specify
+configuration files to run.</p>
+<p>(<em>Type or paste: master_metplus.py -c ./METplus/parm/use_cases/met_tool_wrapper/Example/Example.conf</em>)</p>
+<p>However, attempting to run a use case without configuring your environment will result in an error.</p>
 <div class="section" id="override-methods">
 <h1><span class="section-number">1. </span>Override Methods<a class="headerlink" href="#override-methods" title="Permalink to this headline">¶</a></h1>
 <p>There are a few ways to override the required configuration variables.</p>
+<p>(<em>Pull up setup_methods_1.png</em>)</p>
 <p>1. Create a METplus configuration file that is specific to you and your environment
 This is the recommended approach. You will pass this configuration file into every call to the METplus wrappers.</p>
+<p>(<em>Pull up setup_methods_2.png</em>)</p>
 <p>2. Modify the variables under parm/metplus_config directly
 This method works if you are the only person running the METplus code. If you are using a shared installation,
 changes made to these files will affect all users can cause confusion. Also, if you upgrade to a
 new version of the METplus wrappers, you will have to reset all of the variables that you changed.</p>
-<p>3. Pass in the variable overrides directly on the command line.
+<p>(<em>Pull up setup_methods_3.png</em>)</p>
+<p>3. Set the variable directly on the command line.
 You can override a single METplus configuration variable on the command line using this syntax:</p>
 <p>&lt;section&gt;.&lt;variable_name&gt;=&lt;value&gt;
 dir.OUTPUT_BASE=/data/output</p>
 <p>While this functionality can be useful, it would be tedious to type out each variable override for every call to the
-METplus wrappers. In this video, I will use the recommended first method.</p>
+METplus wrappers.</p>
+<p>(<em>Pull up setup_methods_1.png</em>)</p>
+<p>In this video, I will use the recommended first method.</p>
 </div>
 <div class="section" id="user-configuration-file">
 <h1><span class="section-number">2. </span>User Configuration File<a class="headerlink" href="#user-configuration-file" title="Permalink to this headline">¶</a></h1>
 <p>(<em>Pull up Notepad with user.system.conf</em>)</p>
 <p>I created a new file and named it user dot system dot conf.
-Now I need to determine which variables I need to set in this file.
+Now I need to determine which variables I need to set in this file.</p>
+<p>(<em>Pull up GitHub page, click parm, click metplus_config</em>)
 The default METplus configuration variables are found in the METplus code base in the parm/metplus_config directory.</p>
-<p>(<em>Pull up GitHub page, click parm, click metplus_config</em>)</p>
 <p>Any variable that is set to forward slash path forward slash t-o will need to be set.</p>
 <p>Let’s start with the metplus underscore system dot conf file.</p>
 <div class="section" id="met-install-dir">
 <h2><span class="section-number">2.1. </span>MET_INSTALL_DIR<a class="headerlink" href="#met-install-dir" title="Permalink to this headline">¶</a></h2>
 <p>(<em>click metplus_system.conf, scroll down to MET_INSTALL_DIR</em>)</p>
 <p>The MET_INSTALL_DIR variable should be set to the directory where MET is installed. In most cases, there will be a
-directory inside this directory called ‘bin’ which contains all of the MET executables.</p>
-<p>(<em>Show image of ls /usr/local/met/bin</em>)
-ls /usr/local/met/bin
+directory inside called ‘bin’ which contains all of the MET executables.</p>
+<p>(<em>Pull up met_ls.png</em>)</p>
+<p>ls /usr/local/met/bin
 ascii2nc       grid_diag      mode           plot_data_plane    rmw_analysis      tc_pairs
 ensemble_stat  grid_stat      mode_analysis  plot_mode_field    series_analysis   tc_rmw
 gen_vx_mask    gsid2mpr       modis_regrid   plot_point_obs     shift_data_plane  tc_stat
@@ -245,47 +256,16 @@ This variable is also under the [dir] section.</p>
 </div>
 <div class="section" id="input-base">
 <h2><span class="section-number">2.3. </span>INPUT_BASE<a class="headerlink" href="#input-base" title="Permalink to this headline">¶</a></h2>
-<p>The INPUT_BASE variable should be set to the directory that contains your input data.</p>
+<p>The INPUT_BASE variable should be set to the directory that contains your input data. The sample data to run the use cases
+can be obtained by downloading tarballs from the GitHub Releases page or through a Docker data volume. The INPUT_BASE
+directory will contain two subdirectories, met_test and model_applications.</p>
+<p>Now save your new configuration file and call master_metplus.py again, passing in your user configuration file.</p>
+<p>Now you can see METplus has run without any errors.</p>
 <p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/installation.html#running-metplus-wrappers</em>)</p>
 <p>You can refer to the
 <a class="reference external" href="https://dtcenter.github.io/METplus/Users_Guide/installation.html#running-metplus-wrappers">Running METplus Wrappers</a>
 section in Chapter 2 of the METplus User’s Guide for more information on what was covered in this video.</p>
 <p>Thanks for watching!</p>
-</div>
-</div>
-<div class="section" id="time-looping">
-<h1><span class="section-number">3. </span>Time Looping<a class="headerlink" href="#time-looping" title="Permalink to this headline">¶</a></h1>
-<p>The METplus wrappers allow you to set a range of run times to process. For each run time, the wrappers will build commands to run the MET tools. The LOOP_BY variable determines if the run times should loop over initialization (INIT) times or valid (VALID) times. If LOOP_BY is set to INIT (or RETRO), then your configuration file must contain INIT_TIME_FMT, INIT_BEG, INIT_END, and INIT_INCREMENT. If LOOP_BY is set to VALID (or REALTIME), then your configuration file must contain VALID _TIME_FMT, VALID _BEG, VALID _END, and VALID _INCREMENT. Let’s focus on looping by valid time for now.</p>
-<div class="section" id="looping-by-valid-time">
-<h2><span class="section-number">3.1. </span>Looping by Valid Time<a class="headerlink" href="#looping-by-valid-time" title="Permalink to this headline">¶</a></h2>
-<p>VALID_TIME_FMT defines the format of VALID_BEG and VALID_END. It uses Python’s strftime notation and accepts any strftime directives. A list of all possible directives can be found at strftime.org.</p>
-<p>(<em>show https://strftime.org</em>)</p>
-<p>The example configuration shown here will loop by valid time from February 1st, 2020 until February 3rd, 2020. The valid time format is set to contain year, month, and day, so the valid begin and end values match that format:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">VALID</span>
-
-<span class="n">VALID_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span>
-
-<span class="n">VALID_BEG</span> <span class="o">=</span> <span class="mi">20200201</span>
-<span class="n">VALID_END</span> <span class="o">=</span> <span class="mi">20200203</span>
-</pre></div>
-</div>
-<p>This next example contains the hour in the valid time format and the valid begin and end values. Execution will start at 12Z on February 1st, 2020 and will end at 18Z on February 1st, 2020:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOOP_BY</span> <span class="o">=</span> <span class="n">VALID</span>
-
-<span class="n">VALID_TIME_FMT</span> <span class="o">=</span> <span class="o">%</span><span class="n">Y</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">d</span><span class="o">%</span><span class="n">H</span>
-
-<span class="n">VALID_BEG</span> <span class="o">=</span> <span class="mi">2020020112</span>
-<span class="n">VALID_END</span> <span class="o">=</span> <span class="mi">2020020318</span>
-</pre></div>
-</div>
-<p>The VALID_INCREMENT variable determines the interval between run times. The valid begin time will be processed, then the valid increment will be added to that time to determine the next run time. If the new run time is greater than the valid end time, then execution will stop. The value must be at least one minute:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALID_INCREMENT</span> <span class="o">=</span> <span class="mi">3600</span>
-</pre></div>
-</div>
-<p>The default units for valid increment are seconds if no unit identifier is present. Year, month, day, hour, minute, and second can be defined by adding the letter of the corresponding Python strftime directive to the end of the value. For example, a capital letter M corresponds to minute and a lowercase letter m corresponds to month:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VALID_INCREMENT</span> <span class="o">=</span> <span class="mi">1</span><span class="n">M</span>
-</pre></div>
-</div>
 </div>
 </div>
 
@@ -297,7 +277,7 @@ section in Chapter 2 of the METplus User’s Guide for more information on what 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="common_config_vars.html" class="btn btn-neutral float-right" title="4. Common Configuration Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common_config_vars.html" class="btn btn-neutral float-right" title="3. Common Configuration Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="METplus Training Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
