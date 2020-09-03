@@ -27,7 +27,12 @@ In this video, we will setup the METplus training environment using Docker conta
 Docker Software
 ---------------
 
-We assume that you are working on a machine on which the Docker software has already been installed.
+We assume that you are working on a machine on which the Docker software has already been installed and is available in your path.
+
+.. code-block::
+
+  which docker
+
 If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
 website at https://www.docker.com.
 
