@@ -45,13 +45,14 @@ download and install a Linux xterm emulator such as `MobaXterm <https://mobaxter
 or `Cygwin <http://cygwin.com>`_ for use with containers.
 
 After you have launched a terminal window, let's test that Docker is running properly on your machine.
-Copy the command listed below and paste it into your terminal window. Hit enter to execute the command:
+So we will start by running the Docker Hello World command:
 
 .. code-block::
 
   docker run --rm hello-world
 
-All commands shown in code blocks like this may be copied and pasted in this way.
+If you are following along with the script of this video, all commands shown in code blocks may be copied
+and pasted into you terminal window.
 
 This **docker run** command first looks for an image named **hello-world** on your machine.
 If found, it creates a software container from that image and executes the default command.
@@ -90,23 +91,34 @@ However, if you'd like the container to persist after you exit, simply remove th
 The **\-\-name** option assigns a specific name to our container, rather than letting Docker choose
 one for us.
 
-Let's run **point_stat**, one of the MET verification tools.
+Notice that my prompt changed once I ran that command which is a good reminder that I'm now inside the
+container. Now let's run the **point_stat** tool which is one of the MET verification tools.
+The **which** command shows us where **point_stat** is installed.
 
 .. code-block::
 
+  which point_stat
   point_stat
   
-And we'll see the usage statement for that tool. All of the MET tools, as
-well as the METplus python wrappers, are readily available inside this container.
-This makes it very easy to get up and running with the METplus components.
+And running **point_stat** with no arguments prints its usage statement.
+
+All of the MET tools, as well as the METplus python wrappers, are readily available inside this container.
+
+.. code-block::
+
+  which master_metplus.py
+  master_metplus.py
+
+Here is where METplus is installed and here is the usage statement for **master_metplus.py**.
+
+This container makes it very easy to get up and running with the METplus components.
 For now, let's simply exit this container to return to your local machine.
 
 .. code-block::
 
   exit
 
-Notice that the prompt changed, which is a good indicator of whether your inside or
-outside of the container.
+Notice that the prompt changed again, which tells me that I've exited this container.
 
 Sample Input Datasets
 ---------------------
@@ -143,7 +155,7 @@ Once inside the container, list out the input data directory.
 
 .. code-block::
 
-  ls /data/input/METplus_Data
+  ls /data/input/METplus_Data/met_test
 
 The **met_test** dirctory contains the sample input data that we mounted using the **\-\-volumes-from** option.
 If you'd like to mount multiple input datasets, just use the **\-\-volumes-from** option multiple times to
