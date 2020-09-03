@@ -9,35 +9,85 @@ Example METplus Wrapper
 
 Developed for **METplus Version 3.1**.
 
+(*Setup: Open 2 terminals in Docker, one for running master_metplus.py, one for editing the configuration files*)
+(*Setup: Run PS1='${debian_chroot:+($debian_chroot)}\w\$ ' to remove command prompt text*)
+(*Setup: Open URL: https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info*)
+(*Setup: Open URL: strftime.org*)
+(*Setup: Open URL: https://dtcenter.github.io/METplus/generated/met_tool_wrapper/Example/Example.html#metplus-configuration*)
+(*Setup: *)
+(*Setup: *)
+(*Setup: *)
+(*Setup: *)
+
 (*Introduction*)
 
 If you would like to follow along with the exercises in this video, please select one of the options to set up your own
 :ref:`Training Environment <training_environment>`.
 
-In this tutorial video I will show you how to set up the METplus wrappers to run the Example wrapper. The Example
-wrapper does not run any of the MET applications, but it does demonstrate how some of the commonly used METplus
-configuration variables are used. It is a good starting point to understand how the wrappers are used.
+(*Show Title*)
 
-Review user configuration file
-------------------------------
+This video will cover how the METplus wrappers find input files for each run time and how to use the Example wrapper
+to explore this functionality.
+
+(*Show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info*)
+
+In the System Configuration Chapter of the METplus Wrappers User's Guide, under the Common Config Variables section
+there is a sub-section called Directory and Filename Template Info. This is a great source of information to help
+understand how filename templates can be used to find input files and define output filenames.
+
+Input file names are described with two variables: an input directory variable in the dir section and
+a corresponding input template variable in the filename_templates section. The input directory variable should be set to
+the top-level directory that contains all of the data for a given input to the MET tools. The input template variable
+describes how the input files under the input directory are named using filename template tags. These tags start and end
+with curly braces. They contain an identifier to determine what value should be substituted for the tag and options to
+provide more information about how the value should be represented. The identifier and all options are separated by a
+question mark. The most commonly used template tags contain valid, init, or lead as the identifier,
+representing valid time, initialization time, and forecast lead respectively, and a format
+option to determine how the time value should be displayed. The format option is represented with f-m-t following by
+an equals sign and a set of Python string format directives.
+
+(*Show strftime.org*)
+
+init and valid can use any of the directives from this website.
+
+(*Switch back*)
+
+lead and level can only use hours, minutes, seconds, or any combination of the three.
+
+For each run time, the time values are substituted in the template, then the directory value is prepended to determine
+the full path to the desired input file. Note that currently, filename template tags are not supported in the directory
+variables. Wildcard characters question mark and asterisk are currently supported in the templates.
+A question mark will allow any single character and an asterisk will allow more than one character. This is more commonly
+used with tools that allow multiple input files, but it can be used to find a single file. However, if more than one
+input file is found to match the wildcard expression and the MET tool only allows a single input file, an error will occur.
+
+How these configuration variables work together is best demonstrated by running the Example wrapper.
+
+(*Open https://dtcenter.github.io/METplus/generated/met_tool_wrapper/Example/Example.html#metplus-configuration*)
+
+The Example wrapper does not run any of the MET applications, but it is a good starting point to understand how the
+other wrappers are used. It loops over each run time, substitutes values into the filename template, and logs
+the results. It allows you to adjust the configuration values to build the correct file paths without cluttering
+the log output with errors when the other wrappers complain that they can't find the files you are requesting.
+
+(*Open 2 terminals*)
 
 The video assumes that you have already installed the MET tools and configured the METplus wrappers correctly.
-If you are following the online
-tutorial, you likely already set up your environment by sourcing the tutorial setup scripts. If not, and you haven’t
-already created a user or tutorial configuration file, you will have to do so before running the example.
-The video titled "METplus Configuration" (link) covers what variables need to be set to get started.
+If you are following the online tutorial, you likely already set up your environment by sourcing the tutorial
+setup scripts. If not, and you haven’t already created a user or tutorial configuration file, you will have to do so
+before running the example. The video titled "METplus Configuration" (link) covers what variables need to be set to get
+started.
 
 This is the user configuration file I am using on Docker to run this example::
 
-(*Show user.system.conf*)
+(*Show my_config/user.system.conf*)
 
-Review config file
-----------------
+Let's take a look at the Example wrapper use case configuration file. It is found in the METplus repository under
+parm/use_cases/met_tool_wrapper/Example and is named Example.conf.
 
-Show how config values correspond to log output from wrapper
+(*Open Example.conf*)
 
-The Example wrapper was designed to demonstrate how the METplus
-time looping variables work and how they interact with the filename templates to find the files to process.
+
 
 For more detail on how the time looping variables can be configured, please refer to the
 :ref:`Common Configuration Variables <metplus_common_config_vars>` video.
