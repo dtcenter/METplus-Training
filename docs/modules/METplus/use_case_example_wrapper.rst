@@ -11,57 +11,42 @@ Developed for **METplus Version 3.1**.
 
 (*Introduction*)
 
-If you would like to follow along with the exercises in this video, please select one of the options to set up your own :ref:`Training Environment <training_environment>`.
+If you would like to follow along with the exercises in this video, please select one of the options to set up your own
+:ref:`Training Environment <training_environment>`.
 
-In this tutorial video I will show you how to set up the METplus wrappers to run the Example wrapper. The Example wrapper does not run any of the MET applications, but it does demonstrate how some of the commonly used METplus configuration variables are used. It is a good starting point to understand how the wrappers are used.
+In this tutorial video I will show you how to set up the METplus wrappers to run the Example wrapper. The Example
+wrapper does not run any of the MET applications, but it does demonstrate how some of the commonly used METplus
+configuration variables are used. It is a good starting point to understand how the wrappers are used.
 
 Review user configuration file
 ------------------------------
 
-Before we run the wrapper, we need to make sure that METplus is configured correctly. If you are following the online tutorial, you likely already set up your environment by sourcing the tutorial setup scripts. If not, and you haven’t already created a tutorial (or user) configuration file, you will have to do so before running the example. To review, here is what I have in my tutorial configuration file::
+The video assumes that you have already installed the MET tools and configured the METplus wrappers correctly.
+If you are following the online
+tutorial, you likely already set up your environment by sourcing the tutorial setup scripts. If not, and you haven’t
+already created a user or tutorial configuration file, you will have to do so before running the example.
+The video titled "METplus Configuration" (link) covers what variables need to be set to get started.
 
-  [dir]
-  OUTPUT_BASE = /data/output                                                                                         	 
-  INPUT_BASE = /data/input
-                                                      
-  MET_INSTALL_DIR = /usr/local
+This is the user configuration file I am using on Docker to run this example::
 
-Review conf file
+(*Show user.system.conf*)
+
+Review config file
 ----------------
 
 Show how config values correspond to log output from wrapper
 
-In this video we will cover how to run the Example wrapper. This wrapper was designed to demonstrate how the METplus time looping variables work and how they interact with the filename templates to find the files to process.
+The Example wrapper was designed to demonstrate how the METplus
+time looping variables work and how they interact with the filename templates to find the files to process.
 
-For more detail on how the time looping variables can be configured, please refer to the :ref:`Common Configuration Variables <metplus_common_config_vars>` video.
+For more detail on how the time looping variables can be configured, please refer to the
+:ref:`Common Configuration Variables <metplus_common_config_vars>` video.
 
 AUDIO FROM SWPC Tutorial:
 
-Okay, sounds good. Hi everyone. I'm George McCabe and we go over how to set up your user configuration file and run a few met plus examples. So some of these instructions are similar to what Julie described using the Hera that was before the recording had started but a lot of this stuff is going to apply to that as long as your paths are correct. So here I'm going to I'm working on
+(*Pull up parm/use_cases/met_tool_wrapper/Example/Example.conf*)
 
-on that end car workstation here and we'll go into the location where I'm at plus is is installed. So this will be different on herebut same idea. So in this Palm directory, there is a directory called the net plus config and these are the configuration files that are read in initially before any of your configuration files you passing on the command line. I read and as mentioned before any variables with the keyword pass.
-
-To need to be replaced and set correctly before you can run that plus so we'll just do a quick search right here to see which ones are right in there. So here you can see in this met Plus data.com for there's the input base. Is that the past you and then the Met plus system.com. It has output base and met and solder this. These are the settings when you first obtain a release of met plus as Julie mentioned before
-
-she on the install for Hera has already set Benton stalder and input base to the correct locations of how things should be configured their but it's generally good practice to set them yourself and your user config just so it's clear what you're using. And then if you ever need to for example use a new development version to test some new capabilities, then you're able to to change that version very quickly. So I'm going to show you a few paths and how
-
-Relief for these configs somet on this machine is installed and use your local met 9os the directory. So if you look in there there you'll be looking for something with bin directory and shared directory. And that's the location where met is installed and you'll need to set that as the value for your met in stalder similarly for the input data we have on this machine. It's in the directory. Do you want Plus data and here you'll be looking for a directory called?
-
-Called met test and the directory called Model applications and that you'll notice is very similar to the structure in the actual GitHub repository under the Palm directory under use cases. You'll see a met tool rapper and model applications. So the Met test data corresponds to the Met tool rapper and the model applications data corresponds to those subdirectory is here are also found in these directories so you can kind of see which
-
-These cases are available. And which ones you can run based on the data here again, all of that data is available on how era thanks to Julie. So you'll be able to run these use cases right out of the box.
-
-Let's see here. So I'm going to show you first how to create your user config file that you'll need to create to get started. So I've created this directory for the tutorial and then another subdirectory that I named met plus 3.0 user config. That's where I'll put all my configuration files that I'm going to modify and I named it with a 3.0 so that it's clear that these config files correspond to this version of
-
-Plus so I've actually already created this file. I named it McCabe. I will about Kampf and in here you'll see these required configurations are set to the appropriate location. You will always need to set your output base to a directory that you have write permission to write to write your output data in and you have to be sure that it's under this der section. So I showed an examples here of other sections that that can be set, but you need to make sure that all
-
-All these are set under the dirt section. So here's input base and then solder.
-
-So running met plus I'm going to pull up the an example.
-
-So this from the documentation page under the Met plus use cases met tools section. There's an example in here and this use case basically demonstrates how the functionality of met plus Works in terms of looping over X and and forecasts leads. So it doesn't actually run any met tools, but it gives you kind of an overview of when you set your configuration a certain way what actually happens.
-
-So scrolling down here. Here's what the the configuration file looks for. Looks like there's a config section with the process list where you can put all the processes you want to run comma-separated. So in this use case, it's only running the example wrapper here Lou Pai valid. Can you can also set it to Loop by an it? If it's set to loop. I valid you'll need to set all of the valid corresponding valid configurations the time format just
+process list where you can put all the processes you want to run comma-separated. So in this use case, it's only running the example wrapper here Lou Pai valid. Can you can also set it to Loop by an it? If it's set to loop. I valid you'll need to set all of the valid corresponding valid configurations the time format just
 
 ermine's the format of your valid begin invalid and values. So here is your month day hour. This has to be your month day hour as well. Same thing for the bout and time. The valid increment is the increment that it will deal change from starting from the begin time until you get to your end time. And then the the the lead sequence is the list least list of forecast leads that you'll process for each run time. So here you can see it starts on.
 
