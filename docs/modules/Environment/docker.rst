@@ -90,11 +90,23 @@ However, if you'd like the container to persist after you exit, simply remove th
 The **\-\-name** option assigns a specific name to our container, rather than letting Docker choose
 one for us.
 
-For now, simply exit the container to return to your local machine.
+Let's run **point_stat**, one of the MET verification tools.
+
+.. code-block::
+
+  point_stat
+  
+And we'll see the usage statement for that tool. All of the MET tools, as
+well as the METplus python wrappers, are readily available inside this container.
+This makes it very easy to get up and running with the METplus components.
+For now, let's simply exit this container to return to your local machine.
 
 .. code-block::
 
   exit
+
+Notice that the prompt changed, which is a good indicator of whether your inside or
+outside of the container.
 
 Sample Input Datasets
 ---------------------
