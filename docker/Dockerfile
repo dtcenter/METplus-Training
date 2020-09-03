@@ -34,6 +34,7 @@ WORKDIR /metplus
 # Setup the environment for interactive bash/csh container shells.
 #
 RUN mkdir -p /metplus/METplus_Tutorial \
+ && wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial.conf -P /metplus/METplus_Tutorial/ \
  && echo export METPLUS_TUTORIAL_DIR=/metplus/METplus_Tutorial >> /etc/bashrc \
  && echo setenv METPLUS_TUTORIAL_DIR /metplus/METplus_Tutorial >> /etc/csh.cshrc \
  && echo export METPLUS_BUILD_BASE=/metplus/METplus >> /etc/bashrc \
