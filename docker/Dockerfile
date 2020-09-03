@@ -28,16 +28,22 @@ RUN if [ -z ${METPLUS_VERSION+x} ]; then \
 #
 # Set working directory
 #
-WORKDIR /metplus
+#WORKDIR /metplus
+
+RUN echo DOCKER_WORK_DIR is ${DOCKER_WORK_DIR}
+
+ENV DOCKER_WORK_DIR /root
+
+RUN echo DOCKER_WORK_DIR is ${DOCKER_WORK_DIR}
 
 #
 # Setup the environment for interactive bash/csh container shells.
 #
-RUN mkdir -p /metplus/METplus_Tutorial \
- && echo export METPLUS_TUTORIAL_DIR=/metplus/METplus_Tutorial >> /etc/bashrc \
- && echo setenv METPLUS_TUTORIAL_DIR /metplus/METplus_Tutorial >> /etc/csh.cshrc \
- && echo export METPLUS_BUILD_BASE=/metplus/METplus >> /etc/bashrc \
- && echo setenv METPLUS_BUILD_BASE /metplus/METplus >> /etc/csh.cshrc \
+RUN mkdir -p ${DOCKER_WORK_DIR}/METplus_Tutorial \
+ && echo export METPLUS_TUTORIAL_DIR=${DOCKER_WORK_DIR}/METplus_Tutorial >> /etc/bashrc \
+ && echo setenv METPLUS_TUTORIAL_DIR ${DOCKER_WORK_DIR}/METplus_Tutorial >> /etc/csh.cshrc \
+ && echo export METPLUS_BUILD_BASE=${DOCKER_WORK_DIR}/METplus >> /etc/bashrc \
+ && echo setenv METPLUS_BUILD_BASE ${DOCKER_WORK_DIR}/METplus >> /etc/csh.cshrc \
  && echo export MET_BUILD_BASE=/usr/local >> /etc/bashrc \
  && echo setenv MET_BUILD_BASE /usr/local >> /etc/csh.cshrc \
  && echo export METPLUS_DATA=/data/input/METplus_Data >> /etc/bashrc \
