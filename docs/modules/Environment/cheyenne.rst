@@ -3,5 +3,4 @@
 Cheyenne Supercomputer
 ======================
 
-Training module goes here.
-
+Coming soon.
