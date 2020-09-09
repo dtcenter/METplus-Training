@@ -50,7 +50,7 @@ Consider the impact to the other METplus components.
 
 ## New Training Module Checklist ##
 See the [METplus Workflow](https://dtcenter.github.io/METplus/Contributors_Guide/github_workflow.html) for details.
-- [ ] Complete the issue definition above.
+- [ ] Complete the issue definition above, including the **Time Estimate** and **Funding source**.
 - [ ] Fork this repository or create a branch of **develop**.
 Branch name:  `feature_<Issue Number>_<Description>`
 - [ ] Identify required input data and update input datasets, as needed.
@@ -58,8 +58,10 @@ Branch name:  `feature_<Issue Number>_<Description>`
 - [ ] Record the training module video and post to DTC channel.
 - [ ] Include video link in the training module.
 - [ ] Push local changes to GitHub.
-- [ ] Submit a pull request to merge into **develop** and link the pull request to this issue.
+- [ ] Submit a pull request to merge into **develop**.
 Pull request: `feature <Issue Number> <Description>`
+- [ ] Define the pull request metadata, as permissions allow.
+Select: **Reviewer(s)**, **Project(s)**, **Milestone**, and **Linked issues**
 - [ ] Iterate until the reviewer(s) accept and merge your changes.
 - [ ] Delete your fork or branch.
 - [ ] Close this issue.
