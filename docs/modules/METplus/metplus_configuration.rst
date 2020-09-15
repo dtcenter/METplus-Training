@@ -5,7 +5,7 @@ METplus Configuration
 
 .. raw:: html
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/YqcZaWgjHTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/watch?v=Nv0cX6ze_cc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Developed for **METplus Version 3.1**.
 
