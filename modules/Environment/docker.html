@@ -218,7 +218,7 @@ and pasted into you terminal window.</p>
 If found, it creates a software container from that image and executes the default command.
 Or, more likely, if <strong>hello-world</strong> does not yet exist on your machine, Docker will automatically
 download it from DockerHub at <a class="reference external" href="https://hub.docker.com">https://hub.docker.com</a> prior to executing the default command.
-We’ll talk more about the <strong>–rm</strong> option that we used later on.</p>
+We’ll talk more about the <strong>--rm</strong> option that we used later on.</p>
 <p>If successful, you should see a <strong>Hello from Docker!</strong> message followed by some information and links.
 If this command did not run succesfully, please exit this video and work on your Docker installation.</p>
 </div>
@@ -240,10 +240,10 @@ Once the download is complete, it will execute the <strong>/bin/bash</strong> co
 effectively logging you into it. The <strong>-it</strong> options provide an interactive terminal session enabling
 you to execute commands inside the container. Every <strong>docker run</strong> command creates a new software
 <em>container</em> from the <em>image</em> being run, and those containers persist until they are removed. The
-<strong>–rm</strong> option that we used automatically removes that container from your machine once you exit out of it.
-We recommend using the <strong>–rm</strong> option to avoid stale containers consuming disk space.
-However, if you’d like the container to persist after you exit, simply remove that <strong>–rm</strong> option.
-The <strong>–name</strong> option assigns a specific name to our container, rather than letting Docker choose
+<strong>--rm</strong> option that we used automatically removes that container from your machine once you exit out of it.
+We recommend using the <strong>--rm</strong> option to avoid stale containers consuming disk space.
+However, if you’d like the container to persist after you exit, simply remove that <strong>--rm</strong> option.
+The <strong>--name</strong> option assigns a specific name to our container, rather than letting Docker choose
 one for us.</p>
 <p>Notice that my prompt changed once I ran that command which is a good reminder that I’m now inside the
 container. Now let’s run the <strong>point_stat</strong> tool which is one of the MET verification tools.
@@ -285,7 +285,7 @@ I have already pulled this image, so don’t worry if your commands take much lo
 </div>
 <p>The <strong>docker pull</strong> command retrieves the image from DockerHub, while the <strong>docker create</strong> command instantiates
 that image as a data container locally. Next, we’ll relaunch a METplus software container, but this time
-using the <strong>–volumes-from</strong> option to mount the <strong>met_tool_wrapper</strong> sample data container.</p>
+using the <strong>--volumes-from</strong> option to mount the <strong>met_tool_wrapper</strong> sample data container.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="o">--</span><span class="n">volumes</span><span class="o">-</span><span class="kn">from</span> <span class="nn">met_tool_wrapper</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 </pre></div>
 </div>
@@ -293,8 +293,8 @@ using the <strong>–volumes-from</strong> option to mount the <strong>met_tool_
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">METplus_Data</span><span class="o">/</span><span class="n">met_test</span>
 </pre></div>
 </div>
-<p>The <strong>met_test</strong> dirctory contains the sample input data that we mounted using the <strong>–volumes-from</strong> option.
-If you’d like to mount multiple input datasets, just use the <strong>–volumes-from</strong> option multiple times to
+<p>The <strong>met_test</strong> dirctory contains the sample input data that we mounted using the <strong>--volumes-from</strong> option.
+If you’d like to mount multiple input datasets, just use the <strong>--volumes-from</strong> option multiple times to
 specify each one.</p>
 </div>
 <div class="section" id="environment-variables">
@@ -318,7 +318,7 @@ data is required.</p>
 <p class="admonition-title">Note</p>
 <p><strong>Follow Along!</strong> with these exercises using <strong>met_tool_wrapper</strong> data.</p>
 </div>
-<p>Be sure to run <strong>docker pull</strong> and <strong>docker create</strong> to retrieve that input data and use the <strong>–volumes-from</strong>
+<p>Be sure to run <strong>docker pull</strong> and <strong>docker create</strong> to retrieve that input data and use the <strong>--volumes-from</strong>
 option to mount it into your <strong>docker run</strong> container.</p>
 </div>
 <div class="section" id="exiting-a-container">
@@ -336,13 +336,13 @@ by running these commands.</p>
 </div>
 <p>At a minimum, you should see images for <strong>hello-world</strong>, <strong>metplus-training</strong>, and the <strong>met-tool-wrapper</strong> data.
 And <strong>docker ps -a</strong> should only show the <strong>met-tool-wrapper</strong> data container. All of the other containers created
-by <strong>docker run</strong> were automatically removed once you exited them since we used the <strong>–rm</strong> option.
-If you would like the container to persist after exiting, omit the <strong>–rm</strong> option.</p>
+by <strong>docker run</strong> were automatically removed once you exited them since we used the <strong>--rm</strong> option.
+If you would like the container to persist after exiting, omit the <strong>--rm</strong> option.</p>
 </div>
 <div class="section" id="restarting-a-container">
 <h2>Restarting a Container<a class="headerlink" href="#restarting-a-container" title="Permalink to this headline">¶</a></h2>
 <p>To illustrate this, let’s run the follow commands to relaunch a container without
-the <strong>–rm</strong> option, simply exit back out of it, and then list the containers on
+the <strong>--rm</strong> option, simply exit back out of it, and then list the containers on
 your machine.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">name</span> <span class="n">metplus</span> <span class="n">dtcenter</span><span class="o">/</span><span class="n">metplus</span><span class="o">-</span><span class="n">training</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
 <span class="n">exit</span>

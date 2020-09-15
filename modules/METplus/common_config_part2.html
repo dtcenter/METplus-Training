@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Common Config Part 2 - Filename Templates and Example METplus Wrapper &mdash; METplus-Training 3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. Common Config Part 2 - Filename Templates and Example METplus Wrapper" href="use_case_example_wrapper.html" />
+    <link rel="prev" title="2. Common Configuration Variables" href="common_config_part1.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> METplus-Training
+          
+
+          
+            
+            <img src="../../_static/METplus_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">METplus Training</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Installation and Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. METplus Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part1.html">2. Common Configuration Variables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../MET/index.html">MET Training Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../METviewer/index.html">METviewer Training Topics</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">METplus-Training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">METplus Training Topics</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Common Config Part 2 - Filename Templates and Example METplus Wrapper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modules/METplus/common_config_part2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-config-part-2-filename-templates-and-example-metplus-wrapper">
+<span id="metplus-common-config-part2"></span><h1><span class="section-number">3. </span>Common Config Part 2 - Filename Templates and Example METplus Wrapper<a class="headerlink" href="#common-config-part-2-filename-templates-and-example-metplus-wrapper" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=_TlPgEmcNis" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<p>(<em>Will split this file into 2</em>)</p>
+<p>(<em>Setup: Open 2 terminals in Docker, one for running master_metplus.py, one for editing the configuration files</em>)
+(<em>Setup: Run PS1=’${debian_chroot:+($debian_chroot)}w$ ‘ to remove command prompt text</em>)
+(<em>Setup: Open URL: https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)
+(<em>Setup: Open URL: strftime.org</em>)
+(<em>Setup: Open URL: https://dtcenter.github.io/METplus/generated/met_tool_wrapper/Example/Example.html#metplus-configuration</em>)</p>
+<p>(<em>Introduction</em>)</p>
+<p>If you would like to follow along with the exercises in this video, please select one of the options to set up your own
+<a class="reference internal" href="../Environment/index.html#training-environment"><span class="std std-ref">Training Environment</span></a>.</p>
+<p>(<em>Show Title</em>)</p>
+<p>This video will cover how the METplus wrappers find input files for each run time and how to use the Example wrapper
+to explore this functionality.</p>
+<p>(<em>Show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)</p>
+<p>In the System Configuration Chapter of the METplus Wrappers User’s Guide, under the Common Config Variables section
+there is a sub-section called Directory and Filename Template Info. This is a great source of information to help
+understand how filename templates can be used to find input files and define output filenames.</p>
+<p>Input file names are described with two variables: an input directory in the dir section and
+a corresponding input template in the filename_templates section. The input directory should be set to
+the top-level directory that contains all of the data for a given input to the MET tools. The input template
+describes how the input files under the input directory are named using filename template tags. These tags start and end
+with curly braces. They contain an identifier to determine what value should be substituted for the tag and options to
+provide more information about how the value should be represented. The identifier and all options are separated by a
+question mark. The most commonly used template tags contain valid, init, or lead as the identifier,
+representing valid time, initialization time, and forecast lead respectively, and a format
+option to determine how the time value should be displayed. The format option is represented with f-m-t following by
+an equals sign and a set of Python string format directives.</p>
+<p>(<em>Show strftime.org</em>)</p>
+<p>init and valid can use any of the directives from this website.</p>
+<p>(<em>Switch back</em>)</p>
+<p>lead and level can only use hours, minutes, seconds, or any combination of the three. You can specify the number of
+digits of these values by adding a number after the percent sign and in front of the letter. The default precision of
+hour, minute, and second are 2 digits.</p>
+<p>For each run time, the time values are substituted in the template, then the directory value is prepended to determine
+the full path to the desired input file. Please note that filename template tags are currently not supported in the directory
+variables. Wildcard characters question mark and asterisk are currently supported in the templates.
+A question mark will allow any single character and an asterisk will allow more than one character. This is more commonly
+used with tools that allow multiple input files, but it can be used to find a single file. However, if more than one
+input file is found to match the wildcard expression and the MET tool only allows a single input file, an error will occur.</p>
+<p>How these configuration variables work together is best demonstrated by running the Example wrapper.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use_case_example_wrapper.html" class="btn btn-neutral float-right" title="4. Common Config Part 2 - Filename Templates and Example METplus Wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common_config_part1.html" class="btn btn-neutral float-left" title="2. Common Configuration Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, UCAR/NCAR, NOAA, and CSU/CIRA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

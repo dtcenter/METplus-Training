@@ -3,5 +3,4 @@
 Amazon Web Services
 ===================
 
-Training module goes here.
-
+Coming soon.

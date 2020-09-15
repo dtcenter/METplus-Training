@@ -18,8 +18,8 @@ Developed by the `Developmental Testbed Center <https://dtcenter.org/>`_, Boulde
 Please see the `METplus Website <http://dtcenter.org/community-code/metplus>`_ to learn more about this project.
 
 These training materials describe the use of the 
-`METplus Software <https://github.com/dtcenter/METplus>`_ and its components (
-`MET <https://github.com/dtcenter/MET>`_, 
+`METplus Software <https://github.com/dtcenter/METplus>`_ and its components 
+(`MET <https://github.com/dtcenter/MET>`_, 
 `METviewer <https://github.com/dtcenter/METviewer>`_, 
 `METexpress <https://github.com/dtcenter/METexpress>`_, 
 `METplotpy <https://github.com/dtcenter/METplotpy>`_, 

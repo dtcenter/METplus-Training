@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5. Track and Intensity Use Case" href="use_case_track_and_intensity.html" />
-    <link rel="prev" title="3. Common Configuration Variables" href="common_config_vars.html" /> 
+    <link rel="prev" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" href="common_config_part2.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,9 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Installation and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. Override Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html#user-configuration-file">2. User Configuration File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">3. Common Configuration Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. METplus Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part1.html">2. Common Configuration Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part2.html">3. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">4. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
 </ul>
@@ -170,8 +170,7 @@
             
   <div class="section" id="common-config-part-2-filename-templates-and-example-metplus-wrapper">
 <span id="metplus-example-wrapper"></span><h1><span class="section-number">4. </span>Common Config Part 2 - Filename Templates and Example METplus Wrapper<a class="headerlink" href="#common-config-part-2-filename-templates-and-example-metplus-wrapper" title="Permalink to this headline">¶</a></h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
-<p>(<em>Will split this file into 2</em>)</p>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=5m_1KXz9mM8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Setup: Open 2 terminals in Docker, one for running master_metplus.py, one for editing the configuration files</em>)
 (<em>Setup: Run PS1=’${debian_chroot:+($debian_chroot)}w$ ‘ to remove command prompt text</em>)
 (<em>Setup: Open URL: https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)
@@ -181,36 +180,7 @@
 <p>If you would like to follow along with the exercises in this video, please select one of the options to set up your own
 <a class="reference internal" href="../Environment/index.html#training-environment"><span class="std std-ref">Training Environment</span></a>.</p>
 <p>(<em>Show Title</em>)</p>
-<p>This video will cover how the METplus wrappers find input files for each run time and how to use the Example wrapper
-to explore this functionality.</p>
-<p>(<em>Show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)</p>
-<p>In the System Configuration Chapter of the METplus Wrappers User’s Guide, under the Common Config Variables section
-there is a sub-section called Directory and Filename Template Info. This is a great source of information to help
-understand how filename templates can be used to find input files and define output filenames.</p>
-<p>Input file names are described with two variables: an input directory in the dir section and
-a corresponding input template in the filename_templates section. The input directory should be set to
-the top-level directory that contains all of the data for a given input to the MET tools. The input template
-describes how the input files under the input directory are named using filename template tags. These tags start and end
-with curly braces. They contain an identifier to determine what value should be substituted for the tag and options to
-provide more information about how the value should be represented. The identifier and all options are separated by a
-question mark. The most commonly used template tags contain valid, init, or lead as the identifier,
-representing valid time, initialization time, and forecast lead respectively, and a format
-option to determine how the time value should be displayed. The format option is represented with f-m-t following by
-an equals sign and a set of Python string format directives.</p>
-<p>(<em>Show strftime.org</em>)</p>
-<p>init and valid can use any of the directives from this website.</p>
-<p>(<em>Switch back</em>)</p>
-<p>lead and level can only use hours, minutes, seconds, or any combination of the three. You can specify the number of
-digits of these values by adding a number after the percent sign and in front of the letter. The default precision of
-hour, minute, and second are 2 digits.</p>
-<p>For each run time, the time values are substituted in the template, then the directory value is prepended to determine
-the full path to the desired input file. Please note that filename template tags are currently not supported in the directory
-variables. Wildcard characters question mark and asterisk are currently supported in the templates.
-A question mark will allow any single character and an asterisk will allow more than one character. This is more commonly
-used with tools that allow multiple input files, but it can be used to find a single file. However, if more than one
-input file is found to match the wildcard expression and the MET tool only allows a single input file, an error will occur.</p>
-<p>How these configuration variables work together is best demonstrated by running the Example wrapper.</p>
-<p>(<em>End Filename Templates video, start Example Wrapper video</em>)</p>
+<p>This video will demonstrate how to run the Example wrapper use case.</p>
 <p>(<em>Open https://dtcenter.github.io/METplus/generated/met_tool_wrapper/Example/Example.html#metplus-configuration</em>)</p>
 <p>Information about each use case in the METplus repository can be found in the User’s Guide under METplus Use
 Cases.</p>
@@ -236,7 +206,7 @@ parm/use_cases/met_tool_wrapper/Example and is named Example.conf.</p>
 <p>(<em>Type: less ${METPLUS_BUILD_BASE}parm/use_cases/met_tool_wrapper/Example/Example.conf, but don’t hit enter</em>)</p>
 <p>(<em>Unhide Example.conf</em>)</p>
 <p>If you are unfamiliar with the time looping variables, please refer to the Common Config Variables - Part 1 video.
-Link: <a class="reference internal" href="common_config_vars.html#metplus-common-config-vars"><span class="std std-ref">Common Configuration Variables</span></a> video.</p>
+Link: <a class="reference internal" href="common_config_part1.html#metplus-common-config-part1"><span class="std std-ref">Common Configuration Variables</span></a> video.</p>
 <p>This use case is looping by valid time starting at February 1st, 2017 at 0Z and ending on February 2 at 0Z, incrementing
 by 6 hours each time. For each valid time, 4 forecast leads will be processed – 3 hour, 6 hour, 9 hour, and 12 hour.
 The EXAMPLE_CUSTOM_LOOP_LIST is an optional list of strings that can be referenced in filename templates using ‘custom’
@@ -303,7 +273,7 @@ templates to find files to process.</p>
         <a href="use_case_track_and_intensity.html" class="btn btn-neutral float-right" title="5. Track and Intensity Use Case" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="common_config_vars.html" class="btn btn-neutral float-left" title="3. Common Configuration Variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="common_config_part2.html" class="btn btn-neutral float-left" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

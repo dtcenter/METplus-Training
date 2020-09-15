@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Override Methods &mdash; METplus-Training 3.1 documentation</title>
+  <title>1. METplus Configuration &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Common Configuration Variables" href="common_config_vars.html" />
+    <link rel="next" title="2. Common Configuration Variables" href="common_config_part1.html" />
     <link rel="prev" title="METplus Training Topics" href="index.html" /> 
 </head>
 
@@ -93,14 +93,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Installation and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1. Override Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-configuration-file">2. User Configuration File</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#met-install-dir">2.1. MET_INSTALL_DIR</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#output-base">2.2. OUTPUT_BASE</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#input-base">2.3. INPUT_BASE</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. METplus Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#override-methods">1.1. Override Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-configuration-file">1.2. User Configuration File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#met-install-dir">1.2.1. MET_INSTALL_DIR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-base">1.2.2. OUTPUT_BASE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-base">1.2.3. INPUT_BASE</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="common_config_vars.html">3. Common Configuration Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part1.html">2. Common Configuration Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part2.html">3. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
 </ul>
@@ -154,7 +158,7 @@
         
           <li><a href="index.html">METplus Training Topics</a> &raquo;</li>
         
-      <li><span class="section-number">1. </span>Override Methods</li>
+      <li><span class="section-number">1. </span>METplus Configuration</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -173,10 +177,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <p>UNFINISHED!
-METplus Configuration
-=====================</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YqcZaWgjHTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+  <div class="section" id="metplus-configuration">
+<span id="id1"></span><h1><span class="section-number">1. </span>METplus Configuration<a class="headerlink" href="#metplus-configuration" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Nv0cX6ze_cc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Setup: Go to https://github.com/dtcenter/METplus in a browser</em>)
 (<em>Setup: Open Notepad and save an empty file called user.system.conf</em>)
 (<em>Setup: Open images - title.png, setup_methods_1.png, setup_methods_2.png, setup_methods_3.png, met_ls.png</em>)</p>
@@ -196,7 +199,7 @@ configuration files to run.</p>
 <p>(<em>Type or paste: master_metplus.py -c ./METplus/parm/use_cases/met_tool_wrapper/Example/Example.conf</em>)</p>
 <p>However, attempting to run a use case without configuring your environment will result in an error.</p>
 <div class="section" id="override-methods">
-<h1><span class="section-number">1. </span>Override Methods<a class="headerlink" href="#override-methods" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.1. </span>Override Methods<a class="headerlink" href="#override-methods" title="Permalink to this headline">¶</a></h2>
 <p>There are a few ways to override the required configuration variables.</p>
 <p>(<em>Pull up setup_methods_1.png</em>)</p>
 <p>1. Create a METplus configuration file that is specific to you and your environment
@@ -217,7 +220,7 @@ METplus wrappers.</p>
 <p>In this video, I will use the recommended first method.</p>
 </div>
 <div class="section" id="user-configuration-file">
-<h1><span class="section-number">2. </span>User Configuration File<a class="headerlink" href="#user-configuration-file" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">1.2. </span>User Configuration File<a class="headerlink" href="#user-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>(<em>Pull up Notepad with user.system.conf</em>)</p>
 <p>I created a new file and named it user dot system dot conf.
 Now I need to determine which variables I need to set in this file.</p>
@@ -226,7 +229,7 @@ The default METplus configuration variables are found in the METplus code base i
 <p>Any variable that is set to forward slash path forward slash t-o will need to be set.</p>
 <p>Let’s start with the metplus underscore system dot conf file.</p>
 <div class="section" id="met-install-dir">
-<h2><span class="section-number">2.1. </span>MET_INSTALL_DIR<a class="headerlink" href="#met-install-dir" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.1. </span>MET_INSTALL_DIR<a class="headerlink" href="#met-install-dir" title="Permalink to this headline">¶</a></h3>
 <p>(<em>click metplus_system.conf, scroll down to MET_INSTALL_DIR</em>)</p>
 <p>The MET_INSTALL_DIR variable should be set to the directory where MET is installed. In most cases, there will be a
 directory inside called ‘bin’ which contains all of the MET executables.</p>
@@ -244,7 +247,7 @@ in my user configuration file.</p>
 <p>(<em>In user.system.conf, type [dir] MET_INSTALL_DIR = /usr/local/met</em>)</p>
 </div>
 <div class="section" id="output-base">
-<h2><span class="section-number">2.2. </span>OUTPUT_BASE<a class="headerlink" href="#output-base" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.2. </span>OUTPUT_BASE<a class="headerlink" href="#output-base" title="Permalink to this headline">¶</a></h3>
 <p>The OUTPUT_BASE variable should be set to a directory that will contain the files created by the METplus wrappers.
 This can be any valid path as long as you have permission to write in parent directory. Be aware of disk size limits.
 Setting OUTPUT_BASE to a directory on a disk with limited space introduces the risk of filling up the disk.
@@ -252,7 +255,7 @@ This variable is also under the [dir] section.</p>
 <p>(<em>In user.system.conf, type OUTPUT_BASE = /data/output</em>)</p>
 </div>
 <div class="section" id="input-base">
-<h2><span class="section-number">2.3. </span>INPUT_BASE<a class="headerlink" href="#input-base" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">1.2.3. </span>INPUT_BASE<a class="headerlink" href="#input-base" title="Permalink to this headline">¶</a></h3>
 <p>The INPUT_BASE variable should be set to the directory that contains your input data. The sample data to run the use cases
 can be obtained by downloading tarballs from the GitHub Releases page or through a Docker data volume. The INPUT_BASE
 directory will contain two subdirectories, met_test and model_applications.</p>
@@ -265,6 +268,7 @@ section in Chapter 2 of the METplus User’s Guide for more information on what 
 <p>Thanks for watching!</p>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -274,7 +278,7 @@ section in Chapter 2 of the METplus User’s Guide for more information on what 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="common_config_vars.html" class="btn btn-neutral float-right" title="3. Common Configuration Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common_config_part1.html" class="btn btn-neutral float-right" title="2. Common Configuration Variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="METplus Training Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

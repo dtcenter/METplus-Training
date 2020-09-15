@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Common Configuration Variables &mdash; METplus-Training 3.1 documentation</title>
+  <title>2. Common Configuration Variables &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4. Common Config Part 2 - Filename Templates and Example METplus Wrapper" href="use_case_example_wrapper.html" />
-    <link rel="prev" title="1. Override Methods" href="metplus_configuration.html" /> 
+    <link rel="next" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" href="common_config_part2.html" />
+    <link rel="prev" title="1. METplus Configuration" href="metplus_configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,24 +93,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../Environment/index.html">Installation and Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. Override Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html#user-configuration-file">2. User Configuration File</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3. Common Configuration Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#common-configuration-variables-part-1-timing-control">3.1. Common Configuration Variables Part 1: Timing Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#looping-by-valid-time">3.1.1. Looping by Valid Time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#looping-by-initialization-time">3.1.2. Looping by Initialization Time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#looping-over-forecast-leads">3.1.3. Looping over Forecast Leads</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#skipping-times">3.1.4. Skipping Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. METplus Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Common Configuration Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-configuration-variables-part-1-timing-control">2.1. Common Configuration Variables Part 1: Timing Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#looping-by-valid-time">2.1.1. Looping by Valid Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#looping-by-initialization-time">2.1.2. Looping by Initialization Time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#looping-over-forecast-leads">2.1.3. Looping over Forecast Leads</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skipping-times">2.1.4. Skipping Times</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#loop-order">3.2. Loop Order</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#field-info">3.3. Field Info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#thresholds">3.4. Thresholds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extra-options">3.5. Extra options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#wrapper-specific">3.6. Wrapper-specific</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#directory-template-info">3.7. Directory/Template Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-order">2.2. Loop Order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#field-info">2.3. Field Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thresholds">2.4. Thresholds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extra-options">2.5. Extra options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wrapper-specific">2.6. Wrapper-specific</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directory-template-info">2.7. Directory/Template Info</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part2.html">3. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
 </ul>
@@ -164,13 +164,13 @@
         
           <li><a href="index.html">METplus Training Topics</a> &raquo;</li>
         
-      <li><span class="section-number">3. </span>Common Configuration Variables</li>
+      <li><span class="section-number">2. </span>Common Configuration Variables</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/modules/METplus/common_config_vars.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/modules/METplus/common_config_part1.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -184,14 +184,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="common-configuration-variables">
-<span id="metplus-common-config-vars"></span><h1><span class="section-number">3. </span>Common Configuration Variables<a class="headerlink" href="#common-configuration-variables" title="Permalink to this headline">¶</a></h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gZcAT4O1dro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
+<span id="metplus-common-config-part1"></span><h1><span class="section-number">2. </span>Common Configuration Variables<a class="headerlink" href="#common-configuration-variables" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=0ZMEf10lUYc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Setup: Pull up webpage: https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables</em>)
 (<em>Setup: Pull up webpage: https://strftime.org</em>)</p>
 <p>(<em>Introduction</em>)</p>
 <p>(<em>Show Title Slide</em>)</p>
 <div class="section" id="common-configuration-variables-part-1-timing-control">
-<h2><span class="section-number">3.1. </span>Common Configuration Variables Part 1: Timing Control<a class="headerlink" href="#common-configuration-variables-part-1-timing-control" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Common Configuration Variables Part 1: Timing Control<a class="headerlink" href="#common-configuration-variables-part-1-timing-control" title="Permalink to this headline">¶</a></h2>
 <p>This video will describe the METplus wrapper configuration variables that are used to control time.</p>
 <p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables</em>)</p>
 <p>The material covered in this video is described in detail in the Common Config Variables
@@ -214,7 +214,7 @@ the init time format, init beg, init end and init increment variables.</p>
 <p>RETRO can also be used for the value of loop by, but you will still need to set the appropriate INIT time variables.</p>
 <p>Let’s focus on looping by valid time for now.</p>
 <div class="section" id="looping-by-valid-time">
-<h3><span class="section-number">3.1.1. </span>Looping by Valid Time<a class="headerlink" href="#looping-by-valid-time" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.1. </span>Looping by Valid Time<a class="headerlink" href="#looping-by-valid-time" title="Permalink to this headline">¶</a></h3>
 <p>(<em>Show Next Slide</em>)</p>
 <p>VALID_TIME_FMT defines the format of the valid begin and end times.
 It uses Python’s string format notation and accepts any of those directives.</p>
@@ -246,13 +246,13 @@ valid at 12Z on March. 1, 0Z on March 2, 12Z on March 2, 0Z on March 3, and 12Z 
 Note that the valid end time is 18Z, but that time was not processed.</p>
 </div>
 <div class="section" id="looping-by-initialization-time">
-<h3><span class="section-number">3.1.2. </span>Looping by Initialization Time<a class="headerlink" href="#looping-by-initialization-time" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.2. </span>Looping by Initialization Time<a class="headerlink" href="#looping-by-initialization-time" title="Permalink to this headline">¶</a></h3>
 <p>(<em>Show Next Slide</em>)</p>
 <p>If your use case should loop over initialization times instead of valid times, set the LOOP_BY variable to INIT and
 set the corresponding variables. They are configured in the same way as the valid time variables.</p>
 </div>
 <div class="section" id="looping-over-forecast-leads">
-<h3><span class="section-number">3.1.3. </span>Looping over Forecast Leads<a class="headerlink" href="#looping-over-forecast-leads" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.3. </span>Looping over Forecast Leads<a class="headerlink" href="#looping-over-forecast-leads" title="Permalink to this headline">¶</a></h3>
 <p>(<em>Show Next Slide</em>)</p>
 <p>For each run time defined by the INIT or VALID variables, you can iterate over a list of forecast leads. The LEAD_SEQ
 variable is used to define a comma-separated list of forecast leads to process relative to the current initialization
@@ -280,7 +280,7 @@ control topics.</p>
 <p>(<em>END PART 1</em>)</p>
 </div>
 <div class="section" id="skipping-times">
-<h3><span class="section-number">3.1.4. </span>Skipping Times<a class="headerlink" href="#skipping-times" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.1.4. </span>Skipping Times<a class="headerlink" href="#skipping-times" title="Permalink to this headline">¶</a></h3>
 <p>(<em>show examples from https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#skipping-times</em>)</p>
 <p>A new feature added to the METplus wrappers in version 3.1 is the ability to skip certain times. The variable SKIP_TIMES
 in the [config] section controls this functionality. The times to skip are defined with Python string formatting
@@ -309,7 +309,7 @@ skip the 31st day of each month. Note that the SKIP_TIMES values are not applied
 </div>
 </div>
 <div class="section" id="loop-order">
-<h2><span class="section-number">3.2. </span>Loop Order<a class="headerlink" href="#loop-order" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Loop Order<a class="headerlink" href="#loop-order" title="Permalink to this headline">¶</a></h2>
 <p>The LOOP_ORDER variable determines the order to run processes. Acceptable values for this variables are ‘processes’ and
 ‘times’ which define which to loop over first. The configuration shown here runs two processes, PCPCombine and GridStat,
 and two valid times: March 1st, 2020 at 12Z and March 1, 2020 at 13Z:</p>
@@ -354,7 +354,7 @@ for each valid run time.</p>
 <p>(<em>begin_end_incr syntax - used in multiple places (lead sequence, custom loop list, etc.) - should this go in another video? Useful tricks?</em>)</p>
 </div>
 <div class="section" id="field-info">
-<h2><span class="section-number">3.3. </span>Field Info<a class="headerlink" href="#field-info" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Field Info<a class="headerlink" href="#field-info" title="Permalink to this headline">¶</a></h2>
 <p>Many MET tools utilize configuration files to define the fields to process:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//
 // Forecast and observation fields to be verified
@@ -422,7 +422,7 @@ instead to describe both datasets:</p>
 </div>
 </div>
 <div class="section" id="thresholds">
-<h2><span class="section-number">3.4. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Thresholds<a class="headerlink" href="#thresholds" title="Permalink to this headline">¶</a></h2>
 <p>Threshold values can be defined with [FCST/OBS/BOTH]_VAR&lt;n&gt;_THRESH variables. The value is a comma-separated list of
 values that must start with a comparison operator and contain at least one digit. The comparison operators can be
 defined with symbols:</p>
@@ -438,7 +438,7 @@ notated with two vertical bars (||).</p>
 </div>
 </div>
 <div class="section" id="extra-options">
-<h2><span class="section-number">3.5. </span>Extra options<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>Extra options<a class="headerlink" href="#extra-options" title="Permalink to this headline">¶</a></h2>
 <p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#fcst-var-n-options-obs-var-n-options</em>)</p>
 <p>There are additional options that can be defined in the MET configuration field dictionary, such as ???. See the MET
 User’s Guide for more information on what can be added. There are defined with the [FCST/OBS/BOTH]_VAR&lt;n&gt;_OPTIONS
@@ -452,7 +452,7 @@ variables:</p>
 </div>
 </div>
 <div class="section" id="wrapper-specific">
-<h2><span class="section-number">3.6. </span>Wrapper-specific<a class="headerlink" href="#wrapper-specific" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>Wrapper-specific<a class="headerlink" href="#wrapper-specific" title="Permalink to this headline">¶</a></h2>
 <p>(* show <a class="reference external" href="https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*">https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*</a>)</p>
 <p>New to METplus 3.0 is the ability to specify VAR&lt;n&gt; items differently across comparison wrappers. In previous versions,
 it was assumed that the list of forecast and observation files that were processed would be applied to any MET Stat tool
@@ -469,7 +469,7 @@ This functionality applies to GridStat, EnsembleStat, PointStat, MODE, and MTD w
 For more information on GRIB_lvl_typ and other file-specific commands, review the MET User’s Guide, Chapter 3.</p>
 </div>
 <div class="section" id="directory-template-info">
-<h2><span class="section-number">3.7. </span>Directory/Template Info<a class="headerlink" href="#directory-template-info" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.7. </span>Directory/Template Info<a class="headerlink" href="#directory-template-info" title="Permalink to this headline">¶</a></h2>
 <p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#directory-and-filename-template-info</em>)</p>
 <p>Follow along User’s Guide info?</p>
 <p>Sub-topics: Using templates (obs, fcst, data assimilation), time shifting, file windows</p>
@@ -484,10 +484,10 @@ For more information on GRIB_lvl_typ and other file-specific commands, review th
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="use_case_example_wrapper.html" class="btn btn-neutral float-right" title="4. Common Config Part 2 - Filename Templates and Example METplus Wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common_config_part2.html" class="btn btn-neutral float-right" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="metplus_configuration.html" class="btn btn-neutral float-left" title="1. Override Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="metplus_configuration.html" class="btn btn-neutral float-left" title="1. METplus Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
