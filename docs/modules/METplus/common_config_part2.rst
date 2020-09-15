@@ -1,4 +1,4 @@
-.. _metplus_common_config_part1:
+.. _metplus_common_config_part2:
 
 Common Config Part 2 - Filename Templates and Example METplus Wrapper
 =====================================================================

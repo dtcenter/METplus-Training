@@ -1,5 +1,5 @@
 .. _metplus_configuration:
-UNFINISHED!
+
 METplus Configuration
 =====================
 

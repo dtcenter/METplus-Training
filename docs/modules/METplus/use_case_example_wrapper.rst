@@ -60,7 +60,7 @@ parm/use_cases/met_tool_wrapper/Example and is named Example.conf.
 (*Unhide Example.conf*)
 
 If you are unfamiliar with the time looping variables, please refer to the Common Config Variables - Part 1 video.
-Link: :ref:`Common Configuration Variables <metplus_common_config_vars>` video.
+Link: :ref:`Common Configuration Variables <metplus_common_config_part1>` video.
 
 This use case is looping by valid time starting at February 1st, 2017 at 0Z and ending on February 2 at 0Z, incrementing
 by 6 hours each time. For each valid time, 4 forecast leads will be processed -- 3 hour, 6 hour, 9 hour, and 12 hour.
