@@ -1,7 +1,7 @@
 .. _metplus_example_wrapper:
 
-Common Config Part 2 - Filename Templates and Example METplus Wrapper
-=====================================================================
+Use Case: Example Wrapper
+=========================
 
 .. raw:: html
 
