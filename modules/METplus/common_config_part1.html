@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Common Configuration Variables &mdash; METplus-Training 3.1 documentation</title>
+  <title>2. Common Configuration Variables Part 1: Timing Control &mdash; METplus-Training 3.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" href="common_config_part2.html" />
+    <link rel="next" title="3. Common Configuration Variables Part 2: Filename Templates" href="common_config_part2.html" />
     <link rel="prev" title="1. METplus Configuration" href="metplus_configuration.html" /> 
 </head>
 
@@ -94,8 +94,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../Tutorial/index.html">Online Tutorial Topics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">METplus Training Topics</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="metplus_configuration.html">1. METplus Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Common Configuration Variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#common-configuration-variables-part-1-timing-control">2.1. Common Configuration Variables Part 1: Timing Control</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. Common Configuration Variables Part 1: Timing Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">2.1. Common Configuration Variables Part 1: Timing Control</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#looping-by-valid-time">2.1.1. Looping by Valid Time</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#looping-by-initialization-time">2.1.2. Looping by Initialization Time</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#looping-over-forecast-leads">2.1.3. Looping over Forecast Leads</a></li>
@@ -110,8 +110,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#directory-template-info">2.7. Directory/Template Info</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="common_config_part2.html">3. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
-<li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Common Config Part 2 - Filename Templates and Example METplus Wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_config_part2.html">3. Common Configuration Variables Part 2: Filename Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use_case_example_wrapper.html">4. Use Case: Example Wrapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="use_case_track_and_intensity.html">5. Track and Intensity Use Case</a></li>
 </ul>
 </li>
@@ -164,7 +164,7 @@
         
           <li><a href="index.html">METplus Training Topics</a> &raquo;</li>
         
-      <li><span class="section-number">2. </span>Common Configuration Variables</li>
+      <li><span class="section-number">2. </span>Common Configuration Variables Part 1: Timing Control</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -183,15 +183,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="common-configuration-variables">
-<span id="metplus-common-config-part1"></span><h1><span class="section-number">2. </span>Common Configuration Variables<a class="headerlink" href="#common-configuration-variables" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="common-configuration-variables-part-1-timing-control">
+<span id="metplus-common-config-part1"></span><h1><span class="section-number">2. </span>Common Configuration Variables Part 1: Timing Control<a class="headerlink" href="#common-configuration-variables-part-1-timing-control" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0ZMEf10lUYc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Developed for <strong>METplus Version 3.1</strong>.</p>
 <p>(<em>Setup: Pull up webpage: https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables</em>)
 (<em>Setup: Pull up webpage: https://strftime.org</em>)</p>
 <p>(<em>Introduction</em>)</p>
 <p>(<em>Show Title Slide</em>)</p>
-<div class="section" id="common-configuration-variables-part-1-timing-control">
-<h2><span class="section-number">2.1. </span>Common Configuration Variables Part 1: Timing Control<a class="headerlink" href="#common-configuration-variables-part-1-timing-control" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2><span class="section-number">2.1. </span>Common Configuration Variables Part 1: Timing Control<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>This video will describe the METplus wrapper configuration variables that are used to control time.</p>
 <p>(<em>show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#common-config-variables</em>)</p>
 <p>The material covered in this video is described in detail in the Common Config Variables
@@ -484,7 +484,7 @@ For more information on GRIB_lvl_typ and other file-specific commands, review th
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="common_config_part2.html" class="btn btn-neutral float-right" title="3. Common Config Part 2 - Filename Templates and Example METplus Wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common_config_part2.html" class="btn btn-neutral float-right" title="3. Common Configuration Variables Part 2: Filename Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="metplus_configuration.html" class="btn btn-neutral float-left" title="1. METplus Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

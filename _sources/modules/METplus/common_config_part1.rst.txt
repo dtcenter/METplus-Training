@@ -1,7 +1,7 @@
 .. _metplus_common_config_part1:
 
-Common Configuration Variables
-==============================
+Common Configuration Variables Part 1: Timing Control
+=====================================================
 
 .. raw:: html
 
