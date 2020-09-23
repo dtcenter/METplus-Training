@@ -47,13 +47,13 @@ Let's go into the parm/metplus_config subdirectory.  We'll modify two files here
 
 For this example, we will run a case using the data from the MET tool wrapper sample data set, so we'll grab the applicable data set.  In the Releases section of the METplus GitHub repository, also in the "Assets" section, we'll grab the "sample_data-met_tool_wrapper-3.1.tgz" file by right clicking on the the file and selecting "Copy Link Address".  Going back to the terminal window, we will go into the directory where we decided to put the sample data. We would type "wget", space, and then paste in the link that we copied and hit enter, but as you can see, I did this just before this video so that we wouldn't have to spend time waiting for the data to download.
 
-We'll unpack the file we downloaded by running the command:
+Users can unpack the downloaded file by running the command:
 
 .. code-block::
 
   tar zxf sample_data-met_tool_wrapper-3.1.tgz
 
-And we can now remove the .tgz file, if we'd like, to save some space, which I will do now by running the command:
+And we users can remove the .tgz file to save some space:
 
 .. code-block::
 
