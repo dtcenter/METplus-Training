@@ -38,15 +38,14 @@ Now we can unpack the file we downloaded by running the command:
 .. code-block::
 
   tar zxf v3.1.tar.gz
-
+  
+  
 And we users can remove the .tar.gz file to save some space:
 
 .. code-block::
 
   rm v3.1.tar.gz
   
-to unpack the METplus package.
-
 You'll also need to decide on a location to put some sample data so that you can run a test case to ensure everything is set up correctly.  If you're installing METplus for many users, you may want to download all of the sample data so that users can run a variety of cases.  We have a location picked out for this example, and we'll modify the configuration parameters to point to this sample data and to the installation of the MET tools.
 
 Let's go into the parm/metplus_config subdirectory.  We'll modify two files here.  First, we'll open metplus_system.conf for editing.  We want to change the value of MET_INSTALL_DIR from "/path/to" to the location of the MET installation we want to use.  In this case, we'll use the MET version 9.1 installation and we'll list the full path to the top level installation directory.  Next, we'll open metplus_data.conf for editing.  We want to change the value of INPUT_BASE to point to the location of the sample data.  We'll use the full path to the sample data.
