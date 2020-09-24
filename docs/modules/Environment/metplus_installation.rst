@@ -5,7 +5,7 @@ Installing METplus
 
 .. raw:: html
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ap9-Fdlb7Fo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Developed for **METplus Version 3.1**.
 
@@ -17,8 +17,8 @@ Developed for **METplus Version 3.1**.
 * *Terminal for sample data location*
 * *Terminal for installation location*
 * *Have user-specific configuration file ready*
-* *Terminal for user-specific configuration file*
 * *METplus webpage pulled up*
+* *METplus User's Guide pulled up*  
 * *Have versions filled in below*
 * *Have test command filled in below with proper locations*
 
@@ -39,11 +39,17 @@ Now we can unpack the file we downloaded by running the command:
 
   tar zxf v3.1.tar.gz
 
+And we users can remove the .tar.gz file to save some space:
+
+.. code-block::
+
+  rm v3.1.tar.gz
+  
 to unpack the METplus package.
 
 You'll also need to decide on a location to put some sample data so that you can run a test case to ensure everything is set up correctly.  If you're installing METplus for many users, you may want to download all of the sample data so that users can run a variety of cases.  We have a location picked out for this example, and we'll modify the configuration parameters to point to this sample data and to the installation of the MET tools.
 
-Let's go into the parm/metplus_config subdirectory.  We'll modify two files here.  First, we'll open metplus_system.conf for editing.  We want to change the value of MET_INSTALL_DIR from "/path/to" to the location of the MET installation we want to use.  In this case, we'll use the MET version 9.1 installation and we'll list the full path to the top level installation directory.  Next, we'll open metplus_data.conf for editing.  We want to change the value of INPUT_BASE to point to the location of the sample data.  We'll use the full path to the sample data..  
+Let's go into the parm/metplus_config subdirectory.  We'll modify two files here.  First, we'll open metplus_system.conf for editing.  We want to change the value of MET_INSTALL_DIR from "/path/to" to the location of the MET installation we want to use.  In this case, we'll use the MET version 9.1 installation and we'll list the full path to the top level installation directory.  Next, we'll open metplus_data.conf for editing.  We want to change the value of INPUT_BASE to point to the location of the sample data.  We'll use the full path to the sample data.
 
 For this example, we will run a case using the data from the MET tool wrapper sample data set, so we'll grab the applicable data set.  In the Releases section of the METplus GitHub repository, also in the "Assets" section, we'll grab the "sample_data-met_tool_wrapper-3.1.tgz" file by right clicking on the the file and selecting "Copy Link Address".  Going back to the terminal window, we will go into the directory where we decided to put the sample data. We would type "wget", space, and then paste in the link that we copied and hit enter, but as you can see, I did this just before this video so that we wouldn't have to spend time waiting for the data to download.
 
