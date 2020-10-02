@@ -9,11 +9,15 @@ METviewer Docker Container
 
 .. note::
 
-  Developed for **METplus Version 3.1**.
+  Developed for **METplus Version 3.1** with **METviewer 3.1**.
 
 .. note::
 
   **Follow Along!** with these exercises by downloading the **_`met-9.1 output data <https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz>`_** tarfile.
+
+.. note::
+
+  Requires **docker**, **docker-compose**, **curl**, and **tar** commands.
 
 *Preparation:*
 
@@ -54,8 +58,8 @@ and pasted into you terminal window. If hello-world was successful, you should s
 message followed by some information and links. If this command did not run succesfully, please exit this video
 and work on your Docker installation.
 
-METviewer Software 
-------------------
+Docker-Compose File 
+-------------------
 
 The METviewer software aggregates and plots statistical output of the Model Evaluation Tools, or MET, software.
 Both MET and METviewer are components of a large suite of tools, named METplus. To learn more about MET, METviewer,
@@ -67,7 +71,77 @@ application. So let's start by downloading that Docker-Compose file from the MET
 
 .. code-block::
 
-  curl https://raw.githubusercontent.com/dtcenter/METviewer/main_v3.1/docker/docker-compose.yml > docker-compose.yml
+  curl -SL https://raw.githubusercontent.com/dtcenter/METviewer/main_v3.1/docker/docker-compose.yml > docker-compose.yml
+
+Let's take a look at the docker-compose.yml file.
+
+.. code-block::
+
+  cat docker-compose.yml
+
+Notice that it references some environment variables:
+- ${METVIEWER_DOCKER_IMAGE} is the name and version of METviewer that you'd like to run.
+- ${METVIEWER_DATA} is directory on your machine where MET output files live that you'd like to load.
+- ${MYSQL_DIR} is the directory on your machine where the MySQL database files should be written.
+- ${METVIEWER_DIR} is the directory where METviewer should write its output files.
+
+Environment
+-----------
+
+For this tutorial, we'll download some sample MET output files by pulling a sample data tarfile and untarring it.
+
+.. code-block::
+
+  curl -SL https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz | tar -xzC .
+
+This curl command creates a directory named **met_out** which contains the MET output files that are created
+by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
+output and define the expected environment variables. Notice that I'm using `pwd` to reference your current
+working directory and define full paths instead of relative paths.
+
+.. code-block::
+
+  mkdir MySQL METviewer
+  export METVIEWER_DATA=`pwd`/met_out
+  export MYSQL_DIR=`pwd`/MySQL
+  export METVIEWER_DIR=`pwd`/METviewer
+  export METVIEWER_DOCKER_IMAGE=dtcenter/metviewer
+
+With this setting, Docker will pull the latest version of the METviewer image from the DTCenter organization
+on `DockerHub <https://hub.docker.com/repository/docker/dtcenter/metviewer/tags?page=1>`_.
+
+Launch METviewer
+----------------
+
+Now that our environment is setup, we can launch METviwer with a single command:
+
+.. code-block::
+
+  docker-compose up -d
+
+If this your first time launching METviewer, this Docker-Compose command will automatically download the MySQL
+and METviewer images from DockerHub prior to bringing up the METviewer application. The time required to
+download these images will vary based on your network speed. Or if you have already launched METviewer previously,
+as I have, Docker will use the images that already exist on your machine. Next, copy the follow URL into a web
+browser on your machine to see the METviewer GUI:
+
+**http://localhost:8080/metviewer/metviewer1.jsp**
+
+So now METviewer is up and running on your machine and the GUI is accessible via a web browser. If you click
+on the **Select Databases** button at the top of the GUI, you'll find that the list is empty.
+
+Load Data
+---------
+
+So the next step is loading our sample MET output files into a METviewer database. METviewer requires that the
+user create an XML file to define the location and type of data you'd like to load. This is a called a
+load spec file. For convenience, we've included a load spec file in the sample data tarfile. On your machine,
+this is in the **met_out** directory, but that directory is mapped in the METviewer software container to a directory
+named **/data**. Since the METviewer load occurs inside the container, the load spec references that **/data** directory.
+
+.. code-block::
+
+  cat met_out/load_met_out.xml
 
 JHG, start working here.
 This automatically downloads the latest version of the **metplus-training** image from the
