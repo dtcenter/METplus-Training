@@ -95,9 +95,9 @@ For this tutorial, we'll download some sample MET output files by pulling a samp
 
   curl -SL https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz | tar -xzC .
 
-This curl command creates a directory named **met_out** which contains the MET output files that are created
+This *curl* command creates a directory named **met_out** which contains the MET output files that are created
 by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
-output and define the expected environment variables. Notice that I'm using `pwd` to reference your current
+output and define the expected environment variables. Notice that I'm using *pwd* to reference your current
 working directory and define full paths instead of relative paths.
 
 .. code-block::
