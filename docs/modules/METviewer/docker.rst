@@ -123,8 +123,8 @@ Now that our environment is setup, we can launch METviwer with a single command:
 If this your first time launching METviewer, this Docker-Compose command will automatically download the MySQL
 and METviewer images from DockerHub prior to bringing up the METviewer application. The time required to
 download these images will vary based on your network speed. Or if you have already launched METviewer previously,
-as I have, Docker will use the images that already exist on your machine. Next, copy the follow URL into a web
-browser on your machine to see the METviewer GUI:
+as I have, Docker will use the images that already exist on your machine. Next, copy the following URL into a web
+browser to see the METviewer GUI:
 
 **http://localhost:8080/metviewer/metviewer1.jsp**
 
