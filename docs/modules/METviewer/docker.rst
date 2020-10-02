@@ -128,21 +128,23 @@ browser to see the METviewer GUI:
 
 **http://localhost:8080/metviewer/metviewer1.jsp**
 
-So now METviewer is up and running on your machine and the GUI is accessible via a web browser. If you click
-on the **Select Databases** button at the top of the GUI, you'll find that the list is empty.
+METviewer is now up and running on your machine and the GUI is accessible via a web browser. But if you click
+on the **Select Databases** button at the top of the GUI, you'll find that the list of databases is empty.
 
 Load Data
 ---------
 
-So the next step is loading our sample MET output files into a METviewer database. METviewer requires that the
+The next step is loading our sample MET output files into a METviewer database. METviewer requires that the
 user create an XML file to define the location and type of data you'd like to load. This is a called a
-load spec file. For convenience, we've included a load spec file in the sample data tarfile. On your machine,
-this is in the **met_out** directory, but that directory is mapped in the METviewer software container to a directory
-named **/data**. Since the METviewer load occurs inside the container, the load spec references that **/data** directory.
+load spec file. For convenience, we've included a load spec in the sample data tarfile. On your machine,
+the sample data is in the **met_out** directory, but that directory is mounted inside the METviewer container
+to a directory named **/data**. Since the METviewer load occurs *inside* the container, the load spec references
+that **/data** directory.
 
 .. code-block::
 
   cat met_out/load_met_out.xml
+
 
 JHG, start working here.
 This automatically downloads the latest version of the **metplus-training** image from the
