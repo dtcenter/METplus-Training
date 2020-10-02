@@ -81,10 +81,10 @@ Let's take a look at the docker-compose.yml file.
 
 Notice that it references some environment variables:
 
-* ***${METVIEWER_DOCKER_IMAGE}** is the name and version of METviewer that you'd like to run.*
-* ***${METVIEWER_DATA}** is directory on your machine where MET output files live that you'd like to load.*
-* ***${MYSQL_DIR}** is the directory on your machine where the MySQL database files should be written.*
-* ***${METVIEWER_DIR}** is the directory where METviewer should write its output files.*
+* **${METVIEWER_DOCKER_IMAGE}** is the name and version of METviewer that you'd like to run.
+* **${METVIEWER_DATA}** is directory on your machine where MET output files live that you'd like to load.
+* **${MYSQL_DIR}** is the directory on your machine where the MySQL database files should be written.
+* **${METVIEWER_DIR}** is the directory where METviewer should write its output files.
 
 Environment
 -----------
