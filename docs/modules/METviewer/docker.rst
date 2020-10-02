@@ -61,7 +61,7 @@ and work on your Docker installation.
 Docker-Compose File 
 -------------------
 
-The METviewer software aggregates and plots statistical output of the Model Evaluation Tools, or MET, software.
+The METviewer software aggregates and plots statistical output from the Model Evaluation Tools, or MET, software.
 Both MET and METviewer are components of a large suite of tools, named METplus. To learn more about MET, METviewer,
 or any of the other METplus software components, please see the Developmental Testbed Center website at dtcenter.org.
 
