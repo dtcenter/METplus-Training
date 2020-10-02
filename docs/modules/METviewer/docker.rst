@@ -13,31 +13,31 @@ METviewer Docker Container
 
 .. note::
 
-  **Follow Along!** with these exercises using **met_tool_wrapper** data.
+  **Follow Along!** with these exercises by downloading the **_`met-9.1 output data <https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz>`_** tarfile.
 
 *Preparation:*
 
-* *Pull the metplus-training image (docker pull dtcenter/metplus-training)*
-* *Pull the metplus-data image (docker pull dtcenter/metplus-data:3.1-met_tool_wrapper)*
+* *Pull the metviewer image (docker pull dtcenter/metviewer)*
+* *Download sample data tarfile (wget https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz)*
 
 (*Introduction*)
 
-In this video, we will setup the METplus training environment using Docker containers.
+In this video, we will launch and run the METviewer database and display software using Docker containers.
 
 Docker Software
 ---------------
 
-We assume that you are working on a machine on which the Docker software has already been installed and is available in your path.
+We assume that you are working on a machine on which the Docker software has already been installed.
+METviewer uses container orchestration provided by Docker-Compose. Let's make sure that both docker
+and docker-compose are available in your path.
 
 .. code-block::
 
   which docker
+  which docker-compose
 
-If you do not have Docker installed on your machine, please exit this video and proceed to the Docker
-website at https://www.docker.com.
-
-Installing Docker requires privileged user access to your machine. If you do not have that level of access,
-please consider one of the other options for setting up a METplus training environment.
+If you do not have Docker or Docker-Compose installed on your machine, please exit this video and proceed to the Docker
+website at http://www.docker.com.
 
 We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
 opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows.
@@ -50,32 +50,26 @@ So we will start by running the Docker Hello World command:
   docker run --rm hello-world
 
 If you are following along with the script of this video, all commands shown in code blocks may be copied
-and pasted into you terminal window.
+and pasted into you terminal window. If hello-world was successful, you should see a **Hello from Docker!**
+message followed by some information and links. If this command did not run succesfully, please exit this video
+and work on your Docker installation.
 
-This **docker run** command first looks for an image named **hello-world** on your machine.
-If found, it creates a software container from that image and executes the default command.
-Or, more likely, if **hello-world** does not yet exist on your machine, Docker will automatically
-download it from DockerHub at https://hub.docker.com prior to executing the default command.
-We'll talk more about the **\-\-rm** option that we used later on.
+METviewer Software 
+------------------
 
-If successful, you should see a **Hello from Docker!** message followed by some information and links.
-If this command did not run succesfully, please exit this video and work on your Docker installation.
+The METviewer software aggregates and plots statistical output of the Model Evaluation Tools, or MET, software.
+Both MET and METviewer are components of a large suite of tools, named METplus. To learn more about MET, METviewer,
+or any of the other METplus software components, please see the Developmental Testbed Center website at dtcenter.org.
 
-METplus Software 
-----------------
-
-Docker containers are provided for both the METplus software and sample input datasets.
-Many training exercises require that a sample input dataset container be mounted when the
-software container is run. We will start by running the METplus container without sample input data,
-but we will cover that topic later on in this video.
- 
-Now that we've verified that Docker is running well, we only need to run one more command to
-launch a METplus container:
+Running METviewer through Docker requires two software images: one for the METviewer software itself and a second
+for the MySQL database component. A Docker-Compose YML file defines how they work together to run the METviewer
+application. So let's start by downloading that Docker-Compose file from the METviewer GitHub repository:
 
 .. code-block::
 
-  docker run -it --rm --name metplus dtcenter/metplus-training /bin/bash
+  curl https://raw.githubusercontent.com/dtcenter/METviewer/main_v3.1/docker/docker-compose.yml > docker-compose.yml
 
+JHG, start working here.
 This automatically downloads the latest version of the **metplus-training** image from the
 DTC organization on DockerHub, unless you have already done so, which I have.
 This image is much larger than **hello-world** and will take much longer to retrieve.
