@@ -31,11 +31,11 @@ Docker Software
 ---------------
 
 We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
-opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows.
+launching a terminal emulator on Windows, or opening the **Terminal** application on a Mac, as I've done here. 
 
 We assume that you are working on a machine on which the Docker software has already been installed.
-METviewer uses container orchestration provided by Docker-Compose. Let's make sure that both docker
-and docker-compose are available in your path.
+METviewer uses container orchestration provided by Docker-Compose. Let's make sure that both **docker**
+and **docker-compose** are available in your path.
 
 .. code-block::
 
@@ -45,7 +45,7 @@ and docker-compose are available in your path.
 If you do not have Docker or Docker-Compose installed on your machine, please exit this video and proceed to the Docker
 website at http://www.docker.com.
 
-Next, let's test that Docker is running properly on your machine by running the Docker Hello World command:
+Next, let's test that Docker is running properly on your machine by running the Docker **Hello World** command:
 
 .. code-block::
 
@@ -71,7 +71,7 @@ application. So let's start by downloading that Docker-Compose file from the MET
 
   curl -SL https://raw.githubusercontent.com/dtcenter/METviewer/main_v3.1/docker/docker-compose.yml > docker-compose.yml
 
-Let's take a look at the docker-compose.yml file.
+Let's take a look at the **docker-compose.yml** file.
 
 .. code-block::
 
@@ -96,7 +96,7 @@ For this tutorial, we'll get some MET output files by downloading a sample data 
 This *curl* command creates a directory named **met_out** which contains the MET output files that are created
 by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
 output and define the expected environment variables. Notice that I'm using *pwd* to reference your current
-working directory and define full paths instead of relative paths.
+working directory and define full paths instead of relative ones.
 
 .. code-block::
 
@@ -112,7 +112,8 @@ on `DockerHub <https://hub.docker.com/repository/docker/dtcenter/metviewer/tags?
 Launch METviewer
 ----------------
 
-Now that our environment is setup, we can launch METviwer with a single command:
+Now that our environment is setup, we can launch METviwer with a single command from the directory that
+contains the docker-compose.yml file:
 
 .. code-block::
 
@@ -131,7 +132,7 @@ Let's check to see what containers are now running through Docker.
 
 You should see two containers up and running named **metviewer_1** and **mysql_mv**.
 
-Next, copy the following URL into a web browser to see the METviewer GUI:
+Next, copy and paste the following URL into a web browser to see the METviewer GUI:
 
 **http://localhost:8080/metviewer/metviewer1.jsp**
 
@@ -143,7 +144,7 @@ Load Data
 
 The next step is loading our sample MET output files into a METviewer database. METviewer requires that the
 user create an XML file to define the location and type of data you'd like to load. This is a called a
-load spec file. For convenience, we've included a load spec in the sample data tarfile. On your machine,
+*load spec* file. For convenience, we've included a load spec in the sample data tarfile. On your machine,
 the sample data is in the **met_out** directory, but that directory is mounted inside the METviewer container
 to a directory named **/data**. Since the METviewer load occurs *inside* the container, the load spec references
 that **/data** directory.
@@ -166,7 +167,7 @@ interactive terminal session.
   docker exec -it metviewer_1 /bin/bash
 
 Once inside the container, run the following commands to create a new database named **mv_met_out** and apply
-the METviwer schema to it. These two steps are required prior to loaded data into a new database.
+the METviewer schema to it. These two steps are required prior to loading data into any new database.
 
 .. code-block::
 
@@ -187,35 +188,36 @@ The load script requires a single argument which is the load XML file. The load 
 **----  MVLoad Done  ----**
 
 Scrolling up, you'll see that it lists information about how much MET output was loaded and how
-long it took to load it. Next, type *exit* to log out of the container and then go back to your
+long it took to load. Next, type *exit* to log out of the container.
 web browser.
 
 .. code-block::
 
   exit
 
-Whenever adding a new database, you need to click on the **Reload Databases** button in the upper-right
-corner to tell the GUI to re-query the list of databases. Also, clear the browser cache by holding down the
-shift key and clicking the refresh button. This works on the Chrome browser, but the process for clearing
-your cache may differ on other browsers.
+Then, go back to your web browser. Whenever adding a new database, you need to click the
+**Reload Databases** button in the upper-right corner to tell the GUI to re-query the list of databases.
+Also, clear the browser cache by holding down the shift key and clicking the refresh button. This works
+on the Chrome browser, but the process for clearing your cache may differ on other browsers.
 
 Checking the list of databases, we now see one named **mv_met_out** in a group named **METplus-Training**.
-Note that this tutorial does not cover actually making plots with METviewer, just launching it with Docker.
+Note that this tutorial does not describe how to actually make plots with METviewer, just launching it
+through Docker.
 
 You can follow these steps to load your own MET output data into METviewer. Be sure to create a new load
-spec XML file to describe the location of your data. And you can either load all of your data into a single
-database or create multiple ones.
+spec XML file to describe the location of your data. You can either load all of your data into a single
+database or organize you data into multiple databases.
 
 .. note::
 
-  If you want to overwrite a database with new output, be sure to run a **mysql** drop command before
-  recreating the database, similar to the following:
-  mysql -hmysql_mv -uroot -pmvuser -e"drop database mv_met_out;
+  If you want to overwrite the contents of an existing database, be sure to run a **mysql** drop command
+  before recreating the database, similar to the following:
+  **mysql -hmysql_mv -uroot -pmvuser -e"drop database mv_met_out;**
 
 Relaunch METviewer
 ------------------
 
-Next, let's bring the METviewer application down. After making sure that we're in the directory that contains
+Next, let's take the METviewer application down. After making sure that we're in the directory that contains
 the **docker-compose.yml** file, we'll run:
 
 .. code::
