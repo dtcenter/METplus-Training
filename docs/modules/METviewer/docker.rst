@@ -190,8 +190,8 @@ The **/METviewer** directory contains the METviewer software:
 In particular, the **sql** subdirectory contains a file which defines the database schema.
 The **R_tmpl** directory contains plot templates. And the **bin** directory contains scripts which load data
 into a database, prune data out of a database, and generate plots, both a summary scorecard and plots that can be
-created through the GUI. The **mv_batch.sh** script can be used to generate METviewer plots in an automated way
-instead of running interactively through the GUI.
+created through the GUI. The **mv_batch.sh** script creates plots on the commands line instead of running
+interactively through the GUI. It allows METviewer plotting to be automated through cron or some other run script. 
 
 This container also includes *java* and *python* since both are used in this version of METviewer:
 
