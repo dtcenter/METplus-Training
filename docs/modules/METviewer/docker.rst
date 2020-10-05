@@ -17,8 +17,7 @@ METviewer Docker Container
 
 .. note::
 
-  Requires **docker**, **docker-compose**, **curl**, and **tar** commands.
-
+  Requires commands: **docker**, **docker-compose**, **curl**, **tar**
 *Preparation:*
 
 * *Pull the metviewer image (docker pull dtcenter/metviewer)*
