@@ -31,6 +31,9 @@ In this video, we will launch and run the METviewer database and display softwar
 Docker Software
 ---------------
 
+We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
+opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows.
+
 We assume that you are working on a machine on which the Docker software has already been installed.
 METviewer uses container orchestration provided by Docker-Compose. Let's make sure that both docker
 and docker-compose are available in your path.
@@ -43,11 +46,7 @@ and docker-compose are available in your path.
 If you do not have Docker or Docker-Compose installed on your machine, please exit this video and proceed to the Docker
 website at http://www.docker.com.
 
-We will begin by launching a terminal window in which we can execute commands. Do this by running **xterm** on a Linux machine,
-opening the **Terminal** app on a Mac, or launching a terminal emulator on Windows.
-
-After you have launched a terminal window, let's test that Docker is running properly on your machine.
-So we will start by running the Docker Hello World command:
+Next, let's test that Docker is running properly on your machine by running the Docker Hello World command:
 
 .. code-block::
 
