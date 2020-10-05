@@ -200,8 +200,8 @@ This container also includes *java* and *python* since both are used in this ver
   which java
   which python
 
-Create Database
----------------
+Create and Load a Database
+--------------------------
 
 From inside the container, run the following commands to create a new database named **mv_met_out** and apply
 the METviewer schema to it. These two steps are required prior to loading data into any new database.
