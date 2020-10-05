@@ -95,17 +95,28 @@ For this tutorial, we'll get some MET output files by downloading a sample data 
 
 This *curl* command creates a directory named **met_out** which contains the MET output files that are created
 by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
-output and define the expected environment variables. Notice that I'm using *pwd* to reference your current
-working directory and define full paths instead of relative ones.
+output and define the expected environment variables. The following commands use the syntax for the bash shell,
+but the corresponding commands for c-shell are included in the script of this video. Notice that I'm using *pwd*
+to reference your current working directory and define full paths instead of relative ones.
 
 .. code-block::
 
+  # For bash shell
   mkdir MySQL METviewer
   export METVIEWER_DATA=`pwd`/met_out
   export MYSQL_DIR=`pwd`/MySQL
   export METVIEWER_DIR=`pwd`/METviewer
   export METVIEWER_DOCKER_IMAGE=dtcenter/metviewer
 
+.. code-block::
+
+  # For c-shell
+  mkdir MySQL METviewer
+  setenv METVIEWER_DATA `pwd`/met_out
+  setenv MYSQL_DIR `pwd`/MySQL
+  setenv METVIEWER_DIR `pwd`/METviewer
+  setenv METVIEWER_DOCKER_IMAGE dtcenter/metviewer
+  
 With this setting, Docker will pull the latest version of the METviewer image from the DTCenter organization
 on `DockerHub <https://hub.docker.com/repository/docker/dtcenter/metviewer/tags?page=1>`_.
 
@@ -139,8 +150,8 @@ Next, copy and paste the following URL into a web browser to see the METviewer G
 METviewer is now up and running on your machine and the GUI is accessible via a web browser. But if you click
 on the **Select Databases** button at the top of the GUI, you'll find that the list of databases is empty.
 
-Load Data
----------
+Load XML
+--------
 
 The next step is loading our sample MET output files into a METviewer database. METviewer requires that the
 user create an XML file to define the location and type of data you'd like to load. This is a called a
@@ -153,12 +164,15 @@ that **/data** directory.
 
   cat met_out/load_met_out.xml
 
-The **<folder_tmpl>*** tag is important to note. It defines the directories that contain MET output files that
+The **<folder_tmpl>** tag is important to note. It defines the directories that contain MET output files that
 should be loaded into METviewer. And notice that the **<database>** tag indicates that we want to load
 data into a database named **mv_met_out**. But before we're able to do that, we'll need to run commands
 to first *create* that database and then second apply the METviewer *schema* to it.
 
-We run *docker exec* to execute commands inside of a container that's already up and running. We'll launch an
+Explore METviewer
+-----------------
+
+We run the *docker exec* to execute commands inside of a container that's already up and running. We'll launch an
 interactive *bash* shell inside the container to effectively log into it. The *-it* option provides an
 interactive terminal session.
 
@@ -166,7 +180,30 @@ interactive terminal session.
 
   docker exec -it metviewer_1 /bin/bash
 
-Once inside the container, run the following commands to create a new database named **mv_met_out** and apply
+Before creating a new database, let me point out the location of a few things inside the METviewer container.
+The **/METviewer** directory contains the METviewer software:
+
+.. code-block::
+
+  ls /METviewer/*
+
+In particular, the **sql** subdirectory contains a file which defines the database schema.
+The **R_tmpl** directory contains plot templates. And the **bin** directory contains scripts which load data
+into a database, prune data out of a database, and generate plots, both a summary scorecard and plots that can be
+created through the GUI. The **mv_batch.sh** script can be used to generate METviewer plots in an automated way
+instead of running interactively through the GUI.
+
+This container also includes *java* and *python* since both are used in this version of METviewer:
+
+.. code-block::
+
+  which java
+  which python
+
+Create Database
+---------------
+
+From inside the container, run the following commands to create a new database named **mv_met_out** and apply
 the METviewer schema to it. These two steps are required prior to loading data into any new database.
 
 .. code-block::
@@ -188,14 +225,7 @@ The load script requires a single argument which is the load XML file. The load 
 **----  MVLoad Done  ----**
 
 Scrolling up, you'll see that it lists information about how much MET output was loaded and how
-long it took to load. Next, type *exit* to log out of the container.
-web browser.
-
-.. code-block::
-
-  exit
-
-Then, go back to your web browser. Whenever adding a new database, you need to click the
+long it took to load. Then, go back to your web browser. Whenever adding a new database, you need to click the
 **Reload Databases** button in the upper-right corner to tell the GUI to re-query the list of databases.
 Also, clear the browser cache by holding down the shift key and clicking the refresh button. This works
 on the Chrome browser, but the process for clearing your cache may differ on other browsers.
@@ -217,8 +247,15 @@ database or organize you data into multiple databases.
 Relaunch METviewer
 ------------------
 
-Next, let's take the METviewer application down. After making sure that we're in the directory that contains
-the **docker-compose.yml** file, we'll run:
+Next, let's take the METviewer application down. Since we're still logged into the container, we will first
+need to exit out of it:
+
+.. code-block::
+
+  exit
+
+After making sure that we're in the directory containing the **docker-compose.yml** file, we'll run
+**docker-compose** take it down:
 
 .. code::
 
