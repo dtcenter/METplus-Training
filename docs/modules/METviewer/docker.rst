@@ -119,7 +119,7 @@ on `DockerHub <https://hub.docker.com/repository/docker/dtcenter/metviewer/tags?
 Launch METviewer
 ----------------
 
-Now that our environment is setup, we can launch METviwer with a single command from the directory that
+Now that our environment is setup, we can launch METviewer with a single command from the directory that
 contains the docker-compose.yml file:
 
 .. code-block::
