@@ -139,7 +139,7 @@ Let's check to see what containers are now running through Docker.
 
 You should see two containers up and running named **metviewer_1** and **mysql_mv**.
 
-Next, copy and paste the following URL into a web browser to see the METviewer GUI:
+Next, copy and paste the METviewer URL into a web browser to see the METviewer GUI:
 
 **http://localhost:8080/metviewer/metviewer1.jsp**
 
