@@ -25,7 +25,7 @@ METviewer Docker Container
 
 (*Introduction*)
 
-In this video, we will launch and run the METviewer database and display software using Docker containers.
+In this video, we will launch and run the METviewer database and display software using Docker containers. The METviewer software aggregates and plots statistical output from the Model Evaluation Tools, or MET, software. If you'd like to learn more about the MET, METviewer, or any of the other METplus components, please refer to the METplus website at http://dtcenter.org.
 
 Docker Software
 ---------------
