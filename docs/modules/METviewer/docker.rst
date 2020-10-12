@@ -59,10 +59,6 @@ and work on your Docker installation.
 Docker-Compose File 
 -------------------
 
-The METviewer software aggregates and plots statistical output from the Model Evaluation Tools, or MET, software.
-Both MET and METviewer are components of a large suite of tools, named METplus. To learn more about MET, METviewer,
-or any of the other METplus components, please see the Developmental Testbed Center website at dtcenter.org.
-
 Running METviewer through Docker requires two software images: one for the METviewer software itself and a second
 for the MySQL database component. A Docker-Compose YML file defines how they work together to run the METviewer
 application. So let's start by downloading that Docker-Compose file from the METviewer GitHub repository:
