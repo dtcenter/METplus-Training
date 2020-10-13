@@ -269,6 +269,6 @@ is no longer available. Now, from the terminal window, bring METviewer back up b
 And the GUI is now available again in the browser. Not only that, but the **mv_met_out** database still exists!
 This is the reason why we write the MySQL output files to your local machine. Whenever you re-launch METviewer
 it reads any existing database information from those files. So you can start and stop the METviewer container
-whenver you'd like without losing any data.
+whenever you'd like without losing any data.
 
 Thank you for watching this video. I hope you find running METviewer through Docker to be a useful option.
