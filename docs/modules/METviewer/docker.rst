@@ -5,7 +5,7 @@ METviewer Docker Container
 
 .. raw:: html
 
-  <iframe width="1333" height="480" src="https://www.youtube.com/embed/-KrTUzr_xuY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/-KrTUzr_xuY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 .. note::
 
@@ -18,6 +18,7 @@ METviewer Docker Container
 .. note::
 
   Requires commands: **docker**, **docker-compose**, **curl**, **tar**
+
 *Preparation:*
 
 * *Pull the metviewer image (docker pull dtcenter/metviewer)*
