@@ -13,7 +13,7 @@ METviewer Docker Container
 
 .. note::
 
-  **Follow Along!** with these exercises by downloading the **_`met-9.1 output data <https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz>`_** tarfile.
+  **Follow Along!** with these exercises by downloading the met-9.1 output data `tarfile <https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz>`_.
 
 .. note::
 
