@@ -15,10 +15,9 @@ METviewer Docker Container
 
   Requires commands: **docker**, **docker-compose**, **curl**, **tar**
 
-*Preparation:*
+*Preparation for presenter:*
 
-* *Pull the metviewer image (docker pull dtcenter/metviewer)*
-* *Download sample data tarfile (wget https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz)*
+* *Pull the METviewer image (docker pull dtcenter/metviewer)*
 
 (*Introduction*)
 
