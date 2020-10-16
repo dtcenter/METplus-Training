@@ -13,10 +13,6 @@ METviewer Docker Container
 
 .. note::
 
-  **Follow Along!** with these exercises by downloading the met-9.1 output data `tarfile <https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz>`_.
-
-.. note::
-
   Requires commands: **docker**, **docker-compose**, **curl**, **tar**
 
 *Preparation:*
@@ -53,7 +49,7 @@ Next, let's test that Docker is running properly on your machine by running the 
   docker run --rm hello-world
 
 If you are following along with the script of this video, all commands shown in code blocks may be copied
-and pasted into you terminal window. If hello-world was successful, you should see a **Hello from Docker!**
+and pasted into your terminal window. If hello-world was successful, you should see a **Hello from Docker!**
 message followed by some information and links. If this command did not run succesfully, please exit this video
 and work on your Docker installation.
 
@@ -233,7 +229,7 @@ through Docker.
 
 You can follow these steps to load your own MET output data into METviewer. Be sure to create a new load
 spec XML file to describe the location of your data. You can either load all of your data into a single
-database or organize you data into multiple databases.
+database or organize your data into multiple databases.
 
 .. note::
 
