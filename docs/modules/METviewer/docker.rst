@@ -234,7 +234,7 @@ database or organize your data into multiple databases.
 
   If you want to overwrite the contents of an existing database, be sure to run a **mysql** drop command
   before recreating the database, similar to the following:
-  **mysql -hmysql_mv -uroot -pmvuser -e"drop database mv_met_out;**
+  **mysql -hmysql_mv -uroot -pmvuser -e"drop database mv_met_out;"**
 
 Relaunch METviewer
 ------------------
