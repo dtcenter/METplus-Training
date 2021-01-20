@@ -186,10 +186,9 @@
 <p class="admonition-title">Note</p>
 <p>Requires commands: <strong>docker</strong>, <strong>docker-compose</strong>, <strong>curl</strong>, <strong>tar</strong></p>
 </div>
-<p><em>Preparation:</em></p>
+<p><em>Preparation for presenter:</em></p>
 <ul class="simple">
-<li><p><em>Pull the metviewer image (docker pull dtcenter/metviewer)</em></p></li>
-<li><p><em>Download sample data tarfile (wget https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz)</em></p></li>
+<li><p><em>Pull the METviewer image (docker pull dtcenter/metviewer)</em></p></li>
 </ul>
 <p>(<em>Introduction</em>)</p>
 <p>In this video, we will launch and run the METviewer database and display software using Docker containers. The METviewer software aggregates and plots statistical output from the Model Evaluation Tools, or MET, software. If you’d like to learn more about MET, METviewer, or any of the other METplus components, please refer to the METplus website at <a class="reference external" href="http://dtcenter.org">http://dtcenter.org</a>.</p>
@@ -358,7 +357,7 @@ database or organize your data into multiple databases.</p>
 <p class="admonition-title">Note</p>
 <p>If you want to overwrite the contents of an existing database, be sure to run a <strong>mysql</strong> drop command
 before recreating the database, similar to the following:
-<strong>mysql -hmysql_mv -uroot -pmvuser -e”drop database mv_met_out;</strong></p>
+<strong>mysql -hmysql_mv -uroot -pmvuser -e”drop database mv_met_out;”</strong></p>
 </div>
 </div>
 <div class="section" id="relaunch-metviewer">
