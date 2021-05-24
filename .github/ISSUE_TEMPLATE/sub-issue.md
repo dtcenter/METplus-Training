@@ -28,5 +28,5 @@ This is a sub-issue of #*List the parent issue number here*.
 - [ ] Select **requestor(s)**
 
 ### Projects and Milestone ###
-- [ ] Review **projects** and select relevant **Repository** and **Organization** ones
-- [ ] Select **milestone**
+- [ ] Select **Repository** and/or **Organization** level **Project(s)** or add **alert: NEED PROJECT ASSIGNMENT** label
+- [ ] Select **Milestone** as the next official version or **Future Versions**
