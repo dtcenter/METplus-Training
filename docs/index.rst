@@ -23,7 +23,7 @@ or go directly to the topic of interest using the top-level navigation options.
 While videos are provided for several topics, they are certainly not comprehensive. Please feel free to recommend
 new training video topics on the `METplus Discussions <https://github.com/dtcenter/METplus/discussions>`_ page.
 
-Users are encouraged to start by setting up a :ref:`training_environment` so they can follow along with the exercises.
+Users are encouraged to start by following the :ref:`training_environment` video so they can follow along with the exercises.
 Or, if you prefer, you may navigate directly to the training modules and simply watch the videos.
 
 .. toctree::
