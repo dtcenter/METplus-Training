@@ -123,7 +123,12 @@ It is always a good idea to check for errors in the make_test.log file, so we'll
   
   grep -i error  met-9.1/make_test.log
 
-And, fortunately, we don't see any errors. If you received any errors in your make_test.log file or your installation did not go smoothly in some other aspect, please email met_help@ucar.edu with a description of the problem you experienced, and we will provide assistance.  This information is located on the MET website under `"User Support" <https://dtcenter.org/community-code/model-evaluation-tools-met/user-support>`_.  Otherwise, congratulations on your successful installation of the MET package.  
+And, fortunately, we don't see any errors. If you received any errors in your make_test.log file or your installation did not go smoothly in some other aspect, please email met_help@ucar.edu with a description of the problem you experienced, and we will provide assistance.
+
+** UPDATE AS OF 07/06/2021: ALERT: THIS E-MAIL ADDRESS, MET_HELP@UCAR.EDU, IS NO LONGER IN USE FOR SUPPORT OF THE METPLUS VERIFICATION SYSTEM.  WE ARE NO LONGER SUPPORTING NEW QUESTIONS OR MONITORING THIS EMAIL. PLEASE CREATE A FREE GITHUB ACCOUNT AND POST YOUR QUESTIONS TO THE METPLUS COMPONENTS DISCUSSION FORUM AT
+https://github.com/dtcenter/METplus/discussions. **
+
+This information is located on the MET website under `"User Support" <https://dtcenter.org/community-code/model-evaluation-tools-met/user-support>`_.  Otherwise, congratulations on your successful installation of the MET package.  
 
 Thank you for watching!
 
