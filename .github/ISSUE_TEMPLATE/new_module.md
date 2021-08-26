@@ -2,7 +2,8 @@
 name: New training module
 about: Add a new training module
 title: ''
-labels: 'type: new module'
+labels: 'alert: NEED ACCOUNT KEY, alert: NEED MORE DEFINITION, alert: NEED PROJECT
+  ASSIGNMENT, type: new module'
 assignees: ''
 
 ---
