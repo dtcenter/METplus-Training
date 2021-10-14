@@ -8,4 +8,4 @@ The following topics are provide in support of the `METplus Online Tutorial <htt
    :titlesonly:
    :numbered: 4
 
-   tutorial_setup
+   tutorial_setup/tutorial_setup
