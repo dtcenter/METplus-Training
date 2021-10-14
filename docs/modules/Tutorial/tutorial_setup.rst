@@ -32,9 +32,9 @@ Video 1: Find and Navigate the Tutorial
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup
 
 Next Video:
-If using a pre-configured environment such as Hera or Cheyenne: *ADD URL FOR Session 1 Video 2a*
+If using a pre-configured environment such as Hera or Cheyenne: ***ADD URL FOR Session 1 Video 2a***
 OR
-If using your own workstation: ***ADD URL FOR Session 1 Video 2b ***
+If using your own workstation: ***ADD URL FOR Session 1 Video 2b***
 
 Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
@@ -117,10 +117,9 @@ This page describes the prerequisites for running the tutorial instructions. It 
 
 If you are going through the tutorial on a machine that has been pre-configured to run the tutorial, such as Hera or Cheyenne, then these steps have already been completed for you. If you are going through the tutorial on your own workstation, then you will need to perform the installation steps yourself. If you have not already done so, you can refer to installation videos or the user’s guide.
 
-*provide link to relevant tutorial videos and user’s guide pages*
+***provide link to relevant tutorial videos and user’s guide pages
 METplus Training: Compiling MET - https://www.youtube.com/watch?v=tqyYVFh6vlc
-METplus Training: Installing METplus - https://www.youtube.com/watch?v=ap9-Fdlb7Fo
-
+METplus Training: Installing METplus - https://www.youtube.com/watch?v=ap9-Fdlb7Fo ***
 
 (scroll down to the Pre-Configured Environments and User Configued Environments sections)
 
@@ -132,15 +131,7 @@ If running on your own workstation, we provide instructions for using bash and c
 
 (show slide 3 - links)
 
-****** add clickable links
-ADD URL OF NEXT VIDEO
-
-Questions? Visit the METplus GitHub Discussions Forum:
-https://github.com/dtcenter/METplus/discussions
-
-METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
-******
+***add clickable links for next video and useful URLs from description***
 
 The next video in this tutorial depends on the environment you are using. If you are running the tutorial on a pre-configured environment such as Hera or Cheyenne, watch the Setup Pre-Configured Environment video next. If you are running the tutorial on your own computer, watch the Setup User Workstation Environment video next.
 
@@ -184,7 +175,7 @@ Video 2a: Set Up Pre-Configured Environment
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
 
 Next Video:
-*ADD URL FOR Session 1 Video 3*
+***ADD URL FOR Session 1 Video 3***
 
 Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
@@ -204,7 +195,7 @@ Welcome to the “Set Up Pre-Configured Environment” video, part of the “Ses
 
 (show slide 5 - Topics Covered in This Video)
 
-*Add clickable link to “Set Up User Workstation Environment” video*
+***Add clickable link to “Set Up User Workstation Environment” video***
 
 This video covers how to set up the tutorial if you are running in a pre-configured environment such as Hera or Cheyenne. If you are running on your own computer, then please watch the “Set Up User Workstation Environment” video instead.
 
@@ -234,7 +225,7 @@ At the end of each environment specific page is a link to the page titled “Ver
 
 (show slide 6 - links)
 
-*add clickable links for next video and useful links in description*
+***add clickable links for next video and useful links in description***
 
 The next video in this tutorial is titled “Verify Environment is Set Correctly.” This is an important next step to ensure that all of the instructions in this video were completed correctly.
 
@@ -279,7 +270,7 @@ Video 2b: Set Up User Workstation Environment
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
 
 Next Video:
-***ADD URL FOR Session 1 Video 3 ***
+***ADD URL FOR Session 1 Video 3***
 
 Other Relevant Videos:
 Compiling MET - https://www.youtube.com/watch?v=tqyYVFh6vlc
@@ -302,7 +293,8 @@ Script
 Welcome to the “Set Up User Workstation Environment” video, part of the “Session 1: Setup” portion of the METplus 4.0 Online Tutorial.
 
 (show slide 8 - Topics Covered in This Video)
-****** add link to “Set Up Pre-Configured Environment” video ******
+
+***add link to “Set Up Pre-Configured Environment” video***
 
 This video covers how to set up the tutorial if you are running on your own computer. If you are running in a pre-configured environment such as Hera or Cheyenne, then please watch the “Set Up Pre-Configured Environment” video instead.
 
@@ -351,15 +343,7 @@ At the end of each environment specific page is a link to the page titled “Ver
 
 (show slide 6 - links)
 
-****** add clickable links
-ADD URL OF NEXT VIDEO
-
-Questions? Visit the METplus GitHub Discussions Forum
-https://github.com/dtcenter/METplus/discussions
-
-METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
-******
+***add clickable links for next video and useful links in description***
 
 The next video in this tutorial is titled “Verify Environment is Set Correctly.” This is an important next step to ensure that all of the instructions in this video were completed correctly.
 
@@ -405,7 +389,7 @@ The content in this video corresponds to this online tutorial section:
 https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly
 
 Next Video:
-***ADD URL FOR ? ***
+***ADD URL FOR ?***
 
 Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
@@ -425,8 +409,8 @@ Welcome to the “Verify Environment is Set Correctly” video, part of the “S
 
 (show slide 11 - Topics Covered in This Video)
 
-*Add clickable links to “Set Up Pre-Configured Environment” and
-“Set up User Workstation Environment” videos*
+***Add clickable links to “Set Up Pre-Configured Environment” and
+“Set up User Workstation Environment” videos***
 
 This video covers how to check that the tutorial environment has been set up correctly.
 This video assumes you have already completed the steps covered in the “Set Up Pre-Configured Environment” video OR the “Set up User Workstation Environment” video. If you have not yet completed this step, please navigate to the appropriate video before proceeding with this video.
