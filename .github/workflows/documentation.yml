@@ -28,7 +28,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: METplus_documentation
+          name: METplus-Training_documentation
           path: artifact/documentation
       - uses: actions/upload-artifact@v2
         if: failure()
