@@ -1,11 +1,9 @@
 Session 1 Video 3: Verify Environment is Set Correctly
 ------------------------------------------------------
 
-UPDATE URL WHEN VIDEO HAS BEEN UPLOADED!
-
 .. raw:: html
 
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/KCISG0phmbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZsFE4aOYqMc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Developed for **METplus Version 4.0**.
 
