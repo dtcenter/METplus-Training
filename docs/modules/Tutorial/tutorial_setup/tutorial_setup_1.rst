@@ -7,16 +7,8 @@ Session 1 Video 1: Find and Navigate the Tutorial
 
 Developed for **METplus Version 4.0**.
 
-Preparation
+Description
 ^^^^^^^^^^^
-
-* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/modules/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting of
-  PowerPoint presentation differs between PowerPoint and Google Drive!
-  Please use PowerPoint if available or copy file and adjust formatting)
-* Open a web browser
-
-Description (add to YouTube video)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
 Session 1 : Setup
@@ -25,9 +17,9 @@ Video 1: Find and Navigate the Tutorial
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup
 
 Next Video:
-If using a pre-configured environment such as Hera or Cheyenne: ***ADD URL FOR Session 1 Video 2a***
+If using a pre-configured environment such as Hera or Cheyenne: https://www.youtube.com/watch?v=lfmas6la_Tk
 OR
-If using your own workstation: ***ADD URL FOR Session 1 Video 2b***
+If using your own workstation: https://www.youtube.com/watch?v=9EP59dp8Xp0
 
 Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
@@ -37,6 +29,14 @@ https://dtcenter.org/community-code/metplus
 
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
+
+Preparation for Presenter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/modules/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting of
+  PowerPoint presentation differs between PowerPoint and Google Drive!
+  Please use PowerPoint if available or copy file and adjust formatting)
+* Open a web browser
 
 Script
 ^^^^^^
@@ -110,11 +110,7 @@ This page describes the prerequisites for running the tutorial instructions. It 
 
 If you are going through the tutorial on a machine that has been pre-configured to run the tutorial, such as Hera or Cheyenne, then these steps have already been completed for you. If you are going through the tutorial on your own workstation, then you will need to perform the installation steps yourself. If you have not already done so, you can refer to installation videos or the user’s guide.
 
-***provide link to relevant tutorial videos and user’s guide pages
-METplus Training: Compiling MET - https://www.youtube.com/watch?v=tqyYVFh6vlc
-METplus Training: Installing METplus - https://www.youtube.com/watch?v=ap9-Fdlb7Fo ***
-
-(scroll down to the Pre-Configured Environments and User Configued Environments sections)
+(scroll down to the Pre-Configured Environments and User Configured Environments sections)
 
 Click on the appropriate link to navigate to the instructions that are specific to the environment you are using.
 
@@ -123,8 +119,6 @@ For all environments, the instructions include steps to determine a working area
 If running on your own workstation, we provide instructions for using bash and c-shell. We recommend using bash if you do not have a preference.
 
 (show slide 3 - links)
-
-***add clickable links for next video and useful URLs from description***
 
 The next video in this tutorial depends on the environment you are using. If you are running the tutorial on a pre-configured environment such as Hera or Cheyenne, watch the Setup Pre-Configured Environment video next. If you are running the tutorial on your own computer, watch the Setup User Workstation Environment video next.
 

@@ -7,19 +7,8 @@ Session 1 Video 3: Verify Environment is Set Correctly
 
 Developed for **METplus Version 4.0**.
 
-Preparation
+Description
 ^^^^^^^^^^^
-
-* Slides: metplus_online_tutorial_session_1_setup.pptx (note formatting
-  of PowerPoint presentation differs between PowerPoint and Google Drive!
-  Please use PowerPoint if available or copy file and adjust formatting)
-* Open a web browser
-* Open a terminal on your own machine and set
-  the PS1 environment variable to something that hides the user and machine
-  names, i.e. export PS1="$~"
-
-Description (add to YouTube video)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
 Session 1 : Setup
@@ -40,6 +29,17 @@ https://dtcenter.org/community-code/metplus
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
 
+Preparation for Presenter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/modules/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting
+  of PowerPoint presentation differs between PowerPoint and Google Drive!
+  Please use PowerPoint if available or copy file and adjust formatting)
+* Open a web browser
+* Open a terminal on your own machine and set
+  the PS1 environment variable to something that hides the user and machine
+  names, i.e. export PS1="$~"
+
 Script
 ^^^^^^
 
@@ -48,9 +48,6 @@ Script
 Welcome to the “Verify Environment is Set Correctly” video, part of the “Session 1: Setup” portion of the METplus 4.0 Online Tutorial.
 
 (show slide 11 - Topics Covered in This Video)
-
-***Add clickable links to “Set Up Pre-Configured Environment” and
-“Set up User Workstation Environment” videos***
 
 This video covers how to check that the tutorial environment has been set up correctly.
 This video assumes you have already completed the steps covered in the “Set Up Pre-Configured Environment” video OR the “Set up User Workstation Environment” video. If you have not yet completed this step, please navigate to the appropriate video before proceeding with this video.

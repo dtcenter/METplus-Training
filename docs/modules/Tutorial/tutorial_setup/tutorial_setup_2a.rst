@@ -7,19 +7,8 @@ Session 1 Video 2a: Set Up Pre-Configured Environment
 
 Developed for **METplus Version 4.0**.
 
-Preparation
+Description
 ^^^^^^^^^^^
-
-* Slides: metplus_online_tutorial_session_1_setup.pptx (note formatting
-  of PowerPoint presentation differs between PowerPoint and Google Drive!
-  Please use PowerPoint if available or copy file and adjust formatting)
-* Open a web browser
-* Open a terminal on a pre-configured machine such as Hera or Cheyenne and set
-  the PS1 environment variable to something that hides the user and machine
-  names, i.e. export PS1="$~"
-
-Description (add to YouTube video)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
 Session 1 : Setup
@@ -28,7 +17,7 @@ Video 2a: Set Up Pre-Configured Environment
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
 
 Next Video:
-***ADD URL FOR Session 1 Video 3***
+https://www.youtube.com/embed/ZsFE4aOYqMc
 
 Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
@@ -39,6 +28,17 @@ https://dtcenter.org/community-code/metplus
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
 
+Preparation for Presenter
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/modules/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting
+  of PowerPoint presentation differs between PowerPoint and Google Drive!
+  Please use PowerPoint if available or copy file and adjust formatting)
+* Open a web browser
+* Open a terminal on a pre-configured machine such as Hera or Cheyenne and set
+  the PS1 environment variable to something that hides the user and machine
+  names, i.e. export PS1="$~"
+
 Script
 ^^^^^^
 
@@ -47,8 +47,6 @@ Script
 Welcome to the “Set Up Pre-Configured Environment” video, part of the “Session 1: Setup” portion of the METplus 4.0 Online Tutorial.
 
 (show slide 5 - Topics Covered in This Video)
-
-***Add clickable link to “Set Up User Workstation Environment” video***
 
 This video covers how to set up the tutorial if you are running in a pre-configured environment such as Hera or Cheyenne. If you are running on your own computer, then please watch the “Set Up User Workstation Environment” video instead.
 
@@ -77,8 +75,6 @@ The tutorial setup script runs any module commands, if applicable, and sets envi
 At the end of each environment specific page is a link to the page titled “Verify Environment is Set Correctly.”
 
 (show slide 6 - links)
-
-***add clickable links for next video and useful links in description***
 
 The next video in this tutorial is titled “Verify Environment is Set Correctly.” This is an important next step to ensure that all of the instructions in this video were completed correctly.
 
