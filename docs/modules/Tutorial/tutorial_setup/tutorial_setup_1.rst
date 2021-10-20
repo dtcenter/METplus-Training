@@ -10,7 +10,7 @@ Developed for **METplus Version 4.0**.
 Preparation
 ^^^^^^^^^^^
 
-* Slides: metplus_online_tutorial_session_1_setup.pptx (note formatting of
+* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/modules/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting of
   PowerPoint presentation differs between PowerPoint and Google Drive!
   Please use PowerPoint if available or copy file and adjust formatting)
 * Open a web browser
