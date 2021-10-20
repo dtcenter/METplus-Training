@@ -7,8 +7,8 @@ Session 1 Video 3: Verify Environment is Set Correctly
 
 Developed for **METplus Version 4.0**.
 
-Preparation:
-^^^^^^^^^^^^
+Preparation
+^^^^^^^^^^^
 
 * Slides: metplus_online_tutorial_session_1_setup.pptx (note formatting
   of PowerPoint presentation differs between PowerPoint and Google Drive!
