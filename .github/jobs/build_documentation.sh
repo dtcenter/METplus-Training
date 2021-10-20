@@ -19,7 +19,12 @@ cp -r ${DOCS_DIR}/_build/html/* artifact/documentation
 # so it will be available in the artifacts
 warning_file=${DOCS_DIR}/_build/warnings.log
 if [ -s $warning_file ]; then
-    cp -r ${DOCS_DIR}/_build/warnings.log artifact/doc_warnings.log
+    cp -r ${warning_file} artifact/doc_warnings.log
     cp artifact/doc_warnings.log artifact/documentation
+    echo ERROR: Warnings/Errors found in documentation
+    echo Summary:
+    grep WARNING ${warning_file}
+    grep ERROR ${warning_file}
+    echo Review this log file or download documentation_warnings.log artifact
     exit 1
 fi

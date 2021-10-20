@@ -1,0 +1,25 @@
+THIS PAGE IS UNFINISHED! THE CONTENT MAY CHANGE
+
+
+***START OF VIDEO TEMPLATE***
+
+Welcome to the ***[title of video]***.
+
+This video covers ***[brief description/outline of what will be covered]***.
+
+The content in this video corresponds to the METplus version 4.0 online tutorial section titled ***[title of tutorial section]*** which is found in “Session ***[session number]***: ***[title of session]***.”
+
+***remove if not relevant***
+This video tutorial assumes that you have completed ***[prerequisite video tutorial]***. If you have not, please navigate to the appropriate ***[video/videos]*** before proceeding.
+
+***END OF VIDEO TEMPLATE***
+
+The next video in this tutorial [...]
+
+If you have any questions, please visit the METplus GitHub Discussions Forum. On this page you can check if your question has already been asked by another user or create a new discussion topic.
+
+Other useful resources, such as User’s Guide and Contributor’s Guide, can be found on the Development Testbed Center webpage.
+
+All of the links can also be found in the description of this video.
+
+Thank you for watching!
