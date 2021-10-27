@@ -44,7 +44,7 @@ RUN mkdir -p /metplus/METplus_Tutorial \
  && echo setenv METPLUS_DATA /data/input/METplus_Data >> /etc/csh.cshrc
 
 # copy tutorial config file
-COPY scripts/Tutorial/tutorial-4.0.0.conf /metplus/METplus_Tutorial/tutorial.conf
+COPY /scripts/Tutorial/tutorial-4.0.0.conf /metplus/METplus_Tutorial/tutorial.conf
 
 #
 # Install additional tools for METplus Training modules
