@@ -1,6 +1,6 @@
-=========================
-METviewer Training Topics 
-=========================
+==========================
+Training Topics: METviewer
+==========================
 
 These are the METviewer Training Topics.
 		  

@@ -30,8 +30,8 @@ Or, if you prefer, you may navigate directly to the training modules and simply 
    :hidden:
    :caption: METplus Training
 
-   modules/Environment/index
    modules/Tutorial/index
+   modules/Environment/index
    modules/METplus/index
    modules/MET/index
    modules/METviewer/index

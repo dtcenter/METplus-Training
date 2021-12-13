@@ -1,6 +1,6 @@
-=======================
-METplus Training Topics 
-=======================
+========================
+Training Topics: METplus
+========================
 
 These are the METplus Training Topics.
 		  
