@@ -137,7 +137,7 @@ depending on your system.  For the PGI family of compilers, use "pgi" for the
 compiler name.  
 
 The next variable to set is the MET_SUBDIR, which is the location where the top
-level MET subdir, for example met-10.0.1, should be placed. I typcially set this
+level MET subdir, for example met-10.0.1, should be placed. I typically set this
 to the value of the TEST_BASE environment variable. 
 
 Next, we need to tell the script the name of the MET_TARBALL. In this case, the
