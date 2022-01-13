@@ -7,7 +7,7 @@ Compiling MET
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/tqyYVFh6vlc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Developed for **MET Version 9.1**.
+Developed for **MET Version**.
 
 **Follow Along!** with these exercises.
 
@@ -15,7 +15,7 @@ Developed for **MET Version 9.1**.
 
 **UPDATE: While this video was developed for MET Version 9.1, the instructions
 below now refer to the installation for the latest stable release, which is
-MET Version 10.0.1**
+MET Version 10.0.1.**
 
 In this video, we will step through the process of installing the Model
 Evaluation Tools (MET) verification package using a compilation script that is
@@ -137,7 +137,7 @@ depending on your system.  For the PGI family of compilers, use "pgi" for the
 compiler name.  
 
 The next variable to set is the MET_SUBDIR, which is the location where the top
-level MET subdir, for example met-9.1, should be placed. I typcially set this
+level MET subdir, for example met-10.0.1, should be placed. I typcially set this
 to the value of the TEST_BASE environment variable. 
 
 Next, we need to tell the script the name of the MET_TARBALL. In this case, the
