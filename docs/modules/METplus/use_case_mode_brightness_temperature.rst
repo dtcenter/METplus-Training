@@ -33,13 +33,10 @@ Go to section five, METplus Use Cases, Model Applications, Convection Allowing M
 (*Click through METplus Use cases, Model Applications, Convection Allowing Models, MODE: Brightness Temperature Verification, scroll down to METplus workflow*)
 
 Looking at the information, we see that this use case verifies FV3 ensemble members, compared to GOES satellite brightness temperature using MODE, 
-the Method for Object based Diagnostic Evaluation.
+the Method for Object based Diagnostic Evaluation.  (*Highlight FV3 Model member data and GOES Brightness Temperature, Scroll down*)
 
-(*Highlight FV3 Model member data and GOES Brightness Temperature, Scroll down*)
-
-It is set up to run two ensemble members, one model initialization time, and two forecast lead times.
-
-(*Highlight 2 ensemble members, Valid: 2019-05-21_01Z Forecast lead: 01 Valid: 2019-05-21_02Z*)
+It is set up to run two ensemble members, one model initialization time, and two forecast lead times.(*Highlight 2 ensemble members, Valid: 2019-05-21_01Z 
+Forecast lead: 01 Valid: 2019-05-21_02Z*)
 
 The METplus and MET configuration files are shown here in the documentation.
 
@@ -66,7 +63,7 @@ We will first go into the METplus repository.
 Tutorial_system.conf is the system specific configuration file.  The use case specific configuration file is located
 under parm, use_cases, model_applications, convection_allowing_models and it’s called MODE forecast FV3 obs GOES BrightnessTemp .conf.
 
-(Type vim parm/use_cases/model_applications/convection_allowing_models, Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste 
+(*Type vim parm/use_cases/model_applications/convection_allowing_models, Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste 
 MODE_fcstFV3_obsGOES_BrightnessTemp.conf, hit enter*)  
 
 So, we will open this file and first check the directories for our input forecast and observation data.
@@ -76,6 +73,8 @@ GOES obs OBS_MODE_INPUT_DIR = {INPUT_BASE}/model_applications/convection_allowin
 
 To do this, we will need to know the value of INPUT_BASE which is listed in the system specific configuration file.  So, we will pull up the system specific 
 configuration file to check the value.
+
+(*Go to another terminal, open Tutorial_system.conf
 
 INPUT_BASE is set to the following path, listed here.  So, we can combine that with the rest of the FCST_MODE_INPUT_DIR to see if our data is available.  
 
