@@ -66,11 +66,13 @@ We will first go into the METplus repository.
 Tutorial_system.conf is the system specific configuration file.  The use case specific configuration file is located
 under parm, use_cases, model_applications, convection_allowing_models and it’s called MODE forecast FV3 obs GOES BrightnessTemp .conf.
 
-(Type vim parm/use_cases/model_applications/convection_allowing_models, Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste MODE_fcstFV3_obsGOES_BrightnessTemp.conf, hit enter*)  
+(Type vim parm/use_cases/model_applications/convection_allowing_models, Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste 
+MODE_fcstFV3_obsGOES_BrightnessTemp.conf, hit enter*)  
 
 So, we will open this file and first check the directories for our input forecast and observation data.
 
-(*Go to bottom of file, highlight FCST_MODE_INPUT_DIR = {INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature, # Directory of the GOES obs OBS_MODE_INPUT_DIR = {INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature*)
+(*Go to bottom of file, highlight FCST_MODE_INPUT_DIR = {INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature, # Directory of the 
+GOES obs OBS_MODE_INPUT_DIR = {INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature*)
 
 To do this, we will need to know the value of INPUT_BASE which is listed in the system specific configuration file.  So, we will pull up the system specific 
 configuration file to check the value.
