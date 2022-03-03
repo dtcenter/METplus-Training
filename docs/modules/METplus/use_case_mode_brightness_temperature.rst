@@ -54,9 +54,7 @@ Tutorial_system.conf is the system specific configuration file.  The use case sp
 convection_allowing_models and it’s called MODE forecast FV3 obs GOES BrightnessTemp .conf.  (*Type vim  parm/use_cases/model_applications/convection_allowing_models, 
 Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste MODE_fcstFV3_obsGOES_BrightnessTemp.conf, hit enter*)  
 
-So, we will open this file and first check the directories for our input forecast and observation data.  (*Go to bottom of file, highlight FCST_MODE_INPUT_DIR = \
-{INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature, # Directory of the GOES obs OBS_MODE_INPUT_DIR = 
-{INPUT_BASE}/model_applications/convection_allowing_models/brightness_temperature*)
+So, we will open this file and first check the directories for our input forecast and observation data.  (*Go to bottom of file*)
 
 To do this, we will need to know the value of INPUT_BASE which is listed in the system specific configuration file.  So, we will pull up the system specific 
 configuration file to check the value.  (*Go to a second terminal, Type cd METplus, ls, highlight Tutorial_system.conf, type vim and paste Tutorial system.conf*)
@@ -66,9 +64,14 @@ highlight INPUT_BASE and paste, then go to the first terminal, highlight /parm/u
 paste in the second terminal, hit enter*)
 
 Here we see that there are two date directories and a polygon for verification.  Looking at the MODE input template, we see the model date is give and year, month, 
-day and hour.  So, that’s the first template seen here.  In this directory there are actually four ensemble members, but we’ll only be running two for the use case.  
-So, lets check the first member and be sure there are files here.  In this directory, we see that there are two files, one for the one-hour lead time, and the second 
-for the two-hour lead time.  This is as expected.  
+day and hour.  (*Return to first terminal, then switch back to the second*)  So, that’s the first template seen here.  (*Type ls on the MODE_FCST_INPUT_DIR witht the 
+date directory*).
+
+In this directory there are actually four ensemble members, but we’ll only be running two for the use case.  So, lets check the first member and be sure there are 
+files here.  (*Type ls on the first ensemble member directory*)
+
+In this directory, we see that there are two files, one for the one-hour lead time, and the second for the two-hour lead time.  This is as expected. (*Switch to 
+the first terminal with the configuration file*)  
 
 So next, we’ll check the observation input files.  The OBS_MODE_INPUT_DIR is the same as the FCST_MODE_INPUT_DIR.  So, we can copy/paste here.  However, the date 
 template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there are two GOES 
