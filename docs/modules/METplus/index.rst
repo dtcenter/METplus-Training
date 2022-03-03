@@ -13,3 +13,4 @@ These are the METplus Training Topics.
    common_config_part2
    use_case_example_wrapper
    use_case_track_and_intensity
+   use_case_mode_brightness_temperature
