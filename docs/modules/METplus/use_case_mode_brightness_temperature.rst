@@ -59,13 +59,13 @@ So, we will open this file and first check the directories for our input forecas
 To do this, we will need to know the value of INPUT_BASE which is listed in the system specific configuration file.  So, we will pull up the system specific 
 configuration file to check the value.  (*Go to a second terminal, Type cd METplus, ls, highlight Tutorial_system.conf, type vim and paste Tutorial system.conf*)
 
-INPUT_BASE is set to the following path, listed here.  So, we can combine that with the rest of the FCST_MODE_INPUT_DIR to see if our data is available.(*Type ls,
-Highlight INPUT_BASE and Paste, Switcho to first terminal, Highlight /parm/use_cases/model_applications/convection_allowing_models/brightness_temperature, Paste in the
-second terminal*)
+INPUT_BASE is set to the following path, listed here.  So, we can combine that with the rest of the FCST_MODE_INPUT_DIR to see if our data is available.(*Type 
+ls,Highlight INPUT_BASE and Paste, Switcho to first terminal, Highlight /parm/use_cases/model_applications/convection_allowing_models/brightness_temperature, 
+Paste in the second terminal*)
 
 Here we see that there are two date directories and a polygon for verification.  Looking at the MODE input template, we see the model date is give and year, month, 
-day and hour.  (*Return to first terminal, Switch back to the second terminal*)  So, that’s the first template seen here.  (*Type ls on the MODE_FCST_INPUT_DIR with the 
-date directory*).
+day and hour.  (*Return to first terminal, Switch back to the second terminal*)  So, that’s the first template seen here.  (*Type ls on the MODE_FCST_INPUT_DIR 
+with the date directory*).
 
 In this directory there are actually four ensemble members, but we’ll only be running two for the use case.  So, lets check the first member and be sure there are 
 files here.  (*Type ls on the first ensemble member directory*)
@@ -73,39 +73,40 @@ files here.  (*Type ls on the first ensemble member directory*)
 In this directory, we see that there are two files, one for the one-hour lead time, and the second for the two-hour lead time.  This is as expected. (*Switch to 
 the first terminal with the configuration file*)  
 
-So next, we’ll check the observation input files.  The OBS_MODE_INPUT_DIR is the same as the FCST_MODE_INPUT_DIR.  So, we can copy/paste here.  (*Type ls, Copy the forecast
-input dir, Paste the input dir, Switch to first terminal*)
+So next, we’ll check the observation input files.  The OBS_MODE_INPUT_DIR is the same as the FCST_MODE_INPUT_DIR.  So, we can copy/paste here.  (*Type ls, Copy the 
+forecast input dir, Paste the input dir, Switch to first terminal*)
 
-However, the date template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there are 
-two GOES files, one for the one-hour valid time and another for the two-hour valid time.  (*Switch to second terminal, Copy and Paste the date directory, Switch back to 
-first terminal*)
+However, the date template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there 
+are two GOES files, one for the one-hour valid time and another for the two-hour valid time.  (*Switch to second terminal, Copy and Paste the date directory, Switch b
+back to first terminal*)
 
-Next, we can go in and create an output directory for our output data as specified by the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get the value 
-of output base.  (*Switch to second terminal, Type vim Tutoral_system.conf*)   
+Next, we can go in and create an output directory for our output data as specified by the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get 
+the value of output base.  (*Switch to second terminal, Type vim Tutoral_system.conf*)   
 
 Output base is located in this directory, and we will go ahead and make the directory as 
-specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy the everyting except OUTPUT_BASE 
-in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and Paste the output directory path*) 
+specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy the everyting except 
+OUTPUT_BASE in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and Paste the output directory path*) 
 
 So, our empty directory has now been created.
 
-Now, lets check our input variables to be sure we have them correctly specified.  So first looking at the model data, we can open the first file or the one-hour lead time 
-file. (*Type ncdump Copy and Paste the directory to the first FV3 member, Copy and Paste one hour lead time file, Type | more*)  
+Now, lets check our input variables to be sure we have them correctly specified.  So first looking at the model data, we can open the first file or the one-hour 
+lead time file. (*Type ncdump Copy and Paste the directory to the first FV3 member, Copy and Paste one hour lead time file, Type | more*)  
 
 If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parenthesis which 
-indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct. (*Hit spacebar to 
-scroll through the file, Exit file*)
+indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct. (*Hit 
+spacebar to scroll through the file, Exit file*)
 
-Now we can check on the observation files. (*Type ncdump, Scroll up to highlight the observation directory, Paste observation directory, Type /, Scroll up to highlight
-observation file, paste observation file, Type | more*)  
+Now we can check on the observation files. (*Type ncdump, Scroll up to highlight the observation directory, Paste observation directory, Type /, Scroll up to 
+highlight observation file, paste observation file, Type | more*)  
 
 Going back to our configuration file, our obs variable name is channel 13 brightness temperature and again, it’s in two dimensions.  
 And there is channel thirteen brightness temperature in two dimensions in our obs input file.  (*Hit spacebar to scroll through the file, Exit file*)
 
 Finally, let’s take a look at some of the configuration settings that we have for MODE in this use case. (*Switch to first terminal, Scroll up in configuration file*)
 
-Here we are using a temperature threshold of less than or equal to 235 Kelvin, defined by the MODE convolution threshold.  The CENSOR_VAL and CENSOR_THRESH variables contain
-information about missing data, and the variables below those two values give information on how MODE identifies objects. (*Close the configuration file*) 
+Here we are using a temperature threshold of less than or equal to 235 Kelvin, defined by the MODE convolution threshold.  The CENSOR_VAL and CENSOR_THRESH 
+variables contain information about missing data, and the variables below those two values give information on how MODE identifies objects. (*Close the configuration 
+file*) 
 
 So now it’s time to start the use case.  We will start by calling the script run_metplus.py which is in the ush directory, followed by minus c, and then our use case 
 specific configuration file, followed by another minus c and our system configuration file.  The run has started successfully.  This use case takes some time to run, 
