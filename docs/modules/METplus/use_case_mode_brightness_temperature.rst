@@ -118,11 +118,7 @@ because the model is high resolution.
 The METplus run has now finished successfully.  Let’s check the output to make sure we have what is expected.  First, we’ll go back to the use case documentation
 Scrolling down to the expected output section, we can see that the expected output is 16 files.
 
-(*Open the use case documentation :ref:`Use Case Documentation
-<https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.html>`, Scroll down to Expected Output*)
-
-(*Open https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.html, scroll down to
-Expected Output*) 
+(*Open the use case documentation, scroll down to Expected Output*) 
 
 The first 8 are for the core_lsm1 member and the second 8 are for the core_mp1 member.   Each member contains 2 valid times, 01 UTC and 02 UTC valid on May 21, 2019. 
 There are four files for each ensemble member and valid time.  The first, with the cts.txt at the end of the file name contains contingency table statistics for the 
