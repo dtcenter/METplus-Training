@@ -52,7 +52,7 @@ We will first go into the METplus repository.  (*Type cd METplus, ls*)
 
 Tutorial_system.conf is the system specific configuration file.  The use case specific configuration file is located under parm, use_cases, model_applications, 
 convection_allowing_models and it’s called MODE forecast FV3 obs GOES BrightnessTemp .conf.  (*Type vim  parm/use_cases/model_applications/convection_allowing_models, 
-Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, paste MODE_fcstFV3_obsGOES_BrightnessTemp.conf, hit enter*)  
+Highlight MODE_fcstFV3_obsGOES_BrightnessTemp.conf, Paste MODE_fcstFV3_obsGOES_BrightnessTemp.conf*)  
 
 So, we will open this file and first check the directories for our input forecast and observation data.  (*Go to bottom of file*)
 
@@ -60,11 +60,11 @@ To do this, we will need to know the value of INPUT_BASE which is listed in the 
 configuration file to check the value.  (*Go to a second terminal, Type cd METplus, ls, highlight Tutorial_system.conf, type vim and paste Tutorial system.conf*)
 
 INPUT_BASE is set to the following path, listed here.  So, we can combine that with the rest of the FCST_MODE_INPUT_DIR to see if our data is available.(*Type ls,
-highlight INPUT_BASE and paste, then go to the first terminal, highlight /parm/use_cases/model_applications/convection_allowing_models/brightness_temperature, and
-paste in the second terminal, hit enter*)
+Highlight INPUT_BASE and Paste, Switcho to first terminal, Highlight /parm/use_cases/model_applications/convection_allowing_models/brightness_temperature, Paste in the
+second terminal*)
 
 Here we see that there are two date directories and a polygon for verification.  Looking at the MODE input template, we see the model date is give and year, month, 
-day and hour.  (*Return to first terminal, then switch back to the second*)  So, that’s the first template seen here.  (*Type ls on the MODE_FCST_INPUT_DIR witht the 
+day and hour.  (*Return to first terminal, Switch back to the second terminal*)  So, that’s the first template seen here.  (*Type ls on the MODE_FCST_INPUT_DIR with the 
 date directory*).
 
 In this directory there are actually four ensemble members, but we’ll only be running two for the use case.  So, lets check the first member and be sure there are 
@@ -73,15 +73,28 @@ files here.  (*Type ls on the first ensemble member directory*)
 In this directory, we see that there are two files, one for the one-hour lead time, and the second for the two-hour lead time.  This is as expected. (*Switch to 
 the first terminal with the configuration file*)  
 
-So next, we’ll check the observation input files.  The OBS_MODE_INPUT_DIR is the same as the FCST_MODE_INPUT_DIR.  So, we can copy/paste here.  However, the date 
-template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there are two GOES 
-files, one for the one-hour valid time and another for the two-hour valid time.  Next, we can go in and create an output directory for our output data as specified by 
-the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get the value of output base.   Output base is located in this directory, and we will go a
-head and make the directory as specified in MODE_OUTPUT_DIR. So, our empty directory has now been created.
+So next, we’ll check the observation input files.  The OBS_MODE_INPUT_DIR is the same as the FCST_MODE_INPUT_DIR.  So, we can copy/paste here.  (*Type ls, Copy the forecast
+input dir, Paste the input dir, Switch to first terminal*)
+
+However, the date template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there are 
+two GOES files, one for the one-hour valid time and another for the two-hour valid time.  (*Switch to second terminal, Copy and Paste the date directory, Switch back to 
+first terminal*)
+
+Next, we can go in and create an output directory for our output data as specified by the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get the value 
+of output base.  (*Switch to second terminal, Type vim Tutoral_system.conf*)   
+
+Output base is located in this directory, and we will go ahead and make the directory as 
+specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy the everyting except OUTPUT_BASE 
+in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and paste the output directory path*) 
+
+So, our empty directory has now been created.
 
 Now, lets check our input variables to be sure we have them correctly specified.  So first looking at the model data, we can open the first file or the one-hour lead time 
-file.  If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parenthesis which 
-indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct.
+file. (*Type ncdump Copy and paste the directory to the first FV3 member, Copy and paste one hour lead time file*)  
+
+If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parenthesis which 
+indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct. (*Hit spacebar to 
+scroll through the file*)
 
 Now we can check on the observation files.  Going back to our configuration file, our obs variable name is channel 13 brightness temperature and again, it’s in two dimensions.  
 And there is channel thirteen brightness temperature in two dimensions in our obs input file.
@@ -94,7 +107,7 @@ So now it’s time to start the use case.  We will start by calling the script r
 specific configuration file, followed by another minus c and our system configuration file.  The run has started successfully.  This use case takes some time to run, 
 because the model is high resolution.
 
-(*Type ush/run_metplus.py -c parm/use_cases/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.conf -c system.conf*)
+(*Type ush/run_metplus.py -c parm/use_cases/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.conf -c system.conf, hit enter*)
 
 (*video cut while use case runs*)
 
