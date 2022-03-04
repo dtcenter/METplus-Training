@@ -85,23 +85,27 @@ of output base.  (*Switch to second terminal, Type vim Tutoral_system.conf*)
 
 Output base is located in this directory, and we will go ahead and make the directory as 
 specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy the everyting except OUTPUT_BASE 
-in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and paste the output directory path*) 
+in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and Paste the output directory path*) 
 
 So, our empty directory has now been created.
 
 Now, lets check our input variables to be sure we have them correctly specified.  So first looking at the model data, we can open the first file or the one-hour lead time 
-file. (*Type ncdump Copy and paste the directory to the first FV3 member, Copy and paste one hour lead time file*)  
+file. (*Type ncdump Copy and Paste the directory to the first FV3 member, Copy and Paste one hour lead time file, Type | more*)  
 
 If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parenthesis which 
 indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct. (*Hit spacebar to 
-scroll through the file*)
+scroll through the file, Exit file*)
 
-Now we can check on the observation files.  Going back to our configuration file, our obs variable name is channel 13 brightness temperature and again, it’s in two dimensions.  
-And there is channel thirteen brightness temperature in two dimensions in our obs input file.
+Now we can check on the observation files. (*Type ncdump, Scroll up to highlight the observation directory, Paste observation directory, Type /, Scroll up to highlight
+observation file, paste observation file, Type | more*)  
 
-Finally, let’s take a look at some of the configuration settings that we have for MODE in this use case.  Here we are using a temperature threshold of less than or equal to 
-235 Kelvin, defined by the MODE convolution threshold.  The CENSOR_VAL and CENSOR_THRESH variables contain information about missing data, and the variables below those two 
-values give information on how MODE identifies objects. 
+Going back to our configuration file, our obs variable name is channel 13 brightness temperature and again, it’s in two dimensions.  
+And there is channel thirteen brightness temperature in two dimensions in our obs input file.  (*Hit spacebar to scroll through the file, Exit file*)
+
+Finally, let’s take a look at some of the configuration settings that we have for MODE in this use case. (*Switch to first terminal, Scroll up in configuration file*)
+
+Here we are using a temperature threshold of less than or equal to 235 Kelvin, defined by the MODE convolution threshold.  The CENSOR_VAL and CENSOR_THRESH variables contain
+information about missing data, and the variables below those two values give information on how MODE identifies objects. (*Close the configuration file*) 
 
 So now it’s time to start the use case.  We will start by calling the script run_metplus.py which is in the ush directory, followed by minus c, and then our use case 
 specific configuration file, followed by another minus c and our system configuration file.  The run has started successfully.  This use case takes some time to run, 
