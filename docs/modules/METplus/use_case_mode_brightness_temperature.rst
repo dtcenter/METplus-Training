@@ -118,6 +118,9 @@ because the model is high resolution.
 The METplus run has now finished successfully.  Let’s check the output to make sure we have what is expected.  First, we’ll go back to the use case documentation
 Scrolling down to the expected output section, we can see that the expected output is 16 files.
 
+(*Open the use case documentation :ref:`Use Case Documentation
+<https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.html>`, Scroll down to Expected Output*)
+
 (*Open https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/MODE_fcstFV3_obsGOES_BrightnessTemp.html, scroll down to
 Expected Output*) 
 
@@ -131,7 +134,7 @@ So let’s take a look at our output to be sure we have all 16 files.  We can fi
 (*Type vim then copy the log file and paste into the terminal, hit enter, Scroll down*)  
 
 The output directory is given here.  So if we do an ls on that directory, we see that we have all expected sixteen files.  (*Copy the output directory path, Go to 
-the second terminal, Type ls, paste the output directory, hit enter*)
+the second terminal, Type ls, Paste the output directory, hit enter*)
 
 Now let’s go in and check the first image.
 
