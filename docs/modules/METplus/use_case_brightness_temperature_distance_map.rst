@@ -28,8 +28,7 @@ Specific information about this use case can be found in the `METplus User's Gui
 
 (*Open https://metplus.readthedocs.io/en/main_v4.0/Users_Guide/index.html, Click on User's Guide*)
 
-Go to section 5, METplus Use Cases, Model Applications, Convection Allowing Models and click on `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>_. 
-Go to section five, METplus Use Cases, Model Applications, Convection Allowing Models, and click on MODE: Brightness Temperature Verification.  ??? This was already in the documentation, but it doesn't match what is said on the video.  Is this okay to remove???
+Go to section 5, METplus Use Cases, Model Applications, Convection Allowing Models and click on `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>_`. 
 
 (*Click through 
 METplus Use cases, Model Applications, Convection Allowing Models, Grid-Stat: Brightness Temperature Distance Maps, scroll down to METplus Workflow*)
