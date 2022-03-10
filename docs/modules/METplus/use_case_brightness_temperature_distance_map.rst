@@ -37,26 +37,26 @@ Go to section 5, METplus Use Cases, Model Applications, Convection Allowing
 Models and click on
 `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>_`. 
 
-(*Click through METplus Use cases, Model Applications, Convection Allowing
+(* Click through METplus Use cases, Model Applications, Convection Allowing
 Models, Grid-Stat: Brightness Temperature Distance Maps, scroll down to
-METplus Workflow*)
+METplus Workflow *)
 
 Looking at the information, we see that this use case runs Grid-Stat to
 create distance maps on the FV3 Model Ensemble members compared to GOES
 brightness temperature data. It is set up to run two Ensemble members: 
-1. model initialization time and 
-2. forecast lead times. 
+  1. model initialization time and 
+  2. forecast lead times. 
 The METplus and MET configuration files are shown here in the documentation.
 If you want to learn more about Grid-Stat and distance maps go to the Met
 Users Guide under
-`Section 10 <https://met.readthedocs.io/en/latest/Users_Guide/grid-stat.html>_`
+`Section 10 <https://met.readthedocs.io/en/latest/Users_Guide/grid-stat.html>`_
 which is on the Grid-Stat tool. This video assumes that you have already
 installed
-`MET <https://met.readthedocs.io/en/latest/Users_Guide/installation.html#>_`
+`MET <https://met.readthedocs.io/en/latest/Users_Guide/installation.html>`_
 and set up your environment for
-`METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>_`.
+`METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>`_.
 Information on how to do this can be found in section one of the
-`Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>_`
+`Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
 sections of the online tutorial. Topics here will be using the recommended
 setup. Which is first passing in a Use Case specific to the configuration file,
 followed by a second configuration file with settings that are specific
@@ -107,9 +107,10 @@ But only two will be run for the use case.
 
 So let's check the first Ensemble member and see if we’ve got files.
 (* Type ls /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1 *)
- Here we see that there are two files. One for the 1 hour for the forecast
- lead time and another for the 2 hour forecast lead time, which is as we
- would expect. 
+
+Here we see that there are two files. One for the 1 hour for the forecast
+lead time and another for the 2 hour forecast lead time, which is as we
+would expect. 
 
 So next we will go ahead and check the observed input files.
 OBS_GRID_STAT_INPUT_DIR  is the same as FCST_GRID_STAT_INPUT_DIR.
