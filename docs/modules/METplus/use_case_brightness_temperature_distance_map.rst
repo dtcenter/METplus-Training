@@ -63,8 +63,10 @@ followed by a second configuration file with settings that are specific
 to the system we are using. 
 
 Let's go ahead and take a look at the parameter file in the settings for
-this Use Case. We’ll first go into the METplus Repository.   
+this Use Case. We’ll first go into the METplus Repository.
+
 (*Type cd METplus*)
+
 (*Type vim Tutorial_system.conf*)
 
 Tutorial_system.conf is the system specific configuration file.  The use
@@ -73,7 +75,8 @@ parm/use_cases/model_applications/convection_allowing_models
 and it's called: 
 GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf 
 
-Go ahead and open this file. 
+Go ahead and open this file.
+
 (*Type ???*)
 
 If we first look at the process list inside this file, we will see that
@@ -91,9 +94,12 @@ Next let's check our paths to the input data. To do this we need to know
 the value of INPUT_BASE as it is given in 
 FCST_GRID_STAT_INPUT_DIR and
 OBS_GRID_STAT_INPUT_DIR
-So we'll go to another terminal and pull up Tutorial_system.conf 
+So we'll go to another terminal and pull up Tutorial_system.conf
+
 (*Type Open new terminal window*)
+
 (*Type cd METplus*)
+
 (*Type vim Tutorial_system.conf*)
 
 INPUT_BASE is set to the following path that's listed here. So we can
@@ -106,6 +112,7 @@ Inside this directory we will see that there are four Ensemble members.
 But only two will be run for the use case. 
 
 So let's check the first Ensemble member and see if we’ve got files.
+
 (*Type ls /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1*)
 
 Here we see that there are two files. One for the 1 hour for the forecast
@@ -115,10 +122,12 @@ would expect.
 So next we will go ahead and check the observed input files.
 OBS_GRID_STAT_INPUT_DIR  is the same as FCST_GRID_STAT_INPUT_DIR.
 So we will copy/paste.
+
 (*Type /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature*)
 
-However in this case, the observed input template is given as
-year_month_day_141. 
+However, in this case, the observed input template is given as
+year_month_day_141.
+
 (*Type 2019_05_211_141*)
 
 So that's the second directory listed here. Inside this directory we see
@@ -128,6 +137,7 @@ One for the UTC valid time and another for the two UTC valid time.
 Next let's check our input variables to be sure that we have them
 correctly specified in the configuration file. First looking at the
 model data, we will open a model file.
+
 (*Type ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more*)
 
 The variable that we have specified in our configuration file is called
@@ -138,7 +148,8 @@ SBTA1613_topofatmosphere(lat, long), is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
 
 Next we will check the observed variable. I scroll up so that I can get the
-directory as we listed previously. 
+directory as we listed previously.
+
 (*Type ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more*)
 
 Looking at the configuration file The observed variable is called
@@ -147,19 +158,22 @@ Scrolling down through the file here we see
 channel_13_brightness_temperature(lat, lon) and it's in two dimensions in our
 OBS_INPUT file ??? Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps.
+
 (*Type le235*) 
 
 And, finally, to get distance map output from GRID_STAT we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
 either STAT or BOTH. Here we have it sent to BOTH which will produce two o
-utput files.  A .stat file and a .txt file. 
+utput files.  A .stat file and a .txt file.
+
 (*Type GRID_STAT_OUTPUT_FLAG_DMAP = BOTH*)
 
-So now we're ready to start the Use Case. We start by calling the script
+So now we're ready to start the Use Case. We start by calling the script,
 run_metplus.py which is in the ush/ directory. Followed by -c and then our
 Use Case specific configuration file, followed by a -c and then our tutorial
 or system configuration file.
-(* Type ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf *)
+
+(*Type ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf*)
 
 So here the use case is running. It will go through four calls to GRID_STAT.
 One for each of the two forecast lead times and Ensemble members. And the
@@ -179,19 +193,24 @@ contains Gridded output including the distance map.
 
 So if we go back to our METplus run, we can first take a look at the log
 output to find our output directory.
+
 (*Type vim /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/logs/metplus_log_20220309104212*)
 
 When we scroll down the output directory is listed here after the -outdir flag in our GRID_STAT call.
+
 (*Type ls /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat*)
 
 Looking inside this directory we see that we have all 12 expected files.
 Finally, we can make a distance map image by using the plot data plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
-can get the name of the variable we want to apply for our distance map. 
+can get the name of the variable we want to apply for our distance map.
+
 (*Type ncdump /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more*)
 
 The OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)
-variable is specified here and it's in two dimensions. Exiting out of this file
+variable is specified here and it's in two dimensions. Exiting out of this
+file.
+
 (*Type ???exit out*)
 
 We can now call plot_data_plane, using plot_data_plane. And then we specify
