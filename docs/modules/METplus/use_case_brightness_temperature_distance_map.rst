@@ -1,4 +1,4 @@
-.. _metplus_use_case_mode_brightness_temperature:
+.. _metplus_use_case_brightness_temperature_distance_map:
 
 Use Case: Brightness Temperature Distance Map Verification
 ==========================================================
