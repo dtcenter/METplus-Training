@@ -43,8 +43,8 @@ Looking at the information, we see that this use case runs Grid-Stat to
 create distance maps on the FV3 Model Ensemble members compared to GOES
 brightness temperature data. It is set up to run two Ensemble members: 
 
-  1. model initialization time and 
-  2. forecast lead times. 
+  1. Model Initialization time
+  2. Forecast Lead times. 
 
 The METplus and MET configuration files are shown here in the documentation.
 If you want to learn more about Grid-Stat and distance maps go to the Met
@@ -57,7 +57,7 @@ and set up your environment for
 `METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>`_.
 Information on how to do this can be found in section one of the
 `Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
-sections of the online tutorial. Topics here will be using the recommended
+sections of the online tutorial topics. Here we will be using the recommended
 setup. Which is first passing in a Use Case specific to the configuration file,
 followed by a second configuration file with settings that are specific
 to the system we are using. 
@@ -77,7 +77,7 @@ GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf
 
 Go ahead and open this file.
 
-(*Type ???*)
+(*Type vim parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf*)
 
 If we first look at the process list inside this file, we will see that
 there are two instances of Grid_Stat. These two instances are for the two
