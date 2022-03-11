@@ -34,7 +34,7 @@ create distance maps on the FV3 Model Ensemble members compared to GOES
 brightness temperature data. It is set up to run two Ensemble members: 
 
   1. Model Initialization time
-  2. Forecast Lead times. 
+  2. Forecast Lead times
 
 The METplus and MET configuration files are shown here in the documentation.
 If you want to learn more about Grid-Stat and distance maps go to the Met
@@ -58,9 +58,6 @@ this Use Case. We’ll first go into the METplus Repository.
 .. code-block:: ini
 
   cd METplus
-
-.. code-block:: ini
-
   vim Tutorial_system.conf
 
 Tutorial_system.conf is the system specific configuration file.  The use
@@ -83,8 +80,7 @@ members.
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_DIR = FV3_core {instance} ???Double check this???
-prefix and
-FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc
+prefix and (*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*)
 We see the word {instance} in both of these variables. This value is set
 to the Ensemble Member in parenthesis in the process list when METplus is
 run and it's how it points to the different members.
@@ -138,7 +134,6 @@ So we will copy/paste.
 
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
-
 (*2019_05_211_141*)
 
 Inside this directory we see that there are two GOES files. 
@@ -153,10 +148,10 @@ model data, we will open a model file.
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
 
 The variable that we have specified in our configuration file is called
-SBTA1613_topofatmosphere and the level is set to “(*,*)” 
+(*SBTA1613_topofatmosphere*) and the level is set to “(*,*)” 
 which indicates the variable is in two dimensions.
 We scroll through our input file. We see that the variable name,
-SBTA1613_topofatmosphere(lat, long), is listed here and it's in two
+(*SBTA1613_topofatmosphere(lat, long)*), is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
 
 Next we will check the observed variable. I scroll up so that I can get the
@@ -167,9 +162,9 @@ directory as we listed previously.
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
 Looking at the configuration file The observed variable is called
-channel_13_brightness_temperature(lat, lon) and it's also in two dimensions.
+(*channel_13_brightness_temperature(lat, lon)*) and it's also in two dimensions.
 Scrolling down through the file here we see
-channel_13_brightness_temperature(lat, lon) and it's in two dimensions in our
+(*channel_13_brightness_temperature(lat, lon)*) and it's in two dimensions in our
 OBS_INPUT file. Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps.
 (*le235*) 
