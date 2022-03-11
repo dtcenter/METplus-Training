@@ -16,28 +16,18 @@ Developed for **METplus Version 4.0**.
 (*Setup: Open URL: https://met.readthedocs.io/en/latest/*)
 
 
-(*Introduction*)
-
 If you would like to follow along with the exercises in this video,
 please select one of the options to set up your own
 :ref:`Training Environment <training_environment>`.
-
-(*Show Title Slide*)
 
 My name is Christina Kalb, and I'm a scientist working on the METplus
 team at NCAR.  This video will cover how to run the Brightness Temperature
 Distance Map use case.  
 Specific information about this use case can be found in the
-`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. 
-
-(*Open https://metplus.readthedocs.io/en/main_v4.0/Users_Guide/index.html,
-Click on User's Guide*)
-
-Go to section 5, METplus Use Cases, Model Applications, Convection Allowing
-Models and click on
-`Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_. 
-
-(*Click through METplus Use cases, Model Applications, Convection Allowing Models, Grid-Stat: Brightness Temperature Distance Maps, scroll down to METplus Workflow*)
+`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. Click on User's Guide.  Go to section 5, METplus Use Cases,
+Model Applications, Convection Allowing Models and click on
+`Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_.
+Scroll down to METplus Workflow.
 
 Looking at the information, we see that this use case runs Grid-Stat to
 create distance maps on the FV3 Model Ensemble members compared to GOES
@@ -65,9 +55,13 @@ to the system we are using.
 Let's go ahead and take a look at the parameter file in the settings for
 this Use Case. We’ll first go into the METplus Repository.
 
-(*Type cd METplus*)
+.. code-block:: ini
 
-(*Type vim Tutorial_system.conf*)
+  cd METplus
+
+.. code-block:: ini
+
+  vim Tutorial_system.conf
 
 Tutorial_system.conf is the system specific configuration file.  The use
 case specific configuration file is located under:
@@ -77,13 +71,15 @@ GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf
 
 Go ahead and open this file.
 
-(*Type vim parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf*)
+.. code-block:: ini
+
+  vim parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf
 
 If we first look at the process list inside this file, we will see that
 there are two instances of Grid_Stat. These two instances are for the two
 Ensemble members and the values in parenthesis are identifiers for the
 members. 
-(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)*)
+(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_DIR = FV3_core {instance} ???Double check this???
@@ -98,20 +94,21 @@ the value of INPUT_BASE as it is given in
 FCST_GRID_STAT_INPUT_DIR and
 OBS_GRID_STAT_INPUT_DIR
 So we'll go to another terminal and pull up Tutorial_system.conf
+ Open new terminal window
 
-(*Type Open new terminal window*)
+.. code-block:: ini
 
-(*Type cd METplus*)
-(*Type vim Tutorial_system.conf*)
+  cd METplus
+  vim Tutorial_system.conf
 
 INPUT_BASE is set to the following path that's listed here. 
-(*INPUT_BASE - /d1/projects/METplus/METplus_Data*)
+(*INPUT_BASE - /d1/projects/METplus/METplus_Data
 
 So we can
 combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
-(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
+(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature
 to check for files. 
-(*Type ls /model_applications/convetion_allowing_models/brightness_temperature*)
+.. code-block:: ini ls /model_applications/convetion_allowing_models/brightness_temperature
 
 Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
@@ -124,7 +121,9 @@ But only two will be run for the use case.
 
 So let's check the first Ensemble member and see if we’ve got files.
 
-(*Type ls /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1*)
+.. code-block:: ini
+
+  ls /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1
 
 Here we see that there are two files. One for the 1 hour for the forecast
 lead time and another for the 2 hour forecast lead time, which is as we
@@ -134,7 +133,9 @@ So next we will go ahead and check the observed input files.
 OBS_GRID_STAT_INPUT_DIR  is the same as FCST_GRID_STAT_INPUT_DIR.
 So we will copy/paste.
 
-(*Type /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature*)
+.. code-block:: ini
+
+  /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature
 
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
@@ -148,7 +149,9 @@ Next let's check our input variables to be sure that we have them
 correctly specified in the configuration file. First looking at the
 model data, we will open a model file.
 
-(*Type ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more*)
+.. code-block:: ini
+
+  ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
 
 The variable that we have specified in our configuration file is called
 SBTA1613_topofatmosphere and the level is set to “(*,*)” 
@@ -160,7 +163,9 @@ dimensions. So our model variable is specified correctly.
 Next we will check the observed variable. I scroll up so that I can get the
 directory as we listed previously.
 
-(*Type ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more*)
+.. code-block:: ini
+
+  ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
 Looking at the configuration file The observed variable is called
 channel_13_brightness_temperature(lat, lon) and it's also in two dimensions.
@@ -175,14 +180,18 @@ GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
 either STAT or BOTH. Here we have it sent to BOTH which will produce two
 output files.  A .stat file and a .txt file.
 
-(*Type GRID_STAT_OUTPUT_FLAG_DMAP = BOTH*)
+.. code-block:: ini
+
+  GRID_STAT_OUTPUT_FLAG_DMAP = BOTH
 
 So now we're ready to start the Use Case. We start by calling the script,
 run_metplus.py which is in the ush/ directory. Followed by -c and then our
 Use Case specific configuration file, followed by a -c and then our tutorial
 or system configuration file.
 
-(*Type ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf*)
+.. code-block:: ini
+
+  ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf
 
 So here the use case is running. It will go through four calls to GRID_STAT.
 One for each of the two forecast lead times and Ensemble members. And the
@@ -203,11 +212,15 @@ contains Gridded output including the distance map.
 So if we go back to our METplus run, we can first take a look at the log
 output to find our output directory.
 
-(*Type vim /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/logs/metplus_log_20220309104212*)
+.. code-block:: ini
+
+  vim /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/logs/metplus_log_20220309104212
 
 When we scroll down the output directory is listed here after the -outdir flag in our GRID_STAT call.
 
-(*Type ls /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat*)
+.. code-block:: ini
+
+  ls /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat
 
 Looking inside this directory we see that we have all 12 expected files.  
 ???Should we show this???
@@ -215,13 +228,15 @@ Finally, we can make a distance map image by using the plot_data_plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
 can get the name of the variable we want to apply for our distance map.
 
-(*Type ncdump /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more*)
+.. code-block:: ini
+
+  ncdump /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more
 
 The Obs Distance Map variable is specified here and it's in two dimensions.
 (*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon))*
 Exiting out of this file.
 
-(*Type ???exit out*)
+???exit out
 
 We can now call plot_data_plane, using plot_data_plane. And then we specify
 the input file name and then secondly the name of the output PostScript
@@ -233,7 +248,9 @@ calling it
 
   ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
-(*Type plot_data_plane /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’ )*
+.. code-block:: ini
+
+  plot_data_plane /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
 
 So plot_data_plane has finished successfully. The output image looks as
