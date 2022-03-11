@@ -229,7 +229,7 @@ file we want which I'm going to call: distance_map.ps .  And then the
 variable we want to plot is specified using the following string, by
 calling it 
 
-.. code_block:: ini
+.. code-block:: ini
 
   ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
