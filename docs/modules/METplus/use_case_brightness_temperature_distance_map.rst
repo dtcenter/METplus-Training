@@ -82,8 +82,11 @@ Go ahead and open this file.
 If we first look at the process list inside this file, we will see that
 there are two instances of Grid_Stat. These two instances are for the two
 Ensemble members and the values in parenthesis are identifiers for the
-members. So if we scroll down to the bottom of the file and we look at:
-GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} 
+members. 
+(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)*)
+
+So if we scroll down to the bottom of the file and we look at:
+GRID_STAT_OUTPUT_DIR = FV3_core {instance} ???Double check this???
 prefix and
 FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc
 We see the word {instance} in both of these variables. This value is set
@@ -99,15 +102,23 @@ So we'll go to another terminal and pull up Tutorial_system.conf
 (*Type Open new terminal window*)
 
 (*Type cd METplus*)
-
 (*Type vim Tutorial_system.conf*)
 
-INPUT_BASE is set to the following path that's listed here. So we can
+INPUT_BASE is set to the following path that's listed here. 
+(*INPUT_BASE - /d1/projects/METplus/METplus_Data*)
+
+So we can
 combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
-to check for files. Here we see that there are two date directories and a
+(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
+to check for files. 
+(*Type ls /model_applications/convetion_allowing_models/brightness_temperature*)
+
+Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
 FCST_GRID_STAT_INPUT_TEMPLATE, we see that the model date is given as
 year, month, day, and hour. Which is the first template seen here.
+(*2019052100*)
+
 Inside this directory we will see that there are four Ensemble members.
 But only two will be run for the use case. 
 
@@ -126,13 +137,12 @@ So we will copy/paste.
 (*Type /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature*)
 
 However, in this case, the observed input template is given as
-year_month_day_141.
+year_month_day_141. So that's the second directory listed here.
 
-(*Type 2019_05_211_141*)
+(*2019_05_211_141*)
 
-So that's the second directory listed here. Inside this directory we see
-that there are two GOES files. 
-One for the UTC valid time and another for the two UTC valid time. 
+Inside this directory we see that there are two GOES files. 
+One for the one UTC valid time and another for the two UTC valid time. 
 
 Next let's check our input variables to be sure that we have them
 correctly specified in the configuration file. First looking at the
@@ -141,8 +151,8 @@ model data, we will open a model file.
 (*Type ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more*)
 
 The variable that we have specified in our configuration file is called
-SBTA1613_topofatmosphere and the level is set to 2 asterisks inside
-parentheses. “(*,*)” which indicates the variable is in two dimensions.
+SBTA1613_topofatmosphere and the level is set to “(*,*)” 
+which indicates the variable is in two dimensions.
 We scroll through our input file. We see that the variable name,
 SBTA1613_topofatmosphere(lat, long), is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
@@ -156,15 +166,14 @@ Looking at the configuration file The observed variable is called
 channel_13_brightness_temperature(lat, lon) and it's also in two dimensions.
 Scrolling down through the file here we see
 channel_13_brightness_temperature(lat, lon) and it's in two dimensions in our
-OBS_INPUT file ??? Additionally, in this case we’re using a threshold of
+OBS_INPUT file. Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps.
-
-(*Type le235*) 
+(*le235*) 
 
 And, finally, to get distance map output from GRID_STAT we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
-either STAT or BOTH. Here we have it sent to BOTH which will produce two o
-utput files.  A .stat file and a .txt file.
+either STAT or BOTH. Here we have it sent to BOTH which will produce two
+output files.  A .stat file and a .txt file.
 
 (*Type GRID_STAT_OUTPUT_FLAG_DMAP = BOTH*)
 
@@ -184,11 +193,11 @@ to the
 
 Scrolling down to the expected output, we can see that the expected output
 is 12 files. The first six are for the core_lsm1 Ensemble member and the
-second six are for the core_mp1 Ensemble member. Each member contains two
+second six are for the core_mp1 member. Each member contains two
 valid times, 01 UTC and 02 UTC valid on May 21st 2019. There are three
-files for each Ensemble member in valid time, the file ending in dmap.txt
+files for each Ensemble member in valid time. The file ending in dmap.txt
 and .stat contain the distance map output line. We have two files here
-because we set the dmap flag to BOTH. The file with pairs.nc. at the end
+because we set the dmap flag to BOTH. The file with pairs.nc at the end
 contains Gridded output including the distance map.
 
 So if we go back to our METplus run, we can first take a look at the log
@@ -200,16 +209,17 @@ When we scroll down the output directory is listed here after the -outdir flag i
 
 (*Type ls /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat*)
 
-Looking inside this directory we see that we have all 12 expected files.
-Finally, we can make a distance map image by using the plot data plane tool
+Looking inside this directory we see that we have all 12 expected files.  
+???Should we show this???
+Finally, we can make a distance map image by using the plot_data_plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
 can get the name of the variable we want to apply for our distance map.
 
 (*Type ncdump /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more*)
 
-The OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)
-variable is specified here and it's in two dimensions. Exiting out of this
-file.
+The Obs Distance Map variable is specified here and it's in two dimensions.
+(*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon))*
+Exiting out of this file.
 
 (*Type ???exit out*)
 
@@ -218,7 +228,10 @@ the input file name and then secondly the name of the output PostScript
 file we want which I'm going to call: distance_map.ps .  And then the
 variable we want to plot is specified using the following string, by
 calling it 
-‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
+
+.. code_block:: ini
+
+  ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
 (*Type plot_data_plane /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’ )*
 
