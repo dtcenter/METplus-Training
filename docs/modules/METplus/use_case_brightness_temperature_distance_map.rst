@@ -7,14 +7,6 @@ Use Case: Brightness Temperature Distance Map Verification
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/vKQwNBx7OmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Developed for **METplus Version 4.0**.
-
-(*Setup: Open 2 terminals*)
-
-(*Setup: Open URL: https://metplus.readthedocs.io/en/main_v4.0/Users_Guide/index.html*)
-
-(*Setup: Open URL: https://met.readthedocs.io/en/latest/*)
-
 
 If you would like to follow along with the exercises in this video,
 please select one of the options to set up your own
