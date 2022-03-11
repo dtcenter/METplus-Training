@@ -79,7 +79,7 @@ If we first look at the process list inside this file, we will see that
 there are two instances of Grid_Stat. These two instances are for the two
 Ensemble members and the values in parenthesis are identifiers for the
 members. 
-(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)
+(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)*)
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_DIR = FV3_core {instance} ???Double check this???
@@ -94,7 +94,7 @@ the value of INPUT_BASE as it is given in
 FCST_GRID_STAT_INPUT_DIR and
 OBS_GRID_STAT_INPUT_DIR
 So we'll go to another terminal and pull up Tutorial_system.conf
- Open new terminal window
+(*Open new terminal window*)
 
 .. code-block:: ini
 
@@ -102,11 +102,10 @@ So we'll go to another terminal and pull up Tutorial_system.conf
   vim Tutorial_system.conf
 
 INPUT_BASE is set to the following path that's listed here. 
-(*INPUT_BASE - /d1/projects/METplus/METplus_Data
+(*INPUT_BASE - /d1/projects/METplus/METplus_Data*)
 
-So we can
-combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
-(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature
+So we can combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
+(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
 to check for files. 
 .. code-block:: ini ls /model_applications/convetion_allowing_models/brightness_temperature
 
