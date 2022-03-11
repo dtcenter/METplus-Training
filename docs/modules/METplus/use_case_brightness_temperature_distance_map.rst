@@ -22,16 +22,16 @@ please select one of the options to set up your own
 
 My name is Christina Kalb, and I'm a scientist working on the METplus
 team at NCAR.  This video will cover how to run the Brightness Temperature
-Distance Map use case.  
-Specific information about this use case can be found in the
+Distance Map Use Case.  
+Specific information about this Use Case can be found in the
 `METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. Click on User's Guide.  Go to section 5, METplus Use Cases,
 Model Applications, Convection Allowing Models and click on
 `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_.
 Scroll down to METplus Workflow.
 
-Looking at the information, we see that this use case runs Grid-Stat to
-create distance maps on the FV3 Model Ensemble members compared to GOES
-brightness temperature data. It is set up to run two Ensemble members: 
+Looking at the information, we see that this Use Case runs Grid-Stat to
+create distance maps on the FV3 Model ensemble members compared to GOES
+brightness temperature data. It is set up to run two ensemble members: 
 
   1. Model Initialization time
   2. Forecast Lead times
