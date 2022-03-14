@@ -222,9 +222,11 @@ Exiting out of this file, we can now call plot_data_plane, using plot_data_plane
 and then we specify the input file name and then secondly the name of the output 
 PostScript file we want which I'm going to call: distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
-calling it 
+calling it.  Exit out
 
-???exit out
+.. code-block:: ini
+
+  ctrl-c
 
 .. code-block:: ini
 
