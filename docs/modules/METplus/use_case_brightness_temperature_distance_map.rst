@@ -23,12 +23,10 @@ Scroll down to METplus Workflow.
 
 Looking at the information, we see that this Use Case runs Grid-Stat to
 create distance maps on the FV3 Model ensemble members compared to GOES
-brightness temperature data. It is set up to run two ensemble members: 
+brightness temperature data. It is set up to run two ensemble members, one
+model initialization time, and two forecast lead times.  The METplus and MET 
+configuration files are shown here in the documentation.
 
-  1. Model Initialization time
-  2. Forecast Lead times
-
-The METplus and MET configuration files are shown here in the documentation.
 If you want to learn more about Grid-Stat and distance maps go to the Met
 Users Guide under
 `Section 10 <https://met.readthedocs.io/en/latest/Users_Guide/grid-stat.html>`_
@@ -68,10 +66,10 @@ If we first look at the process list inside this file, we will see that
 there are two instances of Grid_Stat. These two instances are for the two
 Ensemble members and the values in parenthesis are identifiers for the
 members. 
-(*PROCESS_LIST - GridStat(lsm1), GridStat(mp1)*)
+(*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*)
 
 So if we scroll down to the bottom of the file and we look at:
-GRID_STAT_OUTPUT_DIR = FV3_core {instance} ???Double check this???
+GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} ???Double check this???
 prefix and (*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*)
 We see the word {instance} in both of these variables. This value is set
 to the Ensemble Member in parenthesis in the process list when METplus is
