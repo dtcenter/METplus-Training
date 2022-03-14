@@ -10,7 +10,7 @@ Use Case: Brightness Temperature Distance Map Verification
 
 If you would like to follow along with the exercises in this video,
 please select one of the options to set up your own
-:ref:`<Training Environment <training_environment>`.
+:ref:`Training Environment <training_environment>`.
 
 My name is Christina Kalb, and I'm a scientist working on the METplus
 team at NCAR.  This video will cover how to run the Brightness Temperature
