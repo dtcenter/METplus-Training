@@ -69,8 +69,8 @@ members.
 (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*)
 
 So if we scroll down to the bottom of the file and we look at:
-GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} ???Double check this???
-prefix and (*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*)
+GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} and 
+(*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*)
 We see the word {instance} in both of these variables. This value is set
 to the Ensemble Member in parenthesis in the process list when METplus is
 run and it's how it points to the different members.
