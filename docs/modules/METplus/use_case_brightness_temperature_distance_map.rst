@@ -78,7 +78,7 @@ run and it's how it points to the different members.
 Next let's check our paths to the input data. To do this we need to know
 the value of INPUT_BASE as it is given in 
 FCST_GRID_STAT_INPUT_DIR and
-OBS_GRID_STAT_INPUT_DIR
+OBS_GRID_STAT_INPUT_DIR.
 So we'll go to another terminal and pull up Tutorial_system.conf
 (*Open new terminal window*)
 
@@ -92,13 +92,16 @@ INPUT_BASE is set to the following path that's listed here.
 
 So we can combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
 (*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
-to check for files. 
-.. code-block:: ini ls /model_applications/convetion_allowing_models/brightness_temperature
+to check for files.
+
+.. code-block:: ini 
+
+ls /model_applications/convetion_allowing_models/brightness_temperature
 
 Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
 FCST_GRID_STAT_INPUT_TEMPLATE, we see that the model date is given as
-year, month, day, and hour. Which is the first template seen here.
+year, month, day, and hour, which is the first template seen here.
 (*2019052100*)
 
 Inside this directory we will see that there are four Ensemble members.
@@ -115,7 +118,7 @@ lead time and another for the 2 hour forecast lead time, which is as we
 would expect. 
 
 So next we will go ahead and check the observed input files.
-OBS_GRID_STAT_INPUT_DIR  is the same as FCST_GRID_STAT_INPUT_DIR.
+OBS_GRID_STAT_INPUT_DIR is the same as FCST_GRID_STAT_INPUT_DIR.
 So we will copy/paste.
 
 .. code-block:: ini
@@ -124,9 +127,7 @@ So we will copy/paste.
 
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
-(*2019_05_211_141*)
-
-Inside this directory we see that there are two GOES files. 
+(*2019_05_211_141*).  Inside this directory we see that there are two GOES files. 
 One for the one UTC valid time and another for the two UTC valid time. 
 
 Next let's check our input variables to be sure that we have them
@@ -140,11 +141,11 @@ model data, we will open a model file.
 The variable that we have specified in our configuration file is called
 (*SBTA1613_topofatmosphere*) and the level is set to “(*,*)” 
 which indicates the variable is in two dimensions.
-We scroll through our input file. We see that the variable name,
-(*SBTA1613_topofatmosphere(lat, long)*), is listed here and it's in two
+If we scroll through our input file, we see that the variable name,
+(*SBTA1613_topofatmosphere(lat, lon)*), is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
 
-Next we will check the observed variable. I scroll up so that I can get the
+Next we will check the observed variable. I'll scroll up so that I can get the
 directory as we listed previously.
 
 .. code-block:: ini
@@ -155,11 +156,11 @@ Looking at the configuration file The observed variable is called
 (*channel_13_brightness_temperature(lat, lon)*) and it's also in two dimensions.
 Scrolling down through the file here we see
 (*channel_13_brightness_temperature(lat, lon)*) and it's in two dimensions in our
-OBS_INPUT file. Additionally, in this case we’re using a threshold of
+obs input file. Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps.
 (*le235*) 
 
-And, finally, to get distance map output from GRID_STAT we have to set the
+And, finally, to get distance map output from grid_stat we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
 either STAT or BOTH. Here we have it sent to BOTH which will produce two
 output files.  A .stat file and a .txt file.
@@ -169,7 +170,7 @@ output files.  A .stat file and a .txt file.
   GRID_STAT_OUTPUT_FLAG_DMAP = BOTH
 
 So now we're ready to start the Use Case. We start by calling the script,
-run_metplus.py which is in the ush/ directory. Followed by -c and then our
+run_metplus.py which is in the ush/ directory, followed by -c and then our
 Use Case specific configuration file, followed by a -c and then our tutorial
 or system configuration file.
 
@@ -177,21 +178,21 @@ or system configuration file.
 
   ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf
 
-So here the use case is running. It will go through four calls to GRID_STAT.
-One for each of the two forecast lead times and Ensemble members. And the
+So here the use case is running. It will go through four calls to grid_stat, 
+one for each of the two forecast lead times and Ensemble members. And the
 METplus run has now finished successfully! So let's take a look at the
 output to be sure that we have what is expected. We will first go back
 to the
 `Use Case <https://metplus.readthedocs.io/en/develop/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html#expected-output>`_ documentation.
 
 Scrolling down to the expected output, we can see that the expected output
-is 12 files. The first six are for the core_lsm1 Ensemble member and the
+is 12 files. The first six are for the core_lsm1 ensemble member and the
 second six are for the core_mp1 member. Each member contains two
-valid times, 01 UTC and 02 UTC valid on May 21st 2019. There are three
-files for each Ensemble member in valid time. The file ending in dmap.txt
+valid times, 01 UTC and 02 UTC valid on May 21, 2019. There are three
+files for each Ensemble member and valid time. The file ending in dmap.txt
 and .stat contain the distance map output line. We have two files here
 because we set the dmap flag to BOTH. The file with pairs.nc at the end
-contains Gridded output including the distance map.
+contains Gridded output including the distance maps.
 
 So if we go back to our METplus run, we can first take a look at the log
 output to find our output directory.
@@ -200,14 +201,13 @@ output to find our output directory.
 
   vim /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/logs/metplus_log_20220309104212
 
-When we scroll down the output directory is listed here after the -outdir flag in our GRID_STAT call.
+When we scroll down the output directory is listed here after the -outdir flag in our grid_stat call.
 
 .. code-block:: ini
 
   ls /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat
 
-Looking inside this directory we see that we have all 12 expected files.  
-???Should we show this???
+Looking inside this directory we see that we have all 12 expected files.
 Finally, we can make a distance map image by using the plot_data_plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
 can get the name of the variable we want to apply for our distance map.
@@ -218,15 +218,13 @@ can get the name of the variable we want to apply for our distance map.
 
 The Obs Distance Map variable is specified here and it's in two dimensions.
 (*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon))*
-Exiting out of this file.
-
-???exit out
-
-We can now call plot_data_plane, using plot_data_plane. And then we specify
-the input file name and then secondly the name of the output PostScript
-file we want which I'm going to call: distance_map.ps .  And then the
+Exiting out of this file, we can now call plot_data_plane, using plot_data_plane, 
+and then we specify the input file name and then secondly the name of the output 
+PostScript file we want which I'm going to call: distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
 calling it 
+
+???exit out
 
 .. code-block:: ini
 
