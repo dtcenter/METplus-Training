@@ -126,7 +126,7 @@ so we will copy/paste.
   ls CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature
 
 However, in this case, the observed input template is given as
-year_month_day_141. So that's the second directory listed here.
+year_month_day_141. So that's the second directory listed here
 (*2019_05_21_141*).  Inside this directory we see that there are two GOES files; 
 one for the 01 UTC valid time and another for the 02 UTC valid time. 
 
