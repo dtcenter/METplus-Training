@@ -36,7 +36,7 @@ installed
 `MET <https://met.readthedocs.io/en/latest/Users_Guide/installation.html>`_
 and set up your environment for
 `METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>`_.
-Information on how to do this can be found in Section 1 of the
+Information on how to do this can be found in Section 1 and the
 `Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
 sections of the online tutorial topics. Here we will be using the recommended
 setup, which is first passing in a Use Case specific to the configuration file,
