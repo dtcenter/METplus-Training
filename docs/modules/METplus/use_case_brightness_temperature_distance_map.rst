@@ -206,7 +206,7 @@ When we scroll down the output directory is listed here after the -outdir flag i
 
 .. code-block:: ini
 
-  ls CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat
+  ls CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat
 
 Looking inside this directory we see that we have all twelve expected files.
 Finally, we can make a distance map image by using the plot_data_plane tool
@@ -215,7 +215,7 @@ can get the name of the variable we want to plot for our distance map.
 
 .. code-block:: ini
 
-  ncdump CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more
+  ncdump CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more
 
 The obs distance map variable is specified here and it's in two dimensions.
 (*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*).
@@ -233,7 +233,7 @@ then level equals, and in this case two asterisks in parenthesis in quotes.
 
 .. code-block:: ini
 
-  plot_data_plane CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
+  plot_data_plane CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
 
 So plot_data_plane has finished successfully. The output image looks as
