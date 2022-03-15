@@ -177,7 +177,7 @@ or system configuration file.
 
 .. code-block:: ini
 
-  ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf
+  ush/run_metplus.py -c parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf
 
 So here the use case is running. It will go through four calls to grid_stat, 
 one for each of the two forecast lead times and ensemble members. And the
