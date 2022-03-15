@@ -16,7 +16,7 @@ My name is Christina Kalb, and I'm a scientist working on the METplus
 team at NCAR.  This video will cover how to run the Brightness Temperature
 Distance Map Use Case.  
 Specific information about this Use Case can be found in the
-`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. Click on User's Guide.  
+`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_ (*Click on User's Guide*).  
 Go to Section 5, METplus Use Cases,
 Model Applications, Convection Allowing Models and click on
 `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_.
