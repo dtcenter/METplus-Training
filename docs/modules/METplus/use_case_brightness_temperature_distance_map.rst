@@ -180,7 +180,7 @@ or system configuration file.
   ush/run_metplus.py -c param/use_cases/model_applications/convection_allowing_models/GirdStat_fcstFV3_obsGOES_BrightnessTempDmap.conf -c Tutorial_system.conf
 
 So here the use case is running. It will go through four calls to grid_stat, 
-one for each of the two forecast lead times and Ensemble members. And the
+one for each of the two forecast lead times and ensemble members. And the
 METplus run has now finished successfully! So let's take a look at the
 output to be sure that we have what is expected. We will first go back
 to the
@@ -211,14 +211,14 @@ When we scroll down the output directory is listed here after the -outdir flag i
 Looking inside this directory we see that we have all 12 expected files.
 Finally, we can make a distance map image by using the plot_data_plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
-can get the name of the variable we want to apply for our distance map.
+can get the name of the variable we want to plot for our distance map.
 
 .. code-block:: ini
 
   ncdump /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more
 
 The Obs Distance Map variable is specified here and it's in two dimensions.
-(*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon))*
+*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*
 Exiting out of this file, we can now call plot_data_plane, using plot_data_plane, 
 and then we specify the input file name and then secondly the name of the output 
 PostScript file we want which I'm going to call: distance_map.ps.  And then the
