@@ -38,11 +38,11 @@ and set up your environment for
 Information on how to do this can be found in section one of the
 `Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
 sections of the online tutorial topics. Here we will be using the recommended
-setup. Which is first passing in a Use Case specific to the configuration file,
+setup, which is first passing in a Use Case specific to the configuration file,
 followed by a second configuration file with settings that are specific
 to the system we are using. 
 
-Let's go ahead and take a look at the parameter file in the settings for
+Let's go ahead and take a look at the parameter file and the settings for
 this Use Case. We’ll first go into the METplus Repository.
 
 .. code-block:: ini
