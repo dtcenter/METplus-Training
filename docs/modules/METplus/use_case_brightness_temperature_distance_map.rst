@@ -139,7 +139,7 @@ model data, we will open a model file.
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
 
 The variable that we have specified in our configuration file is called
-(*SBTA1613_topofatmosphere*) and the level is set to “(\*,\*)” 
+*SBTA1613_topofatmosphere* and the level is set to “(\*,\*)” 
 which indicates the variable is in two dimensions.
 If we scroll through our input file, we see that the variable name,
 *SBTA1613_topofatmosphere(lat, lon)*, is listed here and it's in two
@@ -153,9 +153,9 @@ directory as we listed previously.
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
 Looking at the configuration file The observed variable is called
-(*channel_13_brightness_temperature(lat, lon)*) and it's also in two dimensions.
+*channel_13_brightness_temperature* and it's also in two dimensions.
 Scrolling down through the file here we see
-(*channel_13_brightness_temperature(lat, lon)*) and it's in two dimensions in our
+*channel_13_brightness_temperature(lat, lon)* and it's in two dimensions in our
 obs input file. Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps.
 (*le235*) 
