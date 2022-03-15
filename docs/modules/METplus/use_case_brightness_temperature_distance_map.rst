@@ -128,7 +128,7 @@ so we will copy/paste.
 
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
-(*2019_05_211_141*).  Inside this directory we see that there are two GOES files. 
+(*2019_05_21_141*).  Inside this directory we see that there are two GOES files. 
 One for the 01 UTC valid time and another for the 02 UTC valid time. 
 
 Next let's check our input variables to be sure that we have them
