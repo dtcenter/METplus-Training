@@ -63,7 +63,7 @@ So we will go ahead and open this file.
   vim parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf
 
 If we first look at the process list inside this file, we will see that
-there are two instances of grid_stat. These two instances are for the two
+there are two instances of Grid-Stat. These two instances are for the two
 ensemble members and the values in parenthesis are identifiers for the
 members (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*).
 
@@ -158,7 +158,7 @@ Scrolling down through the file here we see
 obs input file. Additionally, in this case we’re using a threshold of
 235 Kelvin to create the distance maps (*le235*). 
 
-And, finally, to get distance map output from grid_stat we have to set the
+And, finally, to get distance map output from Grid-Stat we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
 either STAT or BOTH. Here we have it sent to BOTH which will produce two
 output files, a .stat file and a .txt file.
@@ -199,7 +199,7 @@ output to find our output directory.
 
   vim CHANGE_TO_YOUR_LOG_FILE
 
-When we scroll down the output directory is listed here after the -outdir flag in our grid_stat call.
+When we scroll down the output directory is listed here after the -outdir flag in our Grid-Stat call.
 
 .. code-block:: ini
 
