@@ -63,16 +63,16 @@ So we will go ahead and open this file.
   vim parm/use_cases/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf
 
 If we first look at the process list inside this file, we will see that
-there are two instances of Grid_Stat. These two instances are for the two
+there are two instances of grid_stat. These two instances are for the two
 Ensemble members and the values in parenthesis are identifiers for the
 members. 
 (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*)
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} and 
-(*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*)
-We see the word {instance} in both of these variables. This value is set
-to the Ensemble Member in parenthesis in the process list when METplus is
+(*FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*),
+we see the word {instance} in both of these variables. This value is set
+to the ensemble member in parenthesis in the process list when METplus is
 run and it's how it points to the different members.
 
 Next let's check our paths to the input data. To do this we need to know
