@@ -240,7 +240,7 @@ calling it.  Exit out
 So plot_data_plane has finished successfully. The output image looks as
 follows. 
 
-.. image:: METplus-Training/docs/modules/METplus/metplus_configuration_files/mode_bright_temp_distance_map.png
+.. image:: /modules/METplus/metplus_configuration_files/mode_bright_temp_distance_map.png
 
 If we compare this to the distance map image in the use case documentation
 we will see that they match. So our METplus run has completed successfully! 
