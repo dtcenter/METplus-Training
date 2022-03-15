@@ -28,7 +28,7 @@ brightness temperature data. It is set up to run two ensemble members, one
 model initialization time, and two forecast lead times.  The METplus and MET 
 configuration files are shown here in the documentation.
 
-If you want to learn more about Grid-Stat and distance maps go to the Met
+If you want to learn more about grid_stat and distance maps go to the Met
 Users Guide under
 `Section 10 <https://met.readthedocs.io/en/latest/Users_Guide/grid-stat.html>`_
 which is on the Grid-Stat tool. This video assumes that you have already
