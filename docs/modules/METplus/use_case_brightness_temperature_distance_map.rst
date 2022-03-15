@@ -49,7 +49,7 @@ this Use Case. We’ll first go into the METplus Repository.
 .. code-block:: ini
 
   cd METplus
-  vim Tutorial_system.conf
+  ls
 
 Tutorial_system.conf is the system specific configuration file.  The use
 case specific configuration file is located under:
