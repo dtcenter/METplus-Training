@@ -232,7 +232,7 @@ then level equals, and in this case two asterisks in parenthesis in quotes.
 
 .. code-block:: ini
 
-  ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
+  plot_data_plane CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
 .. code-block:: ini
 
