@@ -89,7 +89,7 @@ So we'll go to another terminal and pull up Tutorial_system.conf
   vim Tutorial_system.conf
 
 INPUT_BASE is set to the following path that's listed here. 
-(*INPUT_BASE - /d1/projects/METplus/METplus_Data*)
+(*INPUT_BASE = /d1/projects/METplus/METplus_Data*)
 
 So we can combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
 (*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
