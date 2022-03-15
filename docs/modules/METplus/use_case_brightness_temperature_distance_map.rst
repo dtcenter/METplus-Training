@@ -206,9 +206,9 @@ When we scroll down the output directory is listed here after the -outdir flag i
 
 .. code-block:: ini
 
-  ls CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat
+  ls CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat
 
-Looking inside this directory we see that we have all 12 expected files.
+Looking inside this directory we see that we have all twelve expected files.
 Finally, we can make a distance map image by using the plot_data_plane tool
 in MET. So first we need to take a look at the pairs.nc file so that we
 can get the name of the variable we want to plot for our distance map.
@@ -217,13 +217,14 @@ can get the name of the variable we want to plot for our distance map.
 
   ncdump CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc | more
 
-The Obs Distance Map variable is specified here and it's in two dimensions.
-*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*
+The obs distance map variable is specified here and it's in two dimensions.
+(*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*).
 Exiting out of this file, we can now call plot_data_plane, using plot_data_plane, 
 and then we specify the input file name and then secondly the name of the output 
 PostScript file we want which I'm going to call: distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
-calling it.  Exit out
+calling name equals and our variable name in quotes, followed buy a semi colon, and 
+then level equals, and in this case two asterisks in parenthesis in quotes.
 
 .. code-block:: ini
 
