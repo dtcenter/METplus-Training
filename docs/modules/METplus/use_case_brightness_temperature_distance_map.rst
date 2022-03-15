@@ -97,7 +97,7 @@ to check for files.
 
 .. code-block:: ini 
 
-  ls CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature
+  ls CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature
 
 Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
@@ -112,7 +112,7 @@ So let's check the first ensemble member and see if we’ve got files.
 
 .. code-block:: ini
 
-  ls CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1
+  ls CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1
 
 Here we see that there are two files. One for the 01 hour for the forecast
 lead time and another for the 02 hour forecast lead time, which is as we
@@ -124,7 +124,7 @@ so we will copy/paste.
 
 .. code-block:: ini
 
-  ls CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature
+  ls CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature
 
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
@@ -137,7 +137,7 @@ model data, we will open a model file.
 
 .. code-block:: ini
 
-  ncdump CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
+  ncdump CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
 
 The variable that we have specified in our configuration file is called
 *SBTA1613_topofatmosphere* and the level is set to “(\*,\*)” 
@@ -151,7 +151,7 @@ directory as we listed previously.
 
 .. code-block:: ini
 
-  ncdump CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
+  ncdump CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
 Looking at the configuration file. the observed variable is called
 *channel_13_brightness_temperature* and it's also in two dimensions.
@@ -206,7 +206,7 @@ When we scroll down the output directory is listed here after the -outdir flag i
 
 .. code-block:: ini
 
-  ls CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat
+  ls CHANGE_TO_YOUR_OUTPUT_BASE/convection_allowing_models/brightness_temperature/grid_stat
 
 Looking inside this directory we see that we have all twelve expected files.
 Finally, we can make a distance map image by using the plot_data_plane tool
@@ -215,7 +215,7 @@ can get the name of the variable we want to plot for our distance map.
 
 .. code-block:: ini
 
-  ncdump CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V_pairs.nc | more
+  ncdump CHANGE_TO_YOUR_OUTPUT_BASE/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V_pairs.nc | more
 
 The obs distance map variable is specified here and it's in two dimensions.
 (*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*).
@@ -233,7 +233,7 @@ then level equals, and in this case two asterisks in parenthesis in quotes.
 
 .. code-block:: ini
 
-  plot_data_plane CHANGE_TO_YOUR_OUTPUT_DIRECTORY/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V_pairs.nc distance_map.ps 'name="OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL"; level="(*,*)";'
+  plot_data_plane CHANGE_TO_YOUR_OUTPUT_BASE/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V_pairs.nc distance_map.ps 'name="OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL"; level="(*,*)";'
 
 
 So plot_data_plane has finished successfully. The output image looks as
