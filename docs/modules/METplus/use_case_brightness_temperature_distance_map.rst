@@ -153,7 +153,7 @@ directory as we listed previously.
 
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
-Looking at the configuration file The observed variable is called
+Looking at the configuration file. the observed variable is called
 *channel_13_brightness_temperature* and it's also in two dimensions.
 Scrolling down through the file here we see
 *channel_13_brightness_temperature(lat, lon)* and it's in two dimensions in our
