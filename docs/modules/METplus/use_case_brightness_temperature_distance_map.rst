@@ -224,7 +224,8 @@ and then we specify the input file name and then secondly the name of the output
 PostScript file we want which I'm going to call: distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
 calling name equals and our variable name in quotes, followed buy a semi colon, and 
-then level equals, and in this case two asterisks in parenthesis in quotes.
+then level equals, and in this case two asterisks in parenthesis in quotes. 
+(*‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’*)
 
 .. code-block:: ini
 
@@ -233,10 +234,6 @@ then level equals, and in this case two asterisks in parenthesis in quotes.
 .. code-block:: ini
 
   plot_data_plane CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
-
-.. code-block:: ini
-
-  plot_data_plane /d1/personal/CHANGE_TO_YOUR_DIRECTORY/METplus/convection_allowing_models/brightness_temperature/grid_stat/grid_stat_FV3_core_lsm1_010000L_20190521_010000V.pairs.nc distance_map.ps ‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(*,*)”;’
 
 
 So plot_data_plane has finished successfully. The output image looks as
@@ -249,4 +246,3 @@ we will see that they match. So our METplus run has completed successfully!
 
 This concludes the tutorial on the Brightness Temperature Distance Map Use
 Case. Thank you for watching.
-
