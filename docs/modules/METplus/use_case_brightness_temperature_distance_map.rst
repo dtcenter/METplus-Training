@@ -114,8 +114,8 @@ So let's check the first ensemble member and see if we’ve got files.
 
   ls CHANGE_TO_YOUR_INPUT_DIRECTORY/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1
 
-Here we see that there are two files. One for the 1 hour for the forecast
-lead time and another for the 2 hour forecast lead time, which is as we
+Here we see that there are two files. One for the 01 hour for the forecast
+lead time and another for the 02 hour forecast lead time, which is as we
 would expect. 
 
 So next we will go ahead and check the observed input files.
