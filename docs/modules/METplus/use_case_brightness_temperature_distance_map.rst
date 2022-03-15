@@ -43,7 +43,7 @@ setup, which is first passing in a Use Case specific to the configuration file,
 followed by a second configuration file with settings that are specific
 to the system we are using. 
 
-Let's go ahead and take a look at the parameter file and the settings for
+So let's go ahead and take a look at the parameter file and the settings for
 this Use Case. We’ll first go into the METplus Repository.
 
 .. code-block:: ini
