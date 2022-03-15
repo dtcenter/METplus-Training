@@ -187,13 +187,13 @@ to the
 `Use Case <https://metplus.readthedocs.io/en/develop/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html#expected-output>`_ documentation.
 
 Scrolling down to the expected output, we can see that the expected output
-is 12 files. The first six are for the core_lsm1 ensemble member and the
+is twelve files. The first six are for the core_lsm1 ensemble member and the
 second six are for the core_mp1 member. Each member contains two
 valid times, 01 UTC and 02 UTC valid on May 21, 2019. There are three
-files for each Ensemble member and valid time. The file ending in dmap.txt
+files for each Ensemble member and valid time. The files ending in dmap.txt
 and .stat contain the distance map output line. We have two files here
 because we set the dmap flag to BOTH. The file with pairs.nc at the end
-contains Gridded output including the distance maps.
+contains gridded output including the distance maps.
 
 So if we go back to our METplus run, we can first take a look at the log
 output to find our output directory.
