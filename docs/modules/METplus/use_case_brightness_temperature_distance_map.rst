@@ -139,7 +139,7 @@ model data, we will open a model file.
   ncdump /d1/projects/METplus/METplus_Data/model_applications/convection_allowing_models/brightness_temperature/2019052100/core_lsm1/core_lsm1_20190521_0000_f01.nc | more
 
 The variable that we have specified in our configuration file is called
-(*SBTA1613_topofatmosphere*) and the level is set to “(*,*)” 
+(*SBTA1613_topofatmosphere*) and the level is set to “( *,* )” 
 which indicates the variable is in two dimensions.
 If we scroll through our input file, we see that the variable name,
 (*SBTA1613_topofatmosphere(lat, lon)*), is listed here and it's in two
