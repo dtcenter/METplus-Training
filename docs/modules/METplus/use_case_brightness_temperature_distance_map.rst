@@ -105,7 +105,7 @@ FCST_GRID_STAT_INPUT_TEMPLATE, we see that the model date is given as
 year, month, day, and hour, which is the first template seen here.
 (*2019052100*)
 
-Inside this directory we will see that there are four Ensemble members.
+Inside this directory we will see that there are four ensemble members.
 But only two will be run for the use case. 
 
 So let's check the first ensemble member and see if we’ve got files.
@@ -146,7 +146,7 @@ If we scroll through our input file, we see that the variable name,
 *SBTA1613_topofatmosphere(lat, lon)*, is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
 
-Next we will check the observed variable. I'll scroll up so that I can get the
+Next we will check the observed variable. If I scroll up so that I can get the
 directory as we listed previously.
 
 .. code-block:: ini
@@ -164,7 +164,7 @@ obs input file. Additionally, in this case we’re using a threshold of
 And, finally, to get distance map output from grid_stat we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
 either STAT or BOTH. Here we have it sent to BOTH which will produce two
-output files.  A .stat file and a .txt file.
+output files, a .stat file and a .txt file.
 
 .. code-block:: ini
 
