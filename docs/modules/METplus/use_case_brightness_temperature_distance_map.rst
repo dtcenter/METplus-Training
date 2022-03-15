@@ -96,7 +96,7 @@ to check for files.
 
 .. code-block:: ini 
 
-ls /model_applications/convetion_allowing_models/brightness_temperature
+  ls /model_applications/convetion_allowing_models/brightness_temperature
 
 Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
