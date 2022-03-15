@@ -171,7 +171,7 @@ output files, a .stat file and a .txt file.
   GRID_STAT_OUTPUT_FLAG_DMAP = BOTH
 
 So now we're ready to start the Use Case. We start by calling the script,
-run_metplus.py which is in the ush/ directory, followed by -c and then our
+run_metplus.py, which is in the ush/ directory, followed by -c and then our
 Use Case specific configuration file, followed by a -c and then our tutorial
 or system configuration file.
 
