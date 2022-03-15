@@ -142,7 +142,7 @@ The variable that we have specified in our configuration file is called
 (*SBTA1613_topofatmosphere*) and the level is set to “(\*,\*)” 
 which indicates the variable is in two dimensions.
 If we scroll through our input file, we see that the variable name,
-(*SBTA1613_topofatmosphere(lat, lon)*), is listed here and it's in two
+*SBTA1613_topofatmosphere(lat, lon)*, is listed here and it's in two
 dimensions. So our model variable is specified correctly. 
 
 Next we will check the observed variable. I'll scroll up so that I can get the
