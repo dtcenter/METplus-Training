@@ -218,7 +218,7 @@ The obs distance map variable is specified here and it's in two dimensions.
 (*OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL( lat, lon)*).
 Exiting out of this file, we can now call plot_data_plane, using plot_data_plane, 
 and then we specify the input file name and then secondly the name of the output 
-PostScript file we want which I'm going to call: distance_map.ps.  And then the
+PostScript file we want which I'm going to call distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
 calling name equals and our variable name in quotes, followed buy a semi colon, and 
 then level equals, and in this case two asterisks in parenthesis in quotes 
