@@ -65,8 +65,7 @@ So we will go ahead and open this file.
 If we first look at the process list inside this file, we will see that
 there are two instances of grid_stat. These two instances are for the two
 ensemble members and the values in parenthesis are identifiers for the
-members. 
-(*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*)
+members (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*).
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} and 
@@ -80,7 +79,7 @@ the value of INPUT_BASE as it is given in
 FCST_GRID_STAT_INPUT_DIR and
 OBS_GRID_STAT_INPUT_DIR.
 So we'll go to another terminal and pull up Tutorial_system.conf
-(*Open new terminal window*)
+(*Open new terminal window*).
 
 .. code-block:: ini
 
@@ -101,8 +100,8 @@ to check for files.
 Here we see that there are two date directories and a
 polygon for verification. If we go back and then look at
 FCST_GRID_STAT_INPUT_TEMPLATE, we see that the model date is given as
-year, month, day, and hour, which is the first template seen here.
-(*2019052100*)
+year, month, day, and hour, which is the first template seen here
+(*2019052100*).
 
 Inside this directory we will see that there are four ensemble members.
 But only two will be run for the use case. 
@@ -157,8 +156,7 @@ Looking at the configuration file. the observed variable is called
 Scrolling down through the file here we see
 *channel_13_brightness_temperature(lat, lon)* and it's in two dimensions in our
 obs input file. Additionally, in this case we’re using a threshold of
-235 Kelvin to create the distance maps.
-(*le235*) 
+235 Kelvin to create the distance maps (*le235*). 
 
 And, finally, to get distance map output from grid_stat we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
@@ -223,8 +221,8 @@ and then we specify the input file name and then secondly the name of the output
 PostScript file we want which I'm going to call: distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
 calling name equals and our variable name in quotes, followed buy a semi colon, and 
-then level equals, and in this case two asterisks in parenthesis in quotes. 
-(*‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(\*,\*)”;’*)
+then level equals, and in this case two asterisks in parenthesis in quotes 
+(*‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(\*,\*)”;’*).
 
 .. code-block:: ini
 
