@@ -118,8 +118,8 @@ lead time and another for the 2 hour forecast lead time, which is as we
 would expect. 
 
 So next we will go ahead and check the observed input files.
-OBS_GRID_STAT_INPUT_DIR is the same as FCST_GRID_STAT_INPUT_DIR.
-So we will copy/paste.
+OBS_GRID_STAT_INPUT_DIR is the same as FCST_GRID_STAT_INPUT_DIR,
+so we will copy/paste.
 
 .. code-block:: ini
 
@@ -128,7 +128,7 @@ So we will copy/paste.
 However, in this case, the observed input template is given as
 year_month_day_141. So that's the second directory listed here.
 (*2019_05_211_141*).  Inside this directory we see that there are two GOES files. 
-One for the one UTC valid time and another for the two UTC valid time. 
+One for the 01 UTC valid time and another for the 02 UTC valid time. 
 
 Next let's check our input variables to be sure that we have them
 correctly specified in the configuration file. First looking at the
