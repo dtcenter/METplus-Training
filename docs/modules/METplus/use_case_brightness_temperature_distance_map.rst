@@ -20,13 +20,12 @@ Specific information about this Use Case can be found in the
 Go to Section 5, METplus Use Cases,
 Model Applications, Convection Allowing Models and click on
 `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_.
-(*Scroll down to METplus Workflow*)
 
 Looking at the information, we see that this Use Case runs Grid-Stat to
 create distance maps on the FV3 Model ensemble members compared to GOES
-brightness temperature data. It is set up to run two ensemble members, one
-model initialization time, and two forecast lead times.  The METplus and MET 
-configuration files are shown here in the documentation.
+brightness temperature data (*Scroll down to METplus Workflow*). It is set up to 
+run two ensemble members, onemodel initialization time, and two forecast lead times.  
+The METplus and MET configuration files are shown here in the documentation.
 
 If you want to learn more about grid_stat and distance maps go to the Met
 Users Guide under
