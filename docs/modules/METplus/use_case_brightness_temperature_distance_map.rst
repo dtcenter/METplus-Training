@@ -64,7 +64,7 @@ So we will go ahead and open this file.
 
 If we first look at the process list inside this file, we will see that
 there are two instances of grid_stat. These two instances are for the two
-Ensemble members and the values in parenthesis are identifiers for the
+ensemble members and the values in parenthesis are identifiers for the
 members. 
 (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*)
 
@@ -107,7 +107,7 @@ year, month, day, and hour, which is the first template seen here.
 Inside this directory we will see that there are four Ensemble members.
 But only two will be run for the use case. 
 
-So let's check the first Ensemble member and see if we’ve got files.
+So let's check the first ensemble member and see if we’ve got files.
 
 .. code-block:: ini
 
