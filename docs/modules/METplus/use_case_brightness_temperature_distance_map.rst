@@ -56,7 +56,7 @@ parm/use_cases/model_applications/convection_allowing_models
 and it's called: 
 GridStat_fcstFV3_obsGOES_BrightnessTempDmap.conf 
 
-Go ahead and open this file.
+So we will go ahead and open this file.
 
 .. code-block:: ini
 
