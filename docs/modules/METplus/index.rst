@@ -14,3 +14,4 @@ These are the METplus Training Topics.
    use_case_example_wrapper
    use_case_track_and_intensity
    use_case_mode_brightness_temperature
+   use_case_brightness_temperature_distance_map
