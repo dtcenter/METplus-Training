@@ -16,7 +16,8 @@ My name is Christina Kalb, and I'm a scientist working on the METplus
 team at NCAR.  This video will cover how to run the Brightness Temperature
 Distance Map Use Case.  
 Specific information about this Use Case can be found in the
-`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. Click on User's Guide.  Go to section 5, METplus Use Cases,
+`METplus User's Guide <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide>`_. Click on User's Guide.  
+Go to Section 5, METplus Use Cases,
 Model Applications, Convection Allowing Models and click on
 `Grid-Stat: Brightness Temperature Distance Maps <https://metplus.readthedocs.io/en/latest/generated/model_applications/convection_allowing_models/GridStat_fcstFV3_obsGOES_BrightnessTempDmap.html>`_.
 Scroll down to METplus Workflow.
@@ -35,7 +36,7 @@ installed
 `MET <https://met.readthedocs.io/en/latest/Users_Guide/installation.html>`_
 and set up your environment for
 `METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>`_.
-Information on how to do this can be found in section one of the
+Information on how to do this can be found in Section 1 of the
 `Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
 sections of the online tutorial topics. Here we will be using the recommended
 setup, which is first passing in a Use Case specific to the configuration file,
