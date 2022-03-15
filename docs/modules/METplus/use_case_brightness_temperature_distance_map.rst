@@ -200,7 +200,7 @@ output to find our output directory.
 
 .. code-block:: ini
 
-  vim CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/logs/metplus_log_20220309104212
+  vim CHANGE_TO_YOUR_OUTPUT_DIRECTORY/METplus/logs/CHANGE_TO_YOUR_LOG_FILE
 
 When we scroll down the output directory is listed here after the -outdir flag in our grid_stat call.
 
