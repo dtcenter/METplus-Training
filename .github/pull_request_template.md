@@ -14,6 +14,6 @@ See the [METplus Workflow](https://dtcenter.github.io/METplus/Contributors_Guide
 - [ ] Define the PR metadata, as permissions allow.
 Select: **Reviewer(s)**
 Select: **Milestone** as the version that will include these changes
-- [ ] After submitting the PR, select **Linked issues** with the original issue number.
+- [ ] After submitting the PR, select **Development** with the original issue number.
 - [ ] After the PR is approved, merge your changes. If permissions do not allow this, request that the reviewer do the merge.
 - [ ] Close the linked issue and delete your feature or bugfix branch from GitHub.
