@@ -2,7 +2,7 @@
 name: Bug report
 about: Fix something that's not working
 title: ''
-labels: 'alert: NEED ACCOUNT KEY, alert: NEED MORE DEFINITION, alert: NEED CYLCE
+labels: 'alert: NEED ACCOUNT KEY, alert: NEED MORE DEFINITION, alert: NEED CYCLE
   ASSIGNMENT, type: bug'
 assignees: ''
 
