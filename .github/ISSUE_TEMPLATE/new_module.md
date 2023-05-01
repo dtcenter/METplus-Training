@@ -2,7 +2,7 @@
 name: New training module
 about: Add a new training module
 title: ''
-labels: 'alert: NEED ACCOUNT KEY, alert: NEED MORE DEFINITION, alert: NEED PROJECT
+labels: 'alert: NEED ACCOUNT KEY, alert: NEED MORE DEFINITION, alert: NEED CYCLE
   ASSIGNMENT, type: new module'
 assignees: ''
 
