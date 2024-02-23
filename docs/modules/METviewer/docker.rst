@@ -59,6 +59,10 @@ Running METviewer through Docker requires two software images: one for the METvi
 for the MySQL database component. A Docker-Compose YML file defines how they work together to run the METviewer
 application. So let's start by downloading that Docker-Compose file from the METviewer GitHub repository:
 
+.. note::
+
+  These instructions have also been tested using **METviewer Version 5.1**. To use a newer version, replace "main_v3.1" with "main_v5.1" in the URL below.
+
 .. code-block::
 
   curl -SL https://raw.githubusercontent.com/dtcenter/METviewer/main_v3.1/docker/docker-compose.yml > docker-compose.yml
@@ -81,9 +85,13 @@ Environment
 
 For this tutorial, we'll get some MET output files by downloading a sample data tarfile from the DTC website.
 
+.. note::
+
+  The location of this sample data tarfile has changed since this video was recorded. While the following URL is correct, it does not match the recording.
+
 .. code-block::
 
-  curl -SL https://dtcenter.ucar.edu/dfiles/code/METplus/METviewer/sample_data-met_out_v9.1.tgz | tar -xzC .
+  curl -SL https://dtcenter.ucar.edu/dfiles/code/METplus/METdataio/sample_data-met_out_v9.1.tgz | tar -xzC .
 
 This *curl* command creates a directory named **met_out** which contains the MET output files that are created
 by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
