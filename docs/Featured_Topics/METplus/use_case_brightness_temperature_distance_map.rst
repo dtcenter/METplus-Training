@@ -36,7 +36,7 @@ installed
 and set up your environment for
 `METplus <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html>`_.
 Information on how to do this can be found in Section 1 and the
-`Installation and Setup <https://metplus-training.readthedocs.io/en/latest/modules/Environment/index.html>`_
+`Installation and Setup <https://metplus-training.readthedocs.io/en/latest/Featured_Topics/Environment/index.html>`_
 sections of the online tutorial topics. Here we will be using the recommended
 setup, which is first passing in a Use Case specific to the configuration file,
 followed by a second configuration file with settings that are specific
@@ -236,7 +236,7 @@ then level equals, and in this case two asterisks in parenthesis in quotes
 So plot_data_plane has finished successfully. The output image looks as
 follows. 
 
-.. image:: /modules/METplus/metplus_configuration_files/mode_bright_temp_distance_map.png
+.. image:: /Featured_Topics/METplus/metplus_configuration_files/mode_bright_temp_distance_map.png
 
 If we compare this to the distance map image in the use case documentation
 we will see that they match. So our METplus run has completed successfully! 

@@ -1,6 +1,6 @@
-#######################
-METplus Training Series
-#######################
+###############
+Training Series
+###############
 
 .. _2021_2022_training_series:
 

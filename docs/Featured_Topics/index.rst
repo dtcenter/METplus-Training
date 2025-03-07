@@ -1,13 +1,14 @@
-################################
-Featured METplus Training Topics
-################################
+###############
+Featured Topics
+###############
 
 .. toctree::
    :titlesonly:
    :numbered: 4
 
-   Feature_Topics/Environment
-   Feature_Topics/MET
-   Feature_Topics/METplus
-   Feature_Topics/METviewer
+   Environment/index
+   MET/index
+   METplus/index
+   METviewer/index
+   template 
 
