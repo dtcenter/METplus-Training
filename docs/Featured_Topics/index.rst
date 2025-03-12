@@ -2,13 +2,5 @@
 Featured Topics
 ###############
 
-.. toctree::
-   :titlesonly:
-   :numbered: 4
-
-   Environment/index
-   MET/index
-   METplus/index
-   METviewer/index
-   template 
+Explore Featured Topics here once content is published.
 
