@@ -44,6 +44,32 @@ exclude_patterns = [
     '.DS_Store',
     'Flowchart',
     'modules/template.rst',
+    'Featured_Topics/Environment/index.rst',
+    'Featured_Topics/MET/index.rst',
+    'Featured_Topics/METplus/index.rst',
+    'Featured_Topics/METviewer/index.rst',
+    'Featured_Topics/template.rst',
+    'Featured_Topics/Environment/aws.rst',
+    'Featured_Topics/Environment/cheyenne.rst',
+    'Featured_Topics/Environment/docker.rst',
+    'Featured_Topics/Environment/manage_externals.rst',
+    'Featured_Topics/Environment/met_installation.rst',
+    'Featured_Topics/Environment/metplus_installation.rst',
+    'Featured_Topics/MET/met_tool_gen_vx_mask.rst',
+    'Featured_Topics/METplus/common_config_part1.rst',
+    'Featured_Topics/METplus/common_config_part2.rst',
+    'Featured_Topics/METplus/metplus_configuration.rst',
+    'Featured_Topics/METplus/use_case_brightness_temperature_distance_map.rst',
+    'Featured_Topics/METplus/use_case_example_wrapper.rst',
+    'Featured_Topics/METplus/use_case_mode_brightness_temperature.rst',
+    'Featured_Topics/METplus/use_case_track_and_intensity.rst',
+    'Featured_Topics/METviewer/docker.rst',
+    'Featured_Topics/MET/met_tool_gen_vx_mask.rst',
+    'Featured_Topics/METplus/common_config_part2.rst',
+    'Featured_Topics/METplus/use_case_brightness_temperature_distance_map.rst',
+    'Featured_Topics/METplus/use_case_example_wrapper.rst',
+    'Featured_Topics/METplus/use_case_mode_brightness_temperature.rst',
+    'Featured_Topics/METplus/use_case_track_and_intensity.rst',
 ]
 
 # Suppress certain warning messages
@@ -51,19 +77,20 @@ suppress_warnings = ['ref.citation']
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
-html_css_files = ['theme_override.css']
-
-
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
 # The name of an image file (relative to this directory) to place at the top
+# The theme to use for HTML and HTML Help pages.  See the documentation for
+# a list of builtin themes.
+#
+html_theme = 'sphinx_rtd_theme'
+html_theme_path = ["_themes", ]
+html_js_files = [ ]
+html_css_files = ["theme_override.css", "custom.css"]
+
 # of the sidebar.
 html_logo = os.path.join('_static','METplus_logo.png')
 
@@ -75,6 +102,10 @@ numfig = True
 numfig_format = {
     'figure': 'Figure %s',
 }
+
+# -- Include the CSS -------------------------------------------------------------------
+def setup(app):
+    app.add_css_file("custom.css")
 
 # -- Export variables --------------------------------------------------------
 

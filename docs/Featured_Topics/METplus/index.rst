@@ -1,12 +1,13 @@
-========================
+.. _training_topics_metplus:
+
+************************
 Training Topics: METplus
-========================
+************************
 
 These are the METplus Training Topics.
 		  
 .. toctree::
    :titlesonly:
-   :numbered: 4
 
    metplus_configuration
    common_config_part1
