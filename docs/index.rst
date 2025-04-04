@@ -15,13 +15,16 @@ These training materials describe the use of the
 `METexpress <https://github.com/dtcenter/METexpress>`_, 
 `METplotpy <https://github.com/dtcenter/METplotpy>`_, 
 `METcalcpy <https://github.com/dtcenter/METcalcpy>`_, and 
-`METdatadb <https://github.com/dtcenter/METdatadb>`_).
+`METdataio <https://github.com/dtcenter/METdataio>`_).
 
-You can either step through all the videos using the **Previous** and **Next** buttons at the bottom of each page
-or go directly to the topic of interest using the top-level navigation options.
+Please feel free to recommend new training topics on the
+`METplus Discussions <https://github.com/dtcenter/METplus/discussions>`_ page.
 
-While videos are provided for several topics, they are certainly not comprehensive. Please feel free to recommend
-new training video topics on the `METplus Discussions <https://github.com/dtcenter/METplus/discussions>`_ page.
+.. You can either step through all the videos using the **Previous** and **Next** buttons at the bottom of each page
+.. or go directly to the topic of interest using the top-level navigation options.
+
+.. While videos are provided for several topics, they are certainly not comprehensive. Please feel free to recommend
+.. new training video topics on the `METplus Discussions <https://github.com/dtcenter/METplus/discussions>`_ page.
 
 .. Users are encouraged to start by following the :ref:`training_environment` video so they can follow along with the exercises.
 .. Or, if you prefer, you may navigate directly to the training modules and simply watch the videos.
