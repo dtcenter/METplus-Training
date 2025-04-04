@@ -70,6 +70,10 @@ exclude_patterns = [
     'Featured_Topics/METplus/use_case_example_wrapper.rst',
     'Featured_Topics/METplus/use_case_mode_brightness_temperature.rst',
     'Featured_Topics/METplus/use_case_track_and_intensity.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_1.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_2a.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_2b.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_3.rst'    
 ]
 
 # Suppress certain warning messages
