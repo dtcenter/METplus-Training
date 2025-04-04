@@ -2,7 +2,7 @@
 METplus Tutorials
 #################
 
-The METplus Online Tutorials provide hands-on guidance for using the METplus
+The METplus Tutorials provide hands-on guidance for using the METplus
 verification framework after it has been successfully installed. These
 tutorials are designed to help users of all experience levels work with
 METplus, from running basic use cases to exploring advanced verification
