@@ -31,11 +31,14 @@ should be copied from your browser and pasted on the command line, e.g.:
   Text in **ORANGE boxes** are instructions for the user to perform some action 
   or edit (add or modify) a specific file on your system.
 
-Text in **WHITE boxes** are sample output from a command or contents of a file. 
+.. admonition:: Sample Output
+		
+  Text in **Gray boxes** are sample output from a command or contents of a file. 
 
-.. code-block:: ini
-
-  cd /home
+.. admonition:: File Contents
+		
+  Text in **Gray boxes** are sample output from a command or contents of a file.
+ 
   
 Tutorial Tips
 ^^^^^^^^^^^^^
