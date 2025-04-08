@@ -34,15 +34,15 @@
 .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention),
 .rst-content .admonition-default,
 .rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) {
-    background-color: #f5f0ff; /* Very light purple/lavender background */
-    border-color: #8a4fff;     /* Medium purple border */
+    background-color: #f3e8ff; /* Very light purple/lavender background */
+    border-color: #9b59b6;     /* Medium purple border */
 }
 
 .admonition.admonition-default > .admonition-title,
 .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title,
 .rst-content .admonition-default > .admonition-title,
 .rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title {
-    background-color: #8a4fff; /* Medium purple title background */
+    background-color: #9b59b6; /* Medium purple title background */
     color: white;              /* White text for best readability against purple */
 }
 
