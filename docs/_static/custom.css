@@ -35,3 +35,10 @@ div.admonition {
     border-left: 4px solid #9b59b6;  /* royal purple */
 }
 
+/* Style for the title (header) of the .. admonition:: directive */
+div.admonition .admonition-title {
+    background-color: #9b59b6;  /* Darker purple for the title box */
+    color: white;  /* White text for contrast */
+    padding: 5px 10px;
+    font-weight: bold;
+}
