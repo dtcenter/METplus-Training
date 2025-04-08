@@ -32,14 +32,12 @@ should be copied from your browser and pasted on the command line, e.g.:
   or edit (add or modify) a specific file on your system.
 
 .. admonition:: Sample Output
-   :class: admonition-custom
 	   
-  Text in **BLUE boxes** are sample output from a command or contents of a file. 
+  Text in **PURPLE boxes** are sample output from a command or contents of a file. 
 
 .. admonition:: File Contents
-   :class: admonition-custom
 	   
-  Text in **BLUE boxes** are sample output from a command or contents of a file.
+  Text in **PURPLE boxes** are sample output from a command or contents of a file.
  
   
 Tutorial Tips

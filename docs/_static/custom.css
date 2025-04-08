@@ -30,15 +30,20 @@
 }
 
 /* Custom color for the admonition directive which allow the user to specify titles (e.g. Sample Output, File Contents) */
-div.admonition.admonition-custom {
-    background-color: #f3e8ff;  /* light lavender */
-    border-left: 4px solid #9b59b6;  /* royal purple */
+.admonition.admonition-default,
+.admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention),
+.rst-content .admonition-default,
+.rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) {
+    background-color: #f5f0ff; /* Very light purple/lavender background */
+    border-color: #8a4fff;     /* Medium purple border */
 }
 
-/* Style for the title (header) of the .. admonition:: directive */
-div.admonition.admonition-custom .admonition-title {
-    background-color: #9b59b6;  /* Darker purple for the title box */
-    color: white;  /* White text for contrast */
-    padding: 5px 10px;
-    font-weight: bold;
+.admonition.admonition-default > .admonition-title,
+.admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title,
+.rst-content .admonition-default > .admonition-title,
+.rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title {
+    background-color: #8a4fff; /* Medium purple title background */
+    color: white;              /* White text for best readability against purple */
 }
+
+
