@@ -30,13 +30,13 @@
 }
 
 /* Custom color for the admonition directive which allow the user to specify titles (e.g. Sample Output, File Contents) */
-div.admonition {
+div.admonition.admonition-custom {
     background-color: #f3e8ff;  /* light lavender */
     border-left: 4px solid #9b59b6;  /* royal purple */
 }
 
 /* Style for the title (header) of the .. admonition:: directive */
-div.admonition .admonition-title {
+div.admonition.admonition-custom .admonition-title {
     background-color: #9b59b6;  /* Darker purple for the title box */
     color: white;  /* White text for contrast */
     padding: 5px 10px;
