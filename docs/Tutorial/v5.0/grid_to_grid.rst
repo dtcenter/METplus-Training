@@ -6,7 +6,7 @@ METplus Practical Session 1
 
 During the first METplus practical session, you will run the tools indicated below:
 
-??? Insert photo here.
+.. image:: ../figure/5.0_Practical_Session_1.avif
 
 During this practical session, please work on the **Session 1** exercises. 
 Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
