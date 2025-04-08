@@ -51,13 +51,21 @@ Tutorial Tips
   Ignoring the information and simply copy/pasting the command line 
   instructions may result in unintended consequences.
 
-* Note: Instructions in this tutorial use **vi** to open and edit files. 
+.. note::  
+
+  Instructions in this tutorial use **vi** to open and edit files. 
   If you prefer to use a different file editor, feel free to substitute 
   it whenever you see **vi**.
-* Note: Instructions in this tutorial use **okular** to view pdf, ps, and png files. 
+
+.. note::
+   
+  Instructions in this tutorial use **okular** to view pdf, ps, and png files. 
   If you prefer to use a different file viewer, feel free to substitute it 
   whenever you see **okular**.
-* Note: If you are running the tutorial inside Docker, you will not have access 
+
+.. note::
+   
+  If you are running the tutorial inside Docker, you will not have access 
   to the visualization tools described in this tutorial (such as okular, ncview, etc.) 
   inside the Docker container. To run these commands, you will have to mount the 
   output directory inside Docker to your local computer file system and run these tools from there.
