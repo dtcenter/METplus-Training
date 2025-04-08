@@ -1,6 +1,70 @@
 Session 1: Grid-to-Grid
 =======================
 
+METplus Practical Session 1
+---------------------------
+
+During the first METplus practical session, you will run the tools indicated below:
+
+??? Insert photo here.
+
+During this practical session, please work on the **Session 1** exercises. 
+Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
+
+Tutorial Format
+^^^^^^^^^^^^^^^
+
+Throughout this tutorial, code blocks in BOLD white text with a black background 
+should be copied from your browser and pasted on the command line, e.g.:
+
+.. code-block:: ini
+
+  echo "Let's Get Started"
+
+.. important::
+
+  Text in **RED boxes** contains important information, expert hints or 
+  helpful links. Please read carefully.
+
+.. attention::
+
+  Text in **ORANGE boxes** are instructions for the user to perform some action 
+  or edit (add or modify) a specific file on your system.
+
+.. code-block:: ini
+
+  Text in **WHITE boxes** are sample output from a command or contents of a file. 
+
+Tutorial Tips
+^^^^^^^^^^^^^
+
+.. important::
+
+  **Please read the instructions carefully!**
+  In some cases there are two sets of instructions where only one 
+  set of copyable instructions should be executed (i.e. bash vs. csh). 
+  Ignoring the information and simply copy/pasting the command line 
+  instructions may result in unintended consequences.
+
+* Note: Instructions in this tutorial use **vi** to open and edit files. 
+  If you prefer to use a different file editor, feel free to substitute 
+  it whenever you see **vi**.
+* Note: Instructions in this tutorial use **okular** to view pdf, ps, and png files. 
+  If you prefer to use a different file viewer, feel free to substitute it 
+  whenever you see **okular**.
+* Note: If you are running the tutorial inside Docker, you will not have access 
+  to the visualization tools described in this tutorial (such as okular, ncview, etc.) 
+  inside the Docker container. To run these commands, you will have to mount the 
+  output directory inside Docker to your local computer file system and run these tools from there.
+
+.. important::
+
+  If you discover any typos, error in the run commands, incorrect output listed, 
+  or any other issues while completing the tutorial, you are encouraged to submit
+  your findings to the METplus team in a 
+  `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. 
+  Be sure to provide what session and specific page you encountered the issue on.
+
 MET Tool: PCP-Combine
 ---------------------
 
