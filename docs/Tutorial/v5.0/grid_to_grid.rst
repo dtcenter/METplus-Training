@@ -33,7 +33,7 @@ should be copied from your browser and pasted on the command line, e.g.:
 
 .. admonition:: Sample Output
 		
-  Text in **Blue boxes** are sample output from a command or contents of a file. 
+  Text in **BLUE boxes** are sample output from a command or contents of a file. 
 
 .. admonition:: File Contents
 		
