@@ -30,7 +30,7 @@
 }
 
 /* Custom color for the admonition directive which allow the user to specify titles (e.g. Sample Output, File Contents) */
-div.admonition.note {
+div.admonition {
     background-color: #f3e8ff;  /* light lavender */
     border-left: 4px solid #9b59b6;  /* royal purple */
 }
