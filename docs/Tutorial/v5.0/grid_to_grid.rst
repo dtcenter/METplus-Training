@@ -201,6 +201,30 @@ So make sure that these commands have run successfully!
 Output
 ^^^^^^
 
+When PCP-Combine is finished, you may view the output NetCDF files it wrote using the n
+cdump and ncview utilities. 
+Run the following commands to view contents of the NetCDF files:
+
+.. code-block:: ini
+
+  ncview sample_fcst_12L_2005080712V_12A.nc &
+  ncview sample_obs_12L_2005080712V_12A.nc &
+  ncdump -h sample_fcst_12L_2005080712V_12A.nc
+  ncdump -h sample_obs_12L_2005080712V_12A.nc
+
+The ncview windows display plots of the precipitation data in these files. 
+The output of ncdump indicates that the gridded fields are named **APCP_12**,
+the GRIB code abbreviation for accumulated precipitation. 
+The accumulation interval is 12 hours for both the forecast 
+(3-hourly * 4 files = 12 hours) and the observation (1-hourly * 12 files = 12 hours).
+
+Note, if ncview is not found when you run it on your system, you may need to load it first.  
+For example, on hera, you can use this command:
+
+.. code-block:: ini
+
+  module load ncview
+
 Add and Subtract Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
