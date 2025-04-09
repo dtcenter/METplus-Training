@@ -375,3 +375,78 @@ This output file contains 8 variables: 2 input fields * 4 metrics.
 Note the output variable names the tool chose.  
 You can still override those names using the **-name** command line argument, 
 but you would have to specify a comma-separated list of 8 names, one for each output variable.
+
+
+MET Tool: Plot-Data-Plane
+-------------------------
+
+**Plot-Data-Plane Functionality**
+
+**Plot-Data-Plane Usage**
+
+
+The Field String
+^^^^^^^^^^^^^^^^
+
+**Defining the Field String** 
+
+Plot GRIB Data
+^^^^^^^^^^^^^^
+
+Plot NetCDF Data
+^^^^^^^^^^^^^^^^
+
+Python Embedding
+^^^^^^^^^^^^^^^^
+
+MET Tool: Gen-Vx-Mask
+---------------------
+
+**Gen-Vx-Mask Functionality**
+
+**Gen-Vx-Mask Usage**
+
+Run Poly Type
+^^^^^^^^^^^^^
+
+Run Lat/Lon and Grid Types
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run Data and Solar Types
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run Track and Circle Types
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run Shape Type
+^^^^^^^^^^^^^^
+
+MET Tool: Grid-Stat
+-------------------
+
+**Grid-Stat Functionality**
+
+**Grid-Stat Usage**
+
+
+Configure
+^^^^^^^^^
+
+Run
+^^^
+
+Output
+^^^^^^
+
+METplus Motivation
+^^^^^^^^^^^^^^^^^^
+
+METplus Use Case: GridStat
+--------------------------
+
+End of Session 1 and Additional Exercises
+-----------------------------------------
+
+
+Answers to Exercises from Session 1
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
