@@ -117,9 +117,7 @@ View the usage statement for PCP-Combine by simply typing the following:
 
   pcp_combine
 
-ADD TABLE HERE
-
-.. list-table:: Usage pcp_combine
+.. list-table:: Usage: pcp_combine
   :widths: auto
   :header-rows: 1
 
