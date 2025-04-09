@@ -31,6 +31,11 @@ should be copied from your browser and pasted on the command line, e.g.:
   Text in **ORANGE boxes** are instructions for the user to perform some action 
   or edit (add or modify) a specific file on your system.
 
+.. note::
+
+  Text in **BLUE boxes** are notes or instructions to be aware of while
+  moving through the documentation.
+
 .. admonition:: Sample Output
 	   
   Text in **PURPLE boxes** are sample output from a command or contents of a file. 
@@ -81,6 +86,12 @@ Tutorial Tips
 MET Tool: PCP-Combine
 ---------------------
 
+important::
+
+  If you are returning to the tutorial, you must source the tutorial setup script 
+  before running the following instructions. If you are unsure if you have done this step, 
+  please navigate to the Verify Environment is Set Correctly :ref:`verify_env_correct` page.
+
 Rum Sum Command
 ^^^^^^^^^^^^^^^
 
@@ -92,4 +103,11 @@ Add and Subtract Commands
 
 Derive Command
 ^^^^^^^^^^^^^^
+
+.. _verify_env_correct:
+
+Verify Environment is Set Correctly
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+??? This is out of order and added so a previous link could be created.  Remove this.
 
