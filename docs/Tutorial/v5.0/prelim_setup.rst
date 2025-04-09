@@ -27,6 +27,8 @@ Setting up the Tutorial Environment (bash)
 Setting up the Tutorial Environment (csh)
 """""""""""""""""""""""""""""""""""""""""
 
+.. _verify_env_correct:
+
 Verify Environment is Set Correctly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

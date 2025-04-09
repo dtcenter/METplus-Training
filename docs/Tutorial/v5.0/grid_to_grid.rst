@@ -86,7 +86,7 @@ Tutorial Tips
 MET Tool: PCP-Combine
 ---------------------
 
-important::
+.. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script 
   before running the following instructions. If you are unsure if you have done this step, 
@@ -103,11 +103,4 @@ Add and Subtract Commands
 
 Derive Command
 ^^^^^^^^^^^^^^
-
-.. _verify_env_correct:
-
-Verify Environment is Set Correctly
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-??? This is out of order and added so a previous link could be created.  Remove this.
 
