@@ -98,7 +98,7 @@ it directly on the command line.
 PCP-Combine Functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The PCP-Combine tool is used (if needed) to **add, subtract, sum** or **derive* 
+The PCP-Combine tool is used (if needed) to **add, subtract, sum** or **derive** 
 accumulated field values, most commonly precipitation, from several gridded data 
 files into a single NetCDF file containing the desired accumulation period. 
 Its NetCDF output may be used as input to the MET statistics tools. PCP-Combine 
