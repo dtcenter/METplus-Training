@@ -119,22 +119,24 @@ View the usage statement for PCP-Combine by simply typing the following:
 
 .. list-table:: Usage: pcp_combine
   :widths: auto
-  :header-rows: 1
+  :header-rows: 0
 
 
-  * - column 1
-    - column 2
-  * - [[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
-      (Note: ""|"" means ""or"")
-    - 16
-  * - [-sum] sum_args
-    - Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.
-  * - -add input_files
-    - Data from one or more files should be added together where the accumulation interval is specified separately for each input file.
-  * - -subtract input_files
-    - Data from exactly two files should be subtracted.
-  * - -derive stat_list input_files
-    - The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) should be derived using data from one or more files.
+  * - **[[-sum] sum_args] | [-add input_files] | 
+       [-subtract input_files] | [-derive stat_list input_files]
+      (Note: "|" means "or")**
+    - 
+  * - **[-sum] sum_args**
+    - **Data from multiple files containing the same accumulation interval 
+        should be summed up using the arguments provided.**
+  * - **-add input_files**
+    - **Data from one or more files should be added together where the 
+       accumulation interval is specified separately for each input file.**
+  * - **-subtract input_files**
+    - **Data from exactly two files should be subtracted.**
+  * - **-derive stat_list input_files**
+    - **The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) 
+       should be derived using data from one or more files.**
   * - out_file
     - Output NetCDF file to be written.
   * - [-field string]
@@ -149,7 +151,6 @@ View the usage statement for PCP-Combine by simply typing the following:
     - Level of logging
   * - [-compress level]
     - NetCDF file compression
-
 
 Use the **-sum, -add, -subtract**, or **-derive** command line option to indicate 
 the operation to be performed. Each operation has its own set of required arguments.
