@@ -154,6 +154,50 @@ the operation to be performed. Each operation has its own set of required argume
 Rum Sum Command
 ^^^^^^^^^^^^^^^
 
+Since PCP-Combine performs a simple operation and reformatting step, no configuration file is needed.
+
+1. Start by making an output directory for PCP-Combine and changing directories:
+
+.. code-block:: ini
+
+  mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
+  cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
+
+2. Now let's run PCP-Combine twice using some sample data that's included with the MET tarball:
+
+.. code-block:: ini
+
+  pcp_combine \
+  -sum 20050807_000000 3 20050807_120000 12 \
+  sample_fcst_12L_2005080712V_12A.nc \
+  -pcpdir ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700
+
+.. code-block:: ini
+
+  pcp_combine \
+  -sum 00000000_000000 1 20050807_120000 12 \
+  sample_obs_12L_2005080712V_12A.nc \
+  -pcpdir ${METPLUS_DATA}/met_test/data/sample_obs/ST2ml
+
+.. note::
+
+  The "\" symbols in the commands above are used for ease of reading. 
+  They are line continuation markers enabling us to spread a long command 
+  line across multiple lines. They should be followed immediately by "Enter". 
+  You may copy and paste the command line OR type in the entire line with or 
+  without the "\".
+
+Both commands run the **sum** command which searches the contents of the **-pcpdir** 
+directory for the data required to create the requested accmululation interval.
+
+In the first command, PCP-Combine summed up 4 3-hourly accumulation forecast files 
+into a single 12-hour accumulation forecast. In the second command, PCP-Combine 
+summed up 12 1-hourly accumulation observation files into a single 12-hour 
+accumulation observation. PCP-Combine performs these tasks very quickly.
+
+We'll use these PCP-Combine output files as input for Grid-Stat. 
+So make sure that these commands have run successfully!
+
 Output
 ^^^^^^
 
