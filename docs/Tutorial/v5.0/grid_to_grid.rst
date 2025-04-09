@@ -352,3 +352,31 @@ Now view the results:
 Derive Command
 ^^^^^^^^^^^^^^
 
+While the PCP-Combine **-add** and **-subtract** commands compute exactly one 
+output field of data, the **-derive** command can compute multiple output fields 
+in a single run. This command reads data from one or more input files and derives 
+the output fields requested on the command line (sum, min, max, range, mean, stdev, vld_count).
+
+Run the following command to derive several summary metrics for both the 10-meter U and V wind components:
+
+.. code-block:: ini
+
+  pcp_combine -derive min,max,mean,stdev \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_*.tm00_G212 \
+  -field 'name="UGRD"; level="Z10";' \
+  -field 'name="VGRD"; level="Z10";' \
+  derive_min_max_mean_stdev_WINDS.nc
+
+In the above example, we used a wildcard to list multiple input file names.  And we used 
+the **-field** command line option twice to specify two input fields.  For each input field, 
+PCP-Combine loops over the input files, derives the requested metrics, and writes them to 
+the output NetCDF file.  Run ncview to visualize this output:
+
+.. code-block:: ini
+
+  ncview derive_min_max_mean_stdev_WINDS.nc &
+
+This output file contains 8 variables: 2 input fields * 4 metrics. 
+Note the output variable names the tool chose.  
+You can still override those names using the **-name** command line argument, 
+but you would have to specify a comma-separated list of 8 names, one for each output variable.
