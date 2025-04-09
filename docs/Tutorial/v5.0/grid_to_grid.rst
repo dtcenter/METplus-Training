@@ -1,8 +1,8 @@
 Session 1: Grid-to-Grid
 =======================
 
-METplus Practical Session 1
----------------------------
+**METplus Practical Session 1**
+
 
 During the first METplus practical session, you will run the tools indicated below:
 
