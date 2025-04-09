@@ -19,3 +19,4 @@ Please follow the link to the appropriate session:
    basic_verf_stats_review
    prelim_setup
    grid_to_grid
+   grid_to_obs
