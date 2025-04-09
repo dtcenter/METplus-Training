@@ -181,7 +181,7 @@ Since PCP-Combine performs a simple operation and reformatting step, no configur
 
 .. note::
 
-  The "\" symbols in the commands above are used for ease of reading. 
+  The "**\**" backslash symbols in the commands above are used for ease of reading. 
   They are line continuation markers enabling us to spread a long command 
   line across multiple lines. They should be followed immediately by "Enter". 
   You may copy and paste the command line OR type in the entire line with or 
