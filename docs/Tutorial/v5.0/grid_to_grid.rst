@@ -122,21 +122,17 @@ View the usage statement for PCP-Combine by simply typing the following:
   :header-rows: 0
 
 
-  * - **[[-sum] sum_args] | [-add input_files] | 
-       [-subtract input_files] | [-derive stat_list input_files]
+  * - **[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
       (Note: "|" means "or")**
     - 
   * - **[-sum] sum_args**
-    - **Data from multiple files containing the same accumulation interval 
-        should be summed up using the arguments provided.**
+    - **Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.**
   * - **-add input_files**
-    - **Data from one or more files should be added together where the 
-       accumulation interval is specified separately for each input file.**
+    - **Data from one or more files should be added together where the accumulation interval is specified separately for each input file.**
   * - **-subtract input_files**
     - **Data from exactly two files should be subtracted.**
   * - **-derive stat_list input_files**
-    - **The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) 
-       should be derived using data from one or more files.**
+    - **The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) should be derived using data from one or more files.**
   * - out_file
     - Output NetCDF file to be written.
   * - [-field string]
