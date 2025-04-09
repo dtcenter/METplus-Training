@@ -201,8 +201,8 @@ So make sure that these commands have run successfully!
 Output
 ^^^^^^
 
-When PCP-Combine is finished, you may view the output NetCDF files it wrote using the n
-cdump and ncview utilities. 
+When PCP-Combine is finished, you may view the output NetCDF files it wrote using the 
+**ncdump** and **ncview** utilities. 
 Run the following commands to view contents of the NetCDF files:
 
 .. code-block:: ini
