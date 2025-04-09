@@ -225,6 +225,61 @@ For example, on hera, you can use this command:
 
   module load ncview
 
+Plot-Data-Plane Tool
+^^^^^^^^^^^^^^^^^^^^
+
+The Plot-Data-Plane tool can be run to visualize any gridded data that 
+the MET tools can read. It is a very helpful utility for making sure that MET can 
+read data from your file, orient it correctly, and plot it at the correct spot on 
+the earth. When using new gridded data in MET, it's a great idea to run it 
+through Plot-Data-Plane first:
+
+.. code-block:: ini
+
+  plot_data_plane \
+  sample_fcst_12L_2005080712V_12A.nc \
+  sample_fcst_12L_2005080712V_12A.ps \
+  'name="APCP_12"; level="(*,*)";'
+
+.. code-block:: ini
+
+  gv sample_fcst_12L_2005080712V_12A.ps &
+
+.. note::
+
+  Ghostview (gv) can take a little while before it displays.  
+  If you don't have gv on your computer, try using display, 
+  or any tool that can visualize PostScript files, e.g.:
+
+  .. code-block:: ini
+
+    display sample_fcst_12L_2005080712V_12A.ps &
+
+.. note::
+
+  Another option is to create a PNG file from the PS file, 
+  also rotating it to appear the right way:
+
+  .. code-block:: ini
+
+    convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \
+    sample_fcst_12L_2005080712V_12A.png
+    display sample_fcst_12L_2005080712V_12A.png
+
+Next try re-running the command list above, but add the **convert(x)=x/25.4;**
+function to the config string (*Hint: after the level setting and ; but before 
+the last closing tick*) to change units from millimeters to inches. 
+What happened to the values in the colorbar?
+
+Now, try re-running again, but add the **censor_thresh=lt1.0; censor_val=0.0;**
+options to the config string to reset any data values less 1.0 to a 
+value of 0.0. How has your plot changed?
+
+.. note::
+
+  The **convert(x)** and **censor_thresh/censor_val** options can be used in config 
+strings and MET config files to transform your data in simple ways.
+
 Add and Subtract Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
