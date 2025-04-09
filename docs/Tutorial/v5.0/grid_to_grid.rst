@@ -90,7 +90,36 @@ MET Tool: PCP-Combine
 
   If you are returning to the tutorial, you must source the tutorial setup script 
   before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the Verify Environment is Set Correctly :ref:`verify_env_correct` page.
+  please navigate to the :ref:`verify_env_correct` page.
+
+We now shift to a discussion of the MET PCP-Combine tool and will practice running 
+it directly on the command line.
+
+PCP-Combine Functionality
+^^^^^^^^^^^^^^^^^^^^^^^^^
+The PCP-Combine tool is used (if needed) to **add, subtract, sum** or **derive* 
+accumulated field values, most commonly precipitation, from several gridded data 
+files into a single NetCDF file containing the desired accumulation period. 
+Its NetCDF output may be used as input to the MET statistics tools. PCP-Combine 
+may be configured to combine any gridded data field you'd like. However, all gridded 
+data files being combined must have already been placed on a common grid. The copygb 
+utility is recommended for re-gridding GRIB files. In addition, the PCP-Combine 
+tool will only sum model files with the same initialization time unless it is 
+configured to ignore the initialization time.
+
+PCP-Combine Usage
+^^^^^^^^^^^^^^^^^
+
+View the usage statement for PCP-Combine by simply typing the following:
+
+.. code-block:: ini
+
+  pcp_combine
+
+ADD TABLE HERE
+
+Use the **-sum, -add, -subtract**, or **-derive** command line option to indicate 
+the operation to be performed. Each operation has its own set of required arguments.
 
 Rum Sum Command
 ^^^^^^^^^^^^^^^
