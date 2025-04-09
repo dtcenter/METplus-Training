@@ -1,8 +1,7 @@
 Basic Verification Statistics Review
 ====================================
 
-Introduction
-------------
+**Introduction**
 
 This session is meant as a brief introduction (or review) of basic statistical verification 
 methods applied for various classifications of meteorological variables, and to guide new users 

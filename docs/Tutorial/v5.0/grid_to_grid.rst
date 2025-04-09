@@ -11,8 +11,7 @@ During the first METplus practical session, you will run the tools indicated bel
 During this practical session, please work on the **Session 1** exercises. 
 Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
 
-Tutorial Format
-^^^^^^^^^^^^^^^
+**TUTORIAL FORMAT**
 
 Throughout this tutorial, code blocks in have green text with a white background 
 should be copied from your browser and pasted on the command line, e.g.:
@@ -45,8 +44,7 @@ should be copied from your browser and pasted on the command line, e.g.:
   Text in **PURPLE boxes** are sample output from a command or contents of a file.
  
   
-Tutorial Tips
-^^^^^^^^^^^^^
+**TUTORIAL TIPS**
 
 .. important::
 
@@ -95,8 +93,7 @@ MET Tool: PCP-Combine
 We now shift to a discussion of the MET PCP-Combine tool and will practice running 
 it directly on the command line.
 
-PCP-Combine Functionality
-^^^^^^^^^^^^^^^^^^^^^^^^^
+**PCP-Combine Functionality**
 
 The PCP-Combine tool is used (if needed) to **add, subtract, sum** or **derive** 
 accumulated field values, most commonly precipitation, from several gridded data 
@@ -108,8 +105,7 @@ utility is recommended for re-gridding GRIB files. In addition, the PCP-Combine
 tool will only sum model files with the same initialization time unless it is 
 configured to ignore the initialization time.
 
-PCP-Combine Usage
-^^^^^^^^^^^^^^^^^
+**PCP-Combine Usage**
 
 View the usage statement for PCP-Combine by simply typing the following:
 
@@ -225,8 +221,7 @@ For example, on hera, you can use this command:
 
   module load ncview
 
-Plot-Data-Plane Tool
-^^^^^^^^^^^^^^^^^^^^
+**Plot-Data-Plane Tool**
 
 The Plot-Data-Plane tool can be run to visualize any gridded data that 
 the MET tools can read. It is a very helpful utility for making sure that MET can 
