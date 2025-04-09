@@ -119,15 +119,15 @@ View the usage statement for PCP-Combine by simply typing the following:
 
 ADD TABLE HERE
 
-.. list-table:: Usage: pcp_combine
+.. list-table:: Usage pcp_combine
   :widths: auto
   :header-rows: 1
 
 
   * - column 1
     - column 2
-"  * - [[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
-(Note: ""|"" means ""or"")"
+  * - [[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
+      (Note: ""|"" means ""or"")
     - 16
   * - [-sum] sum_args
     - Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.
