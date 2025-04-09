@@ -278,7 +278,7 @@ value of 0.0. How has your plot changed?
 .. note::
 
   The **convert(x)** and **censor_thresh/censor_val** options can be used in config 
-strings and MET config files to transform your data in simple ways.
+  strings and MET config files to transform your data in simple ways.
 
 Add and Subtract Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
