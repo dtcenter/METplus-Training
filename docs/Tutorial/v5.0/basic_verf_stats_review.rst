@@ -86,14 +86,42 @@ Binary Categorical Forecasts
 Verification Statistics for Binary Categorical Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**ACCURACY (ACC)**
+
+**PROBABILITY OF DETECTION (POD)**
+
+**PROBABILITY OF FALSE DETECTION (POFD)**
+
+**FREQUENCY BIAS (BIAS)**
+
+**FALSE ALARM RATIO (FAR)**
+
+**CRITICAL SUCCESS INDEX (CSI)**
+
 Binary Categorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**HEIDKE SKILL SCORE (HSS)**
+
+**HANSSEN-KUIPERS DISCRIMINANT (HK)**
+
+**GILBERT SKILL SCORE (GSS)**
+
 
 METplus Solutions for Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET SOLUTIONS**
+
+**METPLUS WRAPPER SOLUTIONS**
+
+
 METplus Examples of Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**MET Example of Binary Categorical Forecast Verification**
+
+**METplus Wrapper Example of Binary Categorical Forecast Verification**
 
 
 Multicategorical Forecasts
@@ -105,12 +133,26 @@ Verification Statistics for Multicategorical Forecasts
 Multicategorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**HEIDKE SKILL SCORE (HSS)**
+
+**HANSSEN-KUIPERS DISCRIMINANT (HK)**
+
+**GERRITY SKILL SCORE**
+
 METplus Solutions for Multicategorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**MET SOLUTIONS**
+
+**METPLUS WRAPPER SOLUTIONS**
+
 
 METplus Examples for Multicategorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET Example of Multicategorical Forecast Verification**
+
+**METplus Wrapper Example of Multicategorical Forecast Verification**
 
 Continuous Forecasts
 --------------------
@@ -118,12 +160,30 @@ Continuous Forecasts
 Verification Statistics for Continuous Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MEAN ERRORS**
+
+**STANDARD DEVIATIONS**
+
+**MULTIPLICATIVE BIAS**
+
+**CORRELATION COEFFICIENTS (PEARSON, SPEARMAN RANK, AND KENDALL'S TAU)**
+
+**ANOMALY CORRELATION**
+
 METplus Solutions for Continuous Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**MET SOLUTIONS**
+
+**METPLUS WRAPPER SOLUTIONS**
+
 
 METplus Examples for Continuous Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
+
+**METPLUS WRAPPER EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
 
 Probabilistic Forecasts
 -----------------------
@@ -131,13 +191,32 @@ Probabilistic Forecasts
 Verification Statistics for Probabilistic Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**BRIER SCORE**
+
+**RANKED PROBABILITY SCORE**
+
+**CONTINUOS RANKED PROBABILITY SCORE**
+
 Probabilistic Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**BRIER SCORE**
+
+**RANKED PROBABILITY SKILL SCORE**
+
 
 METplus Solutions for Probabilistic Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET SOLUTIONS**
+
+**METPLUS WRAPPER SOLUTIONS**
+
+
 METplus Examples for Probabilistic Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
+
+**METPLUS WRAPPER EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
 
