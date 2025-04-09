@@ -283,6 +283,72 @@ value of 0.0. How has your plot changed?
 Add and Subtract Commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+We have run examples of the PCP-Combine **-sum** command, but the tool also 
+supports the **-add, -subtract,** and **-derive** commands. While the **-sum** 
+command defines a directory to be searched, for **-add, -subtract,** and 
+**-derive** we tell PCP-Combine exactly which files to read and what data 
+to process. The following command adds together 3-hourly precipitation from 
+4 forecast files, just like we did in the previous step with the **-sum** command:
+
+.. code-block:: ini
+
+  pcp_combine -add \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_06.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_09.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 03 \
+  add_APCP_12.nc
+
+By default, PCP-Combine looks for accumulated precipitation, and the **03** 
+tells it to look for 3-hourly accumulations. However, that **03** string can be replaced 
+with a configuration string describing the data to be processed, which doesn't have to 
+be accumulated precipation. The configuration string should be enclosed in single quotes. 
+Below, we add together the U and V components of 10-meter wind from the same input file. 
+You would not typically want to do this, but this demonstrates the functionality. 
+We also use the **-name** command line option to define a descriptive output NetCDF 
+variable name:
+
+.. code-block:: ini
+
+  pcp_combine -add \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \
+  add_WINDS.nc \
+  -name UGRD_PLUS_VGRD
+
+While the **-add** command can be run on one or more input files, the 
+**-subtract** command requires *exactly two*. Let's rerun the wind example from 
+above but do a subtraction instead:
+
+.. code-block:: ini
+
+  pcp_combine -subtract \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \
+  subtract_WINDS.nc \
+  -name UGRD_MINUS_VGRD
+
+Now run Plot-Data-Plane to visualize this output. Use the **-plot_range** option 
+to specify a the desired plotting range, the **-title** option to add a title, and the 
+**-color_table** option to switch from the default color table to one that's good for positive 
+and negative values:
+
+.. code-block:: ini
+
+  plot_data_plane \
+  subtract_WINDS.nc \
+  subtract_WINDS.ps \
+  'name="UGRD_MINUS_VGRD"; level="(*,*)";' \
+  -plot_range -15 15 \
+  -title "10-meter UGRD minus VGRD" \
+  -color_table ${MET_BUILD_BASE}/share/met/colortables/NCL_colortables/posneg_2.ctable
+
+Now view the results:
+
+.. code-block:: ini
+
+  gv subtract_WINDS.ps &
+
 Derive Command
 ^^^^^^^^^^^^^^
 
