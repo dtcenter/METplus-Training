@@ -277,7 +277,7 @@ climatology, or persistence forecast. By combining the probability
 of a correct “yes” forecast (i.e., a hit) with the probability of a 
 correct “no” forecast (i.e. a correct rejection) the resulting equation is
 
-.. math:: \text{HSS} = \frac{{Hits} + {Correct\ Rejections} - {C_{2}} {{n} - {C_{2}}}
+.. math:: \text{HSS} = \frac{{Hits} + {Correct\ Rejections} - {C_{2}}} {{n} - {C_{2}}}
 
 HSS can range from -1 to 1, with a perfect forecast receiving a score 
 of 1. The equation presented above is a compact version which uses a 
