@@ -144,7 +144,7 @@ and non-occurrences, *n*,
 that are contained in all four categories. If *n* is too small, it can 
 be easy to arrive at a misleading conclusion. For example, if a forecaster 
 claims 100% accuracy in their rain forecast and produces a contingency table 
-where the forecast values were all hits but *n*=4, the conclusion is technically 
+where the forecast values were all hits but *n* = 4, the conclusion is technically 
 correct, but not very scientifically sound!
 
 Verification Statistics for Binary Categorical Forecasts
