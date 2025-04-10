@@ -253,11 +253,78 @@ accurate forecast, while a value of 0 indicates no accuracy.
 Binary Categorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Skill scores can be a more meaningful way of describing  a forecast’s quality. 
+By definition, skill scores compare the performance of the forecasts to some 
+standard or “reference forecast” (e.g., climatology, persistence, perfect 
+forecasts, random forecasts). They often combine aspects of the previously-listed 
+scalar statistics and can serve as a starting point for creating your own 
+skill score that is better suited to your forecasts’ properties. Skill 
+scores create a summary view of the contingency table, which is in contrast 
+to the scalar statistics’ focus on one attribute at a time. 
+
+Three of the most popular skill statistics for categorical variables are the 
+Heidke Skill Score (HSS), the Hanssen-Kuipers Discriminant (HK), and the 
+Gilbert Skill Score (GSS). These measures are described here.
+
 **HEIDKE SKILL SCORE (HSS)**
+
+The HSS measures the proportion correct relative to the expected proportion 
+correct that would be achieved by a “reference” forecast, denoted by C2 
+in the equation. In this instance, the reference forecast denotes a 
+forecast that is completely independent of the observation dataset. 
+In practice, the reference forecast often is based on a random, 
+climatology, or persistence forecast. By combining the probability 
+of a correct “yes” forecast (i.e., a hit) with the probability of a 
+correct “no” forecast (i.e. a correct rejection) the resulting equation is
+
+.. math:: \text{HSS} = \frac{{Hits} + {Correct\ Rejections} - {C_{2}} {{n} - {C_{2}}}
+
+HSS can range from -1 to 1, with a perfect forecast receiving a score 
+of 1. The equation presented above is a compact version which uses a 
+sample climatology, C2 based on the counts in the contingency table. 
+The C2 term expands to
+
+This is a basic “traditional” version of HSS. METplus also calculates 
+a modified HSS, that allows users to control how the C2 term is defined. 
+This additional control allows users to apply an alternative standard 
+of comparison, such as another forecast or a basic standard such as a 
+persistence forecast or climatology. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
 **HANSSEN-KUIPERS DISCRIMINANT (HK)**
 
+HK is known by several names, including the Peirce Skill Score and 
+the True Skill Statistic. This score is similar to HSS 
+(ranges from -1 to 1, perfect forecast is 1, etc.). HK is formulated 
+relative to a random forecast that is constrained to be unbiased. 
+In general, the focus of the HK is on how well the forecast discriminates 
+between observed “yes” events and observed “no” events. The equation for HK is
+
+
+
+which is equivalent to “POD minus POFD”. Because of its dependence on POD, 
+HK can be similarly affected by infrequent events and is suggested as a 
+more useful skill score for frequent events. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 **GILBERT SKILL SCORE (GSS)**
+
+Finally, GSS measures the correspondence between forecasted and observed 
+“yes” events. Sometimes called the Equitable Threat Score (ETS), GSS is 
+a good option for those forecasted events where the observed “yes” 
+event is rare. In particular, the number of correct negatives 
+(which for a rare event would be large) are not considered in the 
+GSS equation and thus do not influence the GSS values. The GSS is given as
+
+
+
+GSS ranges from -1 to 1, with a perfect forecast receiving a score of 1. 
+Similar to HSS, a compact version of GSS is presented using the C1 term. This term expands to
+
+
+
+ :ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 
 .. _METplus-solutions_bin_cat_for_verif:
 
