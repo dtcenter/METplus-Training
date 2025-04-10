@@ -198,7 +198,27 @@ forecasts.
 
 **PROBABILITY OF FALSE DETECTION (POFD)**
 
+A countermeasure to POD is the probability of false detection (POFD). 
+POFD (also called false alarm rate), measures the frequency of false alarm 
+forecasts relative to the frequency that an event does not occur.
+
+.. math:: \text{POFD} = \frac{False\ Alarms} {{Correct\ Rejections} + {False\ Alarms}}
+
+Together, POD and POFD measure forecasts’ ability to discriminate between 
+occurrences and non-occurrences of the event of interest. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 **FREQUENCY BIAS (BIAS)**
+
+Frequency bias (a measure of, you guessed it, bias!) compares the count of “yes” 
+forecasts to the count of “yes” events observed.
+
+.. math:: \text{Bias} = \frac{{Hits} + {False\ Alarms}} {{Hits} + {Misses}}
+
+This ratio does not provide specific information about the performance of individual 
+forecasts, but rather is a measure of over- or under-forecasting of the event. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 
 **FALSE ALARM RATIO (FAR)**
 
