@@ -222,7 +222,33 @@ forecasts, but rather is a measure of over- or under-forecasting of the event.
 
 **FALSE ALARM RATIO (FAR)**
 
+The False Alarm Ratio (FAR) provides information about both the reliability and 
+resolution attributes of forecasts. It computes the ratio of “yes” forecasts 
+that did not occur to the total number of times a “yes” forecast was made 
+(i.e., the proportion of “yes” forecasts that were incorrect).
+
+.. math:: \text{FAR} = \frac{{False\ Alarms} {{Hits} + {False\ Alarms}}
+
+FAR also is the first statistic covered in this session that has a negative 
+orientation: A FAR of 0 is desirable, while a FAR of 1 shows the worst possible 
+ratio of “yes” forecasts that were not observed relative to total “yes” forecasts. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 **CRITICAL SUCCESS INDEX (CSI)**
+
+The Critical Success Index (CSI), also commonly known as the Threat Score, i
+s a second measure of the overall accuracy of forecasts 
+(e.g., like the Accuracy measure mentioned earlier). Accuracy pertains to the 
+agreement of individual forecast-observation pairs, and CSI can be calculated as
+
+.. math:: \text{CSI} = \frac{{Hits} {{Hits} + {Misses} + {False\ Alarms}}
+
+Note that by definition CSI can be described as the ratio between the times the 
+forecast correctly called for an event and the total times the forecast called 
+for an event or the event was observed. Thus, CSI ignores correct negatives, 
+which differentiates it from percent correct. A CSI of 1 indicates a highly 
+accurate forecast, while a value of 0 indicates no accuracy. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
 Binary Categorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
