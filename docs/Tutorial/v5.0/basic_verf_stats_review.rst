@@ -353,8 +353,7 @@ interchangeable, the following definitions are provided for clarity:
 
 **MET SOLUTIONS**
 
-The MET User’s Guide provides an `Appendix that dives into all of the statistical 
-measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>_`. 
+The MET User’s Guide provides an `Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>_`. 
 METplus groups statistics together by application 
 and type and makes them available to METplus users via several line types. 
 For example, many of the statistics that were discussed above can be found 
@@ -364,7 +363,8 @@ MET allows users to directly access the contingency table counts through
 the aptly named Contingency Table Counts (CTC) line type.
 
 The line types that are output by MET depend on your selection of the appropriate 
-line type using the `output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>_`. 
+line type using the 
+`output_flag dictionary<https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>_`. 
 Note that certain line types may 
 or may not be available in every tool: for example, both Point-Stat and 
 Grid-Stat produce CTS line types, which allow users to access the various 
