@@ -325,9 +325,7 @@ Similar to HSS, a compact version of GSS is presented using the C1 term. This te
 
 .. math:: C_1 = \frac{(Hits + False\ Alarms) (Hits + Misses)}{n}
 
-
- :ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
-
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
 .. _METplus-solutions_bin_cat_for_verif:
 
