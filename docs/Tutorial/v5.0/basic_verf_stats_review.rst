@@ -284,7 +284,7 @@ of 1. The equation presented above is a compact version which uses a
 sample climatology, C2 based on the counts in the contingency table. 
 The C2 term expands to
 
-.. math:: C_2 = \frac{(Hits + Misses) (Hits + False\ Alarms) + (Correct\ Rejections + Misses) (Correct\ Rejections + False\ Alarms)}{n}.
+.. math:: C_2 = \frac{(Hits + Misses) (Hits + False\ Alarms) + (Correct\ Rejections + Misses) (Correct\ Rejections + False\ Alarms)}{n}
 
 This is a basic “traditional” version of HSS. METplus also calculates 
 a modified HSS, that allows users to control how the C2 term is defined. 
@@ -302,7 +302,7 @@ relative to a random forecast that is constrained to be unbiased.
 In general, the focus of the HK is on how well the forecast discriminates 
 between observed “yes” events and observed “no” events. The equation for HK is
 
-
+.. math:: \text{HK } = \frac{Hits * Correct\ Rejections - False\ Alarms * Misses}{(Hits + Misses) (False\ Alarms + Correct Rejections)}
 
 which is equivalent to “POD minus POFD”. Because of its dependence on POD, 
 HK can be similarly affected by infrequent events and is suggested as a 
