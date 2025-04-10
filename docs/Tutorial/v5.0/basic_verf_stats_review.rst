@@ -227,7 +227,7 @@ resolution attributes of forecasts. It computes the ratio of “yes” forecasts
 that did not occur to the total number of times a “yes” forecast was made 
 (i.e., the proportion of “yes” forecasts that were incorrect).
 
-.. math:: \text{FAR} = \frac{{False\ Alarms} {{Hits} + {False\ Alarms}}
+.. math:: \text{FAR} = \frac{False\ Alarms} {{Hits} + {False\ Alarms}}
 
 FAR also is the first statistic covered in this session that has a negative 
 orientation: A FAR of 0 is desirable, while a FAR of 1 shows the worst possible 
@@ -241,7 +241,7 @@ s a second measure of the overall accuracy of forecasts
 (e.g., like the Accuracy measure mentioned earlier). Accuracy pertains to the 
 agreement of individual forecast-observation pairs, and CSI can be calculated as
 
-.. math:: \text{CSI} = \frac{{Hits} {{Hits} + {Misses} + {False\ Alarms}}
+.. math:: \text{CSI} = \frac{Hits} {{Hits} + {Misses} + {False\ Alarms}}
 
 Note that by definition CSI can be described as the ratio between the times the 
 forecast correctly called for an event and the total times the forecast called 
