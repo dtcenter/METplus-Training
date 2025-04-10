@@ -284,6 +284,8 @@ of 1. The equation presented above is a compact version which uses a
 sample climatology, C2 based on the counts in the contingency table. 
 The C2 term expands to
 
+.. math:: C_2 = \frac{(Hits + Misses) (Hits + False\ Alarms) + (Correct\ Rejections + Misses) (Correct\ Rejections + False\ Alarms)}{n}.
+
 This is a basic “traditional” version of HSS. METplus also calculates 
 a modified HSS, that allows users to control how the C2 term is defined. 
 This additional control allows users to apply an alternative standard 
