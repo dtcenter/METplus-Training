@@ -380,16 +380,16 @@ to see if the statistic is available in MET and which line type it’s currently
 As for the categorical statistics that were just discussed, here’s a link to the 
 User’s Guide Appendix entry that discusses their use in MET:
 
-<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#accuracy"><span><span><span><span><span><span>Accuracy</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-detection-pod"><span><span><span><span><span><span>POD</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-false-detection-pofd"><span><span><span><span><span><span>POFD</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#frequency-bias"><span><span><span><span><span><span>Bias</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far"><span><span><span><span><span><span>FAR</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi"><span><span><span><span><span><span>CSI</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss"><span><span><span><span><span><span>HSS</span></span></span></span></span></span></a></li>
+ https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#accuracy
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-detection-pod POD 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-false-detection-pofd POFD 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#frequency-bias Bias 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far FAR 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi CSI 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss HSS 
 	<li><span><span><span><span><span><span><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec">HSS_EC</a> (HSS Expected Correct)</span></span></span></span></span></span></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk"><span><span><span><span><span><span>HK</span></span></span></span></span></span></a></li>
-	<li><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk HK 
+	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss
 
 Remember that for categorical statistics, including those that are associated with 
 probabilistic datasets, you will need to provide an appropriate threshold that divides 
