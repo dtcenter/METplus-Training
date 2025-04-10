@@ -169,7 +169,7 @@ and non-occurrences, n. In equation format,
 
 .. math:: \text{Accuracy } = \frac{n_{1} + n_{00}}{T}.
 
-.. math:: \text{Accuracy } = \fracc{Hits} + {Correct Rejections}}{n}.
+.. math:: \text{Accuracy } = \fracc{{Hits} + {Correct Rejections}}{n}.
 
 This measure (often called “Percent Correct”) is very easily computed and addresses 
 how often a forecast is correctly predicting an event and non-event. As most 
