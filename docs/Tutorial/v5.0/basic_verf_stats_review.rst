@@ -380,16 +380,17 @@ to see if the statistic is available in MET and which line type it’s currently
 As for the categorical statistics that were just discussed, here’s a link to the 
 User’s Guide Appendix entry that discusses their use in MET:
 
- https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#accuracy
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-detection-pod POD 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-false-detection-pofd POFD 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#frequency-bias Bias 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far FAR 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi CSI 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss HSS 
-	<li><span><span><span><span><span><span><a href="https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec">HSS_EC</a> (HSS Expected Correct)</span></span></span></span></span></span></li>
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk HK 
-	 https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss
+* `Accuracy <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#accuracy>`_
+* `POD <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-detection-pod>`_
+* `POFD <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
+* `Bias <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#frequency-bias>`_ 
+* `FAR <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
+* `CSI <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
+* `HSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss>`_  
+* `HSS_EC <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_
+   (HSS Expected Correct)
+* `HK <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`_  
+* `GSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
 Remember that for categorical statistics, including those that are associated with 
 probabilistic datasets, you will need to provide an appropriate threshold that divides 
