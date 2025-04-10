@@ -182,6 +182,20 @@ Accuracy (98.2%) could have been achieved with a persistence forecast of No Torn
 
 **PROBABILITY OF DETECTION (POD)**
 
+Probability of Detection (POD), also referred to as the Hit Rate, measures the 
+frequency that the forecasts were correct given that the forecast predicts an 
+occurrence. Rather than computing the ratio of the correct forecasts to the entire 
+occurrence and non-occurrence count (i.e., as in Accuracy), POD only focuses on the 
+times the forecast predicted an event would occur. Thus, this measure is categorized 
+as a discrimination statistic. POD is computed as
+
+.. math:: \text{POD} = \frac{Hits} {{Hits} + {Misses}}
+
+This measure is useful for rare events (tornadoes, 100-year floods, etc.) as it 
+will penalize (i.e. go toward 0) the forecasts when there are too many missed 
+forecasts. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+
 **PROBABILITY OF FALSE DETECTION (POFD)**
 
 **FREQUENCY BIAS (BIAS)**
