@@ -302,7 +302,7 @@ relative to a random forecast that is constrained to be unbiased.
 In general, the focus of the HK is on how well the forecast discriminates 
 between observed “yes” events and observed “no” events. The equation for HK is
 
-.. math:: \text{HK } = \frac{Hits * Correct\ Rejections - False\ Alarms * Misses}{(Hits + Misses) (False\ Alarms + Correct Rejections)}
+.. math:: \text{HK } = \frac{(Hits * Correct\ Rejections) - (False\ Alarms * Misses)}{(Hits + Misses) (False\ Alarms + Correct Rejections)}
 
 which is equivalent to “POD minus POFD”. Because of its dependence on POD, 
 HK can be similarly affected by infrequent events and is suggested as a 
