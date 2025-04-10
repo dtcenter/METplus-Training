@@ -150,7 +150,36 @@ correct, but not very scientifically sound!
 Verification Statistics for Binary Categorical Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Most meteorological forecasts would be described as non-probabilistic, meaning 
+the forecast value given is provided with no additional information of certainty 
+in that value. Another term for this type of forecast is deterministic and will 
+be the focus of the verification statistics in this section. For more information 
+on probabilistic forecasts and their corresponding statistics please refer to 
+the probabilistic section. When verifying binary categorical forecasts, the 
+only important factor is whether or not the event occurred: The assumed certainty 
+in the forecast is 100%.
+
+Numerous computationally-easy (and very popular) scalar statistics are within 
+reach without too much manipulation of a contingency table’s counts.
+
 **ACCURACY (ACC)**
+The scalar attribute of Accuracy is measured as a simple ratio between the 
+forecasts that correctly predicted the event and the total number of occurrences 
+and non-occurrences, n. In equation format,
+
+.. math:: \text{Accuracy } = \frac{n_{1} + n_{00}}{T}.
+
+.. math:: \text{Accuracy } = \fracc[Hits} + {Correct Rejections}}{n}.
+
+This measure (often called “Percent Correct”) is very easily computed and addresses 
+how often a forecast is correctly predicting an event and non-event. As most 
+verification resources will warn you, however, this measure should be used with 
+caution, especially for an event that happens only rarely. The Finley tornado 
+forecast study (1884) is an excellent example of the need for caution, with 
+Finley reporting a 96.6% Accuracy for predicting a tornado due to the overwhelming 
+count of correct negatives. Peers were quick to point out that a higher 
+Accuracy (98.2%) could have been achieved with a persistence forecast of No Tornado! 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
 **PROBABILITY OF DETECTION (POD)**
 
@@ -171,6 +200,7 @@ Binary Categorical Skill Scores
 
 **GILBERT SKILL SCORE (GSS)**
 
+.. _METplus-solutions_bin_cat_for_verif:
 
 METplus Solutions for Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
