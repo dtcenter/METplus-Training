@@ -167,9 +167,8 @@ The scalar attribute of Accuracy is measured as a simple ratio between the
 forecasts that correctly predicted the event and the total number of occurrences 
 and non-occurrences, n. In equation format,
 
-.. math:: \text{Accuracy } = \frac{n_{1} + n_{00}}{T}.
 
-.. math:: \text{Accuracy } = \frac{{Hits} + {Correct Rejections}}{n}.
+.. math:: \text{Accuracy } = \frac{{Hits} + {Correct Rejections}}{n}
 
 This measure (often called “Percent Correct”) is very easily computed and addresses 
 how often a forecast is correctly predicting an event and non-event. As most 
