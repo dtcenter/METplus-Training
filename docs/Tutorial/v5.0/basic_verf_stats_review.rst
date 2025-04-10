@@ -318,11 +318,12 @@ event is rare. In particular, the number of correct negatives
 (which for a rare event would be large) are not considered in the 
 GSS equation and thus do not influence the GSS values. The GSS is given as
 
-
+.. math:: \text{GSS } = \frac{Hits - C_1}{Hits + False\ Alarms + Misses - C_1}
 
 GSS ranges from -1 to 1, with a perfect forecast receiving a score of 1. 
 Similar to HSS, a compact version of GSS is presented using the C1 term. This term expands to
 
+.. math:: C_1 = \frac{(Hits + False\ Alarms) (Hits + Misses)}{n}
 
 
  :ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
