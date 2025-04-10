@@ -332,7 +332,61 @@ Similar to HSS, a compact version of GSS is presented using the C1 term. This te
 METplus Solutions for Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Now that you know a bit more about dichotomous, deterministic forecasts and 
+how to extract information on the scalar attributes through statistics, it’s 
+time to show how you can access those same statistics in METplus!
+
+In order to better understand the delineation between METplus, MET, and METplus 
+wrappers which are used frequently throughout this tutorial but are NOT 
+interchangeable, the following definitions are provided for clarity:
+
+* METplus is best visualized as an overarching framework with 
+  individual components. It encapsulates all of the repositories: 
+  MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
+* MET serves as the core statistical component that ingests the 
+  provided fields and commands to compute user-requested statistics and 
+  diagnostics.
+* METplus wrappers is a suite of Python wrappers that provide 
+  low-level automation of MET tools and plotting capability. While there 
+  are examples of calling METplus wrappers without any underlying 
+  MET usage, these are the exception rather than the rule.
+
 **MET SOLUTIONS**
+
+The MET User’s Guide provides an `Appendix that dives into all of the statistical 
+measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>_`. 
+METplus groups statistics together by application 
+and type and makes them available to METplus users via several line types. 
+For example, many of the statistics that were discussed above can be found 
+in the Contingency Table Statistics (CTS) line type, which logically groups 
+together statistics based directly on contingency table counts. In fact, 
+MET allows users to directly access the contingency table counts through 
+the aptly named Contingency Table Counts (CTC) line type.
+
+The line types that are output by MET depend on your selection of the appropriate 
+line type using the `output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>_`. 
+Note that certain line types may 
+or may not be available in every tool: for example, both Point-Stat and 
+Grid-Stat produce CTS line types, which allow users to access the various 
+contingency table statistics for both point-based observations and gridded 
+observations. In contrast, Ensemble-Stat is the only tool that can generate a 
+`Ranked Probability Score (RPS) line type, <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_ 
+which provides statistics relevant 
+to the analysis of ensemble forecasts. If you don’t see your desired statistic in 
+the line type or tool you’d expect it to be in, be sure to 
+`check the Appendix <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_ 
+to see if the statistic is available in MET and which line type it’s currently grouped with.
+
+As for the categorical statistics that were just discussed, here’s a link to the 
+User’s Guide Appendix entry that discusses their use in MET:
+
+???FILL THIS IN
+
+Remember that for categorical statistics, including those that are associated with 
+probabilistic datasets, you will need to provide an appropriate threshold that divides 
+the observations and forecasts into two mutually exclusive categories. For more 
+information on the available thresholding options, please review 
+`this section of the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#configuration-file-overview>`_.
 
 **METPLUS WRAPPER SOLUTIONS**
 
