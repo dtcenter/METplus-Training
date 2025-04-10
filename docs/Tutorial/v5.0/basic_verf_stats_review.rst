@@ -365,7 +365,7 @@ the aptly named Contingency Table Counts (CTC) line type.
 
 The line types that are output by MET depend on your selection of the appropriate 
 line type using the 
-`output_flag dictionary<https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>`_. 
+`output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>`_. 
 Note that certain line types may 
 or may not be available in every tool: for example, both Point-Stat and 
 Grid-Stat produce CTS line types, which allow users to access the various 
@@ -388,8 +388,7 @@ User’s Guide Appendix entry that discusses their use in MET:
 * `FAR <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
 * `CSI <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
 * `HSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss>`_  
-* `HSS_EC <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_
-  (HSS Expected Correct)
+* `HSS_EC <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
 * `HK <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`_  
 * `GSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
