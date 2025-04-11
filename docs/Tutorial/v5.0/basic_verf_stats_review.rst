@@ -641,11 +641,11 @@ the following:
     - 
     - 
     - 
-    - Forecast Category 2
+  * - Forecast Category 2
     - 
     - 
     - 
-    - Forecast Category 3
+  * - Forecast Category 3
     - 
     - 
     - 
