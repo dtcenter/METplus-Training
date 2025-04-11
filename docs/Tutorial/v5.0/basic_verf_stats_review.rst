@@ -565,11 +565,46 @@ with additional post-processing, the simplicity of having all of them already
 calculated and ready for additional group statistics or to advise forecast a
 djustments is one of the many advantages of using the METplus system.
 
-.. code-block:: ini
-
-
 **METplus Wrapper Example of Binary Categorical Forecast Verification**
 
+To achieve the same outcome as the previous example but utilizing METplus 
+wrappers instead of MET, very few changes would need to be made. Starting with the 
+standard GridStat configuration file `<https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
+we would need to set the _VAR1 settings appropriately:
+
+.. code-block:: ini
+
+  BOTH_VAR1_NAME = TMP
+  BOTH_VAR1_LEVELS = Z0
+  BOTH_VAR1_THRESH = gt86.0
+
+Note how the BOTH option is utilized here 
+(as opposed to individual FCST_ and OBS_ settings) since the forecast 
+and observation datasets utilize the same name and level information. 
+Because the loop/timing information is controlled inside the configuration 
+file for METplus wrappers (as opposed to MET’s non-looping option), that 
+information must also be set accordingly:
+
+.. code-block:: ini
+
+  LOOP_BY = INIT
+  INIT_TIME_FMT = %Y%m%d%H
+  INIT_BEG=2023080700
+  INIT_END=2023080700
+  INIT_INCREMENT = 12H
+  LEAD_SEQ = 12
+
+Finally, the desired line types need to be selected for output. 
+In the wrappers, that looks like this:
+
+.. code-block:: ini
+
+  GRID_STAT_OUTPUT_FLAG_CTC = STAT
+  GRID_STAT_OUTPUT_FLAG_CTS = STAT
+
+After a successful run of METplus, the same .stat output file that 
+was created in the MET example would be produced here, complete with 
+CTC and CTS line type rows.
 
 Multicategorical Forecasts
 --------------------------
