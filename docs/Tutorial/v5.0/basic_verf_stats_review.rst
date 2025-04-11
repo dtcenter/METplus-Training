@@ -404,6 +404,19 @@ information on the available thresholding options, please review
 
 **METPLUS WRAPPER SOLUTIONS**
 
+The same statistics that are available in MET are also available with 
+the METplus wrappers. To better understand how MET configuration options 
+for the selection of statistics translate to METplus wrapper configuration 
+options, you can utilize the 
+`Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/latest/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, 
+which lists all of the available statistics through the wrappers, including 
+which tools can output particular statistics. To access the line types 
+through the tool, select your desired tool and 
+`use this page to view a list of all available commands for that tool, <https://metplus.readthedocs.io/en/latest/Users_Guide/wrappers.html#python-wrappers>`_
+Once you do, you’ll see that the tool will include several options that 
+contain **_OUTPUT_FLAG_**. These options will exhibit the same behavior 
+and accept the same settings as the line types in MET’s output_flag 
+dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples of Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
