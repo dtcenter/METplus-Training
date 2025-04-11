@@ -609,6 +609,18 @@ CTC and CTS line type rows.
 Multicategorical Forecasts
 --------------------------
 
+In practical applications of forecast verification, it’s often of interest 
+to look at more than two categories and cannot be reduced to a binary, 
+“did the event happen or not, and was the event forecasted or not”. 
+Restricting forecast and observation datasets to binary options leads 
+to the loss of important information about how the forecast performed 
+(e.g., when multiple categories are combined into just two categories). 
+For example, if the forecast called for rain but snow was observed instead, 
+it can be useful to analyze how “good” the forecast was at delineating 
+between rain, snow, and any other precipitation type. Luckily, the 
+transformation of statistics from supporting binary categorical forecasts 
+to the second group of forecasts, multi-category, is fairly straightforward.
+
 Verification Statistics for Multicategorical Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
