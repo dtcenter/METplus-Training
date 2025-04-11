@@ -752,7 +752,9 @@ forecast spectrum.
 **HEIDKE SKILL SCORE (HSS)**
 
 HSS has a general form to accommodate multicategory forecasts. While more computationally 
-intense than the two-category equation provided, the multi-category formulation is 
+intense than the 
+:ref:`two-category equation provided <binary-cat-skill-score>`, 
+the multi-category formulation is 
 also based on comparison of the percent correct in the forecast relative to the proportion 
 correct that would be achieved by a “random” forecast. The relative comparison is often 
 with sources other than a “random” forecast, including older versions of a model and 
