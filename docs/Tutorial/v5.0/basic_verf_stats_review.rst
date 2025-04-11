@@ -420,6 +420,32 @@ dictionary, so be sure to review the available settings to get the line type out
 
 METplus Examples of Binary Categorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The following two examples show a generalized method for calculating binary 
+categorical statistics: one for a MET-only usage, and the same example 
+but utilizing METplus wrappers. These examples are not meant to be completely 
+reproducible by a user: no input data is provided, commands to run the 
+various tools are not given, etc. Instead, they serve as a general guide o
+f one possible setup among many that produce binary categorical statistics.
+
+If you are interested in reproducible, step-by-step examples of running the 
+various tools of METplus, you are strongly encouraged to review the 
+`METplus online tutorial <https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-grid-grid>`_
+that follows this statistical tutorial, where data is made 
+available to reproduce the guided examples.
+
+In order to better understand the delineation between METplus, MET, and 
+METplus wrappers which are used frequently throughout this tutorial but 
+are NOT interchangeable, the following definitions are provided for clarity:
+
+* METplus is best visualized as an overarching framework with individual 
+  components. It encapsulates all of the repositories: MET, METplus wrappers, 
+  METdataio, METcalcpy, and METplotpy.
+* MET serves as the core statistical component that ingests the provided 
+  fields and commands to compute user-requested statistics and diagnostics.
+* METplus wrappers is a suite of Python wrappers that provide low-level 
+  automation of MET tools and plotting capability. While there are examples 
+  of calling METplus wrappers without any underlying MET usage, 
+  these are the exception rather than the rule.
 
 **MET Example of Binary Categorical Forecast Verification**
 
