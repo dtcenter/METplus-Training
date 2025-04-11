@@ -578,7 +578,7 @@ we would need to set the _VAR1 settings appropriately:
   BOTH_VAR1_LEVELS = Z0
   BOTH_VAR1_THRESH = gt86.0
 
-Note how the BOTH option is utilized here \(as opposed to individual FCST_ and OBS_ settings\) 
+Note how the BOTH option is utilized here (as opposed to individual FCST\_ and OBS\_ settings) 
 since the forecast 
 and observation datasets utilize the same name and level information. 
 Because the loop/timing information is controlled inside the configuration 
