@@ -449,6 +449,123 @@ are NOT interchangeable, the following definitions are provided for clarity:
 
 **MET Example of Binary Categorical Forecast Verification**
 
+This example demonstrates categorical forecast verification in MET.
+
+For this example, let’s examine Grid-Stat. Assume we wanted to verify a binary 
+temperature forecast of greater than 86 degrees Fahrenheit. Starting with the 
+`general Grid-Stat configuration file<https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, 
+the following would resemble the minimum necessary settings/changes for 
+the **fcst** and **obs** dictionaries:
+
+.. code-block:: ini
+
+  fcst = {
+  field = [
+  {
+  name = "TMP";
+  level = [ "Z0" ];
+  cat_thresh = [ >86.0 ];
+  }
+  ];
+
+  }
+
+  obs = fcst;
+
+We can see that the forecast field name in the forecast input file is 
+named TMP, and is set accordingly in the **fcst** dictionary. Similarly, 
+the Z0 level is used to grab the lowest (0th) vertical level the TMP 
+variable appears on. Finally, **cat_thresh**, which controls the categorical 
+threshold that the contingency table will be created with, is set to greater 
+than 86.0. This assumes that the temperature units in the file are in Fahrenheit. 
+The **obs** dictionary is simply copying the settings from the fcst dictionary, 
+which is a method that can be used if both the forecast and observation input 
+files share the same variable structure (e.g. both inputs use the TMP variable 
+name, in Fahrenheit, with the lowest vertical level being the desired verification level).
+
+Now all that’s necessary would be to adjust the **output_flag** dictionary settings to 
+have Grid-Stat print out the desired line types:
+
+.. code-block:: ini
+
+  output_flag = {
+  fho = NONE;
+  ctc = STAT;
+  cts = STAT;
+  mctc = NONE;
+  mcts = NONE;
+  cnt = NONE;
+  …
+
+In this example, we have told MET to output the CTC and CTS line types, which will 
+contain all of the scalar statistics that were discussed in this section. Running this 
+set up would produce one .stat file with the two line types that were selected, CTC and 
+CTS. The CTC line would look something like:
+
+.. code-block:: ini
+
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
+  >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
+
+While the stat file full header column contents are discussed in the 
+`User’s Guide<https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
+the CTC line types are the final 6 columns of the line, beginning after 
+the “CTC” column. The first value is MET’s TOTAL column which is the 
+“total number of matched pairs”. You might better recognize this value 
+as *n*, the summation of every cell in the contingency table. In fact, 
+the following four columns of the CTC line type are synonymous with 
+the contingency table terms, which have their corresponding MET terms 
+provided in this table for your convenience:
+
+.. list-table:: Contingency and MET Table Terms
+  :widths: auto
+  :header-rows: 1
+
+  * - Contingency Table Term
+    - MET's CTC Column Name
+  * - Hit
+    - FY_OY
+  * - False Alarm
+    - FY_ON
+  * - Miss
+    - FN_OY
+  * - Correct Rejection
+    - FN_ON
+
+Further descriptions of each of the CTC columns can be found in the 
+`MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_. 
+Note that the final column of the CTC line type, EC_VALUE, is only 
+relevant to users verifying probabilistic data with the 
+`HSS_EC skill score <https://dtcenter.org/metplus-practical-session-guide-version-5-0/basic-verification-statistics-review/binary-categorical-forecasts/binary-categorical-skill-scores>`_.
+
+The CTS line type is also present in the .stat file and is the second row. 
+It has many more columns than the CTC line, where all of the scalar statistics 
+and skill scores discussed previously are located. Focusing on the first few 
+columns of the example output, you would find:
+
+.. code-block:: ini
+
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
+  >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA 
+  NA 0.7920635 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 
+  0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.01894965 NA NA 0.2882119 0.2594331 0.3170842 NA NA 
+  0.3186132 …
+
+These columns can be understood by reviewing the MET User’s Guide 
+`guidance for CTS line type <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id8>`_. 
+After the familiar TOTAL or *n* column, we find statistics such as 
+Base Rate, forecast mean, Accuracy, plus many more, all with their appropriate 
+lower and upper confidence intervals and the bootstrap confidence intervals. 
+Note that because the bootstrap library’s n_rep variable was kept at its default 
+value of 0, bootstrap methods were not used and appear as NA in the stat file. 
+While all of these statistics *could* be obtained from the CTC line type values 
+with additional post-processing, the simplicity of having all of them already 
+calculated and ready for additional group statistics or to advise forecast a
+djustments is one of the many advantages of using the METplus system.
+
+.. code-block:: ini
+
+
 **METplus Wrapper Example of Binary Categorical Forecast Verification**
 
 
