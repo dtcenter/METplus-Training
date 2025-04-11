@@ -453,7 +453,7 @@ This example demonstrates categorical forecast verification in MET.
 
 For this example, let’s examine Grid-Stat. Assume we wanted to verify a binary 
 temperature forecast of greater than 86 degrees Fahrenheit. Starting with the 
-`general Grid-Stat configuration file<https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, 
+`general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, 
 the following would resemble the minimum necessary settings/changes for 
 the **fcst** and **obs** dictionaries:
 
@@ -508,7 +508,7 @@ CTS. The CTC line would look something like:
   >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
 
 While the stat file full header column contents are discussed in the 
-`User’s Guide<https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
+`User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
 the CTC line types are the final 6 columns of the line, beginning after 
 the “CTC” column. The first value is MET’s TOTAL column which is the 
 “total number of matched pairs”. You might better recognize this value 
