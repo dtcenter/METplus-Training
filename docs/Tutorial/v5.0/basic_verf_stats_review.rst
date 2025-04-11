@@ -250,6 +250,8 @@ which differentiates it from percent correct. A CSI of 1 indicates a highly
 accurate forecast, while a value of 0 indicates no accuracy. 
 :ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
+.. _binary-cat-skill-score:
+
 Binary Categorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -423,13 +425,13 @@ METplus Examples of Binary Categorical Forecast Verification
 The following two examples show a generalized method for calculating binary 
 categorical statistics: one for a MET-only usage, and the same example 
 but utilizing METplus wrappers. These examples are not meant to be completely 
-reproducible by a user: no input data is provided, commands to run the 
+reproducible by a user: No input data is provided, commands to run the 
 various tools are not given, etc. Instead, they serve as a general guide o
 f one possible setup among many that produce binary categorical statistics.
 
 If you are interested in reproducible, step-by-step examples of running the 
 various tools of METplus, you are strongly encouraged to review the 
-`METplus online tutorial <https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-grid-grid>`_
+`METplus online tutorial <https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd/Tutorial/v5.0/grid_to_grid.html>`_
 that follows this statistical tutorial, where data is made 
 available to reproduce the guided examples.
 
@@ -536,7 +538,7 @@ Further descriptions of each of the CTC columns can be found in the
 `MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_. 
 Note that the final column of the CTC line type, EC_VALUE, is only 
 relevant to users verifying probabilistic data with the 
-`HSS_EC skill score <https://dtcenter.org/metplus-practical-session-guide-version-5-0/basic-verification-statistics-review/binary-categorical-forecasts/binary-categorical-skill-scores>`_.
+:ref:`HSS_EC skill score <binary-cat-skill-score>`.
 
 The CTS line type is also present in the .stat file and is the second row. 
 It has many more columns than the CTC line, where all of the scalar statistics 
