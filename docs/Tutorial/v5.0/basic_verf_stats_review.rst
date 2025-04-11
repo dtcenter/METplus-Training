@@ -638,8 +638,17 @@ the following:
     - Observation Category 2
     - Observation Category 3
   * - Forecast Category 1
+    - 
+    - 
+    - 
     - Forecast Category 2
+    - 
+    - 
+    - 
     - Forecast Category 3
+    - 
+    - 
+    - 
 
 A similar table could be constructed for comparisons of four, 
 five, six, and so on, categories. Some statistical calculations are 
