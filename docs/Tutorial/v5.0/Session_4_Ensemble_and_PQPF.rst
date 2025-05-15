@@ -7,6 +7,9 @@ Session 4: Ensemble and PQPF
 
 MET Tool: Gen-Ens-Prod
 ----------------------
+**GEN-ENS-PROD FUNCTIONALITY**
+
+**GEN-ENS-PROD USAGE**
 
 Configure
 ^^^^^^^^^
@@ -23,9 +26,9 @@ Rerun
 MET Tool: Ensemble-Stat
 -----------------------
 
-**Ensemble-Stat Functionality**
+**ENSEMBLE-STAT FUNCTIONALITY**
 
-**Ensemble-Stat Usage**
+**ENSEMBLE-STAT USAGE**
 
 Configure
 ^^^^^^^^^
