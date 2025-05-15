@@ -2,21 +2,13 @@
 Session 2: Grid-to-Obs
 ======================
 
-
-Session 2: Grid-to-Obs
-
-
-
-METplus Practical Session 2
----------------------------
-
+**METplus Practical Session 2**
 
 During this practical session, you will run the tools indicated below:
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
 Since you already set up your runtime environment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
 
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 .. note::
@@ -120,29 +112,16 @@ You are now ready to move on to the next section.
 
 If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a &lt;a href="https://github.com/dtcenter/METplus/discussions"&gt;GitHub Discussions&lt;/a&gt;. Be sure to provide what session and specific page you encountered the issue on.
 
-
-
 MET Tool: PB2NC
-===============
-
-
-MET Tool: PB2NC
-
-
+---------------
 
 .. important::
 
 **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
 
+**PB2NC Tool: General**
 
-
-PB2NC Tool: General
--------------------
-
-
-PB2NC Functionality
-^^^^^^^^^^^^^^^^^^^
-
+**PB2NC FUNCTIONALITY**
 
 The PB2NC tool is used to stratify (i.e. subset) the contents of an input PrepBufr point observation file and reformat it into NetCDF format for use by the Point-Stat or Ensemble-Stat tool. In this session, we will run PB2NC on a PrepBufr point observation file prior to running Point-Stat. Observations may be stratified by variable type, PrepBufr message type, station identifier, a masking region, elevation, report type, vertical level category, quality mark threshold, and level of PrepBufr processing. Stratification is controlled by a configuration file and discussed on the next page.
 The PB2NC tool may be run on both PrepBufr and Bufr observation files. As of met-6.1, support for Bufr is limited to files containing embedded tables. Support for Bufr files using external tables will be added in a future release.
@@ -150,8 +129,8 @@ For more information about the PrepBufr format, visit:
 https://emc.ncep.noaa.gov/emc/pages/infrastructure/bufrlib.php
 For information on where to download PrepBufr files, visit:
 https://dtcenter.org/community-code/model-evaluation-tools-met/input-data
-PB2NC Usage
-^^^^^^^^^^^
+
+**PB2NC Usage**
 
 
 .. note::
@@ -162,17 +141,7 @@ View the usage statement for PB2NC by simply typing the following:
 
 .. code-block::
 
-pb2nc
-
-
-
-
-
-
-Usage: pb2nc
-
-
-
+**PB2NC Usage**
 
 prepbufr_file
 input prepbufr path/filename
@@ -247,15 +216,10 @@ When running PB2NC on a new dataset, users are advised to run with the -index 
 
 
 Configure
-=========
+^^^^^^^^^
 
+PB2NC Tool: Configure  ??? Julie should this be a header???
 
-Configure
-
-
-
-PB2NC Tool: Configure
----------------------
 
 
 .. note::
@@ -344,25 +308,8 @@ While we are request these observation variable names from the input file, the f
 
 Next, save the **PB2NCConfig_tutorial_run1** file and exit the text editor.
 
-
-
-
-
-
-
-
-
 Run
-===
-
-
-Run
-
-
-
-PB2NC Tool: Run
----------------
-
+^^^
 
 .. note::
 
@@ -395,21 +342,12 @@ Inspect the PB2NC status messages.
 
 If you'd like to filter down the observations further, you may want to narrow the time window or modify other filtering criteria. We will do that after inspecting the resultant NetCDF file.
 
-
-
-
-
-
 Output
-======
+^^^^^^
 
 
-Output
+PB2NC Tool: Output  ??? Julie, should this be a header???
 
-
-
-PB2NC Tool: Output
-------------------
 
 
 When PB2NC is finished, you may view the output NetCDF file it wrote using the ncdump utility.
@@ -431,11 +369,7 @@ The obs_var, obs_unit, and obs_desc variables describe the observation varia
 
 Inspect the output of **ncdump** before continuing.
 
-
-
-Plot-Point-Obs
---------------
-
+**Plot-Point-Obs**
 
 The plot_point_obs tool plots the location of these NetCDF point observations. Just like plot_data_plane is useful to visualize gridded data, run plot_point_obs to make sure you have point observations where you expect.
 .. note::
@@ -508,21 +442,11 @@ gv tutorial_pb_run1_zoom.ps &amp;amp;
 
 The plot_data_plane tool can be run on the NetCDF output of any of the MET point observation pre-processing tools (pb2nc, ascii2nc, madis2nc, and lidar2nc).
 
-
-
-
-
-
 Reconfigure and Rerun
-=====================
+^^^^^^^^^^^^^^^^^^^^^
 
 
-Reconfigure and Rerun
-
-
-
-PB2NC Tool: Reconfigure and Rerun
----------------------------------
+PB2NC Tool: Reconfigure and Rerun ??? Julie, should this be a header???
 
 
 Now we'll rerun PB2NC, but this time we'll tighten the observation acceptance criteria.
@@ -614,19 +538,8 @@ Inspect the PB2NC status messages and note that fewer observations were retained
 The majority of the observations were rejected because their valid time no longer fell inside the tighter obs_window setting.
 When configuring PB2NC for your own projects, you should err on the side of keeping more data rather than less. As you'll see, the grid-to-point verification tools (Point-Stat and Ensemble-Stat) allow you to further refine which point observations are actually used in the verification. However, keeping a lot of point observations that you'll never actually use will make the data files larger and slightly slow down the verification. For example, if you're using a Global Data Assimilation (GDAS) PREPBUFR file to verify a model over Europe, it would make sense to only keep those point observations that fall within your model domain.
 
-
-
-
-
-
-
 METplus Use Case: PB2NC
-=======================
-
-
-METplus Use Case: PB2NC
-
-
+-----------------------
 
 .. important::
 
@@ -634,7 +547,7 @@ METplus Use Case: PB2NC
 
 
 
-METplus Use Case: PB2NC
+METplus Use Case: PB2NC  ??? Julie, why is this listed twice?  See above???
 -----------------------
 
 
@@ -755,38 +668,20 @@ The following is the statistical output and file generated from the command:
 
 sample_pb.nc
 
-
-
-
-
-
-
 MET Tool: ASCII2NC
-==================
-
-
-MET Tool: ASCII2NC
-
-
+------------------
 
 .. important::
 
 **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
 
+**ASCII2NC Tool: General**
 
-
-ASCII2NC Tool: General
-----------------------
-
-
-ASCII2NC Functionality
-^^^^^^^^^^^^^^^^^^^^^^
-
+**ASCII2NC Functionality**
 
 The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Studay (WWSIS) data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script.  Future version of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
-MET Point Observation Format
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+**MET Point Observation Format**
 
 The MET point observation format consists of one observation value per line. Each input observation line should consist of the following 11 columns of data:
 
@@ -803,9 +698,8 @@ QC_String quality control string
 Observation_Value
 
 It is the user's responsibility to get their ASCII point observations into this format.
-ASCII2NC Usage
-^^^^^^^^^^^^^^
 
+**ASCII2NC Usage**
 
 .. note::
 
@@ -879,19 +773,10 @@ NetCDF compression level
 
 At a minimum, the input ascii_file and the output netcdf_file must be passed on the command line. ASCII2NC interrogates the data to determine it's format, but the user may explicitly set it using the -format command line option. The -mask_grid, -mask_poly, and -mask_sid options can be used to filter observations spatially.
 
-
-
-
-
 Run
-===
+^^^
 
-
-Run
-
-
-
-ASCII2NC Tool: Run
+ASCII2NC Tool: Run ??? Julie, should this be a header?  I left it "as is".???
 ------------------
 
 
@@ -940,20 +825,11 @@ tutorial_ascii.nc \&lt;br/&gt;
 
 ASCII2NC should perform this reformatting step very quickly since the sample file only contains data for 5 stations.
 
-
-
-
-
-
 Output
-======
+^^^^^^
 
 
-Output
-
-
-
-ASCII2NC Tool: Output
+ASCII2NC Tool: Output ??? Julie, should this be a header?  I left it "as is".???
 ---------------------
 
 
@@ -1014,7 +890,7 @@ Next, we'll use the NetCDF output of PB2NC and ASCII2NC to perform Grid-to-Point
 
 
 
-METplus Use Case: ASCII2NC with Python Embedding
+METplus Use Case: ASCII2NC with Python Embedding  ??? Julie, should this be a header?  I left it "as is".???
 ================================================
 
 
@@ -1028,7 +904,7 @@ METplus Use Case: ASCII2NC with Python Embedding
 
 
 
-METplus Use Case: ASCII2NC with Python Embedding
+METplus Use Case: ASCII2NC with Python Embedding ??? Julie, should this be a header?  I left it "as is".???
 ------------------------------------------------
 
 
@@ -1262,7 +1138,7 @@ less ${METPLUS_TUTORIAL_DIR}/output/ASCII2NC_python_embedding/logs/metplus.log.Y
 
 
 
-MET Tool: Point-Stat
+MET Tool: Point-Stat  ??? Julie, should this be a header?  I left it "as is".???
 ====================
 
 
@@ -1276,16 +1152,17 @@ MET Tool: Point-Stat
 
 
 
-Point-Stat Tool: General
+Point-Stat Tool: General  ??? Julie, should this be a header?  I left it "as is".???
 ------------------------
 
 
-Point-Stat Functionality
+Point-Stat Functionality  ??? Julie, should this be a header?  I left it "as is".???
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 The Point-Stat tool provides verification statistics for comparing gridded forecasts to observation points, as opposed to gridded analyses like Grid-Stat. The Point-Stat tool matches gridded forecasts to point observation locations using one or more configurable interpolation methods. The tool then computes a configurable set of verification statistics for these matched pairs. Continuous statistics are computed over the raw matched pair values. Categorical statistics are generally calculated by applying a threshold to the forecast and observation values. Confidence intervals, which represent a measure of uncertainty, are computed for all of the verification statistics.
-Point-Stat Usage
+
+Point-Stat Usage  ??? Julie, should this be a header?  I left it "as is".???
 ^^^^^^^^^^^^^^^^
 
 
@@ -1362,7 +1239,7 @@ At a minimum, the input gridded fcst_file, the input NetCDF obs_file (output 
 
 
 
-Configure
+Configure  ??? Julie, should this be a header?  I left it "as is".???
 =========
 
 
@@ -1370,7 +1247,7 @@ Configure
 
 
 
-Point-Stat Tool: Configure
+Point-Stat Tool: Configure  ??? Julie, should this be a header?  I left it "as is".???
 --------------------------
 
 
@@ -1497,7 +1374,7 @@ Next, save the **PointStatConfig_tutorial_run1** file and exit the text editor
 
 
 
-Run
+Run  ??? Julie, should this be a header?  I left it "as is".???
 ===
 
 
@@ -1505,7 +1382,7 @@ Run
 
 
 
-Point-Stat Tool: Run
+Point-Stat Tool: Run  ??? Julie, should this be a header?  I left it "as is".???
 --------------------
 
 
@@ -1575,7 +1452,7 @@ Notice the more detailed information about which observations were used for each
 
 
 
-Output
+Output  ??? Julie, should this be a header?  I left it "as is".???
 ======
 
 
@@ -1583,7 +1460,7 @@ Output
 
 
 
-Point-Stat Tool: Output
+Point-Stat Tool: Output  ??? Julie, should this be a header?  I left it "as is".???
 -----------------------
 
 
@@ -1710,7 +1587,7 @@ There is a lot of data here and it is recommended that the MPR line_type is us
 
 
 
-Reconfigure
+Reconfigure  ??? Julie, should this be a header?  I left it "as is".???
 ===========
 
 
@@ -1718,7 +1595,7 @@ Reconfigure
 
 
 
-Point-Stat Tool: Reconfigure
+Point-Stat Tool: Reconfigure  ??? Julie, should this be a header?  I left it "as is".???
 ----------------------------
 
 
@@ -1882,7 +1759,7 @@ Can you diagnose **why** some of these verification tasks resulted in zero mat
 
 
 
-Rerun
+Rerun  ??? Julie, should this be a header?  I left it "as is".???
 =====
 
 
@@ -1890,7 +1767,7 @@ Rerun
 
 
 
-Point-Stat Tool: Rerun
+Point-Stat Tool: Rerun  ??? Julie, should this be a header?  I left it "as is".???
 ----------------------
 
 
@@ -1914,7 +1791,8 @@ PointStatConfig_tutorial_run2 \&lt;br/&gt;
 
 
 Point-Stat is now performing the verification tasks we requested in the configuration file. It should take a minute or two to run. You should see several status messages printed to the screen to indicate progress. Note the number of matched pairs found for each verification task, some of which are 0.
-Plot-Data-Plane Tool
+
+Plot-Data-Plane Tool  ??? Julie, should this be a header?  I left it "as is".???
 --------------------
 
 
@@ -2004,7 +1882,7 @@ See the usage statement for all MET tools using the **--help** command line op
 
 
 
-Output
+Output  ??? Julie, should this be a header?  I left it "as is".???
 ======
 
 
@@ -2012,7 +1890,7 @@ Output
 
 
 
-Point-Stat Tool: Output
+Point-Stat Tool: Output ??? Julie, should this be a header?  I left it "as is".???
 -----------------------
 
 
@@ -2056,22 +1934,8 @@ Lastly, the point_stat_run2_360000L_20070331_120000V.stat file contains all of
 
 vi point_stat_run2_360000L_20070331_120000V.stat
 
-
-
-
-
-
-
-
-
-
 METplus Use Case: PointStat
-===========================
-
-
-METplus Use Case: PointStat
-
-
+---------------------------
 
 .. important::
 
@@ -2079,7 +1943,7 @@ METplus Use Case: PointStat
 
 
 
-METplus Use Case: PointStat
+METplus Use Case: PointStat  ??? Julie, why is there a second one?  see above ???
 ---------------------------
 
 
@@ -2247,21 +2111,8 @@ diff \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/output/PointStat/point_stat/point_stat_360000L_20070331_120000V.stat \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/output/PointStat/point_stat/point_stat_run2_360000L_20070331_120000V.stat
 
-
-
-
-
-
-
-
-
 METplus Use Case: PointStat - Standard Verification of Global Upper Air
-=======================================================================
-
-
-METplus Use Case: PointStat - Standard Verification of Global Upper Air
-
-
+-----------------------------------------------------------------------
 
 .. important::
 
@@ -2269,7 +2120,7 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 
 
 
-METplus Use Case: PointStat - Standard Verification of Global Upper Air
+METplus Use Case: PointStat - Standard Verification of Global Upper Air  ??? Julie, why is there a second one???
 -----------------------------------------------------------------------
 
 
@@ -2509,18 +2360,8 @@ point_stat_000000L_20170603_000000V_vl1l2.txt
 
 Inspect the .txt files, they should have the same data as in the .stat file, just separated by line type. You will notice the header includes the name of statistics in the .txt files because they are specific to each line type.
 
-
-
-
-
-
 METplus Use Case: PointStat - Standard Verification for CONUS Surface
-=====================================================================
-
-
-METplus Use Case: PointStat - Standard Verification for CONUS Surface
-
-
+---------------------------------------------------------------------
 
 .. important::
 
@@ -2528,7 +2369,7 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
 
 
 
-METplus Use Case: PointStat - Standard Verification of CONUS Surface
+METplus Use Case: PointStat - Standard Verification of CONUS Surface  ??? Julie, second one again???
 --------------------------------------------------------------------
 
 
@@ -2742,20 +2583,10 @@ less ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc2/nam/point_stat_000000L_201706
 
 There is now a line with PRMSL listed and statistics reported.
 
-
-
-
-
-
 End of Session 2 and Additional Exercises
-=========================================
+-----------------------------------------
 
-
-End of Session 2 and Additional Exercises
-
-
-
-End of Session 2
+End of Session 2 ??? Julie, I left this "as is"???
 ----------------
 
 
@@ -2894,18 +2725,3 @@ Open the stat file and notice there are two more linetypes, cnt and vcnt.
 .. code-block::
 
 less ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat/point_stat_360000L_20070331_120000V.stat
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
