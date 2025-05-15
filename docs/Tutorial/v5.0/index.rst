@@ -14,7 +14,8 @@ Please follow the link to the appropriate session:
 
 .. toctree::
    :titlesonly:
-   :numbered: 5
+   :maxdepth: 3
+   :numbered: 
    :hidden:
       
    Basic_Verification_Statistics_Review
