@@ -26,3 +26,7 @@ Please follow the link to the appropriate session:
    Session_6_Track_and_Intensity
    Session_7_Feature_Relative_Use_Cases
    Session_8_METplus_Analysis_Tools
+   Session_9_Python_Embedding
+   Session_10_Subseasonal_to_Seasonal_S2S
+   Session_11_METplus_Cloud
+   Tutorial_Survey
