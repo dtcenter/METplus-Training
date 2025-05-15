@@ -1,429 +1,383 @@
-
 Session 1: Grid-to-Grid
 =======================
 
-
-Session 1: Grid-to-Grid
-
-
-
-METplus Practical Session 1
----------------------------
+**METplus Practical Session 1**
 
 
 During the first METplus practical session, you will run the tools indicated below:
 
-During this practical session, please work on the Session 1 exercises. Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
-Tutorial Format
-^^^^^^^^^^^^^^^
+.. image:: ../figure/5.0_Practical_Session_1.png
 
+During this practical session, please work on the **Session 1** exercises. 
+Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
 
-Throughout this tutorial, code blocks in BOLD white text with a black background should be copied from your browser and pasted on the command line, e.g.:
-.. code-block::
+**TUTORIAL FORMAT**
 
-echo "Let's Get Started"
+Throughout this tutorial, code blocks in have green text with a white background 
+should be copied from your browser and pasted on the command line, e.g.:
 
+.. code-block:: ini
 
+  echo "Let's Get Started"
 
 .. important::
 
-Text in **YELLOW boxes** contains important information, expert hints or helpful links. Please read carefully.
+  Text in **GREEN boxes** contains important information, expert hints or 
+  helpful links. Please read carefully.
 
+.. attention::
 
+  Text in **ORANGE boxes** are instructions for the user to perform some action 
+  or edit (add or modify) a specific file on your system.
 
 .. note::
 
-Text in** BLUE boxes** are instructions for the user to perform some action or edit (add or modify) a specific file on your system.
+  Text in **BLUE boxes** are notes or instructions to be aware of while
+  moving through the documentation.
 
-
+.. admonition:: Sample Output
+	   
+  Text in **PURPLE boxes** are sample output from a command or contents of a file. 
 
 .. admonition:: File Contents
-
-Text in **GRAY boxes** are sample output from a command or contents of a file.
-
-
-
-Tutorial Tips
-^^^^^^^^^^^^^
-
+	   
+  Text in **PURPLE boxes** are sample output from a command or contents of a file.
+ 
+  
+**TUTORIAL TIPS**
 
 .. important::
 
-**Please read the instructions carefully!** In some cases there are two sets of instructions where only one set of copyable instructions should be executed (i.e. bash vs. csh). Ignoring the information and simply copy/pasting the command line instructions may result in unintended consequences.
+  **Please read the instructions carefully!**
+  In some cases there are two sets of instructions where only one 
+  set of copyable instructions should be executed (i.e. bash vs. csh). 
+  Ignoring the information and simply copy/pasting the command line 
+  instructions may result in unintended consequences.
 
+.. note::  
 
-
-.. note::
-
-Note: Instructions in this tutorial use **vi** to open and edit files. If you prefer to use a different file editor, feel free to substitute it whenever you see **vi**.
-
-
-
-.. note::
-
-Note: Instructions in this tutorial use **okular** to view pdf, ps, and png files. If you prefer to use a different file viewer, feel free to substitute it whenever you see **okular**.
-
-
+  Instructions in this tutorial use **vi** to open and edit files. 
+  If you prefer to use a different file editor, feel free to substitute 
+  it whenever you see **vi**.
 
 .. note::
+   
+  Instructions in this tutorial use **okular** to view pdf, ps, and png files. 
+  If you prefer to use a different file viewer, feel free to substitute it 
+  whenever you see **okular**.
 
-Note: If you are running the tutorial inside Docker, you will not have access to the visualization tools described in this tutorial (such as okular, ncview, etc.) inside the Docker container. To run these commands, you will have to mount the output directory inside Docker to your local computer file system and run these tools from there.
-
-
+.. note::
+   
+  If you are running the tutorial inside Docker, you will not have access 
+  to the visualization tools described in this tutorial (such as okular, ncview, etc.) 
+  inside the Docker container. To run these commands, you will have to mount the 
+  output directory inside Docker to your local computer file system and run these tools from there.
 
 .. important::
 
-If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a &lt;a href="https://github.com/dtcenter/METplus/discussions"&gt;GitHub Discussions&lt;/a&gt;. Be sure to provide what session and specific page you encountered the issue on.
-
-
+  If you discover any typos, error in the run commands, incorrect output listed, 
+  or any other issues while completing the tutorial, you are encouraged to submit
+  your findings to the METplus team in a 
+  `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. 
+  Be sure to provide what session and specific page you encountered the issue on.
 
 MET Tool: PCP-Combine
-=====================
-
-
-MET Tool: PCP-Combine
-
-
+---------------------
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+  If you are returning to the tutorial, you must source the tutorial setup script 
+  before running the following instructions. If you are unsure if you have done this step, 
+  please navigate to the :ref:`verify_env_correct` page.
 
+We now shift to a discussion of the MET PCP-Combine tool and will practice running 
+it directly on the command line.
 
+**PCP-Combine Functionality**
 
-We now shift to a discussion of the MET PCP-Combine tool and will practice running it directly on the command line.
-PCP-Combine Functionality
--------------------------
+The PCP-Combine tool is used (if needed) to **add, subtract, sum** or **derive** 
+accumulated field values, most commonly precipitation, from several gridded data 
+files into a single NetCDF file containing the desired accumulation period. 
+Its NetCDF output may be used as input to the MET statistics tools. PCP-Combine 
+may be configured to combine any gridded data field you'd like. However, all gridded 
+data files being combined must have already been placed on a common grid. The copygb 
+utility is recommended for re-gridding GRIB files. In addition, the PCP-Combine 
+tool will only sum model files with the same initialization time unless it is 
+configured to ignore the initialization time.
 
-
-The PCP-Combine tool is used (if needed) to add, subtract, sum or derive accumulated field values, most commonly precipitation, from several gridded data files into a single NetCDF file containing the desired accumulation period. Its NetCDF output may be used as input to the MET statistics tools. PCP-Combine may be configured to combine any gridded data field you'd like. However, all gridded data files being combined must have already been placed on a common grid. The copygb utility is recommended for re-gridding GRIB files. In addition, the PCP-Combine tool will only sum model files with the same initialization time unless it is configured to ignore the initialization time.
-PCP-Combine Usage
------------------
-
+**PCP-Combine Usage**
 
 View the usage statement for PCP-Combine by simply typing the following:
-.. code-block::
 
-pcp_combine
+.. code-block:: ini
 
+  pcp_combine
 
-
-
-
-
-Usage: pcp_combine
+.. list-table:: Usage: pcp_combine
+  :widths: auto
+  :header-rows: 0
 
 
+  * - **[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
+      (Note: "|" means "or")**
+    - 
+  * - **[-sum] sum_args**
+    - **Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.**
+  * - **-add input_files**
+    - **Data from one or more files should be added together where the accumulation interval is specified separately for each input file.**
+  * - **-subtract input_files**
+    - **Data from exactly two files should be subtracted.**
+  * - **-derive stat_list input_files**
+    - **The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) should be derived using data from one or more files.**
+  * - out_file
+    - Output NetCDF file to be written.
+  * - [-field string]
+    - Overrides the default use of accumulated precipitation (optional).
+  * - [-name list]
+    - Overrides the default NetCDF variable name(s) to be written (optional).
+  * - [-vld_thresh n]
+    - Overrides the default required ratio of valid data (1) (optional).
+  * - [-log file]
+    - Outputs log messages to the specified file
+  * - [-v level]
+    - Level of logging
+  * - [-compress level]
+    - NetCDF file compression
 
+Use the **-sum, -add, -subtract**, or **-derive** command line option to indicate 
+the operation to be performed. Each operation has its own set of required arguments.
 
-[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
-(Note: "|" means "or")
-
-
-
-[-sum] sum_args
-Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.
-
-
-
--add input_files
-Data from one or more files should be added together where the accumulation interval is specified separately for each input file.
-
-
-
--subtract input_files
-Data from exactly two files should be subtracted.
-
-
-
--derive stat_list input_files
-The comma-separated list of statistics in "stat_list" (sum, min, max, range, mean, stdev, vld_count) should be derived using data from one or more files.
-
-
-
-out_file
-Output NetCDF file to be written.
-
-
-
-[-field string]
-Overrides the default use of accumulated precipitation (optional).
-
-
-
-[-name list]
-Overrides the default NetCDF variable name(s) to be written (optional).
-
-
-
-[-vld_thresh n]
-Overrides the default required ratio of valid data (1) (optional).
-
-
-
-[-log file]
-Outputs log messages to the specified file
-
-
-
-[-v level]
-Level of logging
-
-
-
-[-compress level]
-NetCDF file compression
-
-
-
-Use the -sum, -add, -subtract, or -derive command line option to indicate the operation to be performed. Each operation has its own set of required arguments.
-
-
-
-
-
-Run Sum Command
-===============
-
-
-Run Sum Command
-
-
+Rum Sum Command
+^^^^^^^^^^^^^^^
 
 Since PCP-Combine performs a simple operation and reformatting step, no configuration file is needed.
 
-Start by making an output directory for PCP-Combine and changing directories:
+1. Start by making an output directory for PCP-Combine and changing directories:
 
-.. code-block::
+.. code-block:: ini
 
-mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine&lt;br/&gt;
-cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
+  mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
+  cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
 
+2. Now let's run PCP-Combine twice using some sample data that's included with the MET tarball:
 
+.. code-block:: ini
 
+  pcp_combine \
+  -sum 20050807_000000 3 20050807_120000 12 \
+  sample_fcst_12L_2005080712V_12A.nc \
+  -pcpdir ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700
 
-Now let's run PCP-Combine twice using some sample data that's included with the MET tarball:
+.. code-block:: ini
 
-.. code-block::
-
-pcp_combine \&lt;br/&gt;
--sum 20050807_000000 3 20050807_120000 12 \&lt;br/&gt;
-sample_fcst_12L_2005080712V_12A.nc \&lt;br/&gt;
--pcpdir ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700
-
-
-
-.. code-block::
-
-pcp_combine \&lt;br/&gt;
--sum 00000000_000000 1 20050807_120000 12 \&lt;br/&gt;
-sample_obs_12L_2005080712V_12A.nc \&lt;br/&gt;
--pcpdir ${METPLUS_DATA}/met_test/data/sample_obs/ST2ml
-
-
-
+  pcp_combine \
+  -sum 00000000_000000 1 20050807_120000 12 \
+  sample_obs_12L_2005080712V_12A.nc \
+  -pcpdir ${METPLUS_DATA}/met_test/data/sample_obs/ST2ml
 
 .. note::
 
-The "**&lt;em&gt;\&lt;/em&gt;**" symbols in the commands above are used for ease of reading. They are line continuation markers enabling us to spread a long command line across multiple lines. They should be followed immediately by "Enter". You may copy and paste the command line OR type in the entire line with or without the "\".
+  The "**\\**" backslash symbols in the commands above are used for ease of reading. 
+  They are line continuation markers enabling us to spread a long command 
+  line across multiple lines. They should be followed immediately by "Enter". 
+  You may copy and paste the command line OR type in the entire line with or 
+  without the "\\".
 
+Both commands run the **sum** command which searches the contents of the **-pcpdir** 
+directory for the data required to create the requested accmululation interval.
 
+In the first command, PCP-Combine summed up 4 3-hourly accumulation forecast files 
+into a single 12-hour accumulation forecast. In the second command, PCP-Combine 
+summed up 12 1-hourly accumulation observation files into a single 12-hour 
+accumulation observation. PCP-Combine performs these tasks very quickly.
 
-Both commands run the sum command which searches the contents of the -pcpdir directory for the data required to create the requested accmululation interval.
-In the first command, PCP-Combine summed up 4 3-hourly accumulation forecast files into a single 12-hour accumulation forecast. In the second command, PCP-Combine summed up 12 1-hourly accumulation observation files into a single 12-hour accumulation observation. PCP-Combine performs these tasks very quickly.
-We'll use these PCP-Combine output files as input for Grid-Stat. So make sure that these commands have run successfully!
-
-
+We'll use these PCP-Combine output files as input for Grid-Stat. 
+So make sure that these commands have run successfully!
 
 Output
-======
+^^^^^^
 
+When PCP-Combine is finished, you may view the output NetCDF files it wrote using the 
+**ncdump** and **ncview** utilities. 
+Run the following commands to view contents of the NetCDF files:
 
-Output
+.. code-block:: ini
 
+  ncview sample_fcst_12L_2005080712V_12A.nc &
+  ncview sample_obs_12L_2005080712V_12A.nc &
+  ncdump -h sample_fcst_12L_2005080712V_12A.nc
+  ncdump -h sample_obs_12L_2005080712V_12A.nc
 
+The ncview windows display plots of the precipitation data in these files. 
+The output of ncdump indicates that the gridded fields are named **APCP_12**,
+the GRIB code abbreviation for accumulated precipitation. 
+The accumulation interval is 12 hours for both the forecast 
+(3-hourly * 4 files = 12 hours) and the observation (1-hourly * 12 files = 12 hours).
 
-When PCP-Combine is finished, you may view the output NetCDF files it wrote using the ncdump and ncview utilities. Run the following commands to view contents of the NetCDF files:
-.. code-block::
+Note, if ncview is not found when you run it on your system, you may need to load it first.  
+For example, on hera, you can use this command:
 
-ncview sample_fcst_12L_2005080712V_12A.nc &amp;amp;&lt;br/&gt;
-ncview sample_obs_12L_2005080712V_12A.nc &amp;amp;&lt;br/&gt;
-ncdump -h sample_fcst_12L_2005080712V_12A.nc&lt;br/&gt;
-ncdump -h sample_obs_12L_2005080712V_12A.nc
+.. code-block:: ini
 
+  module load ncview
 
+**Plot-Data-Plane Tool**
 
-The ncview windows display plots of the precipitation data in these files. The output of ncdump indicates that the gridded fields are named APCP_12, the GRIB code abbreviation for accumulated precipitation. The accumulation interval is 12 hours for both the forecast (3-hourly * 4 files = 12 hours) and the observation (1-hourly * 12 files = 12 hours).
-Note, if ncview is not found when you run it on your system, you may need to load it first.  For example, on hera, you can use this command:
-.. code-block::
+The Plot-Data-Plane tool can be run to visualize any gridded data that 
+the MET tools can read. It is a very helpful utility for making sure that MET can 
+read data from your file, orient it correctly, and plot it at the correct spot on 
+the earth. When using new gridded data in MET, it's a great idea to run it 
+through Plot-Data-Plane first:
 
-&lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;&lt;span&gt;module load ncview&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+.. code-block:: ini
 
+  plot_data_plane \
+  sample_fcst_12L_2005080712V_12A.nc \
+  sample_fcst_12L_2005080712V_12A.ps \
+  'name="APCP_12"; level="(*,*)";'
 
+.. code-block:: ini
 
-Plot-Data-Plane Tool
---------------------
-
-
-The Plot-Data-Plane tool can be run to visualize any gridded data that the MET tools can read. It is a very helpful utility for making sure that MET can read data from your file, orient it correctly, and plot it at the correct spot on the earth. When using new gridded data in MET, it's a great idea to run it through Plot-Data-Plane first:
-.. code-block::
-
-plot_data_plane \&lt;br/&gt;
-sample_fcst_12L_2005080712V_12A.nc \&lt;br/&gt;
-sample_fcst_12L_2005080712V_12A.ps \&lt;br/&gt;
-'name="APCP_12"; level="(*,*)";'
-
-
-
-.. code-block::
-
-gv sample_fcst_12L_2005080712V_12A.ps &amp;amp;
-
-
-
-.. note::
-
-Ghostview (gv) can take a little while before it displays.  If you don't have gv on your computer, try using display, or any tool that can visualize PostScript files, e.g.:
-
-
-
-.. code-block::
-
-display sample_fcst_12L_2005080712V_12A.ps &amp;amp;
-
-
+  gv sample_fcst_12L_2005080712V_12A.ps &
 
 .. note::
 
-Another option is to create a PNG file from the PS file, also rotating it to appear the right way:
+  Ghostview (gv) can take a little while before it displays.  
+  If you don't have gv on your computer, try using display, 
+  or any tool that can visualize PostScript files, e.g.:
 
+  .. code-block:: ini
 
+    display sample_fcst_12L_2005080712V_12A.ps &
 
-.. code-block::
-
-convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \&lt;br/&gt;
-sample_fcst_12L_2005080712V_12A.png
-
-
-
-.. code-block::
-
-display sample_fcst_12L_2005080712V_12A.png
-
-
-
-Next try re-running the command list above, but add the convert(x)=x/25.4; function to the config string (Hint: after the level setting and ; but before the last closing tick) to change units from millimeters to inches. What happened to the values in the colorbar?
-Now, try re-running again, but add the censor_thresh=lt1.0; censor_val=0.0; options to the config string to reset any data values less 1.0 to a value of 0.0. How has your plot changed?
 .. note::
 
-The **convert(x)** and **censor_thresh/censor_val** options can be used in config strings and MET config files to transform your data in simple ways.
+  Another option is to create a PNG file from the PS file, 
+  also rotating it to appear the right way:
 
+  .. code-block:: ini
 
+    convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \
+    sample_fcst_12L_2005080712V_12A.png
+    display sample_fcst_12L_2005080712V_12A.png
+
+Next try re-running the command list above, but add the **convert(x)=x/25.4;**
+function to the config string (*Hint: after the level setting and ; but before 
+the last closing tick*) to change units from millimeters to inches. 
+What happened to the values in the colorbar?
+
+Now, try re-running again, but add the **censor_thresh=lt1.0; censor_val=0.0;**
+options to the config string to reset any data values less 1.0 to a 
+value of 0.0. How has your plot changed?
+
+.. note::
+
+  The **convert(x)** and **censor_thresh/censor_val** options can be used in config 
+  strings and MET config files to transform your data in simple ways.
 
 Add and Subtract Commands
-=========================
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
+We have run examples of the PCP-Combine **-sum** command, but the tool also 
+supports the **-add, -subtract,** and **-derive** commands. While the **-sum** 
+command defines a directory to be searched, for **-add, -subtract,** and 
+**-derive** we tell PCP-Combine exactly which files to read and what data 
+to process. The following command adds together 3-hourly precipitation from 
+4 forecast files, just like we did in the previous step with the **-sum** command:
 
-Add and Subtract Commands
+.. code-block:: ini
 
+  pcp_combine -add \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_06.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_09.tm00_G212 03 \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 03 \
+  add_APCP_12.nc
 
+By default, PCP-Combine looks for accumulated precipitation, and the **03** 
+tells it to look for 3-hourly accumulations. However, that **03** string can be replaced 
+with a configuration string describing the data to be processed, which doesn't have to 
+be accumulated precipation. The configuration string should be enclosed in single quotes. 
+Below, we add together the U and V components of 10-meter wind from the same input file. 
+You would not typically want to do this, but this demonstrates the functionality. 
+We also use the **-name** command line option to define a descriptive output NetCDF 
+variable name:
 
-We have run examples of the PCP-Combine -sum command, but the tool also supports the -add, -subtract, and -derive commands. While the -sum command defines a directory to be searched, for -add, -subtract, and -derive we tell PCP-Combine exactly which files to read and what data to process. The following command adds together 3-hourly precipitation from 4 forecast files, just like we did in the previous step with the -sum command:
-.. code-block::
+.. code-block:: ini
 
-pcp_combine -add \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 03 \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_06.tm00_G212 03 \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_09.tm00_G212 03 \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 03 \&lt;br/&gt;
-add_APCP_12.nc
+  pcp_combine -add \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \
+  add_WINDS.nc \
+  -name UGRD_PLUS_VGRD
 
+While the **-add** command can be run on one or more input files, the 
+**-subtract** command requires *exactly two*. Let's rerun the wind example from 
+above but do a subtraction instead:
 
+.. code-block:: ini
 
-By default, PCP-Combine looks for accumulated precipitation, and the 03 tells it to look for 3-hourly accumulations. However, that 03 string can be replaced with a configuration string describing the data to be processed, which doesn't have to be accumulated precipation. The configuration string should be enclosed in single quotes. Below, we add together the U and V components of 10-meter wind from the same input file. You would not typically want to do this, but this demonstrates the functionality. We also use the -name command line option to define a descriptive output NetCDF variable name:
-.. code-block::
+  pcp_combine -subtract \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \
+  subtract_WINDS.nc \
+  -name UGRD_MINUS_VGRD
 
-pcp_combine -add \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \&lt;br/&gt;
-add_WINDS.nc \&lt;br/&gt;
--name UGRD_PLUS_VGRD
+Now run Plot-Data-Plane to visualize this output. Use the **-plot_range** option 
+to specify a the desired plotting range, the **-title** option to add a title, and the 
+**-color_table** option to switch from the default color table to one that's good for positive 
+and negative values:
 
+.. code-block:: ini
 
-
-While the -add command can be run on one or more input files, the -subtract command requires exactly two. Let's rerun the wind example from above but do a subtraction instead:
-.. code-block::
-
-pcp_combine -subtract \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="VGRD"; level="Z10";' \&lt;br/&gt;
-subtract_WINDS.nc \&lt;br/&gt;
--name UGRD_MINUS_VGRD
-
-
-
-Now run Plot-Data-Plane to visualize this output. Use the -plot_range option to specify a the desired plotting range, the -title option to add a title, and the -color_table option to switch from the default color table to one that's good for positive and negative values:
-.. code-block::
-
-plot_data_plane \&lt;br/&gt;
-subtract_WINDS.nc \&lt;br/&gt;
-subtract_WINDS.ps \&lt;br/&gt;
-'name="UGRD_MINUS_VGRD"; level="(*,*)";' \&lt;br/&gt;
--plot_range -15 15 \&lt;br/&gt;
--title "10-meter UGRD minus VGRD" \&lt;br/&gt;
--color_table ${MET_BUILD_BASE}/share/met/colortables/NCL_colortables/posneg_2.ctable
-
-
+  plot_data_plane \
+  subtract_WINDS.nc \
+  subtract_WINDS.ps \
+  'name="UGRD_MINUS_VGRD"; level="(*,*)";' \
+  -plot_range -15 15 \
+  -title "10-meter UGRD minus VGRD" \
+  -color_table ${MET_BUILD_BASE}/share/met/colortables/NCL_colortables/posneg_2.ctable
 
 Now view the results:
-.. code-block::
 
-gv subtract_WINDS.ps &amp;amp;
+.. code-block:: ini
 
-
-
-Derive Command
-==============
-
+  gv subtract_WINDS.ps &
 
 Derive Command
+^^^^^^^^^^^^^^
 
+While the PCP-Combine **-add** and **-subtract** commands compute exactly one 
+output field of data, the **-derive** command can compute multiple output fields 
+in a single run. This command reads data from one or more input files and derives 
+the output fields requested on the command line (sum, min, max, range, mean, stdev, vld_count).
 
-
-While the PCP-Combine -add and -subtract commands compute exactly one output field of data, the -derive command can compute multiple output fields in a single run. This command reads data from one or more input files and derives the output fields requested on the command line (sum, min, max, range, mean, stdev, vld_count).
 Run the following command to derive several summary metrics for both the 10-meter U and V wind components:
-.. code-block::
 
-pcp_combine -derive min,max,mean,stdev \&lt;br/&gt;
-${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_*.tm00_G212 \&lt;br/&gt;
--field 'name="UGRD"; level="Z10";' \&lt;br/&gt;
--field 'name="VGRD"; level="Z10";' \&lt;br/&gt;
-derive_min_max_mean_stdev_WINDS.nc
+.. code-block:: ini
 
+  pcp_combine -derive min,max,mean,stdev \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_*.tm00_G212 \
+  -field 'name="UGRD"; level="Z10";' \
+  -field 'name="VGRD"; level="Z10";' \
+  derive_min_max_mean_stdev_WINDS.nc
 
+In the above example, we used a wildcard to list multiple input file names.  And we used 
+the **-field** command line option twice to specify two input fields.  For each input field, 
+PCP-Combine loops over the input files, derives the requested metrics, and writes them to 
+the output NetCDF file.  Run ncview to visualize this output:
 
-In the above example, we used a wildcard to list multiple input file names.  And we used the -field command line option twice to specify two input fields.  For each input field, PCP-Combine loops over the input files, derives the requested metrics, and writes them to the output NetCDF file.  Run ncview to visualize this output:
-.. code-block::
+.. code-block:: ini
 
-ncview derive_min_max_mean_stdev_WINDS.nc &amp;amp;
+  ncview derive_min_max_mean_stdev_WINDS.nc &
 
-
-
-This output file contains 8 variables: 2 input fields * 4 metrics. Note the output variable names the tool chose.  You can still override those names using the -name command line argument, but you would have to specify a comma-separated list of 8 names, one for each output variable.
-
-
-
-
-
-
+This output file contains 8 variables: 2 input fields * 4 metrics. 
+Note the output variable names the tool chose.  
+You can still override those names using the **-name** command line argument, 
+but you would have to specify a comma-separated list of 8 names, one for each output variable.
 
 MET Tool: Plot-Data-Plane
-=========================
-
-
-MET Tool: Plot-Data-Plane
-
-
+-------------------------
 
 .. important::
 
@@ -436,16 +390,11 @@ Whenever getting started with new gridded datasets in MET, users are strongly en
 
 In MET, the terminology **Data-Plane** means a 2-dimensional field of gridded data.
 
-
-
-Plot-Data-Plane Functionality
------------------------------
-
+**Plot-Data-Plane Functionality**
 
 The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from the specified input file and writes a PostScript output file containing a spatial plot of the data. It plots the data using a configurable color table that is automatically rescaled to the range of values found by default. The ImageMagick convert utility is recommend for converting the PostScript output file to other image file formats, if needed.
-Plot-Data-Plane Usage
----------------------
 
+**Plot-Data-Plane Usage**
 
 .. note::
 
@@ -505,24 +454,10 @@ Outputs log messages to the specified file
 [-v level]
 Level of logging
 
-
-
-
-
-
-
-
 The Field String
-================
+^^^^^^^^^^^^^^^^
 
-
-The Field String
-
-
-
-Defining the field string
--------------------------
-
+**Defining the Field String** 
 
 As you'll see throughout these exercises, the behavior of the MET and METplus tools is controlled using ASCII configuration files, and you will learn more about those options in the coming sessions. The field_string command line argument is actually processed as a miniature configuration file. In fact, that string is written to a temporary file which is then read by MET's configuration file library code.
 In general, the name and level entries are required to extract a gridded field of data from a supported input file format. The conventions for specifying them vary based on the input file type:
@@ -544,22 +479,8 @@ ERROR  :
 
 Error messages like this typically mean there is a problem in a configuration string or configuration file being read by MET.
 
-
-
-
-
-
 Plot GRIB Data
-==============
-
-
-Plot GRIB Data
-
-
-
-Plot GRIB Data
---------------
-
+^^^^^^^^^^^^^^
 
 Start by creating a directory for our Plot-Data-Plane output:
 .. code-block::
@@ -626,19 +547,8 @@ While this Plot-Data-Plane validation step is not necessary for every input file
 
 
 
-
-
 Plot NetCDF Data
-================
-
-
-Plot NetCDF Data
-
-
-
-Plot NetCDF Data
-----------------
-
+^^^^^^^^^^^^^^^^
 
 The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the Climate-Forecast Convention, are created by the WRF-Interp utility, or are created by other MET tools. Additional details can be found in the MET Data I/O chapter of the MET User's Guide.
 As described in The Field String, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
@@ -756,25 +666,8 @@ ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/NCEP_Regions.ps \&lt;b
 When working with NetCDF files in MET, running **ncdump -h** is a great way to check their contents.
 
 
-
-
-
-
-
-
-
 Python Embedding
-================
-
-
-Python Embedding
-
-
-
-Python Embedding
-----------------
-
-
+^^^^^^^^^^^^^^^^
 While the MET tools can read data from a few input gridded data file types, its ability to read data in memory from python greatly enhances its utility. Support for python embedding is optional, and must be enabled at compilation time as described in Appendix F of the MET User's Guide. MET supports three types of python embedding:
 
 Reading a field of gridded data values.
@@ -828,34 +721,20 @@ ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \&lt;b
 
 You can find several python embedding examples on the Sample Analysis Scripts page of the MET website. Each example includes both a python script and sample input data file. Please also see METplus Python Embedding use case examples. 
 
-
-
-
-
-
-
 MET Tool: Gen-Vx-Mask
-=====================
-
-
-MET Tool: Gen-Vx-Mask
-
-
+---------------------
 
 .. important::
 
 **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
 
-
-
-Gen-Vx-Mask Functionality
--------------------------
-
+**Gen-Vx-Mask Functionality**
 
 The Gen-Vx-Mask tool may be run to speed up the execution time of the other MET tools. Gen-Vx-Mask defines a bitmap masking region for your domain. It takes as input a gridded data file defining your domain and a second argument to define the area of interest (varies by masking type). It writes out a NetCDF file containing a bitmap for that masking region. You can run Gen-Vx-Mask iteratively, passing its output back in as input, to define more complex masking regions.
 You can then use the output of Gen-Vx-Mask to define masking regions in the MET statistics tools. While those tools can read ASCII lat/lon polyline files directly, they are able to process the output of Gen-Vx-Mask much more quickly than the original polyline. The idea is to define your masking region once for your domain with Gen-Vx-Mask and apply the output many times in the MET statistics tools.
-Gen-Vx-Mask Usage
------------------
+
+
+**Gen-Vx-Mask Usage**
 
 
 View the usage statement for Gen-Vx-Mask by simply typing the following:
@@ -950,15 +829,8 @@ NetCDF compression level
 
 At a minimum, the input data_file, the input mask_poly polyline file, the output netcdf_file, and the type must be passed on the command line.
 
-
-
 Run Poly Type
-=============
-
-
-Run Poly Type
-
-
+^^^^^^^^^^^^^
 
 Start by making an output directory for Gen-Vx-Mask and changing directories:
 .. code-block::
@@ -992,15 +864,8 @@ Notice that the bitmap has a value of 1 inside the CONUS polyline and 0 everywhe
 You could try running plot_data_plane to create a PostScript image of this masking region. Can you remember how?
 Notice that there are several ways that gen_vx_mask can be run to define regions of interest, some of which will be demonstrated over the next few pages.
 
-
-
 Run Lat/Lon and Grid Types
-==========================
-
-
-Run Lat/Lon and Grid Types
-
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. important::
 
@@ -1071,17 +936,8 @@ ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_SUBGRID.nc \&lt;br/&g
 On the next page, we'll demonstrate using the "data" and "solar_alt" masking types.
 
 
-
-
-
-
 Run Data and Solar Types
-========================
-
-
-Run Data and Solar Types
-
-
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 On this page, we provide examples for land/sea mask and also a solar altitude to show where it is daytime on a global grid.
 Run Gen-Vx-Mask on the command line using the following command:
@@ -1142,19 +998,8 @@ ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/DAYLIGHT_LAND.nc \&lt;br/&
 This creates a mask for grid points on land experiencing daylight at 18:30 UTC on 20170601.
 On the next page, we'll demonstrate using the "track" and "circle" masking types.
 
-
-
-
-
-
-
 Run Track and Circle Types
-==========================
-
-
-Run Track and Circle Types
-
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 On this page, we provide examples for using the "track" masking type using BEST track hurricane data and "circle" masking type.
 Start by extracting the lat/lon locations for Hurricane Dorian:
@@ -1223,18 +1068,8 @@ The "-thresh" option can also be omitted from the "track", "data", "solar_alt", 
 Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download Natural Earth shapefiles and run Gen-Vx-Mask using the "-type shape" option.
 Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 
-
-
-
-
-
 Run Shape Type
-==============
-
-
-Run Shape Type
-
-
+^^^^^^^^^^^^^^
 
 We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from Natural Earth.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
 Download the Natural Earth administrative shapefiles for countries boundaries.
@@ -1271,35 +1106,19 @@ gen_vx_mask G004_USA_Canda_mask.nc ne_110m_admin_0_countries.shp G004_North_Amer
 The result is good but not perfect. There are a few missing grid points along the boundary. But this demonstrates how the tool works. Consider re-running all three commands again, but this time use the "-value" command line option to define the mask value to be written. Just make "-value" match the "-shapeno" option (.e.g. -value 4 for USA, -value 3 for Canada, and -value 27, for Mexico). What impact does that have on the result?
 Next, we'll take a look at the functionality that Grid-Stat offers.
 
-
-
-
-
-
-
 MET Tool: Grid-Stat
-===================
-
-
-MET Tool: Grid-Stat
-
-
+-------------------
 
 .. important::
 
 **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
 
-
-
-Grid-Stat Functionality
------------------------
-
+**Grid-Stat Functionality**
 
 The Grid-Stat tool provides verification statistics for a matched forecast and observation grid. If the forecast and observation grids do not match, the regrid section of the configuration file controls how the data can be interpolated to a common grid. All of the forecast gridpoints in each spatial verification region of interest are matched to observation gridpoints. The matched gridpoints within each verification region are used to compute the verification statistics.
 The output statistics generated by Grid-Stat include continuous partial sums and statistics, vector partial sums and statistics, categorical tables and statistics, probabilistic tables and statistics, neighborhood statistics, and gradient statistics. The computation and output of these various statistics types is controlled by the output_flag in the configuration file.
-Grid-Stat Usage
----------------
 
+**Grid-Stat Usage**
 
 View the usage statement for Grid-Stat by simply typing the following:
 .. code-block::
@@ -1359,14 +1178,8 @@ The forecast and observation fields must be on the same grid for verification. Y
 
 At a minimum, the input gridded fcst_file, the input gridded obs_file, and the configuration config_file must be passed in on the command line.
 
-
 Configure
-=========
-
-
-Configure
-
-
+^^^^^^^^^
 
 Start by making an output directory for Grid-Stat and changing directories:
 .. code-block::
@@ -1500,15 +1313,8 @@ seeps  = NONE;&lt;br/&gt;
 
 To compute contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), scalar partial sums (SL1L2), neighborhood contingency table counts (NBRCTC), neighborhood contingency table statistics (NBRCTS), and neighborhood continuous statistics (NBRCNT).
 
-
-
 Run
-===
-
-
-Run
-
-
+^^^
 
 Next, run Grid-Stat on the command line using the following command:
 .. code-block::
@@ -1551,15 +1357,8 @@ To disable the computation of bootstrap confidence intervals.
 
 Now, try rerunning the Grid-Stat command listed above and notice how much faster it runs. While bootstrap confidence intervals are nice to have, they take a long time to compute, especially for gridded data.
 
-
-
 Output
-======
-
-
-Output
-
-
+^^^^^^
 
 The output of Grid-Stat is one or more ASCII files containing statistics summarizing the verification performed and a NetCDF file containing difference fields. In this example, the output is written to the current directory, as we requested on the command line. It should now contain 10 Grid-Stat output files beginning with the grid_stat_ prefix, one each for the CTC, CTS, CNT, SL1L2, GRAD, NBRCTC, NBRCTS, and NBRCNT ASCII files, a STAT file, and a NetCDF matched pairs file.
 The format of the CTC, CTS, CNT, and SL1L2 ASCII files will be covered for the Point-Stat tool. The neighborhood method and gradient output are unique to the Grid-Stat tool.
@@ -1591,15 +1390,8 @@ ncdump -h grid_stat_120000L_20050807_120000V_pairs.nc
 View the NetCDF header to see how the variable names are defined.
 Notice how *MANY* variables there are, separate output for each of the masking regions defined. Try editing the config file again by setting apply_mask = FALSE; and gradient = TRUE; in the nc_pairs_flag dictionary. Re-run Grid-Stat and inspect the output NetCDF file. What affect did these changes have?
 
-
-
 METplus Motivation
-==================
-
-
-METplus Motivation
-
-
+^^^^^^^^^^^^^^^^^^
 
 We have now successfully run the PCP-Combine and Grid-Stat tools to verify 12-hourly accumulated preciptation for a single output time. We did the following steps:
 
@@ -1609,16 +1401,8 @@ Configured and ran Grid-Stat to compute our desired verification statistics.
 
 Now that we've defined the logic for a single run, the next step would be writing a script to automate these steps for many model initializations and forecast lead times. Rather than every MET user rewriting the same type of scripts, use METplus to automate these steps in a use case!
 
-
-
-
 METplus Use Case: GridStat
-==========================
-
-
-METplus Use Case: GridStat
-
-
+--------------------------
 
 .. important::
 
@@ -1761,19 +1545,8 @@ The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/GridSt
 
 ls -1 ${METPLUS_TUTORIAL_DIR}/output/GridStat/metplus_final.conf.*
 
-
-
 End of Session 1 and Additional Exercises
-=========================================
-
-
-End of Session 1 and Additional Exercises
-
-
-
-End of Session 1
-----------------
-
+-----------------------------------------
 
 Congratulations! You have completed Session 1!
 If you have extra time, you may want to try these additional MET exercises:
@@ -2189,18 +1962,8 @@ ${METPLUS_TUTORIAL_DIR}/user_config/tutorial.conf
 Navigate to the next page for the solution to see if you were right!
 
 
-
 Answers to Exercises from Session 1
-===================================
-
-
-Answers to Exercises from Session 1
-
-
-
-Answers to Exercises from Session 1
------------------------------------
-
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These are the answers to the exercises from the previous page. Feel free to ask a MET representative if you have any questions!
 
