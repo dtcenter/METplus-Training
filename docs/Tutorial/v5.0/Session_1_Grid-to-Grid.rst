@@ -147,7 +147,7 @@ View the usage statement for PCP-Combine by simply typing the following:
 Use the **-sum, -add, -subtract**, or **-derive** command line option to indicate 
 the operation to be performed. Each operation has its own set of required arguments.
 
-Rum Sum Command
+Run Sum Command
 ^^^^^^^^^^^^^^^
 
 Since PCP-Combine performs a simple operation and reformatting step, no configuration file is needed.
