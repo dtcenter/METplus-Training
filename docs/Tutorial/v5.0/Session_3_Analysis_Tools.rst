@@ -1,4 +1,4 @@
-Session 2: Analysis Tools
+Session 3: Analysis Tools
 =========================
 
 **METplus Practical Session 3**
