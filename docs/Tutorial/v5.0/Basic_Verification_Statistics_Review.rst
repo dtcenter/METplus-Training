@@ -1,448 +1,819 @@
 Basic Verification Statistics Review
 ====================================
 
-Basic Verification Statistics Review
+**Introduction**
 
-Introduction
-------------
-
-This session is meant as a brief introduction (or review) of basic statistical verification methods applied for various classifications of meteorological variables, and to guide new users toward their usage within the METplus system. It is by no means a comprehensive review of all of the available statistical verification methods available in the atmospheric sciences, nor every single verification method available within the METplus system. More complete details on many of the techniques discussed here can be found in Wilks’ “Statistical Methods In The Atmospheric Sciences” (2019), Jolliffe and Stephenson’s “Forecast Verification; A Practitioner's Guide in Atmospheric Science” (2012) and the` forecast verification web page `_ hosted by Australia’s Bureau of Meteorology.  Upon completion of this session you will have a better understanding of five of the common classification groupings for meteorological verification and have access to generalized METplus examples of creating statistics from those categories.
-
-
-Attributes of Forecast Quality
-==============================
-
-Attributes of Forecast Quality
+This session is meant as a brief introduction (or review) of basic statistical verification 
+methods applied for various classifications of meteorological variables, and to guide new users 
+toward their usage within the METplus system. It is by no means a comprehensive review 
+of all of the available statistical verification methods available in the atmospheric 
+sciences, nor every single verification method available within the METplus system. 
+More complete details on many of the techniques discussed here can be found in Wilks’ 
+“Statistical Methods In The Atmospheric Sciences” (2019), Jolliffe and 
+Stephenson’s “Forecast Verification; A Practitioner's Guide in Atmospheric Science” (2012) and the 
+`forecast verification web page <https://www.cawcr.gov.au/projects/verification/>`_
+hosted by Australia’s Bureau of Meteorology.  Upon completion of this session you will have 
+a better understanding of five of the common classification groupings for 
+meteorological verification and have access to generalized METplus examples of creating 
+statistics from those categories.
 
 Attributes of Forecast Quality
 ------------------------------
 
-Forecast quality attributes are the basic characteristics of forecast quality that are of importance to a user and can be assessed through verification. Different forecast evaluation approaches will measure different attributes of the quality of the forecasts. Some verification statistics can be decomposed into several attributes, providing more nuance to the quality information. It can be commonplace in operational and research settings to find and settle on one or two of these complex statistics that can provide meaningful guidance for adjustments to the model being evaluated. For example, if a given verification statistic shows that a model has a high bias and low reliability, that can seem to provide a researcher with all they need to know to make the next iteration of the model perform better, having no need for any other statistical input. However, this is an example of the law of the instrument: “If the only tool you have is a hammer, you tend to see every problem as a nail”. More complete, meaningful verification requires examining forecast performance from multiple perspectives and applying a variety of statistical approaches that measure a variety of verification attributes.
+Forecast quality attributes are the basic characteristics of forecast quality that 
+are of importance to a user and can be assessed through verification. Different 
+forecast evaluation approaches will measure different attributes of the quality 
+of the forecasts. Some verification statistics can be decomposed into several attributes, 
+providing more nuance to the quality information. It can be commonplace in operational 
+and research settings to find and settle on one or two of these complex statistics that 
+can provide meaningful guidance for adjustments to the model being evaluated. For example, 
+if a given verification statistic shows that a model has a high bias and low reliability, 
+that can seem to provide a researcher with all they need to know to make the next 
+iteration of the model perform better, having no need for any other statistical input. 
+However, this is an example of the law of the instrument: 
+“If the only tool you have is a hammer, you tend to see every problem as a nail”. 
+More complete, meaningful verification requires examining forecast performance from 
+multiple perspectives and applying a variety of statistical approaches that measure a 
+variety of verification attributes.
 
-In most cases, one or two forecast verification attributes will not provide enough information to understand the quality of a forecast. In the previous example where one verification statistic showed a model had high bias and low reliability, it could have been a situation where a second verification measure would have shown that the accuracy and resolution of the model were good, and making the adjustments to the next model iteration to correct bias and reliability would degrade accuracy and resolution. To fully grasp how well a particular forecast is performing, it is important to select the right combination of statistics that give you the “full picture” of the forecasts’ performance, which may consist of a more complete set of attributes, measuring the overall quality of your set of forecasts.
+In most cases, one or two forecast verification attributes will not provide enough 
+information to understand the quality of a forecast. In the previous example where 
+one verification statistic showed a model had high bias and low reliability, it could 
+have been a situation where a second verification measure would have shown that the 
+accuracy and resolution of the model were good, and making the adjustments to the next 
+model iteration to correct bias and reliability would degrade accuracy and resolution. 
+To fully grasp how well a particular forecast is performing, it is important to select 
+the right combination of statistics that give you the “full picture” of the forecasts’ 
+performance, which may consist of a more complete set of attributes, measuring the 
+overall quality of your set of forecasts.
 
-The following forecast attribute list is taken from Wilks (2019) and summarized for your convenience. Note how statistics showing one of these attributes on their own will not tell you exactly how “good” a forecast is, but combined with statistics showcasing other attributes you can have a better understanding of the utility of the forecast.
+The following forecast attribute list is taken from Wilks (2019) and summarized for 
+your convenience. Note how statistics showing one of these attributes on their own 
+will not tell you exactly how “good” a forecast is, but combined with statistics 
+showcasing other attributes you can have a better understanding of the utility of the forecast.
 
-* Accuracy – The level of difference (or agreement) between the individual values of a forecast dataset and the individual values of the observation dataset. This should not be confused with the informal usage of “accurate”, which is often used by the general population to describe a forecast that has high quality.
-* Skill – The accuracy of a forecast relative to a reference forecast. The reference forecast can be a single or group of forecasts that are compared against, with common choices being climatological values, persistence forecasts (forecasts that do not change over time), and older numerical model versions.
-* Bias – The similarity between the mean forecast and mean observation. Note that this differs slightly from the accuracy attribute, which measures the individual value’s similarity.
-* Reliability – The agreement between conditional forecast values and the distribution of the observation values resulting from that condition. Another way to think of reliability is as a measure of all of the observational value distributions that could happen given a forecast value. 
-* Resolution – In a similar thought as reliability, resolution is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value. Simply put, if value X is forecast, what level of difference is there in the resulting observation distributions than a forecast of value Y.
-* Discrimination – A simpler definition could be considered the inverse of resolution: discrimination is the measure of a forecast’s distribution given a change in the observation value. For example, if a forecast is just as likely to predict a tornado regardless of the actual observation of a tornado occurring, that forecast would have a low discrimination ability for tornadoes.
-* Sharpness – This property pertains only to the forecast with no consideration of its observational pair. If the forecast does not deviate from a consistent  (e.g., climatological) distribution, and instead sticks close to a “climatological value”, it exhibits low sharpness. If the forecast has the ability to produce values different from climatology that change the distribution, then it demonstrates sharpness.
+* Accuracy – The level of difference (or agreement) between the individual values of a 
+  forecast dataset and the individual values of the observation dataset. This should 
+  not be confused with the informal usage of “accurate”, which is often used by the 
+  general population to describe a forecast that has high quality.
+* Skill – The accuracy of a forecast relative to a reference forecast. The reference 
+  forecast can be a single or group of forecasts that are compared against, with common 
+  choices being climatological values, persistence forecasts 
+  (forecasts that do not change over time), and older numerical model versions.
+* Bias – The similarity between the mean forecast and mean observation. 
+  Note that this differs slightly from the accuracy attribute, which measures the 
+  individual value’s similarity.
+* Reliability – The agreement between conditional forecast values and the distribution 
+  of the observation values resulting from that condition. Another way to think of reliability 
+  is as a measure of all of the observational value distributions that could happen given a forecast value. 
+* Resolution – In a similar thought as reliability, resolution is the measure of the 
+  forecast’s ability to resolve different observational distributions given a change in 
+  the forecast value. Simply put, if value X is forecast, what level of difference is there 
+  in the resulting observation distributions than a forecast of value Y.
+* Discrimination – A simpler definition could be considered the inverse of resolution: 
+  discrimination is the measure of a forecast’s distribution given a change in the observation 
+  value. For example, if a forecast is just as likely to predict a tornado regardless of the 
+  actual observation of a tornado occurring, that forecast would have a low discrimination ability for tornadoes.
+* Sharpness – This property pertains only to the forecast with no consideration of its 
+  observational pair. If the forecast does not deviate from a consistent  (e.g., climatological) 
+  distribution, and instead sticks close to a “climatological value”, it exhibits low 
+  sharpness. If the forecast has the ability to produce values different from climatology that change the distribution, then it 
+  demonstrates sharpness.
 
-
-Binary Categorical Forecasts
-============================
-
-Binary Categorical Forecasts
+.. _bin-cat-fore:
 
 Binary Categorical Forecasts
 ----------------------------
 
-The first group of verification types to consider is one of the more basic, but most often used. Binary categorical forecast verification seeks to answer the question “did the event happen”. Some variables (e.g., rain/no rain) are by definition binary categorical, but every type of meteorological variable can be evaluated in the context of a binary forecast (e.g., by applying a threshold): Will the temperature exceed 86 degrees Fahrenheit? Will wind speeds exceed 15 knots? These are just some examples where the observations fall into one of only two categories, yes or no, which are created by the two categories of the forecast (e.g. the temperature will exceed 86 degrees Fahrenheit, or it will stay at or below 86 degrees Fahrenheit).
+The first group of verification types to consider is one of the more basic, 
+but most often used. Binary categorical forecast verification seeks to 
+answer the question “did the event happen”. Some variables (e.g., rain/no rain) 
+are by definition binary categorical, but every type of meteorological 
+variable can be evaluated in the context of a binary forecast 
+(e.g., by applying a threshold): Will the temperature exceed 86 degrees 
+Fahrenheit? Will wind speeds exceed 15 knots? These are just some examples 
+where the observations fall into one of only two categories, yes or no, 
+which are created by the two categories of the forecast 
+(e.g. the temperature will exceed 86 degrees Fahrenheit, 
+or it will stay at or below 86 degrees Fahrenheit).
 
 Imagine a simplified scenario where the forecast calls for rain.
 
-A *hit* occurs when a forecast predicts a rain event and the observation shows that the event occurred. In the scenario, a *hit *would be counted if rain was observed. A *false alarm* would be counted when the forecast predicted an event, but the event did not occur (i.e., in the scenario, this would mean no rain was observed). As you may have figured out, there are two other possible scenarios to cover for when the forecast says an event will not occur.
+A *hit* occurs when a forecast predicts a rain event and the observation 
+shows that the event occurred. In the scenario, a *hit* would be counted 
+if rain was observed. A *false alarm* would be counted when the forecast 
+predicted an event, but the event did not occur (i.e., in the scenario, 
+this would mean no rain was observed). As you may have figured out, there 
+are two other possible scenarios to cover for when the forecast says 
+an event will not occur.
 
-To describe these, imagine a second scenario where the forecast says there will be no rain.
+To describe these, imagine a second scenario where the forecast says 
+there will be no rain.
 
-*Misses* count the occasions when the forecast does not predict the event to occur, but it is observed. In this new scenario, a *miss *would be counted if rain was observed. Finally, *correct rejections* are those times that a forecast says the event will not occur, and observations show this to be true. Thus, in the rainfall scenario a correct rejection would be counted if no rain was forecasted *and *no rain was observed.
+*Misses* count the occasions when the forecast does not predict the event to 
+occur, but it is observed. In this new scenario, a *miss* would be counted 
+if rain was observed. Finally, *correct rejections* are those times that a 
+forecast says the event will not occur, and observations show this to be true. 
+Thus, in the rainfall scenario a correct rejection would be counted if no 
+rain was forecasted *and* no rain was observed.
 
-Because forecast verification is rarely performed on one event, a contingency table can be utilized to quickly convey the results of multiple events that all used the same binary event conditions. An example contingency table is shown here:
+Because forecast verification is rarely performed on one event, a 
+contingency table can be utilized to quickly convey the results of multiple 
+events that all used the same binary event conditions. An example 
+contingency table is shown here:
 
-.. image:: ../figure/5.0_Tutorial_stats_cont_table.png
-   :alt: 
+.. list-table:: Example Contingency Table
+  :widths: auto
 
-Each of the paired categorical forecasts and observations can be assigned to one of the four categories of the contingency table. The statistics that are used to describe the categorical forecasts’ scalar attributes (accuracy, bias, reliability, etc.) are computed using the total counts in these categories.
+  * -  
+    - **Observation "Yes"**
+    - **Observation "No"**
+  * - **Forecast "Yes"**
+    - Hits
+    - False Alarms
+  * - **Forecast "No"**
+    - Misses
+    - Correct Rejections
 
-It is important not to forget the total number of occurrences and non-occurrences, *n*, that are contained in all four categories. If *n* is too small, it can be easy to arrive at a misleading conclusion. For example, if a forecaster claims 100% accuracy in their rain forecast and produces a contingency table where the forecast values were all hits but *n=*4, the conclusion is technically correct, but not very scientifically sound!
+Each of the paired categorical forecasts and observations can be assigned to 
+one of the four categories of the contingency table. The statistics that are 
+used to describe the categorical forecasts’ scalar attributes 
+(accuracy, bias, reliability, etc.) are computed using the total 
+counts in these categories.
 
- 
-
+It is important not to forget the total number of occurrences 
+and non-occurrences, *n*, 
+that are contained in all four categories. If *n* is too small, it can 
+be easy to arrive at a misleading conclusion. For example, if a forecaster 
+claims 100% accuracy in their rain forecast and produces a contingency table 
+where the forecast values were all hits but *n* = 4, the conclusion is technically 
+correct, but not very scientifically sound!
 
 Verification Statistics for Binary Categorical Forecasts
-========================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Verification Statistics for Binary Categorical Forecasts
+Most meteorological forecasts would be described as non-probabilistic, meaning 
+the forecast value given is provided with no additional information of certainty 
+in that value. Another term for this type of forecast is deterministic and will 
+be the focus of the verification statistics in this section. For more information 
+on probabilistic forecasts and their corresponding statistics please refer to 
+the probabilistic section. When verifying binary categorical forecasts, the 
+only important factor is whether or not the event occurred: The assumed certainty 
+in the forecast is 100%.
 
-Verification Statistics for Binary Categorical Forecasts
---------------------------------------------------------
+Numerous computationally-easy (and very popular) scalar statistics are within 
+reach without too much manipulation of a contingency table’s counts.
 
-Most meteorological forecasts would be described as non-probabilistic, meaning the forecast value given is provided with no additional information of certainty in that value. Another term for this type of forecast is deterministic and will be the focus of the verification statistics in this section. For more information on probabilistic forecasts and their corresponding statistics please refer to the probabilistic section. When verifying binary categorical forecasts, the only important factor is whether or not the event occurred: the assumed certainty in the forecast is 100%.
+**ACCURACY (ACC)**
+The scalar attribute of Accuracy is measured as a simple ratio between the 
+forecasts that correctly predicted the event and the total number of occurrences 
+and non-occurrences, n. In equation format,
 
-Numerous computationally-easy (and very popular) scalar statistics are within reach without too much manipulation of a contingency table’s counts.
 
-Accuracy (Acc)
-^^^^^^^^^^^^^^
+.. math:: \text{Accuracy } = \frac{{Hits} + {Correct\ Rejections}}{n}
 
-The scalar attribute of Accuracy is measured as a simple ratio between the forecasts that correctly predicted the event and the total number of occurrences and non-occurrences, *n*. In equation format,
+This measure (often called “Percent Correct”) is very easily computed and addresses 
+how often a forecast is correctly predicting an event and non-event. As most 
+verification resources will warn you, however, this measure should be used with 
+caution, especially for an event that happens only rarely. The Finley tornado 
+forecast study (1884) is an excellent example of the need for caution, with 
+Finley reporting a 96.6% Accuracy for predicting a tornado due to the overwhelming 
+count of correct negatives. Peers were quick to point out that a higher 
+Accuracy (98.2%) could have been achieved with a persistence forecast of No Tornado! 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-.. image:: ../figure/Screen Shot 2024-05-07 at 10.26.29 AM.png
-   :alt: 
+**PROBABILITY OF DETECTION (POD)**
 
-This measure (often called “Percent Correct”) is very easily computed and addresses how often a forecast is correctly predicting an event and non-event. As most verification resources will warn you, however, this measure should be used with caution, especially for an event that happens only rarely. The Finley tornado forecast study (1884) is an excellent example of the need for caution, with Finley reporting a 96.6% Accuracy for predicting a tornado due to the overwhelming count of correct negatives. Peers were quick to point out that a higher Accuracy (98.2%) could have been achieved with a persistence forecast of No Tornado! `See how to use this statistic in METplus! `_
+Probability of Detection (POD), also referred to as the Hit Rate, measures the 
+frequency that the forecasts were correct given that the forecast predicts an 
+occurrence. Rather than computing the ratio of the correct forecasts to the entire 
+occurrence and non-occurrence count (i.e., as in Accuracy), POD only focuses on the 
+times the forecast predicted an event would occur. Thus, this measure is categorized 
+as a discrimination statistic. POD is computed as
 
-Probability of Detection (POD)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. math:: \text{POD} = \frac{Hits} {{Hits} + {Misses}}
 
-Probability of Detection (POD), also referred to as the Hit Rate, measures the frequency that the forecasts were correct given that the forecast predicts an occurrence. Rather than computing the ratio of the correct forecasts to the entire occurrence and non-occurrence count (i.e., as in Accuracy), POD only focuses on the times the forecast predicted an event would occur. Thus, this measure is categorized as a discrimination statistic. POD is computed as
+This measure is useful for rare events (tornadoes, 100-year floods, etc.) as it 
+will penalize (i.e. go toward 0) the forecasts when there are too many missed 
+forecasts. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-.. image:: ../figure/5.0_Tutorial_stats_POD_eq.png
-   :alt: 
+**PROBABILITY OF FALSE DETECTION (POFD)**
 
-This measure is useful for rare events (tornadoes, 100-year floods, etc.) as it will penalize (i.e. go toward 0) the forecasts when there are too many missed forecasts. `See how to use this statistic in METplus!  `_
+A countermeasure to POD is the probability of false detection (POFD). 
+POFD (also called false alarm rate), measures the frequency of false alarm 
+forecasts relative to the frequency that an event does not occur.
 
-Probability of False Detection (POFD)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. math:: \text{POFD} = \frac{False\ Alarms} {{Correct\ Rejections} + {False\ Alarms}}
 
-A countermeasure to POD is the probability of false detection (POFD). POFD (also called false alarm rate), measures the frequency of false alarm forecasts relative to the frequency that an event does not occur.
+Together, POD and POFD measure forecasts’ ability to discriminate between 
+occurrences and non-occurrences of the event of interest. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-.. image:: ../figure/5.0_Tutorial_stats_POFD_eq.png
-   :alt: 
+**FREQUENCY BIAS (BIAS)**
 
-Together, POD and POFD measure forecasts’ ability to discriminate between occurrences and non-occurrences of the event of interest. `See how to use this statistic in METplus! `_
+Frequency bias (a measure of, you guessed it, bias!) compares the count of “yes” 
+forecasts to the count of “yes” events observed.
 
-Frequency bias (Bias)
-^^^^^^^^^^^^^^^^^^^^^
+.. math:: \text{Bias} = \frac{{Hits} + {False\ Alarms}} {{Hits} + {Misses}}
 
-Frequency bias (a measure of, you guessed it, bias!) compares the count of “yes” forecasts to the count of “yes” events observed.
+This ratio does not provide specific information about the performance of individual 
+forecasts, but rather is a measure of over- or under-forecasting of the event. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-.. image:: ../figure/5.0_Tutorial_stats_Bias_eq.png
-   :alt: 
 
-This ratio does not provide specific information about the performance of individual forecasts, but rather is a measure of over- or under-forecasting of the event. `See how to use this statistic in METplus! `_
+**FALSE ALARM RATIO (FAR)**
 
-False Alarm Ratio (FAR)
-^^^^^^^^^^^^^^^^^^^^^^^
+The False Alarm Ratio (FAR) provides information about both the reliability and 
+resolution attributes of forecasts. It computes the ratio of “yes” forecasts 
+that did not occur to the total number of times a “yes” forecast was made 
+(i.e., the proportion of “yes” forecasts that were incorrect).
 
-The False Alarm Ratio (FAR) provides information about both the reliability and resolution attributes of forecasts. It computes the ratio of “yes” forecasts that did not occur to the total number of times a “yes” forecast was made (i.e., the proportion of “yes” forecasts that were incorrect).
+.. math:: \text{FAR} = \frac{False\ Alarms} {{Hits} + {False\ Alarms}}
 
-.. image:: ../figure/5.0_Tutorial_stats_FAR_eq.png
-   :alt: 
+FAR also is the first statistic covered in this session that has a negative 
+orientation: A FAR of 0 is desirable, while a FAR of 1 shows the worst possible 
+ratio of “yes” forecasts that were not observed relative to total “yes” forecasts. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-FAR also is the first statistic covered in this session that has a negative orientation: a FAR of 0 is desirable, while a FAR of 1 shows the worst possible ratio of “yes” forecasts that were not observed relative to total “yes” forecasts. `See how to use this statistic in METplus!  `_
+**CRITICAL SUCCESS INDEX (CSI)**
 
-Critical Success Index (CSI)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Critical Success Index (CSI), also commonly known as the Threat Score, i
+s a second measure of the overall accuracy of forecasts 
+(e.g., like the Accuracy measure mentioned earlier). Accuracy pertains to the 
+agreement of individual forecast-observation pairs, and CSI can be calculated as
 
-The Critical Success Index (CSI), also commonly known as the Threat Score, is a second measure of the overall accuracy of forecasts (e.g., like the Accuracy measure mentioned earlier). Accuracy pertains to the agreement of individual forecast-observation pairs, and CSI can be calculated as
+.. math:: \text{CSI} = \frac{Hits} {{Hits} + {Misses} + {False\ Alarms}}
 
-.. image:: ../figure/5.0_Tutorial_stats_CSI_eq.png
-   :alt: 
+Note that by definition CSI can be described as the ratio between the times the 
+forecast correctly called for an event and the total times the forecast called 
+for an event or the event was observed. Thus, CSI ignores correct negatives, 
+which differentiates it from percent correct. A CSI of 1 indicates a highly 
+accurate forecast, while a value of 0 indicates no accuracy. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-Note that by definition CSI can be described as the ratio between the times the forecast correctly called for an event and the total times the forecast called for an event or the event was observed. Thus, CSI ignores correct negatives, which differentiates it from percent correct. A CSI of 1 indicates a highly accurate forecast, while a value of 0 indicates no accuracy. `See how to use this statistic in METplus! `_
-
+.. _binary-cat-skill-score:
 
 Binary Categorical Skill Scores
-===============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Binary Categorical Skill Scores
+Skill scores can be a more meaningful way of describing  a forecast’s quality. 
+By definition, skill scores compare the performance of the forecasts to some 
+standard or “reference forecast” (e.g., climatology, persistence, perfect 
+forecasts, random forecasts). They often combine aspects of the previously-listed 
+scalar statistics and can serve as a starting point for creating your own 
+skill score that is better suited to your forecasts’ properties. Skill 
+scores create a summary view of the contingency table, which is in contrast 
+to the scalar statistics’ focus on one attribute at a time. 
 
-Binary Categorical Skill Scores
--------------------------------
+Three of the most popular skill statistics for categorical variables are the 
+Heidke Skill Score (HSS), the Hanssen-Kuipers Discriminant (HK), and the 
+Gilbert Skill Score (GSS). These measures are described here.
 
-Skill scores can be a more meaningful way of describing  a forecast’s quality. By definition, skill scores compare the performance of the forecasts to some standard or “reference forecast” (e.g., climatology, persistence, perfect forecasts, random forecasts). They often combine aspects of the previously-listed scalar statistics and can serve as a starting point for creating your own skill score that is better suited to your forecasts’ properties. Skill scores create a summary view of the contingency table, which is in contrast to the scalar statistics’ focus on one attribute at a time. 
+**HEIDKE SKILL SCORE (HSS)**
 
-Three of the most popular skill statistics for categorical variables are the Heidke Skill Score (HSS), the Hanssen-Kuipers Discriminant (HK), and the Gilbert Skill Score (GSS). These measures are described here.
+The HSS measures the proportion correct relative to the expected proportion 
+correct that would be achieved by a “reference” forecast, denoted by C2 
+in the equation. In this instance, the reference forecast denotes a 
+forecast that is completely independent of the observation dataset. 
+In practice, the reference forecast often is based on a random, 
+climatology, or persistence forecast. By combining the probability 
+of a correct “yes” forecast (i.e., a hit) with the probability of a 
+correct “no” forecast (i.e. a correct rejection) the resulting equation is
 
-Heidke Skill Score (HSS)
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. math:: \text{HSS} = \frac{{Hits} + {Correct\ Rejections} - {C_{2}}} {{n} - {C_{2}}}
 
-The HSS measures the proportion correct relative to the expected proportion correct that would be achieved by a “reference” forecast, denoted by C2 in the equation. In this instance, the reference forecast denotes a forecast that is completely independent of the observation dataset. In practice, the reference forecast often is based on a random, climatology, or persistence forecast. By combining the probability of a correct “yes” forecast (i.e., a hit) with the probability of a correct “no” forecast (i.e. a correct rejection) the resulting equation is
+HSS can range from -1 to 1, with a perfect forecast receiving a score 
+of 1. The equation presented above is a compact version which uses a 
+sample climatology, C2 based on the counts in the contingency table. 
+The C2 term expands to
 
-.. image:: ../figure/5.0_Tutorial_stats_HSS_eq.png
-   :alt: 
+.. math:: C_2 = \frac{(Hits + Misses) (Hits + FA) + (CR + Misses) (CR + FA)}{n}
 
-HSS can range from -1 to 1, with a perfect forecast receiving a score of 1. The equation presented above is a compact version which uses a sample climatology, C2 based on the counts in the contingency table. The C2 term expands to
+| where 
+| FA = False Alarms
+| CR = Correct Rejections
 
-.. image:: ../figure/5.0_Tutorial_stats_C2_eq.png
-   :alt: 
+This is a basic “traditional” version of HSS. METplus also calculates 
+a modified HSS, that allows users to control how the C2 term is defined. 
+This additional control allows users to apply an alternative standard 
+of comparison, such as another forecast or a basic standard such as a 
+persistence forecast or climatology. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-This is a basic “traditional” version of HSS. METplus also calculates a modified HSS, that allows users to control how the C2 term is defined. This additional control allows users to apply an alternative standard of comparison, such as another forecast or a basic standard such as a persistence forecast or climatology. `See how to use these skill scores in METplus! `_
+**HANSSEN-KUIPERS DISCRIMINANT (HK)**
 
-Hanssen-Kuipers Discriminant (HK)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+HK is known by several names, including the Peirce Skill Score and 
+the True Skill Statistic. This score is similar to HSS 
+(ranges from -1 to 1, perfect forecast is 1, etc.). HK is formulated 
+relative to a random forecast that is constrained to be unbiased. 
+In general, the focus of the HK is on how well the forecast discriminates 
+between observed “yes” events and observed “no” events. The equation for HK is
 
-HK is known by several names, including the Peirce Skill Score and the True Skill Statistic. This score is similar to HSS (ranges from -1 to 1, perfect forecast is 1, etc.). HK is formulated relative to a random forecast that is constrained to be unbiased. In general, the focus of the HK is on how well the forecast discriminates between observed “yes” events and observed “no” events. The equation for HK is
+.. math:: \text{HK } = \frac{(Hits * Correct\ Rejections) - (False\ Alarms * Misses)}{(Hits + Misses) (False\ Alarms + Correct Rejections)}
 
-.. image:: ../figure/5.0_Tutorial_stats_HK_eq.png
-   :alt: 
+which is equivalent to “POD minus POFD”. Because of its dependence on POD, 
+HK can be similarly affected by infrequent events and is suggested as a 
+more useful skill score for frequent events. 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-which is equivalent to “POD minus POFD”. Because of its dependence on POD, HK can be similarly affected by infrequent events and is suggested as a more useful skill score for frequent events. `See how to use this skill score in METplus! `_
+**GILBERT SKILL SCORE (GSS)**
 
-Gilbert Skill Score (GSS)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Finally, GSS measures the correspondence between forecasted and observed 
+“yes” events. Sometimes called the Equitable Threat Score (ETS), GSS is 
+a good option for those forecasted events where the observed “yes” 
+event is rare. In particular, the number of correct negatives 
+(which for a rare event would be large) are not considered in the 
+GSS equation and thus do not influence the GSS values. The GSS is given as
 
-Finally, GSS measures the correspondence between forecasted and observed “yes” events. Sometimes called the Equitable Threat Score (ETS), GSS is a good option for those forecasted events where the observed “yes” event is rare. In particular, the number of correct negatives (which for a rare event would be large) are not considered in the GSS equation and thus do not influence the GSS values. The GSS is given as
+.. math:: \text{GSS } = \frac{Hits - C_1}{Hits + False\ Alarms + Misses - C_1}
 
-.. image:: ../figure/5.0_Tutorial_stats_GSS_eq.png
-   :alt: 
+GSS ranges from -1 to 1, with a perfect forecast receiving a score of 1. 
+Similar to HSS, a compact version of GSS is presented using the C1 term. This term expands to
 
-GSS ranges from -1 to 1, with a perfect forecast receiving a score of 1. Similar to HSS, a compact version of GSS is presented using the C1 term. This term expands to
+.. math:: C_1 = \frac{(Hits + False\ Alarms) (Hits + Misses)}{n}
 
-.. image:: ../figure/5.0_Tutorial_stats_C1_eq.png
-   :alt: 
+:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
 
-` See how to use this skill score in METplus! `_
+.. _METplus-solutions_bin_cat_for_verif:
 
+METplus Solutions for Binary Categorical Forecast Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-METplus solutions for Binary Categorical Forecast Verification
-==============================================================
+Now that you know a bit more about dichotomous, deterministic forecasts and 
+how to extract information on the scalar attributes through statistics, it’s 
+time to show how you can access those same statistics in METplus!
 
-METplus solutions for Binary Categorical Forecast Verification
+In order to better understand the delineation between METplus, MET, and METplus 
+wrappers which are used frequently throughout this tutorial but are NOT 
+interchangeable, the following definitions are provided for clarity:
 
-METplus solutions for Binary Categorical Forecast Verification
---------------------------------------------------------------
+* METplus is best visualized as an overarching framework with 
+  individual components. It encapsulates all of the repositories: 
+  MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
+* MET serves as the core statistical component that ingests the 
+  provided fields and commands to compute user-requested statistics and 
+  diagnostics.
+* METplus wrappers is a suite of Python wrappers that provide 
+  low-level automation of MET tools and plotting capability. While there 
+  are examples of calling METplus wrappers without any underlying 
+  MET usage, these are the exception rather than the rule.
 
-Now that you know a bit more about dichotomous, deterministic forecasts and how to extract information on the scalar attributes through statistics, it’s time to show how you can access those same statistics in METplus!
+**MET SOLUTIONS**
 
-In order to better understand the delineation between METplus, MET, and METplus wrappers which are used frequently throughout this tutorial but are NOT interchangeable, the following definitions are provided for clarity:
+The MET User’s Guide provides an 
+`Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_. 
+METplus groups statistics together by application 
+and type and makes them available to METplus users via several line types. 
+For example, many of the statistics that were discussed above can be found 
+in the Contingency Table Statistics (CTS) line type, which logically groups 
+together statistics based directly on contingency table counts. In fact, 
+MET allows users to directly access the contingency table counts through 
+the aptly named Contingency Table Counts (CTC) line type.
 
-* METplus is best visualized as an overarching framework with individual components. It encapsulates all of the repositories: MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
-* MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
-* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
+The line types that are output by MET depend on your selection of the appropriate 
+line type using the 
+`output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#output-flag>`_. 
+Note that certain line types may 
+or may not be available in every tool: for example, both Point-Stat and 
+Grid-Stat produce CTS line types, which allow users to access the various 
+contingency table statistics for both point-based observations and gridded 
+observations. In contrast, Ensemble-Stat is the only tool that can generate a 
+`Ranked Probability Score (RPS) line type, <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_ 
+which provides statistics relevant 
+to the analysis of ensemble forecasts. If you don’t see your desired statistic in 
+the line type or tool you’d expect it to be in, be sure to 
+`check the Appendix <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_ 
+to see if the statistic is available in MET and which line type it’s currently grouped with.
 
-MET solutions
-^^^^^^^^^^^^^
+As for the categorical statistics that were just discussed, here’s a link to the 
+User’s Guide Appendix entry that discusses their use in MET:
 
-The MET User’s Guide provides an` Appendix that dives into all of the  statistical measure that MET calculates `_. METplus groups statistics together by application and type and makes them available to METplus users via several line types. For example, many of the statistics that were discussed above can be found in the Contingency Table Statistics (CTS) line type, which logically groups together statistics based directly on contingency table counts. In fact, MET allows users to directly access the contingency table counts through the aptly named Contingency Table Counts (CTC) line type.
+* `Accuracy <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#accuracy>`_
+* `POD <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-detection-pod>`_
+* `POFD <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
+* `Bias <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#frequency-bias>`_ 
+* `FAR <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
+* `CSI <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
+* `HSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-hss>`_  
+* `HSS_EC <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
+* `HK <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`_  
+* `GSS <https://met.readthedocs.io/en/latest/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
-The line types that are output by MET depend on your selection of the appropriate line type using the` output_flag dictionary `_. Note that certain line types may or may not be available in every tool: for example, both Point-Stat and Grid-Stat produce CTS line types, which allow users to access the various contingency table statistics for both point-based observations and gridded observations. In contrast, Ensemble-Stat is the only tool that can generate a` Ranked Probability Score (RPS) line type `_, which provides statistics relevant to the analysis of ensemble forecasts. If you don’t see your desired statistic in the line type or tool you’d expect it to be in, be sure to` check the Appendix `_ to see if the statistic is available in MET and which line type it’s currently grouped with.
+Remember that for categorical statistics, including those that are associated with 
+probabilistic datasets, you will need to provide an appropriate threshold that divides 
+the observations and forecasts into two mutually exclusive categories. For more 
+information on the available thresholding options, please review 
+`this section of the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#configuration-file-overview>`_.
 
-As for the categorical statistics that were just discussed, here’s a link to the User’s Guide Appendix entry that discusses their use in MET:
+**METPLUS WRAPPER SOLUTIONS**
 
-* Accuracy
-* POD
-* POFD
-* Bias
-* FAR
-* CSI
-* HSS
-* HSS_EC (HSS Expected Correct)
-* HK
-* GSS
-
-Remember that for categorical statistics, including those that are associated with probabilistic datasets, you will need to provide an appropriate threshold that divides the observations and forecasts into two mutually exclusive categories. For more information on the available thresholding options, please review` this section of the MET User’s Guide `_.
-
-METplus Wrapper Solutions
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for the selection of statistics translate to METplus wrapper configuration options, you can utilize the` Statistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the available statistics through the wrappers, including which tools can output particular statistics. To access the line types through the tool, select your desired tool and use `this page to view a list of all available commands for that tool `_. Once you do, you’ll see that the tool will include several options that contain **_OUTPUT_FLAG_**. These options will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
-
+The same statistics that are available in MET are also available with 
+the METplus wrappers. To better understand how MET configuration options 
+for the selection of statistics translate to METplus wrapper configuration 
+options, you can utilize the 
+`Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/latest/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, 
+which lists all of the available statistics through the wrappers, including 
+which tools can output particular statistics. To access the line types 
+through the tool, select your desired tool and 
+`use this page to view a list of all available commands for that tool, <https://metplus.readthedocs.io/en/latest/Users_Guide/wrappers.html#python-wrappers>`_
+Once you do, you’ll see that the tool will include several options that 
+contain **_OUTPUT_FLAG_**. These options will exhibit the same behavior 
+and accept the same settings as the line types in MET’s output_flag 
+dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples of Binary Categorical Forecast Verification
-============================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The following two examples show a generalized method for calculating binary 
+categorical statistics: one for a MET-only usage, and the same example 
+but utilizing METplus wrappers. These examples are not meant to be completely 
+reproducible by a user: No input data is provided, commands to run the 
+various tools are not given, etc. Instead, they serve as a general guide o
+f one possible setup among many that produce binary categorical statistics.
 
-METplus Examples of Binary Categorical Forecast Verification
+If you are interested in reproducible, step-by-step examples of running the 
+various tools of METplus, you are strongly encouraged to review the 
+`METplus online tutorial <https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd/Tutorial/v5.0/grid_to_grid.html>`_
+that follows this statistical tutorial, where data is made 
+available to reproduce the guided examples.
 
-The following two examples show a generalized method for calculating binary categorical statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce binary categorical statistics.
+In order to better understand the delineation between METplus, MET, and 
+METplus wrappers which are used frequently throughout this tutorial but 
+are NOT interchangeable, the following definitions are provided for clarity:
 
-If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the `METplus online tutorial `_ that follows this statistical tutorial, where data is made available to reproduce the guided examples.
+* METplus is best visualized as an overarching framework with individual 
+  components. It encapsulates all of the repositories: MET, METplus wrappers, 
+  METdataio, METcalcpy, and METplotpy.
+* MET serves as the core statistical component that ingests the provided 
+  fields and commands to compute user-requested statistics and diagnostics.
+* METplus wrappers is a suite of Python wrappers that provide low-level 
+  automation of MET tools and plotting capability. While there are examples 
+  of calling METplus wrappers without any underlying MET usage, 
+  these are the exception rather than the rule.
 
-In order to better understand the delineation between METplus, MET, and METplus wrappers which are used frequently throughout this tutorial but are NOT interchangeable, the following definitions are provided for clarity:
-
-* METplus is best visualized as an overarching framework with individual components. It encapsulates all of the repositories: MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
-* MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
-* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
-
-MET Example of Binary Categorical Forecast Verification
--------------------------------------------------------
+**MET Example of Binary Categorical Forecast Verification**
 
 This example demonstrates categorical forecast verification in MET.
 
-For this example, let’s examine Grid-Stat. Assume we wanted to verify a binary temperature forecast of greater than 86 degrees Fahrenheit. Starting with the` general Grid-Stat configuration file `_, the following would resemble the minimum necessary settings/changes for the **fcst** and **obs** dictionaries:
+For this example, let’s examine Grid-Stat. Assume we wanted to verify a binary 
+temperature forecast of greater than 86 degrees Fahrenheit. Starting with the 
+`general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, 
+the following would resemble the minimum necessary settings/changes for 
+the **fcst** and **obs** dictionaries:
 
-.. code-block::
+.. code-block:: ini
 
-   fcst = {
-   field = [
-   {
-   name = "TMP";
-   level = [ "Z0" ];
-   cat_thresh = [ &gt;86.0 ];
-   }
-   ];
-   }
-   obs = fcst;
+  fcst = {
+  field = [
+  {
+  name = "TMP";
+  level = [ "Z0" ];
+  cat_thresh = [ >86.0 ];
+  }
+  ];
 
-We can see that the forecast field name in the forecast input file is named TMP, and is set accordingly in the **fcst** dictionary. Similarly, the Z0 level is used to grab the lowest (0th) vertical level the TMP variable appears on. Finally, **cat_thresh**, which controls the categorical threshold that the contingency table will be created with, is set to greater than 86.0. This assumes that the temperature units in the file are in Fahrenheit. The **obs** dictionary is simply copying the settings from the fcst dictionary, which is a method that can be used if both the forecast and observation input files share the same variable structure (e.g. both inputs use the TMP variable name, in Fahrenheit, with the lowest vertical level being the desired verification level).
+  }
 
-Now all that’s necessary would be to adjust the **output_flag** dictionary settings to have Grid-Stat print out the desired line types:
+  obs = fcst;
 
-.. code-block::
+We can see that the forecast field name in the forecast input file is 
+named TMP, and is set accordingly in the **fcst** dictionary. Similarly, 
+the Z0 level is used to grab the lowest (0th) vertical level the TMP 
+variable appears on. Finally, **cat_thresh**, which controls the categorical 
+threshold that the contingency table will be created with, is set to greater 
+than 86.0. This assumes that the temperature units in the file are in Fahrenheit. 
+The **obs** dictionary is simply copying the settings from the fcst dictionary, 
+which is a method that can be used if both the forecast and observation input 
+files share the same variable structure (e.g. both inputs use the TMP variable 
+name, in Fahrenheit, with the lowest vertical level being the desired verification level).
 
-   output_flag = {
-   fho = NONE;
-   ctc = STAT;
-   cts = STAT;
-   mctc = NONE;
-   mcts = NONE;
-   cnt = NONE;
-   …
+Now all that’s necessary would be to adjust the **output_flag** dictionary settings to 
+have Grid-Stat print out the desired line types:
 
-In this example, we have told MET to output the CTC and CTS line types, which will contain all of the scalar statistics that were discussed in this section. Running this set up would produce one .stat file with the two line types that were selected, CTC and CTS. The CTC line would look something like:
+.. code-block:: ini
 
-.. code-block::
+  output_flag = {
+  fho = NONE;
+  ctc = STAT;
+  cts = STAT;
+  mctc = NONE;
+  mcts = NONE;
+  cnt = NONE;
+  …
 
-   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 &gt;86.0 &gt;86.0 NA NA CTC 5287 3055 1155 342 735 0.5
+In this example, we have told MET to output the CTC and CTS line types, which will 
+contain all of the scalar statistics that were discussed in this section. Running this 
+set up would produce one .stat file with the two line types that were selected, CTC and 
+CTS. The CTC line would look something like:
 
-While the stat file full header column contents are discussed in the` User’s Guide `_, the CTC line types are the final 6 columns of the line, beginning after the “CTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. In fact, the following four columns of the CTC line type are synonymous with the contingency table terms, which have their corresponding MET terms provided in this table for your convenience:
+.. code-block:: ini
 
-.. image:: ../figure/5.0_Tutorial_stats_tran_table.png
-   :alt: 
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
+  >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
 
-Further descriptions of each of the CTC columns can be found in the` MET User’s Guide `_. Note that the final column of the CTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the` HSS_EC skill score `_.
+While the stat file full header column contents are discussed in the 
+`User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
+the CTC line types are the final 6 columns of the line, beginning after 
+the “CTC” column. The first value is MET’s TOTAL column which is the 
+“total number of matched pairs”. You might better recognize this value 
+as *n*, the summation of every cell in the contingency table. In fact, 
+the following four columns of the CTC line type are synonymous with 
+the contingency table terms, which have their corresponding MET terms 
+provided in this table for your convenience:
 
-The CTS line type is also present in the .stat file and is the second row. It has many more columns than the CTC line, where all of the scalar statistics and skill scores discussed previously are located. Focusing on the first few columns of the example output, you would find:
+.. list-table:: Contingency and MET Table Terms
+  :widths: auto
+  :header-rows: 1
 
-.. code-block::
+  * - Contingency Table Term
+    - MET's CTC Column Name
+  * - Hit
+    - FY_OY
+  * - False Alarm
+    - FY_ON
+  * - Miss
+    - FN_OY
+  * - Correct Rejection
+    - FN_ON
 
-   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 &gt;86.0 &gt;86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA NA 0.7920635 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.01894965 NA NA 0.2882119 0.2594331 0.3170842 NA NA 0.3186132 …
+Further descriptions of each of the CTC columns can be found in the 
+`MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_. 
+Note that the final column of the CTC line type, EC_VALUE, is only 
+relevant to users verifying probabilistic data with the 
+:ref:`HSS_EC skill score <binary-cat-skill-score>`.
 
-These columns can be understood by reviewing the MET User’s Guide` guidance for CTS line type `_. After the familiar TOTAL or *n* column, we find statistics such as Base Rate, forecast mean, Accuracy, plus many more, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. While all of these statistics *could* be obtained from the CTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
+The CTS line type is also present in the .stat file and is the second row. 
+It has many more columns than the CTC line, where all of the scalar statistics 
+and skill scores discussed previously are located. Focusing on the first few 
+columns of the example output, you would find:
 
-METplus Wrapper Example of Binary Categorical Forecast Verification
--------------------------------------------------------------------
+.. code-block:: ini
 
-To achieve the same outcome as the previous example but utilizing METplus wrappers instead of MET, very few changes would need to be made. Starting with the` standard GridStat configuration file `_, we would need to set the **_VAR1** settings appropriately:
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
+  >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA 
+  NA 0.7920635 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 
+  0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.01894965 NA NA 0.2882119 0.2594331 0.3170842 NA NA 
+  0.3186132 …
 
-.. code-block::
+These columns can be understood by reviewing the MET User’s Guide 
+`guidance for CTS line type <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id8>`_. 
+After the familiar TOTAL or *n* column, we find statistics such as 
+Base Rate, forecast mean, Accuracy, plus many more, all with their appropriate 
+lower and upper confidence intervals and the bootstrap confidence intervals. 
+Note that because the bootstrap library’s n_rep variable was kept at its default 
+value of 0, bootstrap methods were not used and appear as NA in the stat file. 
+While all of these statistics *could* be obtained from the CTC line type values 
+with additional post-processing, the simplicity of having all of them already 
+calculated and ready for additional group statistics or to advise forecast a
+djustments is one of the many advantages of using the METplus system.
 
-   BOTH_VAR1_NAME = TMP
-   BOTH_VAR1_LEVELS = Z0
-   BOTH_VAR1_THRESH = gt86.0
+**METplus Wrapper Example of Binary Categorical Forecast Verification**
 
-Note how the BOTH option is utilized here (as opposed to individual FCST_ and OBS_ settings) since the forecast and observation datasets utilize the same name and level information. Because the loop/timing information is controlled inside the configuration file for METplus wrappers (as opposed to MET’s non-looping option), that information must also be set accordingly:
+To achieve the same outcome as the previous example but utilizing METplus 
+wrappers instead of MET, very few changes would need to be made. Starting with the 
+standard GridStat configuration file `<https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
+we would need to set the _VAR1 settings appropriately:
 
-.. code-block::
+.. code-block:: ini
 
-   LOOP_BY = INIT
-   INIT_TIME_FMT = %Y%m%d%H
-   INIT_BEG=2023080700
-   INIT_END=2023080700
-   INIT_INCREMENT = 12H
-   LEAD_SEQ = 12
+  BOTH_VAR1_NAME = TMP
+  BOTH_VAR1_LEVELS = Z0
+  BOTH_VAR1_THRESH = gt86.0
 
-Finally, the desired line types need to be selected for output. In the wrappers, that looks like this:
+Note how the BOTH option is utilized here (as opposed to individual FCST\_ and OBS\_ settings) 
+since the forecast 
+and observation datasets utilize the same name and level information. 
+Because the loop/timing information is controlled inside the configuration 
+file for METplus wrappers (as opposed to MET’s non-looping option), that 
+information must also be set accordingly:
 
-.. code-block::
+.. code-block:: ini
 
-   GRID_STAT_OUTPUT_FLAG_CTC = STAT
-   GRID_STAT_OUTPUT_FLAG_CTS = STAT
+  LOOP_BY = INIT
+  INIT_TIME_FMT = %Y%m%d%H
+  INIT_BEG=2023080700
+  INIT_END=2023080700
+  INIT_INCREMENT = 12H
+  LEAD_SEQ = 12
 
-After a successful run of METplus, the same .stat output file that was created in the MET example would be produced here, complete with CTC and CTS line type rows.
+Finally, the desired line types need to be selected for output. 
+In the wrappers, that looks like this:
 
+.. code-block:: ini
 
-Multicategorical Forecasts
-==========================
+  GRID_STAT_OUTPUT_FLAG_CTC = STAT
+  GRID_STAT_OUTPUT_FLAG_CTS = STAT
 
-Multicategorical Forecasts
+After a successful run of METplus, the same .stat output file that 
+was created in the MET example would be produced here, complete with 
+CTC and CTS line type rows.
 
 Multicategorical Forecasts
 --------------------------
 
-In practical applications of forecast verification, it’s often of interest to look at more than two categories and cannot be reduced to a binary, “did the event happen or not, and was the event forecasted or not”. Restricting forecast and observation datasets to binary options leads to the loss of important information about how the forecast performed (e.g., when multiple categories are combined into just two categories). For example, if the forecast called for rain but snow was observed instead, it can be useful to analyze how “good” the forecast was at delineating between rain, snow, and any other precipitation type. Luckily, the transformation of statistics from supporting binary categorical forecasts to the second group of forecasts, multi-category, is fairly straightforward.
-
+In practical applications of forecast verification, it’s often of interest 
+to look at more than two categories and cannot be reduced to a binary, 
+“did the event happen or not, and was the event forecasted or not”. 
+Restricting forecast and observation datasets to binary options leads 
+to the loss of important information about how the forecast performed 
+(e.g., when multiple categories are combined into just two categories). 
+For example, if the forecast called for rain but snow was observed instead, 
+it can be useful to analyze how “good” the forecast was at delineating 
+between rain, snow, and any other precipitation type. Luckily, the 
+transformation of statistics from supporting binary categorical forecasts 
+to the second group of forecasts, multi-category, is fairly straightforward.
 
 Verification Statistics for Multicategorical Forecasts
-======================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In order to make sense of how the statistics are modified when evaluating 
+multiple categories, it will help to look at how the contingency table changes. 
+The generalized contingency table for a three category table will look like 
+the following:
 
-Verification Statistics for Multicategorical Forecasts
+.. list-table:: Generalized Contingency Table
+  :widths: auto
 
-Verification Statistics for Multicategorical Forecasts
-------------------------------------------------------
+  * -  
+    - Observation Category 1
+    - Observation Category 2
+    - Observation Category 3
+  * - Forecast Category 1
+    - 
+    - 
+    - 
+  * - Forecast Category 2
+    - 
+    - 
+    - 
+  * - Forecast Category 3
+    - 
+    - 
+    - 
 
-In order to make sense of how the statistics are modified when evaluating multiple categories, it will help to look at how the contingency table changes. The generalized contingency table for a three category table will look like the following:
+A similar table could be constructed for comparisons of four, 
+five, six, and so on, categories. Some statistical calculations are 
+more easily computed when forecasts and observations are restricted to 
+two options (as was the case in binary categorical forecasts), so one 
+less common approach for a multi-category contingency table is to 
+process the full table  into multiple instances of 2x2 grids,  
+focusing on one forecast category at a time. This way, each forecasted 
+event or category can have scalar attributes calculated, as well as 
+skill scores that reflect the entire forecast’s quality across the 
+multiple categories. This is not a valid approach for calculating, 
+among others, Heidke Skill Score and Gilbert Skill Score, but is 
+considered here for a well-rounded approach to multicategorical verification.
 
-.. image:: ../figure/5.0_Tutorial_stats_multicat_table.png
-   :alt: 
-
-A similar table could be constructed for comparisons of four, five, six, and so on, categories. Some statistical calculations are more easily computed when forecasts and observations are restricted to two options (as was the case in binary categorical forecasts), so one less common approach for a multi-category contingency table is to process the full table  into multiple instances of 2x2 grids,  focusing on one forecast category at a time. This way, each forecasted event or category can have scalar attributes calculated, as well as skill scores that reflect the entire forecast’s quality across the multiple categories. This is not a valid approach for calculating, among others, Heidke Skill Score and Gilbert Skill Score, but is considered here for a well-rounded approach to multicategorical verification. 
-
-To demonstrate how scalar attributes are calculated for a multicategory forecast, imagine a scenario where the forecast can call for three separate precipitation types: rain, snow, and ice pellets. For this scenario, forecasts and observations of no precipitation are ignored (i.e., this evaluation is conditioned on some type of precipitation both occurring and being forecasted). 
+To demonstrate how scalar attributes are calculated for a multicategory 
+forecast, imagine a scenario where the forecast can call for three 
+separate precipitation types: rain, snow, and ice pellets. For this 
+scenario, forecasts and observations of no precipitation are ignored 
+(i.e., this evaluation is conditioned on some type of precipitation both occurring and being forecasted).
 
 The contingency table would look like the following:
 
-.. image:: ../figure/5.0_Tutorial_stats_multicat_table_ex1.png
-   :alt: 
+.. list-table:: Contingency Table
+  :widths: auto
+
+  * -  
+    - Observe Rain
+    - Observe Snow
+    - Observe Ice Pellets
+  * - Forecast Rain
+    -  
+    -  
+    -  
+  * - Forecast Snow
+    -  
+    -  
+    -  
+  * - Forecast Ice Pellets
+    -  
+    -  
+    -  
 
 To extract the scalar attributes for rain, the simplified, 2x2 contingency table would look like this:
 
-.. image:: ../figure/5.0_Tutorial_stats_multicat_table_dcnstct_ex1.png
-   :alt: 
+.. list-table:: 2xw Contingency Table
+   :widths: auto
 
-The same simplification can be done for snow and ice pellets. As this new 2x2 contingency table demonstrates, by reducing the multicategorical options to the binary choices of each forecasted event (e.g., did the forecast predict rain rather than snow or ice pellets, did the forecast predict snow rather than rain or ice pellets, did the forecast predict ice pellets rather than rain or snow) and evaluating the corresponding observations, scalar statistics such as POD, Bias, etc. can be calculated in the same method as the `binary categorical forecasts `_. 
+   * -
+     - Observe Rain
+     - Observe Snow or Ice Pellets
+   * - Forecast Rain
+     -
+     -
+   * - Forecast Snow or Ice Pellets
+     -
+     -
 
-One of the unique scalar statistics that does not need a contingency table simplification is Accuracy (Acc). This is due to its definition, which, when presented in its general format, becomes:
+The same simplification can be done for snow and ice pellets. As this 
+new 2x2 contingency table demonstrates, by reducing the multicategorical 
+options to the binary choices of each forecasted event (e.g., did the 
+forecast predict rain rather than snow or ice pellets, did the forecast 
+predict snow rather than rain or ice pellets, did the forecast predict 
+ice pellets rather than rain or snow) and evaluating the corresponding 
+observations, scalar statistics such as POD, Bias, etc. can be calculated 
+in the same method as the :ref:`binary categorical forecasts <bin-cat-fore>`. 
 
-.. image:: ../figure/5.0_Tutorial_stats_Acc_general_eq_0.png
-   :alt: 
+One of the unique scalar statistics that does not need a contingency table 
+simplification is Accuracy (Acc). This is due to its definition, which,
+when presented in its general format, becomes:
 
-Note that t(FiOi) is the number of forecasts in category i of the multicategory contingency table that had an observation of Oi and *n* is the total number of occurrences and non-occurrences. 
+.. math::
 
-With this general format of Accuracy, essentially we seek to answer the question “how capable was the forecast at selecting the exact category?” To demonstrate how this would look in a 3x3 contingency table, let’s return to the previous scenario of a three precipitation type forecast. A perfect Accuracy forecast would have nonzero values only in the “Forecast Rain, Observation Rain”, “Forecast Snow, Observation Snow”, and “Forecast Ice Pellets, Observation Ice Pellets”  cells, with the remaining cells being zero. The same top-left corner to lower-right corner of nonzero cells pattern would exist in the simplified 2x2 contingency table. Because no information about the forecast’s Accuracy is lost for the full count of forecast categories, Accuracy is the only scalar statistic that METplus will calculate from the full multicategory contingency table. `See how to use this statistic in METplus! `_ 
+   Acc = \frac{1}{n} \sum t(F_i O_i)
 
+Note that t(FiOi) is the number of forecasts in category i of the 
+multicategory contingency table that had an observation of Oi and *n* 
+is the total number of occurrences and non-occurrences.
+
+With this general format of Accuracy, essentially we seek to answer the 
+question “how capable was the forecast at selecting the exact category?” 
+To demonstrate how this would look in a 3x3 contingency table, let’s return 
+to the previous scenario of a three precipitation type forecast. A perfect 
+Accuracy forecast would have nonzero values only in the “Forecast Rain, Observation Rain”, 
+“Forecast Snow, Observation Snow”, and “Forecast Ice Pellets, Observation Ice Pellets”  
+cells, with the remaining cells being zero. The same top-left corner to 
+lower-right corner of nonzero cells pattern would exist in the simplified 2x2 
+contingency table. Because no information about the forecast’s Accuracy is 
+lost for the full count of forecast categories, Accuracy is the only scalar 
+statistic that METplus will calculate from the full multicategory contingency table. 
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 Multicategorical Skill Scores
-=============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Multicategorical Skill Scores
+While some statistics for multicategorical forecasts require simplifying the contingency 
+table to two-categories, and therefore only show the forecast’s quality in respect to 
+the individual category, certain skill scores are designed to evaluate forecasts with 
+multiple categories, allowing the skill score to reflect the quality of the entire 
+forecast spectrum.
 
-Multicategorical Skill Scores
------------------------------
+**HEIDKE SKILL SCORE (HSS)**
 
-While some statistics for multicategorical forecasts require simplifying the contingency table to two-categories, and therefore only show the forecast’s quality in respect to the individual category, certain skill scores are designed to evaluate forecasts with multiple categories, allowing the skill score to reflect the quality of the entire forecast spectrum.
+HSS has a general form to accommodate multicategory forecasts. While more computationally 
+intense than the 
+:ref:`two-category equation provided <binary-cat-skill-score>`, 
+the multi-category formulation is 
+also based on comparison of the percent correct in the forecast relative to the proportion 
+correct that would be achieved by a “random” forecast. The relative comparison is often 
+with sources other than a “random” forecast, including older versions of a model and 
+climatology. This general form is
 
-Heidke Skill Score (HSS)
-^^^^^^^^^^^^^^^^^^^^^^^^
+.. math::
 
-HSS has a general form to accommodate multicategory forecasts. While more computationally intense than the `two-category equation provided `_, the multi-category formulation is also based on comparison of the percent correct in the forecast relative to the proportion correct that would be achieved by a “random” forecast. The relative comparison is often with sources other than a “random” forecast, including older versions of a model and climatology. This general form is
+   HSS = \frac{\frac{1}{n}\sum t(F_i O_i) - \frac{1}{n^2}\sum t(F_i) t(O_i)}{1 - \frac{1}{n^2}\sum t(F_i) t(O_i)}
 
-.. image:: ../figure/5.0_Tutorial_stats_HSS_multicat_eq_0.png
-   :alt: 
+Note that t(FiOi) is the number of forecasts in category i of the multicategory contingency 
+table that had an observation of Oi, t(Fi) is the total number of forecasts in category i, 
+and *n* is the total number of occurrences and non-occurrences.
 
-Note that t(FiOi) is the number of forecasts in category i of the multicategory contingency table that had an observation of Oi, t(Fi) is the total number of forecasts in category i, and *n* is the total number of occurrences and non-occurrences. 
-
-Hanssen-Kuipers Discriminant (HK)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**HANSSEN-KUIPERS DISCRIMINANT (HK)**
 
 Similarly, HK is generalized to
 
-.. image:: ../figure/5.0_Tutorial_stats_HK_multicat_eq.png
-   :alt: 
+.. math::
 
-Gerrity Skill Score
-^^^^^^^^^^^^^^^^^^^
+   HK = \frac{\frac{1}{n}\sum t(F_i O_i) - \frac{1}{n^2}\sum t(F_i) t(O_i)}{1 - \frac{1}{n^2}\sum (t(O_i))^2}
 
-The Gerrity Skill Score is designed specifically for multicategory forecasts. While it is not as easily calculated as HSS and HK, it is useful for demonstrating the ability of the forecasts to delineate the correct event category when compared to random chance. The Gerrity Skill Score properly penalizes a forecast that has more than two options for an event, something not captured in the generalized forms of HSS or HK. This is achieved through the use of weights, sj,j, which correspond to correct forecasts, and sj,i, which represent weights for incorrect forecasts. These weights are given as
+**GERRITY SKILL SCORE**
 
-.. image:: ../figure/5.0_Tutorial_stats_Ger_weight1.png
-   :alt: 
+The Gerrity Skill Score is designed specifically for multicategory forecasts. While it 
+is not as easily calculated as HSS and HK, it is useful for demonstrating the ability of 
+the forecasts to delineate the correct event category when compared to random chance. 
+The Gerrity Skill Score properly penalizes a forecast that has more than two options 
+for an event, something not captured in the generalized forms of HSS or HK. This is 
+achieved through the use of weights, sj,j, which correspond to correct forecasts, and 
+sj,i, which represent weights for incorrect forecasts. These weights are given as
+
+.. math::
+
+   s_{j,j} = \frac{1}{J-1}\left[\sum \frac{1}{D(r)} + \sum D(r)\right]
 
 and
 
-.. image:: ../figure/5.0_Tutorial_stats_Ger_weight2.png
-   :alt: 
+.. math::
+
+   s_{i,j} = \frac{1}{J-1}\left[\sum \frac{1}{D(r)} + \sum D(r) - (j - i)\right]
 
 where D(r) is the likelihood ratio using dummy summation index r, calculated using
 
-.. image:: ../figure/5.0_Tutorial_stats_Ger_Likelihood_ratio.png
-   :alt: 
+.. math::
+
+   D(j) = \frac{1 - \sum p(o_r)}{\sum p(o_r)}
 
 where p(or) is the probability of a sample climatology.
 
-Finally, the Gerrity Skill Score is computed through summing the product of the scoring weights and their corresponding joint probability distribution. That distribution is found by taking each count of the contingency table cell and dividing it by the total number of occurrences and non-occurrences across all cells, *n*. `See how to use these statistics in METplus `_!
+Finally, the Gerrity Skill Score is computed through summing the product of the 
+scoring weights and their corresponding joint probability distribution. That distribution 
+is found by taking each count of the contingency table cell and dividing it by the 
+total number of occurrences and non-occurrences across all cells, *n*. 
+:ref:`See how to use these statistics in METplus! <metplus_sol_multicat_fore_verif>`
 
+.. _metplus_sol_multicat_fore_verif:
 
-METplus solutions for Multicategorical Forecast Verification
-============================================================
-
-METplus solutions for Multicategorical Forecast Verification
-
-METplus solutions for Multicategorical Forecast Verification
-------------------------------------------------------------
+METplus Solutions for Multicategorical Forecast Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One important note regarding how to define multicategorical thresholds within the MET and METplus wrapper configuration files should be discussed. METplus requires that when multiple thresholds are listed using the **cat_thresh** variable to calculate any multicategorical line types, the thresholds must be monotonically increasing and use the same inequality type. This is done in order to ensure that the thresholds create unique and discrete bins of values, rather than overlapping thresholds that do not provide any sound statistical value. In practice, this means that the following two examples would result in a METplus error:
 
@@ -480,8 +851,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule
 
-MET solutions
-^^^^^^^^^^^^^
+**MET SOLUTIONS**
 
 The MET User’s Guide provides an` Appendix that dives into statistical measures that it calculates `_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the `Binary Categorical forecasts section `_, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the `Verification Statistics section for Multicategorical Forecasts `_. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
@@ -490,16 +860,12 @@ The MET User’s Guide provides an` Appendix that dives into statistical measure
 * HSS
 * Gerrity
 
-METplus Wrapper Solutions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+**METPLUS WRAPPER SOLUTIONS**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the` Statistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the` list of available commands for that tool `_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
-
-METplus Examples of Multicategorical Forecast Verification
-==========================================================
-
-METplus Examples of Multicategorical Forecast Verification
+METplus Examples for Multicategorical Forecast Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following two examples show a generalized method for calculating multicategorical statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce multicategorical statistics.
 
@@ -511,8 +877,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-MET Example of Multicategorical Forecast Verification
------------------------------------------------------
+**MET Example of Multicategorical Forecast Verification**
 
 Here is an example that demonstrates multicategorical forecast verification in MET.
 
@@ -576,8 +941,7 @@ The MCTS line type is also present in the .stat file as the second row. In this 
 
 Compared to the statistics available in the CTC line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the  contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type `_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Accuracy has an additional two columns that give the normal confidence limits in addition to the bootstrap confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
 
-METplus Wrapper Example of Multicategorical Forecast Verification
------------------------------------------------------------------
+**METplus Wrapper Example of Multicategorical Forecast Verification**
 
 To achieve the same success as the previous example but utilizing METplus wrappers instead of MET, very few adjustments would need to be made. Starting with the standard PointStat configuration file, we would need to set the **_VAR1** settings appropriately:
 
@@ -607,30 +971,17 @@ Finally, the desired line types need to be selected for output. In the wrappers,
 
 With a proper setting of the input and output directories, file templates, and a successful run of METplus, the same .stat output file that was created in the MET example would be produced here, complete with MCTC and MCTS line type rows.
 
-
-Continuous Forecasts
-====================
-
-Continuous Forecasts
-
 Continuous Forecasts
 --------------------
 
 When considering a forecast, one of the essential aspects is the actual value predicted by the forecast. For example, a forecast for 2 meter maximum air temperature of 75 degrees Fahrenheit is explicitly calling for one value to occur as the highest recorded temperature value for the entire day for that single point in space. If the maximum observed 2 meter air temperature was 77 degrees Fahrenheit for that point instead, then the forecast was incorrect: some might consider this the end of the story, another “blown” forecast. However, if the entire spectrum of 2-meter air temperature forecasts that *could have* been forecasted is considered, however, we can ask the question “how good or bad was that forecast, really”? After all, wasn’t the forecast only 2 degrees Fahrenheit off from what was observed? Continuous forecast verification is a category of verification that considers the entire real value spectrum that a forecast variable can take on, rather than individual discrete points or categories as is the case with dichotomous and multicategorical verification.
 
-
 Verification Statistics for Continuous Forecasts
-================================================
-
-Verification Statistics for Continuous Forecasts
-
-Verification Statistics for Continuous Forecasts
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The nature of continuous forecast verification is a direct comparison of the forecast and observed values and measurement of the relationship of those two values over the real number range. We can easily infer that the scalar statistics and skill scores used for these kinds of forecasts will be different from those used for binary and multi-categorical forecasts. In fact many of the statistics that are used as “introductory statistics” are derived for continuous verification along the real number range, as continuous verification is a natural way we look at forecasts (i.e., how close or far the forecast and observed values are from each other).
 
-Mean Errors
-^^^^^^^^^^^
+**MEAN ERRORS**
 
 The simplest continuous measure is the mean error (ME), which is the average difference between two groups of data. So when you see “error” it is simply a measure of a difference. ME is calculated as
 
@@ -667,8 +1018,7 @@ The final error statistic to discuss is Root Mean Squared Error (RMSE). One of t
 
 Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. `See how to use these statistics in METplus! `_
 
-Standard Deviations
-^^^^^^^^^^^^^^^^^^^
+**STANDARD DEVIATIONS**
 
 Unlike the family of mean error statistics, standard deviation focuses more on the individual groups of value sources; namely, the forecasts and observations. Standard deviations are a measure of how the variability of the values in a dataset differs from the average of their respective group. So keep in mind the general equation provided below can be applied to both observations and forecasts (and in some cases it may be meaningful to compare the standard deviation of the forecasts to the standard deviation of the observations):
 
@@ -677,8 +1027,7 @@ Unlike the family of mean error statistics, standard deviation focuses more on t
 
 `See how to use this statistic in METplus! `_
 
-Multiplicative Bias
-^^^^^^^^^^^^^^^^^^^
+**MULTIPLICATIVE BIAS**
 
 Like some of the other verification statistics for continuous forecasts, multiplicative bias (MBIAS) measures the ratio of the average forecast to the average observation. MBIAS is the ratio between these two averages, calculated using the following formula and has a range of all real numbers:
 
@@ -687,8 +1036,7 @@ Like some of the other verification statistics for continuous forecasts, multipl
 
 MBIAS has some of the same drawbacks as ME. In particular, MBIAS does not indicate the magnitudes of the forecast errors, which allows a perfect score of 1 to be achieved if the forecast errors compensate for each other (see the example for ME above for more information). It is recommended that any variable fields that utilize MBIAS contain all the same value signs (e.g. positive or negative) as mixing value signs together (for example, temperatures) would result in strange or unusable MBIAS results that included even more value compensation. `See how to use this statistic in METplus! `_
 
-Correlation Coefficients (Pearson, Spearman Rank, and Kendall’s Tau)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CORRELATION COEFFICIENTS (PEARSON, SPEARMAN RANK, AND KENDALL'S TAU)**
 
 Because continuous forecasts and observations exist on the same real value spectrum, measurements of the linear association of the forecast-observation pairs create a vital foundation for verification statistics. Three measures of correlation (Pearson, Spearman Rank, and Kendall's Tau) measure this relationship in different ways.
 
@@ -742,8 +1090,7 @@ Where ti is the number of ranks that are involved in a given tie.  Because both
 
 Using this slightly modified equation, we find a 𝝉b value of 0.56. As 𝝉 has the same range as SP_CORR (-1 to 1), a value of 0.56 shows some positive correlation between the two datasets. `See how to use these statistics in METplus! `_
 
-Anomaly Correlation
-^^^^^^^^^^^^^^^^^^^
+**ANOMALY CORRELATION**
 
 While similar to the traditional correlation coefficient, anomaly correlation is a somewhat different formulation: rather than directly comparing the pairs of forecast and observation values relative to the respective group averages, as is the case in PR_CORR, anomaly correlation is a measure of the deviations of forecast and observation values from climatological averages. Utilizing this third independent dataset for comparisons highlights any pattern of departures from the climatology, a correspondence of the forecast anomalies to the observed anomalies.
 
@@ -759,14 +1106,8 @@ If it is not desirable to include the errors, the uncentered anomaly correlation
 
 While there is an added effort required to find the matching climatology reference dataset for this statistic, it remains a highly resourceful statistic to use, especially with spatial verification, and is commonly used in operational forecasting centers. Anomaly correlation has a range from -1 to 1. `See how to use this statistic in METplus! `_
 
-
 METplus Solutions for Continuous Forecast Verification
-======================================================
-
-METplus Solutions for Continuous Forecast Verification
-
-METplus Solutions for Continuous Forecast Verification
-------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that you know a bit more about continuous, deterministic forecasts and the related statistics, it’s time to show how you can access those same statistics in METplus!
 
@@ -778,8 +1119,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule
 
-MET Solutions
-^^^^^^^^^^^^^
+**MET SOLUTIONS**
 
 The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates `_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type `_, which logically groups together statistics based on continuous variable fields.
 
@@ -798,16 +1138,12 @@ As for the previous statistics that were discussed, here’s a link to the User�
 * 𝝉 or KT_CORR
 * ANOM_CORR
 
-METplus Wrapper Solutions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+**METPLUS WRAPPER SOLUTIONS**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the S`tatistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool `_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
-
-METplus Examples of Continuous Forecast Verification
-====================================================
-
-METplus Examples of Continuous Forecast Verification
+METplus Examples for Continuous Forecast Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following two examples show a generalized method for calculating continuous statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce continuous statistics.
 
@@ -819,8 +1155,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-MET Example of Continuous Forecast Verification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**MET EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
 
 Here is an example that demonstrates deterministic forecast verification in MET.
 
@@ -932,8 +1267,7 @@ The resulting two files have a wealth of information and statistics. The netCDF 
 
 The columns that are available in the CNT line type are listed in the MET User’s Guide guidance for CNT line type {provide link here}. After the declaration of the line type (CNT), the familiar TOTAL or matched pairs column, we find a wealth of statistics including the forecast and observation means, the forecast and observation standard deviations, ME, MSE, along with all of the other statistics discussed in this section, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. You’ll also note that the ranking statistics (SP_CORR and KT_CORR) are listed as NA because we did not set rank_corr_flag to TRUE in the Grid-Stat configuration file. This was done intentionally; in order to calculate ranking statistics MET needs to assign each and every matched pair a rank and then perform the calculations. With a large dataset with numerous matched pairs this can significantly increase runtime and be computationally intensive. Given our example had over 1.5 million matched pairs, these statistics are best left to a smaller domain. Let’s create that smaller domain in a METplus wrappers example!
 
-METplus Wrapper Example of Continuous Forecast Verification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**METPLUS WRAPPER EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
 
 To achieve the same success as the previous example but utilizing METplus wrappers instead of MET, very few adjustments would need to be made. Because METplus wrappers have the helpful feature of chaining multiple tools together, we’ll start off by listing all of the tools we want to use. Recall that for this example, we want to include a smaller verification area to enable the rank correlation statistics as well. This results in the following process list:
 
@@ -1031,21 +1365,14 @@ Probabilistic Forecasts
 
 When reviewing the other forecast types in this tutorial, you’ll notice that all of them are deterministic (i.e., non-probabilistc) values. They have a quantitative value that can be verified with observations. Probabilistic forecasts on the other hand, do not provide a specific value relating directly to the variable (precipitation, wind speed, etc.). Instead, probabilistic forecasts provide, you guessed it, a probability of a certain event occurring. The most common probabilistic forecasts are for precipitation. Given the spatial and temporal irregularities any precipitation type could display during accumulation, probabilities are a better option for numerical models to provide for the general public. It allows the general public to decide for themselves if a 60% forecasted chance of rain is enough to warrant bringing an umbrella to the outdoor event, or if a 40% forecasted chance of snow is too much to consider going for a long hike. Consider the alternative where deterministic forecasts were used for precipitation: would it be more beneficial to hear a forecast of no precipitation for any probability less than 20% and precipitation forecasted for anything greater than 20% (i.e. a categorical forecast)?  Or maybe a scenario where the largest amount of precipitation is presented as the precipitation a given area will experience with no other information (i.e. a continuous forecast)? While they have other issues which will be explored in this section, probabilistic forecasts play an important part in weather verification statistics. Moreover, they require special measures for verification.
 
-
-Verification Statistics for Probabilistic Forecasts
-===================================================
-
-Verification Statistics for Probabilistic Forecasts
-
-Verification Statistics for Probabilistic Forecasts
----------------------------------------------------
+Probabilistic Forecasts
+-----------------------
 
 The forecast types we’ve examined so far focused on dichotomous predictions of binary events (e.g.,. the tornado did or did not happen and the forecast did or did not predict the event); application of one or more thresholds; or specification of the value itself for the forecasted event (e.g.,. the observed temperature compared to a forecast of 85 degrees Fahrenheit). These forecast types determined how the verification statistics were calculated. But how are probabilistic datasets handled? When there is an uncertainty value attached to a meteorological event, what statistical measures can be used?
 
 A common method to avoid dealing directly with probabilities is to convert forecasts from probabilistic space into deterministic space using a threshold. Consider an example rainfall forecast where the original forecast field is issued in tens values of probability (0%, 10%, 20% ... 80%, 90%, 100%). This could be converted to a deterministic forecast by establishing a threshold such as “the probability of rainfall will exceed 60%”. This threshold sets up a binary forecast (probabilities at or below 60% are “no” and probabilities above 60% are “yes”) and two separate observation categories (rain was observed or rain did not occur) that all of the occurrences and non-occurrences can be placed in. While the ability to access `categorical statistics and scores `_ is an obvious benefit to this approach, there are clear drawbacks to this method. The loss of probability information tied to the particular forecast value removes an immensely useful aspect of the forecast. As discussed previously, the general public may desire probability space information to make their own decisions: after all, what if someone’s tolerance for rainfall is lower than the 60% threshold used to calculate the statistics (e.g., the probability of rainfall will exceed 30%)?
 
-Brier Score
-^^^^^^^^^^^
+**BRIER SCORE**
 
 One popular score for probability forecasts is the Brier Score (BS). Effectively a Mean Squared Error calculation, it is a scalar value of forecast accuracy that conveys the magnitude of the probability errors in the forecast.
 
@@ -1060,8 +1387,7 @@ Through substitutions, BS can be decomposed into three terms that describe the r
 
 where the three terms are reliability, resolution, and uncertainty, respectively. ni is the count of probabilistic forecasts that fall into each probabilistic bin. See how to use this statistic in METplus!
 
-Ranked Probability Score
-^^^^^^^^^^^^^^^^^^^^^^^^
+**RANKED PROBABILITY SCORE**
 
 A second statistical score to use for probabilistic forecasts is the Ranked Probability Score (RPS). This score differs from BS in that it allows the verification of multicategorical probabilistic forecasts where BS strictly pertains to binary probabilistic forecasts. While the RPS formula  is based on a squared error at its core (similar to BS), it remains sensitive to the distance between the forecast probability and the observed event space (1 if the event occurred, 0 if it did not) by calculating the squared errors in cumulative probabilistic forecast and observation space. This formulation is represented in the following equation
 
@@ -1070,8 +1396,7 @@ A second statistical score to use for probabilistic forecasts is the Ranked Prob
 
 Note how RPS reduces to BS when there are only two forecast categories evaluated. In the equation, M denotes the number of categories the forecast is divided into. Because of the squared error usage, RPS is negative orientated with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. See how to use this statistic in METplus!
 
-Continuous Ranked Probability Score
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CONTINUOS RANKED PROBABILITY SCORE**
 
 Similar to the RPS’s approach to provide a probabilistic evaluation of multicategorical forecasts and the BS formulation as a statistic for binary probabilistic forecasts, the Continuous Ranked Probability Score (CRPS) provides a statistical measure for forecasts in the continuous probabilistic space. Theoretically this is equivalent to evaluating multicategorical forecasts that extend across an infinite number of categories that are infinitesimally small. When it comes to application, however, it becomes difficult to express mathematically a closed form of CRPS. Due to this restriction, CRPS often utilizes an assumption of a Gaussian (i.e. normal) distribution in the dataset and is presented as
 
@@ -1082,19 +1407,12 @@ In this equation we use μ and σ to denote the mean and standard deviation of t
 
 The CRPS is negatively oriented with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. See how to use this statistic in METplus!
 
-
 Probabilistic Skill Scores
-==========================
-
-Probabilistic Skill Scores
-
-Probabilistic Skill Scores
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Some of the previously mentioned verification statistics for probabilistic forecasts can be used to compute skill scores that are regularly used. All of these skill scores use the same general equation format of comparing their respective score results to a base or reference forecast, which can be climatology, a “random” forecast, or any other comparison that could provide useful information.
 
-Brier Skill Score
-^^^^^^^^^^^^^^^^^
+**BRIER SCORE**
 
 The Brier Skill Score (BSS) measures the relative skill of the forecast compared to a reference forecast. It’s equation is simple and follows the general skill score format:
 
@@ -1103,8 +1421,7 @@ The Brier Skill Score (BSS) measures the relative skill of the forecast compared
 
 Compared to the BS equation, the range of values for BSS differs: the range is from negative infinity to 1, with 1 showing a perfect skill and 0 showing no discernable skill compared to a reference forecast. See how to use this skill score in METplus!
 
-Ranked Probability Skill Score
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**RANKED PROBABILITY SKILL SCORE**
 
 Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the general skill score equation formulation, allowing a comparison between a chosen reference forecast and the forecast of interest:
 
@@ -1113,14 +1430,8 @@ Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the genera
 
 RPSS measures the improvement/degradation of the ranked probability forecasts compared to the skill of a reference forecast. As with BSS, RPSS ranges from negative infinity to 1, with a perfect score of 1, and a score of zero indicating no improvement of forecast performance relative to the reference forecast. See how to use this skill score in METplus!
 
-
 METplus Solutions for Probabilistic Forecast Verification
-=========================================================
-
-METplus Solutions for Probabilistic Forecast Verification
-
-METplus Solutions for Probabilistic Forecast Verification
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you utilize METplus verification capabilities to evaluate probabilistic forecasts, you may find that your final statistical values are not exactly the same as when you compute the same statistic by pencil and paper or in a separate statistical program. These very slight differences are due to how METplus handles probabilistic information. 
 
@@ -1144,8 +1455,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-MET solutions
-^^^^^^^^^^^^^
+**MET SOLUTIONS**
 
 The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates, as well as the line type it is a part of `_. Statistics are grouped together by application and type and are available to METplus users in line types. For the probabilistic-related statistics discussed in this section of the tutorial, MET provides the `Contingency Table Counts for Probabilistic forecasts (PCT) line type `_, and the `Contingency Table Statistics for Probabilistic forecasts (PSTD) line types `_. The PCT line type is critical for checking if the thresholds for the probabilistic forecasts and observations produced contingency table counts that reflect what the user is looking for in probabilistic verification. Remember that these counts are ultimately what determine the statistical values found in the PSTD line type.
 
@@ -1157,19 +1467,12 @@ As for the statistics that were discussed in the Verification Statistics section
 * BSS
 * CRPSS
 
-METplus Wrapper Solutions
-^^^^^^^^^^^^^^^^^^^^^^^^^
+**METPLUS WRAPPER SOLUTIONS**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool `_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
-
-METplus Examples of Probabilistic Forecast Verification
-=======================================================
-
-METplus Examples of Probabilistic Forecast Verification
-
-METplus Examples of Probabilistic Forecast Verification
--------------------------------------------------------
+METplus Examples for Probabilistic Forecast Verification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following two examples show a generalized method for calculating probabilistic statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce probabilistic statistics.
 
@@ -1181,8 +1484,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-MET Example of Probabilistic Forecast Verification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**MET EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
 
 Here is an example that demonstrates probabilistic forecast verification using MET.
 
@@ -1318,8 +1620,7 @@ With a successful run of MET, we should find a .stat file with two rows of data;
 
 Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). There is some room for improvement, as reflected in a 0.231 Resolution value (remember that this is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable). For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT `_ and `PSTD `_ line types.
 
-METplus Wrapper Example of Probabilistic Forecast Verification
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**METPLUS WRAPPER EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
 
 To achieve the same success as the previous example, but utilizing METplus wrappers instead of MET, very few adjustments would need to be made. In fact, approaching this example utilizing the wrappers simplifies the problem, as one configuration file can be used to generate the desired output from both tools. 
 
