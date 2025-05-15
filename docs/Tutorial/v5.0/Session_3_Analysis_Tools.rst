@@ -8,9 +8,9 @@ Session 3: Analysis Tools
 MET Tool: Stat-Analysis
 -----------------------
 
-**Stat-Analysis Functionality**
+**STAT-ANALYSIS FUNCTIONALITY**
 
-**Stat-Analysis Usage**
+**STAT-ANALYSIS USAGE**
 
 Configure
 ^^^^^^^^^
@@ -30,9 +30,9 @@ METplus Use Case: StatAnalysis
 MET Tool: Series-Analysis
 -------------------------
 
-**Series-Analysis Functionality**
+**SERIES-ANALYSIS FUNCTIONALITY**
 
-**Series-Analysis Usage**
+**SERIES-ANALYSIS USAGE**
 
 Configure
 ^^^^^^^^^
