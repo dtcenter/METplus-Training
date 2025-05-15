@@ -5,8 +5,8 @@ Session 7: Feature Relative Use Cases
 
 **Prerequisites: Verify Environment is Set Correctly**
 
-METplus Use Case: Feature Relative 1
-------------------------------------
+METplus Use Case: Feature Relative Init
+---------------------------------------
 
 **SERIES-ANALYSIS BY INITIALIZATION TIME**
 
@@ -22,8 +22,8 @@ METplus Use Case: Feature Relative 1
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-METplus Use Case: Feature Relative 2
-------------------------------------
+METplus Use Case: Feature Relative Lead
+---------------------------------------
 
 **SERIES-ANALYSIS BY LEAD TIME BY FORECAST HOUR GROUPING**
 
