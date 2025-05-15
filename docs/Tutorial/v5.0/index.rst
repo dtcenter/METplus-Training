@@ -23,3 +23,6 @@ Please follow the link to the appropriate session:
    Session_3_Analysis_Tools
    Session_4_Ensemble_and_PQPF
    Session_5_MODE_and_MTD
+   Session_6_Track_and_Intensity
+   Session_7_Feature_Relative_Use_Cases
+   Session_8_METplus_Analysis_Tools
