@@ -1,10 +1,7 @@
-Preliminary work: METplus setup
+.. _prelim_setup:
+
+Preliminary Work: METplus Setup
 ===============================
-
-Preliminary work: METplus setup
-
-Welcome to the online METplus tutorial!
----------------------------------------
 
 In this preliminary session, you'll be guided through the necessary steps that need to happen before executing the tutorial's METplus commands. Additionally, we'll go over some of the common METplus wrapper configuration settings, timing control, and the directory structure of the METplus wrappers.
 
@@ -12,24 +9,14 @@ If you have already started working on the tutorial and are rejoining with the s
 
 If you are just starting out, or you are returning with a new terminal session, you will need to revisit this session to get your environment correctly set. So select the next page of "METplus setup" to get started!
 
- 
-
- 
-
-
 METplus Setup
-=============
-
-METplus Setup
-
-METplus Overview
-----------------
+------------- 
 
 METplus is a set of Python modules that have been developed with the flexibility to run the MET applications for various use cases or scenarios. The goal is to simplify the running of MET for scientists. Currently, the primary means of achieving this is through the use of METplus configuration files, aka "conf files." It is designed to provide a framework in which additional use cases can be added. The conf file implementation utilizes a Python package called produtil that was developed by NOAA/NCEP/EMC for the HWRF system.
 
 *Please be sure to follow the instructions in order.*
 
-METplus Useful Links
+METplus Useful Links  ??? Julie, keep header, change???
 --------------------
 
 The following links are just for reference, and not required for this practical session. METplus releases are available on GitHub along with sample data and instructions.
@@ -52,20 +39,17 @@ The source code for the METplus components are publicly available in the followi
 
    New features are developed and bugs are tracked using GitHub issues in each repository.
 
+METplus: Initial Setup
+^^^^^^^^^^^^^^^^^^^^^^
 
-METplus: Initial setup
-======================
-
-METplus: Initial setup
-
-Prerequisites: Software
+Prerequisites: Software   ??? Julie, keep header, change???
 -----------------------
 
 The `Requirements section in the Software Installation chapter `_ of the METplus User's Guide lists the software and Python packages that are required to run the METplus wrappers. Note that there is a core set of requirements needed to run the METplus wrappers and additional requirements needed to utilize some of the more advanced features.
 
  
 
-Prerequisites: Environment
+Prerequisites: Environment   ??? Julie, keep header, change???
 --------------------------
 
 .. important::
@@ -82,8 +66,8 @@ The following instructions are required so the commands in this tutorial can be 
 
    If you are running the tutorial instructions on your own computer, select the bash or csh instructions depending on which shell you prefer. We recommend using bash if you do not have a preference.
 
-Pre-Configured Environments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setting up the Tutorial Environment on Jet (NOAA)
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 `Setting up the Tutorial Environment on Hera (NOAA) `_
 
@@ -93,23 +77,21 @@ Pre-Configured Environments
 
 `Setting up the Tutorial Environment on Seneca (NCAR) `_
 
-User Configured Environments
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setting up the Tutorial Environment on Seneca (NCAR)
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Setting up the Tutorial Environment on Hera (NOAA)
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Setting up the Tutorial Environment (bash)
+""""""""""""""""""""""""""""""""""""""""""
 
 `Setting up the Tutorial Environment (bash) `_
 
 `Setting up the Tutorial Environment (csh) `_
 
- 
-
-
 Setting up the Tutorial Environment on Cheyenne (NCAR)
-======================================================
-
-Setting up the Tutorial Environment on Cheyenne (NCAR)
-
-Setting up the Tutorial Environment on Cheyenne (NCAR)
-------------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Cheyenne (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
