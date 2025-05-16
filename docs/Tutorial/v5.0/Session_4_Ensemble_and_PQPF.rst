@@ -1,22 +1,13 @@
-
 Session 4: Ensemble and PQPF
 ============================
 
-
-Session 4: Ensemble and PQPF
-
-
-
-METplus Practical Session 4
----------------------------
-
+**METplus Practical Session 4**
 
 During this practical session, you will run the tools indicated below:
 
 Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
 
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 .. note::
@@ -122,31 +113,17 @@ If you discover any typos, error in the run commands, incorrect output listed, o
 
 
 MET Tool: Gen-Ens-Prod
-======================
-
-
-MET Tool: Gen-Ens-Prod
-
-
+----------------------
 
 .. important::
 
 **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
 
-
-
-Gen-Ens-Prod Tool: General
---------------------------
-
-
-Gen-Ens-Prod Functionality
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**GEN-ENS-PROD FUNCTIONALITY**
 
 The Gen-Ens-Prod tool may be used to generate simple ensemble products from the provided ensemble forecast members. If climatological mean and standard deviation data is provided, it can be used to set thresholds for the ensemble product generation at each grid point. This tool does not provide methods to generate statistical output from the ensemble members, nor does it allow comparisons. If this is the desired outcome, Gen-Ens-Prod output can be passed to additional MET tools for further verification steps.
-Gen-Ens-Prod Usage
-^^^^^^^^^^^^^^^^^^
 
+**GEN-ENS-PROD USAGE**
 
 View the usage statement for Gen-Ens-Prod by simply typing the following:
 .. code-block::
@@ -201,12 +178,7 @@ Gen-Ens-Prod has additional optional settings. These include the -ctrl file, all
 
 
 Configure
-=========
-
-
-Configure
-
-
+^^^^^^^^^
 
 .. note::
 
@@ -347,22 +319,8 @@ These products will be output to the netCDF designated at runtime with the -out 
 
 Save and close this file.
 
-
-
-
-
-
-
-
-
 Run
-===
-
-
-Run
-
-
-
+^^^
 .. note::
 
 Let's run Gen-Ens-Prod on the command line using the following command:
@@ -387,15 +345,8 @@ When Gen-Ens-Prod has completed running, there will be 1 netCDF output file, Gen
 
 (content)
 
-
-
 Output
-======
-
-
-Output
-
-
+^^^^^^
 
 As mentioned previously, Gen-Ens-Prod only produces 1 netCDF output file. This file contains all of the requested products that were made in the configuration file.
 .. note::
@@ -426,18 +377,8 @@ ncview GenEnsProd_APCP24.nc
 Click through the variable names in the ncview window to see plots of the content we saw in the ncdump command.
 Now that we've seen a successful run of the Gen-Ens-Prod tool, let's change the run command slightly to show how the -ctrl setting works.
 
-
-
-
-
-
 Rerun
-=====
-
-
-Rerun
-
-
+^^^^^
 
 Now that we've seen the output for Gen-Ens-Prod without any control ensemble members, let's change the run slightly by selecting one of the previous ensemble members as the control. Because the required changes will be performed in the run command, no edits will be made to the configuration file.
 .. note::
@@ -514,32 +455,15 @@ display STDDEV_diff.ps
 
 If the differences weren't apparent before, this plot makes it very clear how using a control ensemble member can drastically change a product. As long as it's desired, the -ctrl option is a quick way to run Gen-Ens-Prod without control members for some products, while including it in others.
 
-
-
-
-
-
-
 MET Tool: Ensemble-Stat
-=======================
+-----------------------
 
-
-MET Tool: Ensemble-Stat
-
-
-
-Ensemble-Stat Tool: General
----------------------------
-
-
-Ensemble-Stat Functionality
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**ENSEMBLE-STAT FUNCTIONALITY**
 
 The Ensemble-Stat tool may be used to verify the deterministic ensemble members against gridded and/or point observations. Statistics are then derived using those observations, such as rank histograms, probability integral transform histograms, spread/skill variance, relative position and continuous ranked probability score.
-Ensemble-Stat Usage
-^^^^^^^^^^^^^^^^^^^
 
+
+**ENSEMBLE-STAT USAGE**
 
 View the usage statement for Ensemble-Stat by simply typing the following:
 .. code-block::
@@ -551,17 +475,8 @@ ensemble_stat
 At a minimum, the input gridded ensemble files and the configuration config_file must be passed in on the command line. You can specify the list of ensemble files to be used either as a count of the number of ensemble members followed by the file name for each (n_ens ens_fil e_1 ... ens_file_n) or as an ASCII file containing the names of the ensemble files to be used (ens_file_list). Choose whichever way is most convenient for you. The optional -grid_obs and -point_obs command line options may be used to specify gridded and/or point observations to be used for computing rank histograms and other ensemble statistics.
 As with the other MET statistics tools, all ensemble data and gridded verifying observations must be interpolated to a common grid prior to processing. This may be done using the automated regrid feature in the Ensemble-Stat configuration file or by running copygb and/or wgrib2 first.
 
-
-
-
-
 Configure
-=========
-
-
-Configure
-
-
+^^^^^^^^^
 
 .. note::
 
@@ -704,21 +619,8 @@ To compute continuous ensemble statistics (ECNT), ranked histogram (RHIST), prob
 
 Save and close this file.
 
-
-
-
-
-
-
-
-
 Run
-===
-
-
-Run
-
-
+^^^
 
 .. note::
 
@@ -741,18 +643,8 @@ EnsembleStatConfig_tutorial \&lt;br/&gt;
 Ensemble-Stat is now performing the tasks we requested in the configuration file. Note that we've passed the input ensemble data directly on the command line by specifying the number of ensemble members (6) followed by their names using wildcards. We've also specified one gridded StageIV analysis field (-grid_obs) and one file containing point rain gauge observations (-point_obs) to be used in computing rank histograms. This tool should run pretty quickly.
 When Ensemble-Stat is finished, it will have created 8 output files in the current directory: 7 ASCII statistics files (.stat, _ecnt.txt, _rhist.txt, _phist.txt, _orank.txt, _ssvar.txt , and _relp.txt ), and a NetCDF matched pairs file (_orank.nc).
 
-
-
-
-
-
 Output
-======
-
-
-Output
-
-
+^^^^^^
 
 The output from Ensemble-Stat is one or more ASCII files containing statistics summarizing the verification performed, and a NetCDF file containing the gridded matched pairs.
 All of the line types are written to the file ending in .stat. The Ensemble-Stat tool currently writes 12 output line types: ECNT, RPS, RHIST, PHIST, RELP, SSVAR, PCT, PSTD, PJC, PRC, ECLV, and ORANK.
@@ -861,20 +753,8 @@ Try setting skip_const = TRUE; in the config file to discard points where all 
 Try setting obs_thresh = [ &gt;0.01 ]; in the config file to only consider points where the observation meets this threshold. How does this differ from the using skip_const?
 Use wgrib to inventory the input files and add additional entries to the ens.field list. Can you process 10-meter U and V wind?
 
-
-
-
-
-
-
-
 METplus Use Case: GenEnsProd and EnsembleStat
-=============================================
-
-
-METplus Use Case: GenEnsProd and EnsembleStat
-
-
+---------------------------------------------
 
 Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions. We will review a METplus use case that calls on both of these tools and see how they interact with and compliment each other.
 .. important::
@@ -1090,18 +970,8 @@ ls -1 ${METPLUS_TUTORIAL_DIR}/output/Ensemble/metplus_final.conf.*
 
 The final configuration file is called metplus_final.conf.*, where the final string is a timestamp of the day and time the use case was run, similar to the log files. This contains all of the configuration variables used in the run. If you complete a run of METplus and are unsure how the system interpreted something from the configuration file, this is a great source of information.
 
-
-
-
-
-
-METplus Use Case: EnsembleStat with multiple variable and leads
-===============================================================
-
-
-METplus Use Case: EnsembleStat with multiple variable and leads
-
-
+METplus Use Case: EnsembleStat with Multiple Variables and Leads
+----------------------------------------------------------------
 
 This use case takes the PB2NC tool and combines it with the Ensemble-Stat tool, analyzing multiple forecast fields and producing ensemble relative frequencies.
 .. important::
@@ -1291,37 +1161,14 @@ less ${METPLUS_TUTORIAL_DIR}/output/Ensemble/model_applications/short_range/Ense
 
 In the VX_MASK column, the four mask files requested are listed, along with the various line types that were requested (listed in the LINE_TYPE column). What's important to note is the lack of variable variety that was present in the netCDF: in fact, the only variable listed is TMP at the Z2 level. That's because in the configuration file, only 1 variable was requested with the FCST_VAR&lt;n&gt; options, and only those variables will be used for verification.
 
-
-
-
-
-
-
-
-
 METplus Use Case: PQPF
-======================
-
-
-METplus Use Case: PQPF
-
-
-
-METplus Use Case: QPF Probabilistic
------------------------------------
-
+----------------------
 
 The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, and Grid-Stat tools.
 .. important::
 
 **Optional**: Refer to the **&lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/index.html" target="_blank"&gt;MET Users Guide&lt;/a&gt;** for a description of the MET tools used in this use case.&lt;br/&gt;
 **Optional**: Refer to the &lt;a href="https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html" target="_blank"&gt;**METplus Config Glossary**&lt;/a&gt; section of the METplus Users Guide for a reference to METplus variables used in this use case.
-
-
-
-Review Use Case Configuration File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 
 The configuration file is located in use_cases/model_applications/precipitation and is called GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf
 .. note::
@@ -1353,7 +1200,8 @@ OBS_PCP_COMBINE_INPUT_DIR = {INPUT_BASE}/model_applications/precipitation/StageI
 
 
 This references INPUT_BASE which is set in the METplus tutorial.conf file (${METPLUS_TUTORIAL_DIR}/tutorial.conf). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
-Run METplus
+
+Run METplus  ??? Julie, what should this be???
 ^^^^^^^^^^^
 
 
@@ -1379,7 +1227,7 @@ INFO: METplus has successfully finished running.
 
 
 
-Review the Output Files
+Review the Output Files ??? Julie, what should this be???
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -1419,7 +1267,7 @@ less ${METPLUS_TUTORIAL_DIR}/output/PQPF/model_applications/precipitation/GridSt
 
 
 
-Review the Log Files
+Review the Log Files ??? Julie, what should this be???
 ^^^^^^^^^^^^^^^^^^^^
 
 
@@ -1436,7 +1284,7 @@ ls ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs
 
 
 
-Review the Final Configuration File
+Review the Final Configuration File ??? Julie, what should this be???
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -1454,16 +1302,7 @@ ls ${METPLUS_TUTORIAL_DIR}/output/PQPF/metplus_final.conf.*
 
 
 End of Session 4 and Additional Exercises
-=========================================
-
-
-End of Session 4 and Additional Exercises
-
-
-
-End of Practical Session 4
---------------------------
-
+-----------------------------------------
 
 Congratulations! You have completed Session 4!
 If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
@@ -1687,7 +1526,7 @@ Go to the next page for the solution to see if you were right!
 
 
 
-Answers to Exercises from Session 4
+Answers to Exercises from Session 4  ??? Julie, what should this be???
 ===================================
 
 
