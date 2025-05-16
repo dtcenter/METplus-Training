@@ -1,10 +1,7 @@
 Session 8: METplus Analysis Tools
 =================================
 
-Session 8: METplus Analysis Tools
-
-METplus Practical Session 8
----------------------------
+**METplus Practical Session 8**
 
 This session will cover METplus analysis tools. Click on an item below to get started.
 
@@ -14,15 +11,9 @@ This session will cover METplus analysis tools. Click on an item below to get st
 
 
 METviewer
-=========
+---------
 
-METviewer
-
-METviewer: General
-------------------
-
-METviewer Overview
-^^^^^^^^^^^^^^^^^^
+**METVIEWER OVERVIEW**
 
 METviewer is a database and display system for storing and plotting data from the MET **.stat** and MODE **_obj.txt** files. It is used heavily within the DTC and by NOAA-GSD and NOAA-EMC. While its distribution is limited, it is available to the community through a Docker container. For more information, please see:
 
@@ -34,8 +25,7 @@ Here, we will use the publicly available version of METviewer running at NCAR to
 
 METviewer reads MET verification statistics from a database and creates plots using the R statistical package. The tool includes a web application that can be accessed from a web browser to create a single plot. The specification for each plot is built using a series of controls and then serialized into XML. For each plot, METviewer generates a SQL query, an R script to create the plot, a flat file containing the data that will be plotted and the plot itself.
 
-METviewer Web Application
-^^^^^^^^^^^^^^^^^^^^^^^^^
+**METVIEWER WEB APPPLICATION**
 
 The following example can be run using the METviewer instance located at the link below. It is recommended to move the new tab into a new browser window, so that you can view both the example instructions and the METviewer web application side-by-side.
 
@@ -50,12 +40,7 @@ The following pages have instructions for generating two different types of plot
 
 
 Time Series of Categorical Statistics Plot
-==========================================
-
-Time Series of Categorical Statistics Plot
-
-METviewer: Time Series of Categorical Statistics Plot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The following list shows the setting name and the setting value for each of the controls on the web application. Please go through them in order, starting at the top, setting and checking the controls as suggested. The settings that you need to change are marked in **blue**. The settings are grouped according to the areas on the web app. If you need more information about the controls, please click the little **i** in a circle to the right of **METviewer X.Y** at the very top of the page. This will take you to the METviewer documentation.
 
@@ -121,12 +106,7 @@ On the Common tab, select Display Number of Stats
 
 
 Time Series of Categorical Statistics Plot Output
-=================================================
-
-Time Series of Categorical Statistics Plot Output
-
-METviewer: Time Series of Categorical Statistics Plot Output
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you successfully followed the instructions on the previous page, you should see a plot appear in the in the **plot** tab of the METviewer window. Your plot should look like this `**PNG IMAGE** `_. And here is the corresponding plot **XML File**.
 
@@ -146,12 +126,7 @@ The following section discusses the output that METviewer generates for each plo
 
 
 Object Based Attribute Area Box Plot
-====================================
-
-Object Based Attribute Area Box Plot
-
-METviewer: Object Based Attribute Area Box Plot
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the next plot, you'll try out the XML upload feature. Each plot created by METviewer corresponds to an XML file that defines the plot. In this example, you'll load the XML from a previous plot and regenerate it.
 
@@ -171,7 +146,7 @@ The **XML Upload** feature of METviewer is very powerful and has saved users a
 Feel free to experiment with METviewer and make additional plots.
 
 
-End of Practical Session 5
+End of Practical Session 5  ??? Julie, what is this?  Why is session 5 listed in session 8 like this???
 ==========================
 
 End of Practical Session 5
@@ -183,18 +158,13 @@ Congratulations! You have completed Session 5!
 
 
 METplotpy
-=========
-
-METplotpy
-
+---------
 
 Histogram
-=========
+^^^^^^^^^
 
-Histogram
-
-Histogram Overview:
--------------------
+Overview
+""""""""
 
 The histogram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/histogram directory.  Custom configuration files and sample data are located under the METplotpy/test/histogram directory.  
 
@@ -212,8 +182,8 @@ These instructions are relevant for generating the rank histogram from the comma
 
 Each histogram plot requires two configuration files, a default and custom configuration file in YAML (https://yaml.org/).  One default configuration file is used for all three histogram plots: *histogram_defaults.yaml*.  This default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the histogram_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, an empty custom configuration file can be provided (however, the user will have the sample data and output plot located in the specified directories set in the default configuration file- some users may not have permission to do this) .   The custom configuration files and sample data are located in the METplotpy/test/histogram directory of the downloaded/cloned source code.
 
-Set up pre-requisites:
-----------------------
+Set Up Pre-Requisites
+"""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section `_
 
@@ -258,11 +228,10 @@ METcalcpy is a requirement for METplotpy.  The following description is one of 
 
    git clone https://github.com/dtcenter/METplotpy
 
-Create the Rank Histogram plot:
--------------------------------
+Create the Rank Historgram Plot
+"""""""""""""""""""""""""""""""
 
-Overview of steps:
-^^^^^^^^^^^^^^^^^^
+**OVERVIEW OF STEPS**
 
 * .. important::
 
@@ -433,7 +402,7 @@ In your WORKING_DIR, you will now see a rank_hist.png file.  You can view the p
  
 
 Create the Relative Frequency Histogram and Probability Histogram
------------------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
  
 
@@ -524,27 +493,12 @@ You will see the rel_hist.png and prob_hist.png files in your WORKING_DIR. Your 
 
 .. image:: ../figure/prob_hist.png
    :alt: 
-
  
-
- 
-
- 
-
- 
-
- 
-
-
 Wind Rose
-=========
+^^^^^^^^^
 
-Wind Rose
-
-Wind Rose Overview
-------------------
-
- 
+Overview
+""""""""
 
 The wind rose diagram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/wind_rose directory.  Custom configuration files and sample data are located under the METplotpy/test/wind_rose directory.  
 
@@ -556,10 +510,8 @@ These instructions are relevant for generating the wind rose diagram from the co
 
 The wind rose diagram requires **two** configuration files, a *default* and *custom* configuration file in YAML (https://yaml.org/).   The default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the wind_rose_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, an empty custom configuration file can be provided (however, the user will have the sample data and output plot located in the directories specified in the default configuration file.  Some users may not have permission to do this) .  The custom configuration files and sample data are located in the METplotpy/test/wind_rose directory of the downloaded/cloned source code.  The default configuration file, wind_rose_defaults.yml is located in the METplotpy/metplotpy/plots/config directory. 
 
- 
-
-Set up pre-requisites:
-----------------------
+Set Up Pre-Requisites
+"""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section `_
 
@@ -608,10 +560,10 @@ METcalcpy is a requirement for METplotpy.  The following description is one of 
 
    git clone https://github.com/dtcenter/METplotpy
 
-Create the Wind Rose diagram:
------------------------------
+Create the Wind Rose Diagram
+""""""""""""""""""""""""""""
 
-Overview of steps:
+Overview of steps: ??? Julie, what should this be? A header or no???
 ^^^^^^^^^^^^^^^^^^
 
 * .. important::
@@ -778,12 +730,10 @@ Save and close the wind_rose_custom.yaml file. 
 
 
 METdataio
-=========
+---------
 
-METdataio
-
-METreformat Overview:
----------------------
+METreformat Overview
+^^^^^^^^^^^^^^^^^^^^
 
 The METreformat Python package was developed to assist in the generation of METplotpy line plots using MET Point-Stat .stat files. METreformat is located in the `METdataio repository `_ and utilizes the METdbLoad package for reading Point-Stat files.
 
@@ -814,18 +764,18 @@ The Point-Stat line types that are currently supported in METreformat are as fol
 
 *Support for additional line types will be added in the future.*
 
-METreformat Components:
------------------------
+METreformat Componenents
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The METreformat package utilizes the METdataio METdbLoad package to read .stat files, label columns, and create an intermediate data structure (pandas dataframe). The METreformat package uses this data structure to reformat the data into a single file.
 
 The reformatting requires a** yaml** configuration file and an **xml** specification file (from METdbLoad). The xml specification file is used to define the paths to the input data and the type of MET output (i.e. Point-Stat, Grid-Stat, MODE, Stat-Analysis, and Wavelet-Stat). The yaml configuration file indicates the location of the xml specification file and the name and location of the output file.
 
-Example of running METreformat
-------------------------------
+Example of Running METreformat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set up the prerequisites:
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Set Up Pre-Requisites
+"""""""""""""""""""""
 
 Set up the environment by following the `instructions for METplus initial set up `_. Make sure to follow the relevant instructions for **either** the **Pre-configured Environments** or **User Configured Environments, **based on your host computer. Finish by following the **Verify Environment Is Set Correctly **instructions.
 
@@ -858,8 +808,8 @@ Please refer to the `METdataio User's Guide `_ for more information on METdataio
    cd ${METPLUS_TUTORIAL_DIR}/metdataio
    git clone https://github.com/dtcenter/METdataio
 
-Reformat MET Point-Stat .stat files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Reformat MET Point-Stat .stat Files
+"""""""""""""""""""""""""""""""""""
 
 An overview of the steps for running this example are:
 
@@ -1084,11 +1034,11 @@ You will notice that the data has been reformatted where the statistics are now 
 
    Close the file.
 
-Generate a METplotpy line plot
-------------------------------
+Generate a METplotpy Line Plot
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-METplotpy Set Up Prerequisites:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set Up Pre-Requisites
+"""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section `_.
 
@@ -1136,8 +1086,8 @@ An overview of the steps for creating this plot are:
 * Modify the yaml configuration file in the user_config directory
 * Run the Python script to create a line plot
 
-Set the PYTHONPATH and METPLOTPY_BASE environment variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set the PYTHONPATH and METPLOTPY_BASE Env Vars
+""""""""""""""""""""""""""""""""""""""""""""""
 
 For this step, you'll need to choose the appropriate command depending on how you installed METcalcpy. Read both blue instruction blocks, and proceed with the one relevant to you.
 
@@ -1177,8 +1127,8 @@ For this step, you'll need to choose the appropriate command depending on how yo
 
    export PYTHONPATH=$METPLOTPY_BASE:$METPLOTPY_BASE/metplotpy:$METPLOTPY_BASE/metplotpy/plots
 
-Copy custom config file to user_config
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Copy Custom Config File to user_config
+""""""""""""""""""""""""""""""""""""""
 
 To get this started, we need to create a **user_config** directory.
 
@@ -1198,8 +1148,8 @@ To get this started, we need to create a **user_config** directory.
 
    cp $METPLOTPY_BASE/test/line/custom_line.yaml ${METPLUS_TUTORIAL_DIR}/metplotpy/user_config
 
-Modify the custom configuration file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Modify the Custom Configuration File
+""""""""""""""""""""""""""""""""""""
 
 .. note::
 
@@ -1468,8 +1418,8 @@ There is only one model in the sample data and event equalization is not needed.
 
    Save and close the custom_line.yaml file.
 
-Generate the line plot:
-^^^^^^^^^^^^^^^^^^^^^^^
+Generate the Line Plot
+""""""""""""""""""""""
 
 .. note::
 
@@ -1502,14 +1452,7 @@ Generate the line plot:
 .. image:: ../figure/line.png
    :alt: 
 
-
-End of Session 8
-================
-
-End of Session 8
-
 End of Session 8
 ----------------
 
 Congratulations! You have completed Session 8!
-
