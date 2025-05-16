@@ -1,14 +1,11 @@
 Session 11: METplus Cloud
 =========================
 
-Session 11: METplus Cloud
-
-METplus Practical Session 11
-----------------------------
+**METplus Practical Session 11**
 
 This session will cover two METplus feature relative use cases.
-Prerequisites: Accessing a guided tutorial EC2 instance
--------------------------------------------------------
+
+**Prerequisites: Accessing a Guided Tutorial EC2 Instance**
 
 Running the tutorial in the cloud requires a cloud instance. Currently we are only supporting Amazon Web Services tutorial instances.
 
@@ -98,14 +95,8 @@ The next section describes how to create your own EC2 instance and is optional
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a GitHub Discussions. Be sure to provide what session and specific page you encountered the issue on.
 
-
-Create Your Own EC2 instance
-============================
-
-Create Your Own EC2 instance
-
-Create Your Own METplus EC2 Instance
-------------------------------------
+Create an EC2 Instance
+----------------------
 
 You can also create your own EC2 instance if you have access to your own AWS account and space.
 
