@@ -1,13 +1,9 @@
-Session 10: Subseasonal to Seasonal (S2S)
-=========================================
+Session 10: Subseasonal to Seasonal
+===================================
 
-Session 10: Subseasonal to Seasonal (S2S)
+**METplus Practical Session 10**
 
-METplus Practical Session 10
-----------------------------
-
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -92,19 +88,16 @@ You are now ready to move on to the next section.
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a GitHub Discussions. Be sure to provide what session and specific page you encountered the issue on.
 
+S2S Metrics General
+-------------------
 
-S2S (Subseasonal to Seasonal) Metrics General
-=============================================
-
-S2S (Subseasonal to Seasonal) Metrics General
-
-Background:
------------
+Background
+^^^^^^^^^^
 
 Specifically, subseasonal refers to a period  which is typically defined as a period of two weeks to 3 months, whereas seasonal may encompass multiple years but typically only includes one season in each of those years (such as December, January, and February).  TheS2S calculations in METplus range range from Indices computed for the Madden-Julien Oscillation (such as the Real-Time Multivariate MJO Index or the OLR Based MJO Index) to calculations for the mid latitude such as weather regime classifications and atmospheric blocking, to stratosphere diagnostics.  However, most of them are formatted similarly.
 
-Format of Subseasonal to Seasonal Metrics:
-------------------------------------------
+Format of Subseasonal to Seasonal Metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The S2S metrics added to the METplus system differ from other use cases in that these metrics are computed using scripts in multiple repositories (such as METcalcpy, METplotpy, etc), rather than only using the C++ code that is part of the MET verification package (such as Grid-Stat and MODE).  Specifically, the S2S metrics include combinations of pre-processing steps (which use MET tools such as Regrid-Pata-Plane and PCP-Combine), indices and diagnostics computed using python code in METcalcpy, graphics in METplotpy, and statistics computed using Stat-Analysis.  Additionally, the S2S metrics are set up to run with multiple input files, similar to how MODE-Time-Domain or Series-Analysis work.  The indices and diagnostics are set up to be computed separately on the models and observations, and are run using a driver script that’s called with the METplus UserScript option.
 
@@ -114,34 +107,27 @@ A driver script is a python script that differs from the METplus wrappers. This 
    :alt: 
 
 Basic Information on UserScripts
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide `_.
 
- 
-
-Configuration Sections
-----------------------
+ Configuration Sections
+^^^^^^^^^^^^^^^^^^^^^^
 
 Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parenthesis after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names `_.
 
- 
-
 Final Considerations
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 Most of the S2S use cases require input information to the driver scripts.  This information varies by use case and is given in the [user_env_vars] section of the configuration file.  In most cases, this section contains options such as input variable names, directories, and plotting information.  But some use cases have other variables that are needed as input to the calculation.  
 
 Different use cases have different python dependencies.  These are listed in the use case documentation.  The format of input data for these use cases can vary.  Currently, METdataio can read netCDF data.  However, most S2S use cases are set to use netCDF files that are in MET’s format.  This can be achieved through pre-processing steps, typically as output from Regrid-Data-Plane or PCP-Combine.
 
-
-Run METplus for the OMI use-case
-================================
-
-Run METplus for the OMI use-case
+Run METplus for the OMI Use-Case
+--------------------------------
 
 Configuring the METplus OMI use case
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The OLR-Based MJO Index (OMI)use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI Use case we are going to run are listed in the `External Dependencies section `_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
 
@@ -182,7 +168,7 @@ Input variables to the OMI calculation are given in the [user_env_vars] section.
 The information to run the OMI calculation is given in the [script_omi] section.  The variables give the frequency of the run time, location of the model and observation input OLR data, the input template labels, which shouldn’t be changed and then the actual command that is run to calculate OMI.  Here, the command calls the OMI driver script.
 
 Run METplus for the OMI use case
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
@@ -209,8 +195,8 @@ The script should run and if successful, will say:
 
    METplus has successfully finished running
 
-Check the output
-----------------
+Check the Output
+^^^^^^^^^^^^^^^^
 
 .. note::
 
@@ -243,7 +229,7 @@ obs_OMI_comp_phase.png
 fcst_OMI_comp_phase.png
 
 
-End of Session 10 and additional Exercises
+End of Session 10 and additional Exercises  ??? Julie, what is this doing here?  Delete???
 ==========================================
 
 End of Session 10 and additional Exercises
@@ -258,16 +244,16 @@ End of Session 10 and additional Exercises
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 -------------------------------------------------------------------------------------------------------------------------------
 
-Run METplus for the Weather Regime use case
--------------------------------------------
+METplus Use Case: Weather Regime
+--------------------------------
 
-Background on the Weather Regime Use-Case:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Background
+^^^^^^^^^^
 
 The weather regime use case is more complicated than the OMI use case for several reasons.  The first is that the use case has more pre-processing steps.  The second is that the weather regime calculation has several steps.  Specifically, it has three calculation steps and three optional output graphics for both the model and observations.  Lastly, the use case calls Stat-Analysis on the output to create statistics.  It uses 500mb height over December, January, and February to compute patterns for weather regime classification.
 
-Configure the Weather Regime Use-Case:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configure the Weather Regime Use-Case
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To configure the weather regime use case, first check the `python dependencies in the online User's Guide `_.  The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
 
@@ -296,9 +282,8 @@ The third variable, SCRIPT_OUTPUT_BASE gives the location of the output graphics
 
 The information to run the Weather Regime calculation is given in the [script_wr] section.  The variables give the frequency of the run time, location of the model and observation input 500mb height data, the input template labels, which shouldn’t be changed and then the actual command that is run.  Here, the command calls the Weather Regime driver script.  The last two sections [sanal_wrclass] and [sanal_wrfreq] contain the settings for running Stat-Analysis on the output weather regime classification and time frequency.  These runs will not work if the KMEANS and TIMEFREQ steps are not run on both model and observation data.  They produce multi category contingency table statistics on the weather regime classification and continuous statistics on the time frequency.
 
-Run METplus for the Weather Regime use case:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+Run METplus for the Weather Regime Use Case
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. note::
 
    To run METplus, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
@@ -316,9 +301,10 @@ The script should run and if successful, will say:
 
    METplus has successfully finished running
 
-Check the output:
-^^^^^^^^^^^^^^^^^
+Check the Output
+^^^^^^^^^^^^^^^^
 
 In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you should see three directories (logs, s2s_mid_lat, and tmp) and the METplus configuration file. Inside the s2s_mid_lat directory, there should be another directory, UserScript_fcstGFS_obsERA_WeatherRegime, that contains four files and two directories. The mpr directory contains output matched pair files for the weather regime classification and time frequency. The plots directory contains eight output plots, fcst_elbow.png fcst_eof.png fcst_freq.png fcst_kmeans.png obs_elbow.png obs_eof.png obs_freq.png obs_kmeans.png. Finally, there are two types of text output files. Fcst_weather_regime_class.txt and obs_weather_regime_class.txt contain text output where each day is classified into one of the six weather regime patterns. The other two files, GFS_ERA_WRClass_240000L_MCTS.stat and GFS_ERA_WRClass_240000L_MCTS.stat, contain output from stat analysis comparing the model and observation weather regime classification and time frequencies.
 
-
+End of Session 10
+-----------------
