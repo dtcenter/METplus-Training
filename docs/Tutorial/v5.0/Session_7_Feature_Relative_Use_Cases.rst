@@ -1,15 +1,11 @@
 Session 7: Feature Relative Use Cases
 =====================================
 
-Session 7: Feature Relative Use Cases
-
-METplus Practical Session 7
----------------------------
+**METplus Practical Session 7**
 
 This session will cover two METplus feature relative use cases.
 
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -102,16 +98,16 @@ METplus Use Case: Feature Relative (Series-Analysis by Initialization Time)
 
 METplus Use Case: Feature Relative (Series-Analysis by Initialization Time)
 
-METplus Use Case: Feature Relative (Series-Analysis by init)
-------------------------------------------------------------
+METplus Use Case: Feature Relative Init
+---------------------------------------
 
-Setup
-^^^^^
+**SERIES-ANALYSIS BY INITIALIZATION TIME**
+
+**SETUP**
 
 In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature.  The tiles are then used to compute statistics using Series_Analysis.  Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, and Series-Analysis tools, and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `**MET Users Guide** `_ for a description of the MET tools and the `**METplus Users Guide**  `_for more details about the wrappers.
 
-Review Use Case Configuration File: feature_relative.conf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW USE CASE CONFIGURATION FILE: FEATURE_RELATIVE.CONF**
 
 View the file and study the configuration variables that are defined.
 
@@ -143,8 +139,7 @@ The **SERIES_ANALYSIS_STAT_LIST** is set to four statistics, but can be set to m
 
 This references **OUTPUT_BASE** which you set in the METplus defaults configuration file (**${METPLUS_BUILD_BASE}/parm/metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
 
-Run METplus
-^^^^^^^^^^^
+**RUN METPLUS**
 
 Change to the METplus Tutorial Directory:
 
@@ -167,8 +162,7 @@ You will see output streaming to your screen. This may take up to 4 minutes to c
 
    INFO: METplus has successfully finished running.
 
-Review the Output Files
-^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW THE OUTPUT FILES**
 
 You should have output files in the following directories from the intermediate wrappers TcPairs, ExtractTiles, and TcStat, respectively:
 
@@ -251,8 +245,7 @@ or
 
    Note: the &amp; is used to run this command in the background
 
-Review the Log File
-^^^^^^^^^^^^^^^^^^^
+**REVIEW THE LOG FILE**
 
 A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/logs**. The filename contains the timestamp corresponding to the current day. To view the log file:
 
@@ -260,8 +253,7 @@ A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/out
 
    ls ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/logs/metplus.log.*
 
-Review the Final Configuration File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW THE FINAL CONFIGURATION FILE**
 
 The final configuration file is** metplus_final.conf**. This contains all of the configuration variables used in the run.
 
@@ -269,17 +261,12 @@ The final configuration file is** metplus_final.conf**. This contains all of the
 
    less ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/metplus_final.conf
 
+METplus Use Case: Feature Relative Lead
+---------------------------------------
 
-METplus Use Case: Feature Relative (Series-Analysis by Lead Time with Forecast Hour Grouping)
-=============================================================================================
+**SERIES-ANALYSIS BY LEAD TIME BY FORECAST HOUR GROUPING**
 
-METplus Use Case: Feature Relative (Series-Analysis by Lead Time with Forecast Hour Grouping)
-
-METplus Use Case: Feature Relative (Series-Analysis by lead, by forecast hour grouping)
----------------------------------------------------------------------------------------
-
-Setup
-^^^^^
+**SETUP**
 
 In this exercise, you will perform a series analysis based on the lead time (forecast hour) of your sample data and organize your results by forecast hour groupings. This use case utilizes the MET Tc-Pairs, Tc-Stat, and Series-Analysis tools, and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET User's Guide `_ for a description of the MET tools and the `METplus Users Guide `_ for more details about the wrappers. Please note that the METplus User's Guide is a work-in-progress and may have missing content.
 
@@ -289,8 +276,7 @@ Change to the METplus Tutorial Directory:
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-Review Use Case Configuration File: series_by_lead_by_fhr_grouping.conf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW USE CASE CONFIGURATION FILE: SERIES_BY_LEAD_BY_FHR_GROUPING.CONF**
 
 View the file and study the configuration variables that are defined.
 
@@ -312,8 +298,7 @@ Note that the Lead time groupings are specified by the **LEAD_SEQ** config opti
 
 This references **OUTPUT_BASE **which you set in the METplus default configuration file (**metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
 
-Run METplus
-^^^^^^^^^^^
+**RUN METPLUS**
 
 Run the following command:
 
@@ -326,8 +311,7 @@ Run the following command:
 
 You will see output streaming to your screen. This may take up to 3 minutes to complete. When it is complete, your prompt returns.
 
-Review the Output Files
-^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW THE OUTPUT FILES**
 
 You should have output directories including the following that result from running the wrappers TcPairs, ExtractTiles, and TcStat, respectively:
 
@@ -431,8 +415,7 @@ To watch the animations, go to **${METPLUS_TUTORIAL_DIR}/output/feature_relative
 
    firefox ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/series_analysis_lead/series_animate/series_animate_TMP_Z2_OBAR.gif
 
-Review the Log File
-^^^^^^^^^^^^^^^^^^^
+**REVIEW THE LOG FILE**
 
 A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/logs**. The filename contains the timestamp corresponding to the current day. To view the log file:
 
@@ -440,20 +423,13 @@ A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/out
 
    ls ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/logs/metplus.log.*
 
-Review the Final Configuration File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**REVIEW THE FINAL CONFIGURATION FILE**
 
 The final configuration file is **metplus_final.confYYYYMMDDHHMMSS**. (where YYYYMMDDHHMMSS refers to year, month, day, hour, minute, second that the file was created.)This contains all of the configuration variables used in the run.
 
 .. code-block::
 
    less $(ls -t ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/metplus_final.conf* | head -1)
-
-
-End of Session 7
-================
-
-End of Session 7
 
 End of Session 7
 ----------------
