@@ -1,22 +1,13 @@
-
 Session 3: Analysis Tools
 =========================
 
-
-Session 3: Analysis Tools
-
-
-
-METplus Practical Session 3
----------------------------
-
+**METplus Practical Session 3**
 
 During this practical session, you will run the tools indicated below:
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
 Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
 
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 .. note::
@@ -128,20 +119,9 @@ If you discover any typos, error in the run commands, incorrect output listed, o
 
 
 MET Tool: Stat-Analysis
-=======================
+-----------------------
 
-
-MET Tool: Stat-Analysis
-
-
-
-Stat-Analysis Tool: General
----------------------------
-
-
-Stat-Analysis Functionality
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**STAT-ANALYSIS FUNCTIONALITY**
 
 The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, and Ensemble-Stat tools. It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any .stat files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional _LINE_TYPE.txt files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
 
@@ -152,9 +132,7 @@ The aggregate_stat job also aggregates STAT data, like the aggregate job abo
 The ss_index job computes a skill-score index, of which the GO Index (go_index) is a special case. The GO Index is a performance metric used primarily by the United States Air Force.
 The ramp job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
 
-Stat-Analysis Usage
-^^^^^^^^^^^^^^^^^^^
-
+**STAT-ANALYSIS USAGE**
 
 View the usage statement for Stat-Analysis by simply typing the following:
 .. code-block::
@@ -217,16 +195,7 @@ At a minimum, you must specify at least one directory or file in which to find S
 
 
 Configure
-=========
-
-
-Configure
-
-
-
-Stat-Analysis Tool: Configure
------------------------------
-
+^^^^^^^^^
 
 .. note::
 
@@ -297,16 +266,7 @@ Close the file and run it on the next page.
 
 
 Run on Point-Stat output
-========================
-
-
-Run on Point-Stat output
-
-
-
-Stat-Analysis Tool: Run on Point-Stat output
---------------------------------------------
-
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
@@ -424,25 +384,8 @@ Try re-running this job using **-set_hdr FCST_LEV P1050-500** and **-set_hdr 
 
 &lt;span class="tip"&gt;The use of the **-dump_row** option is **highly recommended** to ensure that your analysis jobs run on the exact set of data that you intended. It's easy to make mistakes here!&lt;/span&gt;
 
-
-
-
-
-
-
-
-
 Output
-======
-
-
-Output
-
-
-
-Stat-Analysis Tool: Output
---------------------------
-
+^^^^^^
 
 On the previous page, we generated the output file aggr_ctc_lines.out by using the -out command line argument.
 .. note::
@@ -560,13 +503,7 @@ If you get stuck on any of these exercises, you may refer to the exercise answe
 
 
 Exercise Answers
-================
-
-
-Exercise Answers
-
-
-
+^^^^^^^^^^^^^^^^
 
 Job Number 1:
 
@@ -643,12 +580,7 @@ stat_analysis \&lt;br/&gt;
 
 
 METplus Use Case: StatAnalysis
-==============================
-
-
-METplus Use Case: StatAnalysis
-
-
+------------------------------
 
 .. important::
 
@@ -911,31 +843,14 @@ ls ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run3/stat_analysis/12Z/WRF
 
 You should see the .stat file now in the stat_analysis/12Z/WRF directory
 
-
-
-
-
-
 MET Tool: Series-Analysis
-=========================
+-------------------------
 
-
-MET Tool: Series-Analysis
-
-
-
-Series-Analysis Tool: General
------------------------------
-
-
-Series-Analysis Functionality
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**SERIES-ANALYSIS FUNCTIONALITY**
 
 The Series-Analysis Tool accumulates statistics separately for each horizontal grid location over a series. Usually, the series is defined as a time series, however any type of series is possible, including a series of vertical levels. This differs from the Grid-Stat tool in that Grid-Stat computes statistics aggregated over a spatial masking region at a single point in time. The Series-Analysis Tool computes statistics for each individual grid point and can be used to quantify how the model performance varies over the domain.
-Series-Analysis Usage
-^^^^^^^^^^^^^^^^^^^^^
 
+**SERIES-ANALYSIS USAGE**
 
 View the usage statement for Series-Analysis by simply typing the following:
 .. code-block::
@@ -1006,16 +921,7 @@ At a minimum, the -fcst, -obs (or -both), -out, and -config settings must
 
 
 Configure
-=========
-
-
-Configure
-
-
-
-Series-Analysis Tool: Configure
--------------------------------
-
+^^^^^^^^^
 
 .. note::
 
@@ -1194,16 +1100,7 @@ Save and close this file.
 
 
 Run
-===
-
-
-Run
-
-
-
-Series-Analysis Tool: Run
--------------------------
-
+^^^
 
 .. note::
 
@@ -1328,16 +1225,7 @@ Note how long this command line is. Imagine how long it would be for a series of
 
 
 Output
-======
-
-
-Output
-
-
-
-Series-Analysis Tool: Output
-----------------------------
-
+^^^^^^
 
 The output of Series-Analysis is one NetCDF file containing the requested output statistics for each grid location on the same grid as the input files.
 You may view the output NetCDF file that Series-Analysis wrote using the ncdump utility. Run the following command to view the header of the NetCDF output file:
@@ -1360,19 +1248,8 @@ Why does the extent of missing data increase for CSI for the higher threshold? C
 Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. series_fho_O_RATE_gt0.0). Since the valid range of values for this data is 0 to 1, use that to set the -plot_range option.
 Setting block_size to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
 
-
-
-
-
-
-
 METplus Use Case: SeriesAnalysis
-================================
-
-
-METplus Use Case: SeriesAnalysis
-
-
+--------------------------------
 
 .. important::
 
@@ -1666,22 +1543,6 @@ The successful run of that command should produce an image. view it with the fol
 .. code-block::
 
 display ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_RMSE.ps
-
-
-
-
-
-
-
-
-
-
-End of Session 3
-================
-
-
-End of Session 3
-
 
 
 End of Session 3
