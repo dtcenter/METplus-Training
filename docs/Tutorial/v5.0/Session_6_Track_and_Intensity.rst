@@ -1,22 +1,13 @@
-
 Session 6: Track and Intensity
 ==============================
 
-
-Session 6: Track and Intensity
-
-
-
-METplus Practical Session 6
----------------------------
-
+**METplus Practical Session 6**
 
 During this practical session, you will run the tools indicated below:
 
 Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
-Prerequisites: Verify Environment is Set Correctly
---------------------------------------------------
 
+**Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 .. note::
@@ -123,25 +114,14 @@ If you discover any typos, error in the run commands, incorrect output listed, o
 
 
 MET Tool: TC-Pairs
-==================
+------------------
 
-
-MET Tool: TC-Pairs
-
-
-
-TC-Pairs Tool: General
-----------------------
-
-
-TC-Pairs Functionality
-^^^^^^^^^^^^^^^^^^^^^^
-
+**TC-PAIRS FUNCTIONALITY**
 
 The TC-Pairs tool provides position and intensity information for tropical cyclone forecasts in Automated Tropical Cyclone Forecast System (ATCF) format. Much like the Point-Stat tool, TC-Pairs produces matched pairs of forecast model output and an observation dataset. In the case of TC-Pairs, both the model output and observational dataset (or reference forecast) must be in ATCF format. TC-Pairs produces matched pairs for position errors, as well as wind, sea level pressure, and distance to land values for each input dataset.
-TC-Pairs Usage
-^^^^^^^^^^^^^^
 
+
+**TC-PAIRS Usage**
 
 View the usage statement for TC-Pairs by simply typing the following:
 .. code-block::
@@ -206,16 +186,7 @@ The -adeck, -edeck, and -edeck options can be set to either a specific file name
 
 
 Input format
-============
-
-
-Input format
-
-
-
-TC-Pairs input data format
---------------------------
-
+^^^^^^^^^^^^
 
 As mentioned previously, the input to TC-Pairs is two ATCF format files, in addition to the distance_to_land.nc file generated with the TC-Dland tool. The ATCF file format is a comma-separated ASCII file containing the following fields:
 
@@ -344,16 +315,7 @@ aal182012: Sandy
 
 
 Configure
-=========
-
-
-Configure
-
-
-
-TC-Pairs Tool: Configure
-------------------------
-
+^^^^^^^^^
 
 Start by making an output directory for TC-Pairs and changing directories:
 .. code-block::
@@ -443,22 +405,8 @@ ncview ${MET_BUILD_BASE}/share/met/tc_data/dland_global_tenth_degree.nc &amp;amp
 
 Water points have distance to land values greater than 0 while land points have distances &lt;= 0.
 
-
-
-
-
-
 Run
-===
-
-
-Run
-
-
-
-TC-Pairs Tool: Run
-------------------
-
+^^^
 
 Next, run TC-Pairs to compare all three ATCF forecast models specified in configuration file to the ATCF format best track analysis. Run the following command line:
 .. code-block::
@@ -479,31 +427,8 @@ There should be an output file "tc_pairs.tcst" in the directory, where .tcst sta
 
 &lt;span class="tip"&gt;If you are running many models over many storms/seasons, it is best to run TC-Pairs using a script to call TC-Pairs for each storm. This avoids potential memory issues when parsing very large datasets.&lt;/span&gt;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Output
-======
-
-
-Output
-
-
-
-TC-Pairs Tool: Output
----------------------
-
+^^^^^^
 
 The output of TC-Pairs is an ASCII file containing matched pairs for each of the models requested. In this example, the output is written to the tc_pairs.tcst file as we requested on the command line. This output file is in TCST format, which is similar to the STAT output from the Point-Stat and Grid-Stat tools. For more header information on the TCST format, see the tc_pairs output section of the MET User's Guide.
 
@@ -546,20 +471,9 @@ Columns 34-63 are the 34-, 50-, and 64-kt wind radii for each quadrant.
 
 
 MET Tool: TC-Stat
-=================
+------------------
 
-
-MET Tool: TC-Stat
-
-
-
-TC-Stat Tool: General
----------------------
-
-
-TC-Stat Functionality
-^^^^^^^^^^^^^^^^^^^^^
-
+**TC-STAT FUNCTIONALITY**
 
 The TC-Stat tool reads the .tcst output file(s) of the TC-Pairs tool. This tools provides the ability to further filter the TCST output files as well as summarize the statistical information. The TC-Stat tool reads .tcst files and runs one or more analysis jobs on the data. TC-Stat can be run by specifying a single job on the command line or multiple jobs using a configuration file. The TC-Stat tool is very similar to the Stat-Analysis tool. The two analysis job types are summarized below:
 
@@ -568,9 +482,7 @@ The summary job operates on one column of data from TCST file. It produces sum
 The rirw job identifies rapid intensification or weakening events in the forecast and analysis tracks and applies categorical verification methods.
 The probrirw job applies probabilistic verification methods to evaluate probability of rapid inensification forecasts found in edeck's.
 
-TC-Stat Usage
-^^^^^^^^^^^^^
-
+**TC-STAT Usage**
 
 View the usage statement for TC-Stat by simply typing the following:
 .. code-block::
@@ -622,22 +534,8 @@ Arguments necessary to perform a TC-Stat job.
 
 
 At a minimum, you must specify at least one directory or file in which to find TCST data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
-
-
-
-
-
 Configure
-=========
-
-
-Configure
-
-
-
-TC-Stat Tool: Configure
------------------------
-
+^^^^^^^^^
 
 Start by making an output directory for TC-Stat and changing directories:
 .. code-block::
@@ -691,22 +589,8 @@ jobs = [ "-job filter -dump_row tc_stat.tcst" ];
 
 This will create a job that filters out TCST lines based on the job's criteria (this example has no criteria listed, so all TCST lines will be used) and place them into the file indicated by -dump_row.
 
-
-
-
-
-
-Run on TC-Pairs output
-======================
-
-
-Run on TC-Pairs output
-
-
-
-TC-Stat: Run on TC-Pairs output
--------------------------------
-
+Run on TC-Pairs Output: Filter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run the TC-Stat using the following command:
 .. code-block::
@@ -752,22 +636,8 @@ Open the output file tc_stat2.tcst: notice fewer lines have been kept. Look at 
 Also, find the columns ADLAND and BDLAND. All these values are now positive, meaning the tracks over land (negative values) have been filtered.
 With the filtering jobs mastered, lets give the second type of job - summary jobs - a try!
 
-
-
-
-
-
-Run on TC-Pairs output
-======================
-
-
-Run on TC-Pairs output
-
-
-
-TC-Stat: Run on TC-Pairs output
--------------------------------
-
+Run on TC-Pairs Output: Summary
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now, we will run a summary job using TC-Stat on the command line using the following command:
 .. code-block::
@@ -793,22 +663,8 @@ vi tc_stat_summary.tcst
 
 The track data is event equalized for the HWRF and GFDL models, and summary statistics are produced for the TK_ERR column for each model by lead time.
 
-
-
-
-
-
 Plotting with R
-===============
-
-
-Plotting with R
-
-
-
-TC-Stat: Plotting with R
-------------------------
-
+^^^^^^^^^^^^^^^
 
 In this section, you will use the R statistics software package to produce a plot of a few results. R was introduced in practical session 1.
 The MET release includes a number of plotting tools for TC graphics. All of the Rscripts are included with the MET distribution in the Rscripts directory. The script for TC graphics is plot_tcmpr.R, which uses the TCST output files from TC-Pairs as input. At this time, there are two additional environment variables that need to be set to make this work.  They are MET_INSTALL_DIR and MET_BASE. To get the usage statement, type:
@@ -860,20 +716,8 @@ Boxplot showing distribution of errors for a homogeneous sample of the two model
 Mean Errors with 95% CI for the same sample (TK_ERR_mean.png).
 Rank plot indicating performance of HWRF model relative to CONS (TK_ERR_rank.png).
 
-
-
-
-
-
-
-
 METplus Use Case: TC-Pairs
-==========================
-
-
-METplus Use Case: TC-Pairs
-
-
+--------------------------
 
 .. important::
 
@@ -1062,18 +906,8 @@ vi ${METPLUS_TUTORIAL_DIR}/output/TCPairs_run2/tc_pairs/tc_pairs_al2018083018.da
 
 You will notice that now all models are included in the appropriate files. Also note that all of the forecasts leads from 000000 to 1260000 are included in the 10th column.
 
-
-
-
-
-
 METplus Use Case: TC-Stat
-=========================
-
-
-METplus Use Case: TC-Stat
-
-
+-------------------------
 
 .. important::
 
@@ -1285,30 +1119,17 @@ SUMMARY: TK_ERR 54 32 32 29.61144 19.00544 40.21744 30.61107 0 0.31881 8.17406 1
 
 There are now 48 lines with lines summarizing AMAX_WIND and TK_ERR across 24 STORM_NAMEs. The information for FSP columns is zero because there is only data for 1 model being summarized.
 
-
-
-
-
-
 METplus Use Case: Track and Intensity Plotting
-==============================================
+----------------------------------------------
 
-
-METplus Use Case: Track and Intensity Plotting
-
-
-
-METplus Use Case: Track and Intensity TCMPR (Tropical Cyclone Matched Pair) Plotter
+METplus Use Case: Track and Intensity TCMPR (Tropical Cyclone Matched Pair) Plotter ??? Julie, keep info???
 -----------------------------------------------------------------------------------
 
 
 
 This is a wrapper to the MET plot_tcmpr.R, based on R-project Statistical package Rscript.  This Rscript will be deprecated in a future METplus release.
 
-Review: Take a look at the following settings.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
+**REVIEW: TAKE A LOOK AT THE FOLLOWING SETTINGS**
 
 The default image resolution for the plot_tcmpr.R Rscript is set to 300, for print quality, but quite large for display purposes. The following is an R config file that is passed to the Rscript and changes the default and reduces the image size. It is a simple one line file, but go and take a look.
 .. code-block::
@@ -1391,11 +1212,7 @@ ALL, OTHER, and colon-separated groups.&lt;/li&gt;
 ALL, OTHER, and colon-separated groups.&lt;/li&gt;
 &lt;/ul&gt;
 
-
-
-Run METplus: Run Track and Intensity use case.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**RUN METPLUS: RUN TRACK AND INTENSITY USE CASE**
 
 Examples: Run the track and intensity plotting script
 Generates plots using the MET plot_tcmpr.R Rscript.
@@ -1505,28 +1322,9 @@ display AMAX_WIND-BMAX_WIND_mean.png &amp;amp;&lt;br/&gt;
 display AMAX_WIND-BMAX_WIND_median.png &amp;amp;&lt;br/&gt;
 display AMAX_WIND-BMAX_WIND_boxplot.png&amp;gt; &amp;amp;
 
-
-
-
-
-
-
-
-
-End of Session 6
-================
-
-
-End of Session 6
-
-
-
 End of Session 6
 ----------------
 
 
 Congratulations! You have completed Session 6!
-
-
-
 
