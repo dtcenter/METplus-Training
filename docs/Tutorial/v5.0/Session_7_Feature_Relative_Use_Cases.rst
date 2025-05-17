@@ -92,12 +92,6 @@ Click on a use case below to get started.
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a GitHub Discussions. Be sure to provide what session and specific page you encountered the issue on.
 
-
-METplus Use Case: Feature Relative (Series-Analysis by Initialization Time)
-===========================================================================
-
-METplus Use Case: Feature Relative (Series-Analysis by Initialization Time)
-
 METplus Use Case: Feature Relative Init
 ---------------------------------------
 
