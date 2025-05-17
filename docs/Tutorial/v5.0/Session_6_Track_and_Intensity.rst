@@ -121,7 +121,7 @@ MET Tool: TC-Pairs
 The TC-Pairs tool provides position and intensity information for tropical cyclone forecasts in Automated Tropical Cyclone Forecast System (ATCF) format. Much like the Point-Stat tool, TC-Pairs produces matched pairs of forecast model output and an observation dataset. In the case of TC-Pairs, both the model output and observational dataset (or reference forecast) must be in ATCF format. TC-Pairs produces matched pairs for position errors, as well as wind, sea level pressure, and distance to land values for each input dataset.
 
 
-**TC-PAIRS Usage**
+**TC-PAIRS USAGE**
 
 View the usage statement for TC-Pairs by simply typing the following:
 .. code-block::
@@ -185,7 +185,7 @@ The -adeck, -edeck, and -edeck options can be set to either a specific file name
 
 
 
-Input format
+Input Format
 ^^^^^^^^^^^^
 
 As mentioned previously, the input to TC-Pairs is two ATCF format files, in addition to the distance_to_land.nc file generated with the TC-Dland tool. The ATCF file format is a comma-separated ASCII file containing the following fields:
@@ -482,7 +482,7 @@ The summary job operates on one column of data from TCST file. It produces sum
 The rirw job identifies rapid intensification or weakening events in the forecast and analysis tracks and applies categorical verification methods.
 The probrirw job applies probabilistic verification methods to evaluate probability of rapid inensification forecasts found in edeck's.
 
-**TC-STAT Usage**
+**TC-STAT USAGE**
 
 View the usage statement for TC-Stat by simply typing the following:
 .. code-block::
@@ -534,6 +534,7 @@ Arguments necessary to perform a TC-Stat job.
 
 
 At a minimum, you must specify at least one directory or file in which to find TCST data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
+
 Configure
 ^^^^^^^^^
 
@@ -637,7 +638,7 @@ Also, find the columns ADLAND and BDLAND. All these values are now positive, 
 With the filtering jobs mastered, lets give the second type of job - summary jobs - a try!
 
 Run on TC-Pairs Output: Summary
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now, we will run a summary job using TC-Stat on the command line using the following command:
 .. code-block::
@@ -1122,11 +1123,6 @@ There are now 48 lines with lines summarizing AMAX_WIND and TK_ERR across 24 STO
 METplus Use Case: Track and Intensity Plotting
 ----------------------------------------------
 
-METplus Use Case: Track and Intensity TCMPR (Tropical Cyclone Matched Pair) Plotter ??? Julie, keep info???
------------------------------------------------------------------------------------
-
-
-
 This is a wrapper to the MET plot_tcmpr.R, based on R-project Statistical package Rscript.  This Rscript will be deprecated in a future METplus release.
 
 **REVIEW: TAKE A LOOK AT THE FOLLOWING SETTINGS**
@@ -1218,8 +1214,9 @@ Examples: Run the track and intensity plotting script
 Generates plots using the MET plot_tcmpr.R Rscript.
 Example 1: 
 In this case, the TCMPRPlotter.conf file is configured to generate MEAN and MEDIAN plot types with TCMPR_PLOTTER_PLOT_TYPES.
+
 Run the following command:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 .. code-block::
@@ -1253,8 +1250,6 @@ TK_ERR_median.png
 
 Example 2: 
 Copy the TCMPRPlotter.conf file to the user_config directory:
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 .. code-block::
 
