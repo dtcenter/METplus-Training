@@ -145,18 +145,6 @@ The **XML Upload** feature of METviewer is very powerful and has saved users a
 
 Feel free to experiment with METviewer and make additional plots.
 
-
-End of Practical Session 5  ??? Julie, what is this?  Why is session 5 listed in session 8 like this???
-==========================
-
-End of Practical Session 5
-
-End of Practical Session 5
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Congratulations! You have completed Session 5!
-
-
 METplotpy
 ---------
 
@@ -563,8 +551,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of 
 Create the Wind Rose Diagram
 """"""""""""""""""""""""""""
 
-Overview of steps: ??? Julie, what should this be? A header or no???
-^^^^^^^^^^^^^^^^^^
+**OVERVIEW OF STEPS**
 
 * .. important::
 
@@ -764,8 +751,8 @@ The Point-Stat line types that are currently supported in METreformat are as fol
 
 *Support for additional line types will be added in the future.*
 
-METreformat Componenents
-^^^^^^^^^^^^^^^^^^^^^^^^
+METreformat Components
+^^^^^^^^^^^^^^^^^^^^^^
 
 The METreformat package utilizes the METdataio METdbLoad package to read .stat files, label columns, and create an intermediate data structure (pandas dataframe). The METreformat package uses this data structure to reformat the data into a single file.
 
