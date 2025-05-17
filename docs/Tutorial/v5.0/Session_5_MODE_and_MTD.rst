@@ -130,7 +130,7 @@ Write output statistics summarizing the characteristics of the single objects, t
 MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read Chapter 14 of the MET User's Guide for a more thorough description of MODE's capabilities.
 
 
-**MODE Usage**
+**MODE USAGE**
 
 .. note::
 
