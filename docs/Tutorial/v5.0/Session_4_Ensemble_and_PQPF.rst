@@ -1170,6 +1170,8 @@ The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, 
 **Optional**: Refer to the **&lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/index.html" target="_blank"&gt;MET Users Guide&lt;/a&gt;** for a description of the MET tools used in this use case.&lt;br/&gt;
 **Optional**: Refer to the &lt;a href="https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html" target="_blank"&gt;**METplus Config Glossary**&lt;/a&gt; section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
+**REVIEW USE CASE CONFIGURATION FILE**
+
 The configuration file is located in use_cases/model_applications/precipitation and is called GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf
 .. note::
 
@@ -1201,9 +1203,7 @@ OBS_PCP_COMBINE_INPUT_DIR = {INPUT_BASE}/model_applications/precipitation/StageI
 
 This references INPUT_BASE which is set in the METplus tutorial.conf file (${METPLUS_TUTORIAL_DIR}/tutorial.conf). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
-Run METplus  ??? Julie, what should this be???
-^^^^^^^^^^^
-
+**RUN METPLUS**
 
 .. note::
 
@@ -1225,11 +1225,7 @@ METplus is finished running when control returns to your terminal console and yo
 
 INFO: METplus has successfully finished running.
 
-
-
-Review the Output Files ??? Julie, what should this be???
-^^^^^^^^^^^^^^^^^^^^^^^
-
+**REVIEW THE OUTPUT FILES**
 
 You should have output files in the following directories:
 .. code-block::
@@ -1265,11 +1261,7 @@ Take a look at some of the files to see what was generated.
 
 less ${METPLUS_TUTORIAL_DIR}/output/PQPF/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/GridStat/201609041200/grid_stat_PROB_PHPT_APCP_vs_STAGE4_GRIB_APCP_A06_060000L_20160904_180000V.stat
 
-
-
-Review the Log Files ??? Julie, what should this be???
-^^^^^^^^^^^^^^^^^^^^
-
+**REVIEW THE LOG FILES**
 
 Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one. 
 .. code-block::
@@ -1282,23 +1274,12 @@ ls ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs
 
 &lt;span class="tip"&gt;Note: The time zone of your computer may not be the same as the time zone you are in.  For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).&lt;/span&gt;
 
-
-
-Review the Final Configuration File ??? Julie, what should this be???
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
+**REVIEW THE FINAL CONFIGURATION FILE**
 
 The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 .. code-block::
 
 ls ${METPLUS_TUTORIAL_DIR}/output/PQPF/metplus_final.conf.*
-
-
-
-
-
-
-
 
 
 End of Session 4 and Additional Exercises
