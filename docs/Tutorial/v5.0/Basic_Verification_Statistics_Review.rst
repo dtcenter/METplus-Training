@@ -1022,7 +1022,7 @@ The final error statistic to discuss is Root Mean Squared Error (RMSE). One of t
 .. image:: ../figure/5.0_Tutorial_stats_RMSE_eq.png
    :alt: 
 
-Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`.
+Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`
 
 **STANDARD DEVIATIONS**
 
