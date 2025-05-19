@@ -205,6 +205,3 @@ You may now connect to your EC2 instance the same way as you would if you were g
 
  
 
-`fisherh `_
-(content)
-
