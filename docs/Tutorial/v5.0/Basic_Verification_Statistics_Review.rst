@@ -274,6 +274,8 @@ Three of the most popular skill statistics for categorical variables are the
 Heidke Skill Score (HSS), the Hanssen-Kuipers Discriminant (HK), and the 
 Gilbert Skill Score (GSS). These measures are described here.
 
+.. _hss-skill-score:
+
 **HEIDKE SKILL SCORE (HSS)**
 
 The HSS measures the proportion correct relative to the expected proportion 
@@ -544,7 +546,7 @@ Further descriptions of each of the CTC columns can be found in the
 `MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_. 
 Note that the final column of the CTC line type, EC_VALUE, is only 
 relevant to users verifying probabilistic data with the 
-:ref:`HSS_EC skill score <binary-cat-skill-score>`.
+:ref:`HSS_EC skill score <hss-skill-score>`.
 
 The CTS line type is also present in the .stat file and is the second row. 
 It has many more columns than the CTC line, where all of the scalar statistics 
@@ -934,14 +936,12 @@ In this example, we have told MET to output the MCTC and MCTS line types, which 
 
    V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s  Z10   WIND m/s    Z10   NA FULL NEAREST     1        &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7    &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7   NA         NA MCTC    162015 5        161912        11 0 0 0 71 22 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0     0.2
 
-While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
-??? Julie, is this the correct link???
-the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
+While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex2.png
    :alt: 
 
-Note that the final column of the MCTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the :ref:`HSS_EC skill score <binary-cat-skill-score>`.
+Note that the final column of the MCTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the :ref:`HSS_EC skill score <hss-skill-score>`.
 
 The MCTS line type is also present in the .stat file as the second row. In this example, the contents would be:
 
@@ -1578,7 +1578,7 @@ Now for the actual verification and statistical generation we turn to Grid-Stat.
       ];
    }
 
-In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using “==0.1” means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from :ref:`previous discussion on how MET evaluates probabilities <METplus_sol_prob_fcst_verif>` that MET will use the midpoints of each of these bins to evaluate the forecast. Since the forecast data probabilistic resolution is 0.1, the use of 0.05 as the evaluation increment is reasonable. 
+In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using “==0.1” means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from :ref:`previous discussion on how MET evaluates probabilities <METplus_sol_prob_fcst_verif>`_ that MET will use the midpoints of each of these bins to evaluate the forecast. Since the forecast data probabilistic resolution is 0.1, the use of 0.05 as the evaluation increment is reasonable. 
 
 Now let’s look at a possible setup for the obs dictionary:
 
@@ -1656,7 +1656,7 @@ Starting with variable fields, we would need to set the _VAR1 settings appropria
    OBS_GRID_STAT_VAR1_THRESH = &gt;10
    OBS_GRID_STAT_VAR1_OPTIONS = convert(x) = K_to_C(x);
 
-You can see how the GenEnsProd field variables start with the prefix ENS_, and the GridStat wrapper field variables have _GRID_STAT_ in their name. Those GridStat field settings are also clearly separated into forecast (FCST_) and observation (OBS_) options. Note how from the MET-only approach we have simply changed what the setting name is, but the same values are utilized, all in one configuration file.
+You can see how the GenEnsProd field variables start with the prefix ENS\_, and the GridStat wrapper field variables have _GRID_STAT_ in their name. Those GridStat field settings are also clearly separated into forecast (FCST\_) and observation (OBS\_) options. Note how from the MET-only approach we have simply changed what the setting name is, but the same values are utilized, all in one configuration file.
 
 To recreate the regridding aspect of the MET example, we would call the wrapper-appropriate regridding options:
 
