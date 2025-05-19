@@ -1022,7 +1022,7 @@ The final error statistic to discuss is Root Mean Squared Error (RMSE). One of t
 .. image:: ../figure/5.0_Tutorial_stats_RMSE_eq.png
    :alt: 
 
-Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. `See how to use these statistics in METplus! `_
+Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`.
 
 **STANDARD DEVIATIONS**
 
@@ -1031,7 +1031,7 @@ Unlike the family of mean error statistics, standard deviation focuses more on t
 .. image:: ../figure/5.0_Tutorial_stats_s_eq.png
    :alt: 
 
-`See how to use this statistic in METplus! `_
+:ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
 **MULTIPLICATIVE BIAS**
 
@@ -1040,7 +1040,7 @@ Like some of the other verification statistics for continuous forecasts, multipl
 .. image:: ../figure/5.0_Tutorial_stats_MBIAS_eq.png
    :alt: 
 
-MBIAS has some of the same drawbacks as ME. In particular, MBIAS does not indicate the magnitudes of the forecast errors, which allows a perfect score of 1 to be achieved if the forecast errors compensate for each other (see the example for ME above for more information). It is recommended that any variable fields that utilize MBIAS contain all the same value signs (e.g. positive or negative) as mixing value signs together (for example, temperatures) would result in strange or unusable MBIAS results that included even more value compensation. `See how to use this statistic in METplus! `_
+MBIAS has some of the same drawbacks as ME. In particular, MBIAS does not indicate the magnitudes of the forecast errors, which allows a perfect score of 1 to be achieved if the forecast errors compensate for each other (see the example for ME above for more information). It is recommended that any variable fields that utilize MBIAS contain all the same value signs (e.g. positive or negative) as mixing value signs together (for example, temperatures) would result in strange or unusable MBIAS results that included even more value compensation. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
 **CORRELATION COEFFICIENTS (PEARSON, SPEARMAN RANK, AND KENDALL'S TAU)**
 
@@ -1094,7 +1094,7 @@ Where ti is the number of ranks that are involved in a given tie.  Because both
 .. image:: ../figure/5.0_Tutorial_stats_taub_eq.png
    :alt: 
 
-Using this slightly modified equation, we find a 𝝉b value of 0.56. As 𝝉 has the same range as SP_CORR (-1 to 1), a value of 0.56 shows some positive correlation between the two datasets. `See how to use these statistics in METplus! `_
+Using this slightly modified equation, we find a 𝝉b value of 0.56. As 𝝉 has the same range as SP_CORR (-1 to 1), a value of 0.56 shows some positive correlation between the two datasets. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
 **ANOMALY CORRELATION**
 
@@ -1110,7 +1110,9 @@ If it is not desirable to include the errors, the uncentered anomaly correlation
 .. image:: ../figure/5.0_Tutorial_stats_ANOM_CORR_UNCNTR_eq.png
    :alt: 
 
-While there is an added effort required to find the matching climatology reference dataset for this statistic, it remains a highly resourceful statistic to use, especially with spatial verification, and is commonly used in operational forecasting centers. Anomaly correlation has a range from -1 to 1. `See how to use this statistic in METplus! `_
+While there is an added effort required to find the matching climatology reference dataset for this statistic, it remains a highly resourceful statistic to use, especially with spatial verification, and is commonly used in operational forecasting centers. Anomaly correlation has a range from -1 to 1. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
+
+.. _METplus_sol_cont_fcst_verif:
 
 METplus Solutions for Continuous Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
