@@ -1129,26 +1129,26 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET SOLUTIONS**
 
-The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates `_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type `_, which logically groups together statistics based on continuous variable fields.
+The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id10>`_, which logically groups together statistics based on continuous variable fields.
 
-For MET, which line types are output depends on your selection of the appropriate line type using the output_flag dictionary. Note that certain line types may or may not be available in every tool: for example, both Point-Stat and Grid-Stat produce CNT line types, which allows users access to the various continuous statistics for both point-based observations and gridded observations. But Ensemble-Stat is the only tool that can generate a Ranked Probability Score (RPS) line type which contains statistics relevant to the analysis of ensemble forecasts. If you don’t see your desired statistic in the line type or tool you’d expect it to be in, be sure to check `the Appendix `_ to see if the statistic is available in MET and which line type it’s currently grouped with.
+For MET, which line types are output depends on your selection of the appropriate line type using the output_flag dictionary. Note that certain line types may or may not be available in every tool: for example, both Point-Stat and Grid-Stat produce CNT line types, which allows users access to the various continuous statistics for both point-based observations and gridded observations. But Ensemble-Stat is the only tool that can generate a Ranked Probability Score (RPS) line type which contains statistics relevant to the analysis of ensemble forecasts. If you don’t see your desired statistic in the line type or tool you’d expect it to be in, be sure to check `the Appendix <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_ to see if the statistic is available in MET and which line type it’s currently grouped with.
 
 As for the previous statistics that were discussed, here’s a link to the User’s Guide Appendix entry that discusses its use in MET:
 
-* ME
-* MAE
-* MSE
-* RMSE
-* S (note that the linked s is for forecast; the observation s2 is just below it)
-* MBIAS
-* PR_CORR
-* SP_CORR
-* 𝝉 or KT_CORR
-* ANOM_CORR
+* `ME <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#mean-error-me>`_
+* `MAE <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#mean-absolute-error-mae>`_
+* `MSE <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#mean-squared-error-mse>`_
+* `RMSE <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#root-mean-squared-error-rmse>`_
+* `S <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#forecast-standard-deviation>`_ (note that the linked s is for forecast; the observation s2 is just below it)
+* `MBIAS <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#multiplicative-bias>`_
+* `PR_CORR <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#pearson-correlation-coefficient>`_
+* `SP_CORR <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#spearman-rank-correlation-coefficient-rho-s>`_
+* `𝝉 or KT_CORR <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#kendall-s-tau-statistic-tau>`_
+* `ANOM_CORR <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html#anomaly-correlation-coefficient>`_
 
 **METPLUS WRAPPER SOLUTIONS**
 
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the S`tatistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool `_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
+The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/latest/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/latest/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples for Continuous Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
