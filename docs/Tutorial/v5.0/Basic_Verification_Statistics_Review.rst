@@ -835,7 +835,7 @@ In example 1, the thresholds decrease with each entry which violates the require
 
 .. admonition:: Sample Output
 
-   cat_thresh = [&lt;10.2, &lt;14.2, &lt;18.5];
+   cat_thresh = [&lt;10.2, &lt;14.2, &lt;18.5];0
 
 In example 2, the final threshold uses a different inequality than the other two thresholds which violates the requirement that all multicategorical thresholds use the same inequality type. This rewrite of example 2 will provide the same information desired from the original thresholds, but will now successfully run in METplus:
 
@@ -1155,7 +1155,7 @@ METplus Examples for Continuous Forecast Verification
 
 The following two examples show a generalized method for calculating continuous statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce continuous statistics.
 
-If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the `METplus online tutorial `_ that follows this statistical tutorial, where data is made available to reproduce the guided examples.
+If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the :ref:`METplus online tutorial <grid_to_grid>` that follows this statistical tutorial, where data is made available to reproduce the guided examples.
 
 In order to better understand the delineation between METplus, MET, and METplus wrappers which are used frequently throughout this tutorial but are NOT interchangeable, the following definitions are provided for clarity:
 
@@ -1167,7 +1167,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 Here is an example that demonstrates deterministic forecast verification in MET.
 
-For this example, let’s examine two tools, PCP-Combine and Grid-Stat. Assume we wanted to verify a 6 hour period of precipitation forecasts over the continental United States. Using these tools, we will first combine the forecast files, which are hourly forecasts, into a 6 hour summation file with PCP-Combine. Then we will use Grid-Stat to place both datasets on the same verification grid and let MET calculate the continuous statistics available in the CNT line type. Starting with PCP-Combine, we need to understand what the desired output is first to know how to properly run the tool from the command line, as PCP-Combine does not use a configuration file. As stated previously, this scenario assumes the precipitation forecasts are hourly files and need to match the 6 hour observation file time summation. `Of the four commands available in PCP-Combine `_, two seem to provide potential paths forward: sum and add.
+For this example, let’s examine two tools, PCP-Combine and Grid-Stat. Assume we wanted to verify a 6 hour period of precipitation forecasts over the continental United States. Using these tools, we will first combine the forecast files, which are hourly forecasts, into a 6 hour summation file with PCP-Combine. Then we will use Grid-Stat to place both datasets on the same verification grid and let MET calculate the continuous statistics available in the CNT line type. Starting with PCP-Combine, we need to understand what the desired output is first to know how to properly run the tool from the command line, as PCP-Combine does not use a configuration file. As stated previously, this scenario assumes the precipitation forecasts are hourly files and need to match the 6 hour observation file time summation. `Of the four commands available in PCP-Combine <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/reformat_grid.html#pcp-combine-tool>`_, two seem to provide potential paths forward: sum and add.
 
 While there are multiple methods that may work to successfully summarize the forecast files from these two commands, let’s assume that our forecast data files contain a time reference variable that is not CF-compliant {link to CF compliant time table in MET UG here}. As such, MET will be unable to determine the initialization and valid time of the files (without being explicitly set in the field array). Because the “add” command only relies on a list of files passed by the user to determine what is being summed, that is the command we will use.
 
@@ -1283,7 +1283,7 @@ To achieve the same success as the previous example but utilizing METplus wrappe
 
    PROCESS_LIST = PCPCombine, GridStat, GridStat(rank)
 
-The second listing of GridStat uses `the instance feature `_ to allow a second run of Grid-Stat with different settings. Now we need to set the _VAR1 settings appropriately:
+The second listing of GridStat uses `the instance feature <https://metplus.readthedocs.io/en/latest/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_ to allow a second run of Grid-Stat with different settings. Now we need to set the _VAR1 settings appropriately:
 
 .. code-block::
 
