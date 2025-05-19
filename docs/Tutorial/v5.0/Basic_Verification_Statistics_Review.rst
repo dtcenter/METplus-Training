@@ -571,7 +571,7 @@ djustments is one of the many advantages of using the METplus system.
 
 To achieve the same outcome as the previous example but utilizing METplus 
 wrappers instead of MET, very few changes would need to be made. Starting with the 
-standard GridStat configuration file `<https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
+`standard GridStat configuration file <https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
 we would need to set the _VAR1 settings appropriately:
 
 .. code-block:: ini
