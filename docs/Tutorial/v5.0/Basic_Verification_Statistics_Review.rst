@@ -80,7 +80,7 @@ showcasing other attributes you can have a better understanding of the utility o
   sharpness. If the forecast has the ability to produce values different from climatology that change the distribution, then it 
   demonstrates sharpness.
 
-.. _bin-cat-fore:
+.. _bin_cat_fcst:
 
 Binary Categorical Forecasts
 ----------------------------
@@ -361,9 +361,9 @@ interchangeable, the following definitions are provided for clarity:
 
 **MET SOLUTIONS**
 
-The MET User’s Guide provides an 
-:ref:`Appendix that dives into all of the statistical measure that MET calculates <appendixC:>`. 
-METplus groups statistics together by application 
+The MET User’s Guide provides an
+`Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_.
+METplus groups statistics together by application
 and type and makes them available to METplus users via several line types. 
 For example, many of the statistics that were discussed above can be found 
 in the Contingency Table Statistics (CTS) line type, which logically groups 
@@ -623,7 +623,7 @@ between rain, snow, and any other precipitation type. Luckily, the
 transformation of statistics from supporting binary categorical forecasts 
 to the second group of forecasts, multi-category, is fairly straightforward.
 
-.. _ver-stat_multicat_for:
+.. _ver_stat_multicat_fcst:
 
 Verification Statistics for Multicategorical Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -715,7 +715,7 @@ forecast predict rain rather than snow or ice pellets, did the forecast
 predict snow rather than rain or ice pellets, did the forecast predict 
 ice pellets rather than rain or snow) and evaluating the corresponding 
 observations, scalar statistics such as POD, Bias, etc. can be calculated 
-in the same method as the :ref:`binary categorical forecasts <bin-cat-fore>`. 
+in the same method as the :ref:`binary categorical forecasts <bin_cat_fcst>`. 
 
 One of the unique scalar statistics that does not need a contingency table 
 simplification is Accuracy (Acc). This is due to its definition, which,
@@ -843,7 +843,7 @@ In example 2, the final threshold uses a different inequality than the other two
 
    cat_thresh = [&lt;10.5, &lt;13.7, &lt;15.5];
 
-This time, the rewrite changed the final inequality to match the first two while also keeping the final bin of values that METplus will calculate, >=15.5, consistent with the desired information. More information on how MET creates the value bins from multicategory thresholds is provided in the :ref:`MET Example of Multicategorical Forecast Verification <met-ex-multicat-fcst-verif>`.
+This time, the rewrite changed the final inequality to match the first two while also keeping the final bin of values that METplus will calculate, >=15.5, consistent with the desired information. More information on how MET creates the value bins from multicategory thresholds is provided in the :ref:`MET Example of Multicategorical Forecast Verification <met_ex_multicat_fcst_verif>`.
 
 Now that you know a bit more about verification measures for multicategorical, deterministic forecasts, it’s time to show how you can access those same statistics in METplus!
 
@@ -855,7 +855,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET SOLUTIONS**
 
-The MET User’s Guide provides an :ref:`Appendix that dives into all of the statistical measure that MET calculates <appendixC:>`, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <bin-cat-fore>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the `Verification Statistics section for Multicategorical Forecasts <ver-stat_multicat_for>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
+The MET User’s Guide provides an :ref:`Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <bin_cat_fcst>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the `Verification Statistics section for Multicategorical Forecasts <ver_stat_multicat_fcst>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
 * Acc
 * HK
@@ -864,7 +864,7 @@ The MET User’s Guide provides an :ref:`Appendix that dives into all of the sta
 
 **METPLUS WRAPPER SOLUTIONS**
 
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the` Statistics and Diagnostics Section of the METplus wrappers User’s Guide `_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the` list of available commands for that tool `_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
+The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/latest/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/latest/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples for Multicategorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -879,7 +879,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-.. _met-ex-multicat-fcst-verif:
+.. _met_ex_multicat_fcst_verif:
 
 **MET Example of Multicategorical Forecast Verification**
 
