@@ -1,3 +1,5 @@
+.. _grid_to_grid:
+
 Session 1: Grid-to-Grid
 =======================
 
