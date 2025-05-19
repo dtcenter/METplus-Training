@@ -957,7 +957,7 @@ To achieve the same success as the previous example but utilizing METplus wrappe
    BOTH_VAR1_LEVELS = Z10
    BOTH_VAR1_THRESH = ge13.9, ge17.2, ge24.5, ge32.7
 
-Note how the BOTH option is utilized here (as opposed to individual FCST_ and OBS_ settings) since the forecast and observation datasets utilize the same name and level information. Because the loop/timing information is controlled inside the configuration file for METplus wrappers (as opposed to MET’s non-looping option), that information must also be set accordingly:
+Note how the BOTH option is utilized here (as opposed to individual FCST\_ and OBS\_ settings) since the forecast and observation datasets utilize the same name and level information. Because the loop/timing information is controlled inside the configuration file for METplus wrappers (as opposed to MET’s non-looping option), that information must also be set accordingly:
 
 .. code-block::
 
