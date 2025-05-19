@@ -814,9 +814,9 @@ Finally, the Gerrity Skill Score is computed through summing the product of the
 scoring weights and their corresponding joint probability distribution. That distribution 
 is found by taking each count of the contingency table cell and dividing it by the 
 total number of occurrences and non-occurrences across all cells, *n*. 
-:ref:`See how to use these statistics in METplus! <metplus_sol_multicat_fore_verif>`
+:ref:`See how to use these statistics in METplus! <metplus_sol_multicat_fcst_verif>`
 
-.. _metplus_sol_multicat_fore_verif:
+.. _metplus_sol_multicat_fcst_verif:
 
 METplus Solutions for Multicategorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -911,7 +911,7 @@ In this example, the forecast field name in the forecast input file is named WIN
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex.png
    :alt: 
 
-The table includes a “hidden” bin containing wind speeds less than 13.9 m/s that is not explicitly listed by a threshold in the MET settings, but rather implied: each of these bins is mutually exclusive and together they entail the complete real number line. This is why it is important to remember the “monotonically increasing and same inequality type” requirement when setting multicategorical forecast thresholds in METplus. For more discussion on this, review the :ref:`METplus Solutions for Multicategorical Forecast Verification section <metplus_sol_multicat_fore_verif>`.
+The table includes a “hidden” bin containing wind speeds less than 13.9 m/s that is not explicitly listed by a threshold in the MET settings, but rather implied: each of these bins is mutually exclusive and together they entail the complete real number line. This is why it is important to remember the “monotonically increasing and same inequality type” requirement when setting multicategorical forecast thresholds in METplus. For more discussion on this, review the :ref:`METplus Solutions for Multicategorical Forecast Verification section <metplus_sol_multicat_fcst_verif>`.
 
 The **obs** dictionary is simply copying the settings from the **fcst** dictionary, which is a method that can be used if both the forecast and observation input files share the same variable structure and file type (e.g. both inputs use the WIND variable name, in m/s, with the Z10 level corresponding to the 10 meter level).
 
