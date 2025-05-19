@@ -1288,66 +1288,38 @@ End of Session 4 and Additional Exercises
 Congratulations! You have completed Session 4!
 If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
 
-
-
-
-
-
-
-
-
-
-
+**EXERCISES FOR SESSION 4**
 
 EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
-
-
-
-
-
 
 .. note::
 
 **Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from forecast data using pcp_combine in the HREF MEAN vs. MRMS QPE example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
 
-
-
 .. note::
 
 Copy your custom configuration file and rename it to **GridStat-ensemble.accum_3hr.conf** for this exercise.
-
-
 
 .. code-block::
 
 cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.accum_3hr.conf
 
-
-
 .. note::
 
 Open **GridStat-ensemble.accum_3hr.conf** with an editor and change values.
-
-
 
 .. code-block::
 
 vi ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.accum_3hr.conf
 
-
-
 .. important::
 
 &lt;span class="tip"&gt;HINT: There is a variable in the observation data named **BOTH_VAR1_LEVELS** that currently contains a 6 hour accumulation.&lt;/span&gt;
 
-
-
 .. note::
 
 Rerun METplus passing in your new custom config file,** tutorial.conf**, and setting the new **OUTPUT_BASE ** for this exercise.
-
-
 
 .. code-block::
 
@@ -1356,19 +1328,13 @@ ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.accum_3hr.conf \&lt;br/&gt
 ${METPLUS_TUTORIAL_DIR}/tutorial.conf \&lt;br/&gt;
 config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/accum_3hr
 
-
-
 .. note::
 
 Review the log file. You should see Pcp-Combine read 3 files and run Grid-Stat comparing both 3 hour accumulations.
 
-
-
 .. code-block::
 
 ls ${METPLUS_TUTORIAL_DIR}/output/exercises/accum_3hr/logs/master_metplus.log.*
-
-
 
 .. admonition:: Sample Output
 
@@ -1379,39 +1345,19 @@ DEBUG 2: Skipping 480079 of 987601 grid points which do not meet the valid data 
 DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/accum_3hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A03h&lt;br/&gt;
 DEBUG 2: Writing output variable "APCP_03" for the "sum" of "APCP/A01".&lt;/p&gt;
 
-
-
 .. note::
 
 Go to the next page for the solution to see if you were right!
 
-
-
-
-
-
-
-
-
-
 EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files
-
-
-
-
-
 
 .. note::
 
 **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use **six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
 
-
-
 .. important::
 
 &lt;span class="tip"&gt;Tip: Recall from the original QPF exercise that METplus used a 6 hour observation accumulation file as input to Pcp-Combine to build a 6 hour accumulation file for the example where forecast lead = 6.&lt;/span&gt;
-
-
 
 From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:  
 .. admonition:: Sample Output
@@ -1422,50 +1368,34 @@ DEBUG 2: Skipping 399779 of 987601 grid points which do not meet the valid data 
 DEBUG 1: Creating output file: /path/to/tutorial/output/qpf-prob/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A06h&lt;br/&gt;
 DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A6".
 
-
-
 .. note::
 
 Copy your custom configuration file and rename it to **GridStat-ensemble.input_1hr.conf** for this exercise.
-
-
 
 .. code-block::
 
 cd ${METPLUS_TUTORIAL_DIR}/user_config&lt;br/&gt;
 cp GridStat-ensemble.accum_3hr.conf GridStat-ensemble.input_1hr.conf
 
-
-
 .. note::
 
 Open **GridStat-ensemble.input_1hr.conf** with an editor and add the extra information.
-
-
 
 .. code-block::
 
 vi ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.input_1hr.conf
 
-
-
 .. important::
 
 HINT 1: The variables that you need to add must go under the **[config]** section.
-
-
 
 .. important::
 
 HINT 2: The **FCST_PCP_COMBINE_INPUT_LEVEL **and **OBS_PCP_COMBINE_INPUT_LEVEL **variables set the accumulation interval that is found in grib2 input data for forecast and observation data respectively.
 
-
-
 .. note::
 
 Rerun METplus passing in your new custom config file for this exercise keeping in mind to order of configuration files matters and the **OUTPUT_BASE** set on the command line will override what is in the tutorial.conf file
-
-
 
 .. code-block::
 
@@ -1473,8 +1403,6 @@ run_metplus.py \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.input_1hr.conf \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/tutorial.conf \&lt;br/&gt;
 config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/input_1hr
-
-
 
 .. admonition:: Sample Output
 
@@ -1489,55 +1417,15 @@ DEBUG 2: Skipping 480079 of 987601 grid points which do not meet the valid data 
 DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/input_1hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A06h&lt;br/&gt;
 DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A01".&lt;/p&gt;
 
-
-
 .. note::
 
 Go to the next page for the solution to see if you were right!
 
-
-
-
-
-
-
-
-
-
-
-
-
-Answers to Exercises from Session 4  ??? Julie, what should this be???
-===================================
-
-
-Answers to Exercises from Session 4
-
-
-
-Answers to Exercises from Session 4
------------------------------------
-
+**ANSWERS TO EXERCISES FROM SESSION 4** 
 
 These are the answers to the exercises from the previous page. Feel free to ask a METplus team member if you have any questions!
 
-
-
-
-
-
-
-
-
-
-
-
 ANSWER 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
-
-
-
-
-
 
 Instructions: Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from forecast data using Pcp-Combine in the HREF MEAN vs. MRMS QPE example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
 Answer: In the user_config/GridStat-ensemble.accum_3hr.conf file, change the following variables in the [config] section: 
@@ -1546,28 +1434,12 @@ Change:
 
 BOTH_VAR1_LEVELS = A06
 
-
-
 To:
 .. admonition:: Sample Output
 
 BOTH_VAR1_LEVELS = A03
 
-
-
-
-
-
-
-
-
-
 ANSWER 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files
-
-
-
-
-
 
 Instructions: Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
 Answer: In the user_config/GridStat-ensemble.input_1hr.conf file, change the following variable to the [config] section: 
@@ -1576,39 +1448,19 @@ Change:
 
 BOTH_VAR1_LEVELS = A03
 
-
-
 Back to:
 .. admonition:: Sample Output
 
 BOTH_VAR1_LEVELS = A06
-
-
 
 Also change:
 .. admonition:: Sample Output
 
 OBS_PCP_COMBINE_INPUT_ACCUMS = 6,1
 
-
-
 To:
 .. admonition:: Sample Output
 
 OBS_PCP_COMBINE_INPUT_ACCUMS = 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
