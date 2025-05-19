@@ -1440,6 +1440,8 @@ Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the genera
 
 RPSS measures the improvement/degradation of the ranked probability forecasts compared to the skill of a reference forecast. As with BSS, RPSS ranges from negative infinity to 1, with a perfect score of 1, and a score of zero indicating no improvement of forecast performance relative to the reference forecast. See how to use this skill score in METplus!
 
+.. METplus_sol_prob_fcst_verif:
+
 METplus Solutions for Probabilistic Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1486,7 +1488,7 @@ METplus Examples for Probabilistic Forecast Verification
 
 The following two examples show a generalized method for calculating probabilistic statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce probabilistic statistics.
 
-If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the `METplus online tutorial `_ that follows this statistical tutorial, where data is made available to reproduce the guided examples.
+If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the :ref:`METplus online tutorial <<grid_to_grid>`>` that follows this statistical tutorial, where data is made available to reproduce the guided examples.
 
 In order to better understand the delineation between METplus, MET, and METplus wrappers which are used frequently throughout this tutorial but are NOT interchangeable, the following definitions are provided for clarity:
 
@@ -1500,7 +1502,7 @@ Here is an example that demonstrates probabilistic forecast verification using M
 
 For this example, we will use two tools: Gen-Ens-Prod, which will be used to create uncalibrated probability forecasts, and Grid-Stat, which will verify the forecast probabilities against an observational dataset. The “uncalibrated” term means that the probabilities gathered from Gen-Ens-Prod may be biased and will not perfectly reflect the true probabilities of the forecasted event. To avoid complications with assuming gaussian distributions on non-gaussian variable fields (i.e. precipitation), we’ll verify the probability of a CONUS 2 meter temperature field from a global ensemble with 5 members with a threshold of greater than 10 degrees Celsius.
 
-Starting with the `general Gen-Ens-Prod configuration file `_, the following would resemble the minimum necessary settings/changes for the ens dictionary:
+Starting with the `general Gen-Ens-Prod configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GenEnsProdConfig_default>`_, the following would resemble the minimum necessary settings/changes for the ens dictionary:
 
 .. code-block::
 
@@ -1518,7 +1520,7 @@ Starting with the `general Gen-Ens-Prod configuration file `_, the following wou
      ];
    }
 
-We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP on the second vertical level). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod `_ or get a hands-on experience with the tool in `the METplus online tutorial `_. 
+We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP on the second vertical level). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/gen-ens-prod.html>`_ or get a hands-on experience with the tool in :ref:`the METplus online tutorial <MET_tool_Gen-Ens-Prod>`_. 
 
 Let’s also utilize the regrid dictionary, since we are only interested in CONUS and the model output is global:
 
@@ -1532,7 +1534,7 @@ Let’s also utilize the regrid dictionary, since we are only interested in CONU
       shape   = SQUARE;
    }
 
-More discussion on how to properly use the regrid dictionary and all of its associated settings can be found in `the MET User’s Guide `_.
+More discussion on how to properly use the regrid dictionary and all of its associated settings can be found in `the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html#regrid>`_.
 
 All that’s left before running the tool is to set up the ensemble_flag dictionary correctly:
 
@@ -1561,7 +1563,7 @@ The output from Gen-Ens-Prod is a netCDF file whose content would contain a vari
 
 With this new MET field output, we can verify this uncalibrated probabilistic forecast for 2 meter temperatures greater than 10 degrees Celsius against an observation dataset in Grid-Stat.
 
-Now for the actual verification and statistical generation we turn to Grid-Stat. Starting with the `general Grid-Stat configuration file `_, let’s review how we might set the fcst dictionary:
+Now for the actual verification and statistical generation we turn to Grid-Stat. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, let’s review how we might set the fcst dictionary:
 
 .. code-block::
 
@@ -1576,7 +1578,7 @@ Now for the actual verification and statistical generation we turn to Grid-Stat.
       ];
    }
 
-In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using “==0.1” means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from `previous discussion on how MET evaluates probabilities `_ that MET will use the midpoints of each of these bins to evaluate the forecast. Since the forecast data probabilistic resolution is 0.1, the use of 0.05 as the evaluation increment is reasonable. 
+In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using “==0.1” means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from :ref:`previous discussion on how MET evaluates probabilities <METplus_sol_prob_fcst_verif>` that MET will use the midpoints of each of these bins to evaluate the forecast. Since the forecast data probabilistic resolution is 0.1, the use of 0.05 as the evaluation increment is reasonable. 
 
 Now let’s look at a possible setup for the obs dictionary:
 
@@ -1628,7 +1630,7 @@ With a successful run of MET, we should find a .stat file with two rows of data;
 
    ==0.10000   &gt;10     NA      0.05  PSTD   103936 11 0.53987   0.53684  0.5429 0.0019261 0.231 0.24841 0.99209   0.019338   0.013009 0.025667 NA NA NA NA   0.92215 0   0.1 0.2 0.3   0.4   0.5 0.6 0.7 0.8 0.9 1
 
-Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). There is some room for improvement, as reflected in a 0.231 Resolution value (remember that this is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable). For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT `_ and `PSTD `_ line types.
+Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). There is some room for improvement, as reflected in a 0.231 Resolution value (remember that this is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable). For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id14>`_ and `PSTD <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id15>`_ line types.
 
 **METPLUS WRAPPER EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
 
