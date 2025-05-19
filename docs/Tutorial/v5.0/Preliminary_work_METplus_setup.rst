@@ -3,6 +3,8 @@
 Preliminary Work: METplus Setup
 ===============================
 
+**Welcome to the online METplus tutorial!**
+
 In this preliminary session, you'll be guided through the necessary steps that need to happen before executing the tutorial's METplus commands. Additionally, we'll go over some of the common METplus wrapper configuration settings, timing control, and the directory structure of the METplus wrappers.
 
 If you have already started working on the tutorial and are rejoining with the same METplus terminal session active (i.e. you have not changed any of the environmental configuration settings), you do not need to redo this section and can jump directly to the session of interest.
@@ -12,12 +14,13 @@ If you are just starting out, or you are returning with a new terminal session, 
 METplus Setup
 ------------- 
 
+**METplus Overview**
+
 METplus is a set of Python modules that have been developed with the flexibility to run the MET applications for various use cases or scenarios. The goal is to simplify the running of MET for scientists. Currently, the primary means of achieving this is through the use of METplus configuration files, aka "conf files." It is designed to provide a framework in which additional use cases can be added. The conf file implementation utilizes a Python package called produtil that was developed by NOAA/NCEP/EMC for the HWRF system.
 
 *Please be sure to follow the instructions in order.*
 
-METplus Useful Links  ??? Julie, keep header, change???
---------------------
+**METplus Useful Links**
 
 The following links are just for reference, and not required for this practical session. METplus releases are available on GitHub along with sample data and instructions.
 
@@ -42,15 +45,13 @@ The source code for the METplus components are publicly available in the followi
 METplus: Initial Setup
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Prerequisites: Software   ??? Julie, keep header, change???
------------------------
+**Prerequisites: Software**
 
 The `Requirements section in the Software Installation chapter `_ of the METplus User's Guide lists the software and Python packages that are required to run the METplus wrappers. Note that there is a core set of requirements needed to run the METplus wrappers and additional requirements needed to utilize some of the more advanced features.
 
  
 
-Prerequisites: Environment   ??? Julie, keep header, change???
---------------------------
+**Prerequisites: Environment**
 
 .. important::
 
@@ -66,37 +67,28 @@ The following instructions are required so the commands in this tutorial can be 
 
    If you are running the tutorial instructions on your own computer, select the bash or csh instructions depending on which shell you prefer. We recommend using bash if you do not have a preference.
 
+**PRE-CONFIGURED ENVIRONMENTS**
+
+Setting up the Tutorial Environment on Cheyenne (NCAR)
+
 Setting up the Tutorial Environment on Jet (NOAA)
-"""""""""""""""""""""""""""""""""""""""""""""""""
-
-`Setting up the Tutorial Environment on Hera (NOAA) `_
-
-`Setting up the Tutorial Environment on Jet (NOAA) `_
-
-`Setting up the Tutorial Environment on Cheyenne (NCAR) `_
-
-`Setting up the Tutorial Environment on Seneca (NCAR) `_
 
 Setting up the Tutorial Environment on Seneca (NCAR)
-""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Setting up the Tutorial Environment on Hera (NOAA)
-""""""""""""""""""""""""""""""""""""""""""""""""""
+
+**USER-CONFIGURED ENVIRONMENTS**
 
 Setting up the Tutorial Environment (bash)
-""""""""""""""""""""""""""""""""""""""""""
 
-`Setting up the Tutorial Environment (bash) `_
-
-`Setting up the Tutorial Environment (csh) `_
+Setting up the Tutorial Environment (csh)
 
 Setting up the Tutorial Environment on Cheyenne (NCAR)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Cheyenne (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -132,16 +124,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -179,17 +169,11 @@ Obtain the Tutorial Setup Script
 
 
 Setting up the Tutorial Environment on Jet (NOAA)
-=================================================
-
-Setting up the Tutorial Environment on Jet (NOAA)
-
-Setting up the Tutorial Environment on Jet (NOAA)
--------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Jet (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -221,16 +205,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -241,25 +223,17 @@ Obtain the Tutorial Setup Script
    cp /lfs1/HFIP/dtc-hurr/METplus/METplus-5.0.0_Tutorial_Files/METplus-5.0.0_TutorialSetup.jet.`basename $SHELL` ./METplus-5.0.0_TutorialSetup.sh
    cp /lfs1/HFIP/dtc-hurr/METplus/METplus-5.0.0_Tutorial_Files/tutorial-5.0.0.conf ./tutorial.conf
 
- 
-
 .. note::
 
    Next navigate to the Verify Environment is Set Correctly page.
 
 
 Setting up the Tutorial Environment on Seneca (NCAR)
-====================================================
-
-Setting up the Tutorial Environment on Seneca (NCAR)
-
-Setting up the Tutorial Environment on Seneca (NCAR)
-----------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Seneca (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -295,16 +269,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -320,10 +292,7 @@ Obtain the Tutorial Setup Script
 
 .. code-block::
 
-   
-
-(OPTIONAL) Set up conda Environment for METplus Analysis and s2s Tutorial Sections
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**(OPTIONAL) SET UP CONDA ENVIRONMENT FOR METPLUS ANALYSIS AND S2S TUTORIAL SECTIONS** 
 
 Due to the need for external package dependencies for the METplus Analysis and s2s sections, the following instructions are also necessary. If you do not plan on executing the commands of those sections, you can skip these steps.
 
@@ -423,17 +392,11 @@ Now you are ready to run the METplus Analysis tutorials.
 
 
 Setting up the Tutorial Environment on Hera (NOAA)
-==================================================
-
-Setting up the Tutorial Environment on Hera (NOAA)
-
-Setting up the Tutorial Environment on Hera (NOAA)
---------------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Hera (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -465,16 +428,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -493,19 +454,13 @@ Obtain the Tutorial Setup Script
 
 
 Setting up the Tutorial Environment (bash)
-==========================================
-
-Setting up the Tutorial Environment (bash)
-
-Setting up the Tutorial Environment (bash)
-------------------------------------------
+""""""""""""""""""""""""""""""""""""""""""
 
 .. important::
 
    The following instructions should be run if configuring the bash environment to run the METplus Tutorial on your own computer. If you are running on an NCAR or NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -541,16 +496,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -561,8 +514,7 @@ Obtain the Tutorial Setup Script
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
-Configure the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CONFIGURE THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -586,19 +538,13 @@ Configure the Tutorial Setup Script
 
 
 Setting up the Tutorial Environment (csh)
-=========================================
-
-Setting up the Tutorial Environment (csh)
-
-Setting up the Tutorial Environment (csh)
------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""
 
 .. important::
 
    The following instructions should be run if configuring a csh environment to run the METplus Tutorial on your own computer. If you are running on an NCAR or NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-Create a Working Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE A WORKING DIRECTORY**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -634,16 +580,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-Create Directories for Configuration Files and Output Data
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-Obtain the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**OBTAIN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -654,8 +598,7 @@ Obtain the Tutorial Setup Script
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
-Configure the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**CONFIGURE THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -679,15 +622,9 @@ Configure the Tutorial Setup Script
 
 
 Verify Environment is Set Correctly
-===================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Verify Environment is Set Correctly
-
-Verify Environment is Set Correctly
------------------------------------
-
-Run the Tutorial Setup Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**RUN THE TUTORIAL SETUP SCRIPT**
 
 .. note::
 
@@ -704,8 +641,7 @@ Run the Tutorial Setup Script
 
 The tutorial setup script sets the paths for **METPLUS_TUTORIAL_DIR**, **METPLUS_BUILD_BASE**, **MET_BUILD_BASE**, and **METPLUS_DATA**. It also appends the **$PATH** environment variable to include the directory where the **METplus** scripts are located. If necessary, it may also load modules needed for the **METplus** software to run correctly.
 
-Check Path
-^^^^^^^^^^
+*CHECK PATH**
 
 Make sure that all of the environment variables are set to the appropriate values and that the path is set up to locate the METplus components.
 
@@ -739,8 +675,7 @@ You should see the usage statement for Point-Stat. The version number listed sho
 
    Check that the environment variables required to run the tutorial instructions are set correctly.
 
-$METPLUS_TUTORIAL_DIR
-^^^^^^^^^^^^^^^^^^^^^
+**$METPLUS_TUTORIAL_DIR**
 
 **The directory you created to store all of your tutorial files**
 
@@ -767,8 +702,7 @@ Example contents:
    tutorial.conf
    user_config/
 
-$MET_BUILD_BASE
-^^^^^^^^^^^^^^^
+**$MET_BUILD_BASE**
 
 **The directory where MET is installed**
 
@@ -846,8 +780,7 @@ Example contents:
    wwmca_plot
    wwmca_regrid
 
-$METPLUS_BUILD_BASE
-^^^^^^^^^^^^^^^^^^^
+**$METPLUS_BUILD_BASE**
 
 **The directory where METplus is installed**
 
@@ -883,8 +816,7 @@ Example contents:
    setup.py
    ush
 
-$METPLUS_DATA
-^^^^^^^^^^^^^
+**$METPLUS_DATA**
 
 **The directory containing sample input data to use for the tutorial**
 
@@ -912,11 +844,6 @@ Example contents:
 
 
 METplus Overview
-================
-
-METplus Overview
-
-METplus Overview
 ----------------
 
 The following content will discuss and demonstrate some of the basic concepts of the METplus wrappers. This will include discussion of the repository structure and configuration files, as well as how to run a simple example and some associated settings that users will change the most frequently as they continue to work with the METplus system.
@@ -927,12 +854,9 @@ Proceed to the next page to start with a overview of the METplus directory layou
 
 
 METplus: Directories and Configuration Files - Overview
-=======================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-METplus: Directories and Configuration Files - Overview
-
-METplus directory structure
----------------------------
+**METplus Directory Structure** 
 
 A brief description and overview of the **METplus/** directory structure can be found in the METplus User's Guide section called `METplus Wrappers Directory Structure `_. The files/directories in ${METPLUS_BUILD_BASE} should match this list.
 
@@ -940,8 +864,7 @@ A brief description and overview of the **METplus/** directory structure can be 
 
    ls ${METPLUS_BUILD_BASE}
 
-METplus default configuration file
-----------------------------------
+**METplus Default Configuration File**
 
 Look inside the directory ${METPLUS_BUILD_BASE}/parm
 
@@ -977,13 +900,11 @@ The METplus default configuration file **(defaults.conf)** is always read first.
  
 The **met_config** directory (in ${METPLUS_BUILD_BASE}/parm) contains "wrapped" MET configuration files that are used by calls to the MET applications via the METplus wrappers. The wrappers set environment variables that control settings in the wrapped MET configuration files through these environment variables. See the METplus User's Guide section called `How METplus controls MET configuration variables `_ for more information.
 
-METplus Use Cases
------------------
+**METplus Use Cases**
 
 The **use_cases** directory - this is where the use cases you will be running exist. Under the **use_cases** directory are two directories: **met_tool_wrapper** and **model_applications**. The **met_tool_wrapper** directory contains use cases that run a single METplus wrapper. They are a good starting point to see how the wrapper scripts generate commands that run the MET tools. The **model_applications** directory contains more complex use cases that often run multiple wrappers and demonstrate real evaluations from users.
 
-MET Tool Wrapper Use Cases
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+**MET TOOL WRAPPER USE CASES**
 
 Look at the MET Tool Wrapper Use Cases
 
@@ -999,10 +920,7 @@ The **met_tool_wrapper** use case files are organized into subdirectories by wra
 * met_tool_wrapper/GridStat/GridStat.conf - use case configuration file
 * parm/met_config/GridStatConfig_wrapped - MET configuration file used in the GridStat.conf use case
 
- 
-
-Model Application Use Cases
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**MODEL APPLICATION USE CASES**
 
 Look at the Model Application use cases
 
@@ -1018,9 +936,7 @@ The **model_applications** use case files are organized in directories by catego
 * model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface/read_ioda_mpr.py - script called by the use case
 
  
-
-Example Use Case (aka "Hello World" Example - METplus style)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**EXAMPLE USE CASE (AKA "HELLO WORLD" EXAMPLE - METPLUS STYLE)**
 
 Let's look at the Example use case, ***Example.conf***, under **met_tool_wrapper/Example**
 
@@ -1038,12 +954,9 @@ No changes are needed in Example.conf. Close it and continue to the next page.
 
 
 METplus: User Configuration Settings
-====================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-METplus: User Configuration Settings
-
-Modify your Tutorial/User conf files
-------------------------------------
+**Modify your Tutorial/User Conf Files**
 
 In this section you will modify the configuration files that will be read for each call to METplus.
 
@@ -1145,12 +1058,9 @@ We will test out using these configurations on the next page.
 
 
 METplus: How to Run with Example.conf
-=====================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-METplus: How to Run with Example.conf
-
-Running METplus
----------------
+**Running METplus**
 
 Running METplus involves invoking the python script **run_metplus.py** followed by a list of configuration files.
 
@@ -1257,12 +1167,9 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
 
 
 Modifying Timing Control in Example.conf
-========================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Modifying Timing Control in Example.conf
-
-Timing Control in METplus
--------------------------
+**Timing Control in METplus**
 
 METplus configuration variables that control timing information are described in the `Timing Control `_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
 
@@ -1484,12 +1391,9 @@ METplus configuration variables that control timing information are described in
 
 
 Modifying Filename Template in Example.conf
-===========================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Modifying Filename Template in Example.conf
-
-Filename Template Settings in METplus
--------------------------------------
+**Filename Template Settings in METplus**
 
 METplus configuration variables that control filename templates are described in the `Directory and Filename Template Info `_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
 
@@ -1608,9 +1512,7 @@ The output should list:
 
 
 Modifying Log Timestamp using Example.conf
-==========================================
-
-Modifying Log Timestamp using Example.conf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The METplus configuration variable named `LOG_TIMESTAMP_TEMPLATE `_ controls to timestamp that is included in the log file names. The default value of LOG_TIMESTAMP_TEMPLATE is **%Y%m%d%H%M%S**, which will include the year, month, day, hour, minute, and second when the run_metplus.py command was executed. This will create a new log file each time run_metplus.py is called from the command line.
 
@@ -1618,8 +1520,7 @@ Starting in METplus v5.0.0, the log timestamp is also included by default in the
 
 The values of these settings can be changed by including them in a METplus configuration file that is passed into run_metplus.py. They can also be set directly in the run_metplus.py command using the syntax **config.VARIABLE_NAME=VALUE**. The following examples will use the latter.
 
-Changing the Log Timestamp Template
------------------------------------
+**Changing the Log Timestamp Template**
 
 In this example we will change the log timestamp template to only include the year, month, and day of the run. This will create a single log file each day. Each call to run_metplus.py will add its log output to the daily file.
 
@@ -1659,8 +1560,7 @@ In this example we will change the log timestamp template to only include the ye
 
    grep Running /d1/personal/mccabe/out2/logs/metplus.log.`date +%Y%m%d`
 
-Adding Run ID in Log Timestamp Template
----------------------------------------
+**Adding Run ID in Log Timestamp Template**
 
 The METplus configuration variable `RUN_ID `_ was added in METplus v5.0.0. This variable contains an 8 character string that is automatically generated by and is unique to each call to run_metplus.py. This variable can be referenced in other METplus configuration variables. This can be useful in a variety of ways. For example, it can be used to distinguish log files for METplus runs that may have started within the same second.
 
