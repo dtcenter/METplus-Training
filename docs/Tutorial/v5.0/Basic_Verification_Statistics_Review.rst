@@ -362,7 +362,7 @@ interchangeable, the following definitions are provided for clarity:
 **MET SOLUTIONS**
 
 The MET User’s Guide provides an 
-`Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixC.html>`_. 
+:ref:`Appendix that dives into all of the statistical measure that MET calculates <appendixC:>`. 
 METplus groups statistics together by application 
 and type and makes them available to METplus users via several line types. 
 For example, many of the statistics that were discussed above can be found 
@@ -623,6 +623,8 @@ between rain, snow, and any other precipitation type. Luckily, the
 transformation of statistics from supporting binary categorical forecasts 
 to the second group of forecasts, multi-category, is fairly straightforward.
 
+.. _ver-stat_multicat_for:
+
 Verification Statistics for Multicategorical Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In order to make sense of how the statistics are modified when evaluating 
@@ -853,7 +855,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET SOLUTIONS**
 
-The MET User’s Guide provides an` Appendix that dives into statistical measures that it calculates `_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the `Binary Categorical forecasts section `_, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the `Verification Statistics section for Multicategorical Forecasts `_. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
+The MET User’s Guide provides an :ref:`Appendix that dives into all of the statistical measure that MET calculates <appendixC:>`, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <bin-cat-fore>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the `Verification Statistics section for Multicategorical Forecasts <ver-stat_multicat_for>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
 * Acc
 * HK
