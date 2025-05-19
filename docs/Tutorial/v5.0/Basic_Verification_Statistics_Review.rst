@@ -871,7 +871,7 @@ METplus Examples for Multicategorical Forecast Verification
 
 The following two examples show a generalized method for calculating multicategorical statistics: one for a MET-only usage, and the same example but utilizing METplus wrappers. These examples are not meant to be completely reproducible by a user: no input data is provided, commands to run the various tools are not given, etc. Instead, they serve as a general guide of one possible setup among many that produce multicategorical statistics.
 
-If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the `METplus online tutorial `_ that follows this statistical tutorial, where data is made available to reproduce the guided examples.
+If you are interested in reproducible, step-by-step examples of running the various tools of METplus, you are strongly encouraged to review the :ref:`METplus online tutorial <grid_to_grid>` that follows this statistical tutorial, where data is made available to reproduce the guided examples.
 
 In order to better understand the delineation between METplus, MET, and METplus wrappers which are used frequently throughout this tutorial but are NOT interchangeable, the following definitions are provided for clarity:
 
@@ -885,7 +885,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 Here is an example that demonstrates multicategorical forecast verification in MET.
 
-For this example, let’s use Point-Stat. Assume we wanted to verify a multicategory forecast of wind speeds over the ocean. Specifically of interest are speed thresholds of near gale force (13.9 m/s), gale force (17.2 m/s), tropical storm (24.5 m/s), and hurricane (32.7 m/s). Starting with the `general Point-Stat configuration file `_, the following would resemble minimum necessary settings/changes for the **fcst** and **obs** dictionaries:
+For this example, let’s use Point-Stat. Assume we wanted to verify a multicategory forecast of wind speeds over the ocean. Specifically of interest are speed thresholds of near gale force (13.9 m/s), gale force (17.2 m/s), tropical storm (24.5 m/s), and hurricane (32.7 m/s). Starting with the `general Point-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/PointStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the **fcst** and **obs** dictionaries:
 
 .. code-block::
 
@@ -907,7 +907,7 @@ In this example, the forecast field name in the forecast input file is named WIN
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex.png
    :alt: 
 
-The table includes a “hidden” bin containing wind speeds less than 13.9 m/s that is not explicitly listed by a threshold in the MET settings, but rather implied: each of these bins is mutually exclusive and together they entail the complete real number line. This is why it is important to remember the “monotonically increasing and same inequality type” requirement when setting multicategorical forecast thresholds in METplus. For more discussion on this, review the `METplus Solutions for Multicategorical Forecast Verification section `_.
+The table includes a “hidden” bin containing wind speeds less than 13.9 m/s that is not explicitly listed by a threshold in the MET settings, but rather implied: each of these bins is mutually exclusive and together they entail the complete real number line. This is why it is important to remember the “monotonically increasing and same inequality type” requirement when setting multicategorical forecast thresholds in METplus. For more discussion on this, review the :ref:`METplus Solutions for Multicategorical Forecast Verification section <metplus_sol_multicat_fore_verif>`.
 
 The **obs** dictionary is simply copying the settings from the **fcst** dictionary, which is a method that can be used if both the forecast and observation input files share the same variable structure and file type (e.g. both inputs use the WIND variable name, in m/s, with the Z10 level corresponding to the 10 meter level).
 
@@ -930,12 +930,14 @@ In this example, we have told MET to output the MCTC and MCTS line types, which 
 
    V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s  Z10   WIND m/s    Z10   NA FULL NEAREST     1        &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7    &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7   NA         NA MCTC    162015 5        161912        11 0 0 0 71 22 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0     0.2
 
-While the stat file full header column contents are discussed in the` User’s Guide `_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
+While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id7>`_, 
+??? Julie, is this the correct link???
+the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex2.png
    :alt: 
 
-Note that the final column of the MCTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the` HSS_EC skill score `_.
+Note that the final column of the MCTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the :ref:`HSS_EC skill score <binary-cat-skill-score>`.
 
 The MCTS line type is also present in the .stat file as the second row. In this example, the contents would be:
 
@@ -943,7 +945,7 @@ The MCTS line type is also present in the .stat file as the second row. In this 
 
    V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s Z10   WIND m/s    Z10   NA FULL NEAREST     1        &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7    &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7   NA         0.05  MCTS 162016 5   0.99949  0.99937 0.99959 NA NA  0.66623 NA NA 0.34901 NA NA NA NA NA 0.99937 NA NA 0.2
 
-Compared to the statistics available in the CTC line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the  contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type `_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Accuracy has an additional two columns that give the normal confidence limits in addition to the bootstrap confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
+Compared to the statistics available in the CTC line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the  contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Accuracy has an additional two columns that give the normal confidence limits in addition to the bootstrap confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
 
 **METplus Wrapper Example of Multicategorical Forecast Verification**
 
