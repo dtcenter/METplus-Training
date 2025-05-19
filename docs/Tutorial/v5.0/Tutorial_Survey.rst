@@ -1,10 +1,7 @@
 Tutorial Survey
 ===============
 
-Tutorial Survey
-
-METplus Tutorial Survey
-^^^^^^^^^^^^^^^^^^^^^^^
+**METplus Tutorial Survey**
 
 Thank you for your time and attention. We really enjoyed teaching you about METplus.
 
@@ -21,6 +18,6 @@ If you have more questions in your use of METplus, please:
 * Browse through the MET-Help email archive.
 * Open a Discussions question for help from METplus staff and community.
 
-**Now go out there and Verify!**
+**Now go out there and verify!**
 
 
