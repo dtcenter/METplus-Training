@@ -511,13 +511,8 @@ Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**
    Save the file before exiting, and then advance to either the next section to practice calling your script directly with MET tools, or the final section to practice calling your script with METplus Wrappers, or practice both!
 
 
-Use Your Python Embedding Script with MET Tools  ??? Julie, is this a header or not???
-===============================================
-
 Use Your Python Embedding Script with MET Tools
-
-Using Your Python Embedding Script with MET Tools
--------------------------------------------------
+-----------------------------------------------
 
 This section will largely follow the instructions in section titled "Python Embedding for Gridded Data", except you will be using your own Python Embedding script.
 
@@ -546,7 +541,7 @@ PYTHON_NUMPY
    ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY numpy.ps 'name="practice_gridded_pyembed.py numpy";'
 
 PYTHON_XARRAY
-^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 .. note::
 
