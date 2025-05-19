@@ -841,7 +841,7 @@ In example 2, the final threshold uses a different inequality than the other two
 
    cat_thresh = [&lt;10.5, &lt;13.7, &lt;15.5];
 
-This time, the rewrite changed the final inequality to match the first two while also keeping the final bin of values that METplus will calculate, >=15.5, consistent with the desired information. More information on how MET creates the value bins from multicategory thresholds is provided in the :ref:`met_ex_multicat_fcst_verif`.
+This time, the rewrite changed the final inequality to match the first two while also keeping the final bin of values that METplus will calculate, >=15.5, consistent with the desired information. More information on how MET creates the value bins from multicategory thresholds is provided in the :ref:`met-ex-multicat-fcst-verif`.
 
 Now that you know a bit more about verification measures for multicategorical, deterministic forecasts, it’s time to show how you can access those same statistics in METplus!
 
@@ -877,7 +877,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-.. _met_ex_multicat_fcst_verif:
+.. _met-ex-multicat-fcst-verif:
 
 **MET Example of Multicategorical Forecast Verification**
 
