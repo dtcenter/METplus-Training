@@ -21,8 +21,6 @@ Before running the tutorial instructions, you will need to ensure that you have 
    cd /path/to/METplus-5.0.0_Tutorial
    source METplus-5.0.0_TutorialSetup.sh
 
- 
-
 .. note::
 
    2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
@@ -45,8 +43,6 @@ Before running the tutorial instructions, you will need to ensure that you have 
    MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
    METPLUS_DATA is the location of the sample test data directory
 
- 
-
 .. note::
 
    3: Check that the MET applications are in the path:
@@ -58,8 +54,6 @@ Before running the tutorial instructions, you will need to ensure that you have 
 .. important::
 
    You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
-
- 
 
 .. note::
 
@@ -111,7 +105,7 @@ Basic Information on UserScripts
 
 A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide `_.
 
- Configuration Sections
+Configuration Sections
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parenthesis after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names `_.
@@ -126,7 +120,7 @@ Different use cases have different python dependencies.  These are listed in th
 Run METplus for the OMI Use-Case
 --------------------------------
 
-Configuring the METplus OMI use case
+Configuring the METplus OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The OLR-Based MJO Index (OMI)use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI Use case we are going to run are listed in the `External Dependencies section `_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
@@ -167,7 +161,7 @@ Input variables to the OMI calculation are given in the [user_env_vars] section.
 
 The information to run the OMI calculation is given in the [script_omi] section.  The variables give the frequency of the run time, location of the model and observation input OLR data, the input template labels, which shouldn’t be changed and then the actual command that is run to calculate OMI.  Here, the command calls the OMI driver script.
 
-Run METplus for the OMI use case
+Run METplus for the OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
@@ -229,20 +223,14 @@ obs_OMI_comp_phase.png
 fcst_OMI_comp_phase.png
 
 
-End of Session 10 and additional Exercises  ??? Julie, what is this doing here?  Delete???
-==========================================
-
-End of Session 10 and additional Exercises
-
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--------------------------------------------------------------------------------------------------------------------------------
 
 .. important::
 
    THE FOLLOWING CONTENT IS STILL IN DEVELOPMENT. RUN COMMANDS MAY NOT WORK AS INTENDED, INSTRUCTIONS MAY NOT BE COMPLETE, AMONG OTHER UNINTENDED EFFECTS. USERS ARE ADVISED NOT TO COMPLETE THIS PAGE'S EXERCISES UNTIL THIS BANNER IS REMOVED.
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--------------------------------------------------------------------------------------------------------------------------------
+
 
 METplus Use Case: Weather Regime
 --------------------------------
@@ -252,7 +240,7 @@ Background
 
 The weather regime use case is more complicated than the OMI use case for several reasons.  The first is that the use case has more pre-processing steps.  The second is that the weather regime calculation has several steps.  Specifically, it has three calculation steps and three optional output graphics for both the model and observations.  Lastly, the use case calls Stat-Analysis on the output to create statistics.  It uses 500mb height over December, January, and February to compute patterns for weather regime classification.
 
-Configure the Weather Regime Use-Case
+Configure the Weather Regime Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To configure the weather regime use case, first check the `python dependencies in the online User's Guide `_.  The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
@@ -308,3 +296,4 @@ In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you s
 
 End of Session 10
 -----------------
+Congratulations! You have completed Session 10!
