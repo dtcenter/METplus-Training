@@ -171,7 +171,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Jet:
 
@@ -232,7 +232,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Seneca:
 
@@ -396,7 +396,7 @@ Now you are ready to run the METplus Analysis tutorials.
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Hera:
 
@@ -459,7 +459,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_bash:
 
@@ -544,7 +544,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_csh:
 
@@ -629,8 +629,9 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the Verify Environment is Set Correctly page.
+   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
+.. _verif_env_set_correct:
 
 Verify Environment is Set Correctly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
