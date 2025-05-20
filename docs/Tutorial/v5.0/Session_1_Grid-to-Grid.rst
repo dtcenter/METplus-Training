@@ -867,6 +867,7 @@ After running each of the Gen-Vx-Mask commands on this, and following, pages, us
 
 
 Using a pre-defined NCEP grid from the `NCEP ON388 Grid Identification Table <https://www.nco.ncep.noaa.gov/pmb/docs/on388/tableb.html>`_, we'll create a latitude band, using the "lat" masking type, for the tropics region. Run Gen-Vx-Mask on the command line using the following command:
+
 .. code-block::
 
 gen_vx_mask \&lt;br/&gt;
@@ -1058,7 +1059,7 @@ The "-thresh" option can also be omitted from the "track", "data", "solar_alt", 
 
 
 
-Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download Natural Earth shapefiles and run Gen-Vx-Mask using the "-type shape" option.
+Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download `Natural Earth <https://www.naturalearthdata.com/>`_ shapefiles and run Gen-Vx-Mask using the "-type shape" option.
 Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 
 Run Shape Type
