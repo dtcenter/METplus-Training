@@ -464,6 +464,7 @@ The Field String
 **Defining the Field String** 
 
 As you'll see throughout these exercises, the behavior of the MET and METplus tools is controlled using ASCII configuration files, and you will learn more about those options in the coming sessions. The field_string command line argument is actually processed as a miniature configuration file. In fact, that string is written to a temporary file which is then read by MET's configuration file library code.
+
 In general, the name and level entries are required to extract a gridded field of data from a supported input file format. The conventions for specifying them vary based on the input file type:
 
 For GRIB1 or GRIB2 inputs, set name as the abbreviation for the desired variable or data type that appears in the GRIB tables and set level to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example 'name = "TMP"; level = "P500";' extracts 500 millibar temperature from a GRIB file.
@@ -669,7 +670,8 @@ When working with NetCDF files in MET, running **ncdump -h** is a great way to
 
 Python Embedding
 ^^^^^^^^^^^^^^^^
-While the MET tools can read data from a few input gridded data file types, its ability to read data in memory from python greatly enhances its utility. Support for python embedding is optional, and must be enabled at compilation time as described in Appendix F of the MET User's Guide. MET supports three types of python embedding:
+While the MET tools can read data from a few input gridded data file types, its ability to read data in memory from python greatly enhances its utility. Support for python embedding is optional, and must be enabled at compilation time as described in 
+`Appendix F <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixF.html>`_ of the MET User's Guide. MET supports three types of python embedding:
 
 Reading a field of gridded data values.
 Passing a list of point observations.
@@ -682,10 +684,8 @@ Let's run the simplest of examples using sample data included with the MET relea
 python3 ${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py \&lt;br/&gt;
 ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast
 
-
-
-This sample read_ascii_numpy.py script reads data from the input fcst.txt ASCII file and gives it a name, Forecast. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are details in the Python Embedding for 2D Data section of the MET User's Guide.
-Next, let's run Plot-Data-Plane using this python script to define the input data. As described in The Field String, this is done with the name configuration string and the level string does not apply.
+This sample read_ascii_numpy.py script reads data from the input fcst.txt ASCII file and gives it a name, Forecast. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are details in the ??? Julie, please review this link.  I'm not sure it's working.  It goes to the right chapter but I can't find the "ppython-embedding-for-2d-data section??? `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
+Next, let's run Plot-Data-Plane using this python script to define the input data. As described in :ref:`The Field String <field_str>`, this is done with the name configuration string and the level string does not apply.
 .. code-block::
 
 plot_data_plane \&lt;br/&gt;
@@ -720,7 +720,7 @@ ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \&lt;b
 
 
 
-You can find several python embedding examples on the Sample Analysis Scripts page of the MET website. Each example includes both a python script and sample input data file. Please also see METplus Python Embedding use case examples. 
+You can find several python embedding examples on the ??? Julie, confirm this is an ok link. Is this getting redone in RTD??? `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/latest/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_use case examples. 
 
 MET Tool: Gen-Vx-Mask
 ---------------------
