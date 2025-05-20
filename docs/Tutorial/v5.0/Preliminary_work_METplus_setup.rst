@@ -653,7 +653,7 @@ Verify Environment is Set Correctly
 
 The tutorial setup script sets the paths for **METPLUS_TUTORIAL_DIR**, **METPLUS_BUILD_BASE**, **MET_BUILD_BASE**, and **METPLUS_DATA**. It also appends the **$PATH** environment variable to include the directory where the **METplus** scripts are located. If necessary, it may also load modules needed for the **METplus** software to run correctly.
 
-*CHECK PATH**
+**CHECK PATH**
 
 Make sure that all of the environment variables are set to the appropriate values and that the path is set up to locate the METplus components.
 
@@ -870,7 +870,7 @@ METplus: Directories and Configuration Files - Overview
 
 **METplus Directory Structure** 
 
-A brief description and overview of the **METplus/** directory structure can be found in the METplus User's Guide section called `METplus Wrappers Directory Structure `_. The files/directories in ${METPLUS_BUILD_BASE} should match this list.
+A brief description and overview of the **METplus/** directory structure can be found in the METplus User's Guide section called `METplus Wrappers Directory Structure <https://metplus.readthedocs.io/en/latest/Users_Guide/installation.html#metplus-wrappers-directory-structure>`_. The files/directories in ${METPLUS_BUILD_BASE} should match this list.
 
 .. code-block::
 
@@ -907,10 +907,10 @@ The METplus default configuration file **(defaults.conf)** is always read first.
 
 .. note::
 
-   More information about the default configuration variables can be found in the METplus User's Guide section called Default Configuration File.
+   More information about the default configuration variables can be found in the METplus User's Guide section called `Default Configuration File <https://metplus.readthedocs.io/en/latest/Users_Guide/systemconfiguration.html#default-configuration-file>`_.
 
  
-The **met_config** directory (in ${METPLUS_BUILD_BASE}/parm) contains "wrapped" MET configuration files that are used by calls to the MET applications via the METplus wrappers. The wrappers set environment variables that control settings in the wrapped MET configuration files through these environment variables. See the METplus User's Guide section called `How METplus controls MET configuration variables `_ for more information.
+The **met_config** directory (in ${METPLUS_BUILD_BASE}/parm) contains "wrapped" MET configuration files that are used by calls to the MET applications via the METplus wrappers. The wrappers set environment variables that control settings in the wrapped MET configuration files through these environment variables. See the METplus User's Guide section called `How METplus controls MET configuration variables <https://metplus.readthedocs.io/en/latest/Users_Guide/systemconfiguration.html#how-metplus-controls-met-configuration-variables>`_ for more information.
 
 **METplus Use Cases**
 
