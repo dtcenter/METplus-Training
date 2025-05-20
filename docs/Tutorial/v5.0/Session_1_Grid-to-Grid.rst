@@ -90,7 +90,7 @@ MET Tool: PCP-Combine
 
   If you are returning to the tutorial, you must source the tutorial setup script 
   before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`<verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 We now shift to a discussion of the MET PCP-Combine tool and will practice running 
 it directly on the command line.
