@@ -91,22 +91,27 @@ MET Tool: PB2NC
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+??? Julie, I removed the bolding to get the link to work???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 **PB2NC FUNCTIONALITY**
 
 The PB2NC tool is used to stratify (i.e. subset) the contents of an input PrepBufr point observation file and reformat it into NetCDF format for use by the Point-Stat or Ensemble-Stat tool. In this session, we will run PB2NC on a PrepBufr point observation file prior to running Point-Stat. Observations may be stratified by variable type, PrepBufr message type, station identifier, a masking region, elevation, report type, vertical level category, quality mark threshold, and level of PrepBufr processing. Stratification is controlled by a configuration file and discussed on the next page.
 The PB2NC tool may be run on both PrepBufr and Bufr observation files. As of met-6.1, support for Bufr is limited to files containing embedded tables. Support for Bufr files using external tables will be added in a future release.
-For more information about the PrepBufr format, visit:
-https://emc.ncep.noaa.gov/emc/pages/infrastructure/bufrlib.php
-For information on where to download PrepBufr files, visit:
-https://dtcenter.org/community-code/model-evaluation-tools-met/input-data
+
+???Julie, I put in th line breaks.  Do you want to actual web info shown???
+
+| For more information about the PrepBufr format, visit:
+| https://emc.ncep.noaa.gov/emc/pages/infrastructure/bufrlib.php
+|
+| For information on where to download PrepBufr files, visit:
+| https://dtcenter.org/community-code/model-evaluation-tools-met/input-data
 
 **PB2NC USAGE**
 
 .. note::
 
-View the usage statement for PB2NC by simply typing the following:
+ View the usage statement for PB2NC by simply typing the following:
 
 .. code-block::
   pb2nc
