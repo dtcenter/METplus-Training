@@ -1460,9 +1460,11 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 ??? Julie, I've removed the bolding
 IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
-Optional: Refer to the METplus Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+??? Julie, more line breaks.  Does it make sense to have this info in a separate file?  If we need to update it, then it's only one place???
+
+| This use case utilizes the MET Point-Stat tool. 
+| Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1478,7 +1480,7 @@ cd ${METPLUS_TUTORIAL_DIR}
 
 .. note::
 
-View the &lt;a href="https://metplus.readthedocs.io/en/latest/generated/model_applications/medium_range/PointStat_fcstGFS_obsGDAS_UpperAir_MultiField_PrepBufr.html#sphx-glr-generated-model-applications-medium-range-pointstat-fcstgfs-obsgdas-upperair-multifield-prepbufr-py" target="_blank"&gt;Medium Range Weather application use-case for upper air&lt;/a&gt; using GDAS PrepBUFR observations, GFS global forecast, and evaluating multiple fields.
+View the `Medium Range Weather application use-case for upper air <https://metplus.readthedocs.io/en/latest/generated/model_applications/medium_range/PointStat_fcstGFS_obsGDAS_UpperAir_MultiField_PrepBufr.html#sphx-glr-generated-model-applications-medium-range-pointstat-fcstgfs-obsgdas-upperair-multifield-prepbufr-py>`_ using GDAS PrepBUFR observations, GFS global forecast, and evaluating multiple fields.
 
 .. note::
 
@@ -1536,7 +1538,8 @@ ls ${METPLUS_TUTORIAL_DIR}/output/PointStat_UpperAir/gdas
 
 less ${METPLUS_TUTORIAL_DIR}/output/PointStat_UpperAir/gdas/point_stat_000000L_20170601_000000V.stat
 
-If you scroll down to the middle of the file, you will notice the statistics line-type starts alternating from SL1L2 (partial_sums for continuous statistics) to VL1L2 (partial_sums for vector continuous statistics). If you scroll over, you will see that the lines are different lengths. The MET Users' Guide explains what statistics are reported in each line. See point-stat output in the MET User's Guide.
+If you scroll down to the middle of the file, you will notice the statistics line-type starts alternating from SL1L2 (partial_sums for continuous statistics) to VL1L2 (partial_sums for vector continuous statistics). If you scroll over, you will see that the lines are different lengths. The MET Users' Guide explains what statistics are reported in each line. See `point-stat output <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#point-stat-output>`_ in the MET User's Guide.
+
 .. admonition:: Sample Output
 
 V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 VGRD m/s P1000 VGRD NA P1000 ADPUPA FULL BILIN 4 NA NA NA NA **SL1L2** 274 0.58128 0.71095 12.1183 14.53877 14.52693 1.57316&lt;br/&gt;
