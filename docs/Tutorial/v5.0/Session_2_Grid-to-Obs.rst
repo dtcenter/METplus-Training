@@ -868,7 +868,8 @@ Start by making an output directory for Point-Stat and changing directories:
 mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/point_stat&lt;br/&gt;
 cd ${METPLUS_TUTORIAL_DIR}/output/met_output/point_stat
 
-The behavior of Point-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Point-Stat configuration file may be found in the `data/config/PointStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PointStatConfig_default>`_ file.
+The behavior of Point-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Point-Stat configuration file may be found in the 
+`data/config/PointStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PointStatConfig_default>`_ file.
 The configurable items for Point-Stat are used to specify how the verification is to be performed. The configurable items include specifications for the following:
 
 The forecast fields to be verified at the specified vertical levels.
