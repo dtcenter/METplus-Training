@@ -383,7 +383,7 @@ MET Tool: Plot-Data-Plane
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, I've spent a half hour on this.  I cannot figure out why this link won't work. It works fine on line 93 above.  Could you please review this??? :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, I've spent a half hour on this.  I cannot figure out why this link won't work. It works fine on line 93 above.  It turns out this section can't be bolded and have the link work.  Does this need to be bolded?  Could you please review this??? :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 
 
@@ -719,7 +719,7 @@ MET Tool: Gen-Vx-Mask
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, while you're at it, can you fix this one too???  :ref:`Verify Environment is Set Correctly <verif_env_set_correct>`page.**
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, I removed the bolding for this to get the link to work???  :ref:`Verify Environment is Set Correctly <verif_env_set_correct>`page.
 
 **Gen-Vx-Mask Functionality**
 
@@ -1104,8 +1104,8 @@ MET Tool: Grid-Stat
 -------------------
 
 .. important::
-??? Julie, I removed the Bolding around the below paragraph???
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
+??? Julie, I removed the bolding around the below paragraph???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 **Grid-Stat Functionality**
 
