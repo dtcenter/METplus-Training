@@ -439,7 +439,7 @@ f one possible setup among many that produce binary categorical statistics.
 
 If you are interested in reproducible, step-by-step examples of running the 
 various tools of METplus, you are strongly encouraged to review the 
-:ref:`METplus online tutorial <grid_to_grid>`_
+:ref:`METplus online tutorial <grid_to_grid>`
 that follows this statistical tutorial, where data is made 
 available to reproduce the guided examples.
 
