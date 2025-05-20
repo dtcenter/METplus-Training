@@ -1183,7 +1183,7 @@ Modifying Timing Control in Example.conf
 
 **Timing Control in METplus**
 
-METplus configuration variables that control timing information are described in the `Timing Control `_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
+METplus configuration variables that control timing information are described in the `Timing Control <https://metplus.readthedocs.io/en/latest/Users_Guide/systemconfiguration.html#timing-control>`_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
 
 1. Copy the Example.conf configuration file in your user_config directory, renaming it Example_timing.conf
 
