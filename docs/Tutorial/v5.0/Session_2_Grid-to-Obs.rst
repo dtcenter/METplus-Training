@@ -1313,7 +1313,7 @@ vi point_stat_run2_360000L_20070331_120000V_cts.txt
 
 The columns prior to LINE_TYPE contain header information.
 The LINE_TYPE column indicates that these are CTS lines.
-The remaining columns contain statistics derived from the threshold contingency table counts. See the point_stat output section of the MET User's Guide for a thorough description of the output.
+The remaining columns contain statistics derived from the threshold contingency table counts. See the `point_stat output <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#point-stat-output>`_ section of the MET User's Guide for a thorough description of the output.
 Confidence intervals are given for each of these statistics, computed using either one or two methods. The columns ending in _NCL(normal confidence lower) and _NCU (normal confidence upper) give lower and upper confidence limits computed using assumptions of normality. The columns ending in _BCL (bootstrap confidence lower) and _BCU (bootstrap confidence upper) give lower and upper confidence limits computed using bootstrapping.
 
 .. note::
