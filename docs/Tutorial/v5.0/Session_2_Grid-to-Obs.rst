@@ -1630,9 +1630,9 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
 ??? Julie, I've removed the bolding???
 IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
-Optional: Refer to the METplus Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| This use case utilizes the MET Point-Stat tool. 
+| Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1714,7 +1714,7 @@ You will note, the number of observations processed is the same as the number re
 
 less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf
 
-Note that PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH, where PMO is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
+Note that PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH, where PMO is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to ??? Julie, should this be spelled out??? `<https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/>`_. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
 .. code-block::
 
 plot_point_obs \&lt;br/&gt;
