@@ -26,6 +26,7 @@ The following links are just for reference, and not required for this practical 
 
 |   `METplus User's Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_
 |   `METplus Releases on GitHub <https://github.com/dtcenter/METplus/releases>`_
+| 
 
 The source code for the METplus components are publicly available in the following GitHub repositories:
 
