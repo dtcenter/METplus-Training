@@ -383,7 +383,7 @@ MET Tool: Plot-Data-Plane
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
+**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, I've spent a half hour on this.  I cannot figure out why this link won't work. It works fine on line 93 above.  Could you please review this??? :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
 
 
 
