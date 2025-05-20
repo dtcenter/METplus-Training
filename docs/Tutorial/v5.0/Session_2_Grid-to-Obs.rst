@@ -173,7 +173,8 @@ Start by making an output directory for PB2NC and changing directories:
 mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc&lt;br/&gt;
 cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc
 
-The behavior of PB2NC is controlled by the contents of the configuration file passed to it on the command line. The default PB2NC configuration may be found in the data/config/PB2NCConfig_default file.
+The behavior of PB2NC is controlled by the contents of the configuration file passed to it on the command line. The default PB2NC configuration may be found in the `data/config/PB2NCConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PB2NCConfig_default>`_ file.
+
 .. note::
 
 Prior to modifying the configuration file, users are advised to make a copy of the default:
@@ -190,17 +191,21 @@ Open up the **PB2NCConfig_tutorial_run1** file for editing with your preferred
 
 vi PB2NCConfig_tutorial_run1
 
-The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the pb2nc configuration file section of the MET User's Guide or in the Configuration File Overview.
+The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the `pb2nc <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/reformat_point.html#pb2nc-configuration-file>`_ configuration file section of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ or in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/config_options.html>`_.
 For this tutorial, edit the PB2NCConfig_tutorial_run1 file as follows:
 
 Set:
+
 .. note::
 
 message_type = [ "ADPUPA", "ADPSFC" ];
 
 to retain only those 2 message types. Message types are described in:
-http://www.emc.ncep.noaa.gov/mmb/data_processing/prepbufr.doc/table_1.htm
+??? Julie, do you want a visable link???
+`<http://www.emc.ncep.noaa.gov/mmb/data_processing/prepbufr.doc/table_1.htm>`_
+
 Set:
+
 .. note::
 
 obs_window = {&lt;br/&gt;
@@ -209,7 +214,9 @@ end =  1800;&lt;br/&gt;
 }
 
 so that only observations within 1800 second (30 minutes) of the file time will be retained.
+
 Set:
+
 .. note::
 
 mask = {&lt;br/&gt;
@@ -218,7 +225,9 @@ poly = "";&lt;br/&gt;
 }
 
 to retain only those observations residing within NCEP Grid 212, on which the forecast data resides.
+
 Set:
+
 .. note::
 
 obs_bufr_var = [ "QOB", "TOB", "UOB", "VOB", "D_WIND", "D_RH" ];
