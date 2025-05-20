@@ -456,6 +456,8 @@ Outputs log messages to the specified file
 [-v level]
 Level of logging
 
+.. _field_str:
+
 The Field String
 ^^^^^^^^^^^^^^^^
 
@@ -546,14 +548,11 @@ The plot is created using the default color table (met_default.ctable) and is sc
 If the plot of the data and the metadata listed in the log messages look reasonable, you can be confident that MET is reading your data well. In addition, the field_string you used to retrieve this data can be used in the configuration strings and configuration files for other MET tools.
 While this Plot-Data-Plane validation step is not necessary for every input file, it is very useful when getting started with new input data sources.
 
-
-
-
 Plot NetCDF Data
 ^^^^^^^^^^^^^^^^
 
-The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the Climate-Forecast Convention, are created by the WRF-Interp utility, or are created by other MET tools. Additional details can be found in the MET Data I/O chapter of the MET User's Guide.
-As described in The Field String, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
+The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
+As described in :ref:`The Field String <field_str>`, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
 Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from a CF-compliant NetCDF file. First run ncdump -h to take a look at the header:
 .. code-block::
 
