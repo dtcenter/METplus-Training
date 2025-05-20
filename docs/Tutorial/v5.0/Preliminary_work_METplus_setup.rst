@@ -71,19 +71,23 @@ The following instructions are required so the commands in this tutorial can be 
 
 **PRE-CONFIGURED ENVIRONMENTS**
 
-Setting up the Tutorial Environment on Cheyenne (NCAR)
+??? Julie, these are out of order from the Drupal page.  I'm not sure if they were changed on purpose or not???
 
-Setting up the Tutorial Environment on Jet (NOAA)
+:ref:`Setting up the Tutorial Environment on Cheyenne (NCAR) <set_tut_env_Cheyenne>`
 
-Setting up the Tutorial Environment on Seneca (NCAR)
+:ref:`Setting up the Tutorial Environment on Jet (NOAA) <set_tut_env_Jet>`
 
-Setting up the Tutorial Environment on Hera (NOAA)
+:ref:`Setting up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
+
+:ref:`Setting up the Tutorial Environment on Hera (NOAA) <set_tut_env_Hera>`
 
 **USER-CONFIGURED ENVIRONMENTS**
 
-Setting up the Tutorial Environment (bash)
+:ref:`Setting up the Tutorial Environment (bash) <set_tut_env_bash>`
 
-Setting up the Tutorial Environment (csh)
+:ref:`Setting up the Tutorial Environment (csh) <set_tut_env_csh>`
+
+.. _set_tut_env_Cheyenne:
 
 Setting up the Tutorial Environment on Cheyenne (NCAR)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -169,6 +173,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Next navigate to the Verify Environment is Set Correctly page.
 
+.. _set_tut_env_Jet:
 
 Setting up the Tutorial Environment on Jet (NOAA)
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -229,6 +234,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Next navigate to the Verify Environment is Set Correctly page.
 
+.. _set_tut_env_Seneca:
 
 Setting up the Tutorial Environment on Seneca (NCAR)
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -392,6 +398,7 @@ Now you are ready to run the METplus Analysis tutorials.
 
    Next navigate to the Verify Environment is Set Correctly page.
 
+.. _set_tut_env_Hera:
 
 Setting up the Tutorial Environment on Hera (NOAA)
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,6 +461,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Next navigate to the Verify Environment is Set Correctly page.
 
+.. _set_tut_env_bash:
 
 Setting up the Tutorial Environment (bash)
 """"""""""""""""""""""""""""""""""""""""""
@@ -538,6 +546,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Next navigate to the Verify Environment is Set Correctly page.
 
+.. _set_tut_env_csh:
 
 Setting up the Tutorial Environment (csh)
 """""""""""""""""""""""""""""""""""""""""
