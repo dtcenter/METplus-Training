@@ -1007,7 +1007,7 @@ Notice the more detailed information about which observations were used for each
 Output
 ^^^^^^
 
-The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the point_stat_ prefix, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
+The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the point_stat/_ prefix, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
 .. important::
 
 &lt;span class="tip"&gt;Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way:&lt;/span&gt;&lt;p&gt;&lt;/p&gt;
@@ -1060,7 +1060,7 @@ vi point_stat_run1_360000L_20070331_120000V_cnt.txt
 
 The columns prior to LINE_TYPE contain the same data as the previous file we viewed.
 The LINE_TYPE column indicates that these are CNT continuous lines.
-The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the Point-Stat section of the MET User's Guide for a thorough description of the output.
+The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the `Point-Stat section <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html>`_ of the MET User's Guide for a thorough description of the output.
 Again, confidence intervals are given for each of these statistics as described above.
 
 .. note::
