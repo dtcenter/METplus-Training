@@ -1007,7 +1007,7 @@ Notice the more detailed information about which observations were used for each
 Output
 ^^^^^^
 
-The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the point_stat/_ prefix, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
+The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the point_stat\_ prefix, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
 .. important::
 
 &lt;span class="tip"&gt;Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way:&lt;/span&gt;&lt;p&gt;&lt;/p&gt;
