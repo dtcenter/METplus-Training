@@ -1187,15 +1187,13 @@ The behavior of Grid-Stat is controlled by the contents of the configuration fil
 
 .. code-block::
 
-cp ${MET_BUILD_BASE}/share/met/config/GridStatConfig_default GridStatConfig_tutorial
-
-
+  cp ${MET_BUILD_BASE}/share/met/config/GridStatConfig_default GridStatConfig_tutorial
 
 Open up the GridStatConfig_tutorial file for editing with your preferred text editor.
+
 .. code-block::
 
-vi GridStatConfig_tutorial
-
+  vi GridStatConfig_tutorial
 
 
 The configurable items for Grid-Stat are used to specify how the verification is to be performed. The configurable items include specifications for the following:
@@ -1401,13 +1399,14 @@ METplus Use Case: GridStat
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+??? Julie, I removed the bolding around the below section so the link would work???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 
 
 The GridStat use case utilizes the MET Grid-Stat tool.
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
-Optional: Refer to the METplus Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 Change to the ${METPLUS_TUTORIAL_DIR}
 .. code-block::
 
