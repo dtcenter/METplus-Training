@@ -5,12 +5,16 @@ Session 2: Grid-to-Obs
 **METplus Practical Session 2**
 
 During this practical session, you will run the tools indicated below:
+
+??? Julie, this isn't a link.  It's missing the main image???
+
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
 Since you already set up your runtime environment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
+
 .. note::
 
 **1:** Navigate to your tutorial directory and run the tutorial setup script.
@@ -80,7 +84,7 @@ See the instructions in Session 1 for more information.
 You are now ready to move on to the next section.
 .. important::
 
-If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a &lt;a href="https://github.com/dtcenter/METplus/discussions"&gt;GitHub Discussions&lt;/a&gt;. Be sure to provide what session and specific page you encountered the issue on.
+If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
 MET Tool: PB2NC
 ---------------
