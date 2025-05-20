@@ -90,7 +90,6 @@ MET Tool: PCP-Combine
 
   If you are returning to the tutorial, you must source the tutorial setup script 
   before running the following instructions. If you are unsure if you have done this step,
-??? Julie, I'm sorry to hand this off to you. Can you figure you figure out why this link won't work? This is from section 2 and works for other links.  I'm pulling my hair out???
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 We now shift to a discussion of the MET PCP-Combine tool and will practice running 
@@ -384,7 +383,7 @@ MET Tool: Plot-Data-Plane
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`verif_env_set_correct` page.**
+**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`<verif_env_set_correct>` page.**
 
 
 
