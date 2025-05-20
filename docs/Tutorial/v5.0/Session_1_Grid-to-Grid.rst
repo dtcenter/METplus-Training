@@ -1105,7 +1105,7 @@ MET Tool: Grid-Stat
 
 .. important::
 ??? Julie, I removed the Bolding around the below paragraph???
-IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
 
 **Grid-Stat Functionality**
 
