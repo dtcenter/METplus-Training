@@ -693,22 +693,16 @@ PYTHON_NUMPY \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \&lt;br/&gt;
 'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
-
-
 Since there is no input_filename to be specified as the first required argument for Plot-Data-Plane, we provide the constant string PYTHON_NUMPY in that spot. This triggers Plot-Data-Plane to interpret the field string as a python embedding script to be run. Specifying PYTHON_XARRAY also works but requires slightly different conventions in the python embedding script.
 When MET is compiled, it links to python libraries that it uses to instantiate a python interpreter at runtime. That compile time instance does have a few required packages, but will likely not include all packages that every user may want to load. You may find that your python script runs fine on the command line, but Plot-Data-Plane's call to python can't load a requested module. In that case, set the ${MET_PYTHON_EXE} environment variable to tell MET which instance of python you'd like to run.
 .. important::
 
 ${MET_PYTHON_EXE} defines a specific instance of python to be run.
 
-
-
 The following command just uses that version of python that is already present in your path:
 .. code-block::
 
 export MET_PYTHON_EXE=`which python3`
-
-
 
 Rerunning the command from above should produce the same result, but if you look closely at the log messages, you'll see that your custom python version writes a temporary file, and MET's compile time python version reads data from it.
 .. code-block::
@@ -718,9 +712,7 @@ PYTHON_NUMPY \&lt;br/&gt;
 ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \&lt;br/&gt;
 'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
-
-
-You can find several python embedding examples on the ??? Julie, confirm this is an ok link. Is this getting redone in RTD??? `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/latest/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_use case examples. 
+You can find several python embedding examples on the ??? Julie, confirm this is an ok link. Is this getting redone in RTD??? `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/latest/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_ use case examples. 
 
 MET Tool: Gen-Vx-Mask
 ---------------------
