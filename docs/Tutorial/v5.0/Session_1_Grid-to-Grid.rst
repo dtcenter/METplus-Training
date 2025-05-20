@@ -719,7 +719,7 @@ MET Tool: Gen-Vx-Mask
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>`page.**
+**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the ??? Julie, while you're at it, can you fix this one too???  :ref:`Verify Environment is Set Correctly <verif_env_set_correct>`page.**
 
 **Gen-Vx-Mask Functionality**
 
@@ -866,7 +866,7 @@ After running each of the Gen-Vx-Mask commands on this, and following, pages, us
 
 
 
-Using a pre-defined NCEP grid from the NCEP ON388 Grid Identification Table, we'll create a latitude band, using the "lat" masking type, for the tropics region. Run Gen-Vx-Mask on the command line using the following command:
+Using a pre-defined NCEP grid from the `NCEP ON388 Grid Identification Table <https://www.nco.ncep.noaa.gov/pmb/docs/on388/tableb.html>`_, we'll create a latitude band, using the "lat" masking type, for the tropics region. Run Gen-Vx-Mask on the command line using the following command:
 .. code-block::
 
 gen_vx_mask \&lt;br/&gt;
