@@ -1395,7 +1395,7 @@ METplus configuration variables that control timing information are described in
 
 .. important::
 
-   Notice that the output did not change. Note that LOOP_BY can also be set to RETRO instead of INIT if that term is preferred. However, the other timing variables must start with INIT_ and not RETRO_. The same applies for using REALTIME instead of VALID.
+   Notice that the output did not change. Note that LOOP_BY can also be set to RETRO instead of INIT if that term is preferred. However, the other timing variables must start with INIT\_ and not RETRO\_. The same applies for using REALTIME instead of VALID.
 
 
 Modifying Filename Template in Example.conf
