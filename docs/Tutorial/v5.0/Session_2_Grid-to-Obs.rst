@@ -649,15 +649,17 @@ METplus Use Case: ASCII2NC with Python Embedding
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
-
-
+??? Julie, I've removed the bolding so the link will work???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET ASCII2NC tool to demonstrate Python Embedding. Python embedding is a novel capability within METplus that allows a user to place a Python script into a METplus workflow. For example, if a user has a data format that is unsupported by the MET tools then a user could write their own Python file reader, and hand off the data to the MET tools within a workflow.
-The data utilized in this use case are hypothetical accumulated precipitation data in ASCII format.
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
-Optional: Refer to the MET Users Guide Appendix F: Python Embedding for details on how Python embedding works for MET tools.
-Optional: Refer to the METplus Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+
+??? Julie, I added line breaks???
+
+| The data utilized in this use case are hypothetical accumulated precipitation data in ASCII format.
+| Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| Optional: Refer to the `MET Users Guide Appendix F: Python Embedding <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/appendixF.html>`_ for details on how Python embedding works for MET tools.
+| Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -689,7 +691,7 @@ In this use case, read_ascii_point.py is used to read the sample accumulated pre
 
 head -3 ${METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt
 
-These data are already in the 11-column format that MET requires, so using Python Embedding is fairly straightforward. If your data do not follow this format, some pre-processing of the data will be required to align your data to the required format. To learn more about what the 11 columns are and what MET expects each column to represent, please reference this table from the MET users guide.
+These data are already in the 11-column format that MET requires, so using Python Embedding is fairly straightforward. If your data do not follow this format, some pre-processing of the data will be required to align your data to the required format. To learn more about what the 11 columns are and what MET expects each column to represent, please reference `this table <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/reformat_point.html#table-reformat-point-ascii2nc-format>`_ from the MET users guide.
 
 .. note::
 
