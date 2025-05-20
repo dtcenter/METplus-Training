@@ -1184,6 +1184,7 @@ cd ${METPLUS_TUTORIAL_DIR}/output/met_output/grid_stat
 
 
 The behavior of Grid-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Grid-Stat configuration file may be found in the `data/config/GridStatConfig_default <https://github.com/dtcenter/MET/blob/main_v10.0/met/data/config/GridStatConfig_default>`_ file. Prior to modifying the configuration file, users are advised to make a copy of the default:
+
 .. code-block::
 
 cp ${MET_BUILD_BASE}/share/met/config/GridStatConfig_default GridStatConfig_tutorial
@@ -1206,7 +1207,7 @@ The confidence interval methods to be used
 The smoothing methods to be applied (as opposed to interpolation methods)
 The types of verification methods to be used
 
-You may find a complete description of the configurable items in the `grid_stat configuration file <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/grid-stat.html#grid-stat-configuration-file>`_section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `grid_stat configuration file <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/grid-stat.html#grid-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 For this tutorial, we'll configure Grid-Stat to verify the 12-hour accumulated precipitation output of PCP-Combine. We'll be using Grid-Stat to verify a single field using NetCDF input for both the forecast and observation files. However, Grid-Stat may in general be used to verify an arbitrary number of fields. Edit the GridStatConfig_tutorial file as follows:
 
 Set:
