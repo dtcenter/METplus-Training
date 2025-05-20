@@ -1337,11 +1337,14 @@ METplus Use Case: PointStat
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+??? Julie, I've removed the bolding???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
-Optional: Refer to the METplus Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+??? Julie, I added line breaks???
+
+| This use case utilizes the MET Point-Stat tool. 
+| Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1454,7 +1457,8 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+??? Julie, I've removed the bolding
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET Point-Stat tool. 
 Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
@@ -1620,7 +1624,8 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+??? Julie, I've removed the bolding???
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET Point-Stat tool. 
 Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
