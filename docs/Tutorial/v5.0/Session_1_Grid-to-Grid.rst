@@ -1065,7 +1065,7 @@ Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 Run Shape Type
 ^^^^^^^^^^^^^^
 
-We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from Natural Earth.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
+We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`_.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
 Download the Natural Earth administrative shapefiles for countries boundaries.
 .. code-block::
 
