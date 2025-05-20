@@ -383,7 +383,7 @@ MET Tool: Plot-Data-Plane
 
 .. important::
 
-**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a href="https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly" target="_blank"&gt;Verify Environment is Set Correctly&lt;/a&gt; page.**
+**IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`verif_env_set_correct` page.**
 
 
 
@@ -394,7 +394,7 @@ In MET, the terminology **Data-Plane** means a 2-dimensional field of gridded d
 
 **Plot-Data-Plane Functionality**
 
-The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from the specified input file and writes a PostScript output file containing a spatial plot of the data. It plots the data using a configurable color table that is automatically rescaled to the range of values found by default. The ImageMagick convert utility is recommend for converting the PostScript output file to other image file formats, if needed.
+The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from the specified input file and writes a PostScript output file containing a spatial plot of the data. It plots the data using a configurable color table that is automatically rescaled to the range of values found by default. The `ImageMagick convert <https://imagemagick.org/script/convert.php>`_ utility is recommend for converting the PostScript output file to other image file formats, if needed.
 
 **Plot-Data-Plane Usage**
 
