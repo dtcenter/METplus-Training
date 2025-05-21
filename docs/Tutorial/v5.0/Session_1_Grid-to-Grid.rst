@@ -120,8 +120,8 @@ View the usage statement for PCP-Combine by simply typing the following:
   :header-rows: 0
 
 
-  * - **[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]
-      (Note: "|" means "or")**
+  * - **[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files]**
+      (Note: "|" means "or")
     - 
   * - **[-sum] sum_args**
     - **Data from multiple files containing the same accumulation interval should be summed up using the arguments provided.**
