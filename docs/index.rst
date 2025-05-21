@@ -32,6 +32,7 @@ Please feel free to recommend new training topics on the
 
 .. toctree::
    :hidden:
+   :maxdepth: 7
    :caption: Training
 
    Tutorial/index

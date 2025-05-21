@@ -265,7 +265,7 @@ Close the file and run it on the next page.
 
 
 
-Run on Point-Stat output
+Run on Point-Stat Output
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::

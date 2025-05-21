@@ -17,9 +17,7 @@ use of custom configurations to tailor workflows to user's specific needs.
 Select the appropriate version to get started.
 
 .. toctree::
-   :titlesonly:
    :maxdepth: 6
-   :numbered:
 
    v5.0/index
 

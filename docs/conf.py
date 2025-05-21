@@ -98,6 +98,22 @@ html_css_files = ["theme_override.css", "custom.css"]
 # of the sidebar.
 html_logo = os.path.join('_static','METplus_logo.png')
 
+# For Read the Docs themes (sphinx_rtd_theme)
+html_theme_options = {
+    'navigation_depth': 6,
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'includehidden': True,
+}
+
+# Also set the global TOC depth
+html_sidebars = {
+    '**': ['localtoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html']
+}
+
+# This ensures deep nesting is preserved
+html_theme_options['globaltoc_maxdepth'] = 5
+
 # -- Intersphinx control -----------------------------------------------------
 intersphinx_mapping = {'numpy':("https://docs.scipy.org/doc/numpy/", None)}
 

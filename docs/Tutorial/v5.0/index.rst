@@ -13,9 +13,8 @@ Please follow the link to the appropriate session:
 
 
 .. toctree::
-   :titlesonly:
+   :maxdepth: 5
    :numbered:
-   :hidden:
       
    Basic_Verification_Statistics_Review
    Preliminary_work_METplus_setup
