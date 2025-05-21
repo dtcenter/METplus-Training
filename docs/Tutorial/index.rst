@@ -18,6 +18,8 @@ Select the appropriate version to get started.
 
 .. toctree::
    :titlesonly:
+   :maxdepth: 6
+   :numbered:
 
    v5.0/index
 
