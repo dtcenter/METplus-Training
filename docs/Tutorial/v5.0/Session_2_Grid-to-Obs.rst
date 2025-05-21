@@ -1758,88 +1758,92 @@ This may take a few minutes to run.
 
   less ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/point_stat_000000L_20170601_000000V.stat
 
-Inspection of the file shows that statistics for TMP, RH, UGRD, VGRD, UGRD_VGRD are available. Also, based on the number listed after the line type (SL1L2 and VL1L2), there are between 8263 - 9300 points included in the computation of the statistics. The big question is why are there no statistics for TCDC and PRMSL? Let's look at the log files.
+Inspection of the file shows that statistics for **TMP**, **RH**, **UGRD**, **VGRD**, **UGRD_VGRD** are available. Also, based on the number listed after the line type (**SL1L2** and **VL1L2**), there are between 8263 - 9300 points included in the computation of the statistics. The big question is why are there no statistics for **TCDC** and **PRMSL**? Let's look at the log files.
 
 .. code-block::
 
-ls ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/logs
+  ls ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/logs
 
-Open the log file and search on TCDC, you will see that there is an error message stating "no fields matching TCDC/L0 found" in the GFS file. That is why TCDC does not appear in the output.
-Look for PRMSL/Z0 in the log file.  We can see the following:
+Open the log file and search on **TCDC**, you will see that there is an error message stating "no fields matching TCDC/L0 found" in the GFS file. That is why TCDC does not appear in the output.
+
+Look for **PRMSL/Z0** in the log file.  We can see the following:
+
 .. admonition:: Sample Output
 
-DEBUG 2: Processing PRMSL/Z0 versus PRMSL/Z0, for observation type ONLYSF, over region FULL, for interpolation method BILIN(4), using 0 matched pairs.&lt;br/&gt;
-DEBUG 2: Number of matched pairs = 0&lt;br/&gt;
-DEBUG 2: Observations processed = 441178&lt;br/&gt;
-DEBUG 2: Rejected: station id = 0&lt;br/&gt;
-DEBUG 2: Rejected: obs var name = 441178
+  DEBUG 2: Processing PRMSL/Z0 versus PRMSL/Z0, for observation type ONLYSF, over region FULL, for interpolation method BILIN(4), using 0 matched pairs.
+  DEBUG 2: Number of matched pairs = 0
+  DEBUG 2: Observations processed = 441178
+  DEBUG 2: Rejected: station id = 0
+  DEBUG 2: Rejected: obs var name = 441178
 
 You will note, the number of observations processed is the same as the number rejected due to a mismatch with the obs var name. That suggests we need to look at how the OBS variable for PRMSL is defined.
 
 .. note::
 
-**Inspect configuration file and plot fields**
+  4. **Inspect configuration file and plot fields**
 
 .. code-block::
 
-less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf
+  less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf
 
-Note that PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH, where PMO is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to ??? Julie, should this be spelled out??? `<https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/>`_. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
+Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**, where **PMO** is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to the BUFRLIB `Sample PREPBUFR Table <https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/>`_. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
+
 .. code-block::
 
-plot_point_obs \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.nc \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \&lt;br/&gt;
--obs_var PMO
+  plot_point_obs \
+  ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.nc \
+  ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \
+  -obs_var PMO
 
 .. note::
 
-Convert to PNG and display
+  Convert to PNG and display
 
 .. code-block::
 
-convert -rotate 90 \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;display ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png&lt;/p&gt;
+  convert -rotate 90 \
+  ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \
+  ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
+  &lt;p&gt;display ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
 
 .. note::
 
-**Update configuration file and re-run**
+  5. **Update configuration file and re-run**
 
 .. note::
 
-Open up the PointStat2 conf file and examine the definition of variables. Note that we might want to try changing the BOTH_VAR7_NAME to FCST_VAR7_NAME and OBS_VAR7_NAME:
+  Open up the PointStat2 conf file and examine the definition of variables. Note that we might want to try changing the BOTH_VAR7_NAME to FCST_VAR7_NAME and OBS_VAR7_NAME:
 
 .. note::
 
-Copy the configuration file to the user_config directory and open for editing:
+  Copy the configuration file to the user_config directory and open for editing:
 
 .. code-block::
 
-cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf
+  cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf
 
 .. code-block::
 
-vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf
+  vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf
 
 .. note::
 
-FCST_VAR7_NAME = PRMSL&lt;br/&gt;
-FCST_VAR7_LEVELS = Z0&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;OBS_VAR7_NAME = PMO&lt;br/&gt;
-OBS_VAR7_LEVELS = Z0&lt;/p&gt;
+  FCST_VAR7_NAME = PRMSL
+  FCST_VAR7_LEVELS = Z0
+
+  OBS_VAR7_NAME = PMO
+  OBS_VAR7_LEVELS = Z0
 
 .. code-block::
 
-run_metplus.py \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/tutorial.conf \&lt;br/&gt;
-config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc2
+  run_metplus.py \
+  ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_Sfc2.conf \
+  ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
+  config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc2
 
 .. code-block::
 
-less ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc2/nam/point_stat_000000L_20170601_000000V.stat
+  less ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc2/nam/point_stat_000000L_20170601_000000V.stat
 
 There is now a line with PRMSL listed and statistics reported.
 
@@ -1847,87 +1851,91 @@ End of Session 2 and Additional Exercises
 -----------------------------------------
 
 Congratulations! You have completed Session 2!
+
 If you have extra time, you may want to try this additional METplus exercise.
+
 The default statistics created by this exercise only dump the partial sums, so we will be also modifying the MET configuration file to add the continuous statistics to the output. There is a little more setup in this use case, which will be instructive and demonstrate the basic structure, flexibility and setup of METplus configuration.
 
 EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file types.
 
 .. note::
 
-**Instructions:** Copy and modify the METplus configuration file for Upper Air to write Continuous statistics (cnt) and the Vector Continuous Statistics (vcnt) line types to both the stat file and its own file.
+  **Instructions:** Copy and modify the METplus configuration file for Upper Air to write Continuous statistics (cnt) and the Vector Continuous Statistics (vcnt) line types to both the stat file and its own file.
 
 .. note::
 
-Copy the PointStat.conf file to the user_config directory.
+  Copy the PointStat.conf file to the user_config directory.
 
 .. code-block::
 
-cp ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/PointStat/PointStat.conf \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf
+  cp ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/PointStat/PointStat.conf \
+  ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf
 
 .. note::
 
-Edit the file to remove the # character from the beginning of the variables (this uncomments the line) and set the values to BOTH.
+  Edit the file to remove the # character from the beginning of the variables (this uncomments the line) and set the values to BOTH.
 
 .. note::
 
-Change this line (around line 68):
+  Change this line (around line 68):
 
 .. admonition:: Sample Output
 
-#POINT_STAT_OUTPUT_FLAG_CNT =
+  #POINT_STAT_OUTPUT_FLAG_CNT =
 
 to
+
 .. admonition:: Sample Output
 
-POINT_STAT_OUTPUT_FLAG_CNT = BOTH
+  POINT_STAT_OUTPUT_FLAG_CNT = BOTH
 
 .. note::
 
-and change this line (around line 73):
+  and change this line (around line 73):
 
 .. admonition:: Sample Output
 
-#POINT_STAT_OUTPUT_FLAG_VCNT =
+  #POINT_STAT_OUTPUT_FLAG_VCNT =
 
 to
-.. admonition:: Sample Output
-
-POINT_STAT_OUTPUT_FLAG_VCNT = BOTH
-
-.. code-block::
-
-vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf
-
-.. note::
-
-Rerun METplus and use config.OUTPUT_BASE to change the output directory from the command line:
-
-.. code-block::
-
-run_metplus.py \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf \&lt;br/&gt;
-${METPLUS_TUTORIAL_DIR}/tutorial.conf \&lt;br/&gt;
-config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype
-
-.. note::
-
-Review the additional output files generated under ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat
-
-.. code-block::
-
-ls -1 ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat
 
 .. admonition:: Sample Output
 
-point_stat_360000L_20070331_120000V_cnt.txt&lt;br/&gt;
-point_stat_360000L_20070331_120000V.stat&lt;br/&gt;
-point_stat_360000L_20070331_120000V_vcnt.txt
-
-.. note::
-
-Open the stat file and notice there are two more linetypes, cnt and vcnt.
+  POINT_STAT_OUTPUT_FLAG_VCNT = BOTH
 
 .. code-block::
 
-less ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat/point_stat_360000L_20070331_120000V.stat
+  vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf
+
+.. note::
+
+  Rerun METplus and use config.OUTPUT_BASE to change the output directory from the command line:
+
+.. code-block::
+
+  run_metplus.py \
+  ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_add_linetype.conf \
+  ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
+  config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype
+
+.. note::
+
+  Review the additional output files generated under ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat
+
+.. code-block::
+
+  ls -1 ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat
+
+.. admonition:: Sample Output
+
+  point_stat_360000L_20070331_120000V_cnt.txt
+  point_stat_360000L_20070331_120000V.stat
+  point_stat_360000L_20070331_120000V_vcnt.txt
+
+.. note::
+
+  Open the stat file and notice there are two more linetypes, cnt and vcnt.
+
+.. code-block::
+
+  less ${METPLUS_TUTORIAL_DIR}/output/PointStat_AddLinetype/point_stat/point_stat_360000L_20070331_120000V.stat
