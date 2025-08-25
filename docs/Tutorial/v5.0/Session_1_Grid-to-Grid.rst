@@ -1077,7 +1077,7 @@ Start by making an output directory for Grid-Stat and changing directories:
   mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/grid_stat
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/grid_stat
 
-The behavior of Grid-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Grid-Stat configuration file may be found in the `data/config/GridStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.1/met/data/config/GridStatConfig_default>`_ file. Prior to modifying the configuration file, users are advised to make a copy of the default:
+The behavior of Grid-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Grid-Stat configuration file may be found in the `data/config/GridStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_ file. Prior to modifying the configuration file, users are advised to make a copy of the default:
 
 .. code-block::
 
