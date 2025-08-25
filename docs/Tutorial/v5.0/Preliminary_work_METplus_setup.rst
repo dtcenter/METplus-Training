@@ -382,7 +382,7 @@ You will see many lines of information streaming to your screen. You will see fo
    Verifying transaction: done
    Executing transaction: /
    Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
-   More details are available here: https://intel.github.io/scikit-learn-intelex
+   More details are available `here: <https://intel.github.io/scikit-learn-intelex>`_ 
    For example:
    $ conda install scikit-learn-intelex
    $ python -m sklearnex my_application.py
@@ -1403,7 +1403,7 @@ Modifying Filename Template in Example.conf
 
 **Filename Template Settings in METplus**
 
-METplus configuration variables that control filename templates are described in the `Directory and Filename Template Info <https://metplus.readthedocs.io/en/main_v4.0/Users_Guide/systemconfiguration.html#directory-and-filename-template-info>`_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
+METplus configuration variables that control filename templates are described in the `Directory and Filename Template Info <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#directory-and-filename-template-info>`_ section of the System Configuration chapter in the METplus User's Guide. The Example wrapper is a good tool to help understand how these settings control what is run by the METplus wrappers.
 
 1. List the sample available in the ${METPLUS_DATA} directory
 
