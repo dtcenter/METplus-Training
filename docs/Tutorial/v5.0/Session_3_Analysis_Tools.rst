@@ -10,106 +10,78 @@ Since you already set up your runtime enviroment in Session 1, you should be re
 **Prerequisites: Verify Environment is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
-.. note::
-
-**1:** Navigate to your tutorial directory and run the tutorial setup script.
-
-
-
-.. important::
-
-&lt;strong&gt;In the following instructions, change "/path/to" to the directory you chose.&lt;p&gt;&lt;/p&gt;
-&lt;/strong&gt;&lt;p&gt;**EDIT AFTER COPYING and BEFORE HITTING RETURN!**&lt;/p&gt;
-
-
-
-.. code-block::
-
-cd /path/to/METplus-5.0.0_Tutorial&lt;br/&gt;
-source METplus-5.0.0_TutorialSetup.sh
-
-
-
 
 .. note::
 
-**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
-
-
-
-.. code-block::
-
-echo ${METPLUS_TUTORIAL_DIR}&lt;br/&gt;
-echo ${METPLUS_BUILD_BASE}&lt;br/&gt;
-echo ${MET_BUILD_BASE}&lt;br/&gt;
-echo ${METPLUS_DATA}&lt;br/&gt;
-ls ${METPLUS_TUTORIAL_DIR}&lt;br/&gt;
-ls ${METPLUS_BUILD_BASE}&lt;br/&gt;
-ls ${MET_BUILD_BASE}&lt;br/&gt;
-ls ${METPLUS_DATA}
-
-
+  **1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
-**METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.&lt;br/&gt;
-**METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)&lt;br/&gt;
-**MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)&lt;br/&gt;
-**METPLUS_DATA** is the location of the sample test data directory
+  &lt;strong&gt;In the following instructions, change "/path/to" to the directory you chose.&lt;p&gt;&lt;/p&gt;
+  &lt;/strong&gt;&lt;p&gt;**EDIT AFTER COPYING and BEFORE HITTING RETURN!**&lt;/p&gt;
 
+.. code-block::
 
-
+  cd /path/to/METplus-5.0.0_Tutorial&lt;br/&gt;
+  source METplus-5.0.0_TutorialSetup.sh
 
 .. note::
 
-**3:** Check that the MET applications are in the path:
-
-
+  **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block::
 
-which point_stat
-
-
+  echo ${METPLUS_TUTORIAL_DIR}&lt;br/&gt;
+  echo ${METPLUS_BUILD_BASE}&lt;br/&gt;
+  echo ${MET_BUILD_BASE}&lt;br/&gt;
+  echo ${METPLUS_DATA}&lt;br/&gt;
+  ls ${METPLUS_TUTORIAL_DIR}&lt;br/&gt;
+  ls ${METPLUS_BUILD_BASE}&lt;br/&gt;
+  ls ${MET_BUILD_BASE}&lt;br/&gt;
+  ls ${METPLUS_DATA}
 
 .. important::
 
-You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
-
-
-
+  **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.&lt;br/&gt;
+  **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)&lt;br/&gt;
+  **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)&lt;br/&gt;
+  **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
-**4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
-
-
+  **3:** Check that the MET applications are in the path:
 
 .. code-block::
 
-which run_metplus.py
-
-
+  which point_stat
 
 .. important::
 
-If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
+  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
+.. note::
 
+  **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block::
 
-echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py&lt;br/&gt;
-ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
+  which run_metplus.py
 
+.. important::
 
+  If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
 
+.. code-block::
+
+  echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py&lt;br/&gt;
+  ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
 See the instructions in Session 1 for more information.
 You are now ready to move on to the next section.
+
 .. important::
 
-If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussion <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
+  If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussion <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
 
 MET Tool: Stat-Analysis
@@ -129,63 +101,37 @@ The ramp job processes a time series of data and identifies rapid changes in t
 **STAT-ANALYSIS USAGE**
 
 View the usage statement for Stat-Analysis by simply typing the following:
+
 .. code-block::
 
-stat_analysis
-
-
-
-
-
+  stat_analysis
 
 Usage: stat_analysis
-
-
-
 
 -lookin path
 Space-separated list of input paths where each is a _TYPE.txt file, STAT file, or directory which should be searched recursively for STAT files. Allows the use of wildcards (required).
 
-
-
 [-out filename]
 Output path or specific filename to which output should be written rather than the screen (optional).
-
-
 
 [-tmp_dir path]
 Override the default temporary directory to be used (optional).
 
-
-
 [-log file]
 Outputs log messages to the specified file
-
-
 
 [-v level]
 Level of logging
 
-
-
 [-config config_file] | [JOB COMMAND LINE] (Note: "|" means "or")
-
-
 
 [-config config_file]
 STATAnalysis config file containing Stat-Analysis jobs to be run.
 
-
-
 [JOB COMMAND LINE]
 All the arguments necessary to perform a single Stat-Analysis job. See the MET Users Guide for complete description of options.
 
-
-
 At a minimum, you must specify at least one directory or file in which to find STAT data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
-
-
-
 
 
 Configure
@@ -193,9 +139,7 @@ Configure
 
 .. note::
 
-Start by making an output directory for Stat-Analysis and changing directories:
-
-
+  Start by making an output directory for Stat-Analysis and changing directories:
 
 .. code-block::
 
