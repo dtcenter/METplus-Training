@@ -741,7 +741,7 @@ The confidence interval methods to be used.
 The smoothing methods to be applied.
 The types of statistics to be computed.
 
-You may find a complete description of the configurable items in the series_analysis configuration file section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
