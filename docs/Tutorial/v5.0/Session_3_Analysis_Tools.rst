@@ -432,7 +432,7 @@ METplus Use Case: StatAnalysis
 
 .. important::
 
-  **IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.**
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 The StatAnalysis use case utilizes the MET Stat-Analysis tool.
 Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case.
