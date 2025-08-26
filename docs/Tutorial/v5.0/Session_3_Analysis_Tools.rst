@@ -148,7 +148,7 @@ Configure
 
 
 
-The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the data/config/StatAnalysisConfig_default file.
+The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
 
 .. note::
 
