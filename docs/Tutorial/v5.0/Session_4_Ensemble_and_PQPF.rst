@@ -260,7 +260,7 @@ climo_cdp = FALSE;&lt;br/&gt;
 
 .. important::
 
-You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ section of the MET User's Guide. Please take some time to review them.
+  You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ section of the MET User's Guide. Please take some time to review them.
 
 
 
