@@ -194,7 +194,7 @@ cd ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_ens_prod
 
 
 
-Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the contents of the configuration file passed to it on the command line. The default Gen-Ens-Prod configuration file may be found in the data/config/GenEnsProdConfig_default file. The configurations used by the test script may be found in the scripts/config/GenEnsProdConfig* files.
+Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the contents of the configuration file passed to it on the command line. The default Gen-Ens-Prod configuration file may be found in the `data/config/GenEnsProdConfig_default <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GenEnsProdConfig_default>`_ file. The configurations used by the test script may be found in the scripts/config/GenEnsProdConfig* files.
 .. note::
 
 Prior to modifying the configuration file, users are advised to make a copy of the default:
@@ -260,7 +260,7 @@ climo_cdp = FALSE;&lt;br/&gt;
 
 .. important::
 
-You may find a complete description of the configurable items in the &lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/gen-ens-prod.html#gen-ens-prod-configuration-file"&gt;gen_ens_prod configuration file&lt;/a&gt; section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ section of the MET User's Guide. Please take some time to review them.
 
 
 
