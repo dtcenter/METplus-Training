@@ -2,7 +2,7 @@
 METplus Tutorial
 ################
 
-Please see the `METplus Online Tutorial <http://dtcenter.org/community-code/metplus/online-tutorial>`_.
+Please see the `METplus Online Tutorial <https://dtcenter.org/software-tools/metplus/online-tutorial>`_.
 
 .. _metplus_tutorial_setup:
 

@@ -14,7 +14,7 @@ METplus 4.0 Online Tutorial
 Session 1 : Setup
 Video 2b: Set Up User Workstation Environment
 
-The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
+The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup
 
 Next Video:
 https://www.youtube.com/embed/ZsFE4aOYqMc
@@ -27,7 +27,7 @@ Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
+https://dtcenter.org/software-tools/metplus
 
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
@@ -54,7 +54,7 @@ Welcome to the “Set Up User Workstation Environment” video, part of the “S
 
 This video covers how to set up the tutorial if you are running on your own computer. If you are running in a pre-configured environment such as Hera or Cheyenne, then please watch the “Set Up Pre-Configured Environment” video instead.
 
-(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup)
+(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup)
 
 The content in this video corresponds to the online tutorial section titled “Initial Setup” which is found in the “METplus Setup” portion of “Session 1: METplus Setup / Grid-to-Grid.”
 
@@ -62,7 +62,7 @@ The content in this video corresponds to the online tutorial section titled “I
 
 I will go through the instructions for setting up the tutorial using bash. The instructions for using c-shell are very similar. We recommend using bash if you do not have a shell preference.
 
-(click on the link to navigate to bash instructions: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup/setting-tutorial-environment-bash)
+(click on the link to navigate to bash instructions: https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup/setting-tutorial-environment-bash)
 
 (open a shell, set the PS1 environment variable to something that hides the user and machine names, i.e. export PS1="$~")
 

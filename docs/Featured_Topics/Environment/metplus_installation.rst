@@ -26,7 +26,7 @@ Developed for **METplus Version 3.1**.
 
 In this video, we will step through the process of installing the Model Evaluation Tools plus, or METplus, verification package.
 
-(*Starting on https://dtcenter.org/community-code/metplus*)
+(*Starting on https://dtcenter.org/software-tools/metplus*)
 This is the website for METplus. The information we need is on the "`Download <https://dtcenter.org/community-code/metplus/download>`_" page, so we will go to that page now by clicking on the "Download" link on the right side of this page.  Detailed information about the Software Installation can be found in `Chapter 2 <https://dtcenter.github.io/METplus/Users_Guide/installation.html>`_ of the METplus User's Guide.  Just as with the MET software, METplus also has a few dependencies.  So, let's take a look at the dependencies for METplus in the `Pre-requisites section <https://dtcenter.github.io/METplus/Users_Guide/installation.html#pre-requisites>`_ of Chapter 2 of the METplus User's Guide.
 
 Python 3.6.3 or higher, the dateutil Python package, and the MET software, version 9.0 or above, are all required for running METplus Wrappers.  Some of the wrappers have additional dependencies to run. For example, the TCMPRPlotter wrapper requires R version 3.2.5, the SeriesByLead wrapper requires the NCO software package, the MakePlots wrapper requires the cartopy and pandas Python packages, and the CyclonePlotter wrapper requires the cartopy and matplotlib Python packages.

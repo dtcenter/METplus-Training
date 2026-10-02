@@ -14,7 +14,7 @@ METplus 4.0 Online Tutorial
 Session 1 : Setup
 Video 2a: Set Up Pre-Configured Environment
 
-The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
+The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup
 
 Next Video:
 https://www.youtube.com/embed/ZsFE4aOYqMc
@@ -23,7 +23,7 @@ Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
+https://dtcenter.org/software-tools/metplus
 
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
@@ -50,7 +50,7 @@ Welcome to the “Set Up Pre-Configured Environment” video, part of the “Ses
 
 This video covers how to set up the tutorial if you are running in a pre-configured environment such as Hera or Cheyenne. If you are running on your own computer, then please watch the “Set Up User Workstation Environment” video instead.
 
-(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup)
+(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup)
 
 The content in this video corresponds to the online tutorial section titled “METplus: Initial Setup” which is found in the “METplus Setup” portion of “Session 1: METplus Setup / Grid-to-Grid.”
 
@@ -58,7 +58,7 @@ The content in this video corresponds to the online tutorial section titled “M
 
 I will go through the instructions for setting up the tutorial on Hera. The instructions for the other pre-configured environments are very similar.
 
-(navigate to Hera instructions: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup/setting-tutorial-environment-hera)
+(navigate to Hera instructions: https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/metplus-initial-setup/setting-tutorial-environment-hera-noaa)
 
 (open terminal on Hera on left side of screen, shift the browser window to the right side of the screen)
 
