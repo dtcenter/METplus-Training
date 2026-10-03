@@ -7,7 +7,7 @@ Compiling MET
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/tqyYVFh6vlc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Developed for **MET Version**.
+Developed for **MET Version 9.1**.
 
 **Follow Along!** with these exercises.
 

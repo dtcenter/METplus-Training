@@ -64,7 +64,7 @@ Also, please open up a terminal window where you have MET installed. If you stil
 Functionality
 The Gen-Vx-Mask tool defines a bitmap masking region for your domain. Unlike many other MET tools, this tool doesn’t use a configuration file. All of its options are specified as command line arguments. GenVxMask requires three required arguments: 
 The first required input is a gridded data file which defines your domain. 
-The second required argument defines the area of interest (e.g., your mask). Depending on what type of mask you want to make, this can either be a gridded data file or one of a number of options. 
+The second required argument defines the area of interest (i.e., your mask). Depending on what type of mask you want to make, this can either be a gridded data file or one of a number of options. 
 The third required argument specifies the name of the output file which will be generated. Gen-Vx-Mask writes out a NetCDF file containing the bitmap for that masking region. 
 
 The Gen-Vx-Mask tool also accepts a number of other options.  

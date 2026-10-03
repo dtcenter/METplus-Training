@@ -209,9 +209,9 @@ and two valid times: March 1st, 2020 at 12Z and March 1, 2020 at 13Z::
 
   VALID_TIME_FMT = %Y%m%d%H
 
-  VALID_BEG = 2020020112
+  VALID_BEG = 2020030112
 
-  VALID_END = 2020020113
+  VALID_END = 2020030113
 
   VALID_INCREMENT = 1H
 
@@ -262,11 +262,11 @@ Many MET tools utilize configuration files to define the fields to process::
       },
       {
         name       = "TMP";
-        level      = [ "P250", “P500”, “P750”, “P1000” ];
+        level      = [ "P250", "P500", "P750", "P1000" ];
       },
       {
         name       = "RH";
-        level      = [ "P150", “P250” ];
+        level      = [ "P150", "P250" ];
       }
     ];
   }
@@ -339,7 +339,7 @@ Extra options
 
 (*show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#fcst-var-n-options-obs-var-n-options*)
 
-There are additional options that can be defined in the MET configuration field dictionary, such as ???. See the MET
+There are additional options that can be defined in the MET configuration field dictionary, such as GRIB_lvl_typ or set_attr_name. See the MET
 User’s Guide for more information on what can be added. These are defined with the [FCST/OBS/BOTH]_VAR<n>_OPTIONS
 variables::
 
@@ -355,7 +355,7 @@ Wrapper-specific
 (* show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*)
 
 New to METplus 3.0 is the ability to specify VAR<n> items differently across comparison wrappers. In previous versions,
-it was assumed that the list of forecast and observation files that were processed would be applied to any MET Stat tool
+it was assumed that the list of forecast and observation fields that were processed would be applied to any MET Stat tool
 used, such as GridStat, PointStat, EnsembleStat, MODE, or MTD. This prevented the ability to run, for example,
 EnsembleStat, then pass the output into GridStat.
 

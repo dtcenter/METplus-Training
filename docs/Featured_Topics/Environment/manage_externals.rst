@@ -15,7 +15,7 @@ This is the manage externals piece of the METplus tutorial.
 
 We have a couple directories in the newest release of METplus that relate to building components. If you clone METplus, you will see them in the top level. The one I'm going to talk about right now is build components. We are calling all of the things that go along with METplus, such as METviewer, METcalcpy, and METplotpy, components. Manage externals is a tool to help you download and build all of these components along with METplus.
 
-If you don't have access to one of the HPC computers where everything is installed for you, and you need to either install this yourself on a common machine or you want to install it on your own machine, this is a way to do it. Manage externals is a set of scripts that the CESM group at NCAR has created and that allows you, using this **externals.config** file, to specify other GitHub repositories that you want to automatically clone and put in a directory either on the same level as your METplus or somewhere else of your choosing.
+If you don't have access to one of the HPC computers where everything is installed for you, and you need to either install this yourself on a common machine or you want to install it on your own machine, this is a way to do it. Manage externals is a set of scripts that the CESM group at NCAR has created and that allows you, using this **Externals.cfg** file, to specify other GitHub repositories that you want to automatically clone and put in a directory either on the same level as your METplus or somewhere else of your choosing.
 
 Right now we have it set up to clone the latest build of MET and clone the latest build of METviewer, which will then put it in a directory one level up from METplus, which I will show you later after I go through this example of how it'll grab those two repositories. There'll be some future components that we're going to add as well.
 
@@ -25,7 +25,7 @@ To start with, we are going to clone the METplus repository from GitHub:
 
   git clone https://github.com/dtcenter/METplus
 
-Change directories into build_components and show the external.config file:
+Change directories into build_components and show the Externals.cfg file:
 
 .. code-block::
 

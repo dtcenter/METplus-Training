@@ -206,8 +206,8 @@ by running these commands.
   docker images
   docker ps -a
 
-At a minimum, you should see images for **hello-world**, **metplus-training**, and the **met-tool-wrapper** data.
-And **docker ps -a** should only show the **met-tool-wrapper** data container. All of the other containers created
+At a minimum, you should see images for **hello-world**, **metplus-training**, and the **met_tool_wrapper** data.
+And **docker ps -a** should only show the **met_tool_wrapper** data container. All of the other containers created
 by **docker run** were automatically removed once you exited them since we used the **\-\-rm** option.
 If you would like the container to persist after exiting, omit the **\-\-rm** option.
 

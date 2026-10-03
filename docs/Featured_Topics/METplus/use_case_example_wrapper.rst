@@ -50,7 +50,7 @@ This is the user configuration file I am using on Docker to run this example::
 This file is provided in the tutorial and references environment variables to set the METplus variables.
 These are the values of those environment variables:
 
-(*Run: echo METPLUS_TUTORIAL_DIR; echo ${METPLUS_BUILD_BASE}; echo ${MET_BUILD_BASE}; echo ${METPLUS_DATA}*)
+(*Run: echo ${METPLUS_TUTORIAL_DIR}; echo ${METPLUS_BUILD_BASE}; echo ${MET_BUILD_BASE}; echo ${METPLUS_DATA}*)
 
 Let's take a look at the Example wrapper use case configuration file. It is found in the METplus repository under
 parm/use_cases/met_tool_wrapper/Example and is named Example.conf.

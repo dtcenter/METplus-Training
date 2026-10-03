@@ -39,7 +39,7 @@ TCMPRPlotter.conf,
 
 and track_and_intensity.output.conf. 
 
-You will create the track_and_intensity_output.conf, it is your custom config file. (**XTERM** *create this file*) 
+You will create the track_and_intensity.output.conf, it is your custom config file. (**XTERM** *create this file*) 
 
 The TCMPRPlotterConfig_Customize file is used by MET’s R script that generates the plot, and is used to set attributes of the plot.  
 
