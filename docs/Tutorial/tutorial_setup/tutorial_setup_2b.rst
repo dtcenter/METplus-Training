@@ -10,7 +10,7 @@ Developed for **METplus Version 4.0**.
 Description
 ^^^^^^^^^^^
 
-METplus 4.0 Online Tutorial
+METplus 5.0 Online Tutorial
 Session 1: Setup
 Video 2b: Set Up User Workstation Environment
 
@@ -41,7 +41,7 @@ Preparation for Presenter
 * Open a web browser
 * Open a terminal on your own machine and set
   the PS1 environment variable to something that hides the user and machine
-  names, i.e. export PS1="$~"
+  names, e.g. export PS1="$~"
 
 Script
 ^^^^^^
@@ -64,7 +64,7 @@ I will go through the instructions for setting up the tutorial using bash. The i
 
 (click on the link to navigate to bash instructions: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup/setting-tutorial-environment-bash)
 
-(open a shell, set the PS1 environment variable to something that hides the user and machine names, i.e. export PS1="$~")
+(open a shell, set the PS1 environment variable to something that hides the user and machine names, e.g. export PS1="$~")
 
 Open a shell and follow the instructions. Be sure to read each instruction carefully. For example, this important info block tells you to change the value of slash path slash to before running the command.
 

@@ -10,7 +10,7 @@ Developed for **METplus Version 4.0**.
 Description
 ^^^^^^^^^^^
 
-METplus 4.0 Online Tutorial
+METplus 5.0 Online Tutorial
 Session 1: Setup
 Video 2a: Set Up Pre-Configured Environment
 
@@ -37,7 +37,7 @@ Preparation for Presenter
 * Open a web browser
 * Open a terminal on a pre-configured machine such as Hera or Cheyenne and set
   the PS1 environment variable to something that hides the user and machine
-  names, i.e. export PS1="$~"
+  names, e.g. export PS1="$~"
 
 Script
 ^^^^^^

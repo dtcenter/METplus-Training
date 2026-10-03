@@ -10,7 +10,7 @@ Developed for **METplus Version 4.0**.
 Description
 ^^^^^^^^^^^
 
-METplus 4.0 Online Tutorial
+METplus 5.0 Online Tutorial
 Session 1: Setup
 Video 1: Find and Navigate the Tutorial
 
@@ -92,6 +92,7 @@ Text blocks inside light blue boxes contain instructions for the user to perform
 Text blocks inside light gray boxes contain sample output from a command or contents of a file.
 
 (scroll to the “Tutorial Tips” section of the page)
+
 Please note that some of the commands listed in the tutorial instructions use specific applications like vi to open and edit files and okular to view PDF, postscript, and image files. Users are encouraged to use their preferred tools instead of these suggested tools if they are more comfortable with them.
 
 Also please note that if you are running the tutorial instructions inside a Docker container, then the visualization tools used in the tutorial may not be available inside the container. To run these commands, you will have to mount the output directory inside Docker to your local file system and run those tools from there.

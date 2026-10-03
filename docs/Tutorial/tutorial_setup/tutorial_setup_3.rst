@@ -10,15 +10,12 @@ Developed for **METplus Version 4.0**.
 Description
 ^^^^^^^^^^^
 
-METplus 4.0 Online Tutorial
+METplus 5.0 Online Tutorial
 Session 1: Setup
 Video 3: Verify Environment is Set Correctly
 
 The content in this video corresponds to this online tutorial section:
 https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly
-
-Next Video:
-***ADD URL FOR ?***
 
 Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
@@ -38,7 +35,7 @@ Preparation for Presenter
 * Open a web browser
 * Open a terminal on your own machine and set
   the PS1 environment variable to something that hides the user and machine
-  names, i.e. export PS1="$~"
+  names, e.g. export PS1="$~"
 
 Script
 ^^^^^^
