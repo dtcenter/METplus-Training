@@ -15,7 +15,7 @@ Session 1 : Setup
 Video 3: Verify Environment is Set Correctly
 
 The content in this video corresponds to this online tutorial section:
-https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly
+https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/verify-environment-set-correctly
 
 Next Video:
 ***ADD URL FOR ?***
@@ -24,7 +24,7 @@ Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
+https://dtcenter.org/software-tools/metplus
 
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
@@ -32,7 +32,7 @@ https://metplus.readthedocs.io/en/latest/Users_Guide
 Preparation for Presenter
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/Training_Series/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting
+* Slides: `metplus_online_tutorial_session_1_setup_WIN.pptx <https://github.com/dtcenter/METplus-Training/blob/HEAD/docs/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup_WIN.pptx?raw=true>`_ (note formatting
   of PowerPoint presentation differs between PowerPoint and Google Drive!
   Please use PowerPoint if available or copy file and adjust formatting)
 * Open a web browser
@@ -52,7 +52,7 @@ Welcome to the “Verify Environment is Set Correctly” video, part of the “S
 This video covers how to check that the tutorial environment has been set up correctly.
 This video assumes you have already completed the steps covered in the “Set Up Pre-Configured Environment” video OR the “Set up User Workstation Environment” video. If you have not yet completed this step, please navigate to the appropriate video before proceeding with this video.
 
-(navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly)
+(navigate to https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup/verify-environment-set-correctly)
 
 To verify that the tutorial environment was set up correctly, this page instructs you to source the setup script and run commands to ensure that everything was done correctly.
 
