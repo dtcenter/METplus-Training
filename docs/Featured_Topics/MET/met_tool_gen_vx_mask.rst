@@ -40,11 +40,11 @@ Outline
 * SWPC GenVxMask use case
 
 [Screenshot of a GenVxMask mask]
-The GenVxMask tool supports a wide array of masking options which are really useful for subsetting your verification domain to a certain region of interest. Many users may do this because they just want to limit their verification results to a particular subregion. Another reason to do this is to cut down on the computational cost and storage when undertaking large verifications with global model datasets. Using GenVxMask to create a subdomain for your region of interest can dramatically speed-up the run times of other MET tools. In this video, I’ll describe what the tool can do, explain the various options that it takes, and illustrate how to run it on the command line. Then we’ll look at some specific examples and show how it can be wrapped by METplus. [If there is time.]
+The GenVxMask tool supports a wide array of masking options which are really useful for subsetting your verification domain to a certain region of interest. Many users may do this because they just want to limit their verification results to a particular subregion. Another reason to do this is to cut down on the computational cost and storage when undertaking large verifications with global model datasets. Using GenVxMask to create a subdomain for your region of interest can dramatically speed up the run times of other MET tools. In this video, I’ll describe what the tool can do, explain the various options that it takes, and illustrate how to run it on the command line. Then we’ll look at some specific examples and show how it can be wrapped by METplus. [If there is time.]
 
 For more information
 
-Before we get started, let me give you a resource where you get more information about GenVxMask. 
+Before we get started, let me give you a resource where you can get more information about GenVxMask. 
 
 (*Screenshot of Chapter 6.1 of the MET User’s Guide*)
 
@@ -67,7 +67,7 @@ The first required input is a gridded data file which defines your domain.
 The second required argument defines the area of interest (e.g., your mask). Depending on what type of mask you want to make, this can either be a gridded data file or one of a number of options. 
 The third required argument specifies the name of the output file which will be generated. Gen-Vx-Mask writes out a NetCDF file containing the bitmap for that masking region. 
 
-The Gen-Vx-Mask tool also also accepts a number of other options.  
+The Gen-Vx-Mask tool also accepts a number of other options.  
 
 .. code-block::
 

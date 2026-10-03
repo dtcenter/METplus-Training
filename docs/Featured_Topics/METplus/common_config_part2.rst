@@ -41,7 +41,7 @@ with curly braces. They contain an identifier to determine what value should be 
 provide more information about how the value should be represented. The identifier and all options are separated by a
 question mark. The most commonly used template tags contain valid, init, or lead as the identifier,
 representing valid time, initialization time, and forecast lead respectively, and a format
-option to determine how the time value should be displayed. The format option is represented with f-m-t following by
+option to determine how the time value should be displayed. The format option is represented with f-m-t followed by
 an equals sign and a set of Python string format directives.
 
 (*Show strftime.org*)
@@ -52,7 +52,7 @@ init and valid can use any of the directives from this website.
 
 lead and level can only use hours, minutes, seconds, or any combination of the three. You can specify the number of
 digits of these values by adding a number after the percent sign and in front of the letter. The default precision of
-hour, minute, and second are 2 digits.
+hour, minute, and second is 2 digits.
 
 For each run time, the time values are substituted in the template, then the directory value is prepended to determine
 the full path to the desired input file. Please note that filename template tags are currently not supported in the directory

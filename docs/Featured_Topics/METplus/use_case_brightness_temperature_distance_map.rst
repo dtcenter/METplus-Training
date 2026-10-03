@@ -24,11 +24,11 @@ Model Applications, Convection Allowing Models and click on
 Looking at the information, we see that this Use Case runs Grid-Stat to
 create distance maps on the FV3 Model ensemble members compared to GOES
 brightness temperature data (*Scroll down to METplus Workflow*). It is set up to 
-run two ensemble members, onemodel initialization time, and two forecast lead times.  
+run two ensemble members, one model initialization time, and two forecast lead times.  
 The METplus and MET configuration files are shown here in the documentation.
 
-If you want to learn more about Grid-Stat and distance maps go to the Met
-Users Guide under
+If you want to learn more about Grid-Stat and distance maps go to the MET
+User's Guide under
 `Section 10 <https://met.readthedocs.io/en/latest/Users_Guide/grid-stat.html>`_
 which is on the Grid-Stat tool. This video assumes that you have already
 installed
@@ -38,7 +38,7 @@ and set up your environment for
 Information on how to do this can be found in Section 1 and the
 `Installation and Setup <https://metplus-training.readthedocs.io/en/latest/Featured_Topics/Environment/index.html>`_
 sections of the online tutorial topics. Here we will be using the recommended
-setup, which is first passing in a Use Case specific to the configuration file,
+setup, which is first passing in a Use Case specific configuration file,
 followed by a second configuration file with settings that are specific
 to the system we are using. 
 
@@ -64,14 +64,14 @@ So we will go ahead and open this file.
 
 If we first look at the process list inside this file, we will see that
 there are two instances of Grid-Stat. These two instances are for the two
-ensemble members and the values in parenthesis are identifiers for the
+ensemble members and the values in parentheses are identifiers for the
 members (*PROCESS_LIST = GridStat(lsm1), GridStat(mp1)*).
 
 So if we scroll down to the bottom of the file and we look at:
 GRID_STAT_OUTPUT_PREFIX = FV3_core {instance} and 
 *FCST_GRID_STAT_INPUT_TEMPLATE = {init?fmt=%y%m%d%h}/core_{instance}/core_{instance}_{init?fmt=%y%m%d}_{init?fmt=%h%m}_f{lead?fmt=%HH}.nc*,
 we see the word {instance} in both of these variables. This value is set
-to the ensemble member in parenthesis in the process list when METplus is
+to the ensemble member in parentheses in the process list when METplus is
 run and it's how it points to the different members.
 
 Next let's check our paths to the input data. To do this we need to know
@@ -90,7 +90,7 @@ INPUT_BASE is set to the following path that's listed here.
 (*INPUT_BASE = /d1/projects/METplus/METplus_Data*)
 
 So we can combine that with the rest of the FCST_GRID_STAT_INPUT_DIR
-(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convetion_allowing_models/brightness_temperature*)
+(*FCST_GRID_STAT_INPUT_DIR = (INPUT_BASE)/model_applications/convection_allowing_models/brightness_temperature*)
 to check for files.
 
 .. code-block:: ini 
@@ -151,7 +151,7 @@ directory as we listed previously.
 
   ncdump CHANGE_TO_YOUR_INPUT_BASE/model_applications/convection_allowing_models/brightness_temperature/2019_05_21_141/remap_GOES-16.20190521.010000.nc | more
 
-Looking at the configuration file. the observed variable is called
+Looking at the configuration file, the observed variable is called
 *channel_13_brightness_temperature* and it's also in two dimensions.
 Scrolling down through the file here we see
 *channel_13_brightness_temperature(lat, lon)* and it's in two dimensions in our
@@ -160,7 +160,7 @@ obs input file. Additionally, in this case we’re using a threshold of
 
 And, finally, to get distance map output from Grid-Stat we have to set the
 GRID_STAT_OUTPUT_FLAG_DMAP in our configuration file. It can be set to
-either STAT or BOTH. Here we have it sent to BOTH which will produce two
+either STAT or BOTH. Here we have it set to BOTH which will produce two
 output files, a .stat file and a .txt file.
 
 .. code-block:: ini
@@ -187,7 +187,7 @@ Scrolling down to the expected output, we can see that the expected output
 is twelve files. The first six are for the core_lsm1 ensemble member and the
 second six are for the core_mp1 member. Each member contains two
 valid times, 01 UTC and 02 UTC valid on May 21, 2019. There are three
-files for each Ensemble member and valid time. The files ending in dmap.txt
+files for each ensemble member and valid time. The files ending in dmap.txt
 and .stat contain the distance map output line. We have two files here
 because we set the dmap flag to BOTH. The file with pairs.nc at the end
 contains gridded output including the distance maps.
@@ -220,8 +220,8 @@ Exiting out of this file, we can now call plot_data_plane, using plot_data_plane
 and then we specify the input file name and then secondly the name of the output 
 PostScript file we want which I'm going to call distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
-calling name equals and our variable name in quotes, followed buy a semi colon, and 
-then level equals, and in this case two asterisks in parenthesis in quotes 
+calling name equals and our variable name in quotes, followed by a semicolon, and 
+then level equals, and in this case two asterisks in parentheses in quotes 
 (*‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(\*,\*)”;’*).
 
 .. code-block:: ini
