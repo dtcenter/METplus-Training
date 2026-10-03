@@ -27,7 +27,7 @@ page, so we will go to that page now by clicking on the "Download" link on the
 right side of this page.  Detailed information about the Software Installation
 can be found in
 `Chapter 2 <https://dtcenter.github.io/MET/Users_Guide/installation.html>`_ of
-the MET Users Guide, but for this session, we are going to be using the
+the MET User's Guide, but for this session, we are going to be using the
 information on this "Download" page.
 
 The MET package has several external libraries that are required for compiling
@@ -50,7 +50,7 @@ that you are installing.  In this case, we will create a directory called
       mkdir 10.0.1
       cd 10.0.1
       
-Now, we want go to the Download page, right click on "compile_MET_all.sh" and
+Now, we want to go to the Download page, right click on "compile_MET_all.sh" and
 select "Copy Link Address".  Going back to the terminal window, let's type
 "wget", space, and then paste in the link that we copied and hit enter.
 
@@ -104,7 +104,7 @@ copied and hit enter.
 We now have everything we need to install MET on this machine.  The
 compilation script expects some environment variables to be set in a
 configuration file to be passed to the script. To save time, we created this
-file in advance, but will go over each of the need environment variables.  We
+file in advance, but will go over each of the needed environment variables.  We
 will get out of the tar_files directory and go up one level.
 
 .. code-block::
@@ -114,7 +114,7 @@ will get out of the tar_files directory and go up one level.
 The configuration file is named install_met_env.hera.  "Hera" is the name of
 the machine we will be working on.  Looking in the file, we see the first
 three lines contain "module use" and "module load" statements.  These are
-loading the intel compiler and the Python package via anaconda on this machine.
+loading the Intel compiler and the Python package via anaconda on this machine.
 If you are installing on a machine that does not use modules, be sure that the
 compiler executables, for example gcc, icc, etc., are in your PATH environment
 variable, and for Python embedding, make sure that the Python version 3.6.3 or
@@ -130,7 +130,7 @@ recently created.
 
 Then, we will set the COMPILER.  The format here is the name of the compiler,
 followed by an underscore, followed by the version number.  In this case, we
-are using intel_18.0.5.274  because we're using version 18.0.5.274 of the intel
+are using intel_18.0.5.274  because we're using version 18.0.5.274 of the Intel
 compiler.  For the GNU family of compilers, use "gnu" for the compiler name.
 For the Intel family of compilers, use "intel", "ics", "ips" or another name,
 depending on your system.  For the PGI family of compilers, use "pgi" for the
@@ -165,7 +165,7 @@ MET_PYTHON_CC should be set to dash upper case I, "-I", followed by the
 directory containing the Python include files.  In this case, the value is
 ${MET_PYTHON}/include/python3.7m. You may be able to get this information by
 running "python3-config --cflags", however, in some cases, like on this
-machine the running the python3-config command provides additional information
+machine, running the python3-config command provides additional information
 that is not necessary to include.
 
 .. code-block::
@@ -208,7 +208,7 @@ Because the installation can take a while, I ran through it previously in this
 same area and saved off the screen output and the installation in a
 10.0.1_preinstall directory, which I'll take you to now so we can take a look
 at that screen output.  Looking at the screen output we can see some of the
-settings from our environment followed by the compilation of each libary and
+settings from our environment followed by the compilation of each library and
 then the installation of MET.  We can also see the output of the MET variables
 being set in the script.  At the bottom, we see the message that MET finished
 compiling.
