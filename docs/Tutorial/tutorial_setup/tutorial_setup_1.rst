@@ -11,7 +11,7 @@ Description
 ^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
-Session 1 : Setup
+Session 1: Setup
 Video 1: Find and Navigate the Tutorial
 
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup
@@ -21,7 +21,7 @@ If using a pre-configured environment such as Hera or Cheyenne: https://www.yout
 OR
 If using your own workstation: https://www.youtube.com/watch?v=9EP59dp8Xp0
 
-Questions? Visit the METplus GitHub Discussions Form:
+Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
@@ -64,7 +64,7 @@ then select “METplus” under the “Community Code” drop down menu.
 Next click on “User Support.”
 
 (mouse over the “User Support” button on the menu on the right side of the window,
-Reduce the width of the window so that the menu bar disappears from the right side)
+reduce the width of the window so that the menu bar disappears from the right side)
 
 You may not see the menu bar on the right-hand side of the window. This occurs when the width of the window is not large enough to display it. If this is the case, navigate to the bottom of the page to find this menu.
 
@@ -124,7 +124,7 @@ The next video in this tutorial depends on the environment you are using. If you
 
 If you have any questions, please visit the METplus GitHub Discussions Forum. On this page you can check if your question has already been asked by another user or create a new discussion topic.
 
-Other useful resources, such as User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
+Other useful resources, such as the User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
 
 All of the links can also be found in the description of this video.
 

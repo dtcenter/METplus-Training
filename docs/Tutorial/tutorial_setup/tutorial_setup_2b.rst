@@ -11,7 +11,7 @@ Description
 ^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
-Session 1 : Setup
+Session 1: Setup
 Video 2b: Set Up User Workstation Environment
 
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
@@ -23,7 +23,7 @@ Other Relevant Videos:
 Compiling MET - https://www.youtube.com/watch?v=tqyYVFh6vlc
 Installing METplus - https://www.youtube.com/watch?v=ap9-Fdlb7Fo
 
-Questions? Visit the METplus GitHub Discussions Form:
+Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
@@ -68,7 +68,7 @@ I will go through the instructions for setting up the tutorial using bash. The i
 
 Open a shell and follow the instructions. Be sure to read each instruction carefully. For example, this important info block tells you to change the value of slash path slash to before running the command.
 
-(run through the instructions to create a directory and cd in the directory)
+(run through the instructions to create a directory and cd into the directory)
 
 Navigate to a directory where you have write permissions. Next create a directory called METplus dash 4.0.0 underscore tutorial. This directory will contain all of your tutorial work including configuration files, output data, and any other notes you’d like to keep. Change directory into this directory. You can run the “pwd” command to see which directory you are currently in if it is not displayed in the shell.  Next create the user_config and output directories.
 The tutorial setup files are downloaded from the DTC webpage using wget commands.
@@ -103,7 +103,7 @@ The next video in this tutorial is titled “Verify Environment is Set Correctly
 
 If you have any questions, please visit the METplus GitHub Discussions Forum. On this page you can check if your question has already been asked by another user or create a new discussion topic.
 
-Other useful resources, such as User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
+Other useful resources, such as the User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
 
 All of the links can also be found in the description of this video.
 

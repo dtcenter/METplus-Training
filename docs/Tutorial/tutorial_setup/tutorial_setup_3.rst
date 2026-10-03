@@ -11,7 +11,7 @@ Description
 ^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
-Session 1 : Setup
+Session 1: Setup
 Video 3: Verify Environment is Set Correctly
 
 The content in this video corresponds to this online tutorial section:
@@ -20,7 +20,7 @@ https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metpl
 Next Video:
 ***ADD URL FOR ?***
 
-Questions? Visit the METplus GitHub Discussions Form:
+Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
@@ -50,7 +50,7 @@ Welcome to the “Verify Environment is Set Correctly” video, part of the “S
 (show slide 11 - Topics Covered in This Video)
 
 This video covers how to check that the tutorial environment has been set up correctly.
-This video assumes you have already completed the steps covered in the “Set Up Pre-Configured Environment” video OR the “Set up User Workstation Environment” video. If you have not yet completed this step, please navigate to the appropriate video before proceeding with this video.
+This video assumes you have already completed the steps covered in the “Set Up Pre-Configured Environment” video OR the “Set Up User Workstation Environment” video. If you have not yet completed this step, please navigate to the appropriate video before proceeding with this video.
 
 (navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/verify-environment-set-correctly)
 
@@ -58,11 +58,11 @@ To verify that the tutorial environment was set up correctly, this page instruct
 
 The results from these commands may vary slightly based on your environment, but should be similar.
 
-For pre-configured environments, as long as your copy of the setup scripts are found in your personal working directory, you should get the correct results.
+For pre-configured environments, as long as your copy of the setup scripts is found in your personal working directory, you should get the correct results.
 
 If you configured your own workstation to run the tutorial and the output looks very different, you may need to update the tutorial setup script with the correct values.
 
-Start by navigating to your METplus-4.0.0_Tutorial directory and source the setup script.
+Start by navigating to your METplus-4.0.0_Tutorial directory and sourcing the setup script.
 
 (run cd and source commands)
 

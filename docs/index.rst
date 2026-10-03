@@ -15,7 +15,7 @@ These training materials describe the use of the
 `METexpress <https://github.com/dtcenter/METexpress>`_, 
 `METplotpy <https://github.com/dtcenter/METplotpy>`_, 
 `METcalcpy <https://github.com/dtcenter/METcalcpy>`_, and 
-`METdatadb <https://github.com/dtcenter/METdatadb>`_).
+`METdataio <https://github.com/dtcenter/METdatadb>`_).
 
 You can either step through all the videos using the **Previous** and **Next** buttons at the bottom of each page
 or go directly to the topic of interest using the top-level navigation options.

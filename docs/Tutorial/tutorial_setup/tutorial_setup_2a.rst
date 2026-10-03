@@ -11,7 +11,7 @@ Description
 ^^^^^^^^^^^
 
 METplus 4.0 Online Tutorial
-Session 1 : Setup
+Session 1: Setup
 Video 2a: Set Up Pre-Configured Environment
 
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup
@@ -19,7 +19,7 @@ The content in this video corresponds to this online tutorial section: https://d
 Next Video:
 https://www.youtube.com/embed/ZsFE4aOYqMc
 
-Questions? Visit the METplus GitHub Discussions Form:
+Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
@@ -64,7 +64,7 @@ I will go through the instructions for setting up the tutorial on Hera. The inst
 
 Open a shell and follow the instructions. Be sure to read each instruction carefully.
 
-(run through the instructions to create a directory and cd in the directory)
+(run through the instructions to create a directory and cd into the directory)
 
 Navigate to a directory where you have write permissions. Next create a directory called METplus dash 4.0.0 underscore tutorial. This directory will contain all of your tutorial work including configuration files, output data, and any other notes you’d like to keep. Change directory into this directory. You can run the “pwd” command to see which directory you are currently in if it is not displayed in the shell.  Next create the user_config and output directories.
 
