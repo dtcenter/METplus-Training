@@ -5,7 +5,7 @@ Training Topics: MET
 ********************
 
 These are the MET Training Topics.
-		  
+
 .. toctree::
    :titlesonly:
 

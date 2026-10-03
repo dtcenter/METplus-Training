@@ -5,7 +5,7 @@ Training Topics: METviewer
 **************************
 
 These are the METviewer Training Topics.
-		  
+
 .. toctree::
    :titlesonly:
 
