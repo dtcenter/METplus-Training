@@ -100,7 +100,7 @@ For example, a capital letter H represents hours.
 (*Show Next Slide*)
 
 In this example, the run times are processed every 12 hours --
-valid at 12Z on March. 1, 0Z on March 2, 12Z on March 2, 0Z on March 3, and 12Z on March 3.
+valid at 12Z on March 1, 0Z on March 2, 12Z on March 2, 0Z on March 3, and 12Z on March 3.
 Note that the valid end time is 18Z, but that time was not processed.
 
 Looping by Initialization Time
@@ -118,7 +118,7 @@ Looping over Forecast Leads
 
 For each run time defined by the INIT or VALID variables, you can iterate over a list of forecast leads. The LEAD_SEQ
 variable is used to define a comma-separated list of forecast leads to process relative to the current initialization
-or valid time. The default units for the lead sequence is hours, so this example will process the 3 hour and 6 hour
+or valid time. The default units for the lead sequence are hours, so this example will process the 3 hour and 6 hour
 forecast leads for each run time. You can define other units, such as minutes, by adding the appropriate letter.
 
 (*Show Next Slide*)
@@ -133,7 +133,7 @@ initialization time.
 (*Show Next Slide*)
 
 Here we process the first valid time, March 1 @ 12Z for the 3 hour forecast lead, initialized at 9Z, then the
-6 hours forecast lead, initialized at 6Z. Then we increment the valid time by 12 hours and process 0Z on Mar. 2
+6 hour forecast lead, initialized at 6Z. Then we increment the valid time by 12 hours and process 0Z on Mar. 2
 for the 3 hour lead, initialized at 21Z of the previous day, then the 6 hour lead, initialized at 18Z on the previous day.
 
 (*Show Next Slide*)
@@ -145,7 +145,7 @@ valid time.
 
 Here we are using the same run times but based around the initialization time instead of the valid time.
 We process the first init time, Mar. 1, 2020 @ 12Z first for the 3 hour forecast lead, valid at 15Z, then the
-6 hours forecast lead, valid at 18Z. Next we increment the init time by 12 hours and process 0Z on Mar. 2, 2020, first
+6 hour forecast lead, valid at 18Z. Next we increment the init time by 12 hours and process 0Z on Mar. 2, 2020, first
 for the 3 hour lead, valid at 3Z, then finally the 6 hour lead, valid at 6Z.
 
 Again, more information on these topics is found in the METplus User's Guide webpage, including more advanced timing
@@ -199,7 +199,7 @@ skip the 31st day of each month. Note that the SKIP_TIMES values are not applied
 Loop Order
 ----------
 
-The LOOP_ORDER variable determines the order to run processes. Acceptable values for this variables are ‘processes’ and
+The LOOP_ORDER variable determines the order to run processes. Acceptable values for this variable are ‘processes’ and
 ‘times’ which define which to loop over first. The configuration shown here runs two processes, PCPCombine and GridStat,
 and two valid times: March 1st, 2020 at 12Z and March 1, 2020 at 13Z::
 
@@ -209,9 +209,9 @@ and two valid times: March 1st, 2020 at 12Z and March 1, 2020 at 13Z::
 
   VALID_TIME_FMT = %Y%m%d%H
 
-  VALID_BEG = 2020020112
+  VALID_BEG = 2020030112
 
-  VALID_END = 2020020113
+  VALID_END = 2020030113
 
   VALID_INCREMENT = 1H
 
@@ -262,11 +262,11 @@ Many MET tools utilize configuration files to define the fields to process::
       },
       {
         name       = "TMP";
-        level      = [ "P250", “P500”, “P750”, “P1000” ];
+        level      = [ "P250", "P500", "P750", "P1000" ];
       },
       {
         name       = "RH";
-        level      = [ "P150", “P250” ];
+        level      = [ "P150", "P250" ];
       }
     ];
   }
@@ -339,8 +339,8 @@ Extra options
 
 (*show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#fcst-var-n-options-obs-var-n-options*)
 
-There are additional options that can be defined in the MET configuration field dictionary, such as ???. See the MET
-User’s Guide for more information on what can be added. There are defined with the [FCST/OBS/BOTH]_VAR<n>_OPTIONS
+There are additional options that can be defined in the MET configuration field dictionary, such as GRIB_lvl_typ or set_attr_name. See the MET
+User’s Guide for more information on what can be added. These are defined with the [FCST/OBS/BOTH]_VAR<n>_OPTIONS
 variables::
 
   FCST_VAR3_OPTIONS = GRIB_lvl_typ = 105;
@@ -355,7 +355,7 @@ Wrapper-specific
 (* show https://dtcenter.github.io/METplus/Users_Guide/systemconfiguration.html#wrapper-specific-field-info*)
 
 New to METplus 3.0 is the ability to specify VAR<n> items differently across comparison wrappers. In previous versions,
-it was assumed that the list of forecast and observation files that were processed would be applied to any MET Stat tool
+it was assumed that the list of forecast and observation fields that were processed would be applied to any MET Stat tool
 used, such as GridStat, PointStat, EnsembleStat, MODE, or MTD. This prevented the ability to run, for example,
 EnsembleStat, then pass the output into GridStat.
 

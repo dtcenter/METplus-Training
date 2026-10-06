@@ -50,7 +50,7 @@ This is the user configuration file I am using on Docker to run this example::
 This file is provided in the tutorial and references environment variables to set the METplus variables.
 These are the values of those environment variables:
 
-(*Run: echo METPLUS_TUTORIAL_DIR; echo ${METPLUS_BUILD_BASE}; echo ${MET_BUILD_BASE}; echo ${METPLUS_DATA}*)
+(*Run: echo ${METPLUS_TUTORIAL_DIR}; echo ${METPLUS_BUILD_BASE}; echo ${MET_BUILD_BASE}; echo ${METPLUS_DATA}*)
 
 Let's take a look at the Example wrapper use case configuration file. It is found in the METplus repository under
 parm/use_cases/met_tool_wrapper/Example and is named Example.conf.
@@ -86,8 +86,8 @@ To run this use case, we will run... (*describe what you type*)
 
 (*Type master_metplus.py -c $METPLUS_BUILD_BASE/parm/use_cases/met_tool_wrapper/Example/Example.conf -c $METPLUS_TUTORIAL_DIR/tutorial.conf*)
 
-A lot of text was output to the screen. Let's open the log file to take a closer look and what happened. We recently
-added the log file name to bottom of the screen output to make it easier to determine which log file to open. By default
+A lot of text was output to the screen. Let's open the log file to take a closer look at what happened. We recently
+added the log file name to the bottom of the screen output to make it easier to determine which log file to open. By default
 the timestamp is appended to the log file name for each run. I'm going to copy this filepath and open the log file.
 
 (*Copy the log file path and run less <filename>*)

@@ -10,8 +10,8 @@ Developed for **METplus Version 4.0**.
 Description
 ^^^^^^^^^^^
 
-METplus 4.0 Online Tutorial
-Session 1 : Setup
+METplus 5.0 Online Tutorial
+Session 1: Setup
 Video 1: Find and Navigate the Tutorial
 
 The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup
@@ -21,7 +21,7 @@ If using a pre-configured environment such as Hera or Cheyenne: https://www.yout
 OR
 If using your own workstation: https://www.youtube.com/watch?v=9EP59dp8Xp0
 
-Questions? Visit the METplus GitHub Discussions Form:
+Questions? Visit the METplus GitHub Discussions Forum:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
@@ -64,7 +64,7 @@ then select “METplus” under the “Community Code” drop down menu.
 Next click on “User Support.”
 
 (mouse over the “User Support” button on the menu on the right side of the window,
-Reduce the width of the window so that the menu bar disappears from the right side)
+reduce the width of the window so that the menu bar disappears from the right side)
 
 You may not see the menu bar on the right-hand side of the window. This occurs when the width of the window is not large enough to display it. If this is the case, navigate to the bottom of the page to find this menu.
 
@@ -92,6 +92,7 @@ Text blocks inside light blue boxes contain instructions for the user to perform
 Text blocks inside light gray boxes contain sample output from a command or contents of a file.
 
 (scroll to the “Tutorial Tips” section of the page)
+
 Please note that some of the commands listed in the tutorial instructions use specific applications like vi to open and edit files and okular to view PDF, postscript, and image files. Users are encouraged to use their preferred tools instead of these suggested tools if they are more comfortable with them.
 
 Also please note that if you are running the tutorial instructions inside a Docker container, then the visualization tools used in the tutorial may not be available inside the container. To run these commands, you will have to mount the output directory inside Docker to your local file system and run those tools from there.
@@ -124,7 +125,7 @@ The next video in this tutorial depends on the environment you are using. If you
 
 If you have any questions, please visit the METplus GitHub Discussions Forum. On this page you can check if your question has already been asked by another user or create a new discussion topic.
 
-Other useful resources, such as User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
+Other useful resources, such as the User’s Guide and Contributor’s Guide, can be found on the Developmental Testbed Center webpage.
 
 All of the links can also be found in the description of this video.
 

@@ -25,7 +25,7 @@ If you want to familiarize yourself with plot_tcmpr.R, refer to the TC-Stat tool
 
 If you haven’t already done so, you can also follow Session 5 of the tutorial: Trk&Int/Feature Relative >MET Tool: TC-STAT. ( **WEB BROWSER** *Show web page of tutorial for TC-Stat section*).   
 
-This TCMPR plotter use case uses output from the MET tc-pairs tool.  You can refer to section 20.2.3 of the MET Users Guide for a description of the tc-pairs output format. ( **WEB BROWSER** *Go to web browser with MET User's guide web page* ).
+This TCMPR plotter use case uses output from the MET tc-pairs tool.  You can refer to section 20.2.3 of the MET User's Guide for a description of the tc-pairs output format. ( **WEB BROWSER** *Go to web browser with MET User's guide web page* ).
 
 The TCMPR plotter wrapper makes use of three configuration files (in addition to the other default METplus configuration files described in Session 1: METplus Setup/Directories and Configurations files- Overview).  
 
@@ -39,14 +39,14 @@ TCMPRPlotter.conf,
 
 and track_and_intensity.output.conf. 
 
-You will create the track_and_intensity_output.conf, it is your custom config file. (**XTERM** *create this file*) 
+You will create the track_and_intensity.output.conf, it is your custom config file. (**XTERM** *create this file*) 
 
 The TCMPRPlotterConfig_Customize file is used by MET’s R script that generates the plot, and is used to set attributes of the plot.  
 
 The TCMPRPlotter.conf file is a default configuration file that encapsulates common settings.  
 
 (**XTERM** *Highlight the path to the TCMPRPlotter directory*)
-It is located in the parm/use_cases/met_tool_wrapper/TCMPRPlotter directory of your METPlus directory.  
+It is located in the parm/use_cases/met_tool_wrapper/TCMPRPlotter directory of your METplus directory.  
 
 (**WEB BROWSER** *point to/mouse third blue box*)
 You can override the following values  that are defined in the TCMPRPlotter.conf file by defining these in the custom config file, track_and_intensity.output.conf. 
@@ -99,7 +99,7 @@ The plot filenames are comprised of the dependent variable name from the TCMPR_P
 You can use the ‘display’ command to view these .png files. Here is an example of how to use the ‘display’ command.
 (**WEB BROWSER** *scroll down to bottom of page and mouse over/point to dark grey box*)
 
-(**WEB BROWSER** *scroll back up to section the section ‘Example 2’*)
+(**WEB BROWSER** *scroll back up to the section ‘Example 2’*)
 
 In the previous example, we generated boxplots, mean and median plots. Now let’s just create boxplots of the variables of interest. 
 

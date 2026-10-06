@@ -76,10 +76,10 @@ forecast input dir, Paste the input dir, Switch to first terminal*)
 
 However, the date template in this case is given as year underscore, month underscore, day underscore, one-forty-one.  So, checking that directory, we see that there  are two GOES files, one for the one-hour valid time and another for the two-hour valid time.  (*Switch to second terminal, Copy and Paste the date directory, Switch back to first terminal*)
 
-Next, we can go in and create an output directory for our output data as specified by the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get the value of output base.  (*Switch to second terminal, Type vim Tutoral_system.conf*)   
+Next, we can go in and create an output directory for our output data as specified by the MODE_OUTPUT_DIR.  We will first need to check Tutorial system .conf to get the value of output base.  (*Switch to second terminal, Type vim Tutorial_system.conf*)   
 
 Output base is located in this directory, and we will go ahead and make the directory as 
-specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy the everyting except 
+specified in MODE_OUTPUT_DIR. (*Copy OUTPUT_BASE, Close Tutorial_system.conf, Type mkdir, paste OUTPUT_BASE, Switch to first terminal, Copy everything except 
 OUTPUT_BASE in the MODE_OUTPUT_DIR, Switch to second terminal, Paste MODE_OUTPUT_DIR, Type ls, Copy and Paste the output directory path*) 
 
 So, our empty directory has now been created.
@@ -87,7 +87,7 @@ So, our empty directory has now been created.
 Now, let's check our input variables to be sure we have them correctly specified.  So first looking at the model data, we can open the first file or the one-hour 
 lead time file. (*Type ncdump Copy and Paste the directory to the first FV3 member, Copy and Paste one hour lead time file, Type | more*)  
 
-If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parenthesis which 
+If we look at our configuration file, our forecast variable name is set to SBTA1613 top of atmosphere, and the level is set as two asterisks in parentheses which 
 indicates two dimensions.  So looking for this variable in our input file, we can see that here it is, and it is in two dimensions, so that’s correct. (*Hit 
 spacebar to scroll through the file, Exit file*)
 
@@ -108,7 +108,7 @@ So now it’s time to start the use case.  We will start by calling the script r
 
 (*video cut while use case runs*)
 
-The METplus run has now finished successfully.  Let’s check the output to make sure we have what is expected.  First, we’ll go back to the use case documentation
+The METplus run has now finished successfully.  Let’s check the output to make sure we have what is expected.  First, we’ll go back to the use case documentation.
 Scrolling down to the expected output section, we can see that the expected output is 16 files.
 
 (*Open the use case documentation, scroll down to Expected Output*) 

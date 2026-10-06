@@ -49,7 +49,7 @@ Next, let's test that Docker is running properly on your machine by running the 
 
 If you are following along with the script of this video, all commands shown in code blocks may be copied
 and pasted into your terminal window. If hello-world was successful, you should see a **Hello from Docker!**
-message followed by some information and links. If this command did not run succesfully, please exit this video
+message followed by some information and links. If this command did not run successfully, please exit this video
 and work on your Docker installation.
 
 Docker-Compose File 
@@ -94,7 +94,7 @@ For this tutorial, we'll get some MET output files by downloading a sample data 
   curl -SL https://dtcenter.ucar.edu/dfiles/code/METplus/METdataio/sample_data-met_out_v9.1.tgz | tar -xzC .
 
 This *curl* command creates a directory named **met_out** which contains the MET output files that are created
-by running **make test** when compiling the MET software. Next, we'll setup directories for the METviewer
+by running **make test** when compiling the MET software. Next, we'll set up directories for the METviewer
 output and define the expected environment variables. The following commands use the syntax for the bash shell,
 but the corresponding commands for c-shell are included in the script of this video. Notice that I'm using *pwd*
 to reference your current working directory and define full paths instead of relative ones.
@@ -123,14 +123,14 @@ on `DockerHub <https://hub.docker.com/repository/docker/dtcenter/metviewer/tags?
 Launch METviewer
 ----------------
 
-Now that our environment is setup, we can launch METviewer with a single command from the directory that
+Now that our environment is set up, we can launch METviewer with a single command from the directory that
 contains the docker-compose.yml file:
 
 .. code-block::
 
   docker-compose up -d
 
-If this your first time launching METviewer, this Docker-Compose command will automatically download the MySQL
+If this is your first time launching METviewer, this Docker-Compose command will automatically download the MySQL
 and METviewer images from DockerHub prior to bringing up the METviewer application. The time required to
 download these images will vary based on your network speed. Or if you have launched METviewer previously,
 as I have, Docker will use the images that already exist on your machine.
@@ -154,7 +154,7 @@ Load XML
 --------
 
 The next step is loading our sample MET output files into a METviewer database. METviewer requires that the
-user create an XML file to define the location and type of data you'd like to load. This is a called a
+user create an XML file to define the location and type of data you'd like to load. This is called a
 *load spec* file. For convenience, we've included a load spec in the sample data tarfile. On your machine,
 the sample data is in the **met_out** directory, but that directory is mounted inside the METviewer container
 to a directory named **/data**. Since the METviewer load occurs *inside* the container, the load spec references
@@ -190,7 +190,7 @@ The **/METviewer** directory contains the METviewer software:
 In particular, the **sql** subdirectory contains a file which defines the database schema.
 The **R_tmpl** directory contains plot templates. And the **bin** directory contains scripts which load data
 into a database, prune data out of a database, and generate plots, both a summary scorecard and plots that can be
-created through the GUI. The **mv_batch.sh** script creates plots on the commands line instead of running
+created through the GUI. The **mv_batch.sh** script creates plots on the command line instead of running
 interactively through the GUI. It allows METviewer plotting to be automated through cron or some other run script. 
 
 This container also includes *java* and *python* since both are used in this version of METviewer:
@@ -220,7 +220,7 @@ Let's first make sure that that shell script is executable.
   /METviewer/bin/mv_load.sh /data/load_met_out.xml
 
 The load script requires a single argument which is the load XML file. The load may include some
-*WARNING* messages but is complete with when you see the line that reads:
+*WARNING* messages but is complete when you see the line that reads:
 
 **----  MVLoad Done  ----**
 
@@ -255,7 +255,7 @@ need to exit out of it:
   exit
 
 After making sure that we're in the directory containing the **docker-compose.yml** file, we'll run
-**docker-compose** take it down:
+**docker-compose** to take it down:
 
 .. code::
 
