@@ -35,7 +35,7 @@ Preparation for Presenter
 * Open a web browser
 * Open a terminal on your own machine and set
   the PS1 environment variable to something that hides the user and machine
-  names, e.g. export PS1="$~"
+  names, e.g., export PS1="$~"
 
 Script
 ^^^^^^
