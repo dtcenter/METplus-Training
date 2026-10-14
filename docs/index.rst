@@ -6,7 +6,7 @@ Developed by the `Developmental Testbed Center <https://dtcenter.org/>`_, Boulde
 
 **Welcome to the METplus Training modules!**
 
-Please see the `METplus Website <http://dtcenter.org/community-code/metplus>`_ to learn more about this project.
+Please see the `METplus Website <https://dtcenter.org/software-tools/metplus>`_ to learn more about this project.
 
 These training materials describe the use of the 
 `METplus Software <https://github.com/dtcenter/METplus>`_ and its components 

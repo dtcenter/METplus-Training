@@ -5,7 +5,7 @@ Training Topics: METplus
 ************************
 
 These are the METplus Training Topics.
-		  
+
 .. toctree::
    :titlesonly:
 
