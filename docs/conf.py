@@ -107,6 +107,18 @@ numfig_format = {
 def setup(app):
     app.add_css_file("custom.css")
 
+# -- linkcheck builder configuration ----------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
+
+linkcheck_timeout = 10
+linkcheck_retries = 2
+linkcheck_workers = 8
+
+linkcheck_ignore = []
+
+linkcheck_anchors = True
+linkcheck_anchors_ignore = ['^!']
+    
 # -- Export variables --------------------------------------------------------
 
 rst_epilog = """

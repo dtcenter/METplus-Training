@@ -163,7 +163,7 @@ Environment Variables
 ---------------------
 
 While we are still inside the METplus container, let's review a few important environment variables that
-are used during the `METplus Online Tutorial <http://dtcenter.org/community-code/metplus/online-tutorial>`_.
+are used during the `METplus Online Tutorial <https://dtcenter.org/software-tools/metplus/online-tutorial>`_.
 Execute the following commands to see the values for METPLUS_TUTORIAL_DIR, METPLUS_BUILD_BASE,
 MET_BUILD_BASE, and METPLUS_DATA.
 
