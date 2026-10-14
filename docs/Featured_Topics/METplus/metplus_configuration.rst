@@ -51,7 +51,7 @@ This is the recommended approach. You will pass this configuration file into eve
 
 2. Modify the variables under parm/metplus_config directly
 This method works if you are the only person running the METplus code. If you are using a shared installation,
-changes made to these files will affect all users can cause confusion. Also, if you upgrade to a
+changes made to these files will affect all users and can cause confusion. Also, if you upgrade to a
 new version of the METplus wrappers, you will have to reset all of the variables that you changed.
 
 (*Pull up setup_methods_3.png*)
@@ -115,7 +115,7 @@ OUTPUT_BASE
 ^^^^^^^^^^^
 
 The OUTPUT_BASE variable should be set to a directory that will contain the files created by the METplus wrappers.
-This can be any valid path as long as you have permission to write in parent directory. Be aware of disk size limits.
+This can be any valid path as long as you have permission to write in the parent directory. Be aware of disk size limits.
 Setting OUTPUT_BASE to a directory on a disk with limited space introduces the risk of filling up the disk.
 This variable is also under the [dir] section.
 

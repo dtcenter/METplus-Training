@@ -22,7 +22,7 @@ Docker Container
 
 (*Introduction*)
 
-In this video, we will setup the METplus training environment using Docker containers.
+In this video, we will set up the METplus training environment using Docker containers.
 
 Docker Software
 ---------------
@@ -50,7 +50,7 @@ So we will start by running the Docker Hello World command:
   docker run --rm hello-world
 
 If you are following along with the script of this video, all commands shown in code blocks may be copied
-and pasted into you terminal window.
+and pasted into your terminal window.
 
 This **docker run** command first looks for an image named **hello-world** on your machine.
 If found, it creates a software container from that image and executes the default command.
@@ -59,7 +59,7 @@ download it from DockerHub at https://hub.docker.com prior to executing the defa
 We'll talk more about the **\-\-rm** option that we used later on.
 
 If successful, you should see a **Hello from Docker!** message followed by some information and links.
-If this command did not run succesfully, please exit this video and work on your Docker installation.
+If this command did not run successfully, please exit this video and work on your Docker installation.
 
 METplus Software 
 ----------------
@@ -100,7 +100,7 @@ The **which** command shows us where **point_stat** is installed.
   
 And running **point_stat** with no arguments prints its usage statement.
 
-All of the MET tools, as well as the METplus python wrappers, are readily available inside this container.
+All of the MET tools, as well as the METplus Python wrappers, are readily available inside this container.
 
 .. code-block::
 
@@ -121,7 +121,7 @@ Notice that the prompt changed again, which tells me that I've exited this conta
 Sample Input Datasets
 ---------------------
 
-As I mentioned earlier, many training exercises require sample input datasets. We have provided these datsets as
+As I mentioned earlier, many training exercises require sample input datasets. We have provided these datasets as
 data containers in the `dtcenter/metplus-data <https://hub.docker.com/repository/docker/dtcenter/metplus-data/general>`_
 repository on DockerHub. The input datasets are differentiated by their tag name. Each tag begins with the
 METplus version number followed by a description of the data.
@@ -155,7 +155,7 @@ Once inside the container, list out the input data directory.
 
   ls /data/input/METplus_Data/met_test
 
-The **met_test** dirctory contains the sample input data that we mounted using the **\-\-volumes-from** option.
+The **met_test** directory contains the sample input data that we mounted using the **\-\-volumes-from** option.
 If you'd like to mount multiple input datasets, just use the **\-\-volumes-from** option multiple times to
 specify each one.
 
@@ -192,7 +192,7 @@ Exiting a Container
 -------------------
 
 Once you have finished running through some METplus training exercises from another module,
-you will want to exit this container and cleanup. To exit the container, simply type:
+you will want to exit this container and clean up. To exit the container, simply type:
 
 .. code-block::
 
@@ -206,15 +206,15 @@ by running these commands.
   docker images
   docker ps -a
 
-At a minimum, you should see images for **hello-world**, **metplus-training**, and the **met-tool-wrapper** data.
-And **docker ps -a** should only show the **met-tool-wrapper** data container. All of the other containers created
+At a minimum, you should see images for **hello-world**, **metplus-training**, and the **met_tool_wrapper** data.
+And **docker ps -a** should only show the **met_tool_wrapper** data container. All of the other containers created
 by **docker run** were automatically removed once you exited them since we used the **\-\-rm** option.
 If you would like the container to persist after exiting, omit the **\-\-rm** option.
 
 Restarting a Container
 ----------------------
 
-To illustrate this, let's run the follow commands to relaunch a container without
+To illustrate this, let's run the following commands to relaunch a container without
 the **\-\-rm** option, simply exit back out of it, and then list the containers on
 your machine.
 
@@ -237,7 +237,7 @@ Cleaning up
 -----------
 
 Now let's say that you are all finished with the training exercises and want to
-cleanup your machine. You can exit the **metplus** container and delete all of the
+clean up your machine. You can exit the **metplus** container and delete all of the
 containers and images from your machine by running these commands.
 
 .. code-block::

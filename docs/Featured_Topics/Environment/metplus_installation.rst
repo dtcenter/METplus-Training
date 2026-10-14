@@ -40,7 +40,7 @@ Now we can unpack the file we downloaded by running the command:
   tar zxf v3.1.tar.gz
   
   
-And we users can remove the .tar.gz file to save some space:
+And users can remove the .tar.gz file to save some space:
 
 .. code-block::
 
@@ -50,7 +50,7 @@ You'll also need to decide on a location to put some sample data so that you can
 
 Let's go into the parm/metplus_config subdirectory.  We'll modify two files here.  First, we'll open metplus_system.conf for editing.  We want to change the value of MET_INSTALL_DIR from "/path/to" to the location of the MET installation we want to use.  In this case, we'll use the MET version 9.1 installation and we'll list the full path to the top level installation directory.  Next, we'll open metplus_data.conf for editing.  We want to change the value of INPUT_BASE to point to the location of the sample data.  We'll use the full path to the sample data.
 
-For this example, we will run a case using the data from the MET tool wrapper sample data set, so we'll grab the applicable data set.  In the Releases section of the METplus GitHub repository, also in the "Assets" section, we'll grab the "sample_data-met_tool_wrapper-3.1.tgz" file by right clicking on the the file and selecting "Copy Link Address".  Going back to the terminal window, we will go into the directory where we decided to put the sample data. We would type "wget", space, and then paste in the link that we copied and hit enter, but as you can see, I did this just before this video so that we wouldn't have to spend time waiting for the data to download.
+For this example, we will run a case using the data from the MET tool wrapper sample data set, so we'll grab the applicable data set.  In the Releases section of the METplus GitHub repository, also in the "Assets" section, we'll grab the "sample_data-met_tool_wrapper-3.1.tgz" file by right clicking on the file and selecting "Copy Link Address".  Going back to the terminal window, we will go into the directory where we decided to put the sample data. We would type "wget", space, and then paste in the link that we copied and hit enter, but as you can see, I did this just before this video so that we wouldn't have to spend time waiting for the data to download.
 
 Users can unpack the downloaded file by running the command:
 
@@ -58,7 +58,7 @@ Users can unpack the downloaded file by running the command:
 
   tar zxf sample_data-met_tool_wrapper-3.1.tgz
 
-And we users can remove the .tgz file to save some space:
+And users can remove the .tgz file to save some space:
 
 .. code-block::
 
@@ -68,7 +68,7 @@ Now that we have installed METplus, have configured it for the location of the M
 
 Going back to the METplus User's Guide, we'll go to `Chapter 5 <https://dtcenter.github.io/METplus/Users_Guide/usecases.html>`_ METplus Use Cases and will select "5.1 MET Tools", and then we'll select "5.1.8 Grid Stat".  We'll select "GridStat: Basic Use Case" and will scroll down to the "Running METplus" section.  This section notes that you can run this use case in two ways.  We'll run the first way by "Passing in GridStat.conf then a user-specific system configuration file". First, we need to create that user-specific system configuration file.  I did this ahead of time, but will go over its contents with you.  In this case, the file is called hera.jpresto.video.conf, where "hera" is the name of the machine I am using, "jpresto" is my username, "video" is because this file is specifically for this video, and ".conf" is because this is a configuration file.  
 
-Looking in this file, we see "[dir]" which is a necessary section header to let METplus know what type of values we will be setting.  In this case, we are only modifying directories, so "[dir]" is the only section header we'll use.  We are going to modify the value of OUTBASE_BASE so that METplus knows where to write the output data. OUTPUT_BASE is set to "/path/to" in the metplus_system.conf file, but METplus won't run without a path specified, so we override that value here. You can override values set in other METplus configuration files by setting them in your user-specific system configuration file and passing your user-specific system configuration file last on the command line, as we are here.
+Looking in this file, we see "[dir]" which is a necessary section header to let METplus know what type of values we will be setting.  In this case, we are only modifying directories, so "[dir]" is the only section header we'll use.  We are going to modify the value of OUTPUT_BASE so that METplus knows where to write the output data. OUTPUT_BASE is set to "/path/to" in the metplus_system.conf file, but METplus won't run without a path specified, so we override that value here. You can override values set in other METplus configuration files by setting them in your user-specific system configuration file and passing your user-specific system configuration file last on the command line, as we are here.
 
 Now we are ready to run our case.  We'll go back to the "Running METplus" section and will run the command listed there, fixing it up for our specific file location:
 
