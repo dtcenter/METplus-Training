@@ -222,7 +222,7 @@ PostScript file we want which I'm going to call distance_map.ps.  And then the
 variable we want to plot is specified using the following string, by
 calling name equals and our variable name in quotes, followed by a semicolon, and 
 then level equals, and in this case two asterisks in parentheses in quotes 
-(*‘name=”OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL; level=”(\*,\*)”;’*).
+(*'name="OBS_DMAP_le235_channel_13_brightness_temperature_all_all_FULL"; level="(\*,\*)";'*).
 
 .. code-block:: ini
 
