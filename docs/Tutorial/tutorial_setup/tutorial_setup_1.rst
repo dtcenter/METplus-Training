@@ -14,7 +14,7 @@ METplus 4.0 Online Tutorial
 Session 1 : Setup
 Video 1: Find and Navigate the Tutorial
 
-The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup
+The content in this video corresponds to this online tutorial section: https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup
 
 Next Video:
 If using a pre-configured environment such as Hera or Cheyenne: https://www.youtube.com/watch?v=lfmas6la_Tk
@@ -25,7 +25,7 @@ Questions? Visit the METplus GitHub Discussions Form:
 https://github.com/dtcenter/METplus/discussions
 
 METplus DTC Webpage:
-https://dtcenter.org/community-code/metplus
+https://dtcenter.org/software-tools/metplus
 
 METplus User’s Guide:
 https://metplus.readthedocs.io/en/latest/Users_Guide
@@ -33,7 +33,7 @@ https://metplus.readthedocs.io/en/latest/Users_Guide
 Preparation for Presenter
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Slides: `metplus_online_tutorial_session_1_setup.pptx <https://github.com/dtcenter/METplus-Training/blob/feature_20_tutorial_setup/docs/Training_Series/tutorial_setup/metplus_online_tutorial_session_1_setup.pptx?raw=true>`_ (note formatting of
+* Slides: `metplus_online_tutorial_session_1_setup_WIN.pptx <https://github.com/dtcenter/METplus-Training/blob/HEAD/docs/Tutorial/tutorial_setup/metplus_online_tutorial_session_1_setup_WIN.pptx?raw=true>`_ (note formatting of
   PowerPoint presentation differs between PowerPoint and Google Drive!
   Please use PowerPoint if available or copy file and adjust formatting)
 * Open a web browser
@@ -49,7 +49,7 @@ Welcome to the “Find and Navigate the Tutorial” video, part of the “Sessio
 
 This video covers how to get started with the METplus 4.0 online tutorial, including where to find the tutorial pages and how to get started.
 
-(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid/metplus-setup)
+(open a web browser and navigate to https://dtcenter.org/metplus-practical-session-guide-version-5-0/preliminary-work-metplus-setup/metplus-setup)
 
 The content in this video corresponds to the online tutorial section titled “METplus Setup” which is found in “Session 1: METplus Setup / Grid-to-Grid.”
 
@@ -80,7 +80,7 @@ Next click on the “Tutorial - Online” button.
 
 Finally, click on the link for the “METplus v4.0” tutorial. Previous versions of the online tutorial can also be found here in PDF format.
 
-(navigate to https://dtcenter.org/metplus-practical-session-guide-version-4-0/session-1-metplus-setupgrid-grid)
+(navigate to https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-grid-grid)
 
 The first page of the online tutorial describes the format of the instructions.
 
