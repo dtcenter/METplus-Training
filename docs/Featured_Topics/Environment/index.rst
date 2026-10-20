@@ -4,7 +4,7 @@
 Installation and Setup
 **********************
 
-Each of the training METplus-Training topics consists of a video recording of the content followed by the script for that video, including all commands executed on the command line. Videos labelled with **Follow Along!** are structured so that users can follow along with the exercises in their own environment. For these videos, commands listed in code blocks, as shown below, may be copied and pasted directly into your training environment!
+Each of the METplus-Training topics consists of a video recording of the content followed by the script for that video, including all commands executed on the command line. Videos labelled with **Follow Along!** are structured so that users can follow along with the exercises in their own environment. For these videos, commands listed in code blocks, as shown below, may be copied and pasted directly into your training environment!
 
 .. code-block:: none
 
