@@ -15,25 +15,21 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. important::
 
-   In the following instructions change &lt;ip address&gt; with the ip address given to you by the manager of the guided tutorial 
+   In the following instructions change <ip address> with the ip address given to you by the manager of the guided tutorial
 
 .. important::
 
-   Example: ssh ec2-useer@ec2-3-86-254-5.compute-1.amazonaws.com
+   Example: ``ssh ec2-useer@ec2-3-86-254-5.compute-1.amazonaws.com``
 
- 
+.. code-block:: text
 
-.. code-block::
-
-   ssh ec2-user@&lt;ip address&gt;
-
- 
+   ssh ec2-user@<ip address>
 
 .. note::
 
    2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
-.. code-block::
+.. code-block:: text
 
    echo ${METPLUS_TUTORIAL_DIR}
    echo ${METPLUS_BUILD_BASE}
@@ -51,39 +47,35 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
    METPLUS_DATA is the location of the sample test data directory
 
- 
-
 .. note::
 
    3: Check that the MET applications are in the path:
 
-.. code-block::
+.. code-block:: text
 
    which point_stat
 
-.. code-block::
+.. code-block:: text
 
    point_stat
-
- 
 
 .. important::
 
    The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
 
- 
-
 .. note::
 
    4: Check that the correct version of run_metplus.py is in your PATH:
-   
+
+.. code-block:: text
+
    which run_metplus.py
 
 .. important::
 
    If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
 
-.. code-block::
+.. code-block:: text
 
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
@@ -116,8 +108,8 @@ You can also create your own EC2 instance if you have access to your own AWS acc
 
    Type METplus in the search box
 
-.. image:: ../figure/awscatalog_0.png
-   :alt: 
+.. figure:: ../figure/awscatalog_0.png
+   :alt: AWS AMI catalog search results for METplus tutorials.
 
 In the community AMIs tab there will be a list of prior and current METplus tutorials.
 
@@ -131,14 +123,14 @@ In the community AMIs tab there will be a list of prior and current METplus tuto
 
 You should see a screen similar to the one below.
 
-.. image:: ../figure/launchami_crop.png
-   :alt: 
+.. figure:: ../figure/launchami_crop.png
+   :alt: AWS launch instance form for the METplus tutorial AMI.
 
 .. note::
 
    Fill in the Name and Tags box
 
-You should create a name that is descriptive and unique like METplus 5.0 .
+You should create a name that is descriptive and unique like METplus 5.0 ``<Your Name>``.
 
 **Pre Filled Fields:**
 
@@ -170,14 +162,14 @@ This will limit access to this EC2 instance from much smaller subset than the en
 
 .. note::
 
-   Click on the “launch instance” button on the right hand column. 
+   Click on the “launch instance” button on the right hand column.
 
 The right hand column should have a summary of the choices you made above.
 
 Once launched you will see a screen similar to below.
 
-.. image:: ../figure/launchedaws.png
-   :alt: 
+.. figure:: ../figure/launchedaws.png
+   :alt: AWS confirmation that the tutorial instance has launched.
 
 There are now two ways to get the ip address to your currently running EC2 instance.
 
@@ -187,8 +179,8 @@ There are now two ways to get the ip address to your currently running EC2 insta
 
 Something similar to the image below should pop up and your ip address should be listed.
 
-.. image:: ../figure/connecttoinstance.png
-   :alt: 
+.. figure:: ../figure/connecttoinstance.png
+   :alt: AWS instance connection information including the instance IP address.
 
 .. note::
 
@@ -198,10 +190,8 @@ Something similar to the image below should pop up and your ip address should be
 
    Click on the Instance ID link for your newly created instance that hopefully has a descriptive name and you will see the ip address contained in the screen it takes you to.
 
-.. image:: ../figure/instancesummary.png
-   :alt: 
+.. figure:: ../figure/instancesummary.png
+   :alt: AWS instance summary for the running tutorial instance.
 
 You may now connect to your EC2 instance the same way as you would if you were given an ip by the tutorial manager.
-
- 
 

@@ -16,7 +16,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    In the following instructions, change "/path/to" to the directory you chose.
    EDIT AFTER COPYING and BEFORE HITTING RETURN!
 
-.. code-block::
+.. code-block:: text
 
    cd /path/to/METplus-5.0.0_Tutorial
    source METplus-5.0.0_TutorialSetup.sh
@@ -25,7 +25,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
-.. code-block::
+.. code-block:: text
 
    echo ${METPLUS_TUTORIAL_DIR}
    echo ${METPLUS_BUILD_BASE}
@@ -47,7 +47,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    3: Check that the MET applications are in the path:
 
-.. code-block::
+.. code-block:: text
 
    which point_stat
 
@@ -59,7 +59,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    4: Check that the correct version of run_metplus.py is in your PATH:
 
-.. code-block::
+.. code-block:: text
 
    which run_metplus.py
 
@@ -67,12 +67,12 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
 
-.. code-block::
+.. code-block:: text
 
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
-Besides setting up METplus for this session, you will also want to be sure that you have METcalcpy, METplotpy, and METdataio installed and available. 
+Besides setting up METplus for this session, you will also want to be sure that you have METcalcpy, METplotpy, and METdataio installed and available.
 
 If more information is needed, see the instructions in Session 1 for more information.
 
@@ -80,7 +80,7 @@ You are now ready to move on to the next section.
 
 .. important::
 
-   If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a GitHub Discussions. Be sure to provide what session and specific page you encountered the issue on.
+   If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
 S2S Metrics General
 -------------------
@@ -97,23 +97,23 @@ The S2S metrics added to the METplus system differ from other use cases in that 
 
 A driver script is a python script that differs from the METplus wrappers. This script calls specific programs located in multiple repositories such as METcalcpy, METplotpy and METdataio. It can call scripts from one repository, or from multiple repositories multiple times, with the order and setup varying for each use case. A driver script is unique to the metrics and plots desired, and is different for different use cases. The figure below shows an example of how a driver script handles data for a use case with one call to a script in METdataio, METcalcpy, and METplotpy to produce an output graphic that displays a calculated index.
 
-.. image:: ../figure/5.0_s2s_session_img1.png
-   :alt: 
+.. figure:: ../figure/5.0_s2s_session_img1.png
+   :alt: S2S driver workflow: METdataio reads MET NetCDF as xarray, METcalcpy calculates metrics, and METplotpy creates graphics.
 
 Basic Information on UserScripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide `_.
+A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#userscript>`_.
 
 Configuration Sections
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parenthesis after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names `_.
+Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parenthesis after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_.
 
 Final Considerations
 ^^^^^^^^^^^^^^^^^^^^
 
-Most of the S2S use cases require input information to the driver scripts.  This information varies by use case and is given in the [user_env_vars] section of the configuration file.  In most cases, this section contains options such as input variable names, directories, and plotting information.  But some use cases have other variables that are needed as input to the calculation.  
+Most of the S2S use cases require input information to the driver scripts.  This information varies by use case and is given in the [user_env_vars] section of the configuration file.  In most cases, this section contains options such as input variable names, directories, and plotting information.  But some use cases have other variables that are needed as input to the calculation.
 
 Different use cases have different python dependencies.  These are listed in the use case documentation.  The format of input data for these use cases can vary.  Currently, METdataio can read netCDF data.  However, most S2S use cases are set to use netCDF files that are in MET’s format.  This can be achieved through pre-processing steps, typically as output from Regrid-Data-Plane or PCP-Combine.
 
@@ -123,25 +123,21 @@ Run METplus for the OMI Use-Case
 Configuring the METplus OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The OLR-Based MJO Index (OMI)use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI Use case we are going to run are listed in the `External Dependencies section `_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
+The OLR-Based MJO Index (OMI)use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI Use case we are going to run are listed in the `External Dependencies section <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.html#sphx-glr-generated-model-applications-s2s-mjo-userscript-fcstgfs-obsera-omi-py>`_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
 
-This use case also requires the installation and correct environmental settings for METcalcpy and METplotpy. These requirements extend to having both of the respective repositories installed, as well as their corresponding _BASE environmental settings. Assuming that the instructions provided in the `METdataio tutorial section `_ have been followed, and the METcalcpy and METplotpy were installed in your ${METPLUS_TUTORIAL_DIR}, set the following commands:
+This use case also requires the installation and correct environmental settings for METcalcpy and METplotpy. These requirements extend to having both of the respective repositories installed, as well as their corresponding _BASE environmental settings. Assuming that the instructions provided in the `METdataio tutorial section <Session_8_METplus_Analysis_Tools.html#metdataio>`_ have been followed, and the METcalcpy and METplotpy were installed in your ${METPLUS_TUTORIAL_DIR}, set the following commands:
 
-.. code-block::
+.. code-block:: text
 
    export METPLOTPY_BASE=${METPLUS_TUTORIAL_DIR}/metplotpy/METplotpy
    export METDATAIO_BASE=${METPLUS_TUTORIAL_DIR}/metdataio/METdataio
    export PYTHONPATH=$METDATAIO_BASE:$METCALCPY_BASE:$METPLOTPY_BASE
 
- 
-
 .. note::
 
    Next, let’s create a directory for the output:
 
- 
-
-.. code-block::
+.. code-block:: text
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/omi
 
@@ -149,7 +145,7 @@ This use case also requires the installation and correct environmental settings 
 
    Then, we will review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
 
-.. code-block::
+.. code-block:: text
 
    vim ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.conf
 
@@ -168,7 +164,7 @@ Run METplus for the OMI Use Case
 
    To run METplus, first change to the tutorial directory:
 
-.. code-block::
+.. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}
 
@@ -176,7 +172,7 @@ Run METplus for the OMI Use Case
 
    Then, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file
 
-.. code-block::
+.. code-block:: text
 
    run_metplus.py \
    ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.conf \
@@ -187,7 +183,9 @@ The script should run and if successful, will say:
 
 .. admonition:: Sample Output
 
-   METplus has successfully finished running
+   .. code-block:: text
+
+      METplus has successfully finished running
 
 Check the Output
 ^^^^^^^^^^^^^^^^
@@ -196,7 +194,7 @@ Check the Output
 
    To check the output, first go the output directory:
 
-.. code-block::
+.. code-block:: text
 
    cd output/met_output/omi
 
@@ -206,31 +204,25 @@ Here you should see three directories (logs, s2s_mjo, and tmp) and the METplus c
 
    To check the output, we need to find the plots:
 
-.. code-block::
+.. code-block:: text
 
    cd s2s_mjo/UserScript_fcstGFS_obsERA_OMI/plots
 
-There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png** and **obs_OMI_comp_phase.png**. The graphics should match those displayed below.
+There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png ** and ** obs_OMI_comp_phase.png**. The graphics should match those displayed below.
 
-.. image:: ../figure/5.0_s2s_session_img2.png
-   :alt: 
+.. figure:: ../figure/5.0_s2s_session_img2.png
+   :alt: OMI phase-space diagram for January through March 2017 for observations.
 
 obs_OMI_comp_phase.png
 
-.. image:: ../figure/5.0_s2s_session_img3.png
-   :alt: 
+.. figure:: ../figure/5.0_s2s_session_img3.png
+   :alt: OMI phase-space diagram for January through March 2017 for forecasts.
 
 fcst_OMI_comp_phase.png
 
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-.. important::
+.. warning::
 
    THE FOLLOWING CONTENT IS STILL IN DEVELOPMENT. RUN COMMANDS MAY NOT WORK AS INTENDED, INSTRUCTIONS MAY NOT BE COMPLETE, AMONG OTHER UNINTENDED EFFECTS. USERS ARE ADVISED NOT TO COMPLETE THIS PAGE'S EXERCISES UNTIL THIS BANNER IS REMOVED.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 METplus Use Case: Weather Regime
 --------------------------------
@@ -243,13 +235,13 @@ The weather regime use case is more complicated than the OMI use case for severa
 Configure the Weather Regime Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure the weather regime use case, first check the `python dependencies in the online User's Guide `_.  The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
+To configure the weather regime use case, first check the `python dependencies in the online User's Guide <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.html#sphx-glr-generated-model-applications-s2s-mid-lat-userscript-fcstgfs-obsera-weatherregime-py>`_.  The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
 
 .. note::
 
    Then, return to the tutorial directory and create a directory for the output:
 
-.. code-block::
+.. code-block:: text
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime
@@ -258,7 +250,7 @@ To configure the weather regime use case, first check the `python dependencies i
 
    Next, let's review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
 
-.. code-block::
+.. code-block:: text
 
    vim ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.conf
 
@@ -272,11 +264,12 @@ The information to run the Weather Regime calculation is given in the [script_wr
 
 Run METplus for the Weather Regime Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
    To run METplus, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
 
-.. code-block::
+.. code-block:: text
 
    run_metplus.py \
    ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.conf \
@@ -287,7 +280,9 @@ The script should run and if successful, will say:
 
 .. admonition:: Sample Output
 
-   METplus has successfully finished running
+   .. code-block:: text
+
+      METplus has successfully finished running
 
 Check the Output
 ^^^^^^^^^^^^^^^^
