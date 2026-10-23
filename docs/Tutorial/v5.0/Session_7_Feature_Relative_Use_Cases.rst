@@ -113,13 +113,13 @@ For this example, the **[for_series_analysis]** instance of TCStat, which runs a
       TC_STAT_OUTPUT_DIR = {SERIES_ANALYSIS_OUTPUT_DIR}
       TC_STAT_LOOKIN_DIR = {EXTRACT_TILES_OUTPUT_DIR}
 
-This indicates that the **TC_STAT_JOB_ARGS, TC_STAT_OUTPUT_DIR,** and ** TC_STAT_LOOKIN_DIR** will be overridden with the provided values.
+This indicates that the **TC_STAT_JOB_ARGS, TC_STAT_OUTPUT_DIR,** and **TC_STAT_LOOKIN_DIR** will be overridden with the provided values.
 
 .. important::
 
    Instance names are a powerful option for METplus users who need to run tools multiple times with different settings for some or all of the variables between each run. Combined with options such as CUSTOM_LOOP_LIST, intricate verification tasks can be completed in a single configuration file.
 
-The **SERIES_ANALYSIS_STAT_LIST ** is set to four statistics, but can be set to many more.  The size of the tiles are configurable using the ** EXTRACT_TILES ** settings.  Also, note that variables in ** feature_relative.conf** reference other variables you defined in other configuration files. For example:
+The **SERIES_ANALYSIS_STAT_LIST** is set to four statistics, but can be set to many more.  The size of the tiles are configurable using the **EXTRACT_TILES** settings.  Also, note that variables in **feature_relative.conf** reference other variables you defined in other configuration files. For example:
 
 .. admonition:: File Contents
 
@@ -127,7 +127,7 @@ The **SERIES_ANALYSIS_STAT_LIST ** is set to four statistics, but can be set to 
 
       TC_STAT_INPUT_DIR = {OUTPUT_BASE}/tc_pairs
 
-This references **OUTPUT_BASE ** which you set in the METplus defaults configuration file (**${METPLUS_BUILD_BASE}/parm/metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
+This references **OUTPUT_BASE** which you set in the METplus defaults configuration file (**${METPLUS_BUILD_BASE}/parm/metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 
@@ -299,7 +299,7 @@ Note that the Lead time groupings are specified by the **LEAD_SEQ** config opti
       LEAD_SEQ_2 = begin_end_incr(24,42,6)
       LEAD_SEQ_2_LABEL = Day2
 
-This references **OUTPUT_BASE ** which you set in the METplus default configuration file (** metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
+This references **OUTPUT_BASE** which you set in the METplus default configuration file ( **metplus_config/defaults.conf**). METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 

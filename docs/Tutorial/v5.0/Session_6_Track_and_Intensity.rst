@@ -61,11 +61,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE **. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   **4:** Check that the correct version of ** run_metplus.py ** is in your ** PATH**:
+   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -844,7 +844,7 @@ Copy METplus config file, modify and re-run
 
 .. note::
 
-   Replace **ASPEED **, which is many times not available in ATCF format with ** AMAX_WIND **, which is more readily available and then stratify by ** STORM NAME**
+   Replace **ASPEED**, which is many times not available in ATCF format with **AMAX_WIND**, which is more readily available and then stratify by **STORM NAME**
 
 .. admonition:: File Contents
 
@@ -928,7 +928,7 @@ with no additional arguments.  The usage statement can be helpful when setting s
 
 * **PREFIX is the output file name prefix.**
 
-* **TITLE ** overrides the default plot title. Bug:** CAN_NOT_HAVE_SPACES**
+* **TITLE** overrides the default plot title. Bug: **CAN_NOT_HAVE_SPACES**
 
 * **SUBTITLE** overrides the default plot subtitle.
 

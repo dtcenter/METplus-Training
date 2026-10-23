@@ -61,11 +61,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE **. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   **4:** Check that the correct version of ** run_metplus.py ** is in your ** PATH**:
+   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -1097,7 +1097,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
 .. note::
 
-   Rerun METplus passing in your new custom config file,**tutorial.conf **, and setting the new ** OUTPUT_BASE** for this exercise.
+   Rerun METplus passing in your new custom config file, **tutorial.conf**, and setting the new **OUTPUT_BASE** for this exercise.
 
 .. code-block:: text
 
@@ -1133,7 +1133,7 @@ EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation file
 
 .. note::
 
-   **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use ** six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
+   **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use **six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
 
 .. tip::
 
@@ -1174,7 +1174,7 @@ From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:
 
 .. tip::
 
-   HINT 2: The **FCST_PCP_COMBINE_INPUT_LEVEL ** and ** OBS_PCP_COMBINE_INPUT_LEVEL** variables set the accumulation interval that is found in grib2 input data for forecast and observation data respectively.
+   HINT 2: The **FCST_PCP_COMBINE_INPUT_LEVEL** and **OBS_PCP_COMBINE_INPUT_LEVEL** variables set the accumulation interval that is found in grib2 input data for forecast and observation data respectively.
 
 .. note::
 

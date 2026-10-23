@@ -208,7 +208,7 @@ Here you should see three directories (logs, s2s_mjo, and tmp) and the METplus c
 
    cd s2s_mjo/UserScript_fcstGFS_obsERA_OMI/plots
 
-There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png ** and ** obs_OMI_comp_phase.png**. The graphics should match those displayed below.
+There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png** and **obs_OMI_comp_phase.png**. The graphics should match those displayed below.
 
 .. figure:: ../figure/5.0_s2s_session_img2.png
    :alt: OMI phase-space diagram for January through March 2017 for observations.

@@ -61,11 +61,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE **. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   **4:** Check that the correct version of ** run_metplus.py ** is in your ** PATH**:
+   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -141,7 +141,7 @@ MODE may be configured to use a few different sets of logic with which to perfor
 
 .. important::
 
-   The forecast and observation fields must be on the same grid. You can use **copygb ** to regrid GRIB1 files,** wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
+   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
 
 .. important::
 
@@ -278,7 +278,7 @@ The MODE output file naming convention is similar to that of the other MET tools
 
 .. important::
 
-   If MODE is rerun on the same fields but with a slightly different configuration, the new output will override the old output, unless it is redirected to a different directory using the **-outdir ** command line argument. Users can also edit the **output_prefix** in the MODE configuration file to customize the output file names.
+   If MODE is rerun on the same fields but with a slightly different configuration, the new output will override the old output, unless it is redirected to a different directory using the **-outdir** command line argument. Users can also edit the **output_prefix** in the MODE configuration file to customize the output file names.
 
 The 4 MODE output files are described briefly below:
 
@@ -297,7 +297,7 @@ The 4 MODE output files are described briefly below:
 
 .. important::
 
-   If ghostview is not available, use **display ** to view the files.  Click on the image to get a command box, then use ** File -> Next** to move to the next page of the image.
+   If ghostview is not available, use **display** to view the files.  Click on the image to get a command box, then use **File -> Next** to move to the next page of the image.
 
 .. note::
 
@@ -321,7 +321,7 @@ The 4 MODE output files are described briefly below:
 
 .. note::
 
-   Click through the 2D variable names in the ncview window to see plots of the four object fields in the file (NOTE: if a window pops up informing you "the min and max are both...", just Click "OK" and then the field will render). The **fcst_obj_id ** and ** obs_obj_id ** contain the indices for the forecast and observation objects defined by MODE. The ** fcst_clus_id ** and ** obs_clus_id** contain indices for the matched cluster objects.
+   Click through the 2D variable names in the ncview window to see plots of the four object fields in the file (NOTE: if a window pops up informing you "the min and max are both...", just Click "OK" and then the field will render). The **fcst_obj_id** and **obs_obj_id** contain the indices for the forecast and observation objects defined by MODE. The **fcst_clus_id** and **obs_clus_id** contain indices for the matched cluster objects.
 
 What are the benefits of spatial methods over traditional statistics? The weaknesses? What are some examples where an object-based verification would be inappropriate?
 
@@ -452,7 +452,7 @@ The MODE-Time-Domain (MTD) tool was added in MET version 6.0. It applies an obje
 
 .. important::
 
-   The forecast and observation fields must be on the same grid. You can use **copygb ** to regrid GRIB1 files,** wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
+   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
 
 At a minimum, the -fcst and -obs options must be used to specify the data to be processed. Alternatively, the -single option specifies that MTD should be run on a single dataset. The -config option specifies the name of the configuration file.
 
@@ -672,7 +672,7 @@ The MTD output file naming convention begins with ``mtd_`` followed by the las
 
 .. note::
 
-   Select the variable named **fcst_raw ** and click the ** time ** index to advance through the timesteps. Now, do the same for the ** fcst_object_id** variable.
+   Select the variable named **fcst_raw** and click the **time** index to advance through the timesteps. Now, do the same for the **fcst_object_id** variable.
 
 Notice that the objects are defined in the active areas in the raw fields. Also notice some features merging (i.e. combining) as time passes while other features split (i.e. break apart). While they may be disconnected at a particular timestep, they remain part of the same space-time object.
 

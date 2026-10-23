@@ -14,7 +14,7 @@ METviewer
 
 **METVIEWER OVERVIEW**
 
-METviewer is a database and display system for storing and plotting data from the MET **.stat ** and MODE ** _obj.txt** files. It is used heavily within the DTC and by NOAA-GSD and NOAA-EMC. While its distribution is limited, it is available to the community through a Docker container. For more information, please see:
+METviewer is a database and display system for storing and plotting data from the MET **.stat** and MODE **_obj.txt** files. It is used heavily within the DTC and by NOAA-GSD and NOAA-EMC. While its distribution is limited, it is available to the community through a Docker container. For more information, please see:
 
 * `Numerical Weather Prediction (NWP) Containers <https://dtcenter.org/community-code/numerical-weather-prediction-nwp-containers>`_ DTC tutorial to run WPS, GSI, WRF, UPP, MET, and METviewer with containers.
 * METviewer Source Code GitHub repository (`https://github.com/dtcenter/metviewer <https://github.com/dtcenter/metviewer>`_)
@@ -40,7 +40,7 @@ The following pages have instructions for generating two different types of plot
 Time Series of Categorical Statistics Plot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following list shows the setting name and the setting value for each of the controls on the web application. Please go through them in order, starting at the top, setting and checking the controls as suggested. The settings that you need to change are marked in **blue **. The settings are grouped according to the areas on the web app. If you need more information about the controls, please click the little ** i ** in a circle to the right of ** METviewer X.Y** at the very top of the page. This will take you to the METviewer documentation.
+The following list shows the setting name and the setting value for each of the controls on the web application. Please go through them in order, starting at the top, setting and checking the controls as suggested. The settings that you need to change are marked in **blue**. The settings are grouped according to the areas on the web app. If you need more information about the controls, please click the little **i** in a circle to the right of **METviewer X.Y** at the very top of the page. This will take you to the METviewer documentation.
 
 * Database: Click on the box named Select databases and from the Verification group, select mv_met_tutorial to make a plot with sample tutorial data.
 * Tab: Series - Create a time-series (as we will do here) or threshold-series line plot. The different tabs correspond to the types of plots that METviewer can generate, such as box plots, bar plots, histograms, and ensemble plots.
@@ -133,9 +133,9 @@ For the next plot, you'll try out the XML upload feature. Each plot created by M
 * METviewer will now populate all of the selections with those specified in that XML file.
 * Lastly, click the Generate Plot button at the top of the page to create the image. Your plot should look like this `PNG Image <https://dtcenter.org/sites/default/files/community-code/met/online-practical/metviewer_boxplot.png>`__.
 
-This plot shows the area of MODE objects defined for 1-hourly accumulated precipitation thresholded at 0.1 inch. The data has been filtered down to the 00Z initialization and the areas are plotted by lead time. Each lead time has 3 boxplots: **core1 ** in red,** core2 ** in blue, and the ** observations** in gray. The numbers in black across the top show the number of objects plotted for each lead time.
+This plot shows the area of MODE objects defined for 1-hourly accumulated precipitation thresholded at 0.1 inch. The data has been filtered down to the 00Z initialization and the areas are plotted by lead time. Each lead time has 3 boxplots: **core1** in red, **core2** in blue, and the **observations** in gray. The numbers in black across the top show the number of objects plotted for each lead time.
 
-Note that we have only plotted the observations *once* since they should be the same for both models. Look in the **Series Formatting ** section at the bottom of the METviewer webapp in the ** Hide ** column to see that we're hiding the 4th series titled ** core2_hwt APCP_01 AREA_OSA **. Also note that in the ** Legend Text** column, we've specified our own strings rather than using the METviewer defaults.
+Note that we have only plotted the observations *once* since they should be the same for both models. Look in the **Series Formatting** section at the bottom of the METviewer webapp in the **Hide** column to see that we're hiding the 4th series titled **core2_hwt APCP_01 AREA_OSA**. Also note that in the **Legend Text** column, we've specified our own strings rather than using the METviewer defaults.
 
 The **XML Upload** feature of METviewer is very powerful and has saved users a lot of time by uploading previous work rather than starting from scratch each time.
 
@@ -663,7 +663,7 @@ METviewer generates plots based on the database "view" of the input data. Reform
 
 The MET Point-Stat data consists of numerous columns with each statistic represented by a column. The various normal and bootstrap confidence limits are each represented by corresponding columns. Upon inspection of a Point-Stat .stat file, there are numerous columns, many of which may be lacking a column label. For additional information about the line types in MET Point-Stat, please refer to all of the `tables <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id5>`_ in the `MET User's Guide for Point-Stat <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_.
 
-The METviewer database "view" consists of individual statistics that are collected into the **stat_name ** and the ** stat_value** columns. The normal and bootstrap confidence levels are collected into one of four columns:
+The METviewer database "view" consists of individual statistics that are collected into the **stat_name** and the **stat_value** columns. The normal and bootstrap confidence levels are collected into one of four columns:
 
 * stat_ncl
 * stat_ncu
@@ -689,7 +689,7 @@ METreformat Components
 
 The METreformat package utilizes the METdataio METdbLoad package to read .stat files, label columns, and create an intermediate data structure (pandas dataframe). The METreformat package uses this data structure to reformat the data into a single file.
 
-The reformatting requires a **yaml ** configuration file and an ** xml** specification file (from METdbLoad). The xml specification file is used to define the paths to the input data and the type of MET output (i.e. Point-Stat, Grid-Stat, MODE, Stat-Analysis, and Wavelet-Stat). The yaml configuration file indicates the location of the xml specification file and the name and location of the output file.
+The reformatting requires a **yaml** configuration file and an **xml** specification file (from METdbLoad). The xml specification file is used to define the paths to the input data and the type of MET output (i.e. Point-Stat, Grid-Stat, MODE, Stat-Analysis, and Wavelet-Stat). The yaml configuration file indicates the location of the xml specification file and the name and location of the output file.
 
 Example of Running METreformat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -697,7 +697,7 @@ Example of Running METreformat
 Set Up Pre-Requisites
 """""""""""""""""""""
 
-Set up the environment by following the `instructions for METplus initial set up <Preliminary_work_METplus_setup.html#metplus-initial-setup>`_. Make sure to follow the relevant instructions for **either ** the ** Pre-configured Environments ** or ** User Configured Environments,** based on your host computer. Finish by following the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` instructions.
+Set up the environment by following the `instructions for METplus initial set up <Preliminary_work_METplus_setup.html#metplus-initial-setup>`_. Make sure to follow the relevant instructions for **either** the **Pre-configured Environments** or **User Configured Environments,** based on your host computer. Finish by following the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` instructions.
 
 The Python requirements for METdataio are:
 
@@ -821,7 +821,7 @@ All we have done in the file is replace the content between the ``<folder_tmpl>`
 
    Save your changes and close the file.
 
-Now we need to modify the **point_stat.yaml ** file in a similar way to the ** point_stat.xml ** file. In order to do this, we need to obtain a full path to the **$METPLUS_TUTORIAL_DIR**, copy it, and paste that path inside the .yaml file in multiple areas.
+Now we need to modify the **point_stat.yaml** file in a similar way to the **point_stat.xml** file. In order to do this, we need to obtain a full path to the **$METPLUS_TUTORIAL_DIR**, copy it, and paste that path inside the .yaml file in multiple areas.
 
 .. important::
 
@@ -863,7 +863,7 @@ That command should return a path similar to the following example:
           output_filename: point_stat_reformatted.txt
           xml_spec_file: /d1/personal/user/METplus-5.0.0_Tutorial/metdataio/user_config/point_stat.xml
 
-In the above example, the **output_dir ** entry of **/path/to/output_dir ** was replaced with the full path of the ** METPLUS_TUTORIAL_DIR/metdataio **. The ** xml_spec_file ** entry replaced **/path/to/xml_file ** with the full path of the ** METPLUS_TUTORIAL_DIR/metdataio/user_config ** along with the ** point_stat file name. NOTE: make sure you have one space between the colon (:) and your settings.**
+In the above example, the **output_dir** entry of **/path/to/output_dir** was replaced with the full path of the **METPLUS_TUTORIAL_DIR/metdataio**. The **xml_spec_file** entry replaced **/path/to/xml_file** with the full path of the **METPLUS_TUTORIAL_DIR/metdataio/user_config** along with the **point_stat file name. NOTE: make sure you have one space between the colon (:) and your settings.**
 
 .. note::
 
@@ -938,7 +938,7 @@ The following will be sent to the terminal and are generated by METdbLoad (the w
       2015    VCNT
       Name: line_type, dtype: object
 
-A text file will be created in the **$METPLUS_TUTORIAL_DIR/metdataio ** directory named ** point_stat_reformatted.txt **(as specified in the ** point_stat.yaml** config file).
+A text file will be created in the **$METPLUS_TUTORIAL_DIR/metdataio** directory named **point_stat_reformatted.txt** (as specified in the **point_stat.yaml** config file).
 
 .. note::
 

@@ -62,11 +62,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE **. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-  **4:** Check that the correct version of ** run_metplus.py ** is in your ** PATH**:
+  **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -239,7 +239,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Next, run the same command but add the **-dump_row ** command line option. This will redirect all of the STAT lines used by the job to a file. Also, add the**-out_stat** command line option. This will write a full STAT output file, including the 22 header columns:
+  Next, run the same command but add the **-dump_row** command line option. This will redirect all of the STAT lines used by the job to a file. Also, add the **-out_stat** command line option. This will write a full STAT output file, including the 22 header columns:
 
 .. code-block:: text
 
@@ -264,7 +264,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Open up the file **aggr_ctc_job_out.stat ** to see the 1 output STAT line. Notice that the ** FCST_LEV ** and ** OBS_LEV** columns contain the input strings concatenated together.
+  Open up the file **aggr_ctc_job_out.stat** to see the 1 output STAT line. Notice that the **FCST_LEV** and **OBS_LEV** columns contain the input strings concatenated together.
 
 .. code-block:: text
 
@@ -272,11 +272,11 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Try re-running this job using **-set_hdr FCST_LEV P1050-500 ** and **-set_hdr OBS_LEV P1050-500**. How does that affect the output?
+  Try re-running this job using **-set_hdr FCST_LEV P1050-500** and **-set_hdr OBS_LEV P1050-500**. How does that affect the output?
 
 .. important::
 
-  The use of the **-dump_row ** option is ** highly recommended** to ensure that your analysis jobs run on the exact set of data that you intended. It's easy to make mistakes here!
+  The use of the **-dump_row** option is **highly recommended** to ensure that your analysis jobs run on the exact set of data that you intended. It's easy to make mistakes here!
 
 Output
 ^^^^^^
@@ -322,7 +322,7 @@ This job should aggregate 2 CTC lines for 2-meter temperature across the EAST an
 
 .. note::
 
-  Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat ** and specify the desired **-out_line_type**.
+  Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat** and specify the desired **-out_line_type**.
 
 How do the scores change when you increase the number of interpolation points? Did you expect this?
 
@@ -336,7 +336,7 @@ How do the scores change when you increase the number of interpolation points? D
 
 .. note::
 
-  Run an **aggregate_stat ** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
+  Run an **aggregate_stat** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
 
 .. note::
 
@@ -513,7 +513,7 @@ Copy METplus config file to aggregate statistics, and re-run
 
 .. note::
 
-  Change **STAT_ANALYSIS_JOB1 **,** VX_MASK_LIST **, and ** OBS_THRESH_LIST** to compute (aggregate) statistics over two masking regions for two thresholds
+  Change **STAT_ANALYSIS_JOB1**, **VX_MASK_LIST**, and **OBS_THRESH_LIST** to compute (aggregate) statistics over two masking regions for two thresholds
 
 .. admonition:: File Contents
 
@@ -707,7 +707,7 @@ You may find a complete description of the configurable items in the `series_ana
 
 .. note::
 
-   For this tutorial, we'll run Series-Analysis to verify a time series of 3-hour accumulated precipitation. We'll use GRIB1 for the forecast files and NetCDF for the observation files. Since the forecast and observations are different file formats, we'll specify the **name ** and ** level** information for them slightly differently.
+   For this tutorial, we'll run Series-Analysis to verify a time series of 3-hour accumulated precipitation. We'll use GRIB1 for the forecast files and NetCDF for the observation files. Since the forecast and observations are different file formats, we'll specify the **name** and **level** information for them slightly differently.
 
 .. note::
 

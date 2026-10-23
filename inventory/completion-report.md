@@ -64,3 +64,9 @@ The audit script additionally requires beautifulsoup4. The export hash is record
 ## Handoff
 
 The conversion pass for the remaining chapters is complete. A useful next review is a browser pass on Read the Docs, followed by the protected-chapter outstanding-link list. A fresh session is reasonable at this completed milestone; start from this report, AGENTS.md, the mapping, and the version policy in the original inventory. Preserve the v5.0 practical's content and do not modernize component behavior.
+
+## Post-conversion emphasis repair
+
+The published-page review found 65 prose elements in Sessions 3–10 with unresolved strong-emphasis delimiters despite the earlier fidelity checks passing. Those boundaries and their adjacent spacing are now repaired. All 182 bold spans in the affected prose render as intended by the RST and match bold text in the Drupal snapshot. No scoped prose exposes literal `**` delimiters. Historical wording, versions, literal blocks, and the four protected chapters are unchanged.
+
+The pinned build and full conversion validator pass with the same 61 protected-chapter diagnostics and zero scoped diagnostics. Details and reproducible checks are recorded in [the review follow-up](published-rtd-review.md#emphasis-repair-follow-up), [emphasis results](emphasis-validation.json), and [fresh fidelity results](emphasis-conversion-validation.json). Visual layout remains unverified for the reasons recorded above.
