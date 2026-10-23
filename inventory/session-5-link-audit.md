@@ -21,3 +21,5 @@ Validation:
 Remaining concerns: escaped HTML, directive indentation, and a source/local image discrepancy remain for a separate formatting/content pass. Earlier completed chapters remain untouched. Baseline inventory counts have not been recalculated.
 
 Next batch: Session 6 links.
+
+Subsequent status: the separate formatting/content pass is now complete for this chapter. See [completion report](completion-report.md) for final validation and remaining source/scope concerns.

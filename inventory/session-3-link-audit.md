@@ -26,3 +26,5 @@ Validation:
 Remaining concerns: escaped HTML, directive indentation, suspected missing image conversion, and command formatting still require a separate content/formatting pass. Link corrections do not establish overall chapter readiness. The inventory counts describe the baseline and have not been recalculated after this batch.
 
 Next batch: Session 4 links, following the same Drupal comparison and historical-version policy. Keep completed chapters protected pending the outstanding-link list.
+
+Subsequent status: the separate formatting/content pass is now complete for this chapter. See [completion report](completion-report.md) for final validation and remaining source/scope concerns.

@@ -1,5 +1,7 @@
 # METplus v5.0 conversion inventory
 
+Current status: Sessions 3–11 and the survey have completed the conversion pass. See [completion report](completion-report.md), [validation results](conversion-validation.json), and [source-link exceptions](external-link-validation.json). The CSV mapping now has refreshed line locations. The counts and findings below describe the original inventory snapshot, not the completed files.
+
 Inventory date: 2026-10-23. Scope: mapping and static inventory only; no tutorial edits, build, link validation, or full content comparison.
 
 Git baseline: `6e9847fe7aa336f2b2b71e5fa20bd4a3570489d3`. The pre-existing untracked `AGENTS.md` was left unchanged.

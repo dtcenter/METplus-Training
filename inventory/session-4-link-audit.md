@@ -24,3 +24,5 @@ Source concerns:
 - Escaped HTML, unindented directive bodies, and possible image omissions remain for the separate formatting/content pass. This chapter is not yet fully converted.
 
 Next batch: Session 5 links. Earlier completed chapters remain protected pending the outstanding-link list. Baseline inventory counts have not been recalculated after link corrections.
+
+Subsequent status: the separate formatting/content pass is now complete for this chapter. See [completion report](completion-report.md) for final validation and remaining source/scope concerns.
