@@ -118,7 +118,7 @@ MET Tool: Gen-Ens-Prod
 
 .. important::
 
-IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to Environment is Set Correctly :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 **GEN-ENS-PROD FUNCTIONALITY**
 
@@ -260,7 +260,7 @@ climo_cdp = FALSE;&lt;br/&gt;
 
 .. important::
 
-  You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ section of the MET User's Guide. Please take some time to review them.
+  You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html#gen-ens-prod-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 
 
@@ -492,7 +492,7 @@ cd ${METPLUS_TUTORIAL_DIR}/output/met_output/ensemble_stat
 
 
 
-The behavior of Ensemble-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Ensemble-Stat configuration file may be found in the data/config/EnsembleStatConfig_default file. The configurations used by the test script may be found in the scripts/config/EnsembleStatConfig* files.
+The behavior of Ensemble-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Ensemble-Stat configuration file may be found in the `data/config/EnsembleStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/EnsembleStatConfig_default>`_ file. The configurations used by the test script may be found in the scripts/config/EnsembleStatConfig* files.
 .. note::
 
 Prior to modifying the configuration file, users are advised to make a copy of the default:
@@ -520,7 +520,7 @@ vi EnsembleStatConfig_tutorial
 The configurable items for Ensemble-Stat are similar to those found in Grid-Stat and Point-Stat: forecast and observation dictionaries read in the the ensemble and observation fields, respectively, while the remaining dictionaries and options control the computed statistics and the area over which those statistics are calculated.
 .. important::
 
-You may find a complete description of the configurable items in the &lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/ensemble-stat.html#ensemble-stat-configuration-file"&gt;ensemble_stat configuration file&lt;/a&gt; section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `ensemble_stat configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#ensemble-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 
 
@@ -758,10 +758,12 @@ METplus Use Case: GenEnsProd and EnsembleStat
 ---------------------------------------------
 
 Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions. We will review a METplus use case that calls on both of these tools and see how they interact with and compliment each other.
+
 .. important::
 
-**Optional**: Refer to the **&lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/index.html" target="_blank"&gt;MET Users Guide&lt;/a&gt;** for a description of the MET tools used in this use case.&lt;br/&gt;
-**Optional**: Refer to the &lt;a href="https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html" target="_blank"&gt;**METplus Config Glossary**&lt;/a&gt; section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+
+   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 
 
@@ -975,10 +977,12 @@ METplus Use Case: EnsembleStat with Multiple Variables and Leads
 ----------------------------------------------------------------
 
 This use case takes the PB2NC tool and combines it with the Ensemble-Stat tool, analyzing multiple forecast fields and producing ensemble relative frequencies.
+
 .. important::
 
-**Optional**: Refer to the **&lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/index.html" target="_blank"&gt;MET Users Guide&lt;/a&gt;** for a description of the MET tools used in this use case.&lt;br/&gt;
-**Optional**: Refer to the &lt;a href="https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html" target="_blank"&gt;**METplus Config Glossary**&lt;/a&gt; section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+
+   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 
 
@@ -1166,10 +1170,12 @@ METplus Use Case: PQPF
 ----------------------
 
 The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, and Grid-Stat tools.
+
 .. important::
 
-**Optional**: Refer to the **&lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/index.html" target="_blank"&gt;MET Users Guide&lt;/a&gt;** for a description of the MET tools used in this use case.&lt;br/&gt;
-**Optional**: Refer to the &lt;a href="https://metplus.readthedocs.io/en/latest/Users_Guide/glossary.html" target="_blank"&gt;**METplus Config Glossary**&lt;/a&gt; section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+
+   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE**
 
