@@ -148,7 +148,7 @@ Configure
 
 
 
-The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
+The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/STATAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -436,7 +436,7 @@ IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutori
 
 The StatAnalysis use case utilizes the MET Stat-Analysis tool.
 
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 
 Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
@@ -720,7 +720,7 @@ Configure
 
 
 
-The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the data/config/SeriesAnalysisConfig_default file.
+The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the `data/config/SeriesAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -741,7 +741,7 @@ The confidence interval methods to be used.
 The smoothing methods to be applied.
 The types of statistics to be computed.
 
-You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html>`_ section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html#series-analysis-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
@@ -963,7 +963,7 @@ Next, run the ncview utility to display the contents of the NetCDF output file
   ncview series_analysis_2005080700_2005080800_3A.nc &amp;amp;
 
 Click through the different variables to see how the performance varies over the domain. Looking at the series_cnt_RMSEvariable, are the errors larger in the south eastern or north western regions of the United States?
-Why does the extent of missing data increase for CSI for the higher threshold? Compare series_cts_CSI_gt0.0 to series_cts_CSI_ge5.0. (Hint: Find the definition of `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_ in the MET User's Guide and look closely at the denominator.)
+Why does the extent of missing data increase for CSI for the higher threshold? Compare series_cts_CSI_gt0.0 to series_cts_CSI_ge5.0. (Hint: Find the definition of `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ in the MET User's Guide and look closely at the denominator.)
 Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. series_fho_O_RATE_gt0.0). Since the valid range of values for this data is 0 to 1, use that to set the -plot_range option.
 Setting block_size to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
 
@@ -972,11 +972,11 @@ METplus Use Case: SeriesAnalysis
 
 .. important::
 
-  &lt;span&gt; &lt;/span&gt;IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the &lt;a :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 The SeriesAnalysis use case utilizes the MET Series-Analysis tool.
 
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/>`_ for a description of the MET tools used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 
 Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
