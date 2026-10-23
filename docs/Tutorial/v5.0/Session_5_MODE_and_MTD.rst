@@ -110,7 +110,7 @@ See the instructions in Session 1 for more information.
 You are now ready to move on to the next section.
 .. important::
 
-If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a &lt;a href="https://github.com/dtcenter/METplus/discussions"&gt;GitHub Discussions&lt;/a&gt;. Be sure to provide what session and specific page you encountered the issue on.
+If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
 
 MET Tool: MODE
@@ -127,7 +127,7 @@ Use fuzzy logic to compute a total interest value for each forecast/observation 
 Based on the computed interest values, match objects across fields and merge objects within the same field.
 Write output statistics summarizing the characteristics of the single objects, the pairs of objects, and the matched/merged objects.
 
-MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read Chapter 14 of the MET User's Guide for a more thorough description of MODE's capabilities.
+MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
 
 
 **MODE USAGE**
@@ -228,7 +228,7 @@ cd ${METPLUS_TUTORIAL_DIR}/output/met_output/mode
 
 
 
-The behavior of MODE is controlled by the contents of the configuration file passed to it on the command line. The default MODE configuration file may be found in the data/config/MODEConfig_default file.
+The behavior of MODE is controlled by the contents of the configuration file passed to it on the command line. The default MODE configuration file may be found in the `data/config/MODEConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/MODEConfig_default>`_ file.
 .. note::
 
 Prior to modifying the configuration file, users are advised to make copies of existing configuration files:
@@ -270,7 +270,7 @@ Various plotting options
 
 .. important::
 
-While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the &lt;a href="https://met.readthedocs.io/en/latest/Users_Guide/mode.html#mode-configuration-file" target="_blank"&gt;mode configuration file&lt;/a&gt; section of the MET User's Guide. Please take some time to review them.
+   While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the `mode configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html#mode-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 
 
@@ -431,8 +431,9 @@ METplus Use Case: MODE
 ----------------------
 
 The MODE use case utilizes the MET MODE tools.
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case. 
-Optional: Refer to A-Z Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case. 
+
+Optional: Refer to A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MODE.CONF**
 
@@ -597,7 +598,7 @@ cd ${METPLUS_TUTORIAL_DIR}/output/met_output/mtd
 
 
 
-The behavior of MTD is controlled by the contents of the configuration file passed to it on the command line. The default MTD configuration file may be found in the data/config/MTDConfig_default file.
+The behavior of MTD is controlled by the contents of the configuration file passed to it on the command line. The default MTD configuration file may be found in the `data/config/MTDConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/MTDConfig_default>`_ file.
 .. note::
 
 Prior to modifying the configuration file, make a copy of the default:
@@ -855,8 +856,9 @@ METplus Use Case: MTD
 **REFERENCE MATERIAL**
 
 The MTD (Mode Time Domain) use case utilizes the MET MTD tools.
-Optional: Refer to the MET Users Guide for a description of the MET tools used in this use case. 
-Optional: Refer to the A-Z Config Glossary section of the METplus Users Guide for a reference to METplus variables used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case. 
+
+Optional: Refer to the A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MTD.CONF**
 
@@ -1208,7 +1210,7 @@ ls -1 ${METPLUS_DATA}/met_test/new/ST2*
 
 
 
-METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will do so automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See SCRUB_STAGING_DIR and STAGING_DIR in the METplus User's Guide).
+METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will do so automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See SCRUB_STAGING_DIR and STAGING_DIR in the `METplus User's Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_).
 
 
 
