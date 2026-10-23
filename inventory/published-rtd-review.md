@@ -50,3 +50,7 @@ The 65 affected prose elements in Sessions 3–10 have now been repaired. Only e
 The rebuilt HTML contains no literal `**` markers in scoped prose. The [emphasis validator](validate_emphasis.py) checks all 65 repaired elements and their 182 bold spans against the RST and the downloaded Drupal snapshot; all pass. This includes retaining a long bold span in Session 8's `point_stat` explanation because Drupal itself emphasizes that entire span. The [results](emphasis-validation.json) contain no errors.
 
 The original conversion fidelity checks also pass: 551 literal blocks, 23 figure occurrences, 95 source-link occurrences, and 823 prose units. See [fresh conversion results](emphasis-conversion-validation.json). The pinned Sphinx/theme build still reports 61 diagnostics, all confined to protected chapters, with none in Sessions 3–11 or the survey. `git diff --check` passes. The original published-page audit above remains a historical checkpoint; these follow-up results describe the rebuilt local HTML, not a visual review or a post-deployment RTD check.
+
+## Authorized follow-up completed
+
+The emphasis repair is now confirmed in the published chapter HTML. Firefox also enabled sampled visual checks at desktop and narrow widths. The subsequently authorized earlier-chapter diagnostic pass resolves the 61 recorded diagnostics locally. A remaining narrow-window overflow issue affects nine sampled chapters; details and scope limitations are in [the follow-up report](early-chapter-repair-report.md). The original findings above are historical checkpoints.

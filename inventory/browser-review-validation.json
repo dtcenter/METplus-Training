@@ -1,0 +1,471 @@
+{
+  "browser": "Firefox 158.0.1",
+  "pages": [
+    {
+      "kind": "published",
+      "page": "Session_3_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_3_Analysis_Tools.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 2,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_3_Analysis_Tools-1280-top.png",
+        "published-Session_3_Analysis_Tools-1280-detail.png",
+        "published-Session_3_Analysis_Tools-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_3_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_3_Analysis_Tools.html",
+      "viewport": 390,
+      "documentWidth": 411,
+      "brokenImages": [],
+      "tables": 2,
+      "overflowExamples": [
+        {
+          "tag": "STRONG",
+          "text": "../point_stat/point_stat_run2_360000L_20070331_120000V.stat",
+          "right": 408
+        }
+      ],
+      "screenshots": [
+        "published-Session_3_Analysis_Tools-390-top.png",
+        "published-Session_3_Analysis_Tools-390-detail.png",
+        "published-Session_3_Analysis_Tools-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_4_Ensemble_and_PQPF.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_4_Ensemble_and_PQPF.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_4_Ensemble_and_PQPF-1280-top.png",
+        "published-Session_4_Ensemble_and_PQPF-1280-detail.png",
+        "published-Session_4_Ensemble_and_PQPF-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_4_Ensemble_and_PQPF.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_4_Ensemble_and_PQPF.html",
+      "viewport": 390,
+      "documentWidth": 457,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [
+        {
+          "tag": "STRONG",
+          "text": "ensemble_stat_20100101_120000V_orank.txt",
+          "right": 396
+        },
+        {
+          "tag": "STRONG",
+          "text": "Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf",
+          "right": 450
+        }
+      ],
+      "screenshots": [
+        "published-Session_4_Ensemble_and_PQPF-390-top.png",
+        "published-Session_4_Ensemble_and_PQPF-390-detail.png",
+        "published-Session_4_Ensemble_and_PQPF-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_5_MODE_and_MTD.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_5_MODE_and_MTD.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_5_MODE_and_MTD-1280-top.png",
+        "published-Session_5_MODE_and_MTD-1280-detail.png",
+        "published-Session_5_MODE_and_MTD-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_5_MODE_and_MTD.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_5_MODE_and_MTD.html",
+      "viewport": 390,
+      "documentWidth": 423,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_5_MODE_and_MTD-390-top.png",
+        "published-Session_5_MODE_and_MTD-390-detail.png",
+        "published-Session_5_MODE_and_MTD-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_6_Track_and_Intensity.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_6_Track_and_Intensity.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 3,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_6_Track_and_Intensity-1280-top.png",
+        "published-Session_6_Track_and_Intensity-1280-detail.png",
+        "published-Session_6_Track_and_Intensity-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_6_Track_and_Intensity.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_6_Track_and_Intensity.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "brokenImages": [],
+      "tables": 3,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_6_Track_and_Intensity-390-top.png",
+        "published-Session_6_Track_and_Intensity-390-detail.png",
+        "published-Session_6_Track_and_Intensity-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_7_Feature_Relative_Use_Cases.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_7_Feature_Relative_Use_Cases.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_7_Feature_Relative_Use_Cases-1280-top.png",
+        "published-Session_7_Feature_Relative_Use_Cases-1280-detail.png",
+        "published-Session_7_Feature_Relative_Use_Cases-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_7_Feature_Relative_Use_Cases.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_7_Feature_Relative_Use_Cases.html",
+      "viewport": 390,
+      "documentWidth": 429,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_7_Feature_Relative_Use_Cases-390-top.png",
+        "published-Session_7_Feature_Relative_Use_Cases-390-detail.png",
+        "published-Session_7_Feature_Relative_Use_Cases-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_8_METplus_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_8_METplus_Analysis_Tools.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_8_METplus_Analysis_Tools-1280-top.png",
+        "published-Session_8_METplus_Analysis_Tools-1280-detail.png",
+        "published-Session_8_METplus_Analysis_Tools-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_8_METplus_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_8_METplus_Analysis_Tools.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_8_METplus_Analysis_Tools-390-top.png",
+        "published-Session_8_METplus_Analysis_Tools-390-detail.png",
+        "published-Session_8_METplus_Analysis_Tools-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_9_Python_Embedding.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_9_Python_Embedding.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_9_Python_Embedding-1280-top.png",
+        "published-Session_9_Python_Embedding-1280-detail.png",
+        "published-Session_9_Python_Embedding-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_9_Python_Embedding.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_9_Python_Embedding.html",
+      "viewport": 390,
+      "documentWidth": 423,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_9_Python_Embedding-390-top.png",
+        "published-Session_9_Python_Embedding-390-detail.png",
+        "published-Session_9_Python_Embedding-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-1280-top.png",
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-1280-detail.png",
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-390-top.png",
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-390-detail.png",
+        "published-Session_10_Subseasonal_to_Seasonal_S2S-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_11_METplus_Cloud.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_11_METplus_Cloud.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_11_METplus_Cloud-1280-top.png",
+        "published-Session_11_METplus_Cloud-1280-detail.png",
+        "published-Session_11_METplus_Cloud-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Session_11_METplus_Cloud.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_11_METplus_Cloud.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Session_11_METplus_Cloud-390-top.png",
+        "published-Session_11_METplus_Cloud-390-detail.png",
+        "published-Session_11_METplus_Cloud-390-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Tutorial_Survey.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Tutorial_Survey.html",
+      "viewport": 1280,
+      "documentWidth": 1280,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Tutorial_Survey-1280-top.png",
+        "published-Tutorial_Survey-1280-detail.png",
+        "published-Tutorial_Survey-1280-code.png"
+      ]
+    },
+    {
+      "kind": "published",
+      "page": "Tutorial_Survey.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Tutorial_Survey.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "published-Tutorial_Survey-390-top.png",
+        "published-Tutorial_Survey-390-detail.png",
+        "published-Tutorial_Survey-390-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Basic_Verification_Statistics_Review.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Basic_Verification_Statistics_Review.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 5,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Basic_Verification_Statistics_Review-1280-top.png",
+        "local-Basic_Verification_Statistics_Review-1280-detail.png",
+        "local-Basic_Verification_Statistics_Review-1280-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Basic_Verification_Statistics_Review.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Basic_Verification_Statistics_Review.html",
+      "viewport": 390,
+      "documentWidth": 564,
+      "brokenImages": [],
+      "tables": 5,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Basic_Verification_Statistics_Review-390-top.png",
+        "local-Basic_Verification_Statistics_Review-390-detail.png",
+        "local-Basic_Verification_Statistics_Review-390-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Preliminary_work_METplus_setup.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Preliminary_work_METplus_setup.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Preliminary_work_METplus_setup-1280-top.png",
+        "local-Preliminary_work_METplus_setup-1280-detail.png",
+        "local-Preliminary_work_METplus_setup-1280-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Preliminary_work_METplus_setup.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Preliminary_work_METplus_setup.html",
+      "viewport": 390,
+      "documentWidth": 494,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Preliminary_work_METplus_setup-390-top.png",
+        "local-Preliminary_work_METplus_setup-390-detail.png",
+        "local-Preliminary_work_METplus_setup-390-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Session_1_Grid-to-Grid.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Session_1_Grid-to-Grid.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Session_1_Grid-to-Grid-1280-top.png",
+        "local-Session_1_Grid-to-Grid-1280-detail.png",
+        "local-Session_1_Grid-to-Grid-1280-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Session_1_Grid-to-Grid.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Session_1_Grid-to-Grid.html",
+      "viewport": 390,
+      "documentWidth": 646,
+      "brokenImages": [],
+      "tables": 1,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Session_1_Grid-to-Grid-390-top.png",
+        "local-Session_1_Grid-to-Grid-390-detail.png",
+        "local-Session_1_Grid-to-Grid-390-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Session_2_Grid-to-Obs.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Session_2_Grid-to-Obs.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [],
+      "screenshots": [
+        "local-Session_2_Grid-to-Obs-1280-top.png",
+        "local-Session_2_Grid-to-Obs-1280-detail.png",
+        "local-Session_2_Grid-to-Obs-1280-code.png"
+      ]
+    },
+    {
+      "kind": "local",
+      "page": "Session_2_Grid-to-Obs.html",
+      "url": "file:///tmp/metplus-early-html/Tutorial/v5.0/Session_2_Grid-to-Obs.html",
+      "viewport": 390,
+      "documentWidth": 518,
+      "brokenImages": [],
+      "tables": 0,
+      "overflowExamples": [
+        {
+          "tag": "STRONG",
+          "text": "point_stat_run1_360000L_20070331_120000V_ctc.txt",
+          "right": 458
+        },
+        {
+          "tag": "STRONG",
+          "text": "point_stat_run1_360000L_20070331_120000V_cnt.txt",
+          "right": 459
+        },
+        {
+          "tag": "STRONG",
+          "text": "point_stat_run1_360000L_20070331_120000V_fho.txt",
+          "right": 461
+        },
+        {
+          "tag": "STRONG",
+          "text": "point_stat_run1_360000L_20070331_120000V_mpr.txt",
+          "right": 464
+        },
+        {
+          "tag": "STRONG",
+          "text": "point_stat_run2_360000L_20070331_120000V_cts.txt",
+          "right": 457
+        }
+      ],
+      "screenshots": [
+        "local-Session_2_Grid-to-Obs-390-top.png",
+        "local-Session_2_Grid-to-Obs-390-detail.png",
+        "local-Session_2_Grid-to-Obs-390-code.png"
+      ]
+    }
+  ],
+  "reviewed_date": "2026-10-23",
+  "scope": "Published Sessions 3\u201311 and survey after emphasis repair; four earlier chapters from the local diagnostic-repair build.",
+  "screenshots_note": "Screenshots were inspected from /tmp/metplus-firefox-audit; temporary images are not committed. Samples cover chapter tops, first table or callout, and first callout literal, at both widths. This is not a pixel-by-pixel review of every section."
+}

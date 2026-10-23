@@ -111,7 +111,8 @@ For information on where to download PrepBufr files, visit the `MET Input Data <
 
   View the usage statement for PB2NC by simply typing the following:
 
-.. code-block::
+.. code-block:: text
+
   pb2nc
 
 .. code-block::
@@ -169,7 +170,7 @@ Configure
 
 .. code-block::
 
-  mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc&lt;br/&gt;
+  mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc
 
 The behavior of PB2NC is controlled by the contents of the configuration file passed to it on the command line. The default PB2NC configuration may be found in the `data/config/PB2NCConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PB2NCConfig_default>`_ file.
@@ -198,7 +199,9 @@ Set:
 
 .. note::
 
-  message_type = [ "ADPUPA", "ADPSFC" ];
+   .. code-block:: text
+
+      message_type = [ "ADPUPA", "ADPSFC" ];
 
 to retain only those 2 message types. Message types are described in this `table of entries for PrepBufr message types <http://www.emc.ncep.noaa.gov/mmb/data_processing/prepbufr.doc/table_1.htm>`_.
 
@@ -206,10 +209,12 @@ Set:
 
 .. note::
 
-  obs_window = {
-  beg = -1800;
-  end =  1800;
-  }
+   .. code-block:: text
+
+      obs_window = {
+      beg = -1800;
+      end =  1800;
+      }
 
 so that only observations within 1800 second (30 minutes) of the file time will be retained.
 
@@ -217,10 +222,12 @@ Set:
 
 .. note::
 
-  mask = {
-  grid = "G212";
-  poly = "";
-  }
+   .. code-block:: text
+
+      mask = {
+      grid = "G212";
+      poly = "";
+      }
 
 to retain only those observations residing within NCEP Grid 212, on which the forecast data resides.
 
@@ -228,7 +235,9 @@ Set:
 
 .. note::
 
-  obs_bufr_var = [ "QOB", "TOB", "UOB", "VOB", "D_WIND", "D_RH" ];
+   .. code-block:: text
+
+      obs_bufr_var = [ "QOB", "TOB", "UOB", "VOB", "D_WIND", "D_RH" ];
 
 to retain observations for specific humidity, temperature, the u-component of wind, and the v-component of wind and to derive observation values for wind speed and relative humidity.
 
@@ -255,9 +264,9 @@ Run
 
 .. important::
 
-If this run fails due to runtime issues, please download a copy of the output file 
-`here <https://dtcenter.org/sites/default/files/community-code/met/online-practical/tutorial_pb_run1.nc>`_
-and manually save it as **tutorial_pb_run1.nc**.
+  If this run fails due to runtime issues, please download a copy of the output file
+  `here <https://dtcenter.org/sites/default/files/community-code/met/online-practical/tutorial_pb_run1.nc>`__
+  and manually save it as **tutorial_pb_run1.nc**.
 
 PB2NC is now filtering the observations from the PrepBufr file using the configuration settings we specified and writing the output to the NetCDF file name we chose. This should take a few minutes to run. As it runs, you should see several status messages printed to the screen to indicate progress. You may use the **-v** command line option to turn off (using **-v 0**) or change the amount of log information printed to the screen.
 
@@ -306,7 +315,7 @@ The **plot_point_obs** tool plots the location of these NetCDF point observati
 
 .. code-block::
 
-  gv tutorial_pb_run1.ps &amp;amp;
+  gv tutorial_pb_run1.ps &
 
 Each red dot in the plot represents the location of at least one observation value. The **plot_point_obs** tool has additional command line options for filtering which observations get plotted and the area to be plotted.
 
@@ -339,7 +348,7 @@ MET extracts the grid information from the first record of that GRIB file and pl
 
 .. code-block::
 
-  gv tutorial_pb_run1_zoom.ps &amp;amp;
+  gv tutorial_pb_run1_zoom.ps &
 
 The **plot_data_plane** tool can be run on the NetCDF output of any of the MET point observation pre-processing tools (**pb2nc**, **ascii2nc**, **madis2nc**, and **lidar2nc**).
 
@@ -368,7 +377,9 @@ Set:
 
 .. note::
 
-  message_type = [];
+   .. code-block:: text
+
+      message_type = [];
 
 to retain all message types.
 
@@ -376,10 +387,12 @@ Set:
 
 .. note::
 
-  obs_window = {
-  beg = -25*30;
-  end =  25*30;
-  }
+   .. code-block:: text
+
+      obs_window = {
+      beg = -25*30;
+      end =  25*30;
+      }
 
 so that only observations 25 minutes before and 25 minutes after the top of the hour are retained.
 
@@ -387,7 +400,9 @@ Set:
 
 .. note::
 
-  quality_mark_thresh = 1;
+   .. code-block:: text
+
+      quality_mark_thresh = 1;
 
 to retain only the observations marked "Good" by the NCEP quality control system.
 
@@ -405,7 +420,7 @@ to retain only the observations marked "Good" by the NCEP quality control system
 
 .. important::
 
-  If this run fails due to runtime issues, please download a copy of the output file `here <https://dtcenter.org/sites/default/files/community-code/met/online-practical/tutorial_pb_run2.nc>`_ and manually save it as **tutorial_pb_run2.nc**.
+  If this run fails due to runtime issues, please download a copy of the output file `here <https://dtcenter.org/sites/default/files/community-code/met/online-practical/tutorial_pb_run2.nc>`__ and manually save it as **tutorial_pb_run2.nc**.
 
 .. note::
 
@@ -440,18 +455,22 @@ Note that the input directory PB2NC_INPUT_DIR is set to a path relative to {INPU
 
 .. admonition:: Sample Output
 
-  [config]
+   .. code-block:: text
 
-  ...
-  PB2NC_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_obs/prepbufr
-  ...
-  PB2NC_OUTPUT_DIR = {OUTPUT_BASE}/pb2nc
+      [config]
+
+      ...
+      PB2NC_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_obs/prepbufr
+      ...
+      PB2NC_OUTPUT_DIR = {OUTPUT_BASE}/pb2nc
 
 {PARM_BASE} is set automatically by METplus. The wrapped MET config file for PB2NC is set relative to {PARM_BASE} in PB2NC_CONFIG_FILE:
 
 .. admonition:: Sample Output
 
-  PB2NC_CONFIG_FILE = {PARM_BASE}/met_config/PB2NCConfig_wrapped
+   .. code-block:: text
+
+      PB2NC_CONFIG_FILE = {PARM_BASE}/met_config/PB2NCConfig_wrapped
 
 .. note::
 
@@ -465,28 +484,30 @@ Values for the MET tool PB2NC are passed in from METplus config files, including
 
 .. admonition:: Sample Output
 
-  ////////////////////////////////////////////////////////////////////////////////
-  //
-  // PB2NC configuration file.
-  //
-  // For additional information, see the MET_BASE/config/README file.
-  // //////////////////////////////////////////////////////////////////////////////
+   .. code-block:: text
 
-  //
-  // PrepBufr message type
-  //
-  ${PB2NC_MESSAGE_TYPE};
+      ////////////////////////////////////////////////////////////////////////////////
+      //
+      // PB2NC configuration file.
+      //
+      // For additional information, see the MET_BASE/config/README file.
+      // //////////////////////////////////////////////////////////////////////////////
 
-  //
-  // Mapping of message type group name to comma-separated list of values
-  // Derive PRMSL only for SURFACE message types
-  //
-  message_type_group_map = [
-  { key = "SURFACE"; val = "ADPSFC,SFCSHP,MSONET"; },
-  { key = "ANYAIR";  val = "AIRCAR,AIRCFT"; },
-  { key = "ANYSFC";  val = "ADPSFC,SFCSHP,ADPUPA,PROFLR,MSONET"; },
-  { key = "ONLYSF";  val = "ADPSFC,SFCSHP" }
-  ];
+      //
+      // PrepBufr message type
+      //
+      ${PB2NC_MESSAGE_TYPE};
+
+      //
+      // Mapping of message type group name to comma-separated list of values
+      // Derive PRMSL only for SURFACE message types
+      //
+      message_type_group_map = [
+      { key = "SURFACE"; val = "ADPSFC,SFCSHP,MSONET"; },
+      { key = "ANYAIR";  val = "AIRCAR,AIRCFT"; },
+      { key = "ANYSFC";  val = "ADPSFC,SFCSHP,ADPUPA,PROFLR,MSONET"; },
+      { key = "ONLYSF";  val = "ADPSFC,SFCSHP" }
+      ];
 
 No modifications are needed to run the PB2NC METplus tool. 
 
@@ -647,7 +668,7 @@ The NetCDF header should look nearly identical to the output of the NetCDF outpu
 
 .. note::
 
-Feel free to inspect the contents of the other variables as well.
+  Feel free to inspect the contents of the other variables as well.
 
 This ASCII data only contains observations at a few locations.
 
@@ -697,14 +718,16 @@ MET includes example scripts for reading point data and gridded data (all in ASC
 
 .. admonition:: Sample Output
 
-  derive_WRF_semilatlon.py
-  met_point_obs.py
-  read_ascii_mpr.py&
-  read_ascii_numpy_grid.py
-  read_ascii_numpy.py
-  read_ascii_point.py
-  read_ascii_xarray.py
-  read_met_point_obs.py
+   .. code-block:: text
+
+      derive_WRF_semilatlon.py
+      met_point_obs.py
+      read_ascii_mpr.py&
+      read_ascii_numpy_grid.py
+      read_ascii_numpy.py
+      read_ascii_point.py
+      read_ascii_xarray.py
+      read_met_point_obs.py
 
 In this use case, *read_ascii_point.py* is used to read the sample accumulated precipitation data and serve them to ASCII2NC to format into the MET 11-column netCDF format.
 
@@ -777,7 +800,9 @@ Add on line 7:
 
 .. admonition:: Sample Output
 
-  print("HELLO! CREATING PANDAS DATAFRAME OF POINT OBS.")
+   .. code-block:: text
+
+      print("HELLO! CREATING PANDAS DATAFRAME OF POINT OBS.")
 
 Save the Python Embedding script.
 
@@ -795,7 +820,9 @@ Change line 43 to:
 
 .. admonition:: Sample Output
 
-ASCII2NC_INPUT_TEMPLATE = "{ENV[METPLUS_TUTORIAL_DIR]}/my_ascii_point.py {INPUT_BASE}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt"
+   .. code-block:: text
+
+      ASCII2NC_INPUT_TEMPLATE = "{ENV[METPLUS_TUTORIAL_DIR]}/my_ascii_point.py {INPUT_BASE}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt"
 
 The Python script contains an import of met_point_obs. This is found automatically by the read_ascii_point.py script because it is in the same share/met/python directory. Since you are calling my_ascii_point.py from your tutorial directory, you will have to set the PYTHONPATH to include the share/met/python directory so the import succeeds.
 
@@ -807,8 +834,10 @@ Add the following to the very end of ${METPLUS_TUTORIAL_DIR}/ASCII2NC_python_emb
 
 .. admonition:: Sample Output
 
-  [user_env_vars]
-  PYTHONPATH={MET_INSTALL_DIR}/share/met/python:$PYTHONPATH
+   .. code-block:: text
+
+      [user_env_vars]
+      PYTHONPATH={MET_INSTALL_DIR}/share/met/python:$PYTHONPATH
 
 Save the METplus use case configuration file.
 
@@ -916,7 +945,7 @@ The configurable items for Point-Stat are used to specify how the verification i
 
 .. note::
 
-Let's customize the configuration file. First, make a copy of the default:
+  Let's customize the configuration file. First, make a copy of the default:
 
 .. code-block::
 
@@ -934,17 +963,19 @@ Set:
 
 .. note::
 
-  fcst = {
-    message_type = [ "ADPUPA" ];
-    field = [
-      {
-       name     = "TMP";
-       level      = [ "P850-1050", "P500-850" ];
-       cat_thresh = [ &amp;lt;=273, &amp;gt;273 ];
+   .. code-block:: text
+
+      fcst = {
+        message_type = [ "ADPUPA" ];
+        field = [
+          {
+           name     = "TMP";
+           level      = [ "P850-1050", "P500-850" ];
+           cat_thresh = [ <=273, >273 ];
+          }
+        ];
       }
-    ];
-  }
-  obs = fcst;
+      obs = fcst;
 
 to verify temperature over two different pressure ranges against ADPUPA observations using the thresholds specified.
 
@@ -952,7 +983,9 @@ Set:
 
 .. note::
 
-  ci_alpha = [ 0.05, 0.10 ];
+   .. code-block:: text
+
+      ci_alpha = [ 0.05, 0.10 ];
 
 to compute confidence intervals using both a 5% and a 10% level of certainty.
 
@@ -960,25 +993,27 @@ Set:
 
 .. note::
 
-  output_flag = {
-    fho    = BOTH;
-    ctc    = BOTH;
-    cts    = STAT;
-    mctc   = NONE;
-    mcts   = NONE;
-    cnt    = BOTH;
-    sl1l2  = STAT;
-    sal1l2 = NONE;
-    vl1l2  = NONE;
-    val1l2 = NONE;
-    pct    = NONE;
-    pstd   = NONE;
-    pjc    = NONE;
-    prc    = NONE;
-    ecnt   = NONE;
-    eclv   = BOTH;
-    mpr    = BOTH;
-  }
+   .. code-block:: text
+
+      output_flag = {
+        fho    = BOTH;
+        ctc    = BOTH;
+        cts    = STAT;
+        mctc   = NONE;
+        mcts   = NONE;
+        cnt    = BOTH;
+        sl1l2  = STAT;
+        sal1l2 = NONE;
+        vl1l2  = NONE;
+        val1l2 = NONE;
+        pct    = NONE;
+        pstd   = NONE;
+        pjc    = NONE;
+        prc    = NONE;
+        ecnt   = NONE;
+        eclv   = BOTH;
+        mpr    = BOTH;
+      }
 
 to indicate that the forecast-hit-observation (FHO) counts, contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), partial sums (SL1L2), economic cost/loss value (ECLV), and the matched pair data (MPR) line types should be output. Setting SL1L2 and CTS to **STAT** causes those lines to only be written to the output .stat file, while setting others to **BOTH** causes them to be written to both the **.stat** file and the optional **LINE_TYPE.txt** file.
 
@@ -986,7 +1021,9 @@ Set:
 
 .. note::
 
-  output_prefix = "run1";
+   .. code-block:: text
+
+      output_prefix = "run1";
 
 to customize the output file names for this run.
 
@@ -1019,15 +1056,17 @@ If you receive a syntax error such as the one listed below, review PointStatConf
 
 .. admonition:: Sample Output
 
-  cat_thresh = [ &amp;gt;273.0 ];
-  }, <---Remove the comma
+   .. code-block:: text
+
+      cat_thresh = [ >273.0 ];
+      }, <---Remove the comma
 
 .. note::
 
   | DEBUG 1: Default Config File: /usr/local/met-9.0/share/met/config/PointStatConfig_default
   | DEBUG 1: User Config File: PointStatConfig_tutorial_run1
   | ERROR  :
-  | ERROR  : yyerror() -&amp;gt; syntax error in file "/tmp/met_config_26760_0"
+  | ERROR  : yyerror() -> syntax error in file "/tmp/met_config_26760_0"
   | ERROR  :&
   | ERROR  :    line   = 59
   | ERROR  :
@@ -1044,7 +1083,7 @@ If you receive a syntax error such as the one listed below, review PointStatConf
 
   Now try rerunning the command listed above, but increase the verbosity level to 3 (**-v 3**).
 
-Notice the more detailed information about which observations were used for each verification task. If you run Point-Stat and get fewer matched pairs than you expected, try using the **-v 3 ** option to see why the observations were rejected.
+Notice the more detailed information about which observations were used for each verification task. If you run Point-Stat and get fewer matched pairs than you expected, try using the **-v 3**  option to see why the observations were rejected.
 
 .. important::
 
@@ -1063,7 +1102,7 @@ The output of Point-Stat is one or more ASCII files containing statistics summar
   * In the **kwrite** editor, select **Settings->Configure Editor**, de-select **Dynamic Word Wrap** and click **OK**.
   * In the **vi** editor, type the command **:set nowrap**. To set this as the default behavior, run the following command:
 
-  .. code_block::
+  .. code-block:: text
 
     echo "set nowrap" >> ~/.exrc
 
@@ -1096,7 +1135,7 @@ The output of Point-Stat is one or more ASCII files containing statistics summar
 
 1. What do you notice about the structure of the contingency table counts with respect to the two thresholds used? Does this make sense?
 2. Does the model appear to resolve relatively cold surface temperatures?
-3, Based on these observations, are temperatures >273 relatively rare or common in the P850-500 range? How can this affect the ability to get a good score using contingency table statistics? What about temperatures <=273 at the surface?
+3. Based on these observations, are temperatures >273 relatively rare or common in the P850-500 range? How can this affect the ability to get a good score using contingency table statistics? What about temperatures <=273 at the surface?
 
 .. note::
 
@@ -1173,21 +1212,23 @@ Set:
 
 .. note::
 
-  fcst = {
-    field = [
-      {
-       name       = "TMP";
-       level      = [ "Z2" ];
-       cat_thresh = [ >273,>278,>283,>288 ];
-      },
-      {
-       name       = "TMP";
-       level      = [ "P750-850" ];
-       cat_thresh = [ &amp;gt;278 ];
+   .. code-block:: text
+
+      fcst = {
+        field = [
+          {
+           name       = "TMP";
+           level      = [ "Z2" ];
+           cat_thresh = [ >273,>278,>283,>288 ];
+          },
+          {
+           name       = "TMP";
+           level      = [ "P750-850" ];
+           cat_thresh = [ >278 ];
+          }
+        ];
       }
-    ];
-  }
-  obs = fcst;
+      obs = fcst;
 
 to verify 2-meter temperature and temperature fields between 750hPa and 850hPa, using the thresholds specified.
 
@@ -1195,13 +1236,15 @@ Set:
 
 .. note::
 
-  message_type = ["ADPUPA","ADPSFC"];
-  sid_inc = [];
-  sid_exc = [];
-  obs_quality = [];
-  duplicate_flag = NONE;
-  obs_summary = NONE;
-  obs_perc_value = 50;
+   .. code-block:: text
+
+      message_type = ["ADPUPA","ADPSFC"];
+      sid_inc = [];
+      sid_exc = [];
+      obs_quality = [];
+      duplicate_flag = NONE;
+      obs_summary = NONE;
+      obs_perc_value = 50;
 
 to include the Upper Air (UPA) and Surface (SFC) observations in the evaluation
 
@@ -1209,13 +1252,15 @@ Set:
 
 .. note::
 
-  mask = {
-    grid  = [ "G212" ];
-    poly  = [ "MET_BASE/poly/EAST.poly",
-              "MET_BASE/poly/WEST.poly" ];
-    sid   = [];
-    llpnt = [];
-  }
+   .. code-block:: text
+
+      mask = {
+        grid  = [ "G212" ];
+        poly  = [ "MET_BASE/poly/EAST.poly",
+                  "MET_BASE/poly/WEST.poly" ];
+        sid   = [];
+        llpnt = [];
+      }
 
 to compute statistics over the NCEP Grid 212 region and over the Eastern and Western United States, as defined by the polylines specified.
 
@@ -1223,20 +1268,22 @@ Set:
 
 .. note::
 
-  interp = {
-    vld_thresh = 1.0;
-    shape       = SQUARE;
-    type = [
-      {
-       method = NEAREST;
-       width  = 1;
-      },
-      {
-       method = DW_MEAN;
-       width  = 5;
+   .. code-block:: text
+
+      interp = {
+        vld_thresh = 1.0;
+        shape       = SQUARE;
+        type = [
+          {
+           method = NEAREST;
+           width  = 1;
+          },
+          {
+           method = DW_MEAN;
+           width  = 5;
+          }
+        ];
       }
-    ];
-  }
 
 to indicate that the forecast values should be interpolated to the observation locations using the nearest neighbor method and by computing a distance-weighted average of the forecast values over the 5 by 5 box surrounding the observation location.
 
@@ -1244,25 +1291,27 @@ Set:
 
 .. note::
 
-output_flag = {
-  fho    = BOTH;
-  ctc    = BOTH;
-  cts    = BOTH;
-  mctc   = NONE;
-  mcts   = NONE;
-  cnt    = BOTH;
-  sl1l2  = BOTH;
-  sal1l2 = NONE;
-  vl1l2  = NONE;
-  val1l2 = NONE;
-  pct    = NONE;
-  pstd   = NONE;
-  pjc    = NONE;
-  prc    = NONE;
-  ecnt   = NONE;
-  eclv   = BOTH;
-  mpr    = BOTH;
-  }
+   .. code-block:: text
+
+      output_flag = {
+        fho    = BOTH;
+        ctc    = BOTH;
+        cts    = BOTH;
+        mctc   = NONE;
+        mcts   = NONE;
+        cnt    = BOTH;
+        sl1l2  = BOTH;
+        sal1l2 = NONE;
+        vl1l2  = NONE;
+        val1l2 = NONE;
+        pct    = NONE;
+        pstd   = NONE;
+        pjc    = NONE;
+        prc    = NONE;
+        ecnt   = NONE;
+        eclv   = BOTH;
+        mpr    = BOTH;
+        }
 
 to switch the SL1L2 and CTS output to **BOTH** and generate the optional ASCII output files for them.
 
@@ -1270,7 +1319,9 @@ Set:
 
 .. note::
 
-  output_prefix = "run2";
+   .. code-block:: text
+
+      output_prefix = "run2";
 
 to customize the output file names for this run.
 
@@ -1287,7 +1338,7 @@ Multiplying **2 * 2 * 3 * 2 = 24**. So in this example, Point-Stat will accumul
 
 .. note::
 
-  Can you diagnose **why** some of these verification tasks resulted in zero matched pairs? (&lt;em&gt;Hint: Reread the tip two pages back!&lt;/em&gt;)
+  Can you diagnose **why** some of these verification tasks resulted in zero matched pairs? (*Hint: Reread the tip two pages back!*)
 
 Rerun
 ^^^^^
@@ -1315,7 +1366,7 @@ In this step, we have verified 2-meter temperature. The Plot-Data-Plane tool wit
 
 .. note::
 
-Run this utility to plot the 2-meter temperature field:
+  Run this utility to plot the 2-meter temperature field:
 
 .. code-block::
 
@@ -1362,7 +1413,7 @@ Next, we'll take a look at the Point-Stat output we just generated.
 
 .. note::
 
-See the usage statement for all MET tools using the **--help** command line option or with no options at all.
+  See the usage statement for all MET tools using the **--help** command line option or with no options at all.
 
 Output
 ^^^^^^
@@ -1435,10 +1486,12 @@ The forecast and observations directories are specified in relation to INPUT_BAS
 
 .. note::
 
-  FCST_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
-  OBS_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/out/pb2nc&lt
-  ...
-  POINT_STAT_OUTPUT_DIR = {OUTPUT_BASE}/point_stat
+   .. code-block:: text
+
+      FCST_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
+      OBS_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/out/pb2nc<
+      ...
+      POINT_STAT_OUTPUT_DIR = {OUTPUT_BASE}/point_stat
 
 Using the PointStat configuration file, you should be able to run the use case using the sample input data set without any other changes.
 
@@ -1484,7 +1537,9 @@ The following is the statistical output and file are generated from the command:
 
 .. note::
 
-  POINT_STAT_OUTPUT_PREFIX = run2&lt;p&gt;&lt;/p&gt;
+   .. code-block:: text
+
+      POINT_STAT_OUTPUT_PREFIX = run2
 
   BOTH_VAR1_NAME = TMP
   BOTH_VAR1_LEVELS = P750-900
@@ -1561,23 +1616,29 @@ This use-case includes running two tools, PB2NC to extract the observations and 
 
 .. admonition:: Sample Output
 
-  [config]
-  PROCESS_LIST = PB2NC, PointStat
+   .. code-block:: text
+
+      [config]
+      PROCESS_LIST = PB2NC, PointStat
 
 .. admonition:: Sample Output
 
-  BOTH_VAR1_NAME = TMP
-  BOTH_VAR1_LEVELS = P1000, P925, P850, P700, P500, P400, P300, P250, P200, P150, P100, P50, P20, P10
+   .. code-block:: text
 
-  BOTH_VAR2_NAME = RH
-  BOTH_VAR2_LEVELS = P1000, P925, P850, P700, P500, P400, P300
-  ...
-  BOTH_VAR5_NAME = HGT
-  BOTH_VAR5_LEVELS = P1000, P950, P925, P850, P700, P500, P400, P300, P250, P200, P150, P100, P50, P20, P10
+      BOTH_VAR1_NAME = TMP
+      BOTH_VAR1_LEVELS = P1000, P925, P850, P700, P500, P400, P300, P250, P200, P150, P100, P50, P20, P10
+
+      BOTH_VAR2_NAME = RH
+      BOTH_VAR2_LEVELS = P1000, P925, P850, P700, P500, P400, P300
+      ...
+      BOTH_VAR5_NAME = HGT
+      BOTH_VAR5_LEVELS = P1000, P950, P925, P850, P700, P500, P400, P300, P250, P200, P150, P100, P50, P20, P10
 
 .. admonition:: Sample Output
   
-  POINT_STAT_MESSAGE_TYPE = ADPUPA
+   .. code-block:: text
+
+      POINT_STAT_MESSAGE_TYPE = ADPUPA
 
 Using the PointStat configuration file, you should be able to run the use case using the sample input data set without any other changes.
 
@@ -1610,10 +1671,12 @@ If you scroll down to the middle of the file, you will notice the statistics lin
 
 .. admonition:: Sample Output
 
-  V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 VGRD m/s P1000 VGRD NA P1000 ADPUPA FULL BILIN 4 NA NA NA NA **SL1L2** 274 0.58128 0.71095 12.1183 14.53877 14.52693 1.57316
-  V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 UGRD_VGRD m/s P1000 UGRD_VGRD NA P1000 ADPUPA FULL BILIN 4 NA NA NA NA **VL1L2** 274 -0.94226 0.58128 -0.73759 0.71095 28.62333 34.35785 32.59062 4.94574 4.67908
-  V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 VGRD m/s P925 VGRD NA P925 ADPUPA FULL BILIN 4 NA NA NA NA **SL1L2** 523 0.45376 0.44876 29.18591 29.53347 32.41237 1.34806
-  V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 UGRD_VGRD m/s P925 UGRD_VGRD NA P925 ADPUPA FULL BILIN 4 NA NA NA NA **VL1L2** 523 0.67347 0.45376 0.81969 0.44876 67.86401 67.37296 74.9574 6.98307 7.34872
+   .. parsed-literal::
+
+      V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 VGRD m/s P1000 VGRD NA P1000 ADPUPA FULL BILIN 4 NA NA NA NA **SL1L2** 274 0.58128 0.71095 12.1183 14.53877 14.52693 1.57316
+      V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 UGRD_VGRD m/s P1000 UGRD_VGRD NA P1000 ADPUPA FULL BILIN 4 NA NA NA NA **VL1L2** 274 -0.94226 0.58128 -0.73759 0.71095 28.62333 34.35785 32.59062 4.94574 4.67908
+      V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 VGRD m/s P925 VGRD NA P925 ADPUPA FULL BILIN 4 NA NA NA NA **SL1L2** 523 0.45376 0.44876 29.18591 29.53347 32.41237 1.34806
+      V11.0.0 gfs NA 000000 20170601_000000 20170601_000000 000000 20170531_231500 20170601_004500 UGRD_VGRD m/s P925 UGRD_VGRD NA P925 ADPUPA FULL BILIN 4 NA NA NA NA **VL1L2** 523 0.67347 0.45376 0.81969 0.44876 67.86401 67.37296 74.9574 6.98307 7.34872
 
 .. note::
 
@@ -1639,8 +1702,10 @@ Let's look at the two line-types separately in a more human-readable format.
 
 .. admonition:: Sample Output
 
-  POINT_STAT_OUTPUT_FLAG_SL1L2 = BOTH
-  POINT_STAT_OUTPUT_FLAG_VL1L2 = BOTH
+   .. code-block:: text
+
+      POINT_STAT_OUTPUT_FLAG_SL1L2 = BOTH
+      POINT_STAT_OUTPUT_FLAG_VL1L2 = BOTH
 
 .. note::
 
@@ -1648,7 +1713,9 @@ Let's look at the two line-types separately in a more human-readable format.
 
 .. admonition:: Sample Output
 
-  PROCESS_LIST = PointStat
+   .. code-block:: text
+
+      PROCESS_LIST = PointStat
 
 .. note::
 
@@ -1660,7 +1727,9 @@ Let's look at the two line-types separately in a more human-readable format.
 
 .. admonition:: Sample Output
 
-  OBS_POINT_STAT_INPUT_DIR = {ENV[METPLUS_TUTORIAL_DIR]}/output/PointStat_UpperAir/gdas/upper_air
+   .. code-block:: text
+
+      OBS_POINT_STAT_INPUT_DIR = {ENV[METPLUS_TUTORIAL_DIR]}/output/PointStat_UpperAir/gdas/upper_air
 
 .. note::
 
@@ -1679,15 +1748,17 @@ Let's look at the two line-types separately in a more human-readable format.
 
 .. admonition:: Sample Output
 
-  point_stat_000000L_20170601_000000V_sl1l2.txt
-  point_stat_000000L_20170601_000000V.stat
-  point_stat_000000L_20170601_000000V_vl1l2.txt
-  point_stat_000000L_20170602_000000V_sl1l2.txt
-  point_stat_000000L_20170602_000000V.stat
-  point_stat_000000L_20170602_000000V_vl1l2.txt
-  point_stat_000000L_20170603_000000V_sl1l2.txt
-  point_stat_000000L_20170603_000000V.stat
-  point_stat_000000L_20170603_000000V_vl1l2.txt
+   .. code-block:: text
+
+      point_stat_000000L_20170601_000000V_sl1l2.txt
+      point_stat_000000L_20170601_000000V.stat
+      point_stat_000000L_20170601_000000V_vl1l2.txt
+      point_stat_000000L_20170602_000000V_sl1l2.txt
+      point_stat_000000L_20170602_000000V.stat
+      point_stat_000000L_20170602_000000V_vl1l2.txt
+      point_stat_000000L_20170603_000000V_sl1l2.txt
+      point_stat_000000L_20170603_000000V.stat
+      point_stat_000000L_20170603_000000V_vl1l2.txt
 
 Inspect the .txt files, they should have the same data as in the .stat file, just separated by line type. You will notice the header includes the name of statistics in the .txt files because they are specific to each line type.
 
@@ -1727,9 +1798,11 @@ Many of the options are similar, except the fields typically at the surface (BOT
 
 .. note::
 
-  POINT_STAT_MESSAGE_TYPE = ONLYSF
-  ...
-  PB2NC_INPUT_TEMPLATE = nam.{da_init?fmt=%Y%m%d}/nam.t{da_init?fmt=%2H}z.prepbufr.tm{offset?fmt=%2H}
+   .. code-block:: text
+
+      POINT_STAT_MESSAGE_TYPE = ONLYSF
+      ...
+      PB2NC_INPUT_TEMPLATE = nam.{da_init?fmt=%Y%m%d}/nam.t{da_init?fmt=%2H}z.prepbufr.tm{offset?fmt=%2H}
 
 Using this configuration file, you should be able to run the use case using the sample input data set without any other changes.
 
@@ -1770,11 +1843,13 @@ Look for **PRMSL/Z0** in the log file.  We can see the following:
 
 .. admonition:: Sample Output
 
-  DEBUG 2: Processing PRMSL/Z0 versus PRMSL/Z0, for observation type ONLYSF, over region FULL, for interpolation method BILIN(4), using 0 matched pairs.
-  DEBUG 2: Number of matched pairs = 0
-  DEBUG 2: Observations processed = 441178
-  DEBUG 2: Rejected: station id = 0
-  DEBUG 2: Rejected: obs var name = 441178
+   .. code-block:: text
+
+      DEBUG 2: Processing PRMSL/Z0 versus PRMSL/Z0, for observation type ONLYSF, over region FULL, for interpolation method BILIN(4), using 0 matched pairs.
+      DEBUG 2: Number of matched pairs = 0
+      DEBUG 2: Observations processed = 441178
+      DEBUG 2: Rejected: station id = 0
+      DEBUG 2: Rejected: obs var name = 441178
 
 You will note, the number of observations processed is the same as the number rejected due to a mismatch with the obs var name. That suggests we need to look at how the OBS variable for PRMSL is defined.
 
@@ -1804,7 +1879,7 @@ Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**
   convert -rotate 90 \
   ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \
   ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
-  &lt;p&gt;display ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
+  display ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
 
 .. note::
 
@@ -1828,8 +1903,10 @@ Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**
 
 .. note::
 
-  FCST_VAR7_NAME = PRMSL
-  FCST_VAR7_LEVELS = Z0
+   .. code-block:: text
+
+      FCST_VAR7_NAME = PRMSL
+      FCST_VAR7_LEVELS = Z0
 
   OBS_VAR7_NAME = PMO
   OBS_VAR7_LEVELS = Z0
@@ -1881,13 +1958,17 @@ EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file
 
 .. admonition:: Sample Output
 
-  #POINT_STAT_OUTPUT_FLAG_CNT =
+   .. code-block:: text
+
+      #POINT_STAT_OUTPUT_FLAG_CNT =
 
 to
 
 .. admonition:: Sample Output
 
-  POINT_STAT_OUTPUT_FLAG_CNT = BOTH
+   .. code-block:: text
+
+      POINT_STAT_OUTPUT_FLAG_CNT = BOTH
 
 .. note::
 
@@ -1895,13 +1976,17 @@ to
 
 .. admonition:: Sample Output
 
-  #POINT_STAT_OUTPUT_FLAG_VCNT =
+   .. code-block:: text
+
+      #POINT_STAT_OUTPUT_FLAG_VCNT =
 
 to
 
 .. admonition:: Sample Output
 
-  POINT_STAT_OUTPUT_FLAG_VCNT = BOTH
+   .. code-block:: text
+
+      POINT_STAT_OUTPUT_FLAG_VCNT = BOTH
 
 .. code-block::
 
@@ -1928,9 +2013,11 @@ to
 
 .. admonition:: Sample Output
 
-  point_stat_360000L_20070331_120000V_cnt.txt
-  point_stat_360000L_20070331_120000V.stat
-  point_stat_360000L_20070331_120000V_vcnt.txt
+   .. code-block:: text
+
+      point_stat_360000L_20070331_120000V_cnt.txt
+      point_stat_360000L_20070331_120000V.stat
+      point_stat_360000L_20070331_120000V_vcnt.txt
 
 .. note::
 

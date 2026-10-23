@@ -401,9 +401,9 @@ User’s Guide Appendix entry that discusses their use in MET:
 * `Bias <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#frequency-bias>`_ 
 * `FAR <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
 * `CSI <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
-* `HSS <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`_  
+* `HSS <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
 * `HSS_EC <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
-* `HK <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`_  
+* `HK <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
 * `GSS <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
 Remember that for categorical statistics, including those that are associated with 
@@ -829,25 +829,33 @@ Example 1.
 
 .. admonition:: Sample Output
 
-   cat_thresh = [&lt;18.5, &lt;14.2, &lt;10.2];
+   .. code-block:: text
+
+      cat_thresh = [<18.5, <14.2, <10.2];
 
 Example 2.
 
 .. admonition:: Sample Output
 
-   cat_thresh = [&lt;10.5, &lt;13.7, &gt;=15.5];
+   .. code-block:: text
+
+      cat_thresh = [<10.5, <13.7, >=15.5];
 
 In example 1, the thresholds decrease with each entry which violates the requirement of monotonically increasing. With a simple reordering of the thresholds, example 1 can use the same thresholds and run with success:
 
 .. admonition:: Sample Output
 
-   cat_thresh = [&lt;10.2, &lt;14.2, &lt;18.5];0
+   .. code-block:: text
+
+      cat_thresh = [<10.2, <14.2, <18.5];0
 
 In example 2, the final threshold uses a different inequality than the other two thresholds which violates the requirement that all multicategorical thresholds use the same inequality type. This rewrite of example 2 will provide the same information desired from the original thresholds, but will now successfully run in METplus:
 
 .. admonition:: Sample Output
 
-   cat_thresh = [&lt;10.5, &lt;13.7, &lt;15.5];
+   .. code-block:: text
+
+      cat_thresh = [<10.5, <13.7, <15.5];
 
 This time, the rewrite changed the final inequality to match the first two while also keeping the final bin of values that METplus will calculate, >=15.5, consistent with the desired information. More information on how MET creates the value bins from multicategory thresholds is provided in the :ref:`MET Example of Multicategorical Forecast Verification <met_ex_multicat_fcst_verif>`.
 
@@ -864,8 +872,8 @@ In order to better understand the delineation between METplus, MET, and METplus 
 The MET User’s Guide provides an `Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <bin_cat_fcst>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the :ref:`Verification Statistics section for Multicategorical Forecasts <ver_stat_multicat_fcst>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
 * `Acc <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#accuracy>`_
-* `HK <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`_
-* `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`_
+* `HK <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
+* `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
 * Gerrity
 
 **METPLUS WRAPPER SOLUTIONS**
@@ -901,14 +909,14 @@ For this example, let’s use Point-Stat. Assume we wanted to verify a multicate
    {     
    name    = "WIND";
         level   = [ "Z10" ];     
-   cat_thresh = [ &gt;=13.9, &gt;=17.2, &gt;=24.5, &gt;=32.7 ];
+   cat_thresh = [ >=13.9, >=17.2, >=24.5, >=32.7 ];
      
    }
       ];
    }
    obs = fcst;
 
-In this example, the forecast field name in the forecast input file is named WIND, and is set accordingly in the **fcst** dictionary. Wind speed is one of the unique variables in METplus that can be calculated from the u and v components of a grib1 or grib2 file if wind speed is not present in the file. Assuming the input file is in a grib1 or grib2 format, MET will first check if a variable field WIND is present; if it is, MET will use the values in that field for analysis. If not, MET will check for the u-component (UGRD) and v-component (VGRD) fields and if found, compute the wind speed field for analysis. A **level **of Z10 is used to grab the vertical level of 10 that WIND appears on, which for this input file corresponds to the 10 meter level. Finally, **cat_thresh**, which controls the categorical threshold used to create the multicategory contingency table, is set to four separate thresholds, with each value corresponding to one of the wind speed thresholds of interest. The example’s chosen thresholds assume that the wind speed units in the file are in meters per second. All of the additional **fcst** field entries from the general Point-Stat configuration file were removed. Note how MET uses four thresholds to creates five unique, discrete bins of wind speeds with a contingency table that would look like the following:
+In this example, the forecast field name in the forecast input file is named WIND, and is set accordingly in the **fcst** dictionary. Wind speed is one of the unique variables in METplus that can be calculated from the u and v components of a grib1 or grib2 file if wind speed is not present in the file. Assuming the input file is in a grib1 or grib2 format, MET will first check if a variable field WIND is present; if it is, MET will use the values in that field for analysis. If not, MET will check for the u-component (UGRD) and v-component (VGRD) fields and if found, compute the wind speed field for analysis. A **level** of Z10 is used to grab the vertical level of 10 that WIND appears on, which for this input file corresponds to the 10 meter level. Finally, **cat_thresh**, which controls the categorical threshold used to create the multicategory contingency table, is set to four separate thresholds, with each value corresponding to one of the wind speed thresholds of interest. The example’s chosen thresholds assume that the wind speed units in the file are in meters per second. All of the additional **fcst** field entries from the general Point-Stat configuration file were removed. Note how MET uses four thresholds to creates five unique, discrete bins of wind speeds with a contingency table that would look like the following:
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex.png
    :alt: 
@@ -934,7 +942,9 @@ In this example, we have told MET to output the MCTC and MCTS line types, which 
 
 .. admonition:: Sample Output
 
-   V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s  Z10   WIND m/s    Z10   NA FULL NEAREST     1        &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7    &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7   NA         NA MCTC    162015 5        161912        11 0 0 0 71 22 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0     0.2
+   .. code-block:: text
+
+      V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s  Z10   WIND m/s    Z10   NA FULL NEAREST     1        >=13.9,>=17.2,>=24.5,>=32.7    >=13.9,>=17.2,>=24.5,>=32.7   NA         NA MCTC    162015 5        161912        11 0 0 0 71 22 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0     0.2
 
 While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id7>`_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
 
@@ -947,7 +957,9 @@ The MCTS line type is also present in the .stat file as the second row. In this 
 
 .. admonition:: Sample Output
 
-   V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s Z10   WIND m/s    Z10   NA FULL NEAREST     1        &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7    &gt;=13.9,&gt;=17.2,&gt;=24.5,&gt;=32.7   NA         0.05  MCTS 162016 5   0.99949  0.99937 0.99959 NA NA  0.66623 NA NA 0.34901 NA NA NA NA NA 0.99937 NA NA 0.2
+   .. code-block:: text
+
+      V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s Z10   WIND m/s    Z10   NA FULL NEAREST     1        >=13.9,>=17.2,>=24.5,>=32.7    >=13.9,>=17.2,>=24.5,>=32.7   NA         0.05  MCTS 162016 5   0.99949  0.99937 0.99959 NA NA  0.66623 NA NA 0.34901 NA NA NA NA NA 0.99937 NA NA 0.2
 
 Compared to the statistics available in the CTC line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the  contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Accuracy has an additional two columns that give the normal confidence limits in addition to the bootstrap confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
 
@@ -1271,11 +1283,15 @@ The resulting two files have a wealth of information and statistics. The netCDF 
 
 .. admonition:: Sample Output
 
-   VERSION MODEL DESC FCST_LEAD FCST_VALID_BEG  FCST_VALID_END  OBS_LEAD OBS_VALID_BEG   OBS_VALID_END   FCST_VAR FCST_UNITS FCST_LEV OBS_VAR   OBS_UNITS OBS_LEV           OBTYPE VX_MASK INTERP_MTHD INTERP_PNTS FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
+   .. code-block:: text
+
+      VERSION MODEL DESC FCST_LEAD FCST_VALID_BEG  FCST_VALID_END  OBS_LEAD OBS_VALID_BEG   OBS_VALID_END   FCST_VAR FCST_UNITS FCST_LEV OBS_VAR   OBS_UNITS OBS_LEV           OBTYPE VX_MASK INTERP_MTHD INTERP_PNTS FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
 
 .. admonition:: Sample Output
 
-   V11.1.1 HREF  NA   000000 20170510_060000 20170510_060000 000000   20170510_060000 20170510_060000 APCP_06  kg.m-2  0,*,* P06M_NONE kg.m-2 @20170510_060000,*,* STAGE4 FULL NEAREST  1        NA       NA      NA      0.05  CNT    1624714 0.48482 0.48218 0.48745 NA NA 1.71512 1.71326 1.71699 NA NA 0.36816 0.36495 0.37138 NA NA 2.09026 2.08799 2.09254 NA NA 0.44686 0.44563 0.44809 NA NA NA NA 0 0 0 0.11665 0.11354 0.11977 NA NA 2.02652 2.02432 2.02873 NA NA 1.31686 NA NA 0.57844 NA NA 4.1204 NA NA 4.10679 NA NA 2.02988 NA NA -0.065204 NA NA -0.065204 NA NA -0.065204 NA NA -0.057391 NA NA 0.73485 NA NA 0.0078125 NA NA 0.0078125 NA NA NA NA NA NA NA 0.013608 NA NA 0.056945 NA NA NA NA NA NA NA NA NA NA NA 5.51354 NA NA
+   .. code-block:: text
+
+      V11.1.1 HREF  NA   000000 20170510_060000 20170510_060000 000000   20170510_060000 20170510_060000 APCP_06  kg.m-2  0,*,* P06M_NONE kg.m-2 @20170510_060000,*,* STAGE4 FULL NEAREST  1        NA       NA      NA      0.05  CNT    1624714 0.48482 0.48218 0.48745 NA NA 1.71512 1.71326 1.71699 NA NA 0.36816 0.36495 0.37138 NA NA 2.09026 2.08799 2.09254 NA NA 0.44686 0.44563 0.44809 NA NA NA NA 0 0 0 0.11665 0.11354 0.11977 NA NA 2.02652 2.02432 2.02873 NA NA 1.31686 NA NA 0.57844 NA NA 4.1204 NA NA 4.10679 NA NA 2.02988 NA NA -0.065204 NA NA -0.065204 NA NA -0.065204 NA NA -0.057391 NA NA 0.73485 NA NA 0.0078125 NA NA 0.0078125 NA NA NA NA NA NA NA 0.013608 NA NA 0.056945 NA NA NA NA NA NA NA NA NA NA NA 5.51354 NA NA
 
 The columns that are available in the CNT line type are listed in the MET User’s Guide guidance for CNT line type {provide link here}. After the declaration of the line type (CNT), the familiar TOTAL or matched pairs column, we find a wealth of statistics including the forecast and observation means, the forecast and observation standard deviations, ME, MSE, along with all of the other statistics discussed in this section, all with their appropriate lower and upper confidence intervals and the bootstrap confidence intervals. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. You’ll also note that the ranking statistics (SP_CORR and KT_CORR) are listed as NA because we did not set rank_corr_flag to TRUE in the Grid-Stat configuration file. This was done intentionally; in order to calculate ranking statistics MET needs to assign each and every matched pair a rank and then perform the calculations. With a large dataset with numerous matched pairs this can significantly increase runtime and be computationally intensive. Given our example had over 1.5 million matched pairs, these statistics are best left to a smaller domain. Let’s create that smaller domain in a METplus wrappers example!
 
@@ -1301,7 +1317,7 @@ We’ve utilized a different setting, FCST_PCP_COMBINE_OUTPUT_NAME, to control w
 .. code-block::
 
    FCST_PCP_COMBINE_METHOD = ADD
-    &lt;\br&gt; FCST_PCP_COMBINE_INPUT_DATATYPE = NETCDF
+    <\br> FCST_PCP_COMBINE_INPUT_DATATYPE = NETCDF
     
    FCST_PCP_COMBINE_CONSTANT_INIT = true
     
@@ -1358,11 +1374,15 @@ With a proper setting of the input and output directories, file templates, and a
 
 .. admonition:: Sample Output
 
-   VERSION MODEL  DESC FCST_LEAD FCST_VALID_BEG  FCST_VALID_END  OBS_LEAD OBS_VALID_BEG   OBS_VALID_END   FCST_VAR FCST_UNITS FCST_LEV OBS_VAR   OBS_UNITS OBS_LEV          OBTYPE VX_MASK INTERP_MTHD INTERP_PNTS FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
+   .. code-block:: text
+
+      VERSION MODEL  DESC FCST_LEAD FCST_VALID_BEG  FCST_VALID_END  OBS_LEAD OBS_VALID_BEG   OBS_VALID_END   FCST_VAR FCST_UNITS FCST_LEV OBS_VAR   OBS_UNITS OBS_LEV          OBTYPE VX_MASK INTERP_MTHD INTERP_PNTS FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
 
 .. admonition:: Sample Output
 
-   V11.1.1 HREF_MEAN NA   000000 20170510_060000 20170510_060000 000000   20170510_060000 20170510_060000 APCP_06  kg.m-2  0,*,* P06M_NONE kg.m-2 20170510_060000,*,* STAGE4 FULL NEAREST  1        NA       NA      NA      0.05  CNT    1600 4.21464 4.0413 4.38798 NA NA 3.53756 3.41909 3.66458 NA NA 7.73156 7.2679 8.19523 NA NA 9.46267 9.14579 9.80246 NA NA 0.21747 0.17028 0.26366 NA NA 0.41127 0.28929 1600 1043 537 -3.51693 -3.97526 -3.05859 NA NA 9.35399 9.04076 9.68988 NA NA 0.54512 NA NA 5.86758 NA NA 99.81122 NA NA 87.44245 NA NA 9.99056 NA NA -14.67874 NA NA -6.29429 NA NA -0.65883 NA NA 0.89349 NA NA 4.32403 NA NA 7.18778 NA NA 2.80197 NA NA NA NA NA NA NA 12.36877 NA NA -0.11468 NA NA NA NA NA NA NA NA NA NA NA 1.29218 NA NA
+   .. code-block:: text
+
+      V11.1.1 HREF_MEAN NA   000000 20170510_060000 20170510_060000 000000   20170510_060000 20170510_060000 APCP_06  kg.m-2  0,*,* P06M_NONE kg.m-2 20170510_060000,*,* STAGE4 FULL NEAREST  1        NA       NA      NA      0.05  CNT    1600 4.21464 4.0413 4.38798 NA NA 3.53756 3.41909 3.66458 NA NA 7.73156 7.2679 8.19523 NA NA 9.46267 9.14579 9.80246 NA NA 0.21747 0.17028 0.26366 NA NA 0.41127 0.28929 1600 1043 537 -3.51693 -3.97526 -3.05859 NA NA 9.35399 9.04076 9.68988 NA NA 0.54512 NA NA 5.86758 NA NA 99.81122 NA NA 87.44245 NA NA 9.99056 NA NA -14.67874 NA NA -6.29429 NA NA -0.65883 NA NA 0.89349 NA NA 4.32403 NA NA 7.18778 NA NA 2.80197 NA NA NA NA NA NA NA 12.36877 NA NA -0.11468 NA NA NA NA NA NA NA NA NA NA NA 1.29218 NA NA
 
 We can see the smaller verification area resulted in only 1,600 matched pairs, which is much more reasonable for rank computations. SP_CORR was 0.41127 showing a positive correlation, while KT_CORR was 0.28929, a slightly weaker positive correlation. METplus goes the additional step and also shows that of the 1,600 ranks that were used to calculate KT_CORR, it found 1,043 forecast ranks that were tied and 537 observation ranks that were tied. Not something that would be easily computed without the help of METplus!
 
@@ -1440,7 +1460,7 @@ Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the genera
 
 RPSS measures the improvement/degradation of the ranked probability forecasts compared to the skill of a reference forecast. As with BSS, RPSS ranges from negative infinity to 1, with a perfect score of 1, and a score of zero indicating no improvement of forecast performance relative to the reference forecast. See how to use this skill score in METplus!
 
-.. METplus_sol_prob_fcst_verif:
+.. _METplus_sol_prob_fcst_verif:
 
 METplus Solutions for Probabilistic Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1515,7 +1535,7 @@ Starting with the `general Gen-Ens-Prod configuration file <https://github.com/d
        {
          name       = "TMP";
          level      = “Z2";
-         cat_thresh = [ &gt;10 ];
+         cat_thresh = [ >10 ];
        }
      ];
    }
@@ -1590,7 +1610,7 @@ Now let’s look at a possible setup for the obs dictionary:
          convert(x) = K_to_C(x);
          name = "TMP";
          level = "Z2";
-         cat_thresh = [&gt;10];
+         cat_thresh = [>10];
       }
 
 Notice that we’ve used the convert function again to change the original Kelvin field to degrees Celsius, along with the appropriate variable field name and second vertical level request. For the threshold we re-use the same value that was originally used to create the forecast probabilities, greater than 10 degrees Celsius. This matching value is important as any other comparison would mean an evaluation between two inconsistent fields.
@@ -1620,15 +1640,21 @@ With a successful run of MET, we should find a .stat file with two rows of data;
 
 .. admonition:: Sample Output
 
-   … FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
+   .. code-block:: text
+
+      … FCST_THRESH OBS_THRESH COV_THRESH ALPHA LINE_TYPE
 
 .. admonition:: Sample Output
 
-   ==0.10000   &gt;10     NA      NA PCT    103936 11 0    368    45240   0.1    0  0    0.2  424     872     0.3    0  0  0.4 824 848    0.5 0   0   0.6 936   368   0.7 0   0   0.8 1392 160 0.9 52168 336 1
+   .. code-block:: text
+
+      ==0.10000   >10     NA      NA PCT    103936 11 0    368    45240   0.1    0  0    0.2  424     872     0.3    0  0  0.4 824 848    0.5 0   0   0.6 936   368   0.7 0   0   0.8 1392 160 0.9 52168 336 1
 
 .. admonition:: Sample Output
 
-   ==0.10000   &gt;10     NA      0.05  PSTD   103936 11 0.53987   0.53684  0.5429 0.0019261 0.231 0.24841 0.99209   0.019338   0.013009 0.025667 NA NA NA NA   0.92215 0   0.1 0.2 0.3   0.4   0.5 0.6 0.7 0.8 0.9 1
+   .. code-block:: text
+
+      ==0.10000   >10     NA      0.05  PSTD   103936 11 0.53987   0.53684  0.5429 0.0019261 0.231 0.24841 0.99209   0.019338   0.013009 0.025667 NA NA NA NA   0.92215 0   0.1 0.2 0.3   0.4   0.5 0.6 0.7 0.8 0.9 1
 
 Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). There is some room for improvement, as reflected in a 0.231 Resolution value (remember that this is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable). For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id14>`_ and `PSTD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id15>`_ line types.
 
@@ -1643,7 +1669,7 @@ Starting with variable fields, we would need to set the _VAR1 settings appropria
    ENS_VAR1_NAME = TMP
    ENS_VAR1_LEVELS = Z2
    ENS_VAR1_OPTIONS = convert(x) = K_to_C(x);
-   ENS_VAR1_THRESH = &gt;10
+   ENS_VAR1_THRESH = >10
    GEN_ENS_PROD_ENS_THRESH = 0.3
    GEN_ENS_PROD_VLD_THRESH = 0.3
     
@@ -1653,7 +1679,7 @@ Starting with variable fields, we would need to set the _VAR1 settings appropria
    FCST_GRID_STAT_IS_PROB = True
    OBS_GRID_STAT_VAR1_NAME = TMP
    OBS_GRID_STAT_VAR1_LEVELS = Z2
-   OBS_GRID_STAT_VAR1_THRESH = &gt;10
+   OBS_GRID_STAT_VAR1_THRESH = >10
    OBS_GRID_STAT_VAR1_OPTIONS = convert(x) = K_to_C(x);
 
 You can see how the GenEnsProd field variables start with the prefix ENS\_, and the GridStat wrapper field variables have _GRID_STAT_ in their name. Those GridStat field settings are also clearly separated into forecast (FCST\_) and observation (OBS\_) options. Note how from the MET-only approach we have simply changed what the setting name is, but the same values are utilized, all in one configuration file.

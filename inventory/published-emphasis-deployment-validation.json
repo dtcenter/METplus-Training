@@ -1,0 +1,109 @@
+{
+  "base": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/",
+  "pages": [
+    {
+      "page": "Session_3_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_3_Analysis_Tools.html",
+      "literal_blocks": 84,
+      "images": 2,
+      "tables": 2,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_4_Ensemble_and_PQPF.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_4_Ensemble_and_PQPF.html",
+      "literal_blocks": 91,
+      "images": 1,
+      "tables": 1,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_5_MODE_and_MTD.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_5_MODE_and_MTD.html",
+      "literal_blocks": 70,
+      "images": 1,
+      "tables": 1,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_6_Track_and_Intensity.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_6_Track_and_Intensity.html",
+      "literal_blocks": 79,
+      "images": 1,
+      "tables": 3,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_7_Feature_Relative_Use_Cases.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_7_Feature_Relative_Use_Cases.html",
+      "literal_blocks": 45,
+      "images": 0,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_8_METplus_Analysis_Tools.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_8_METplus_Analysis_Tools.html",
+      "literal_blocks": 115,
+      "images": 5,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_9_Python_Embedding.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_9_Python_Embedding.html",
+      "literal_blocks": 44,
+      "images": 5,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_10_Subseasonal_to_Seasonal_S2S.html",
+      "literal_blocks": 17,
+      "images": 3,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Session_11_METplus_Cloud.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Session_11_METplus_Cloud.html",
+      "literal_blocks": 6,
+      "images": 5,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    },
+    {
+      "page": "Tutorial_Survey.html",
+      "url": "https://metplus.readthedocs.io/projects/metplus-training/en/feature_69_drupal2rtd_auto/Tutorial/v5.0/Tutorial_Survey.html",
+      "literal_blocks": 0,
+      "images": 0,
+      "tables": 0,
+      "system_messages": 0,
+      "issues": [],
+      "body_matches_emphasis_fix_build": true
+    }
+  ],
+  "resource_urls_checked": 36,
+  "failed_resources": {},
+  "compared_local_commit": "1947d82",
+  "reviewed_date": "2026-10-23"
+}

@@ -1,0 +1,47 @@
+{
+  "baseline": "1947d82",
+  "chapters": [
+    {
+      "chapter": "Basic_Verification_Statistics_Review",
+      "text_preserved_after_markup_recovery": true,
+      "headings_preserved": true,
+      "external_urls_unchanged": true,
+      "existing_explicit_labels_preserved": true,
+      "rendered_system_messages": 0,
+      "unresolved_internal_links": [],
+      "prose_with_literal_strong_markers": []
+    },
+    {
+      "chapter": "Preliminary_work_METplus_setup",
+      "text_preserved_after_markup_recovery": true,
+      "headings_preserved": true,
+      "external_urls_unchanged": true,
+      "existing_explicit_labels_preserved": true,
+      "rendered_system_messages": 0,
+      "unresolved_internal_links": [],
+      "prose_with_literal_strong_markers": []
+    },
+    {
+      "chapter": "Session_1_Grid-to-Grid",
+      "text_preserved_after_markup_recovery": true,
+      "headings_preserved": true,
+      "external_urls_unchanged": true,
+      "existing_explicit_labels_preserved": true,
+      "rendered_system_messages": 0,
+      "unresolved_internal_links": [],
+      "prose_with_literal_strong_markers": []
+    },
+    {
+      "chapter": "Session_2_Grid-to-Obs",
+      "text_preserved_after_markup_recovery": true,
+      "headings_preserved": true,
+      "external_urls_unchanged": true,
+      "existing_explicit_labels_preserved": true,
+      "rendered_system_messages": 0,
+      "unresolved_internal_links": [],
+      "prose_with_literal_strong_markers": []
+    }
+  ],
+  "build_diagnostics": [],
+  "errors": []
+}

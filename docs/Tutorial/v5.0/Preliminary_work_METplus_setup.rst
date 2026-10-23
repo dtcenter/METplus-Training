@@ -310,29 +310,33 @@ Now, verify that you have a .condarc file in your /home/user directory. If the f
 
 .. admonition:: Sample Output
 
-   channels:
-   - defaults
-   - conda-forge
-   - anaconda
+   .. code-block:: text
+
+      channels:
+      - defaults
+      - conda-forge
+      - anaconda
 
 Verify that you are using the most recent version of anaconda3 in your .bashrc file. Verify that your conda_setup in your .bashrc file is using /usr/local/anaconda3/bin/conda. You should see a code block similar to following:
 
 .. admonition:: File Contents
 
-   # &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
-   # !! Contents within this block are managed by 'conda init' !!
-   __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook'2&gt; /dev/null)"
-   if [ $? -eq 0 ]; then
-   eval "$__conda_setup"
-   else
-   if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-   . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-   else
-   export PATH="/usr/local/anaconda3/bin:$PATH"
-   fi
-   fi
-   unset __conda_setup
-   # &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+   .. code-block:: text
+
+      # >>> conda initialize >>>
+      # !! Contents within this block are managed by 'conda init' !!
+      __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook'2> /dev/null)"
+      if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+      else
+      if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+      . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+      else
+      export PATH="/usr/local/anaconda3/bin:$PATH"
+      fi
+      fi
+      unset __conda_setup
+      # <<< conda initialize <<<
 
 If you do have to make any changes to your .bashrc file, it would be best at this point to sign out, then sign back into your Seneca connection from the terminal. Errors have been found to happen even after sourcing your .bashrc file for the updated content.
 
@@ -347,18 +351,20 @@ If this was successful, you will see the following at the end of the output stre
 
 .. admonition:: Sample Output
 
-   Downloading and Extracting Packages
-   Preparing transaction: done
-   Verifying transaction: done
-   Executing transaction: done
-   #
-   # To activate this environment, use
-   #
-   # $ conda activate metplus_analysis_tutorial_env
-   #
-   # To deactivate an active environment, use
-   #
-   # $ conda deactivate
+   .. code-block:: text
+
+      Downloading and Extracting Packages
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: done
+      #
+      # To activate this environment, use
+      #
+      # $ conda activate metplus_analysis_tutorial_env
+      #
+      # To deactivate an active environment, use
+      #
+      # $ conda deactivate
 
 This creates a basic Python 3.8 conda environment named ‘metplus_analysis_tutorial_env’ that contains mamba (to accelerate installing the remaining Python packages).
 
@@ -378,15 +384,17 @@ You will see many lines of information streaming to your screen. You will see fo
 
 .. admonition:: Sample Output
 
-   Preparing transaction: done
-   Verifying transaction: done
-   Executing transaction: /
-   Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
-   More details are available `here: <https://intel.github.io/scikit-learn-intelex>`_ 
-   For example:
-   $ conda install scikit-learn-intelex
-   $ python -m sklearnex my_application.py
-   done
+   .. code-block:: text
+
+      Preparing transaction: done
+      Verifying transaction: done
+      Executing transaction: /
+      Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
+      More details are available `here: <https://intel.github.io/scikit-learn-intelex>`_
+      For example:
+      $ conda install scikit-learn-intelex
+      $ python -m sklearnex my_application.py
+      done
 
 Now you are ready to run the METplus Analysis tutorials.
 
@@ -695,7 +703,9 @@ Example value:
 
 .. admonition:: Sample Output
 
-   /home/metplus_user/METplus_Tutorial
+   .. code-block:: text
+
+      /home/metplus_user/METplus_Tutorial
 
 .. code-block::
 
@@ -705,10 +715,12 @@ Example contents:
 
 .. admonition:: Sample Output
 
-   METplus-5.0.0_TutorialSetup.sh
-   output/
-   tutorial.conf
-   user_config/
+   .. code-block:: text
+
+      METplus-5.0.0_TutorialSetup.sh
+      output/
+      tutorial.conf
+      user_config/
 
 **$MET_BUILD_BASE**
 
@@ -722,7 +734,9 @@ Example value:
 
 .. admonition:: Sample Output
 
-   /home/metplus_user/met-11.0.1
+   .. code-block:: text
+
+      /home/metplus_user/met-11.0.1
 
 .. code-block::
 
@@ -732,8 +746,10 @@ Example contents
 
 .. admonition:: Sample Output
 
-   bin
-   share
+   .. code-block:: text
+
+      bin
+      share
 
 .. important::
 
@@ -749,44 +765,46 @@ Example contents:
 
 .. admonition:: Sample Output
 
-   ascii2nc
-   ensemble_stat
-   gen_ens_prod
-   gen_vx_mask
-   gis_dump_dbf
-   gis_dump_shp
-   gis_dump_shx
-   grid_diag
-   grid_stat
-   gsid2mpr
-   gsidens2orank
-   ioda2nc
-   lidar2nc
-   madis2nc
-   mode
-   mode_analysis
-   modis_regrid
-   mtd
-   pb2nc
-   pcp_combine
-   plot_data_plane
-   plot_mode_field
-   plot_point_obs
-   point2grid
-   point_stat
-   regrid_data_plane
-   rmw_analysis
-   series_analysis
-   shift_data_plane
-   stat_analysis
-   tc_dland
-   tc_gen
-   tc_pairs
-   tc_rmw
-   tc_stat
-   wavelet_stat
-   wwmca_plot
-   wwmca_regrid
+   .. code-block:: text
+
+      ascii2nc
+      ensemble_stat
+      gen_ens_prod
+      gen_vx_mask
+      gis_dump_dbf
+      gis_dump_shp
+      gis_dump_shx
+      grid_diag
+      grid_stat
+      gsid2mpr
+      gsidens2orank
+      ioda2nc
+      lidar2nc
+      madis2nc
+      mode
+      mode_analysis
+      modis_regrid
+      mtd
+      pb2nc
+      pcp_combine
+      plot_data_plane
+      plot_mode_field
+      plot_point_obs
+      point2grid
+      point_stat
+      regrid_data_plane
+      rmw_analysis
+      series_analysis
+      shift_data_plane
+      stat_analysis
+      tc_dland
+      tc_gen
+      tc_pairs
+      tc_rmw
+      tc_stat
+      wavelet_stat
+      wwmca_plot
+      wwmca_regrid
 
 **$METPLUS_BUILD_BASE**
 
@@ -800,7 +818,9 @@ Example value:
 
 .. admonition:: Sample Output
 
-   /home/metplus_user/METplus-5.0.1
+   .. code-block:: text
+
+      /home/metplus_user/METplus-5.0.1
 
 .. code-block::
 
@@ -810,19 +830,21 @@ Example contents:
 
 .. admonition:: Sample Output
 
-   build_components
-   docs
-   environment.yml
-   internal
-   manage_externals
-   metplus
-   parm
-   produtil
-   pyproject.toml
-   README.md
-   requirements.txt
-   setup.py
-   ush
+   .. code-block:: text
+
+      build_components
+      docs
+      environment.yml
+      internal
+      manage_externals
+      metplus
+      parm
+      produtil
+      pyproject.toml
+      README.md
+      requirements.txt
+      setup.py
+      ush
 
 **$METPLUS_DATA**
 
@@ -836,7 +858,9 @@ Example value:
 
 .. admonition:: Sample Output
 
-   /d1/metplus_user/METplus_Data
+   .. code-block:: text
+
+      /d1/metplus_user/METplus_Data
 
 .. code-block::
 
@@ -846,9 +870,11 @@ Example contents:
 
 .. admonition:: Sample Output
 
-   met_reformat
-   met_test
-   model_applications
+   .. code-block:: text
+
+      met_reformat
+      met_test
+      model_applications
 
 
 METplus Overview
@@ -936,7 +962,7 @@ Look at the Model Application use cases
 
    ls ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications
 
-The **model_applications** use case files are organized in directories by category, e.g. **precipitation **or **data_assimilation**. They contain METplus configuration files (ending with .conf). If additional files such as Python Embedding scripts are included with a use case, these files are found in a directory named after the METplus configuration file without the .conf extension.
+The **model_applications** use case files are organized in directories by category, e.g. **precipitation** or **data_assimilation**. They contain METplus configuration files (ending with .conf). If additional files such as Python Embedding scripts are included with a use case, these files are found in a directory named after the METplus configuration file without the .conf extension.
 
 * model_applications/data_assimilation - directory
 * model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface.conf - use case configuration file
@@ -952,7 +978,7 @@ Let's look at the Example use case, ***Example.conf***, under **met_tool_wrapper
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/Example/Example.conf
 
-In this file are variables, denoted in ALL_CAPS. These can be modified as needed. In the METplus system, unmodified config files remain in the directories under **${MET_BUILD_BASE}**, while user-modified files are stored in ${**METPLUS_TUTORIAL_DIR}/user_config**.
+In this file are variables, denoted in ALL_CAPS. These can be modified as needed. In the METplus system, unmodified config files remain in the directories under **${MET_BUILD_BASE}**, while user-modified files are stored in ${ **METPLUS_TUTORIAL_DIR}/user_config**.
 
 No changes are needed in Example.conf. Close it and continue to the next page.
 
@@ -976,7 +1002,7 @@ The paths in this practical session guide assume:
 
 If not, then you need to adjust accordingly.
 
-1. .. note::
+.. note::
 
    Change to the ${METPLUS_TUTORIAL_DIR} directory.  Try running run_metplus.py. You should see the usage statement output to the screen.
 
@@ -989,7 +1015,7 @@ If not, then you need to adjust accordingly.
 
    The METplus python script run_metplus.py can be run from anywhere, but for consistency, we will change to ${METPLUS_TUTORIAL_DIR} so that all the directories including user_config and output are below the working directory.
 
-1. .. note::
+.. note::
 
    Now try to pass in the example.conf configuration file found in your parm directory under use_cases/met_tool_wrapper/Examples tutorial.conf
 
@@ -1002,26 +1028,28 @@ You should see output like this:
 
 .. admonition:: Sample Output
 
-   Running METplus 5.0.1
-   Starting METplus v5.0.1
-   12/15 19:53:06.223 metplus (config_metplus.py:102) INFO: Starting METplus configuration setup.
-   12/15 19:53:06.225 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/metplus_config/defaults.conf
-   12/15 19:53:06.226 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/use_cases/met_tool_wrapper/Example/Example.conf
-   Traceback (most recent call last):
-     File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 128, in &lt;module&gt;
-       main()
-     File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 44, in main
-       config = pre_run_setup(config_inputs)
-     File "/usr/local/METplus-5.0.1/metplus/util/run_util.py", line 23, in pre_run_setup
-       config = setup(config_inputs)
-     File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 108, in setup
-       config = launch(override_list)
-     File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 256, in launch
-       mkdir_p(config.getdir('OUTPUT_BASE'))
-     File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 693, in getdir
-       raise ValueError(f"{dir_name} cannot be set to "
-   ValueError: OUTPUT_BASE cannot be set to or contain '/path/to'
-   ERROR: run_metplus  failed: OUTPUT_BASE cannot be set to or contain '/path/to'
+   .. code-block:: text
+
+      Running METplus 5.0.1
+      Starting METplus v5.0.1
+      12/15 19:53:06.223 metplus (config_metplus.py:102) INFO: Starting METplus configuration setup.
+      12/15 19:53:06.225 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/metplus_config/defaults.conf
+      12/15 19:53:06.226 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/use_cases/met_tool_wrapper/Example/Example.conf
+      Traceback (most recent call last):
+        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 128, in <module>
+          main()
+        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 44, in main
+          config = pre_run_setup(config_inputs)
+        File "/usr/local/METplus-5.0.1/metplus/util/run_util.py", line 23, in pre_run_setup
+          config = setup(config_inputs)
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 108, in setup
+          config = launch(override_list)
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 256, in launch
+          mkdir_p(config.getdir('OUTPUT_BASE'))
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 693, in getdir
+          raise ValueError(f"{dir_name} cannot be set to "
+      ValueError: OUTPUT_BASE cannot be set to or contain '/path/to'
+      ERROR: run_metplus  failed: OUTPUT_BASE cannot be set to or contain '/path/to'
     
 
 Note it ends with an error message stating that **OUTPUT_BASE** was not set correctly. You will need to configure the METplus wrappers to be able to run a use case.
@@ -1030,11 +1058,11 @@ Note it ends with an error message stating that **OUTPUT_BASE** was not set cor
 
    The values in defaults.conf are read in first when you run run_metplus.py. The settings in these files can be overridden in the use case conf files and/or a user's custom configuration file.
 
-Some variables in the system conf are set to '/path/to' and must be overridden to run METplus, such as **OUTPUT_BASE **in **defaults.conf**.
+Some variables in the system conf are set to '/path/to' and must be overridden to run METplus, such as **OUTPUT_BASE** in **defaults.conf**.
 
-1. .. note::
+.. note::
 
-   View the **defaults.conf** file and notice how **OUTPUT_BASE = /path/to** . This implies it is REQUIRED to be overridden to a valid path.
+   View the **defaults.conf** file and notice how **OUTPUT_BASE = /path/to**. This implies it is REQUIRED to be overridden to a valid path.
 
 .. code-block::
 
@@ -1044,15 +1072,15 @@ Some variables in the system conf are set to '/path/to' and must be overridden t
 
    Note: The default installation of METplus has /path/to values for MET_INSTALL_DIR and INPUT_BASE. The value for MET_INSTALL_DIR is set in the shared METplus configuration when it was installed. This was done because these settings will likely be set to the same values for all users. If METplus was installed on a machine that has sample input data available, the value for INPUT_BASE is often set to that directory as well.
 
-1. .. note::
+.. note::
 
-   View the tutorial configuration files in your **&lt;em&gt;${METPLUS_TUTORIAL_DIR}&lt;/em&gt;** directory.
+   View the tutorial configuration files in your **${METPLUS_TUTORIAL_DIR}** directory.
 
 .. code-block::
 
    less ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
-The **INPUT_BASE**, **OUTPUT_BASE**, and **MET_INSTALL_DIR **variables must all be set to run METplus. Since **MET_INSTALL_DIR **(and possibly **INPUT_BASE**) should already be set in the default METplus configuration file (completed on install of METplus), only **OUTPUT_BASE** is required to run. If **INPUT_BASE** is not set in the tutorial configuration file, it should be set correctly in the defaults configuration file.
+The **INPUT_BASE**, **OUTPUT_BASE**, and **MET_INSTALL_DIR** variables must all be set to run METplus. Since **MET_INSTALL_DIR** (and possibly **INPUT_BASE**) should already be set in the default METplus configuration file (completed on install of METplus), only **OUTPUT_BASE** is required to run. If **INPUT_BASE** is not set in the tutorial configuration file, it should be set correctly in the defaults configuration file.
 
 .. important::
 
@@ -1112,10 +1140,10 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
 
 .. note::
 
-   metplus INFO: ****************************************
+   metplus INFO:
    metplus INFO: * Running METplus
    metplus INFO: * at valid time: 201702010000
-   metplus INFO: ****************************************
+   metplus INFO:
    metplus.Example INFO: Running ExampleWrapper at valid time 20170201000000
    metplus.Example INFO: Input directory is /dir/containing/example/data
    metplus.Example INFO: Input template is {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
@@ -1143,10 +1171,10 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
    metplus.Example INFO: Processing custom string: nc
    metplus.Example INFO: Processing forecast lead 12 hours initialized at 2017-01-31 12Z and valid at 2017-02-01 00Z
    metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_12_F012.nc
-   metplus INFO: ****************************************
+   metplus INFO:
    metplus INFO: * Running METplus
    metplus INFO: * at valid time: 201702010600
-   metplus INFO: ****************************************
+   metplus INFO:
    ...
 
 1. Now run METplus passing in the Example.conf and tutorial.conf files from the previous run AND an explicit override of the OUTPUT_BASE variable.
@@ -1200,39 +1228,51 @@ METplus configuration variables that control timing information are described in
 
 .. note::
 
-   VALID_BEG = 2017020100
-   VALID_END = 2017020200
+   .. code-block:: text
+
+      VALID_BEG = 2017020100
+      VALID_END = 2017020200
 
     to:
 
 .. note::
 
-   VALID_BEG = 2022011809
-   VALID_END = 2022011809
+   .. code-block:: text
+
+      VALID_BEG = 2022011809
+      VALID_END = 2022011809
 
 3b. Change **LEAD_SEQ**:
 
 .. note::
 
-   LEAD_SEQ = 3H , 6H, 9H, 12H
+   .. code-block:: text
+
+      LEAD_SEQ = 3H , 6H, 9H, 12H
 
     to:
 
 .. note::
 
-   LEAD_SEQ = 3H
+   .. code-block:: text
+
+      LEAD_SEQ = 3H
 
 3c. Change **EXAMPLE_CUSTOM_LOOP_LIST**:
 
 .. note::
 
-   EXAMPLE_CUSTOM_LOOP_LIST = ext, nc
+   .. code-block:: text
+
+      EXAMPLE_CUSTOM_LOOP_LIST = ext, nc
 
     to:
 
 .. note::
 
-   EXAMPLE_CUSTOM_LOOP_LIST = ext
+   .. code-block:: text
+
+      EXAMPLE_CUSTOM_LOOP_LIST = ext
 
 .. important::
 
@@ -1255,7 +1295,9 @@ METplus configuration variables that control timing information are described in
 
 .. admonition:: Sample Output
 
-   INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
+   .. code-block:: text
+
+      INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
 
 1. Open Example_timing.conf again to increase the frequency of output by making the following changes:
 
@@ -1263,13 +1305,17 @@ METplus configuration variables that control timing information are described in
 
 .. note::
 
-   VALID_END = 2022011809
+   .. code-block:: text
+
+      VALID_END = 2022011809
 
     to:
 
 .. note::
 
-   VALID_END = 2022011815
+   .. code-block:: text
+
+      VALID_END = 2022011815
 
 .. important::
 
@@ -1289,8 +1335,10 @@ METplus configuration variables that control timing information are described in
 
 .. admonition:: Sample Output
 
-   INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
-   INFO: Processing forecast lead 3 hours initialized at 2022-01-18 12Z and valid at 2022-01-18 15Z
+   .. code-block:: text
+
+      INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
+      INFO: Processing forecast lead 3 hours initialized at 2022-01-18 12Z and valid at 2022-01-18 15Z
 
 1. Change the timing settings to loop by initialization (or retrospective) time. Open Example_timing.conf again and make the following changes:
 
@@ -1298,61 +1346,81 @@ METplus configuration variables that control timing information are described in
 
 .. note::
 
-   LOOP_BY = VALID
+   .. code-block:: text
+
+      LOOP_BY = VALID
 
     to:
 
 .. note::
 
-   LOOP_BY = INIT
+   .. code-block:: text
+
+      LOOP_BY = INIT
 
 8b. Change **VALID_TIME_FMT** to **INIT_TIME_FMT**:
 
 .. note::
 
-   VALID_TIME_FMT = %Y%m%d%H
+   .. code-block:: text
+
+      VALID_TIME_FMT = %Y%m%d%H
 
     to:
 
 .. note::
 
-   INIT_TIME_FMT = %Y%m%d%H
+   .. code-block:: text
+
+      INIT_TIME_FMT = %Y%m%d%H
 
 8c. Change **VALID_BEG** to **INIT_BEG**:
 
 .. note::
 
-   VALID_BEG = 2022011809
+   .. code-block:: text
+
+      VALID_BEG = 2022011809
 
     to:
 
 .. note::
 
-   INIT_BEG = 2022011809
+   .. code-block:: text
+
+      INIT_BEG = 2022011809
 
 8d. Change **VALID_END** to **INIT_END**:
 
 .. note::
 
-   VALID_END = 2022011815
+   .. code-block:: text
+
+      VALID_END = 2022011815
 
     to:
 
 .. note::
 
-   INIT_END = 2022011815
+   .. code-block:: text
+
+      INIT_END = 2022011815
 
 8e. Change **VALID_INCREMENT** to **INIT_INCREMENT**:
 
 .. note::
 
-   VALID_INCREMENT = 3H
+   .. code-block:: text
+
+      VALID_INCREMENT = 3H
 
     to:
 
 .. note::
 
-   INIT_INCREMENT = 3H
+   .. code-block:: text
+
+      INIT_INCREMENT = 3H
 
 1. Call the run_metplus.py script once again and see how the output has changed.
 
@@ -1368,8 +1436,10 @@ METplus configuration variables that control timing information are described in
 
 .. admonition:: Sample Output
 
-   INFO: Processing forecast lead 3 hours initialized at 2022-01-18 09Z and valid at 2022-01-18 12Z
-   INFO: Processing forecast lead 3 hours initialized at 2022-01-18 15Z and valid at 2022-01-18 18Z
+   .. code-block:: text
+
+      INFO: Processing forecast lead 3 hours initialized at 2022-01-18 09Z and valid at 2022-01-18 12Z
+      INFO: Processing forecast lead 3 hours initialized at 2022-01-18 15Z and valid at 2022-01-18 18Z
 
 1. Change the value for LOOP_BY from INIT to its nickname RETRO. Open Example_timing.conf again and make the following changes:
 
@@ -1377,13 +1447,17 @@ METplus configuration variables that control timing information are described in
 
 .. note::
 
-   LOOP_BY = INIT
+   .. code-block:: text
+
+      LOOP_BY = INIT
 
     to:
 
 .. note::
 
-   LOOP_BY = RETRO
+   .. code-block:: text
+
+      LOOP_BY = RETRO
 
 1. Call the run_metplus.py script another time.
 
@@ -1415,7 +1489,9 @@ The output should list:
 
 .. admonition:: Sample Output
 
-   nam.t00z.awip1236.tm00.20070330.grb
+   .. code-block:: text
+
+      nam.t00z.awip1236.tm00.20070330.grb
 
 .. important::
 
@@ -1442,25 +1518,33 @@ The output should list:
 
 .. admonition:: Sample Output
 
-   EXAMPLE_INPUT_DIR = /dir/containing/example/data
+   .. code-block:: text
 
-**    **to:
+      EXAMPLE_INPUT_DIR = /dir/containing/example/data
+
+to:
 
 .. admonition:: Sample Output
 
-   EXAMPLE_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
+   .. code-block:: text
+
+      EXAMPLE_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
 4b. Change **EXAMPLE_INPUT_TEMPLATE:**
 
 .. admonition:: Sample Output
 
-   EXAMPLE_INPUT_TEMPLATE =  {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
+   .. code-block:: text
 
-**    **to:
+      EXAMPLE_INPUT_TEMPLATE =  {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
+
+to:
 
 .. admonition:: Sample Output
 
-   EXAMPLE_INPUT_TEMPLATE = nam.t{init?fmt=%2H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grib
+   .. code-block:: text
+
+      EXAMPLE_INPUT_TEMPLATE = nam.t{init?fmt=%2H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grib
 
 1. Call the run_metplus.py script again, this time passing in the Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
@@ -1474,9 +1558,11 @@ The output should list:
 
 .. admonition:: Sample Output
 
-   INFO: Looking in input directory for file: nam.t09z.awip1236.tm00.20220118.grib
-   ...
-   INFO: Looking in input directory for file: nam.t15z.awip1236.tm00.20220118.grib
+   .. code-block:: text
+
+      INFO: Looking in input directory for file: nam.t09z.awip1236.tm00.20220118.grib
+      ...
+      INFO: Looking in input directory for file: nam.t15z.awip1236.tm00.20220118.grib
 
 .. important::
 
@@ -1494,15 +1580,19 @@ The output should list:
 
 .. admonition:: Sample Output
 
-   INIT_BEG = 2022011809
-   INIT_END = 2022011815
+   .. code-block:: text
 
-    to:
+         INIT_BEG = 2022011809
+         INIT_END = 2022011815
+
+          to:
 
 .. admonition:: Sample Output
 
-   INIT_BEG = 2007033000
-   INIT_END = 2007033000
+   .. code-block:: text
+
+      INIT_BEG = 2007033000
+      INIT_END = 2007033000
 
 1. Call the run_metplus.py script again, passing in the modified Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
@@ -1516,7 +1606,9 @@ The output should list:
 
 .. admonition:: Sample Output
 
-   INFO: Looking in input directory for file: nam.t00z.awip1236.tm00.20070330.grib
+   .. code-block:: text
+
+      INFO: Looking in input directory for file: nam.t00z.awip1236.tm00.20070330.grib
 
 
 Modifying Log Timestamp using Example.conf

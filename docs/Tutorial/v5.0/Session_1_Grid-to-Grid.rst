@@ -400,39 +400,39 @@ The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from
 
 .. note::
 
-View the usage statement for Plot-Data-Plane by simply typing the following:
+  View the usage statement for Plot-Data-Plane by simply typing the following:
 
 
 
 .. code-block::
 
-plot_data_plane
+  plot_data_plane
 
-Usage: plot_data_plane
+  Usage: plot_data_plane
 
-input_filename
-Input file containing gridded data to be be plotted
+  input_filename
+  Input file containing gridded data to be be plotted
 
-output_filename
-Output PostScript file to be written
+  output_filename
+  Output PostScript file to be written
 
-field_string
-String defining the data to be plotted
+  field_string
+  String defining the data to be plotted
 
-[-color_table name]
-Overrides the default color table (optional)
+  [-color_table name]
+  Overrides the default color table (optional)
 
-[-plot_range min max]
-Specifies the range of data to be plotted (optional)
+  [-plot_range min max]
+  Specifies the range of data to be plotted (optional)
 
-[-title string]
-Specifies the plot title string (optional)
+  [-title string]
+  Specifies the plot title string (optional)
 
-[-log file]
-Outputs log messages to the specified file
+  [-log file]
+  Outputs log messages to the specified file
 
-[-v level]
-Level of logging
+  [-v level]
+  Level of logging
 
 .. _field_str:
 
@@ -459,9 +459,11 @@ Since the field_string is processed using a temporary file, any syntax errors wi
 
 .. admonition:: Sample Output
 
-  ERROR  : &lt;br/&gt;
-  ERROR  : yyerror() -&amp;gt; syntax error in file "/tmp/met_config_61354_1"&lt;br/&gt;
-  ERROR  :
+   .. code-block:: text
+
+      ERROR  :
+      ERROR  : yyerror() -> syntax error in file "/tmp/met_config_61354_1"
+      ERROR  :
 
 Error messages like this typically mean there is a problem in a configuration string or configuration file being read by MET.
 
@@ -478,25 +480,27 @@ Next, run Plot-Data-Plane to plot 2-meter temperature from a GRIB1 input file:
 
 .. code-block::
 
-  plot_data_plane \&lt;br/&gt;
-  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 \&lt;br/&gt;
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \&lt;br/&gt;
-'name = "TMP"; level = "Z2";'
+  plot_data_plane \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \
+  'name = "TMP"; level = "Z2";'
 
 The default verbosity level of 2 only prints log messages about input and output files.
 
 .. admonition:: Sample Output
 
-  DEBUG 1: Opening data file: {...}/wrfprs_ruc13_12.tm00_G212&lt;br/&gt;
-  DEBUG 1: Creating postscript file: {...}/wrfprs_TMP_2m.ps
+   .. code-block:: text
+
+      DEBUG 1: Opening data file: {...}/wrfprs_ruc13_12.tm00_G212
+      DEBUG 1: Creating postscript file: {...}/wrfprs_TMP_2m.ps
 
 Next, re-run at verbosity level 4 to see more detailed log message about the grid being read, timing information, and the range of the data values:
 
 .. code-block::
 
-  plot_data_plane \&lt;br/&gt;
-  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 \&lt;br/&gt;
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \&lt;br/&gt;
+  plot_data_plane \
+  ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_12.tm00_G212 \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \
   'name = "TMP"; level = "Z2";' -v 4
 
 It is a great idea to inspect the log messages to sanity check the metadata. Without needing to understand all the details, does the grid definition look reasonable? Are the range of values reasonable for this variable type? Are the timestamps of the data consistent with the input file name?
@@ -514,8 +518,8 @@ Optionally, if the convert utility is in your path, it can be run to change the 
 
 .. code-block::
 
-  convert -rotate 90 \&lt;br/&gt;
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \&lt;br/&gt;
+  convert -rotate 90 \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.png
 
 The plot is created using the default color table (met_default.ctable) and is scaled to the range of valid data (275 to 305). By default, no title is provided and the input file is listed as a sub-title. Does the pattern of the data look reasonable? Does it correspond well to the background map data?
@@ -533,66 +537,72 @@ Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from 
 
 .. code-block::
 
-  ncdump -h \&lt;br/&gt;
+  ncdump -h \
   ${METPLUS_DATA}/model_applications/precipitation/QPE_Data/20170510/qpe_2017051005.nc
 
 Note the following from the header:
 
 .. admonition:: Sample Output
 
-  dimensions:&lt;br/&gt;
-  time = 1 ;&lt;br/&gt;
-  y = 689 ;&lt;br/&gt;
-  x = 1073 ;&lt;br/&gt;
-  ...
-  float P06M_NONE(time, y, x) ;&lt;br/&gt;
-  ...
-  // global attributes:&lt;br/&gt;
-  :Conventions = "CF-1.0" ;
+   .. code-block:: text
+
+      dimensions:
+      time = 1 ;
+      y = 689 ;
+      x = 1073 ;
+      ...
+      float P06M_NONE(time, y, x) ;
+      ...
+      // global attributes:
+      :Conventions = "CF-1.0" ;
 
 The variable P06M_NONE has 3 dimensions, but the time dimension only has length 1. Therefore, setting level = "(0,*,*)"; should do the trick. Also note that the global Conventions attribute identifies this file as being CF-compliant. Let's plot it, this time adding a title:
 
 .. code-block::
 
-  plot_data_plane \&lt;br/&gt;
-  ${METPLUS_DATA}/model_applications/precipitation/QPE_Data/20170510/qpe_2017051005.nc \&lt;br/&gt;
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \&lt;br/&gt;
+  plot_data_plane \
+  ${METPLUS_DATA}/model_applications/precipitation/QPE_Data/20170510/qpe_2017051005.nc \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \
   'name = "P06M_NONE"; level = "(0,*,*)";' -title "Precipitation Forecast" -v 4
 
 Running at verbosity level 4, we see the range of values:
 
 .. admonition:: Sample Output
 
-  DEBUG 4: Data plane information:&lt;br/&gt;
-  DEBUG 4:       plane min: 0&lt;br/&gt;
-  DEBUG 4:       plane max: 101.086
+   .. code-block:: text
+
+      DEBUG 4: Data plane information:
+      DEBUG 4:       plane min: 0
+      DEBUG 4:       plane max: 101.086
 
 If needed, run convert to reformat:
 
 .. code-block::
 
-  convert -rotate 90 \&lt;br/&gt;
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \&lt;br/&gt;
+  convert -rotate 90 \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.png
 
 The next example extracts a specific time string from a precipitation analysis dataset:
 
 .. code-block::
 
-  ncdump -h \&lt;br/&gt;
+  ncdump -h \
   ${METPLUS_DATA}/model_applications/precipitation/StageIV/2017050912_st4.nc
 
 Note the following from the header:
 
 .. admonition:: Sample Output
 
-  dimensions:
-    time = 4;
-    y = 428;
-    x = 614;
-    time1 = 1;
-  variables:
-    float P06M_NONE(time, y, x);
+   .. code-block:: text
+
+      dimensions:
+        time = 4;
+        y = 428;
+        x = 614;
+        time1 = 1;
+      variables:
+        float P06M_NONE(time, y, x);
 
 Let's request a specific time string, specify a title, and use the same plotting range as above, rather than defaulting to the range of input data values.
 
@@ -615,7 +625,9 @@ We will plot the NCEP_Region_ID variable with only 2 dimensions:
 
 .. admonition:: Sample Output
 
-  float NCEP_Region_ID(lat, lon) ;
+   .. code-block:: text
+
+      float NCEP_Region_ID(lat, lon) ;
 
 Let's specify a different color table rather than using the default one.
 
@@ -782,7 +794,7 @@ Gen-Vx-Mask should run very quickly since the grid is coarse (185x129 points) an
 
 .. code-block::
 
-  ncview CONUS_mask.nc &amp;amp;
+  ncview CONUS_mask.nc &
 
 Notice that the bitmap has a value of 1 inside the CONUS polyline and 0 everywhere else. We'll use the CONUS mask we just defined in the next step.
 You could try running plot_data_plane to create a PostScript image of this masking region. Can you remember how?
@@ -817,10 +829,12 @@ Most of the grids defined in ON388 Table B can be referenced in MET as "GNNN" wh
 
 .. admonition:: Sample Output
 
-  float lat_mask(lat, lon);
-    lat_mask:long_name = "lat_mask masking region";
-    lat_mask:_FillValue = -9999.f;
-    lat_mask:mask_type = "lat>=-30&&<=30";
+   .. code-block:: text
+
+      float lat_mask(lat, lon);
+        lat_mask:long_name = "lat_mask masking region";
+        lat_mask:_FillValue = -9999.f;
+        lat_mask:mask_type = "lat>=-30&&<=30";
 
 Use the "-name" command line option, as shown below, to override this default. 
 
@@ -832,7 +846,7 @@ To compute the intersection or union of two masks, use the output from the first
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_EastPac.nc \
-  -type lon -thresh 'le-70 &amp;amp;&amp;amp; ge-130' -intersection -name EastPac
+  -type lon -thresh 'le-70 && ge-130' -intersection -name EastPac
 
 Compare this intersection output to the union of the two masks, computed below:
 
@@ -841,7 +855,7 @@ Compare this intersection output to the union of the two masks, computed below:
   gen_vx_mask \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \ ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_EastPac.nc \
-  -type lon -thresh 'le-70 &amp;amp;&amp;amp; ge-130' -union
+  -type lon -thresh 'le-70 && ge-130' -union
 
 Now we'll use the "grid" masking type to select a subgrid from a larger grid. Run Gen-Vx-Mask on the command line using the following command:
 
@@ -964,8 +978,10 @@ The "circle" mask type draws a circle around each of the lat/lon points in the i
 
 .. admonition:: Sample Output
 
-  WARNING: apply_circle_mask() -&amp;gt; since "-thresh" was not used to specify a threshold in kilometers for circle masking, the minimum distance to the points will be  
-  written.
+   .. code-block:: text
+
+      WARNING: apply_circle_mask() -> since "-thresh" was not used to specify a threshold in kilometers for circle masking, the minimum distance to the points will be
+      written.
 
 Can you figure out what this output file now contains? Run ncview or plot_data_plane to visualize it.
 
@@ -975,14 +991,14 @@ Can you figure out what this output file now contains? Run ncview or plot_data_p
   printed, and the raw, un-thresholded values are written to the output NetCDF file.
 
 
-Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download `Natural Earth <https://www.naturalearthdata.com/>`_ shapefiles and run Gen-Vx-Mask using the "-type shape" option.
+Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download `Natural Earth <https://www.naturalearthdata.com/>`__ shapefiles and run Gen-Vx-Mask using the "-type shape" option.
 
 Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 
 Run Shape Type
 ^^^^^^^^^^^^^^
 
-We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`_.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
+We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`__.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
 
 Download the Natural Earth administrative shapefiles for countries boundaries.
 
@@ -991,7 +1007,7 @@ Download the Natural Earth administrative shapefiles for countries boundaries.
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask
   mkdir ne_shapefiles; cd ne_shapefiles
   wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
-  target="_blank"&gt;https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
+  target="_blank">https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
   unzip ne_110m_admin_0_countries.zip
 
 Run gen_vx_mask to define the mask for the USA (index 4).
@@ -1106,16 +1122,18 @@ Set:
 
 .. note::
 
-  fcst = {
-    field = [
-      {
-       name       = "APCP_12";
-       level      = [ "(*,*)" ];
-       cat_thresh = [ >0.0, >=5.0, >=10.0 ];
+   .. code-block:: text
+
+      fcst = {
+        field = [
+          {
+           name       = "APCP_12";
+           level      = [ "(*,*)" ];
+           cat_thresh = [ >0.0, >=5.0, >=10.0 ];
+          }
+        ];
       }
-    ];
-  }
-  obs = fcst;
+      obs = fcst;
 
 To verify the field of precipitation accumulated over 12 hours using the 3 thresholds specified.
 
@@ -1123,36 +1141,40 @@ Set:
 
 .. note::
 
-  mask = {
-    grid = [];
-    poly = [ "../gen_vx_mask/CONUS_mask.nc",
-         "MET_BASE/poly/NWC.poly",
-         "MET_BASE/poly/SWC.poly",
-         "MET_BASE/poly/GRB.poly",
-         "MET_BASE/poly/SWD.poly",
-         "MET_BASE/poly/NMT.poly",
-         "MET_BASE/poly/SMT.poly",
-         "MET_BASE/poly/NPL.poly",
-         "MET_BASE/poly/SPL.poly",
-         "MET_BASE/poly/MDW.poly",
-         "MET_BASE/poly/LMV.poly",
-         "MET_BASE/poly/GMC.poly",
-         "MET_BASE/poly/APL.poly",
-         "MET_BASE/poly/NEC.poly",
-         "MET_BASE/poly/SEC.poly" ];
-  }
+   .. code-block:: text
+
+      mask = {
+        grid = [];
+        poly = [ "../gen_vx_mask/CONUS_mask.nc",
+             "MET_BASE/poly/NWC.poly",
+             "MET_BASE/poly/SWC.poly",
+             "MET_BASE/poly/GRB.poly",
+             "MET_BASE/poly/SWD.poly",
+             "MET_BASE/poly/NMT.poly",
+             "MET_BASE/poly/SMT.poly",
+             "MET_BASE/poly/NPL.poly",
+             "MET_BASE/poly/SPL.poly",
+             "MET_BASE/poly/MDW.poly",
+             "MET_BASE/poly/LMV.poly",
+             "MET_BASE/poly/GMC.poly",
+             "MET_BASE/poly/APL.poly",
+             "MET_BASE/poly/NEC.poly",
+             "MET_BASE/poly/SEC.poly" ];
+      }
 
 To accumulate statistics over the Continental United States (CONUS) and the 14 NCEP verification regions in the United States defined by the polylines specified. To see a plot of these regions, execute the following command:
 
 .. code-block::
 
-  gv ${MET_BUILD_BASE}/share/met/poly/ncep_vx_regions.pdf &amp;amp;
+  gv ${MET_BUILD_BASE}/share/met/poly/ncep_vx_regions.pdf &
 
 In the boot dictionary, set:
 
 .. note::
 
-  n_rep = 500;
+   .. code-block:: text
+
+      n_rep = 500;
 
 To turn on the computation of bootstrap confidence intervals using 500 replicates.
 
@@ -1160,8 +1182,10 @@ In the nbrhd dictionary, set:
 
 .. note::
 
-  width          = [ 3, 5 ];
-  cov_thresh = [ >=0.5, >=0.75 ];
+   .. code-block:: text
+
+      width          = [ 3, 5 ];
+      cov_thresh = [ >=0.5, >=0.75 ];
 
 To define two neighborhood sizes and two fractional coverage field thresholds.
 
@@ -1169,30 +1193,32 @@ Set:
 
 .. note::
 
-  output_flag = {
-    fho    = NONE;
-    ctc    = BOTH;
-    cts    = BOTH;
-    mctc   = NONE;
-    mcts   = NONE;
-    cnt    = BOTH;
-    sl1l2  = BOTH;
-    sal1l2 = NONE;
-    vl1l2  = NONE;
-    val1l2 = NONE;
-    vcnt   = NONE;
-    pct    = NONE;
-    pstd   = NONE;
-    pjc    = NONE;
-    prc    = NONE;
-    eclv   = NONE;
-    nbrctc = BOTH;
-    nbrcts = BOTH;
-    nbrcnt = BOTH;
-    grad   = BOTH;
-    dmap   = NONE;
-    seeps  = NONE;
-  }
+   .. code-block:: text
+
+      output_flag = {
+        fho    = NONE;
+        ctc    = BOTH;
+        cts    = BOTH;
+        mctc   = NONE;
+        mcts   = NONE;
+        cnt    = BOTH;
+        sl1l2  = BOTH;
+        sal1l2 = NONE;
+        vl1l2  = NONE;
+        val1l2 = NONE;
+        vcnt   = NONE;
+        pct    = NONE;
+        pstd   = NONE;
+        pjc    = NONE;
+        prc    = NONE;
+        eclv   = NONE;
+        nbrctc = BOTH;
+        nbrcts = BOTH;
+        nbrcnt = BOTH;
+        grad   = BOTH;
+        dmap   = NONE;
+        seeps  = NONE;
+      }
 
 
 To compute contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), scalar partial sums (SL1L2), neighborhood contingency table counts (NBRCTC), neighborhood contingency table statistics (NBRCTS), and neighborhood continuous statistics (NBRCNT).
@@ -1228,7 +1254,9 @@ In the boot dictionary, set:
 
 .. note::
 
-  n_rep = 0;
+   .. code-block:: text
+
+      n_rep = 0;
 
 To disable the computation of bootstrap confidence intervals.
 
@@ -1252,7 +1280,7 @@ Execute the following command to view the NetCDF output of Grid-Stat:
 
 .. code-block::
 
-  ncview grid_stat_120000L_20050807_120000V_pairs.nc &amp;amp;
+  ncview grid_stat_120000L_20050807_120000V_pairs.nc &
 
 Click through the **2d vars** variable names in the ncview window to see plots of the forecast, observation, and difference fields for each masking region. If you see a warning message about the min/max values being zero, just click **OK**.
 
@@ -1307,8 +1335,10 @@ In METplus configuration files, the forecast and observation variables are refer
 
 .. note::
 
-  FCST_VAR1_NAME = APCP
-  FCST_VAR1_LEVELS = A03
+   .. code-block:: text
+
+      FCST_VAR1_NAME = APCP
+      FCST_VAR1_LEVELS = A03
 
   OBS_VAR1_NAME = APCP_03
   OBS_VAR1_LEVELS = "(*,*)"
@@ -1317,29 +1347,33 @@ These relate to the following fields in the MET configuration file:
 
 .. note::
 
-  fcst = {
-    field = [
-      {
-       name = "APCP";
-       level = [ "A03" ];
+   .. code-block:: text
+
+      fcst = {
+        field = [
+          {
+           name = "APCP";
+           level = [ "A03" ];
+          }
+        ];
       }
-    ];
-  }
-  obs = {
-    field = [
-     {
-      name = "APCP_03";
-      level = [ "(*,*)" ];
-     }
-    ];
-  }
+      obs = {
+        field = [
+         {
+          name = "APCP_03";
+          level = [ "(*,*)" ];
+         }
+        ];
+      }
 
 
 Paths in GridStat.conf may reference other config options defined in a different configuration file. For example:
 
 .. note::
 
-  FCST_GRID_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
+   .. code-block:: text
+
+      FCST_GRID_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
 where **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
@@ -1388,7 +1422,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/GridStat/lo
 
   ls -1 ${METPLUS_TUTORIAL_DIR}/output/GridStat/logs/metplus.log.*
 
-5. **Review the Final Configuration File" **
+5. **Review the Final Configuration File"**
 
 The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/GridStat**. Like the log output, the final configuration file will contain a timestamp of the time that the METplus command was executed. These configuration files will contain all of the configuration variables used in the run.
 
@@ -1437,14 +1471,16 @@ Note how the use of BOTH to specify the forecast field and observation/analysis 
 
 .. note::
 
-  BOTH_VAR1_NAME = TMP
-  BOTH_VAR1_LEVELS = P850, P500, P250
-  BOTH_VAR2_NAME = UGRD
-  BOTH_VAR2_LEVELS = P850, P500, P250
-  BOTH_VAR3_NAME = VGRD
-  BOTH_VAR3_LEVELS = P850, P500, P250
-  BOTH_VAR4_NAME = PRMSL
-  BOTH_VAR4_LEVELS = Z0
+   .. code-block:: text
+
+      BOTH_VAR1_NAME = TMP
+      BOTH_VAR1_LEVELS = P850, P500, P250
+      BOTH_VAR2_NAME = UGRD
+      BOTH_VAR2_LEVELS = P850, P500, P250
+      BOTH_VAR3_NAME = VGRD
+      BOTH_VAR3_LEVELS = P850, P500, P250
+      BOTH_VAR4_NAME = PRMSL
+      BOTH_VAR4_LEVELS = Z0
 
 Run run_metplus.py on this use-case
 
@@ -1484,7 +1520,7 @@ Open GridStat_add_rh.conf with an editor and add the extra information.
 
 .. note::
 
-Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following:  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
+  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following:  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
 
 Rerun METplus passing in your new custom config file for this exercise
 
@@ -1666,6 +1702,7 @@ Instructions: Review the list of file paths and configure a Example wrapper use 
 .. important::
 
   Hints:
+
   * The use case should loop by initialization time (**LOOP_BY = INIT**).
   * Filename template tags, i.e. {init?fmt=%Y%m%d}, should not go in the **EXAMPLE_INPUT_DIR**. Alternatively, the entire path can be set in **EXAMPLE_INPUT_TEMPLATE** and 
     exclude **EXAMPLE_INPUT_DIR**.
@@ -1695,12 +1732,16 @@ Answer: In the GridStat_add_rh.conf param file, add the following variables to t
 
 .. note::
 
-  BOTH_VAR5_NAME = RH
-  BOTH_VAR5_LEVELS = P500, P250
+   .. code-block:: text
+
+      BOTH_VAR5_NAME = RH
+      BOTH_VAR5_LEVELS = P500, P250
 
 .. note::
 
-  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
+   .. code-block:: text
+
+      GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
 
 ANSWER 1.4: Set Timing Control and Filename Templates to Find Files
 
