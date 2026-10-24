@@ -417,7 +417,7 @@ Now copy and paste each of the following code snippets into the file, then save 
 
 First, we will add the necessary modules:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -493,7 +493,7 @@ Construct a Python dictionary named **grid_info** that contains the required g
 
 Add the **grid_info** to the **attrs** dictionary:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -501,7 +501,7 @@ Add the **grid_info** to the **attrs** dictionary:
 
 Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**. If **PYTHON_XARRAY** is requested. then the Xarray DataArray is subset so a single variable is selected, and those data are converted to Celsius and renamed to **met_data**, and then the **attrs** are added to the Xarray DataArray object. If **PYTHON_NUMPY** is requested, then the Xarray DataArray is subset so a single variable is selected, and a NumPy N-dimensional array representation is requested from Xarray using **.values** on the DataArray, and it is renamed to **met_data**. Note that for **PYTHON_NUMPY**, no **attrs** are attached to **met_data** in any manner, it is simply enough for **attrs** to exist as a variable in your Python script:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -589,7 +589,7 @@ Open a new file named **practice_gridded_pyembed_NUMPY.conf** with a text edito
 
 Copy the following METplus Wrappers configuration items into the file and save it when complete. Recall there are some basic required elements that METplus wrappers needs to run including some time looping information that is not used for this example, as well as the top-level output directory:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -624,7 +624,7 @@ Open a new file named **practice_gridded_pyembed_XARRAY.conf** with a text edito
 
 Copy the following METplus Wrappers configuration items into the file and save it when complete. Recall there are some basic required elements that METplus wrappers needs to run including some time looping information that is not used for this example, as well as the top-level output directory:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

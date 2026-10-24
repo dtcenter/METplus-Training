@@ -1,6 +1,8 @@
 Session 2: Grid-to-Obs
 ======================
 
+.. highlight:: text
+
 **METplus Practical Session 2**
 
 During this practical session, you will run the tools indicated below:
@@ -445,7 +447,7 @@ This use case utilizes the MET PB2NC tool. 
 
 Note that the input directory PB2NC_INPUT_DIR is set to a path relative to {INPUT_BASE} and the output directory PB2NC_OUTPUT_DIR is set to a path relative to {OUTPUT_BASE}:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -458,7 +460,7 @@ Note that the input directory PB2NC_INPUT_DIR is set to a path relative to {INPU
 
 {PARM_BASE} is set automatically by METplus. The wrapped MET config file for PB2NC is set relative to {PARM_BASE} in PB2NC_CONFIG_FILE:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -474,7 +476,7 @@ Values for the MET tool PB2NC are passed in from METplus config files, including
 
   less ${METPLUS_BUILD_BASE}/parm/met_config/PB2NCConfig_wrapped
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -783,7 +785,7 @@ Open the Python Embedding script in a text editor of your choice, and add the fo
 
 Add on line 7:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -803,7 +805,7 @@ Open the METplus use case file in a text editor of your choice and modify line 4
 
 Change line 43 to:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -817,7 +819,7 @@ The Python script contains an import of met_point_obs. This is found automatical
 
 Add the following to the very end of ${METPLUS_TUTORIAL_DIR}/ASCII2NC_python_embedding.conf:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1033,7 +1035,7 @@ Point-Stat is now performing the verification tasks we requested in the configur
 
 If you receive a syntax error such as the one listed below, review PointStatConfig_tutorial_run1 for an extra comma after the "}" on line number 59
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1593,14 +1595,14 @@ This use case utilizes the MET Point-Stat tool. 
 
 This use-case includes running two tools, PB2NC to extract the observations and then Point-Stat to compute statistics. Note the specification of wrappers to run is given in the **PROCESS_LIST** at the top of the file.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
       [config]
       PROCESS_LIST = PB2NC, PointStat
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1613,7 +1615,7 @@ This use-case includes running two tools, PB2NC to extract the observations and 
       BOTH_VAR5_NAME = HGT
       BOTH_VAR5_LEVELS = P1000, P950, P925, P850, P700, P500, P400, P300, P250, P200, P150, P100, P50, P20, P10
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
   
    .. code-block:: text
 
@@ -1679,7 +1681,7 @@ Let's look at the two line-types separately in a more human-readable format.
 
   vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_UpperAir_example2.conf
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1690,7 +1692,7 @@ Let's look at the two line-types separately in a more human-readable format.
 
   Also, PB2NC has already been run, so it doesn't need to be run again.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1704,7 +1706,7 @@ Let's look at the two line-types separately in a more human-readable format.
 
   vi ${METPLUS_TUTORIAL_DIR}/user_config/PointStat_UpperAir_example2.conf
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1935,7 +1937,7 @@ EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file
 
   Change this line (around line 68):
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1943,7 +1945,7 @@ EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file
 
 to
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1953,7 +1955,7 @@ to
 
   and change this line (around line 73):
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1961,7 +1963,7 @@ to
 
 to
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

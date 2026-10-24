@@ -208,7 +208,7 @@ Total interest threshold for matching/merging
 
    At the bottom of MODE_Config_APCP_12, change "version" to "11.0"
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

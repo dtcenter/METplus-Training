@@ -3,6 +3,8 @@
 Preliminary Work: METplus Setup
 ===============================
 
+.. highlight:: text
+
 **Welcome to the online METplus tutorial!**
 
 In this preliminary session, you'll be guided through the necessary steps that need to happen before executing the tutorial's METplus commands. Additionally, we'll go over some of the common METplus wrapper configuration settings, timing control, and the directory structure of the METplus wrappers.
@@ -294,8 +296,6 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cp /d1/projects/METplus/METplus-5.0.0_Tutorial_Files/METplus-5.0.0_TutorialSetup.seneca.`basename $SHELL` ./METplus-5.0.0_TutorialSetup.sh
 
-.. code-block::
-
 **(OPTIONAL) SET UP CONDA ENVIRONMENT FOR METPLUS ANALYSIS AND S2S TUTORIAL SECTIONS** 
 
 Due to the need for external package dependencies for the METplus Analysis and s2s sections, the following instructions are also necessary. If you do not plan on executing the commands of those sections, you can skip these steps.
@@ -308,7 +308,7 @@ First, ensure that you are running the bash environment:
 
 Now, verify that you have a .condarc file in your /home/user directory. If the file does not exist, create one. In that file, you will need the following entries, in the exact same format (dashes and colons):
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1520,7 +1520,7 @@ The output should list:
 
 4a. Change **EXAMPLE_INPUT_DIR:**
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1528,7 +1528,7 @@ The output should list:
 
 to:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1536,7 +1536,7 @@ to:
 
 4b. Change **EXAMPLE_INPUT_TEMPLATE:**
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1544,7 +1544,7 @@ to:
 
 to:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1582,7 +1582,7 @@ to:
 
 8a. Change **INIT_BEG and INIT_END**:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1591,7 +1591,7 @@ to:
 
           to:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

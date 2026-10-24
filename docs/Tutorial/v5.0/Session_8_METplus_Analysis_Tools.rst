@@ -320,13 +320,13 @@ Modify custom configuration file:
 
    Open the rank_hist.yaml file in a text editor of your choice.  Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
       stat_input: /path/to/working_dir/histogram/rank_hist.data
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -400,13 +400,13 @@ Create the Relative Frequency Histogram and Probability Histogram
 
 **Probability histogram:**
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
       stat_input: /path/to/working_dir/histogram/prob_hist.data
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -610,13 +610,13 @@ Modify the custom configuration file:
 
    Open the wind_rose_custom.yaml file in a text editor of your choice.  Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
       stat_input: /path/to/working_dir/wind_rose/point_stats_mpr.txt
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -855,7 +855,7 @@ That command should return a path similar to the following example:
 
    vi ${METPLUS_TUTORIAL_DIR}/metdataio/user_config/point_stat.yaml
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1117,7 +1117,7 @@ That command should return a path similar to the following example:
 
    Use the first color in the list and delete the rest.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1131,7 +1131,7 @@ The above change will produce a red line on the final graph.
 
    Set up the series ordering (con_series) by removing four settings, leaving only one setting:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1143,7 +1143,7 @@ The above change will produce a red line on the final graph.
 
    Comment out the derived_series_1 and derived_series2 by placing a # at the beginning of the line.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1157,7 +1157,7 @@ The above change will produce a red line on the final graph.
 
    Set event_equal to 'False'.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1169,7 +1169,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Edit the fcst variable fcst_var_val_1 from RH to WIND, and statistic MAE to F_RATE.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1181,7 +1181,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Comment out the fcst_var_val_2 and its settings by placing a # at the beginning of the line.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1193,7 +1193,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Edit the fcst_level (fcst_lev_0) under the fixed_vars_vals_input setting from Z02 to Z10.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1206,7 +1206,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Change the indy_labels to '0', '1', and '5':
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1219,7 +1219,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Change the indy_vals values to '0', '10000', and '50000' to plot the 0, 10000, and 50000 fcst lead points.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1232,7 +1232,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Change the list_stat_1 statistics value from MAE to F_RATE and remove the -ME from the list_stat_2 setting.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1245,7 +1245,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Under the plot_ci setting, keep only one of the -std values and delete the remaining four.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1257,7 +1257,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Remove four of the - 'True' entries under the plot_ci so only one value of - 'True' remains.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1269,7 +1269,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Set the path to the output plot file, replacing path-to with the path that was copied prior to editing this file:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1279,7 +1279,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Remove four of the values under each of the following entries series_line_style, keeping only one:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1299,7 +1299,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Change the model setting under series_val_1 to FV3_GFS_v15p2_CONUS_25km and comment out the settings for series_val_2 (or remove them).
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1315,7 +1315,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Remove four of the settings under show_signif, keeping one setting:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1327,7 +1327,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Modify the stat_input setting.  This is the name of the reformatted file. Replace path-to with the full path to the METplus-5.0.0_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -1337,7 +1337,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    Comment out or remove the lines settings at the end of the config file.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

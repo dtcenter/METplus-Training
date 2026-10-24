@@ -724,7 +724,7 @@ You may find a complete description of the configurable items in the `series_ana
 
   Set the **fcst** dictionary to
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -743,7 +743,7 @@ To request the GRIB abbreviation for precipitation (APCP) accumulated over 3 hou
 
   Delete **obs = fcst;** and insert
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -798,7 +798,7 @@ To process 10,000 grid points in each pass through the data. Setting block_size
 
   In the **output_stats** dictionary, set
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

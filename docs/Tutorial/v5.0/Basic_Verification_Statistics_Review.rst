@@ -1,6 +1,8 @@
 Basic Verification Statistics Review
 ====================================
 
+.. highlight:: text
+
 **Introduction**
 
 This session is meant as a brief introduction (or review) of basic statistical verification 
@@ -467,7 +469,7 @@ temperature forecast of greater than 86 degrees Fahrenheit. Starting with the
 the following would resemble the minimum necessary settings/changes for 
 the **fcst** and **obs** dictionaries:
 
-.. code-block:: ini
+.. code-block:: text
 
   fcst = {
   field = [
@@ -496,7 +498,7 @@ name, in Fahrenheit, with the lowest vertical level being the desired verificati
 Now all that’s necessary would be to adjust the **output_flag** dictionary settings to 
 have Grid-Stat print out the desired line types:
 
-.. code-block:: ini
+.. code-block:: text
 
   output_flag = {
   fho = NONE;
@@ -512,7 +514,7 @@ contain all of the scalar statistics that were discussed in this section. Runnin
 set up would produce one .stat file with the two line types that were selected, CTC and 
 CTS. The CTC line would look something like:
 
-.. code-block:: ini
+.. code-block:: text
 
   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
   >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
@@ -553,7 +555,7 @@ It has many more columns than the CTC line, where all of the scalar statistics
 and skill scores discussed previously are located. Focusing on the first few 
 columns of the example output, you would find:
 
-.. code-block:: ini
+.. code-block:: text
 
   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 NA FULL NEAREST 1 
   >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA 
@@ -580,7 +582,7 @@ wrappers instead of MET, very few changes would need to be made. Starting with t
 `standard GridStat configuration file <https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
 we would need to set the _VAR1 settings appropriately:
 
-.. code-block:: ini
+.. code-block:: text
 
   BOTH_VAR1_NAME = TMP
   BOTH_VAR1_LEVELS = Z0
@@ -593,7 +595,7 @@ Because the loop/timing information is controlled inside the configuration
 file for METplus wrappers (as opposed to MET’s non-looping option), that 
 information must also be set accordingly:
 
-.. code-block:: ini
+.. code-block:: text
 
   LOOP_BY = INIT
   INIT_TIME_FMT = %Y%m%d%H
@@ -605,7 +607,7 @@ information must also be set accordingly:
 Finally, the desired line types need to be selected for output. 
 In the wrappers, that looks like this:
 
-.. code-block:: ini
+.. code-block:: text
 
   GRID_STAT_OUTPUT_FLAG_CTC = STAT
   GRID_STAT_OUTPUT_FLAG_CTS = STAT
@@ -827,7 +829,7 @@ One important note regarding how to define multicategorical thresholds within th
 
 Example 1.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -835,7 +837,7 @@ Example 1.
 
 Example 2.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -843,7 +845,7 @@ Example 2.
 
 In example 1, the thresholds decrease with each entry which violates the requirement of monotonically increasing. With a simple reordering of the thresholds, example 1 can use the same thresholds and run with success:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -851,7 +853,7 @@ In example 1, the thresholds decrease with each entry which violates the require
 
 In example 2, the final threshold uses a different inequality than the other two thresholds which violates the requirement that all multicategorical thresholds use the same inequality type. This rewrite of example 2 will provide the same information desired from the original thresholds, but will now successfully run in METplus:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

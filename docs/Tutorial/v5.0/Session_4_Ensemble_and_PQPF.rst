@@ -434,7 +434,7 @@ For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated p
 
    In the **fcst** dictionary, set
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -451,7 +451,7 @@ To verify the 24-hour accumulated precipitation fields.
 
    In the **observation filtering options**, set:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -463,7 +463,7 @@ To verify against surface observations.
 
    In the **field entry** section, set:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -475,7 +475,7 @@ To specify thresholds to use for computation of the Ranked Probability Score (RP
 
    In the **mask** dictionary, set
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
@@ -841,7 +841,7 @@ Another important aspect of this use case is its use of lead times. While INIT_B
 
 And that controls what files are looked at in the EnsembleStat call:
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 

@@ -3,6 +3,8 @@
 Session 1: Grid-to-Grid
 =======================
 
+.. highlight:: text
+
 **METplus Practical Session 1**
 
 
@@ -16,10 +18,11 @@ Proceed through the tutorial exercises by following the navigation links at the 
 
 **TUTORIAL FORMAT**
 
-Throughout this tutorial, code blocks with green text on a white background
-should be copied from your browser and pasted on the command line, e.g.:
+Throughout this tutorial, code blocks with a white background should be
+copied from your browser (or with the copy button in the upper right corner
+of the block) and pasted on the command line, e.g.:
 
-.. code-block:: ini
+.. code-block:: text
 
   echo "Let's Get Started"
 
@@ -35,11 +38,14 @@ should be copied from your browser and pasted on the command line, e.g.:
 
 .. admonition:: Sample Output
 	   
-  Text in **PURPLE boxes** are sample output from a command or contents of a file. 
+  Text in **PURPLE boxes** titled Sample Output is output from a command
+  or log file.
 
 .. admonition:: File Contents
-	   
-  Text in **PURPLE boxes** are sample output from a command or contents of a file.
+
+  Text in **PURPLE boxes** titled File Contents is the contents of a file,
+  such as configuration settings to review or edit. These boxes also have a
+  copy button for pasting settings into a file.
  
   
 **TUTORIAL TIPS**
@@ -107,7 +113,7 @@ configured to ignore the initialization time.
 
 View the usage statement for PCP-Combine by simply typing the following:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine
 
@@ -156,21 +162,21 @@ Since PCP-Combine performs a simple operation and reformatting step, no configur
 
 1. Start by making an output directory for PCP-Combine and changing directories:
 
-.. code-block:: ini
+.. code-block:: text
 
   mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pcp_combine
 
 2. Now let's run PCP-Combine twice using some sample data that's included with the MET tarball:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine \
   -sum 20050807_000000 3 20050807_120000 12 \
   sample_fcst_12L_2005080712V_12A.nc \
   -pcpdir ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine \
   -sum 00000000_000000 1 20050807_120000 12 \
@@ -203,7 +209,7 @@ When PCP-Combine is finished, you may view the output NetCDF files it wrote usin
 **ncdump** and **ncview** utilities. 
 Run the following commands to view contents of the NetCDF files:
 
-.. code-block:: ini
+.. code-block:: text
 
   ncview sample_fcst_12L_2005080712V_12A.nc &
   ncview sample_obs_12L_2005080712V_12A.nc &
@@ -219,7 +225,7 @@ The accumulation interval is 12 hours for both the forecast
 Note, if ncview is not found when you run it on your system, you may need to load it first.  
 For example, on hera, you can use this command:
 
-.. code-block:: ini
+.. code-block:: text
 
   module load ncview
 
@@ -231,14 +237,14 @@ read data from your file, orient it correctly, and plot it at the correct spot o
 the earth. When using new gridded data in MET, it's a great idea to run it 
 through Plot-Data-Plane first:
 
-.. code-block:: ini
+.. code-block:: text
 
   plot_data_plane \
   sample_fcst_12L_2005080712V_12A.nc \
   sample_fcst_12L_2005080712V_12A.ps \
   'name="APCP_12"; level="(*,*)";'
 
-.. code-block:: ini
+.. code-block:: text
 
   gv sample_fcst_12L_2005080712V_12A.ps &
 
@@ -248,7 +254,7 @@ through Plot-Data-Plane first:
   If you don't have gv on your computer, try using display, 
   or any tool that can visualize PostScript files, e.g.:
 
-  .. code-block:: ini
+  .. code-block:: text
 
     display sample_fcst_12L_2005080712V_12A.ps &
 
@@ -257,7 +263,7 @@ through Plot-Data-Plane first:
   Another option is to create a PNG file from the PS file, 
   also rotating it to appear the right way:
 
-  .. code-block:: ini
+  .. code-block:: text
 
     convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \
     sample_fcst_12L_2005080712V_12A.png
@@ -287,7 +293,7 @@ command defines a directory to be searched, for **-add, -subtract,** and
 to process. The following command adds together 3-hourly precipitation from 
 4 forecast files, just like we did in the previous step with the **-sum** command:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine -add \
   ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 03 \
@@ -305,7 +311,7 @@ You would not typically want to do this, but this demonstrates the functionality
 We also use the **-name** command line option to define a descriptive output NetCDF 
 variable name:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine -add \
   ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
@@ -317,7 +323,7 @@ While the **-add** command can be run on one or more input files, the
 **-subtract** command requires *exactly two*. Let's rerun the wind example from 
 above but do a subtraction instead:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine -subtract \
   ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_03.tm00_G212 'name="UGRD"; level="Z10";' \
@@ -330,7 +336,7 @@ to specify a the desired plotting range, the **-title** option to add a title, a
 **-color_table** option to switch from the default color table to one that's good for positive 
 and negative values:
 
-.. code-block:: ini
+.. code-block:: text
 
   plot_data_plane \
   subtract_WINDS.nc \
@@ -342,7 +348,7 @@ and negative values:
 
 Now view the results:
 
-.. code-block:: ini
+.. code-block:: text
 
   gv subtract_WINDS.ps &
 
@@ -356,7 +362,7 @@ the output fields requested on the command line (sum, min, max, range, mean, std
 
 Run the following command to derive several summary metrics for both the 10-meter U and V wind components:
 
-.. code-block:: ini
+.. code-block:: text
 
   pcp_combine -derive min,max,mean,stdev \
   ${METPLUS_DATA}/met_test/data/sample_fcst/2005080700/wrfprs_ruc13_*.tm00_G212 \
@@ -369,7 +375,7 @@ the **-field** command line option twice to specify two input fields.  For each 
 PCP-Combine loops over the input files, derives the requested metrics, and writes them to 
 the output NetCDF file.  Run ncview to visualize this output:
 
-.. code-block:: ini
+.. code-block:: text
 
   ncview derive_min_max_mean_stdev_WINDS.nc &
 

@@ -288,7 +288,7 @@ View the file and study the configuration variables that are defined.
 
 Note that the Lead time groupings are specified by the **LEAD_SEQ** config options.
 
-.. admonition:: Sample Output
+.. admonition:: File Contents
 
    .. code-block:: text
 
