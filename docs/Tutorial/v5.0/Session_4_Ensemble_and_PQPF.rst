@@ -1206,7 +1206,8 @@ From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:
 
    Go to the next page for the solution to see if you were right!
 
-**ANSWERS TO EXERCISES FROM SESSION 4**
+Answers to Exercises from Session 4
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These are the answers to the exercises from the previous page. Feel free to ask a METplus team member if you have any questions!
 

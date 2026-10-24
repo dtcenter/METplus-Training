@@ -19,7 +19,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. important::
 
-   Example: ``ssh ec2-useer@ec2-3-86-254-5.compute-1.amazonaws.com``
+   Example: ``ssh ec2-user@ec2-3-86-254-5.compute-1.amazonaws.com``
 
 .. code-block:: text
 
@@ -87,8 +87,8 @@ The next section describes how to create your own EC2 instance and is optional
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a GitHub Discussions. Be sure to provide what session and specific page you encountered the issue on.
 
-Create an EC2 Instance
-----------------------
+Create Your Own EC2 Instance
+----------------------------
 
 You can also create your own EC2 instance if you have access to your own AWS account and space.
 
@@ -136,7 +136,7 @@ You should create a name that is descriptive and unique like METplus 5.0 ``<Your
 
 AMI from catalog – METplus 5.0 Tutorial
 
-Instance type – t2.microo
+Instance type – t2.micro
 
 Configure storage – 24 GIB gp2
 

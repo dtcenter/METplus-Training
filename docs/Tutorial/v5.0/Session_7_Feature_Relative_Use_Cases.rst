@@ -84,8 +84,8 @@ Click on a use case below to get started.
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
-METplus Use Case: Feature Relative Init
----------------------------------------
+METplus Use Case: Feature Relative (Series-Analysis by init)
+------------------------------------------------------------
 
 **SERIES-ANALYSIS BY INITIALIZATION TIME**
 
@@ -263,8 +263,8 @@ The final configuration file is **metplus_final.conf**. This contains all of the
 
    less ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/metplus_final.conf
 
-METplus Use Case: Feature Relative Lead
----------------------------------------
+METplus Use Case: Feature Relative (Series-Analysis by lead, by forecast hour grouping)
+---------------------------------------------------------------------------------------
 
 **SERIES-ANALYSIS BY LEAD TIME BY FORECAST HOUR GROUPING**
 

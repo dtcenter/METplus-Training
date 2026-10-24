@@ -160,7 +160,7 @@ There are three specialized histogram plots available:
 
 Detailed information about these plots is available from Read the Docs:
 
-`https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/histogram.html <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/histogram.html>`_
+`https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html>`_
 
 These instructions are relevant for generating the rank histogram from the command line.  For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
@@ -169,7 +169,7 @@ Each histogram plot requires two configuration files, a default and custom confi
 Set Up Pre-Requisites
 """""""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html>`_
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
 METcalcpy is a requirement for METplotpy.  The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code.   These instructions are suitable for users that are not working within a conda environment:
 
@@ -193,7 +193,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of 
 
    The following instructions are for users who have permission to create, modify, and use conda environments (skip if you already set the PYTHONPATH above).  Select either Method 1 or Method 2:
 
-* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
+* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using using PyPI (Python Package Index) enter the following:
 
 .. code-block:: text
@@ -450,7 +450,7 @@ The wind rose diagram source code is located in the https://github.com/dtcenter/
 
 Detailed information about the wind rose diagram is available from Read the Docs:
 
-`https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/wind_rose.html <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/wind_rose.html>`_
+`https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html>`_
 
 These instructions are relevant for generating the wind rose diagram from the command line.  For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
@@ -459,7 +459,7 @@ The wind rose diagram requires **two** configuration files, a *default* and *cus
 Set Up Pre-Requisites
 """""""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html>`_
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
 METcalcpy is a requirement for METplotpy.  The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code.   These instructions are suitable for users that are not working within a conda environment:
 
@@ -483,7 +483,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of 
 
    The following instructions are for users who have permission to create, modify, and use conda environments (skip if you already set the PYTHONPATH above).  Select either Method 1 or Method 2:
 
-* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
+* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using using PyPI (Python Package Index) enter the following:
 
 .. code-block:: text
@@ -659,7 +659,7 @@ The METreformat Python package was developed to assist in the generation of METp
 
 The initial versions of the METviewer tool read MET verification statistics output from a database and created plots using R script for statistics and plotting. METplotpy and METcalcpy Python packages were developed to remove the dependency on R for plotting and statistics. METviewer now utilizes METplotpy Python scripts. The METplotpy plots that are available in METviewer are located in the `/metplotpy/plots <https://github.com/dtcenter/METplotpy/tree/main_v2.0/metplotpy/plots>`_ directory of the METplotpy repository. The METplotpy repository also hosts contributed plots that are not available through the METviewer tool. These plots are located in a different directory in the METplotpy repository.
 
-METviewer generates plots based on the database "view" of the input data. Reformatting the MET Point-Stat **.stat** files into the same format used by METviewer bypasses the need for METviewer and its database. For additional information about METviewer, please refer to the `METviewer User's Guide <https://metviewer.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_.
+METviewer generates plots based on the database "view" of the input data. Reformatting the MET Point-Stat **.stat** files into the same format used by METviewer bypasses the need for METviewer and its database. For additional information about METviewer, please refer to the `METviewer User's Guide <https://metplus.readthedocs.io/projects/metviewer/en/main_v5.1/Users_Guide/index.html>`_.
 
 The MET Point-Stat data consists of numerous columns with each statistic represented by a column. The various normal and bootstrap confidence limits are each represented by corresponding columns. Upon inspection of a Point-Stat .stat file, there are numerous columns, many of which may be lacking a column label. For additional information about the line types in MET Point-Stat, please refer to all of the `tables <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id5>`_ in the `MET User's Guide for Point-Stat <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_.
 
@@ -672,7 +672,7 @@ The METviewer database "view" consists of individual statistics that are collect
 
 The METreformat package replicates this format.
 
-Generic instructions for reformatting a sample MET Point-Stat .stat file are available on Read the Docs: `METdataio User's Guide <https://metdataio.readthedocs.io/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_.
+Generic instructions for reformatting a sample MET Point-Stat .stat file are available on Read the Docs: `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_.
 
 The Point-Stat line types that are currently supported in METreformat are as follows:
 
@@ -710,9 +710,9 @@ The Python requirements for METdataio are:
 
 Make sure you have activated the conda environment for METdataio if you are working on your own host or on host 'seneca':
 
-https://dtcenter.org/metplus-practical-session-guide-version-5-0/session-1-metplus-setupgrid-grid/metplus-setup/metplus-initial-setup/setting-tutorial-environment-seneca
+:ref:`Setting up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
 
-Please refer to the `METdataio User's Guide <https://metdataio.readthedocs.io/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
+Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
 
 .. note::
 
@@ -960,7 +960,7 @@ Generate a METplotpy Line Plot
 Set Up Pre-Requisites
 """""""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html>`_.
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_.
 
 If you are working on a host that does not have the necessary Python packages installed, create your own conda environment using the instructions provided by the :ref:`Seneca host instructions <set_tut_env_Seneca>` as guidance.
 
@@ -982,7 +982,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    If you have access to conda environments, select one of the two following methods to install METplotpy:
 
-* Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplotpy.readthedocs.io/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
+* Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
 * Method 2: Using using PyPI (Python Package Index) enter the following:
 
 .. code-block:: text

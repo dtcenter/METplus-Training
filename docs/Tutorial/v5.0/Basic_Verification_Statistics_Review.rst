@@ -316,7 +316,7 @@ relative to a random forecast that is constrained to be unbiased.
 In general, the focus of the HK is on how well the forecast discriminates 
 between observed “yes” events and observed “no” events. The equation for HK is
 
-.. math:: \text{HK } = \frac{(Hits * Correct\ Rejections) - (False\ Alarms * Misses)}{(Hits + Misses) (False\ Alarms + Correct Rejections)}
+.. math:: \text{HK } = \frac{(Hits * Correct\ Rejections) - (False\ Alarms * Misses)}{(Hits + Misses) (False\ Alarms + Correct\ Rejections)}
 
 which is equivalent to “POD minus POFD”. Because of its dependence on POD, 
 HK can be similarly affected by infrequent events and is suggested as a 
@@ -395,16 +395,16 @@ to see if the statistic is available in MET and which line type it’s currently
 As for the categorical statistics that were just discussed, here’s a link to the 
 User’s Guide Appendix entry that discusses their use in MET:
 
-* `Accuracy <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#accuracy>`_
-* `POD <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#probability-of-detection-pod>`_
-* `POFD <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
-* `Bias <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#frequency-bias>`_ 
-* `FAR <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
-* `CSI <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
-* `HSS <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
-* `HSS_EC <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
-* `HK <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
-* `GSS <https://met.readthedocs.io/en/main_v11.1/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
+* `Accuracy <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#accuracy>`_
+* `POD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#probability-of-detection-pod>`_
+* `POFD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
+* `Bias <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#frequency-bias>`_ 
+* `FAR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
+* `CSI <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
+* `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
+* `HSS_EC <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
+* `HK <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
+* `GSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
 Remember that for categorical statistics, including those that are associated with 
 probabilistic datasets, you will need to provide an appropriate threshold that divides 

@@ -82,8 +82,8 @@ You are now ready to move on to the next section.
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
-S2S Metrics General
--------------------
+S2S (Subseasonal to Seasonal) Metrics General
+---------------------------------------------
 
 Background
 ^^^^^^^^^^
@@ -289,6 +289,6 @@ Check the Output
 
 In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you should see three directories (logs, s2s_mid_lat, and tmp) and the METplus configuration file. Inside the s2s_mid_lat directory, there should be another directory, UserScript_fcstGFS_obsERA_WeatherRegime, that contains four files and two directories. The mpr directory contains output matched pair files for the weather regime classification and time frequency. The plots directory contains eight output plots, fcst_elbow.png fcst_eof.png fcst_freq.png fcst_kmeans.png obs_elbow.png obs_eof.png obs_freq.png obs_kmeans.png. Finally, there are two types of text output files. Fcst_weather_regime_class.txt and obs_weather_regime_class.txt contain text output where each day is classified into one of the six weather regime patterns. The other two files, GFS_ERA_WRClass_240000L_MCTS.stat and GFS_ERA_WRClass_240000L_MCTS.stat, contain output from stat analysis comparing the model and observation weather regime classification and time frequencies.
 
-End of Session 10
------------------
+End of Session 10 and Additional Exercises
+------------------------------------------
 Congratulations! You have completed Session 10!

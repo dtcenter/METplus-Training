@@ -16,7 +16,7 @@ Proceed through the tutorial exercises by following the navigation links at the 
 
 **TUTORIAL FORMAT**
 
-Throughout this tutorial, code blocks have green text with a white background
+Throughout this tutorial, code blocks with green text on a white background
 should be copied from your browser and pasted on the command line, e.g.:
 
 .. code-block:: ini
@@ -28,15 +28,10 @@ should be copied from your browser and pasted on the command line, e.g.:
   Text in **GREEN boxes** contains important information, expert hints or 
   helpful links. Please read carefully.
 
-.. attention::
-
-  Text in **ORANGE boxes** are instructions for the user to perform some action 
-  or edit (add or modify) a specific file on your system.
-
 .. note::
 
-  Text in **BLUE boxes** are notes or instructions to be aware of while
-  moving through the documentation.
+  Text in **BLUE boxes** are instructions for the user to perform some action
+  or edit (add or modify) a specific file on your system.
 
 .. admonition:: Sample Output
 	   
