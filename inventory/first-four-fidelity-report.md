@@ -48,7 +48,7 @@ Firefox checks of the four repaired chapters at widths 390, 769, and 1280 produc
 
 ## Handoff
 
-The source review and full configured build are complete. Navy ATCF `abdeck.txt` remains unavailable at its original destination; the user later supplied a verified replacement URL. The two DTC destinations have since been replaced by the user-approved GitHub repositories, with wording updated to disclose the project's support status. See [the link follow-up](fresh-link-audit-report.md#approved-link-replacements).
+The source review and full configured build are complete. The unavailable original Navy ATCF URL has since been replaced by the user-supplied, verified ATCF format document URL. The two DTC destinations have also been replaced by the user-approved GitHub repositories, with wording updated to disclose project support status. See [the link follow-up](fresh-link-audit-report.md#approved-link-replacements).
 
 The branch is ready for final maintainer review and merge/handoff. This pass does not merge branches, execute historical MET exercises, or create AWS resources. The previously published responsive release was verified separately; the source-fidelity repairs in this pass still need the normal RTD rebuild after push.
 

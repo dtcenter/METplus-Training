@@ -48,8 +48,10 @@ def canonical(url):
         url += '/index.html'
     if url == 'ftp://ftp.nhc.noaa.gov/atcf/archive':
         url = 'https://ftp.nhc.noaa.gov/atcf/archive/'
-    # User-authorized substitutions for destinations retired by DTC.
+    # User-authorized replacements for unavailable source destinations.
     url = {
+        'http://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt':
+            'https://science.nrlmry.navy.mil/atcf/docs/database/new/abdeck.txt',
         'https://dtcenter.org/community-code/gfdl-vortex-tracker/download':
             'https://github.com/hafs-community/gfdl-tracker',
         'https://dtcenter.org/community-code/numerical-weather-prediction-nwp-containers':
@@ -148,6 +150,10 @@ def main():
                 expected_text = re.sub(r'(?:https?|ftp)://[^\s<>]+',
                                        lambda m: canonical(m[0]), original)
                 expected_text = expected_text.replace('Chapter 14', 'the MODE chapter')
+                if n == 6 and 'full list of the columns' in expected_text:
+                    expected_text = expected_text.replace(
+                        'https://science.nrlmry.navy.mil/atcf/docs/database/new/abdeck.txt',
+                        'ATCF format documentation')
                 # Explicitly approved link and status wording updates for the
                 # two DTC destinations retired after the historical tutorial.
                 if n == 6 and 'freely available and supported vortex tracking' in expected_text:
