@@ -47,3 +47,28 @@
 }
 
 
+/* Keep narrow documentation pages within the viewport. Long prose identifiers
+   may wrap, while commands, output, tables, and math remain scrollable. */
+@media screen and (max-width: 1100px) {
+    .rst-content {
+        overflow-wrap: anywhere;
+    }
+
+    .rst-content pre {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .rst-content .math {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .rst-content .wy-table-responsive {
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+}

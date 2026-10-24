@@ -27,7 +27,8 @@ def canonical(text):
     text = re.sub(r'</?p>|<br\s*/?>', '', text)
     text = re.sub(r'^\s*(?:\d+\. )?\.\. [^\n]*', '', text, flags=re.M)
     text = text.replace('3, Based on these observations', '3. Based on these observations')
-    text = text.replace('**', '')
+    # Remove only strong delimiters, preserving literal asterisk runs.
+    text = re.sub(r'(?<!\*)\*\*(?!\*)', '', text)
     text = re.sub(r'(?<=`)__(?!_)', '_', text)
     return re.sub(r'\s+', '', text)
 
@@ -64,12 +65,18 @@ def main():
             target = body_path.parent / dest if dest else body_path
             if not target.is_file() or (fragment and BeautifulSoup(target.read_text(), 'html.parser').find(id=fragment) is None):
                 internal_errors.append(link['href'])
+        literal_separators_preserved = Counter(re.findall(r'\*{4,}', old)) == Counter(re.findall(r'\*{4,}', new))
+        rendered_separator_count = sum(len(re.findall(r'\*{4,}', p.get_text())) for p in body.select('pre'))
+        expected_separator_count = len(re.findall(r'\*{4,}', old))
         prose_markers = [p.get_text() for p in body.select('p') if '**' in p.get_text()]
         checks = {'text_preserved_after_markup_recovery': preserved, 'headings_preserved': same_headings,
-                  'external_urls_unchanged': same_links, 'existing_explicit_labels_preserved': labels <= new_labels,
+                  'external_urls_unchanged': same_links,
+                  'literal_asterisk_separators_preserved': literal_separators_preserved,
+                  'literal_asterisk_separators_rendered': rendered_separator_count == expected_separator_count, 'existing_explicit_labels_preserved': labels <= new_labels,
                   'rendered_system_messages': len(body.select('.system-message')),
                   'unresolved_internal_links': internal_errors, 'prose_with_literal_strong_markers': prose_markers}
-        if not all([preserved, same_headings, same_links, labels <= new_labels]) or checks['rendered_system_messages'] or internal_errors or prose_markers:
+        if not all([preserved, same_headings, same_links, labels <= new_labels,
+                    literal_separators_preserved, rendered_separator_count == expected_separator_count]) or checks['rendered_system_messages'] or internal_errors or prose_markers:
             errors.append(name)
         chapters.append({'chapter': name, **checks})
     diagnostics = [line for line in args.log.read_text().splitlines()

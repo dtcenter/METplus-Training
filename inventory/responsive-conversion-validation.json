@@ -1,0 +1,116 @@
+{
+  "chapters": [
+    {
+      "chapter": 3,
+      "source_pages": 13,
+      "literal_blocks": 84,
+      "figures": 2,
+      "source_link_occurrences": 11,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 111,
+      "prose_missing": []
+    },
+    {
+      "chapter": 4,
+      "source_pages": 15,
+      "literal_blocks": 91,
+      "figures": 1,
+      "source_link_occurrences": 12,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 160,
+      "prose_missing": []
+    },
+    {
+      "chapter": 5,
+      "source_pages": 12,
+      "literal_blocks": 70,
+      "figures": 1,
+      "source_link_occurrences": 10,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 99,
+      "prose_missing": []
+    },
+    {
+      "chapter": 6,
+      "source_pages": 15,
+      "literal_blocks": 79,
+      "figures": 1,
+      "source_link_occurrences": 15,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 130,
+      "prose_missing": []
+    },
+    {
+      "chapter": 7,
+      "source_pages": 4,
+      "literal_blocks": 45,
+      "figures": 0,
+      "source_link_occurrences": 6,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 38,
+      "prose_missing": []
+    },
+    {
+      "chapter": 8,
+      "source_pages": 11,
+      "literal_blocks": 115,
+      "figures": 5,
+      "source_link_occurrences": 27,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 152,
+      "prose_missing": []
+    },
+    {
+      "chapter": 9,
+      "source_pages": 8,
+      "literal_blocks": 44,
+      "figures": 5,
+      "source_link_occurrences": 1,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 82,
+      "prose_missing": []
+    },
+    {
+      "chapter": 10,
+      "source_pages": 4,
+      "literal_blocks": 17,
+      "figures": 3,
+      "source_link_occurrences": 6,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 28,
+      "prose_missing": []
+    },
+    {
+      "chapter": 11,
+      "source_pages": 2,
+      "literal_blocks": 6,
+      "figures": 5,
+      "source_link_occurrences": 0,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 17,
+      "prose_missing": []
+    },
+    {
+      "chapter": "survey",
+      "source_pages": 1,
+      "literal_blocks": 0,
+      "figures": 0,
+      "source_link_occurrences": 7,
+      "literal_mismatches": [],
+      "missing_link_targets": {},
+      "prose_checked": 6,
+      "prose_missing": []
+    }
+  ],
+  "scoped_warnings": [],
+  "errors": []
+}

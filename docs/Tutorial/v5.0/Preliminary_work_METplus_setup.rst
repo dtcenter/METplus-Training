@@ -1140,42 +1140,44 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
 
 .. note::
 
-   metplus INFO:
-   metplus INFO: * Running METplus
-   metplus INFO: * at valid time: 201702010000
-   metplus INFO:
-   metplus.Example INFO: Running ExampleWrapper at valid time 20170201000000
-   metplus.Example INFO: Input directory is /dir/containing/example/data
-   metplus.Example INFO: Input template is {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
-   metplus.Example INFO: Processing custom string: ext
-   metplus.Example INFO: Processing forecast lead 3 hours initialized at 2017-01-31 21Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_21_F003.ext
-   metplus.Example INFO: Processing custom string: nc
-   metplus.Example INFO: Processing forecast lead 3 hours initialized at 2017-01-31 21Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_21_F003.nc
-   metplus.Example INFO: Processing custom string: ext
-   metplus.Example INFO: Processing forecast lead 6 hours initialized at 2017-01-31 18Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_18_F006.ext
-   metplus.Example INFO: Processing custom string: nc
-   metplus.Example INFO: Processing forecast lead 6 hours initialized at 2017-01-31 18Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_18_F006.nc
-   metplus.Example INFO: Processing custom string: ext
-   metplus.Example INFO: Processing forecast lead 9 hours initialized at 2017-01-31 15Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_15_F009.ext
-   metplus.Example INFO: Processing custom string: nc
-   metplus.Example INFO: Processing forecast lead 9 hours initialized at 2017-01-31 15Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_15_F009.nc
-   metplus.Example INFO: Processing custom string: ext
-   metplus.Example INFO: Processing forecast lead 12 hours initialized at 2017-01-31 12Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_12_F012.ext
-   metplus.Example INFO: Processing custom string: nc
-   metplus.Example INFO: Processing forecast lead 12 hours initialized at 2017-01-31 12Z and valid at 2017-02-01 00Z
-   metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_12_F012.nc
-   metplus INFO:
-   metplus INFO: * Running METplus
-   metplus INFO: * at valid time: 201702010600
-   metplus INFO:
-   ...
+   .. code-block:: text
+
+      metplus INFO: ****************************************
+      metplus INFO: * Running METplus
+      metplus INFO: * at valid time: 201702010000
+      metplus INFO: ****************************************
+      metplus.Example INFO: Running ExampleWrapper at valid time 20170201000000
+      metplus.Example INFO: Input directory is /dir/containing/example/data
+      metplus.Example INFO: Input template is {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
+      metplus.Example INFO: Processing custom string: ext
+      metplus.Example INFO: Processing forecast lead 3 hours initialized at 2017-01-31 21Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_21_F003.ext
+      metplus.Example INFO: Processing custom string: nc
+      metplus.Example INFO: Processing forecast lead 3 hours initialized at 2017-01-31 21Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_21_F003.nc
+      metplus.Example INFO: Processing custom string: ext
+      metplus.Example INFO: Processing forecast lead 6 hours initialized at 2017-01-31 18Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_18_F006.ext
+      metplus.Example INFO: Processing custom string: nc
+      metplus.Example INFO: Processing forecast lead 6 hours initialized at 2017-01-31 18Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_18_F006.nc
+      metplus.Example INFO: Processing custom string: ext
+      metplus.Example INFO: Processing forecast lead 9 hours initialized at 2017-01-31 15Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_15_F009.ext
+      metplus.Example INFO: Processing custom string: nc
+      metplus.Example INFO: Processing forecast lead 9 hours initialized at 2017-01-31 15Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_15_F009.nc
+      metplus.Example INFO: Processing custom string: ext
+      metplus.Example INFO: Processing forecast lead 12 hours initialized at 2017-01-31 12Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_12_F012.ext
+      metplus.Example INFO: Processing custom string: nc
+      metplus.Example INFO: Processing forecast lead 12 hours initialized at 2017-01-31 12Z and valid at 2017-02-01 00Z
+      metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_12_F012.nc
+      metplus INFO: ****************************************
+      metplus INFO: * Running METplus
+      metplus INFO: * at valid time: 201702010600
+      metplus INFO: ****************************************
+      ...
 
 1. Now run METplus passing in the Example.conf and tutorial.conf files from the previous run AND an explicit override of the OUTPUT_BASE variable.
 
