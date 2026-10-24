@@ -12,6 +12,7 @@ During the first METplus practical session, you will run the tools indicated bel
 
 .. image:: ../figure/5.0_Practical_Session_1.png
    :alt: MET tools used in practical session 1
+   :align: center
 
 During this practical session, please work on the **Session 1** exercises. 
 Proceed through the tutorial exercises by following the navigation links at the bottom of each page.

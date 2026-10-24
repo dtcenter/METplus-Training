@@ -922,6 +922,7 @@ In this example, the forecast field name in the forecast input file is named WIN
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex.png
    :alt: Example multicategorical contingency counts
+   :align: center
 
 The table includes a “hidden” bin containing wind speeds less than 13.9 m/s that is not explicitly listed by a threshold in the MET settings, but rather implied: each of these bins is mutually exclusive and together they entail the complete real number line. This is why it is important to remember the “monotonically increasing and same inequality type” requirement when setting multicategorical forecast thresholds in METplus. For more discussion on this, review the :ref:`METplus Solutions for Multicategorical Forecast Verification section <metplus_sol_multicat_fcst_verif>`.
 
@@ -952,6 +953,7 @@ While the stat file full header column contents are discussed in the `User’s G
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex2.png
    :alt: Example multicategorical verification counts
+   :align: center
 
 Note that the final column of the MCTC line type, EC_VALUE, is only relevant to users verifying probabilistic data with the :ref:`HSS_EC skill score <hss-skill-score>`.
 
@@ -1009,13 +1011,15 @@ The nature of continuous forecast verification is a direct comparison of the for
 
 The simplest continuous measure is the mean error (ME), which is the average difference between two groups of data. So when you see “error” it is simply a measure of a difference. ME is calculated as
 
-.. image:: ../figure/5.0_Tutorial_stats_ME_eq.png
-   :alt: Mean error equation
+.. math::
+
+   \text{ME} = \frac{1}{n}\sum (F_i - O_i)
 
 ME can range over the real numbers and has the obvious advantage of providing immediate insight into how far away, on average, the forecast values are from their corresponding observations. It is extremely easy to calculate, with a perfect forecast (i.e., a forecast that exactly corresponds to the observations) characterized by an ME of 0. ME serves as an important measurement of arithmetic bias. As a measure of bias,  ME does not include a method for compensating for the magnitude of the differences between the forecast-observation pairs, and a forecast that has compensating errors could receive a mean error of 0. Essentially, ME provides an indication of whether a forecast has errors that - on average - are centered on zero; or if it is overforecasting or underforecasting on average. Consider the following scenario for wind speed forecasts at the same location for four different times: 
 
 .. image:: ../figure/5.0_Tutorial_stats_ME_ex.png
    :alt: Example forecast and observation values for mean error
+   :align: center
 
 You’ll find the ME computed with these data equals 0, even though the difference between forecast and observation values for all of the times are non-zero. That’s because those errors that are positive (the forecast was greater than the observed value) are exactly negated by those errors that are negative (the forecast was less than the observed value). As noted earlier, ME is a good measure of bias; however, it is not a measure of accuracy.
 
@@ -1023,22 +1027,25 @@ This ability to effectively “hide” errors calls for a more robust error calc
 
 Mean absolute error (MAE), while similar to ME, examines the absolute values of the errors, which are summed and averaged, providing a measure of accuracy as opposed to bias. Examining the absolute values of the errors restricts MAE’s range from zero to positive infinity, with a perfect score of zero:
 
-.. image:: ../figure/5.0_Tutorial_stats_MAE_eq.png
-   :alt: Mean absolute error equation
+.. math::
+
+   \text{MAE} = \frac{1}{n}\sum |F_i - O_i|
 
 MAE also differs from ME in that it measures forecast accuracy, while ME measures bias. MAE provides a summary of the average magnitudes of the errors, but does not provide information about the direction (positive or negative) of the error magnitude.
 
 Mean Squared Error (MSE) is another statistic focused on the characteristics of the forecast errors that measures forecast accuracy. In particular, MSE summarizes the squared differences between the forecast and observed values:
 
-.. image:: ../figure/5.0_Tutorial_stats_MSE_eq.png
-   :alt: Mean squared error equation
+.. math::
+
+   \text{MSE} = \frac{1}{n}\sum (F_i - O_i)^2
 
 This measure has the same limits and perfect score as MAE, but squaring the differences does more than remove the sign of the differences: by squaring the error values, differences greater than one are penalized more severely than those that are less than one, with the penalty increasing at a squared rate. Using MSE, a forecast that over-forecasts temperature by two degrees from the observed value consistently over six time steps will have a smaller MSE than a forecast that over-forecasts temperature from the observed value by three degrees for three time steps and matched the observed value for the remaining three time steps.
 
 The final error statistic to discuss is Root Mean Squared Error (RMSE). One of the most familiar statistical measures, RMSE is simply the square root of MSE, and has the same units as the forecasts and observations, providing an average error with a square-weight:
 
-.. image:: ../figure/5.0_Tutorial_stats_RMSE_eq.png
-   :alt: Root mean square error equation
+.. math::
+
+   \text{RMSE} = \sqrt{\frac{1}{n}\sum (F_i - O_i)^2}
 
 Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`
 
@@ -1046,8 +1053,9 @@ Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and li
 
 Unlike the family of mean error statistics, standard deviation focuses more on the individual groups of value sources; namely, the forecasts and observations. Standard deviations are a measure of how the variability of the values in a dataset differs from the average of their respective group. So keep in mind the general equation provided below can be applied to both observations and forecasts (and in some cases it may be meaningful to compare the standard deviation of the forecasts to the standard deviation of the observations):
 
-.. image:: ../figure/5.0_Tutorial_stats_s_eq.png
-   :alt: Sample standard deviation equation
+.. math::
+
+   s = \sqrt{\frac{1}{n - 1}\sum (t_i - \bar{t})^2}
 
 :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
@@ -1055,8 +1063,9 @@ Unlike the family of mean error statistics, standard deviation focuses more on t
 
 Like some of the other verification statistics for continuous forecasts, multiplicative bias (MBIAS) measures the ratio of the average forecast to the average observation. MBIAS is the ratio between these two averages, calculated using the following formula and has a range of all real numbers:
 
-.. image:: ../figure/5.0_Tutorial_stats_MBIAS_eq.png
-   :alt: Multiplicative bias equation
+.. math::
+
+   \text{MBIAS} = \frac{\frac{1}{n}\sum F_i}{\frac{1}{n}\sum O_i}
 
 MBIAS has some of the same drawbacks as ME. In particular, MBIAS does not indicate the magnitudes of the forecast errors, which allows a perfect score of 1 to be achieved if the forecast errors compensate for each other (see the example for ME above for more information). It is recommended that any variable fields that utilize MBIAS contain all the same value signs (e.g. positive or negative) as mixing value signs together (for example, temperatures) would result in strange or unusable MBIAS results that included even more value compensation. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
@@ -1066,15 +1075,17 @@ Because continuous forecasts and observations exist on the same real value spect
 
 Beginning with Pearson correlation coefficient, PR_CORR, the linear association of the forecast-observation pairs is measured using a sample covariance (e.g. the summed squared anomalies of two groups) and dividing by the product of the same two group’s standard deviations. In forecast verification, these two groups are the forecast and observation datasets and appear as
 
-.. image:: ../figure/5.0_Tutorial_stats_PR_CORR_eq.png
-   :alt: Pearson correlation equation
+.. math::
+
+   r = \frac{\sum (f_i - \bar{f})(o_i - \bar{o})}{\sqrt{\sum (f_i - \bar{f})^2}\sqrt{\sum (o_i - \bar{o})^2}}
 
 with r as the typical notation for the PR_CORR outside of METplus. From a visual perspective, PR_CORR measures the closeness of pairs of points, (i.e., representing the forecast and corresponding observation values) corresponding to a diagonal line. More generally these scatter plots can suggest the apparent relationship of any two variable fields, but for the purpose of this tutorial we will stay focused on the forecast-observation comparison. PR_CORR can range from negative one to positive one with either extreme of the range representing a perfect positive or negative linear association between the forecasts and observations. The PR_CORR remains sensitive to outliers and can produce a good correlation value for a poor forecast if that forecast has compensative errors.
 
 Another way to estimate the linear association between forecasts and their corresponding observations involves ranking the forecast values when compared to the forecast group’s total range, do the same for the observation group, and then compute the correlation values. Spearman Rank correlation coefficient (SP_CORR) takes this approach while utilizing the same equation as PR_CORR. Because the rank values of both the forecast and observation datasets used to calculate SP_CORR are restricted to the integer values of 1 to n (the total number of matched forecast-observation pairs), the equation of SP_CORR can be simplified to
 
-.. image:: ../figure/5.0_Tutorial_stats_SP_CORR_eq.png
-   :alt: Spearman rank correlation equation
+.. math::
+
+   \rho_s = \frac{6}{n(n^2 - 1)}\sum d_i^2
 
 where di denotes the difference in ranking between the pair of datafields. 
 
@@ -1082,18 +1093,21 @@ What does ranking  of matched pairs look like with actual data? Let’s use the
 
 .. image:: ../figure/5.0_Tutorial_stats_SPCORR_table1.png
    :alt: Sample rainfall ranks for Spearman correlation
+   :align: center
 
  Using a ranking system for the datasets where 0.0” is assigned 1 and everything greater than that value is assigned a value that is integer-based, monotonically increasing by 1, the data table above would be transformed into the following ranks:
 
 .. image:: ../figure/5.0_Tutorial_stats_SPCORR_table2.png
    :alt: Ranked forecast and observation rainfall values
+   :align: center
 
 It is important that the forecast-observation pairs stay paired together, even when transformed into their rank values. Note the case when there is a tie in the ranks (i.e. a value appears more than once), all of the values receive the same average rank, keeping the total average rank for the number of values (in this scenario, five) consistent with the SP_CORR equation assumption. The next step is calculating the differences between the forecast ranks and the observed ranks, squaring the differences and summing them. After that, apply the rest of the equation and you should find ρ_s =0.825, a strong correlation value.
 
 The Kendall’s Tau statistic (𝝉) is a variation on the SP_CORR equation ranking method. While all of the variable field values are ranked as was the case with SP_CORR, it’s the relationship between a pair of ranks and the pairs of ranks that follow, rather than the ranks within a given pair, that constitute 𝝉. To better understand, let’s first look at the equation for 𝝉:
 
-.. image:: ../figure/5.0_Tutorial_stats_tau_eq.png
-   :alt: Kendall tau equation
+.. math::
+
+   \tau = \frac{N_C - N_D}{\frac{n(n - 1)}{2}}
 
 In the equation, N_C is a count of the concordant pairs, and N_D is a count of the discordant pairs. Simply put, a concordant pair is when a reference pair has rank values that are both larger or both smaller than a comparison pair. For example, consider the two pairs (3, 5) and (6, 8). Regardless of which pair is treated as the reference pair, the comparison pair will have both of the larger rank values (the case where (3, 5) is the reference pair) or both of the smaller rank values (the case where (6, 8) is the reference pair). A concordant pair is the complement to this: each pair in the comparison has one value that is bigger and one that is smaller. In the case of (3, 5) and (6, 2) the comparisons are considered discordant. In the case where the compared pairs are identical, there are multiple methods to choose: N_C and N_D can be incremented by ½ each, the tie can be ignored, or the tie can be penalized. For simplicity in counting, it is recommended to arrange one of the datasets in ascending or descending order (being careful to keep the matched pairs together) so that fewer comparisons need to be made.
 
@@ -1101,16 +1115,19 @@ To show how 𝝉 is calculated, let’s return to the previous example used to c
 
 .. image:: ../figure/5.0_Tutorial_stats_SPCORR_table3.png
    :alt: Concordant and discordant rank pairs
+   :align: center
 
 From this small change in the ordering, we see that two of the observed ranks do not increase (going from left to right): between Hour 5 and Hour 1 (they match at 1.5), and between Hour 3 and Hour 4 (5 compared to 4). Additionally, the forecast ranks between Hour 1 and Hour 2 do not increase (they match). In order to account for these ties, a “penalty” will be calculated using the following equation:
 
-.. image:: ../figure/5.0_Tutorial_stats_tau_penalty_eq.png
-   :alt: Kendall tau penalty for ties
+.. math::
+
+   P_t = \sum (t_i^2 - t_i)
 
 Where ti is the number of ranks that are involved in a given tie.  Because both the forecast and observed ranks have a tie of two ranks, both will receive a Pt penalty of 2. As a result of this new handling of ties, an alternate form of 𝝉 sometimes referred to as 𝝉b must be used:
 
-.. image:: ../figure/5.0_Tutorial_stats_taub_eq.png
-   :alt: Kendall tau-b equation
+.. math::
+
+   \tau_b = \frac{2 * (C - D)}{\sqrt{n(n - 1) - P_{tx}}\sqrt{n(n - 1) - P_{ty}}}
 
 Using this slightly modified equation, we find a 𝝉b value of 0.56. As 𝝉 has the same range as SP_CORR (-1 to 1), a value of 0.56 shows some positive correlation between the two datasets. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`
 
@@ -1120,13 +1137,15 @@ While similar to the traditional correlation coefficient, anomaly correlation is
 
 There are two widely used versions of anomaly correlation. The first is the centered anomaly correlation, which includes the mean error relative to the climatology. This version is calculated using
 
-.. image:: ../figure/5.0_Tutorial_stats_ANOM_CORR_eq.png
-   :alt: Anomaly correlation equation
+.. math::
+
+   \text{ANOM CORR} = \frac{\sum ((F - C) - \overline{(F - C)})((O - C) - \overline{(O - C)})}{\sqrt{\sum (F - C)^2}\sqrt{\sum (O - C)^2}}
 
 If it is not desirable to include the errors, the uncentered anomaly correlation is the better choice:
 
-.. image:: ../figure/5.0_Tutorial_stats_ANOM_CORR_UNCNTR_eq.png
-   :alt: Uncentered anomaly correlation equation
+.. math::
+
+   \text{ANOM CORR UNCNTR} = \frac{\sum (F - C)(O - C)}{\sqrt{\sum (F - C)^2}\sqrt{\sum (O - C)^2}}
 
 While there is an added effort required to find the matching climatology reference dataset for this statistic, it remains a highly resourceful statistic to use, especially with spatial verification, and is commonly used in operational forecasting centers. Anomaly correlation has a range from -1 to 1. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
@@ -1280,6 +1299,7 @@ The resulting two files have a wealth of information and statistics. The netCDF 
 
 .. image:: ../figure/5.0_Tutorial_stats_MET_CNT_output_ex.png
    :alt: Example MET continuous statistics output
+   :align: center
 
  For the CNT line type output we review the .stat file and find something similar to the following:
 
@@ -1407,15 +1427,17 @@ A common method to avoid dealing directly with probabilities is to convert forec
 
 One popular score for probability forecasts is the Brier Score (BS). Effectively a Mean Squared Error calculation, it is a scalar value of forecast accuracy that conveys the magnitude of the probability errors in the forecast.
 
-.. image:: ../figure/5.0_Tutorial_stats_BS_eq.png
-   :alt: Brier score equation
+.. math::
+
+   \text{BS} = \frac{1}{n}\sum (p_i - o_i)^2
 
 Here, pi is the forecast probability while oi is the binary representation of the observance of the event (1 if the event occurred, 0 if the event did not occur). This summation score is negatively oriented, with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. The score is sensitive to the frequency of an event and should only be used on forecast-observation datasets that boast a substantial number of event samples.
 
 Through substitutions, BS can be decomposed into three terms that describe the reliability, resolution, and uncertainty of the forecasts (more on these attributes can be found in the :ref:`Attributes of Forecast Quality section <att_fcst_qual>`). This decomposition is given as
 
-.. image:: ../figure/5.0_Tutorial_stats_BS_decomp_eq.png
-   :alt: Brier score decomposition
+.. math::
+
+   \text{BS} = \frac{1}{n}\sum n_i (p_i - \bar{o}_i)^2 - \frac{1}{n}\sum n_i (\bar{o}_i - \bar{o})^2 + \bar{o}(1 - \bar{o})
 
 where the three terms are reliability, resolution, and uncertainty, respectively. ni is the count of probabilistic forecasts that fall into each probabilistic bin. See how to use this statistic in METplus!
 
@@ -1423,8 +1445,9 @@ where the three terms are reliability, resolution, and uncertainty, respectively
 
 A second statistical score to use for probabilistic forecasts is the Ranked Probability Score (RPS). This score differs from BS in that it allows the verification of multicategorical probabilistic forecasts where BS strictly pertains to binary probabilistic forecasts. While the RPS formula  is based on a squared error at its core (similar to BS), it remains sensitive to the distance between the forecast probability and the observed event space (1 if the event occurred, 0 if it did not) by calculating the squared errors in cumulative probabilistic forecast and observation space. This formulation is represented in the following equation
 
-.. image:: ../figure/5.0_Tutorial_stats_RPS_eq.png
-   :alt: Ranked probability score equation
+.. math::
+
+   \text{RPS} = \frac{1}{M - 1}\sum \left[\left(\sum p_i\right) - \left(\sum o_i\right)\right]^2
 
 Note how RPS reduces to BS when there are only two forecast categories evaluated. In the equation, M denotes the number of categories the forecast is divided into. Because of the squared error usage, RPS is negative orientated with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. See how to use this statistic in METplus!
 
@@ -1432,8 +1455,9 @@ Note how RPS reduces to BS when there are only two forecast categories evaluated
 
 Similar to the RPS’s approach to provide a probabilistic evaluation of multicategorical forecasts and the BS formulation as a statistic for binary probabilistic forecasts, the Continuous Ranked Probability Score (CRPS) provides a statistical measure for forecasts in the continuous probabilistic space. Theoretically this is equivalent to evaluating multicategorical forecasts that extend across an infinite number of categories that are infinitesimally small. When it comes to application, however, it becomes difficult to express mathematically a closed form of CRPS. Due to this restriction, CRPS often utilizes an assumption of a Gaussian (i.e. normal) distribution in the dataset and is presented as
 
-.. image:: ../figure/5.0_Tutorial_stats_CRPS_eq.png
-   :alt: Continuous ranked probability score equation
+.. math::
+
+   \text{CRPS}(n(\mu, \sigma^2), y) = \sigma\left(\frac{y - \mu}{\sigma}\left(2\Phi\left(\frac{y - \mu}{\sigma}\right) - 1\right) + 2\phi\left(\frac{y - \mu}{\sigma}\right) - \frac{1}{\sqrt{\pi}}\right)
 
 In this equation we use μ and σ to denote the mean and standard deviation of the forecasts, respectively, ɸ to represent the cumulative distribution function (CDF ) and 𝚽 to represent the probability density function (PDF) of the normal distribution. If you’ve previously evaluated meteorological forecasts, you know that the assumption that the dataset can be described by a Gaussian distribution is not always correct. Temperature and pressure variable fields, among others, can usually take advantage of this CRPS definition as they often are well fitted by a Gaussian distribution. But other important meteorological fields, such as precipitation, do not. Using statistics that are created with an incorrect assumption will produce, at best, misleading results. Be sure that your dataset follows a Gaussian distribution before relying on the above definition of CRPS!
 
@@ -1448,8 +1472,9 @@ Some of the previously mentioned verification statistics for probabilistic forec
 
 The Brier Skill Score (BSS) measures the relative skill of the forecast compared to a reference forecast. It’s equation is simple and follows the general skill score format:
 
-.. image:: ../figure/5.0_Tutorial_stats_BSS_eq.png
-   :alt: Brier skill score equation
+.. math::
+
+   \text{BSS} = 1 - \frac{\text{BS}_{fcst}}{\text{BS}_{ref}}
 
 Compared to the BS equation, the range of values for BSS differs: the range is from negative infinity to 1, with 1 showing a perfect skill and 0 showing no discernable skill compared to a reference forecast. See how to use this skill score in METplus!
 
@@ -1457,8 +1482,9 @@ Compared to the BS equation, the range of values for BSS differs: the range is f
 
 Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the general skill score equation formulation, allowing a comparison between a chosen reference forecast and the forecast of interest:
 
-.. image:: ../figure/5.0_Tutorial_stats_RPSS_eq.png
-   :alt: Ranked probability skill score equation
+.. math::
+
+   \text{RPSS} = 1 - \frac{\text{RPS}_{fcst}}{\text{RPS}_{ref}}
 
 RPSS measures the improvement/degradation of the ranked probability forecasts compared to the skill of a reference forecast. As with BSS, RPSS ranges from negative infinity to 1, with a perfect score of 1, and a score of zero indicating no improvement of forecast performance relative to the reference forecast. See how to use this skill score in METplus!
 
@@ -1582,6 +1608,7 @@ The output from Gen-Ens-Prod is a netCDF file whose content would contain a vari
 
 .. image:: ../figure/5.0_Tutorial_stats_prob_pic1.png
    :alt: Gen-Ens-Prod probabilistic temperature field
+   :align: center
 
 With this new MET field output, we can verify this uncalibrated probabilistic forecast for 2 meter temperatures greater than 10 degrees Celsius against an observation dataset in Grid-Stat.
 
