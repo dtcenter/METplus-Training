@@ -6,6 +6,7 @@ Session 2: Grid-to-Obs
 During this practical session, you will run the tools indicated below:
 
 .. image:: ../figure/5.0_Practical_Session_2.png
+   :alt: MET tools used in practical session 2
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
@@ -113,48 +114,38 @@ For information on where to download PrepBufr files, visit the `MET Input Data <
 
 .. code-block:: text
 
-  pb2nc
+   pb2nc
 
-.. code-block::
+.. list-table:: Usage: pb2nc
+   :widths: auto
 
-  prepbufr_file
-  input prepbufr path/filename
+   * - prepbufr_file
+     - input prepbufr path/filename
+   * - netcdf_file
+     - output netcdf path/filename
+   * - config_file
+     - configuration path/filename
+   * - [-pbfile prepbufr_file]
+     - additional input files
+   * - [-valid_beg time]
+     - Beginning of valid time window [YYYYMMDD_[HH[MMSS]]]
+   * - [-valid_end time]
+     - End of valid time window [YYYYMMDD_[HH[MMSS]]]
+   * - [-nmsg n]
+     - Number of PrepBufr messages to process
+   * - [-index]
+     - List available observation variables by message type (no output file)
+   * - [-dump path]
+     - Dump entire contents of PrepBufr file to directory
+   * - [-obs_var var]
+     - Sets the variable list to be saved from input BUFR files
+   * - [-log file]
+     - Outputs log messages to the specified file
+   * - [-v level]
+     - Level of logging
+   * - [-compression level]
+     - NetCDF file compression
 
-  netcdf_file
-  output netcdf path/filename
-
-  config_file
-  configuration path/filename
-
-  [-pbfile prepbufr_file]
-  additional input files
-
-  [-valid_beg time]
-  Beginning of valid time window [YYYYMMDD_[HH[MMSS]]]
-
-  [-valid_end time]
-  End of valid time window [YYYYMMDD_[HH[MMSS]]]
-
-  [-nmsg n]
-  Number of PrepBufr messages to process
-
-  [-index]
-  List available observation variables by message type (no output file)
-
-  [-dump path]
-  Dump entire contents of PrepBufr file to directory
-
-  [-obs_var var]
-  Sets the variable list to be saved from input BUFR files
-
-  [-log file]
-  Outputs log messages to the specified file
-
-  [-v level]
-  Level of logging
-
-  [-compression level]
-  NetCDF file compression
 
 At a minimum, the input **prepbufr_file**, the output **netcdf_file**, and the configuration **config_file** must be passed in on the command line. Also, you may use the **-pbfile** command line argument to run PB2NC using multiple input PrepBufr files, likely adjacent in time.
 
@@ -203,7 +194,7 @@ Set:
 
       message_type = [ "ADPUPA", "ADPSFC" ];
 
-to retain only those 2 message types. Message types are described in this `table of entries for PrepBufr message types <http://www.emc.ncep.noaa.gov/mmb/data_processing/prepbufr.doc/table_1.htm>`_.
+to retain only those 2 message types. Message types are described in: `table of entries for PrepBufr message types <http://www.emc.ncep.noaa.gov/mmb/data_processing/prepbufr.doc/table_1.htm>`_.
 
 Set:
 
@@ -268,7 +259,7 @@ Run
   `here <https://dtcenter.org/sites/default/files/community-code/met/online-practical/tutorial_pb_run1.nc>`__
   and manually save it as **tutorial_pb_run1.nc**.
 
-PB2NC is now filtering the observations from the PrepBufr file using the configuration settings we specified and writing the output to the NetCDF file name we chose. This should take a few minutes to run. As it runs, you should see several status messages printed to the screen to indicate progress. You may use the **-v** command line option to turn off (using **-v 0**) or change the amount of log information printed to the screen.
+PB2NC is now filtering the observations from the PrepBufr file using the configuration settings we specified and writing the output to the NetCDF file name we chose. This should take a few minutes to run. As it runs, you should see several status messages printed to the screen to indicate progress. You may use the **-v** command line option to turn off (**-v 0**) or change the amount of log information printed to the screen.
 
 .. note::
 
@@ -291,6 +282,7 @@ When PB2NC is finished, you may view the output NetCDF file it wrote using the 
 In the NetCDF header, you'll see that the file contains nine dimensions and nine variables. The **obs_arr** variable contains the actual observation values. The **obs_qty** variable contains the corresponding quality flags. The four header variables (**hdr_typ**, **hdr_sid**, **hdr_vld**, **hdr_arr**) contain information about the observing locations.
 
 The **obs_var**, **obs_unit**, and **obs_desc** variables describe the observation variables contained in the output. The second entry of the **obs_arr** variable (i.e. **var_id**) lists the index into these array for each observation. For example, for observations of temperature, you'd see **TMP** in **obs_var**, **KELVIN** in **obs_unit**, and **TEMPERATURE OBSERVATION** in **obs_desc**. For observations of temperature in **obs_arr**, the second entry (**var_id**) would list the index of that temperature information.
+
 .. note::
 
   Inspect the output of **ncdump** before continuing.
@@ -491,7 +483,7 @@ Values for the MET tool PB2NC are passed in from METplus config files, including
       // PB2NC configuration file.
       //
       // For additional information, see the MET_BASE/config/README file.
-      // //////////////////////////////////////////////////////////////////////////////
+      // ////////////////////////////////////////////////////////////////////////////////
 
       //
       // PrepBufr message type
@@ -570,41 +562,34 @@ It is the user's responsibility to get their ASCII point observations into this 
 
   View the usage statement for ASCII2NC by simply typing the following:
 
-.. code-block::
+.. code-block:: text
 
-  ascii2nc
+   ascii2nc
 
-  Usage: ascii2nc
+.. list-table:: Usage: ascii2nc
+   :widths: auto
 
-  ascii_file1 [...]
-  One or more input ASCII path/filename
+   * - ascii_file1 [...]
+     - One or more input ASCII path/filename
+   * - netcdf_file
+     - Output NetCDF path/filename
+   * - [-format ASCII_format]
+     - Set to met_point , little_r , surfrad , wwsis , aeronet, aeronetv2, aeronetv3, or python
+   * - [-config file]
+     - Configuration file to specify how observation data should be summarized
+   * - [-mask_grid string]
+     - Named grid or a gridded data file for filtering point observations spatially
+   * - [-mask_poly file]
+     - Polyline masking file for filtering point observations spatially
+   * - [-mask_sid file|list]
+     - Specific station ID's to be used in an ASCII file or comma-separted list
+   * - [-log file]
+     - Outputs log messages to the specified file
+   * - [-v level]
+     - Level of logging
+   * - [-compress level]
+     - NetCDF compression level
 
-  netcdf_file
-  Output NetCDF path/filename
-
-  [-format ASCII_format]
-  Set to met_point, little_r, surfrad, wwsis, aeronet, aeronetv2, aeronetv3, or python
-
-  [-config file]
-  Configuration file to specify how observation data should be summarized
-
-  [-mask_grid string]
-  Named grid or a gridded data file for filtering point observations spatially
-
-  [-mask_poly file]
-  Polyline masking file for filtering point observations spatially
-
-  [-mask_sid file|list]
-  Specific station ID's to be used in an ASCII file or comma-separted list
-
-  [-log file]
-  Outputs log messages to the specified file
-
-  [-v level]
-  Level of logging
-
-  [-compress level]
-  NetCDF compression level
 
 At a minimum, the input **ascii_file** and the output **netcdf_file** must be passed on the command line. ASCII2NC interrogates the data to determine it's format, but the user may explicitly set it using the **-format** command line option. The **-mask_grid**, **-mask_poly**, and **-mask_sid** options can be used to filter observations spatially.
 
@@ -642,7 +627,7 @@ For example, 52 corresponds to RH:
 
   ascii2nc \
   ${METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt \
-  tutorial_ascii.nc \=
+  tutorial_ascii.nc \
   -v 2
 
 ASCII2NC should perform this reformatting step very quickly since the sample file only contains data for 5 stations.
@@ -722,7 +707,7 @@ MET includes example scripts for reading point data and gridded data (all in ASC
 
       derive_WRF_semilatlon.py
       met_point_obs.py
-      read_ascii_mpr.py&
+      read_ascii_mpr.py
       read_ascii_numpy_grid.py
       read_ascii_numpy.py
       read_ascii_point.py
@@ -883,38 +868,32 @@ The Point-Stat tool provides verification statistics for comparing gridded forec
 
   View the usage statement for Point-Stat by simply typing the following:
 
-.. code-block::
+.. code-block:: text
 
-  point_stat
+   point_stat
 
-  Usage: point_stat
+.. list-table:: Usage: point_stat
+   :widths: auto
 
-  fcst_file
-  Input gridded file path/name
+   * - fcst_file
+     - Input gridded file path/name
+   * - obs_file
+     - Input NetCDF observation file path/name
+   * - config_file
+     - Configuration file
+   * - [-point_obs file]
+     - Additional NetCDF observation files to be used (optional)
+   * - [-obs_valid_beg time]
+     - Sets the beginning of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)
+   * - [-obs_valid_end time]
+     - Sets the end of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)
+   * - [-outdir path]
+     - Overrides the default output directory (optional)
+   * - [-log file]
+     - Outputs log messages to the specified file (optional)
+   * - [-v level]
+     - Level of logging (optional)
 
-  obs_file
-  Input NetCDF observation file path/name
-
-  config_file
-  Configuration file
-
-  [-point_obs file]
-  Additional NetCDF observation files to be used (optional)
-
-  [-obs_valid_beg time]
-  Sets the beginning of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)
-
-  [-obs_valid_end time]
-  Sets the end of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)
-
-  [-outdir path]
-  Overrides the default output directory (optional)
-
-  [-log file]
-  Outputs log messages to the specified file (optional)
-
-  [-v level]
-  Level of logging (optional)
 
 At a minimum, the input gridded **fcst_file**, the input NetCDF **obs_file** (output of PB2NC, ASCII2NC, MADIS2NC, and LIDAR2NC, last two not covered in these exercises), and the configuration **config_file** must be passed in on the command line. You may use the **-point_obs** command line argument to specify additional NetCDF observation files to be used.
 
@@ -1489,7 +1468,7 @@ The forecast and observations directories are specified in relation to INPUT_BAS
    .. code-block:: text
 
       FCST_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
-      OBS_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/out/pb2nc<
+      OBS_POINT_STAT_INPUT_DIR = {INPUT_BASE}/met_test/out/pb2nc
       ...
       POINT_STAT_OUTPUT_DIR = {OUTPUT_BASE}/point_stat
 
@@ -1861,7 +1840,7 @@ You will note, the number of observations processed is the same as the number re
 
   less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf
 
-Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**, where **PMO** is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to the BUFRLIB `Sample PREPBUFR Table <https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/>`_. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
+Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**, where **PMO** is the identifier for MEAN SEA-LEVEL PRESSURE OBSERVATION according to `Sample PREPBUFR Table <https://www.nco.ncep.noaa.gov/sib/decoders/BUFRLIB/toc/prepbufr/prepbufr_bftab/>`_. Let's use Plot-Data-Plane to confirm this identifier will provide valid observations for Point-Stat to use.
 
 .. code-block::
 

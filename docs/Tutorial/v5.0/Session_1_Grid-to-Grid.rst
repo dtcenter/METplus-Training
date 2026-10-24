@@ -9,13 +9,14 @@ Session 1: Grid-to-Grid
 During the first METplus practical session, you will run the tools indicated below:
 
 .. image:: ../figure/5.0_Practical_Session_1.png
+   :alt: MET tools used in practical session 1
 
 During this practical session, please work on the **Session 1** exercises. 
 Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
 
 **TUTORIAL FORMAT**
 
-Throughout this tutorial, code blocks in have green text with a white background 
+Throughout this tutorial, code blocks have green text with a white background
 should be copied from your browser and pasted on the command line, e.g.:
 
 .. code-block:: ini
@@ -179,7 +180,7 @@ Since PCP-Combine performs a simple operation and reformatting step, no configur
 
 .. note::
 
-  The "**\\**" backslash symbols in the commands above are used for ease of reading. 
+  The "``\``" symbols in the commands above are used for ease of reading.
   They are line continuation markers enabling us to spread a long command 
   line across multiple lines. They should be followed immediately by "Enter". 
   You may copy and paste the command line OR type in the entire line with or 
@@ -404,35 +405,31 @@ The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from
 
 
 
-.. code-block::
+.. code-block:: text
 
-  plot_data_plane
+   plot_data_plane
 
-  Usage: plot_data_plane
+.. list-table:: Usage: plot_data_plane
+   :widths: auto
 
-  input_filename
-  Input file containing gridded data to be be plotted
+   * - input_filename
+     - Input file containing gridded data to be be plotted
+   * - output_filename
+     - Output PostScript file to be written
+   * - field_string
+     - String defining the data to be plotted
+   * - [-color_table name]
+     - Overrides the default color table (optional)
+   * - [-plot_range min max]
+     - Specifies the range of data to be plotted (optional)
+   * - [-title string]
+     - Specifies the plot title string (optional)
+   * - [-log file]
+     - Outputs log messages to the specified file
+   * - [-v level]
+     - Level of logging
 
-  output_filename
-  Output PostScript file to be written
 
-  field_string
-  String defining the data to be plotted
-
-  [-color_table name]
-  Overrides the default color table (optional)
-
-  [-plot_range min max]
-  Specifies the range of data to be plotted (optional)
-
-  [-title string]
-  Specifies the plot title string (optional)
-
-  [-log file]
-  Outputs log messages to the specified file
-
-  [-v level]
-  Level of logging
 
 .. _field_str:
 
@@ -715,56 +712,45 @@ You can then use the output of Gen-Vx-Mask to define masking regions in the MET 
 
 View the usage statement for Gen-Vx-Mask by simply typing the following:
 
-.. code-block::
+.. code-block:: text
 
-gen_vx_mask
+   gen_vx_mask
 
-Usage: gen_vx_mask
+.. list-table:: Usage: gen_vx_mask
+   :widths: auto
 
-input_file
-Gridded data file defining the domain
+   * - input_file
+     - Gridded data file defining the domain
+   * - mask_file
+     - Defines the masking region and varies by -type
+   * - out_file
+     - Output NetCDF mask file to be written
+   * - -type string
+     - Masking type: poly, poly_xy, box, circle, track, grid, data, solar_alt, solar_azi, lat, lon, shape
+   * - [-input_field string]
+     - Define field from input_file for grid point initialization values, rather than 0.
+   * - [-mask_field string]
+     - Define field from mask_file for data masking.
+   * - [-complement, -union, -intersection, -symdiff]
+     - Set logic for combining input_field initialization values with the current mask values.
+   * - [-thresh string]
+     - Define threshold for circle, track, data, solar_alt, solar_azi, lat, and lon masking types.
+   * - [-height n, -width n]
+     - Define dimensions for box masking.
+   * - [-shapeno n]
+     - Define the index of the shape for shapefile masking.
+   * - [-value n]
+     - Output mask value to be written, rather than 1.
+   * - [-name str]
+     - Specifies the name to be used for the mask.
+   * - [-log file]
+     - Outputs log messages to the specified file
+   * - [-v level]
+     - Level of logging
+   * - [-compress level]
+     - NetCDF compression level
 
-mask_file
-Defines the masking region and varies by -type
 
-out_file
-Output NetCDF mask file to be written
-
--type string
-Masking type: poly, poly_xy, box, circle, track, grid, data, solar_alt, solar_azi, lat, lon, shape
-
-[-input_field string]
-Define field from input_file for grid point initialization values, rather than 0.
-
-[-mask_field string]
-Define field from mask_file for data masking.
-
-[-complement, -union, -intersection, -symdiff]
-Set logic for combining input_field initialization values with the current mask values.
-
-[-thresh string]
-Define threshold for circle, track, data, solar_alt, solar_azi, lat, and lon masking types.
-
-[-height n, -width n]
-Define dimensions for box masking.
-
-[-shapeno n]
-Define the index of the shape for shapefile masking.
-
-[-value n]
-Output mask value to be written, rather than 1.
-
-[-name str]
-Specifies the name to be used for the mask.
-
-[-log file]
-Outputs log messages to the specified file
-
-[-v level]
-Level of logging
-
-[-compress level]
-NetCDF compression level
 
 At a minimum, the input data_file, the input mask_poly polyline file, the output netcdf_file, and the type must be passed on the command line.
 
@@ -1002,12 +988,11 @@ We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available 
 
 Download the Natural Earth administrative shapefiles for countries boundaries.
 
-.. code-block::
+.. parsed-literal::
 
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask
   mkdir ne_shapefiles; cd ne_shapefiles
-  wget https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
-  target="_blank">https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
+  wget `https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip <https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip>`_
   unzip ne_110m_admin_0_countries.zip
 
 Run gen_vx_mask to define the mask for the USA (index 4).
@@ -1050,32 +1035,29 @@ The output statistics generated by Grid-Stat include continuous partial sums and
 
 View the usage statement for Grid-Stat by simply typing the following:
 
-.. code-block::
+.. code-block:: text
 
-grid_stat
+   grid_stat
 
-Usage: grid_stat
+.. list-table:: Usage: grid_stat
+   :widths: auto
 
-fcst_file
-Input gridded forecast file containing the field(s) to be verified.
+   * - fcst_file
+     - Input gridded forecast file containing the field(s) to be verified.
+   * - obs_file
+     - Input gridded observation file containing the verifying field(s).
+   * - config_file
+     - GridStatConfig file containing the desired configuration settings.
+   * - [-outdir path]
+     - Overrides the default output directory (optional).
+   * - [-log file]
+     - Outputs log messages to the specified file (optional).
+   * - [-v level]
+     - Level of logging (optional).
+   * - [-compress level]
+     - NetCDF compression level (optional).
 
-obs_file
-Input gridded observation file containing the verifying field(s).
 
-config_file
-GridStatConfig file containing the desired configuration settings.
-
-[-outdir path]
-Overrides the default output directory (optional).
-
-[-log file]
-Outputs log messages to the specified file (optional).
-
-[-v level]
-Level of logging (optional).
-
-[-compress level]
-NetCDF compression level (optional).
 
 .. note::
 
@@ -1156,7 +1138,7 @@ Set:
              "MET_BASE/poly/SPL.poly",
              "MET_BASE/poly/MDW.poly",
              "MET_BASE/poly/LMV.poly",
-             "MET_BASE/poly/GMC.poly",
+             "MET_BASE/poly/GAC.poly",
              "MET_BASE/poly/APL.poly",
              "MET_BASE/poly/NEC.poly",
              "MET_BASE/poly/SEC.poly" ];
@@ -1402,9 +1384,9 @@ You should have output files in the following directories:
 
 .. note::
 
-  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txtt
+  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txt
 
-  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.statt
+  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
 
   grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
 
@@ -1688,7 +1670,7 @@ Instructions: Review the list of file paths and configure a Example wrapper use 
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/12/atmos/gfs.t12z.pgrb2.0p25.f002
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/12/atmos/gfs.t12z.pgrb2.0p25.f003
 
-1. Copy the Example_timing.conf you created in "Modify Timing Control in Example.conf" and modify it to set the appropriate settings.
+1. Copy the Example_timing.conf you created in :ref:`Modify Timing Control in Example.conf <mod_time_ctrl>` and modify it to set the appropriate settings.
 
 .. code-block::
 

@@ -384,13 +384,13 @@ You will see many lines of information streaming to your screen. You will see fo
 
 .. admonition:: Sample Output
 
-   .. code-block:: text
+   .. parsed-literal::
 
       Preparing transaction: done
       Verifying transaction: done
       Executing transaction: /
       Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
-      More details are available `here: <https://intel.github.io/scikit-learn-intelex>`_
+      More details are available `here: https://intel.github.io/scikit-learn-intelex <https://intel.github.io/scikit-learn-intelex>`_
       For example:
       $ conda install scikit-learn-intelex
       $ python -m sklearnex my_application.py
@@ -523,9 +523,9 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Copy the tutorial setup shell script to configure your runtime environment for use with METplus. You will also copy over a METplus .conf file that you will use to run:
 
-.. code-block::
+.. parsed-literal::
 
-   wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt -O ./METplus-5.0.0_TutorialSetup.sh
+   wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt>`_ -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
 **CONFIGURE THE TUTORIAL SETUP SCRIPT**
@@ -608,9 +608,9 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    Copy the tutorial setup shell script to configure your runtime environment for use with METplus. You will also copy over a METplus .conf file that you will use to run:
 
-.. code-block::
+.. parsed-literal::
 
-   wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt -O ./METplus-5.0.0_TutorialSetup.sh
+   wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt>`_ -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
 **CONFIGURE THE TUTORIAL SETUP SCRIPT**
@@ -1203,6 +1203,8 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
 
    Note: The processing order allows for structuring your conf files to contain system/user configurations (settings used for every run) and use case specific configurations (settings only used for a given use case).
 
+
+.. _mod_time_ctrl:
 
 Modifying Timing Control in Example.conf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

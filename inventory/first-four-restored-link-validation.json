@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://intel.github.io/scikit-learn-intelex",
+    "status": 200,
+    "final_url": "https://intel.github.io/scikit-learn-intelex/",
+    "content_type": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt",
+    "status": 200,
+    "final_url": "https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt",
+    "content_type": "text/plain"
+  },
+  {
+    "url": "https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt",
+    "status": 200,
+    "final_url": "https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt",
+    "content_type": "text/plain"
+  },
+  {
+    "url": "https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip",
+    "status": 200,
+    "final_url": "https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip",
+    "content_type": "application/zip"
+  }
+]

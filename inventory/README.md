@@ -1,6 +1,6 @@
 # METplus v5.0 conversion inventory
 
-Current status: Sessions 3–11 and the survey have completed the conversion pass. See [completion report](completion-report.md), [validation results](conversion-validation.json), and [source-link exceptions](external-link-validation.json). The CSV mapping now has refreshed line locations. The counts and findings below describe the original inventory snapshot, not the completed files.
+Current status: The first-four-chapter source review and the remaining-chapter conversion checks are complete, and the full pinned documentation build passes with the unmodified configuration. See [final fidelity/build report](first-four-fidelity-report.md) and [completion report](completion-report.md). The CSV mapping has current line locations. Counts, proposed work, and chapter-protection statements below describe the original inventory snapshot and have been superseded by the subsequent user authorizations and reports.
 
 Inventory date: 2026-10-23. Scope: mapping and static inventory only; no tutorial edits, build, link validation, or full content comparison.
 

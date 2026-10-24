@@ -1,0 +1,48 @@
+{
+  "python": "3.12.15",
+  "platform": "macOS-26.7.1-arm64-arm-64bit",
+  "requirements_sha256": "a5a62ee82a1934b0fbc3461b9c03b281601a133aaa7e25ebd2e5e9c9d425f08b",
+  "configuration_sha256": "fe0bef9c71f983f85da08ee318621eb4383e844e3e13b70293a2308d59a2bfaa",
+  "requirements": [
+    {
+      "package": "pillow",
+      "required": "==12.3.0",
+      "installed": "12.3.0"
+    },
+    {
+      "package": "sphinx",
+      "required": "==8.2.3",
+      "installed": "8.2.3"
+    },
+    {
+      "package": "sphinx-copybutton",
+      "required": "==0.5.2",
+      "installed": "0.5.2"
+    },
+    {
+      "package": "sphinx-design",
+      "required": "==0.6.1",
+      "installed": "0.6.1"
+    },
+    {
+      "package": "sphinx-gallery",
+      "required": "==0.19.0",
+      "installed": "0.19.0"
+    },
+    {
+      "package": "sphinx-rtd-theme",
+      "required": "==3.0.1",
+      "installed": "3.0.1"
+    }
+  ],
+  "pip_check": "No broken requirements found.",
+  "command": "python -m sphinx -E -W --keep-going -b html docs /tmp/metplus-full-html",
+  "configuration_overrides": [],
+  "build_exit_code": 0,
+  "diagnostics": [],
+  "intersphinx_messages": [
+    "loading intersphinx inventory 'numpy' from https://docs.scipy.org/doc/numpy/objects.inv ...",
+    "intersphinx inventory has moved: https://docs.scipy.org/doc/numpy/objects.inv -> https://numpy.org/doc/stable/objects.inv"
+  ],
+  "limitations": "Local Python 3.12/macOS validation with exact requirements and original configuration; not a recreation of the Ubuntu 22.04 RTD container."
+}

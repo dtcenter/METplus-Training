@@ -1,0 +1,99 @@
+{
+  "browser": "Firefox 158.0.1",
+  "widths": [
+    390,
+    769,
+    1280
+  ],
+  "cases": 12,
+  "page_overflow": [],
+  "failed_scrollers": [],
+  "broken_images": [],
+  "pages": [
+    {
+      "page": "Basic_Verification_Statistics_Review.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 36
+    },
+    {
+      "page": "Basic_Verification_Statistics_Review.html",
+      "viewport": 769,
+      "documentWidth": 754,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 28
+    },
+    {
+      "page": "Basic_Verification_Statistics_Review.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 10
+    },
+    {
+      "page": "Preliminary_work_METplus_setup.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 57
+    },
+    {
+      "page": "Preliminary_work_METplus_setup.html",
+      "viewport": 769,
+      "documentWidth": 754,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 52
+    },
+    {
+      "page": "Preliminary_work_METplus_setup.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 16
+    },
+    {
+      "page": "Session_1_Grid-to-Grid.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 88
+    },
+    {
+      "page": "Session_1_Grid-to-Grid.html",
+      "viewport": 769,
+      "documentWidth": 754,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 82
+    },
+    {
+      "page": "Session_1_Grid-to-Grid.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 18
+    },
+    {
+      "page": "Session_2_Grid-to-Obs.html",
+      "viewport": 390,
+      "documentWidth": 375,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 92
+    },
+    {
+      "page": "Session_2_Grid-to-Obs.html",
+      "viewport": 769,
+      "documentWidth": 754,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 85
+    },
+    {
+      "page": "Session_2_Grid-to-Obs.html",
+      "viewport": 1280,
+      "documentWidth": 1265,
+      "all_containers_scroll": true,
+      "overflowing_containers_tested": 25
+    }
+  ],
+  "note": "Local first-four-chapter rendering after source repairs; MathJax startup awaited, restored usage-table and literal samples inspected. Temporary screenshots in /tmp/metplus-fidelity-browser."
+}

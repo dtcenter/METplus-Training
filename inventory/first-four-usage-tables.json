@@ -1,0 +1,347 @@
+[
+  {
+    "chapter": "Session_1_Grid-to-Grid",
+    "caption": "Usage: pcp_combine",
+    "cells": [
+      [
+        "[[-sum] sum_args] | [-add input_files] | [-subtract input_files] | [-derive stat_list input_files] (Note: \"|\" means \"or\")",
+        ""
+      ],
+      [
+        "[-sum] sum_args",
+        "Data from multiple files containing the same accumulation interval should be summed up using the arguments provided."
+      ],
+      [
+        "-add input_files",
+        "Data from one or more files should be added together where the accumulation interval is specified separately for each input file."
+      ],
+      [
+        "-subtract input_files",
+        "Data from exactly two files should be subtracted."
+      ],
+      [
+        "-derive stat_list input_files",
+        "The comma-separated list of statistics in \"stat_list\" (sum, min, max, range, mean, stdev, vld_count) should be derived using data from one or more files."
+      ],
+      [
+        "out_file",
+        "Output NetCDF file to be written."
+      ],
+      [
+        "[-field string]",
+        "Overrides the default use of accumulated precipitation (optional)."
+      ],
+      [
+        "[-name list]",
+        "Overrides the default NetCDF variable name(s) to be written (optional)."
+      ],
+      [
+        "[-vld_thresh n]",
+        "Overrides the default required ratio of valid data (1) (optional)."
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file"
+      ],
+      [
+        "[-v level]",
+        "Level of logging"
+      ],
+      [
+        "[-compress level]",
+        "NetCDF file compression"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-1-grid-grid/met-tool-pcp-combine"
+  },
+  {
+    "chapter": "Session_1_Grid-to-Grid",
+    "caption": "Usage: plot_data_plane",
+    "cells": [
+      [
+        "input_filename",
+        "Input file containing gridded data to be be plotted"
+      ],
+      [
+        "output_filename",
+        "Output PostScript file to be written"
+      ],
+      [
+        "field_string",
+        "String defining the data to be plotted"
+      ],
+      [
+        "[-color_table name]",
+        "Overrides the default color table (optional)"
+      ],
+      [
+        "[-plot_range min max]",
+        "Specifies the range of data to be plotted (optional)"
+      ],
+      [
+        "[-title string]",
+        "Specifies the plot title string (optional)"
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file"
+      ],
+      [
+        "[-v level]",
+        "Level of logging"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-1-grid-grid/met-tool-plot-data-plane"
+  },
+  {
+    "chapter": "Session_1_Grid-to-Grid",
+    "caption": "Usage: gen_vx_mask",
+    "cells": [
+      [
+        "input_file",
+        "Gridded data file defining the domain"
+      ],
+      [
+        "mask_file",
+        "Defines the masking region and varies by -type"
+      ],
+      [
+        "out_file",
+        "Output NetCDF mask file to be written"
+      ],
+      [
+        "-type string",
+        "Masking type: poly, poly_xy, box, circle, track, grid, data, solar_alt, solar_azi, lat, lon, shape"
+      ],
+      [
+        "[-input_field string]",
+        "Define field from input_file for grid point initialization values, rather than 0."
+      ],
+      [
+        "[-mask_field string]",
+        "Define field from mask_file for data masking."
+      ],
+      [
+        "[-complement, -union, -intersection, -symdiff]",
+        "Set logic for combining input_field initialization values with the current mask values."
+      ],
+      [
+        "[-thresh string]",
+        "Define threshold for circle, track, data, solar_alt, solar_azi, lat, and lon masking types."
+      ],
+      [
+        "[-height n, -width n]",
+        "Define dimensions for box masking."
+      ],
+      [
+        "[-shapeno n]",
+        "Define the index of the shape for shapefile masking."
+      ],
+      [
+        "[-value n]",
+        "Output mask value to be written, rather than 1."
+      ],
+      [
+        "[-name str]",
+        "Specifies the name to be used for the mask."
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file"
+      ],
+      [
+        "[-v level]",
+        "Level of logging"
+      ],
+      [
+        "[-compress level]",
+        "NetCDF compression level"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-1-grid-grid/met-tool-gen-vx-mask"
+  },
+  {
+    "chapter": "Session_1_Grid-to-Grid",
+    "caption": "Usage: grid_stat",
+    "cells": [
+      [
+        "fcst_file",
+        "Input gridded forecast file containing the field(s) to be verified."
+      ],
+      [
+        "obs_file",
+        "Input gridded observation file containing the verifying field(s)."
+      ],
+      [
+        "config_file",
+        "GridStatConfig file containing the desired configuration settings."
+      ],
+      [
+        "[-outdir path]",
+        "Overrides the default output directory (optional)."
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file (optional)."
+      ],
+      [
+        "[-v level]",
+        "Level of logging (optional)."
+      ],
+      [
+        "[-compress level]",
+        "NetCDF compression level (optional)."
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-1-grid-grid/met-tool-grid-stat"
+  },
+  {
+    "chapter": "Session_2_Grid-to-Obs",
+    "caption": "Usage: pb2nc",
+    "cells": [
+      [
+        "prepbufr_file",
+        "input prepbufr path/filename"
+      ],
+      [
+        "netcdf_file",
+        "output netcdf path/filename"
+      ],
+      [
+        "config_file",
+        "configuration path/filename"
+      ],
+      [
+        "[-pbfile prepbufr_file]",
+        "additional input files"
+      ],
+      [
+        "[-valid_beg time]",
+        "Beginning of valid time window [YYYYMMDD_[HH[MMSS]]]"
+      ],
+      [
+        "[-valid_end time]",
+        "End of valid time window [YYYYMMDD_[HH[MMSS]]]"
+      ],
+      [
+        "[-nmsg n]",
+        "Number of PrepBufr messages to process"
+      ],
+      [
+        "[-index]",
+        "List available observation variables by message type (no output file)"
+      ],
+      [
+        "[-dump path]",
+        "Dump entire contents of PrepBufr file to directory"
+      ],
+      [
+        "[-obs_var var]",
+        "Sets the variable list to be saved from input BUFR files"
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file"
+      ],
+      [
+        "[-v level]",
+        "Level of logging"
+      ],
+      [
+        "[-compression level]",
+        "NetCDF file compression"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-2-grid-obs/met-tool-pb2nc"
+  },
+  {
+    "chapter": "Session_2_Grid-to-Obs",
+    "caption": "Usage: ascii2nc",
+    "cells": [
+      [
+        "ascii_file1 [...]",
+        "One or more input ASCII path/filename"
+      ],
+      [
+        "netcdf_file",
+        "Output NetCDF path/filename"
+      ],
+      [
+        "[-format ASCII_format]",
+        "Set to met_point , little_r , surfrad , wwsis , aeronet, aeronetv2, aeronetv3, or python"
+      ],
+      [
+        "[-config file]",
+        "Configuration file to specify how observation data should be summarized"
+      ],
+      [
+        "[-mask_grid string]",
+        "Named grid or a gridded data file for filtering point observations spatially"
+      ],
+      [
+        "[-mask_poly file]",
+        "Polyline masking file for filtering point observations spatially"
+      ],
+      [
+        "[-mask_sid file|list]",
+        "Specific station ID's to be used in an ASCII file or comma-separted list"
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file"
+      ],
+      [
+        "[-v level]",
+        "Level of logging"
+      ],
+      [
+        "[-compress level]",
+        "NetCDF compression level"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-2-grid-obs/met-tool-ascii2nc"
+  },
+  {
+    "chapter": "Session_2_Grid-to-Obs",
+    "caption": "Usage: point_stat",
+    "cells": [
+      [
+        "fcst_file",
+        "Input gridded file path/name"
+      ],
+      [
+        "obs_file",
+        "Input NetCDF observation file path/name"
+      ],
+      [
+        "config_file",
+        "Configuration file"
+      ],
+      [
+        "[-point_obs file]",
+        "Additional NetCDF observation files to be used (optional)"
+      ],
+      [
+        "[-obs_valid_beg time]",
+        "Sets the beginning of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)"
+      ],
+      [
+        "[-obs_valid_end time]",
+        "Sets the end of the matching time window in YYYYMMDD[_HH[MMSS]] format (optional)"
+      ],
+      [
+        "[-outdir path]",
+        "Overrides the default output directory (optional)"
+      ],
+      [
+        "[-log file]",
+        "Outputs log messages to the specified file (optional)"
+      ],
+      [
+        "[-v level]",
+        "Level of logging (optional)"
+      ]
+    ],
+    "source_page": "/metplus-practical-session-guide-version-5-0/session-2-grid-obs/met-tool-point-stat"
+  }
+]
