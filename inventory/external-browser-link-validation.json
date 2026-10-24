@@ -1,0 +1,46 @@
+{
+  "browser": "Firefox 158.0.1",
+  "reviewed_local_date": "2026-10-23",
+  "pages": [
+    {
+      "name": "natural-earth",
+      "requested_url": "https://www.naturalearthdata.com/",
+      "url": "https://www.naturalearthdata.com/",
+      "title": "Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales",
+      "status": 200,
+      "finding": "Homepage content is accessible in Firefox despite requests HTTP 406."
+    },
+    {
+      "name": "natural-earth-downloads",
+      "requested_url": "https://www.naturalearthdata.com/downloads/",
+      "url": "https://www.naturalearthdata.com/downloads/",
+      "title": "Natural Earth \u00bb Downloads - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales",
+      "status": 200,
+      "finding": "Downloads content is accessible in Firefox despite requests HTTP 406."
+    },
+    {
+      "name": "legacy-tools",
+      "requested_url": "https://dtcenter.org/community-code-legacy-tools",
+      "url": "https://dtcenter.org/community-code-legacy-tools",
+      "title": "Community Code | Legacy Tools | dtcenter.org",
+      "status": 200,
+      "finding": "DTC says documentation/tutorial access for these legacy packages ended in April 2024."
+    },
+    {
+      "name": "met-help",
+      "requested_url": "https://mailman.ucar.edu/pipermail/met_help",
+      "url": "https://mailman.ucar.edu/pipermail/met_help/",
+      "title": "The Met_help Archives",
+      "status": 200,
+      "finding": "Archive index and monthly archive links are visible in Firefox despite requests HTTP 403."
+    },
+    {
+      "name": "navy-atcf",
+      "requested_url": "https://www.nrlmry.navy.mil/atcf_web/docs/database/new/abdeck.txt",
+      "url": "https://www.nrl.navy.mil/Our-Work/Field-Sites/NRL-Monterey-California/",
+      "title": "NRL Monterey - California",
+      "status": 200,
+      "finding": "Redirects to the NRL Monterey location page; the requested abdeck.txt document is not served."
+    }
+  ]
+}

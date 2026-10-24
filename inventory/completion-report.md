@@ -82,3 +82,9 @@ Firefox enabled a sampled desktop/narrow-window visual review of all 14 chapters
 The earlier-chapter repairs in `e745ace` are confirmed in published HTML and published RST source. The authorized responsive pass now contains long prose identifiers, literal blocks, tables, and math through the narrow desktop/sidebar breakpoint. All 14 chapters plus three index pages pass 153 Firefox page/width checks with no page-level overflow, broken images, or failed horizontal-scroll tests. This supersedes the preceding nine-chapter overflow finding for the local responsive build.
 
 The comparison also caught four literal 40-asterisk log separators removed in the previous formatting pass; they are restored from Drupal, and the earlier-chapter validator now detects that class of loss. The strict comparison build remains warning-free and all fidelity/emphasis checks pass. See [responsive report](responsive-layout-report.md) for exact scope, deployment status, evidence, and limitations.
+
+## Published responsive verification and fresh link baseline
+
+The published stylesheet and tutorial content now match `5218457`, and all 153 live Firefox page/width cases pass without page-level overflow, broken images, or failed scroll tests. The authorized fresh link audit covers the v5.0 index and 14 chapters: 728 occurrences, 399 unique targets, and 315 verified HTML fragments, with no missing internal pages/anchors.
+
+Browser follow-up shows MET-Help and both Natural Earth pages are accessible despite automated HTTP errors. Navy's ATCF document remains unavailable at its source URL, and two DTC URLs (GFDL Tracker downloads and NWP Containers) now serve a retirement notice instead of the requested materials. Original URLs are preserved. This updates the earlier two-source-exception summary; details, limits, and the new link baseline are in [the final verification and audit report](fresh-link-audit-report.md).

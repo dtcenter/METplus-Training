@@ -29,3 +29,7 @@ The deployment/content comparison additionally exposed an error in the preceding
 Evidence: [responsive browser results](responsive-layout-validation.json), [earlier-chapter checks](early-chapter-validation.json), and [conversion regression](responsive-conversion-validation.json). Screenshots are temporary artifacts in `/tmp/metplus-responsive-browser` and `/tmp/metplus-responsive-math` and are not committed.
 
 The original outstanding-link list and the two inaccessible external source URLs remain separate from this layout work. The checks above describe the local responsive build; the initial deployment check establishes publication of `e745ace`, not of this subsequent CSS change.
+
+## Published verification
+
+The responsive stylesheet and content from `5218457` are now confirmed on RTD. All 153 live browser cases pass the same overflow, image, and scrolling checks. See [the published verification and fresh link audit](fresh-link-audit-report.md) for evidence and remaining external-content findings.
