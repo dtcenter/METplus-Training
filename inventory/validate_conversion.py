@@ -48,6 +48,13 @@ def canonical(url):
         url += '/index.html'
     if url == 'ftp://ftp.nhc.noaa.gov/atcf/archive':
         url = 'https://ftp.nhc.noaa.gov/atcf/archive/'
+    # User-authorized substitutions for destinations retired by DTC.
+    url = {
+        'https://dtcenter.org/community-code/gfdl-vortex-tracker/download':
+            'https://github.com/hafs-community/gfdl-tracker',
+        'https://dtcenter.org/community-code/numerical-weather-prediction-nwp-containers':
+            'https://github.com/NCAR/container-dtc-nwp',
+    }.get(url.rstrip('/'), url)
     return url
 
 
@@ -141,6 +148,18 @@ def main():
                 expected_text = re.sub(r'(?:https?|ftp)://[^\s<>]+',
                                        lambda m: canonical(m[0]), original)
                 expected_text = expected_text.replace('Chapter 14', 'the MODE chapter')
+                # Explicitly approved link and status wording updates for the
+                # two DTC destinations retired after the historical tutorial.
+                if n == 6 and 'freely available and supported vortex tracking' in expected_text:
+                    expected_text = ('Model data must be run through a vortex tracking algorithm '
+                                     'before it can be used as input to MET-TC. Running a vortex '
+                                     'tracker is outside the scope of this tutorial. The GFDL '
+                                     'Vortex Tracker source code is available in the HAFS '
+                                     'community repository.')
+                if n == 8 and 'Numerical Weather Prediction (NWP) Containers' in expected_text:
+                    expected_text = ('DTC NWP containers repository archived project resources '
+                                     'for running WPS, GSI, WRF, UPP, MET, and METviewer in '
+                                     'containers. DTC support ended in 2022.')
                 if n == 8:
                     expected_text = expected_text.replace('completed Session 5!', 'completed Session 8!')
                     expected_text = expected_text.replace('<folder_tmpl> </folder_tmpl>',

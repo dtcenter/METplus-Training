@@ -36,4 +36,15 @@ python audit_tutorial_links.py --report /tmp/fresh-link-audit.json --cache /tmp/
 
 [Raw link results](fresh-link-audit.json) retain the automated exceptions; [browser follow-up](external-browser-link-validation.json) records the final classifications. Binary endpoints were accessed by streamed GET and closed without downloading full data files. The audit excludes sidebar navigation, email delivery, external pages' onward links, and interactive app behavior. It does not verify scientific correctness, historical runtime compatibility, or every external page's semantic content.
 
-No tutorial text, versions, styles, or link destinations changed in this verification/audit pass. Historical URLs remain intact. A future source-content repair would require verified historical replacements for the three unavailable destinations; this report does not assert that such replacements exist.
+No tutorial text, versions, styles, or link destinations changed in the original verification/audit pass. Historical URLs remain intact in its machine-readable baseline.
+
+## Approved link replacements
+
+After the audit, the user supplied a replacement for Navy ATCF `abdeck.txt`: `https://science.nrlmry.navy.mil/atcf/docs/database/new/abdeck.txt`. A direct content check confirmed that it serves the ATCF best-track/aids/bogus format document. The source URL in the tutorial is retained pending that separate authorization.
+
+The user approved these replacements for the two retired DTC destinations:
+
+- **Session 6:** The GFDL Vortex Tracker download link now points to the public [HAFS community tracker repository](https://github.com/hafs-community/gfdl-tracker). Wording now identifies it as source code and no longer calls it supported. The GFDL guide's 2018 version and the DTC legacy notice were checked; current maintenance/support is not claimed.
+- **Session 8:** The NWP Containers tutorial bullet now points to the [NCAR container repository](https://github.com/NCAR/container-dtc-nwp). Wording describes archived resources and states that DTC support ended in 2022, consistent with the repository notice. The former online tutorial is not represented as available.
+
+These are destination and explanatory-text changes, not exercise upgrades. The raw link-audit JSON above remains a pre-change snapshot. The source-fidelity validator explicitly maps the two original URLs to their approved destinations and accounts for the two text updates. After these edits, the strict full build passed with zero warnings/errors, and the Sessions 3–11/survey source comparison passed with no literal, link, prose, or scoped diagnostic errors. The first-four fidelity and emphasis validators also passed.

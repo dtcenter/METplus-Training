@@ -16,7 +16,7 @@ METviewer
 
 METviewer is a database and display system for storing and plotting data from the MET **.stat** and MODE **_obj.txt** files. It is used heavily within the DTC and by NOAA-GSD and NOAA-EMC. While its distribution is limited, it is available to the community through a Docker container. For more information, please see:
 
-* `Numerical Weather Prediction (NWP) Containers <https://dtcenter.org/community-code/numerical-weather-prediction-nwp-containers>`_ DTC tutorial to run WPS, GSI, WRF, UPP, MET, and METviewer with containers.
+* `DTC NWP containers repository <https://github.com/NCAR/container-dtc-nwp>`_ — archived project resources for running WPS, GSI, WRF, UPP, MET, and METviewer in containers. DTC support ended in 2022.
 * METviewer Source Code GitHub repository (`https://github.com/dtcenter/metviewer <https://github.com/dtcenter/metviewer>`_)
 * METviewer Container GitHub repository (`https://github.com/dtcenter/container-dtc-metviewer <https://github.com/dtcenter/container-dtc-metviewer>`_)
 

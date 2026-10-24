@@ -1,5 +1,5 @@
 {
-  "note": "Explicit historical-source URL aliases for local Sphinx sections and previously authorized component versions. Query-only documentation search highlighting is presentation metadata. No exercise commands are normalized by this policy.",
+  "note": "Explicit source URL aliases for local Sphinx sections, previously authorized component versions, and the user-approved replacements for the two retired DTC destinations. Query-only documentation search highlighting is presentation metadata. No exercise commands are normalized by this policy.",
   "local_suffixes": {
     "/basic-statistics-review/categorical-forecasts/metplus-solutions-deterministic-forecast-verification": "Basic_Verification_Statistics_Review.html#metplus-solutions-bin-cat-for-verif",
     "/basic-statistics-review/categorical-forecasts/deterministic-skill-scores": "Basic_Verification_Statistics_Review.html#hss-skill-score",
@@ -31,6 +31,8 @@
     "/setting-tutorial-environment": "Preliminary_work_METplus_setup.html#set-tut-env-cheyenne"
   },
   "external_aliases": {
-    "https://github.com/dtcenter/METdatadb": "https://github.com/dtcenter/METdataio"
+    "https://github.com/dtcenter/METdatadb": "https://github.com/dtcenter/METdataio",
+    "https://dtcenter.org/community-code/gfdl-vortex-tracker/download": "https://github.com/hafs-community/gfdl-tracker",
+    "https://dtcenter.org/community-code/numerical-weather-prediction-nwp-containers": "https://github.com/NCAR/container-dtc-nwp"
   }
 }

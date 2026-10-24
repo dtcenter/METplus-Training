@@ -1,6 +1,6 @@
 # METplus v5.0 conversion completion report
 
-**Current status:** The first-four-chapter source review and the full pinned documentation build are complete. The unmodified Sphinx configuration passes strictly with autodoc and intersphinx enabled. See [final fidelity/build report](first-four-fidelity-report.md). Earlier status statements below are historical checkpoints.
+**Current status:** The first-four-chapter source review and the full pinned documentation build are complete. The unmodified Sphinx configuration passes strictly with autodoc and intersphinx enabled. The retired DTC links in Sessions 6 and 8 have now been replaced with the user-approved GitHub repositories and their wording updated to disclose support status. See [final fidelity/build report](first-four-fidelity-report.md) and [link follow-up](fresh-link-audit-report.md#approved-link-replacements). Earlier status statements below are historical checkpoints.
 
 Completed 2026-10-23. Scope: Session 3 through Session 11 and Tutorial Survey (85 Drupal book pages consolidated into 10 RST files). Earlier completed chapters remain unchanged. This is a conversion of the existing v5.0 practical, not a component upgrade or verification that the historical exercises still run.
 
@@ -89,10 +89,14 @@ The comparison also caught four literal 40-asterisk log separators removed in th
 
 The published stylesheet and tutorial content now match `5218457`, and all 153 live Firefox page/width cases pass without page-level overflow, broken images, or failed scroll tests. The authorized fresh link audit covers the v5.0 index and 14 chapters: 728 occurrences, 399 unique targets, and 315 verified HTML fragments, with no missing internal pages/anchors.
 
-Browser follow-up shows MET-Help and both Natural Earth pages are accessible despite automated HTTP errors. Navy's ATCF document remains unavailable at its source URL, and two DTC URLs (GFDL Tracker downloads and NWP Containers) now serve a retirement notice instead of the requested materials. Original URLs are preserved. This updates the earlier two-source-exception summary; details, limits, and the new link baseline are in [the final verification and audit report](fresh-link-audit-report.md).
+Browser follow-up shows MET-Help and both Natural Earth pages are accessible despite automated HTTP errors. Navy's ATCF document remains unavailable at its source URL. The two DTC destinations initially redirected to a retirement notice; user-approved GitHub repository replacements are now in the tutorial. The machine-readable link audit remains the historical pre-replacement snapshot; see [the final verification and audit report](fresh-link-audit-report.md).
 
 ## Final source review and full configuration validation
 
 The authorized first-four-chapter comparison covers 85 Drupal pages, 384 source code/output/legend blocks (383 literal checks plus the adapted overview legend), 198 source-link occurrences, 1,230 prose/callout units, and all 51 source image occurrences, including 22 existing native equation/table representations. Source conversion defects were repaired and six usage tables restored. All checks pass against the full configured build.
 
 A clean Python 3.12 environment with every exact docs requirement passes `-E -W --keep-going` with no configuration overrides, zero warnings/errors, autodoc and intersphinx enabled, and a successfully fetched NumPy inventory. This supersedes the earlier dependency/intersphinx comparison-build limitation for this final local validation; the host is macOS rather than RTD's Ubuntu container. The existing later-chapter fidelity and emphasis checks still pass. The requested reminder about the three unavailable destinations was delivered after step two. The next action is final maintainer review and merge/handoff; see [the final report](first-four-fidelity-report.md).
+
+## Approved documentation link replacements
+
+After the source review, the user approved replacing the retired GFDL Tracker and NWP Containers links with their public GitHub repositories. Session 6 now describes the tracker repository without claiming current support. Session 8 describes the NWP container repository as archived resources and states that DTC support ended in 2022. The full strict build, Sessions 3–11/survey source comparison, first-four fidelity validator, and emphasis validator all pass after these changes. The raw external-link audit remains the prior baseline; details are in [the follow-up](fresh-link-audit-report.md#approved-link-replacements).
