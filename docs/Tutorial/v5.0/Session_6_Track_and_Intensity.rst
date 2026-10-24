@@ -358,26 +358,28 @@ View the usage statement for TC-Stat by simply typing the following:
 
 **Usage: tc_stat**
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
+.. table::
 
-   * - Argument
-     - Description
-   * - ``-lookin path``
-     - TCST file or top-level directory containing TCST files (where TC-Pairs output resides). It allows the use of wildcards (at least one tcst file is required).
-   * - ``[-out file]``
-     - Output path or specific filename to which output should be written rather than the screen (optional).
-   * - ``[-log file]``
-     - Outputs log messages to the specified file
-   * - ``[-v level]``
-     - Level of logging
-   * - ``[-config config_file] | [ JOB COMMAND LINE ] (Note: "|" means "or")``
-     -
-   * - ``[-config config_file]``
-     - TCStat config file containing TC-Stat jobs to be run.
-   * - ``[JOB COMMAND LINE]``
-     - Arguments necessary to perform a TC-Stat job.
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | Argument                                 | Description                                                              |
+   +==========================================+==========================================================================+
+   | ``-lookin path``                         | TCST file or top-level directory containing TCST files (where TC-Pairs   |
+   |                                          | output resides). It allows the use of wildcards (at least one tcst file  |
+   |                                          | is required).                                                            |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-out file]``                          | Output path or specific filename to which output should be written       |
+   |                                          | rather than the screen (optional).                                       |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-log file]``                          | Outputs log messages to the specified file                               |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-v level]``                           | Level of logging                                                         |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-config config_file] | [ JOB COMMAND LINE ] (Note: "|" means "or")``                                             |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-config config_file]``                | TCStat config file containing TC-Stat jobs to be run.                    |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[JOB COMMAND LINE]``                   | Arguments necessary to perform a TC-Stat job.                            |
+   +------------------------------------------+--------------------------------------------------------------------------+
 
 
 At a minimum, you must specify at least one directory or file in which to find TCST data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.

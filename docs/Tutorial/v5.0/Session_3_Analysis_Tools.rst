@@ -112,28 +112,31 @@ View the usage statement for Stat-Analysis by simply typing the following:
 
 **Usage: stat_analysis**
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
+.. table::
 
-   * - Argument
-     - Description
-   * - ``-lookin path``
-     - Space-separated list of input paths where each is a _TYPE.txt file, STAT file, or directory which should be searched recursively for STAT files. Allows the use of wildcards (required).
-   * - ``[-out filename]``
-     - Output path or specific filename to which output should be written rather than the screen (optional).
-   * - ``[-tmp_dir path]``
-     - Override the default temporary directory to be used (optional).
-   * - ``[-log file]``
-     - Outputs log messages to the specified file
-   * - ``[-v level]``
-     - Level of logging
-   * - ``[-config config_file] | [JOB COMMAND LINE] (Note: "|" means "or")``
-     -
-   * - ``[-config config_file]``
-     - STATAnalysis config file containing Stat-Analysis jobs to be run.
-   * - ``[JOB COMMAND LINE]``
-     - All the arguments necessary to perform a single Stat-Analysis job. See the MET Users Guide for complete description of options.
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | Argument                                 | Description                                                              |
+   +==========================================+==========================================================================+
+   | ``-lookin path``                         | Space-separated list of input paths where each is a _TYPE.txt file, STAT |
+   |                                          | file, or directory which should be searched recursively for STAT files.  |
+   |                                          | Allows the use of wildcards (required).                                  |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-out filename]``                      | Output path or specific filename to which output should be written       |
+   |                                          | rather than the screen (optional).                                       |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-tmp_dir path]``                      | Override the default temporary directory to be used (optional).          |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-log file]``                          | Outputs log messages to the specified file                               |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-v level]``                           | Level of logging                                                         |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-config config_file] | [JOB COMMAND LINE] (Note: "|" means "or")``                                               |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[-config config_file]``                | STATAnalysis config file containing Stat-Analysis jobs to be run.        |
+   +------------------------------------------+--------------------------------------------------------------------------+
+   | ``[JOB COMMAND LINE]``                   | All the arguments necessary to perform a single Stat-Analysis job. See   |
+   |                                          | the MET Users Guide for complete description of options.                 |
+   +------------------------------------------+--------------------------------------------------------------------------+
 
 
 At a minimum, you must specify at least one directory or file in which to find STAT data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
