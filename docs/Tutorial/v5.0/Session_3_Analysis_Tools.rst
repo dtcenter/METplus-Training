@@ -9,7 +9,7 @@ During this practical session, you will run the tools indicated below:
    :alt: MET tool workflow highlighting Series-Analysis and Stat-Analysis for Session 3.
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
-Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment is Set Correctly**
 
@@ -93,14 +93,14 @@ MET Tool: Stat-Analysis
 
 **STAT-ANALYSIS FUNCTIONALITY**
 
-The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, and Ensemble-Stat tools. It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any .stat files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional _LINE_TYPE.txt files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
+The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any .stat files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional _LINE_TYPE.txt files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
 
-* The filter job simply filters out lines from one or more STAT files that meet the filtering options specified.
-* The summary job operates on one column of data from a single STAT line type. It produces summary information for that column of data: mean, standard deviation, min, max, and the 10th, 25th, 50th, 75th, and 90th percentiles.
-* The aggregate job aggregates STAT data across multiple time steps or masking regions. For example, it can be used to sum contingency table data or partial sums across multiple lines of data. The -line_type argument specifies the line type to be summed.
-* The aggregate_stat job also aggregates STAT data, like the aggregate job above, but then derives statistics from that aggregated STAT data. For example, it can be used to sum contingency table data and then write out a line of the corresponding contingency table statistics. The -line_type and -out_line_type arguments are used to specify the conversion type.
-* The ss_index job computes a skill-score index, of which the GO Index (go_index) is a special case. The GO Index is a performance metric used primarily by the United States Air Force.
-* The ramp job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
+* The filter job simply filters out lines from one or more STAT files that meet the filtering options specified.
+* The summary job operates on one or more columns of data from one or more STAT line types. It produces summary information for each column of data: mean, standard deviation, min, max, the 10th, 25th, 50th, 75th, and 90th percentiles, the interquartile range, the range, and the unweighted and weighted WMO means.
+* The aggregate job aggregates STAT data across multiple time steps or masking regions. For example, it can be used to sum contingency table data or partial sums across multiple lines of data. The -line_type argument specifies the line type to be summed.
+* The aggregate_stat job also aggregates STAT data, like the aggregate job above, but then derives statistics from that aggregated STAT data. For example, it can be used to sum contingency table data and then write out a line of the corresponding contingency table statistics. The -line_type and -out_line_type arguments are used to specify the conversion type.
+* The ss_index job computes a skill-score index, of which the GO Index (go_index) and the CBS Index (cbs_index) are special cases. The GO Index is a performance metric used primarily by the United States Air Force.
+* The ramp job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
 
 **STAT-ANALYSIS USAGE**
 
@@ -139,7 +139,7 @@ View the usage statement for Stat-Analysis by simply typing the following:
    +------------------------------------------+--------------------------------------------------------------------------+
 
 
-At a minimum, you must specify at least one directory or file in which to find STAT data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
+At a minimum, you must specify at least one directory or file in which to find STAT data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
 
 Configure
 ^^^^^^^^^
@@ -153,7 +153,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/stat_analysis
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/stat_analysis
 
-The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/STATAnalysisConfig_default>`_ file.
+The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/STATAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -165,17 +165,17 @@ The behavior of Stat-Analysis is controlled by the contents of the configuration
 
 .. note::
 
-  Open up the **STATAnalysisConfig_tutorial** file for editing with your preferred text editor.
+  Open up the **STATAnalysisConfig_tutorial** file for editing with your preferred text editor.
 
 .. code-block:: text
 
    vi STATAnalysisConfig_tutorial
 
-You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line.  If you go down to the jobs[] section you will see a list of the jobs run for the test scripts.
+You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line.  If you go down to the jobs[] section you will see that it is empty (jobs = [];).
 
 .. note::
 
-   Remove those existing jobs and add the following 2 analysis jobs:
+   Replace it with the following 2 analysis jobs:
 
 .. admonition:: File Contents
 
@@ -211,7 +211,7 @@ The output for these two jobs are printed to the screen.
 
 .. note::
 
-  Try redirecting their output to a file by adding the **-out** command line argument:
+  Try redirecting their output to a file by adding the **-out** command line argument:
 
 .. code-block:: text
 
@@ -221,7 +221,7 @@ The output for these two jobs are printed to the screen.
    -v 2 \
    -out aggr_ctc_lines.out
 
-The output was written to aggr_ctc_lines.out. We'll look at this file in the next section.
+The output was written to aggr_ctc_lines.out. We'll look at this file in the next section.
 
 .. note::
 
@@ -242,7 +242,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Next, run the same command but add the **-dump_row** command line option. This will redirect all of the STAT lines used by the job to a file. Also, add the **-out_stat** command line option. This will write a full STAT output file, including the 22 header columns:
+  Next, run the same command but add the **-dump_row** command line option. This will redirect all of the STAT lines used by the job to a file. Also, add the **-out_stat** command line option. This will write a full STAT output file, including the 24 header columns:
 
 .. code-block:: text
 
@@ -259,7 +259,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Open up the file **aggr_ctc_job.stat** to see the 2 STAT lines used by this job.
+  Open up the file **aggr_ctc_job.stat** to see the 2 STAT lines used by this job.
 
 .. code-block:: text
 
@@ -267,7 +267,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Open up the file **aggr_ctc_job_out.stat** to see the 1 output STAT line. Notice that the **FCST_LEV** and **OBS_LEV** columns contain the input strings concatenated together.
+  Open up the file **aggr_ctc_job_out.stat** to see the 1 output STAT line. Notice that the **FCST_LEV** and **OBS_LEV** columns contain the input strings concatenated together.
 
 .. code-block:: text
 
@@ -275,16 +275,16 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 
 .. note::
 
-  Try re-running this job using **-set_hdr FCST_LEV P1050-500** and **-set_hdr OBS_LEV P1050-500**. How does that affect the output?
+  Try re-running this job using **-set_hdr FCST_LEV P1050-500** and **-set_hdr OBS_LEV P1050-500**. How does that affect the output?
 
 .. important::
 
-  The use of the **-dump_row** option is **highly recommended** to ensure that your analysis jobs run on the exact set of data that you intended. It's easy to make mistakes here!
+  The use of the **-dump_row** option is **highly recommended** to ensure that your analysis jobs run on the exact set of data that you intended. It's easy to make mistakes here!
 
 Output
 ^^^^^^
 
-On the previous page, we generated the output file aggr_ctc_lines.out by using the -out command line argument.
+On the previous page, we generated the output file aggr_ctc_lines.out by using the -out command line argument.
 
 .. note::
 
@@ -292,13 +292,13 @@ On the previous page, we generated the output file aggr_ctc_lines.out by using
 
 This file contains the output for the two jobs we ran through the configuration file. The output for each job consists of 3 lines as follows:
 
-#. The JOB_LIST line contains the job filtering parameters applied for this job.
-#. The COL_NAME line contains the column names for the data to follow in the next line.
-#. The third line consists of the line type generated (CTC and CTS in this case) followed by the values computed for that line type.
+#. The JOB_LIST line contains the job filtering parameters applied for this job.
+#. The COL_NAME line contains the column names for the data to follow in the next line.
+#. The third line consists of the line type generated (CTC and CTS in this case) followed by the values computed for that line type.
 
 .. note::
 
-  Next, try running the Stat-Analysis tool on the output file **../point_stat/point_stat_run2_360000L_20070331_120000V.stat**. Start by running the following job:
+  Next, try running the Stat-Analysis tool on the output file **../point_stat/point_stat_run2_360000L_20070331_120000V.stat**. Start by running the following job:
 
 .. code-block:: text
 
@@ -325,7 +325,7 @@ This job should aggregate 2 CTC lines for 2-meter temperature across the EAST an
 
 .. note::
 
-  Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat** and specify the desired **-out_line_type**.
+  Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat** and specify the desired **-out_line_type**.
 
 How do the scores change when you increase the number of interpolation points? Did you expect this?
 
@@ -335,25 +335,25 @@ How do the scores change when you increase the number of interpolation points? D
 
 .. note::
 
-  Do the aggregation listed in (3) but compute the corresponding continuous statistics (CNT) line. Hint: use the **aggregate_stat** job type.
+  Do the aggregation listed in (3) but compute the corresponding continuous statistics (CNT) line. Hint: use the **aggregate_stat** job type.
 
 .. note::
 
-  Run an **aggregate_stat** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
+  Run an **aggregate_stat** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
 
 .. note::
 
-  Now answer this question about this Stat-Analysis output:
+  Now answer this question about this Stat-Analysis output:
 
-How do the scores compare to the original (separated by level) scores? What information is gained by aggregating the statistics?
-
-.. important::
-
-  When doing the exercises above, don't forget to use the **-dump_row** command line option to verify that you're running the job over the STAT lines you intended.
+How do the scores compare to the original (separated by masking region) scores? What information is gained by aggregating the statistics?
 
 .. important::
 
-  If you get stuck on any of these exercises, you may refer to the exercise answers on the next page. We will return to the Stat-Analysis tool in the future practical sessions.
+  When doing the exercises above, don't forget to use the **-dump_row** command line option to verify that you're running the job over the STAT lines you intended.
+
+.. important::
+
+  If you get stuck on any of these exercises, you may refer to the exercise answers on the next page. We will return to the Stat-Analysis tool in the future practical sessions.
 
 Exercise Answers
 ^^^^^^^^^^^^^^^^
@@ -444,7 +444,7 @@ In this use-case, Stat-Analysis is performing a simple filtering job and writing
 
       STAT_ANALYSIS_JOB1 = -job filter -dump_row [dump_row_file]
 
-Note: Several of the optional variables may be set to further stratify of the results. LOOP_LIST_ITEMS needs to have at least 1 entry for the use-case to run.
+Note: Several of the optional variables may be set to further stratify of the results. Lists named in LOOP_LIST_ITEMS are looped over, with a separate run for each item, while lists named in GROUP_LIST_ITEMS are grouped together into a single run.
 
 .. admonition:: File Contents
 
@@ -488,6 +488,7 @@ The following output file should been generated:
    vi ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/stat_analysis/12Z/WRF/WRF_2005080712.stat
 
 You will see there are many line types, verification masks, interpolation methods, and thresholds in the filtered file. NOTE: use ":" then "set nowrap" to be able to easily see the full line
+A job.out file, set by STAT_ANALYSIS_OUTPUT_TEMPLATE and passed to stat_analysis with the -out argument, is also written to ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/stat_analysis.
 If you look at the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs, you will see the how the Stat-Analysis command is built and what jobs it is processing. If you want to re-run, you can copy the call to stat_analysis and the path to the -lookin file after the "COMMAND:" (excluding the -config argument) and then everything after -job after "DEBUG 2: Processing Job 1:"
 
 .. admonition:: Sample Output
@@ -560,7 +561,7 @@ Which returns something that looks like the following:
 
       logs     metplus_final.conf.YYYYMMDDHHMMSS     tmp
 
-Why is there no stat_analysis directory? Because we removed the -dump_row flag from the STAT_ANALYSIS_JOB_ARGS line and removed the STAT_ANALYSIS_OUTPUT_TEMPLATE value. So did anything happen? The answer is yes. There is a command line option called "-out" controlled by STAT_ANALYSIS_OUTPUT_TEMPLATE which allows a user to define the name of an output filename to capture the aggregation in a file. If the "-out" option is not set, the output is written to the screen as standard output. Let's check the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run2/logs to see if the output is captured there.
+Why is there no stat_analysis directory? Because we removed the -dump_row flag from the STAT_ANALYSIS_JOB1 line and removed the STAT_ANALYSIS_OUTPUT_TEMPLATE value. So did anything happen? The answer is yes. There is a command line option called "-out" controlled by STAT_ANALYSIS_OUTPUT_TEMPLATE which allows a user to define the name of an output filename to capture the aggregation in a file. If the "-out" option is not set, the output is written to the screen as standard output. Let's check the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run2/logs to see if the output is captured there.
 
 .. note::
 
@@ -583,7 +584,7 @@ Have output written to .stat file
 
 .. note::
 
-  Edit the conf file and add an additional job called -out_stat, set the out_stat_template to the same as dump_row_template, and rerun
+  Edit the conf file and add the -out_stat job command option to STAT_ANALYSIS_JOB1, set the out_stat_template to the same as dump_row_template, and rerun
 
 .. code-block:: text
 
@@ -630,6 +631,10 @@ Have output written to .stat file
 
 You should see the .stat file now in the stat_analysis/12Z/WRF directory
 
+.. note::
+
+  The out_stat template does not include the threshold, so both OBS_THRESH_LIST runs write to the same .stat file. Each run overwrites the file, so it contains only the output for the last threshold processed.
+
 MET Tool: Series-Analysis
 -------------------------
 
@@ -673,7 +678,7 @@ View the usage statement for Series-Analysis by simply typing the following:
      - NetCDF compression level (optional).
 
 
-At a minimum, the -fcst, -obs (or -both), -out, and -config settings must be passed in on the command line. All forecast and observation fields must be interpolated to a common grid prior to running Series-Analysis.
+At a minimum, the -fcst, -obs (or -both), -out, and -config settings must be passed in on the command line. All forecast and observation fields must be on a common grid, either by interpolating them prior to running Series-Analysis or by using the regrid dictionary in the configuration file.
 
 Configure
 ^^^^^^^^^
@@ -687,7 +692,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/series_analysis
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/series_analysis
 
-The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the `data/config/SeriesAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
+The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the `data/config/SeriesAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -706,15 +711,15 @@ The configurable items for Series-Analysis are used to specify how the verificat
 * The smoothing methods to be applied.
 * The types of statistics to be computed.
 
-You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html#series-analysis-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html#series-analysis-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
-   For this tutorial, we'll run Series-Analysis to verify a time series of 3-hour accumulated precipitation. We'll use GRIB1 for the forecast files and NetCDF for the observation files. Since the forecast and observations are different file formats, we'll specify the **name** and **level** information for them slightly differently.
+   For this tutorial, we'll run Series-Analysis to verify a time series of 3-hour accumulated precipitation. We'll use GRIB1 for the forecast files and NetCDF for the observation files. Since the forecast and observations are different file formats, we'll specify the **name** and **level** information for them slightly differently.
 
 .. note::
 
-  Open up the **SeriesAnalysisConfig_tutorial** file for editing with your preferred text editor and edit it as follows:
+  Open up the **SeriesAnalysisConfig_tutorial** file for editing with your preferred text editor and edit it as follows:
 
 .. code-block:: text
 
@@ -722,7 +727,7 @@ You may find a complete description of the configurable items in the `series_ana
 
 .. note::
 
-  Set the **fcst** dictionary to
+  Set the **fcst** dictionary to
 
 .. admonition:: File Contents
 
@@ -741,7 +746,7 @@ To request the GRIB abbreviation for precipitation (APCP) accumulated over 3 hou
 
 .. note::
 
-  Delete **obs = fcst;** and insert
+  Delete **obs = fcst;** and insert
 
 .. admonition:: File Contents
 
@@ -756,7 +761,7 @@ To request the GRIB abbreviation for precipitation (APCP) accumulated over 3 hou
              ];
           }
 
-To request the NetCDF variable named APCP_03 where its two dimensions are the gridded dimensions (*,*).
+To request the NetCDF variable named APCP_03 where its two dimensions are the gridded dimensions (*,*).
 
 .. note::
 
@@ -768,11 +773,11 @@ To request the NetCDF variable named APCP_03 where its two dimensions are the 
 
       cat_thresh = [ >0.0, >=5.0 ];
 
-To define the categorical thresholds of interest. By defining this at the top level of config file context, these thresholds will be applied to both the fcst and obs settings.
+To define the categorical thresholds of interest. By defining this at the top level of config file context, these thresholds will be applied to both the fcst and obs settings.
 
 .. note::
 
-  In the **mask** dictionary, set
+  In the **mask** dictionary, set
 
 .. admonition:: File Contents
 
@@ -792,11 +797,11 @@ To limit the computation of statistics to only those grid points falling inside 
 
       block_size = 10000;
 
-To process 10,000 grid points in each pass through the data. Setting block_size larger should make the tool run faster but use more memory.
+To process 10,000 grid points in each pass through the data. Setting block_size larger should make the tool run faster but use more memory.
 
 .. note::
 
-  In the **output_stats** dictionary, set
+  In the **output_stats** dictionary, set
 
 .. admonition:: File Contents
 
@@ -825,7 +830,7 @@ Run
 
 .. note::
 
-  First, we need to prepare our observations by putting 1-hourly StageII precipitation forecasts into 3-hourly buckets. Create an output directory:
+  First, we need to prepare our observations by putting 1-hourly StageII precipitation observations into 3-hourly buckets. Create an output directory:
 
 .. code-block:: text
 
@@ -913,13 +918,13 @@ Note that the previous set of PCP-Combine commands could easily be run by loopin
    -v 2
 
 The statistics we requested in the configuration file will be computed separately for each grid location and accumulated over a time series of eight three-hour accumulations over a 24-hour period. Each grid point will have up to 8 matched pair values.
-Note how long this command line is. Imagine how long it would be for a series of 100 files! Instead of listing all of the input files on the command line, you can list them in an ASCII file and pass that to Series-Analysis using the -fcst and -obs options.
+Note how long this command line is. Imagine how long it would be for a series of 100 files! Instead of listing all of the input files on the command line, you can list them in an ASCII file and pass that to Series-Analysis using the -fcst and -obs options.
 
 Output
 ^^^^^^
 
 The output of Series-Analysis is one NetCDF file containing the requested output statistics for each grid location on the same grid as the input files.
-You may view the output NetCDF file that Series-Analysis wrote using the ncdump utility. Run the following command to view the header of the NetCDF output file:
+You may view the output NetCDF file that Series-Analysis wrote using the ncdump utility. Run the following command to view the header of the NetCDF output file:
 
 .. code-block:: text
 
@@ -927,16 +932,16 @@ You may view the output NetCDF file that Series-Analysis wrote using the ncdump
 
 In the NetCDF header, we see that the file contains many arrays of data. For each threshold (>0.0 and >=5.0), there are values for the requested statistics: F_RATE, O_RATE, FY_OY, FN_ON, CSI, and GSS. The file also contains the requested RMSE and TOTAL number of matched pairs for each grid location over the 24-hour period.
 
-Next, run the ncview utility to display the contents of the NetCDF output file:
+Next, run the ncview utility to display the contents of the NetCDF output file:
 
 .. code-block:: text
 
    ncview series_analysis_2005080700_2005080800_3A.nc &
 
-Click through the different variables to see how the performance varies over the domain. Looking at the series_cnt_RMSEvariable, are the errors larger in the south eastern or north western regions of the United States?
-Why does the extent of missing data increase for CSI for the higher threshold? Compare series_cts_CSI_gt0.0 to series_cts_CSI_ge5.0. (Hint: Find the definition of `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ in the MET User's Guide and look closely at the denominator.)
-Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. series_fho_O_RATE_gt0.0). Since the valid range of values for this data is 0 to 1, use that to set the -plot_range option.
-Setting block_size to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
+Click through the different variables to see how the performance varies over the domain. Looking at the series_cnt_RMSEvariable, are the errors larger in the south eastern or north western regions of the United States?
+Why does the extent of missing data increase for CSI for the higher threshold? Compare series_cts_CSI_gt0.0 to series_cts_CSI_ge5.0. (Hint: Find the definition of `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ in the MET User's Guide and look closely at the denominator.)
+Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. series_fho_O_RATE_gt0.0). Since the valid range of values for this data is 0 to 1, use that to set the -plot_range option.
+Setting block_size to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
 
 METplus Use Case: SeriesAnalysis
 --------------------------------
@@ -973,7 +978,7 @@ This use-case shows a simple example of running Series-Analysis across precipita
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/SeriesAnalysis/SeriesAnalysis.conf
 
-Note: Forecast and observation variables are referred to individually including reference to both the NAMES and LEVELS, which relate to .
+Note: Forecast and observation variables are referred to individually including reference to both the NAMES and LEVELS, which relate to the name and level entries in the MET configuration file.
 
 .. admonition:: File Contents
 
@@ -1058,7 +1063,7 @@ You should have output file in the following directories:
 
 .. code-block:: text
 
-   ncdump -h 2005080700_sa.nc
+   ncdump -h ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_sa.nc
 
 .. admonition:: Sample Output
 
@@ -1118,12 +1123,12 @@ From this output, we can see CNT line type statistics: TOTAL, RMSE, FBAR, and OB
 
 .. code-block:: text
 
-   ncview 2005080700_sa.nc
+   ncview ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_sa.nc
 
 From the GUI that pops up, select the series_cnt_RMSE variable to view it. The image that displays is the RMSE value calculated at each grid point across the three lead times selected in the METplus configuration file.
 
 There are two more files located in the output directory that while not statistically useful, do contain information on how METplus ran the SeriesAnalysis configuration file.
-FCST_FILES contains all of the files that were found fitting the input templates for the forecast files. These are controlled by FCST_SERIES_ANALYSIS_INPUT_DIR and FCST_SERIES_ANALYSIS_INPUT_TEMPLATE. In our configuration file, these are set to
+The forecast list file, series_analysis_files_fcst_init_20050807000000_valid_ALL_lead_ALL.txt, contains all of the files that were found fitting the input templates for the forecast files. These are controlled by FCST_SERIES_ANALYSIS_INPUT_DIR and FCST_SERIES_ANALYSIS_INPUT_TEMPLATE. In our configuration file, these are set to
 
 .. admonition:: File Contents
 
@@ -1132,13 +1137,13 @@ FCST_FILES contains all of the files that were found fitting the input templates
       FCST_SERIES_ANALYSIS_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
       FCST_SERIES_ANALYSIS_INPUT_TEMPLATE = {init?fmt=%Y%m%d%H}/wrfprs_ruc13_{lead?fmt=%2H}.tm00_G212
 
-Because {INPUT_BASE} is not changing for this run and the use case uses one initialization time, the lead sequences, set with the LEAD_SEQ variable and substituted in for {lead?fmt=%2H} in FCST_SERIES_ANALYSIS_INPUT_TEMPLATE, are what causes multiple files to be found. Specifically, FCST_FILES has three listed files, matching the LEAD_SEQ list from the configuration file.
+Because {INPUT_BASE} is not changing for this run and the use case uses one initialization time, the lead sequences, set with the LEAD_SEQ variable and substituted in for {lead?fmt=%2H} in FCST_SERIES_ANALYSIS_INPUT_TEMPLATE, are what causes multiple files to be found. Specifically, the forecast list file has three listed files, matching the LEAD_SEQ list from the configuration file.
 
 .. code-block:: text
 
-   less FCST_FILES
+   less ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/series_analysis_files_fcst_init_20050807000000_valid_ALL_lead_ALL.txt
 
-Likewise, OBS_FILES contains all of the files that were found fitting the input templates for the observation files. These were controlled by OBS_SERIES_ANALYSIS_INPUT_DIR and OBS_SERIES_ANALYSIS_INPUT_TEMPLATE found in the configuration file.
+Likewise, the observation list file, series_analysis_files_obs_init_20050807000000_valid_ALL_lead_ALL.txt, contains all of the files that were found fitting the input templates for the observation files. These were controlled by OBS_SERIES_ANALYSIS_INPUT_DIR and OBS_SERIES_ANALYSIS_INPUT_TEMPLATE found in the configuration file.
 
 .. note::
 
@@ -1158,7 +1163,7 @@ Inside the log file all of the configuration options are listed, as well as the 
 
       /usr/local/met-11.0.0/bin/series_analysis -fcst /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/FCST_FILES -obs /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/OBS_FILES -out /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_sa.nc -config /usr/local/METplus-4.0.0/parm/met_config/SeriesAnalysisConfig_wrapped -v 2
 
-Note that FCST_FILES and OBS_FILES were passed at runtime, rather than individual files.
+Note that the forecast and observation list files were passed at runtime, rather than individual files.
 There's also room for improvement noted in the low level verbosity comments of the log file:
 
 .. admonition:: Sample Output

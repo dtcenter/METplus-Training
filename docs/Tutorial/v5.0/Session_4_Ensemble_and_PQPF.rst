@@ -5,7 +5,7 @@ Session 4: Ensemble and PQPF
 
 During this practical session, you will run the tools indicated below:
 
-Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 .. figure:: ../figure/5.0_Practical_Session_4.png
    :alt: MET tool workflow highlighting the tools used in Session 4.
@@ -157,7 +157,7 @@ Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the co
 
 .. note::
 
-   Open up the **GenEnsProdConfig_tutorial** file for editing with your preferred text editor.
+   Open up the **GenEnsProdConfig_tutorial** file for editing with your preferred text editor.
 
 .. code-block:: text
 
@@ -208,7 +208,7 @@ The configuration file also does not have the ability to request statistical lin
 
   You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html#gen-ens-prod-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
-For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated precipitation. While we'll run Ensemble-Stat on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're verifying consists of 6 members defined over the west coast of the United States.
+For this tutorial, we'll configure Gen-Ens-Prod to create ensemble products for 24-hour accumulated precipitation. While we'll run Gen-Ens-Prod on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're using consists of 6 members defined over the west coast of the United States.
 
 .. note::
 
@@ -280,8 +280,6 @@ Run
 
 Gen-Ens-Prod creates the products we requested in the configuration file, using the categorical thresholds specified. Note that we've passed the input ensemble data directly on the command line by specifying the ensemble member names using wildcards.
 When Gen-Ens-Prod has completed running, there will be 1 netCDF output file, GenEnsProd_APCP24.nc
-
-(content)
 
 Output
 ^^^^^^
@@ -385,8 +383,8 @@ View the usage statement for Ensemble-Stat by simply typing the following:
 
    ensemble_stat
 
-At a minimum, the input gridded ensemble files and the configuration config_file must be passed in on the command line. You can specify the list of ensemble files to be used either as a count of the number of ensemble members followed by the file name for each (n_ens ens_fil e_1 ... ens_file_n) or as an ASCII file containing the names of the ensemble files to be used (ens_file_list). Choose whichever way is most convenient for you. The optional -grid_obs and -point_obs command line options may be used to specify gridded and/or point observations to be used for computing rank histograms and other ensemble statistics.
-As with the other MET statistics tools, all ensemble data and gridded verifying observations must be interpolated to a common grid prior to processing. This may be done using the automated regrid feature in the Ensemble-Stat configuration file or by running copygb and/or wgrib2 first.
+At a minimum, the input gridded ensemble files and the configuration config_file must be passed in on the command line. You can specify the list of ensemble files to be used either as a count of the number of ensemble members followed by the file name for each (n_ens ens_fil e_1 ... ens_file_n) or as an ASCII file containing the names of the ensemble files to be used (ens_file_list). Choose whichever way is most convenient for you. The optional -grid_obs and -point_obs command line options may be used to specify gridded and/or point observations to be used for computing rank histograms and other ensemble statistics.
+As with the other MET statistics tools, all ensemble data and gridded verifying observations must be interpolated to a common grid prior to processing. This may be done using the automated regrid feature in the Ensemble-Stat configuration file or by running copygb and/or wgrib2 first.
 
 Configure
 ^^^^^^^^^
@@ -412,7 +410,7 @@ The behavior of Ensemble-Stat is controlled by the contents of the configuration
 
 .. note::
 
-   Open up the **EnsembleStatConfig_tutorial** file for editing with your preferred text editor.
+   Open up the **EnsembleStatConfig_tutorial** file for editing with your preferred text editor.
 
 .. code-block:: text
 
@@ -428,7 +426,7 @@ For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated p
 
 .. note::
 
-   Edit the **EnsembleStatConfig_tutorial** file as follows:
+   Edit the **EnsembleStatConfig_tutorial** file as follows:
 
 .. note::
 
@@ -449,7 +447,7 @@ To verify the 24-hour accumulated precipitation fields.
 
 .. note::
 
-   In the **observation filtering options**, set:
+   In the **observation filtering options**, set:
 
 .. admonition:: File Contents
 
@@ -469,11 +467,11 @@ To verify against surface observations.
 
          prob_cat_thresh= [ >=0, >=5.0, >=10.0 ];
 
-To specify thresholds to use for computation of the Ranked Probability Score (RPS).
+To specify thresholds to use for computation of the Ranked Probability Score (RPS). Note that RPS output is only written when rps is enabled in the output_flag dictionary, which this tutorial leaves set to NONE.
 
 .. note::
 
-   In the **mask** dictionary, set
+   In the **mask** dictionary, set
 
 .. admonition:: File Contents
 
@@ -525,78 +523,79 @@ Run
    -v 2
 
 Ensemble-Stat is now performing the tasks we requested in the configuration file. Note that we've passed the input ensemble data directly on the command line by specifying the number of ensemble members (6) followed by their names using wildcards. We've also specified one gridded StageIV analysis field (-grid_obs) and one file containing point rain gauge observations (-point_obs) to be used in computing rank histograms. This tool should run pretty quickly.
-When Ensemble-Stat is finished, it will have created 8 output files in the current directory: 7 ASCII statistics files (.stat, _ecnt.txt, _rhist.txt, _phist.txt, _orank.txt, _ssvar.txt , and _relp.txt ), and a NetCDF matched pairs file (_orank.nc).
+When Ensemble-Stat is finished, it will have created 8 output files in the current directory: 7 ASCII statistics files (.stat, _ecnt.txt, _rhist.txt, _phist.txt, _orank.txt, _ssvar.txt , and _relp.txt ), and a NetCDF matched pairs file (_orank.nc).
 
 Output
 ^^^^^^
 
 The output from Ensemble-Stat is one or more ASCII files containing statistics summarizing the verification performed, and a NetCDF file containing the gridded matched pairs.
-All of the line types are written to the file ending in .stat. The Ensemble-Stat tool currently writes 12 output line types: ECNT, RPS, RHIST, PHIST, RELP, SSVAR, PCT, PSTD, PJC, PRC, ECLV, and ORANK.
+All of the line types are written to the file ending in .stat. The Ensemble-Stat tool currently writes 12 output line types: ECNT, RPS, RHIST, PHIST, RELP, SSVAR, PCT, PSTD, PJC, PRC, ECLV, and ORANK.
 
-#. The ECNT line type contains contains continuous ensemble statistics such as spread and skill. Ensemble-Stat uses assumed observation errors to compute both perturbed and unperturbed versions of these statistics. Statistics to which observation error have been applied can be found in columns which include the _OERR (for observation error) suffix.
+#. The ECNT line type contains contains continuous ensemble statistics such as spread and skill. Ensemble-Stat uses assumed observation errors to compute both perturbed and unperturbed versions of these statistics. Statistics to which observation error have been applied can be found in columns which include the _OERR (for observation error) suffix.
 #. The RPS line type contains the Ranked Probability Score, as well as the number of ensembles that were used to calculate the score, the Ranked Probability Skill Score, and the Ranked Probability Score decomposed into its terms of reliability, resolution, and uncertainty.
-#. The RHIST line type contains counts for a ranked histogram. This ranks each observation value relative to ensemble member values. Ideally, observation values would fall equally across all available ranks, yielding a flat rank histogram. In practice, ensembles are often under-(U shape) or over-(inverted U shape) dispersive. In the event of ties, ranks are randomly assigned.
-#. The PHIST line type contains counts for a probability integral transform histogram. This scales the observation ranks to a range of values between 0 and 1 and allows ensembles of different size to be compared. Similarly, when ensemble members drop out, RHIST lines cannot be aggregated together but PHIST lines can.
-#. The RELP line is the relative position, which indicates how often each ensemble member's value was closest to the observation's value. In the event of ties, credit is divided equally among the tied members.
+#. The RHIST line type contains counts for a ranked histogram. This ranks each observation value relative to ensemble member values. Ideally, observation values would fall equally across all available ranks, yielding a flat rank histogram. In practice, ensembles are often under-(U shape) or over-(inverted U shape) dispersive. In the event of ties, ranks are randomly assigned.
+#. The PHIST line type contains counts for a probability integral transform histogram. This scales the observation ranks to a range of values between 0 and 1 and allows ensembles of different size to be compared. Similarly, when ensemble members drop out, RHIST lines cannot be aggregated together but PHIST lines can.
+#. The RELP line is the relative position, which indicates how often each ensemble member's value was closest to the observation's value. In the event of ties, credit is divided equally among the tied members.
 #. The PCT line type contains the contingency table counts for probabilistic forecasts.
 #. The PSTD line type is the probabilistic statistics for dichotomous outcomes for derived ensemble relative frequencies.
 #. The PJC line type contains joint and conditional factorization for derived ensemble relative frequencies
 #. The PRC line type has the receiver operating characteristic for derived ensemble relative frequencies
-#. The ECLV line type  is the economic cost/loss relative value for derived ensemble relative frequencies
-#. The ORANK line type is similar to the matched pair (MPR) output of Point-Stat. For each point observation value, one ORANK line is written out containing the observation value, its rank, and the corresponding ensemble values for that point. When verifying against a griddedanalysis, the ranks can be written to the NetCDF output file.
-#. The SSVAR line contains binned spread/skill information. For each observation location, the ensemble variance is computed at that point. Those variance values are binned based on the ens_ssvar_bin_size configuration setting. The skill is determined by comparing the ensemble mean value to the observation value. One SSVAR line is written for each bin summarizing the all the observation/ensemble mean pairs that it contains.
+#. The ECLV line type  is the economic cost/loss relative value for derived ensemble relative frequencies
+#. The ORANK line type is similar to the matched pair (MPR) output of Point-Stat. For each point observation value, one ORANK line is written out containing the observation value, its rank, and the corresponding ensemble values for that point. When verifying against a griddedanalysis, the ranks can be written to the NetCDF output file.
+#. The SSVAR line contains binned spread/skill information. For each observation location, the ensemble variance is computed at that point. Those variance values are binned based on the ens_ssvar_bin_size configuration setting. The skill is determined by comparing the ensemble mean value to the observation value. One SSVAR line is written for each bin summarizing the all the observation/ensemble mean pairs that it contains.
 
-The STAT file contains all the ASCII output while the _ecnt.txt, _rhist.txt, _phist.txt, _orank.txt, _ssvar.txt, and _relp.txt files contain the same data but sorted by line type. Since so much data can be written for the ORANK line type, we recommend disabling the output of the optional text file using the output_flag parameter in the configuration file.
+The STAT file contains all the ASCII output while the _ecnt.txt, _rhist.txt, _phist.txt, _orank.txt, _ssvar.txt, and _relp.txt files contain the same data but sorted by line type. Since so much data can be written for the ORANK line type, we recommend disabling the output of the optional text file using the output_flag parameter in the configuration file.
 
 .. important::
 
-   Since the lines of data in these ASCII file are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way.
+   Since the lines of data in these ASCII file are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way.
 
 .. note::
 
-   Open up the **ensemble_stat_20100101_120000V_rhist.txt** RHIST file using the text editor of your choice and note the following:
+   Open up the **ensemble_stat_20100101_120000V_rhist.txt** RHIST file using the text editor of your choice and note the following:
 
 .. code-block:: text
 
    vi ensemble_stat_20100101_120000V_rhist.txt
 
-* There are 6 lines in this output file resulting from using 3 verification regions in the VX_MASK column (FULL, NWC, and SWC) and two observations datasets in the OBTYPE column (ADPSFC point observations and gridded observations).
-* Each line contains columns for the observation ranks (``RANK_#``) and a handful of ensemble statistics (CRPS, CRPSS, IGN, and SPREAD).
+* There are 6 lines in this output file resulting from using 3 verification regions in the VX_MASK column (FULL, NWC, and SWC) and two observations datasets in the OBTYPE column (ADPSFC point observations and gridded observations).
+* Each line contains columns for the total number of observations (TOTAL), the number of ranks (N_RANK), and the counts for each observation rank (``RANK_#``). Ensemble statistics such as CRPS, CRPSS, IGN, and SPREAD are found in the ECNT line type instead.
 * There is output for 7 ranks - since we verified a 6-member ensemble, there are 7 possible ranks the observation values could attain.
 
 .. note::
 
-   Close this file, and open up the **ensemble_stat_20100101_120000V_phist.txt** PHIST file, and note the following:
+   Close this file, and open up the **ensemble_stat_20100101_120000V_phist.txt** PHIST file, and note the following:
 
 .. code-block:: text
 
    vi ensemble_stat_20100101_120000V_phist.txt
 
-* There are 5 lines in this output file resulting from using 3 verification regions (FULL, NWC, and SWC) and two observations datasets (ADPSFC point observations and gridded observations), where the ADPSFC point observations for the SWC region were all zeros for which the probability integral transform is not defined.
-* Each line contains columns for the BIN_SIZE and counts for each bin. The bin size is set in the configuration file using the ens_phist_bin_size field. In this case, it was set to .05, therefore creating 20 bins (1/ens_phist_bin_size).
+* There are 5 lines in this output file resulting from using 3 verification regions (FULL, NWC, and SWC) and two observations datasets (ADPSFC point observations and gridded observations), where the ADPSFC point observations for the SWC region were all zeros for which the probability integral transform is not defined.
+* Each line contains columns for the BIN_SIZE and counts for each bin. The bin size is set in the configuration file using the ens_phist_bin_size field. In this case, it was set to .05, therefore creating 20 bins (1/ens_phist_bin_size).
 
 .. note::
 
-   Close this file, and open up the **ensemble_stat_20100101_120000V_orank.txt** ORANK file, and note the following:
+   Close this file, and open up the **ensemble_stat_20100101_120000V_orank.txt** ORANK file, and note the following:
 
 .. code-block:: text
 
    vi ensemble_stat_20100101_120000V_orank.txt
 
 * This file contains 1866 lines, 1 line for each observation value falling inside each verification region (VX_MASK).
-* Each line contains 44 columns, including header information, the observation location and value, its rank, and the 6 values for the ensemble members at that point.
-* When there are ties, Ensemble-Stat randomly assigns a rank from all the possible choices. This can be seen in the SWC masking region where all of the observed values are 0 and the ensemble forecasts are 0 as well. Ensemble-Stat randomly assigns a rank between 1 and 7.
+* Each line contains 50 columns, including header information, the observation location and value, its rank, and the 6 values for the ensemble members at that point.
+* When there are ties, Ensemble-Stat randomly assigns a rank from all the possible choices. This can be seen in the SWC masking region where all of the observed values are 0 and the ensemble forecasts are 0 as well. Ensemble-Stat randomly assigns a rank between 1 and 7.
 
 .. note::
 
-   Use the **ncview** utility to view the NetCDF gridded observation rank file:
+   Use the **ncview** utility to view the NetCDF gridded observation rank file:
 
 .. code-block:: text
 
    ncview ensemble_stat_20100101_120000V_orank.nc &
 
-This file is only created when you've verified using gridded observations and have requested its output using the output_flag parameter in the configuration file. Click through the variables in this file. Note that for each of the three verification areas (FULL, NWC, and SWC) this file contains 4 variables:
+This file is only created when you've verified using gridded observations (-grid_obs) and at least one of the nc_orank_flag options in the configuration file is set to TRUE. Click through the variables in this file. Note that for each of the three verification areas (FULL, NWC, and SWC) this file contains 5 variables:
 
+#. The ensemble mean
 #. The gridded observation value
 #. The observation rank
 #. The probability integral transform
@@ -610,9 +609,9 @@ In ncview, the random assignment of tied ranks is evident in areas of zero preci
 
 Feel free to explore using this dataset. Some options to try are:
 
-* Try setting skip_const = TRUE; in the config file to discard points where all ensemble members and the observation are tied (i.e. zero precip).  If you want to save it to a different file, make sure you set output_prefix to something meaningful, such as "run2", or "skip-constant".
-* Try setting obs_thresh = [ >0.01 ]; in the config file to only consider points where the observation meets this threshold. How does this differ from the using skip_const?
-* Use wgrib to inventory the input files and add additional entries to the ens.field list. Can you process 10-meter U and V wind?
+* Try setting skip_const = TRUE; in the config file to discard points where all ensemble members and the observation are tied (i.e. zero precip).  If you want to save it to a different file, make sure you set output_prefix to something meaningful, such as "run2", or "skip-constant".
+* Try setting obs_thresh = [ >0.01 ]; in the config file to only consider points where the observation meets this threshold. How does this differ from the using skip_const?
+* Use wgrib to inventory the input files and add additional entries to the fcst.field list. Can you process 10-meter U and V wind?
 
 METplus Use Case: GenEnsProd and EnsembleStat
 ---------------------------------------------
@@ -675,7 +674,7 @@ Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_Mult
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf
 
-For the use case that we will be running, three tool wrappers are called: PB2NC, GenEnsProd, and EnsembleStat. These tools will iterate over one time step, but three separate lead times. PB2NC is used as a conversion method for the input file types and was covered in a previous session. From the order of the tools in PROCESS_LIST, we see that EnsembleStat runs first. Since that tool is for verification and statistical output, it uses observational field settings like OBS_VAR1_NAME and BOTH_VAR1_THRESH, which applies to both the forecast and observation variable 1. It also will create multiple output files for each time step processed, one for each of the requested line types:
+For the use case that we will be running, three tool wrappers are called: PB2NC, EnsembleStat, and GenEnsProd. These tools will iterate over one time step, but three separate lead times. PB2NC is used as a conversion method for the input file types and was covered in a previous session. From the order of the tools in PROCESS_LIST, we see that PB2NC runs first, followed by EnsembleStat. Since that tool is for verification and statistical output, it uses observational field settings like OBS_VAR1_NAME and BOTH_VAR1_THRESH, which applies to both the forecast and observation variable 1. It also will create multiple output files for each time step processed, one for each of the requested line types:
 
 .. admonition:: File Contents
 
@@ -717,7 +716,7 @@ METplus is finished running when control returns to your terminal console and yo
 
    .. code-block:: text
 
-      INFO: METplus has successfully finished running as user.
+      INFO: METplus has successfully finished running as user <username>(<uid>).
 
 Review the output files:
 
@@ -797,7 +796,7 @@ The final configuration file is called metplus_final.conf.*, where the final str
 METplus Use Case: EnsembleStat with Multiple Variables and Leads
 ----------------------------------------------------------------
 
-This use case takes the PB2NC tool and combines it with the Ensemble-Stat tool, analyzing multiple forecast fields and producing ensemble relative frequencies.
+This section takes a closer look at the same use case that was run in the previous section. It combines the PB2NC tool with the Gen-Ens-Prod tool, which produces ensemble relative frequencies for multiple forecast fields, and the Ensemble-Stat tool, which verifies one of those fields.
 
 .. important::
 
@@ -856,7 +855,7 @@ Given the lead times and INIT time, the tools will loop over the following valid
 
 * 20180709 at 14z
 
-The run time for this use case is expected to be longer, due to the multiple lead times, two MET tools, and 6 variables at multiple thresholds being analyzed.
+The run time for this use case is expected to be longer, due to the multiple lead times, two MET tools, and 5 variables at multiple thresholds being analyzed.
 
 .. note::
 
@@ -900,13 +899,13 @@ These two directories correspond to the output directories for two of the tools 
 
    .. code-block:: text
 
-      PB2NC_OUTPUT_DIR = {OUTPUT_BASE}/model_applications/convection_allowing_models/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/rap
+      PB2NC_OUTPUT_DIR = {OUTPUT_BASE}/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/rap
 
 .. admonition:: File Contents
 
    .. code-block:: text
 
-      ENSEMBLE_STAT_OUTPUT_DIR = {OUTPUT_BASE}/model_applications/convection_allowing_models/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat
+      ENSEMBLE_STAT_OUTPUT_DIR = {OUTPUT_BASE}/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat
 
 .. important::
 
@@ -922,7 +921,7 @@ You'll see 3 output files, corresponding to the three lead times that were run. 
 
 .. code-block:: text
 
-   ls ${METPLUS_TUTORIAL_DIR}/output/Ensemble/model_applications/convection_allowing_models/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat/201807091200
+   ls ${METPLUS_TUTORIAL_DIR}/output/Ensemble/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat/201807091200
 
 Each lead time is responsible for producing 8 files, for a total of 24 files. These were all requested with the ENSEMBLE_STAT_OUTPUT_FLAG options, with the exception of the .stat and .nc files.
 
@@ -948,7 +947,7 @@ In the VX_MASK column, the four mask files requested are listed, along with the 
 METplus Use Case: PQPF
 ----------------------
 
-The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, and Grid-Stat tools.
+The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, and Grid-Stat tools.
 
 .. important::
 
@@ -974,7 +973,7 @@ Note that several processes are called in this use-case and that there is a spec
 
    .. code-block:: text
 
-      PROCESS_LIST = PcpCombine, RegridDataPlane, GridStat
+      PROCESS_LIST = PCPCombine, RegridDataPlane, GridStat
       FCST_IS_PROB = true
 
 Also note that variables in GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf reference other config variables that have been defined in configuration files. For example:
@@ -1042,7 +1041,7 @@ You should have output files in the following directories:
 
 **REVIEW THE LOG FILES**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one.
+Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one.
 
 .. code-block:: text
 
@@ -1050,11 +1049,11 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. Th
 
 .. important::
 
-   Note: The time zone of your computer may not be the same as the time zone you are in.  For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).
+   Note: The time zone of your computer may not be the same as the time zone you are in.  For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
+The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
 .. code-block:: text
 
@@ -1064,7 +1063,7 @@ End of Session 4 and Additional Exercises
 -----------------------------------------
 
 Congratulations! You have completed Session 4!
-If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
+If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
 
 **EXERCISES FOR SESSION 4**
 
@@ -1072,7 +1071,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
 .. note::
 
-   **Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from forecast data using pcp_combine in the HREF MEAN vs. MRMS QPE example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
+   **Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using pcp_combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
 
 .. note::
 
@@ -1085,7 +1084,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
 .. note::
 
-   Open **GridStat-ensemble.accum_3hr.conf** with an editor and change values.
+   Open **GridStat-ensemble.accum_3hr.conf** with an editor and change values.
 
 .. code-block:: text
 
@@ -1093,7 +1092,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
 .. tip::
 
-   HINT: There is a variable in the observation data named **BOTH_VAR1_LEVELS** that currently contains a 6 hour accumulation.
+   HINT: There is a variable in the use case configuration file named **BOTH_VAR1_LEVELS**, which applies to both the forecast and observation data, that currently contains a 6 hour accumulation.
 
 .. note::
 
@@ -1112,7 +1111,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
 .. code-block:: text
 
-   ls ${METPLUS_TUTORIAL_DIR}/output/exercises/accum_3hr/logs/master_metplus.log.*
+   ls ${METPLUS_TUTORIAL_DIR}/output/exercises/accum_3hr/logs/metplus.log.*
 
 .. admonition:: Sample Output
 
@@ -1122,7 +1121,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
       DEBUG 1: Reading data (name="APCP"; level="A01";) from input file: /d1/projects/METplus/METplus_Data/model_applications/precipitation/StageIV/20160904/ST4.2016090417.01h
       DEBUG 1: Reading data (name="APCP"; level="A01";) from input file: /d1/projects/METplus/METplus_Data/model_applications/precipitation/StageIV/20160904/ST4.2016090416.01h
       DEBUG 2: Skipping 480079 of 987601 grid points which do not meet the valid data threshold (1).
-      DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/accum_3hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A03h
+      DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/accum_3hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A03h
       DEBUG 2: Writing output variable "APCP_03" for the "sum" of "APCP/A01".
 
 .. note::
@@ -1139,17 +1138,17 @@ EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation file
 
    Tip: Recall from the original QPF exercise that METplus used a 6 hour observation accumulation file as input to Pcp-Combine to build a 6 hour accumulation file for the example where forecast lead = 6.
 
-From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:
+From the log output found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs:
 
 .. admonition:: Sample Output
 
    .. code-block:: text
 
       DEBUG 2: Performing derivation command (sum) for 1 files.
-      DEBUG 1: Reading data (name="APCP"; level="A6";) from input file: /path/to/METplus_Data/qpf/uswrp/StageIV/20160904/ST4.2016090418.06h
+      DEBUG 1: Reading data (name="APCP"; level="A06";) from input file: /path/to/METplus_Data/model_applications/precipitation/StageIV/20160904/ST4.2016090418.06h
       DEBUG 2: Skipping 399779 of 987601 grid points which do not meet the valid data threshold (1).
-      DEBUG 1: Creating output file: /path/to/tutorial/output/qpf-prob/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
-      DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A6".
+      DEBUG 1: Creating output file: /path/to/tutorial/output/PQPF/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
+      DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A06".
 
 .. note::
 
@@ -1170,11 +1169,11 @@ From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:
 
 .. tip::
 
-   HINT 1: The variables that you need to add must go under the **[config]** section.
+   HINT 1: The variables that you need to add must go under the **[config]** section.
 
 .. tip::
 
-   HINT 2: The **FCST_PCP_COMBINE_INPUT_LEVEL** and **OBS_PCP_COMBINE_INPUT_LEVEL** variables set the accumulation interval that is found in grib2 input data for forecast and observation data respectively.
+   HINT 2: The **FCST_PCP_COMBINE_INPUT_ACCUMS** and **OBS_PCP_COMBINE_INPUT_ACCUMS** variables set the accumulation intervals, in order of preference, that are used from the input data for forecast and observation data respectively.
 
 .. note::
 
@@ -1199,7 +1198,7 @@ From the log output found in ${METPLUS_TUTORIAL_DIR}/output/logs:
       DEBUG 1: Reading data (name="APCP"; level="A01";) from input file: /d1/projects/METplus/METplus_Data/model_applications/precipitation/StageIV/20160904/ST4.2016090414.01h
       DEBUG 1: Reading data (name="APCP"; level="A01";) from input file: /d1/projects/METplus/METplus_Data/model_applications/precipitation/StageIV/20160904/ST4.2016090413.01h
       DEBUG 2: Skipping 480079 of 987601 grid points which do not meet the valid data threshold (1).
-      DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/input_1hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/uswrp/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
+      DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/input_1hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
       DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A01".
 
 .. note::
@@ -1213,8 +1212,8 @@ These are the answers to the exercises from the previous page. Feel free to ask 
 
 ANSWER 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
-Instructions: Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from forecast data using Pcp-Combine in the HREF MEAN vs. MRMS QPE example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
-Answer: In the user_config/GridStat-ensemble.accum_3hr.conf file, change the following variables in the [config] section:
+Instructions: Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using Pcp-Combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
+Answer: In the user_config/GridStat-ensemble.accum_3hr.conf file, change the following variables in the [config] section:
 Change:
 
 .. admonition:: File Contents
@@ -1233,8 +1232,8 @@ To:
 
 ANSWER 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files
 
-Instructions: Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
-Answer: In the user_config/GridStat-ensemble.input_1hr.conf file, change the following variable to the [config] section:
+Instructions: Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
+Answer: In the user_config/GridStat-ensemble.input_1hr.conf file, change the following variable to the [config] section:
 Change:
 
 .. admonition:: File Contents

@@ -14,7 +14,7 @@ If you have already started working on the tutorial and are rejoining with the s
 If you are just starting out, or you are returning with a new terminal session, you will need to revisit this session to get your environment correctly set. So select the next page of "METplus setup" to get started!
 
 METplus Setup
-------------- 
+------------- 
 
 **METplus Overview**
 
@@ -32,13 +32,13 @@ The following links are just for reference, and not required for this practical 
 
 The source code for the METplus components are publicly available in the following GitHub repositories:
 
-* `METplus repository <https://github.com/dtcenter/METplus>`_ - Python wrappers and use cases
-* `MET repository <https://github.com/dtcenter/MET>`_ - Core MET codebase
+* `METplus repository <https://github.com/dtcenter/METplus>`_ - Python wrappers and use cases
+* `MET repository <https://github.com/dtcenter/MET>`_ - Core MET codebase
 * `METdataio repository <https://github.com/dtcenter/METdataio>`_ - Database system for MET output
-* `METplotpy repository <https://github.com/dtcenter/METplotpy>`_ - Python plotting scripts
-* `METcalcpy repository <https://github.com/dtcenter/METcalcpy>`_ - Python calculation functions
-* `METviewer repository <https://github.com/dtcenter/METviewer>`_ - Display system for MET output
-* `METexpress repository <https://github.com/dtcenter/METexpress>`_ - Streamlined display system
+* `METplotpy repository <https://github.com/dtcenter/METplotpy>`_ - Python plotting scripts
+* `METcalcpy repository <https://github.com/dtcenter/METcalcpy>`_ - Python calculation functions
+* `METviewer repository <https://github.com/dtcenter/METviewer>`_ - Display system for MET output
+* `METexpress repository <https://github.com/dtcenter/METexpress>`_ - Streamlined display system
 
 .. note::
 
@@ -51,7 +51,7 @@ METplus: Initial Setup
 
 The `Requirements section in the Software Installation chapter <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/installation.html#requirements>`_ of the METplus User's Guide lists the software and Python packages that are required to run the METplus wrappers. Note that there is a core set of requirements needed to run the METplus wrappers and additional requirements needed to utilize some of the more advanced features.
 
- 
+
 
 **Prerequisites: Environment**
 
@@ -344,8 +344,7 @@ From the command line, enter the following:
 
 .. code-block::
 
-   /usr/local/anaconda3/bin/conda create -n metplus_analysis_tutorial_env python=3.8
-   mamba -y
+   /usr/local/anaconda3/bin/conda create -n metplus_analysis_tutorial_env python=3.8 mamba -y
 
 If this was successful, you will see the following at the end of the output streamed to the screen:
 
@@ -459,7 +458,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
    cp /scratch1/BMC/dtc/METplus/METplus-5.0.0_Tutorial_Files/METplus-5.0.0_TutorialSetup.hera.`basename $SHELL` ./METplus-5.0.0_TutorialSetup.sh
    cp /scratch1/BMC/dtc/METplus/METplus-5.0.0_Tutorial_Files/tutorial-5.0.0.conf ./tutorial.conf
 
- 
+
 
 .. note::
 
@@ -544,7 +543,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
    MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
    METPLUS_DATA is the location of the sample test data directory
 
- 
+
 
 .. note::
 
@@ -629,7 +628,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
    MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
    METPLUS_DATA is the location of the sample test data directory
 
- 
+
 
 .. note::
 
@@ -705,11 +704,11 @@ Example value:
 
    .. code-block:: text
 
-      /home/metplus_user/METplus_Tutorial
+      /home/metplus_user/METplus-5.0.0_Tutorial
 
 .. code-block::
 
-   ls ${METPLUS_TUTORIAL_DIR} -1
+   ls -1 ${METPLUS_TUTORIAL_DIR}
 
 Example contents:
 
@@ -740,7 +739,7 @@ Example value:
 
 .. code-block::
 
-   ls ${MET_BUILD_BASE} -1
+   ls -1 ${MET_BUILD_BASE}
 
 Example contents
 
@@ -759,7 +758,7 @@ Example contents
 
 .. code-block::
 
-   ls ${MET_BUILD_BASE}/bin -1
+   ls -1 ${MET_BUILD_BASE}/bin
 
 Example contents:
 
@@ -824,7 +823,7 @@ Example value:
 
 .. code-block::
 
-   ls ${METPLUS_BUILD_BASE} -1
+   ls -1 ${METPLUS_BUILD_BASE}
 
 Example contents:
 
@@ -864,7 +863,7 @@ Example value:
 
 .. code-block::
 
-   ls ${METPLUS_DATA} -1
+   ls -1 ${METPLUS_DATA}
 
 Example contents:
 
@@ -917,7 +916,7 @@ The METplus default configuration file **(defaults.conf)** is always read first.
 .. note::
 
    When METplus is run, the final metplus conf file is generated here:
-   metplus_runtime.conf:METPLUS_CONF={OUTPUT_BASE}/metplus_final.conf.YYYYMMDDHHmmss
+   defaults.conf:METPLUS_CONF={OUTPUT_BASE}/metplus_final.conf.YYYYMMDDHHmmss
 
 .. note::
 
@@ -931,7 +930,7 @@ The METplus default configuration file **(defaults.conf)** is always read first.
 
    More information about the default configuration variables can be found in the METplus User's Guide section called `Default Configuration File <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#default-configuration-file>`_.
 
- 
+
 The **met_config** directory (in ${METPLUS_BUILD_BASE}/parm) contains "wrapped" MET configuration files that are used by calls to the MET applications via the METplus wrappers. The wrappers set environment variables that control settings in the wrapped MET configuration files through these environment variables. See the METplus User's Guide section called `How METplus controls MET configuration variables <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#how-metplus-controls-met-configuration-variables>`_ for more information.
 
 **METplus Use Cases**
@@ -969,7 +968,7 @@ The **model_applications** use case files are organized in directories by catego
 * model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface - directory containing supplemental files for the use case
 * model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface/read_ioda_mpr.py - script called by the use case
 
- 
+
 **EXAMPLE USE CASE (AKA "HELLO WORLD" EXAMPLE - METPLUS STYLE)**
 
 Let's look at the Example use case, ***Example.conf***, under **met_tool_wrapper/Example**
@@ -978,7 +977,7 @@ Let's look at the Example use case, ***Example.conf***, under **met_tool_wrapper
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/Example/Example.conf
 
-In this file are variables, denoted in ALL_CAPS. These can be modified as needed. In the METplus system, unmodified config files remain in the directories under **${MET_BUILD_BASE}**, while user-modified files are stored in ${ **METPLUS_TUTORIAL_DIR}/user_config**.
+In this file are variables, denoted in ALL_CAPS. These can be modified as needed. In the METplus system, unmodified config files remain in the directories under **${METPLUS_BUILD_BASE}**, while user-modified files are stored in ${ **METPLUS_TUTORIAL_DIR}/user_config**.
 
 No changes are needed in Example.conf. Close it and continue to the next page.
 
@@ -996,7 +995,7 @@ In this section you will modify the configuration files that will be read for ea
 
 The paths in this practical session guide assume: 
 
-* You have created a user_config directory in your  ${METPLUS_TUTORIAL_DIR} directory
+* You have created a user_config directory in your  ${METPLUS_TUTORIAL_DIR} directory
 * You have added the shared METplus ush directory to your PATH (done in the Tutorial Setup script)
 * You are using the shared installation of MET.
 
@@ -1004,7 +1003,7 @@ If not, then you need to adjust accordingly.
 
 .. note::
 
-   Change to the ${METPLUS_TUTORIAL_DIR} directory.  Try running run_metplus.py. You should see the usage statement output to the screen.
+   Change to the ${METPLUS_TUTORIAL_DIR} directory.  Try running run_metplus.py. You should see the usage statement output to the screen.
 
 .. code-block::
 
@@ -1017,7 +1016,7 @@ If not, then you need to adjust accordingly.
 
 .. note::
 
-   Now try to pass in the example.conf configuration file found in your parm directory under use_cases/met_tool_wrapper/Examples tutorial.conf
+   Now try to pass in the Example.conf configuration file found in your parm directory under use_cases/met_tool_wrapper/Example
 
 .. code-block::
 
@@ -1036,23 +1035,23 @@ You should see output like this:
       12/15 19:53:06.225 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/metplus_config/defaults.conf
       12/15 19:53:06.226 metplus (config_metplus.py:230) INFO: Parsing config file: /var/autofs/mnt/linux-amd64/debian/buster/local/METplus-5.0.1/parm/use_cases/met_tool_wrapper/Example/Example.conf
       Traceback (most recent call last):
-        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 128, in <module>
-          main()
-        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 44, in main
-          config = pre_run_setup(config_inputs)
-        File "/usr/local/METplus-5.0.1/metplus/util/run_util.py", line 23, in pre_run_setup
-          config = setup(config_inputs)
-        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 108, in setup
-          config = launch(override_list)
-        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 256, in launch
-          mkdir_p(config.getdir('OUTPUT_BASE'))
-        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 693, in getdir
-          raise ValueError(f"{dir_name} cannot be set to "
+        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 128, in <module>
+          main()
+        File "/usr/local/METplus-5.0.1/ush/run_metplus.py", line 44, in main
+          config = pre_run_setup(config_inputs)
+        File "/usr/local/METplus-5.0.1/metplus/util/run_util.py", line 23, in pre_run_setup
+          config = setup(config_inputs)
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 108, in setup
+          config = launch(override_list)
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 256, in launch
+          mkdir_p(config.getdir('OUTPUT_BASE'))
+        File "/usr/local/METplus-5.0.1/metplus/util/config_metplus.py", line 693, in getdir
+          raise ValueError(f"{dir_name} cannot be set to "
       ValueError: OUTPUT_BASE cannot be set to or contain '/path/to'
-      ERROR: run_metplus  failed: OUTPUT_BASE cannot be set to or contain '/path/to'
-    
+      ERROR: run_metplus  failed: OUTPUT_BASE cannot be set to or contain '/path/to'
 
-Note it ends with an error message stating that **OUTPUT_BASE** was not set correctly. You will need to configure the METplus wrappers to be able to run a use case.
+
+Note it ends with an error message stating that **OUTPUT_BASE** was not set correctly. You will need to configure the METplus wrappers to be able to run a use case.
 
 .. important::
 
@@ -1112,7 +1111,7 @@ If you have configured METplus correctly and call **run_metplus.py** without pas
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/Example/Example.conf
 
-1. Call the run_metplus.py script again, this time passing in the Example.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
+2. Call the run_metplus.py script again, this time passing in the Example.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
 .. code-block::
 
@@ -1122,21 +1121,21 @@ If you have configured METplus correctly and call **run_metplus.py** without pas
 
 .. note::
 
-   Note: The environment variable METPLUS_BUILD_BASE determines where to look for paths to use_case files. The METPLUS_TUTORIAL_DIR environment variable determines where to look for user-modified config files.
+   Note: The environment variable METPLUS_BUILD_BASE determines where to look for paths to use_case files. The METPLUS_TUTORIAL_DIR environment variable determines where to look for user-modified config files.
 
-1. Check the directory specified by the OUTPUT_BASE configuration variable. You should see that files and sub-directories have been created
+3. Check the directory specified by the OUTPUT_BASE configuration variable. You should see that files and sub-directories have been created
 
 .. code-block::
 
    ls ${METPLUS_TUTORIAL_DIR}/output
 
-1. Review the METplus log file to see what was run. Compare the log output to the Example.conf configuration file to see how they correspond to each other. The log file will have today's date in the filename. Since METplus was configured to list today's timestamp in YYYYMMDDHHMMSS format, each run of METplus will generate a separate log file. This is the same behavior as the METplus final configuration file. List all of the log files and view the latest METplus log file:
+4. Review the METplus log file to see what was run. Compare the log output to the Example.conf configuration file to see how they correspond to each other. The log file will have today's date in the filename. Since METplus was configured to list today's timestamp in YYYYMMDDHHMMSS format, each run of METplus will generate a separate log file. This is the same behavior as the METplus final configuration file. List all of the log files and view the latest METplus log file:
 
 .. code-block::
 
-   cat `ls -1 ${METPLUS_TUTORIAL_DIR}/output/logs/metplus.log.*`
+   cat `ls -1t ${METPLUS_TUTORIAL_DIR}/output/logs/metplus.log.* | head -1`
 
-You will notice that METplus ran for 5 valid times, processing 4 forecast hours for each valid time. For each run time, it ran twice using two different input templates to find files.
+You will notice that METplus ran for 5 valid times, processing 4 forecast hours for each valid time. For each run time, it ran twice, once for each value in EXAMPLE_CUSTOM_LOOP_LIST (ext and nc), using the input template to find files.
 
 .. note::
 
@@ -1148,7 +1147,7 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
       metplus INFO: ****************************************
       metplus.Example INFO: Running ExampleWrapper at valid time 20170201000000
       metplus.Example INFO: Input directory is /dir/containing/example/data
-      metplus.Example INFO: Input template is {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
+      metplus.Example INFO: Input template is {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%H}_F{lead?fmt=%3H}.{custom?fmt=%s}
       metplus.Example INFO: Processing custom string: ext
       metplus.Example INFO: Processing forecast lead 3 hours initialized at 2017-01-31 21Z and valid at 2017-02-01 00Z
       metplus.Example INFO: Looking in input directory for file: 20170131/file_20170131_21_F003.ext
@@ -1179,7 +1178,7 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
       metplus INFO: ****************************************
       ...
 
-1. Now run METplus passing in the Example.conf and tutorial.conf files from the previous run AND an explicit override of the OUTPUT_BASE variable.
+5. Now run METplus passing in the Example.conf and tutorial.conf files from the previous run AND an explicit override of the OUTPUT_BASE variable.
 
 .. code-block::
 
@@ -1188,7 +1187,7 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/changed
 
-1. Check the directory that corresponds to the config.OUTPUT_BASE value that you set in the command line override. You should see that files and sub-directories have been created in the new location. Note that you can reference an environment variable when setting values on the command line.
+6. Check the directory that corresponds to the config.OUTPUT_BASE value that you set in the command line override. You should see that files and sub-directories have been created in the new location. Note that you can reference an environment variable when setting values on the command line.
 
 .. code-block::
 
@@ -1198,7 +1197,8 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
 
    Remember: Additional conf files and config variable overrides are processed after the default METplus config file (defaults.conf). OUTPUT_BASE was set in tutorial.conf and then overridden with config.OUTPUT_BASE.
 
-**Order matters, since each successive conf file and/or explicit variable override will take precedence over any value set for variables defined previously.**
+   **Order matters, since each successive conf file and/or explicit variable override will take precedence over any value set for variables defined previously.**
+
 .. note::
 
    Note: The processing order allows for structuring your conf files to contain system/user configurations (settings used for every run) and use case specific configurations (settings only used for a given use case).
@@ -1220,13 +1220,13 @@ METplus configuration variables that control timing information are described in
    cp ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/Example/Example.conf \
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_timing.conf
 
-1. Open the new Example_timing.conf file with an editor.
+2. Open the new Example_timing.conf file with an editor.
 
 .. code-block::
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/Example_timing.conf
 
-1. Make the following changes:
+3. Make the following changes:
 
 3a. Change **VALID_BEG and VALID_END**:
 
@@ -1237,7 +1237,7 @@ METplus configuration variables that control timing information are described in
       VALID_BEG = 2017020100
       VALID_END = 2017020200
 
-    to:
+to:
 
 .. note::
 
@@ -1254,7 +1254,7 @@ METplus configuration variables that control timing information are described in
 
       LEAD_SEQ = 3H , 6H, 9H, 12H
 
-    to:
+to:
 
 .. note::
 
@@ -1270,7 +1270,7 @@ METplus configuration variables that control timing information are described in
 
       EXAMPLE_CUSTOM_LOOP_LIST = ext, nc
 
-    to:
+to:
 
 .. note::
 
@@ -1283,7 +1283,7 @@ METplus configuration variables that control timing information are described in
    Note that the valid begin and end time are now set to the same time (January 18, 2022 at 9Z) and there is only 1 forecast lead time (3 hours).
    Also note that "ext" stands for extension and "nc" is the typical extension for a netCDF file. The initial example demonstrates how you can have METplus loop over two types of files but the removal of "nc" results in METplus only looking for files that end with "ext".
 
-1. Call the run_metplus.py script again, this time passing in the Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
+4. Call the run_metplus.py script again, this time passing in the Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
 .. code-block::
 
@@ -1291,7 +1291,7 @@ METplus configuration variables that control timing information are described in
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_timing.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
-1. Review the screen output and/or log file output.
+5. Review the screen output and/or log file output.
 
 .. important::
 
@@ -1303,7 +1303,7 @@ METplus configuration variables that control timing information are described in
 
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
 
-1. Open Example_timing.conf again to increase the frequency of output by making the following changes:
+6. Open Example_timing.conf again to increase the frequency of output by making the following changes:
 
 6a. Change **VALID_END**:
 
@@ -1313,7 +1313,7 @@ METplus configuration variables that control timing information are described in
 
       VALID_END = 2022011809
 
-    to:
+to:
 
 .. note::
 
@@ -1325,7 +1325,7 @@ METplus configuration variables that control timing information are described in
 
    Notice that two valid times should now be run (January 18, 2022 at 9Z and January 18, 2022 at 15Z).
 
-1. Call the run_metplus.py script again and see how the output has changed.
+7. Call the run_metplus.py script again and see how the output has changed.
 
 .. code-block::
 
@@ -1344,7 +1344,7 @@ METplus configuration variables that control timing information are described in
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 12Z and valid at 2022-01-18 15Z
 
-1. Change the timing settings to loop by initialization (or retrospective) time. Open Example_timing.conf again and make the following changes:
+8. Change the timing settings to loop by initialization (or retrospective) time. Open Example_timing.conf again and make the following changes:
 
 8a. Change **LOOP_BY**:
 
@@ -1354,7 +1354,7 @@ METplus configuration variables that control timing information are described in
 
       LOOP_BY = VALID
 
-    to:
+to:
 
 .. note::
 
@@ -1370,7 +1370,7 @@ METplus configuration variables that control timing information are described in
 
       VALID_TIME_FMT = %Y%m%d%H
 
-    to:
+to:
 
 .. note::
 
@@ -1386,7 +1386,7 @@ METplus configuration variables that control timing information are described in
 
       VALID_BEG = 2022011809
 
-    to:
+to:
 
 .. note::
 
@@ -1402,7 +1402,7 @@ METplus configuration variables that control timing information are described in
 
       VALID_END = 2022011815
 
-    to:
+to:
 
 .. note::
 
@@ -1416,17 +1416,17 @@ METplus configuration variables that control timing information are described in
 
    .. code-block:: text
 
-      VALID_INCREMENT = 3H
+      VALID_INCREMENT = 6H
 
-    to:
+to:
 
 .. note::
 
    .. code-block:: text
 
-      INIT_INCREMENT = 3H
+      INIT_INCREMENT = 6H
 
-1. Call the run_metplus.py script once again and see how the output has changed.
+9. Call the run_metplus.py script once again and see how the output has changed.
 
 .. code-block::
 
@@ -1445,7 +1445,7 @@ METplus configuration variables that control timing information are described in
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 09Z and valid at 2022-01-18 12Z
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 15Z and valid at 2022-01-18 18Z
 
-1. Change the value for LOOP_BY from INIT to its nickname RETRO. Open Example_timing.conf again and make the following changes:
+10. Change the value for LOOP_BY from INIT to its nickname RETRO. Open Example_timing.conf again and make the following changes:
 
 10a. Change **LOOP_BY**:
 
@@ -1455,7 +1455,7 @@ METplus configuration variables that control timing information are described in
 
       LOOP_BY = INIT
 
-    to:
+to:
 
 .. note::
 
@@ -1463,7 +1463,7 @@ METplus configuration variables that control timing information are described in
 
       LOOP_BY = RETRO
 
-1. Call the run_metplus.py script another time.
+11. Call the run_metplus.py script another time.
 
 .. code-block::
 
@@ -1501,22 +1501,22 @@ The output should list:
 
    Think about what is constant and what may change routinely:
    nam.t00z.awip1236.tm00.20070330.grb
-   This translates into nam.t{init?fmt=%2H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grib,  We will use this in this next exercise.
+   This translates into {init?fmt=%Y%m%d%H}/nam.t{init?fmt=%H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grb (relative to the sample_fcst directory).  We will use this in this next exercise.
 
-1. Copy the Example_timing.conf configuration file in your user_config directory, renaming it Example_filename.conf
+2. Copy the Example_timing.conf configuration file in your user_config directory, renaming it Example_filename.conf
 
 .. code-block::
 
    cp ${METPLUS_TUTORIAL_DIR}/user_config/Example_timing.conf \
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf
 
-1. Open the new Example_filename.conf file with an editor.
+3. Open the new Example_filename.conf file with an editor.
 
 .. code-block::
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf
 
-1. Make the following changes:
+4. Make the following changes:
 
 4a. Change **EXAMPLE_INPUT_DIR:**
 
@@ -1540,7 +1540,7 @@ to:
 
    .. code-block:: text
 
-      EXAMPLE_INPUT_TEMPLATE =  {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%2H}_F{lead?fmt=%3H}.{custom?fmt=%s}
+      EXAMPLE_INPUT_TEMPLATE = {init?fmt=%Y%m%d}/file_{init?fmt=%Y%m%d}_{init?fmt=%H}_F{lead?fmt=%3H}.{custom?fmt=%s}
 
 to:
 
@@ -1548,9 +1548,9 @@ to:
 
    .. code-block:: text
 
-      EXAMPLE_INPUT_TEMPLATE = nam.t{init?fmt=%2H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grib
+      EXAMPLE_INPUT_TEMPLATE = {init?fmt=%Y%m%d%H}/nam.t{init?fmt=%H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grb
 
-1. Call the run_metplus.py script again, this time passing in the Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
+5. Call the run_metplus.py script again, this time passing in the Example_filename.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
 .. code-block::
 
@@ -1558,27 +1558,27 @@ to:
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
-1. Review the screen output and/or log file output.
+6. Review the screen output and/or log file output.
 
 .. admonition:: Sample Output
 
    .. code-block:: text
 
-      INFO: Looking in input directory for file: nam.t09z.awip1236.tm00.20220118.grib
+      INFO: Looking in input directory for file: 2022011809/nam.t09z.awip1236.tm00.20220118.grb
       ...
-      INFO: Looking in input directory for file: nam.t15z.awip1236.tm00.20220118.grib
+      INFO: Looking in input directory for file: 2022011815/nam.t15z.awip1236.tm00.20220118.grb
 
 .. important::
 
-   Note that none of the files listed are the one listed in Step 1 (nam.t00z.awip1236.tm00.20070330.grb). You will need to make additional modifications to Example.conf to direct METplus to look for the correct file.
+   Note that none of the files listed are the one listed in Step 1 (nam.t00z.awip1236.tm00.20070330.grb). You will need to make additional modifications to Example_filename.conf to direct METplus to look for the correct file.
 
-1. Open the new Example_filename.conf file with an editor.
+7. Open the new Example_filename.conf file with an editor.
 
 .. code-block::
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf
 
-1. Make the following changes:
+8. Make the following changes:
 
 8a. Change **INIT_BEG and INIT_END**:
 
@@ -1589,7 +1589,7 @@ to:
          INIT_BEG = 2022011809
          INIT_END = 2022011815
 
-          to:
+          to:
 
 .. admonition:: File Contents
 
@@ -1598,7 +1598,7 @@ to:
       INIT_BEG = 2007033000
       INIT_END = 2007033000
 
-1. Call the run_metplus.py script again, passing in the modified Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
+9. Call the run_metplus.py script again, passing in the modified Example_filename.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
 
 .. code-block::
 
@@ -1606,13 +1606,13 @@ to:
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
-1. Review the screen output and/or log file output.  It appears it is now looking for the right file.
+10. Review the screen output and/or log file output.  It appears it is now looking for the right file. Note that the Example wrapper only logs the file name it builds from the template; it does not check whether the file exists.
 
 .. admonition:: Sample Output
 
    .. code-block:: text
 
-      INFO: Looking in input directory for file: nam.t00z.awip1236.tm00.20070330.grib
+      INFO: Looking in input directory for file: 2007033000/nam.t00z.awip1236.tm00.20070330.grb
 
 
 Modifying Log Timestamp using Example.conf
@@ -1637,13 +1637,13 @@ In this example we will change the log timestamp template to only include the ye
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.LOG_TIMESTAMP_TEMPLATE=%Y%m%d
 
-1. List the contents of the log directory and notice that there is now a log file that matches the format metplus.log.YYYYMMDD
+2. List the contents of the log directory and notice that there is now a log file that matches the format metplus.log.YYYYMMDD
 
 .. code-block::
 
    ls -1 ${METPLUS_TUTORIAL_DIR}/output/logs/
 
-1. Run the Example_filename use case from the previous exercise and again override the log timestamp template to only include YYYYMMDD.
+3. Run the Example_filename use case from the previous exercise and again override the log timestamp template to only include YYYYMMDD.
 
 .. code-block::
 
@@ -1652,17 +1652,17 @@ In this example we will change the log timestamp template to only include the ye
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.LOG_TIMESTAMP_TEMPLATE=%Y%m%d
 
-1. Review the log file and notice that it contains the log output from both runs.
+4. Review the log file and notice that it contains the log output from both runs.
 
 .. code-block::
 
-   less /d1/personal/mccabe/out2/logs/metplus.log.`date +%Y%m%d`
+   less ${METPLUS_TUTORIAL_DIR}/output/logs/metplus.log.`date -u +%Y%m%d`
 
-1. Search for the word "Running" to see each command.
+5. Search for the word "Running" to see each command.
 
 .. code-block::
 
-   grep Running /d1/personal/mccabe/out2/logs/metplus.log.`date +%Y%m%d`
+   grep Running ${METPLUS_TUTORIAL_DIR}/output/logs/metplus.log.`date -u +%Y%m%d`
 
 **Adding Run ID in Log Timestamp Template**
 
@@ -1677,7 +1677,7 @@ The METplus configuration variable `RUN_ID <https://metplus.readthedocs.io/en/ma
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.LOG_TIMESTAMP_TEMPLATE=%Y%m%d%H%M%S.{RUN_ID}
 
-1. List the contents of the log directory and notice that there is now a log file that matches the format metplus.log.YYYYMMDDHHMMSS.XXXXXXXX where XXXXXXXX is a random set of characters.
+2. List the contents of the log directory and notice that there is now a log file that matches the format metplus.log.YYYYMMDDHHMMSS.XXXXXXXX where XXXXXXXX is a random set of characters.
 
 .. code-block::
 

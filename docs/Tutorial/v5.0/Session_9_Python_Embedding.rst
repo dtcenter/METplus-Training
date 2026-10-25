@@ -30,38 +30,38 @@ Python Embedding Overview
 General MET Python Embedding Elements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The MET tools support Python Embedding for both 2D planes of gridded data and point data. Both gridded data and point data have some specific requirements which are covered below. More generally, Python Embedding can be broken down into **three key elements** that are required by MET tools.
+The MET tools support Python Embedding for both 2D planes of gridded data and point data. Both gridded data and point data have some specific requirements which are covered below. More generally, Python Embedding can be broken down into **three key elements** that are required by MET tools.
 
-The first is a **Python installation** that is used by the MET tools when Python Embedding is requested. When MET is installed, the **--enable-python** compile flag must be used, which requires a local Python installation. After the MET tools are installed, the version of Python provided with the **--enable-python** compile flag is the version of Python that will be used by default when a user requests Python Embedding. Any Python packages installed in the version of Python that MET was compiled against are available to a user when using Python Embedding.
+The first is a **Python installation** that is used by the MET tools when Python Embedding is requested. When MET is installed, the **--enable-python** compile flag must be used, which requires a local Python installation. After the MET tools are installed, the version of Python provided with the **--enable-python** compile flag is the version of Python that will be used by default when a user requests Python Embedding. Any Python packages installed in the version of Python that MET was compiled against are available to a user when using Python Embedding.
 
-The second element of Python embedding is a **Python Embedding Keyword**. These keywords are used to instruct the MET tools that Python Embedding is being requested:
+The second element of Python embedding is a **Python Embedding Keyword**. These keywords are used to instruct the MET tools that Python Embedding is being requested:
 
 .. important::
 
-   PYTHON_NUMPY is used when passing 2D planes of data in a NumPy N-dimensional array object, or when using point data
+   PYTHON_NUMPY is used when passing 2D planes of data in a NumPy N-dimensional array object, or when using point data (except with ascii2nc, which uses **-format python** instead)
    PYTHON_XARRAY is used when passing 2D planes of data in an Xarray DataArray object only
 
-The third element of Python embedding is the **absolute path to your Python script** along with any command line arguments that the script requires. These three elements enable the user to invoke Python Embedding within the MET tools.
+The third element of Python embedding is the **path to your Python script** along with any command line arguments that the script requires. These three elements enable the user to invoke Python Embedding within the MET tools.
 
 Details for Python Embedding Scripts with 2D Gridded Data
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 In your Python Embedding script, be sure to adhere to the following requirements:
 
-1. Your variable containing the 2D dataplane of gridded data must be named met_data. This applies to both NumPy N-dimensional array objects (for PYTHON_NUMPY), and Xarray DataArray objects (for PYTHON_XARRAY).
-2. For PYTHON_NUMPY, you must define a Python variable that is a dictionary named attrs in your script that contains the following keys and their respective values :
+1. Your variable containing the 2D dataplane of gridded data must be named met_data. This applies to both NumPy N-dimensional array objects (for PYTHON_NUMPY), and Xarray DataArray objects (for PYTHON_XARRAY).
+2. For PYTHON_NUMPY, you must define a Python variable that is a dictionary named attrs in your script that contains the following keys and their respective values :
 
-valid
-init
-lead
-accum
-name
-long_name
-level
-units
-grid
+   * valid
+   * init
+   * lead
+   * accum
+   * name
+   * long_name
+   * level
+   * units
+   * grid
 
-12. For PYTHON_XARRAY, your Xarray DataArray must have a dictionary of attributes attached to it (accessible via the .attrs method of the DataArray object), and the keys must match the keys listed about for PYTHON_NUMPY.
+3. For PYTHON_XARRAY, your Xarray DataArray must have a dictionary of attributes attached to it (accessible via the .attrs method of the DataArray object), and the keys must match the keys listed about for PYTHON_NUMPY.
 
 .. important::
 
@@ -72,21 +72,21 @@ Details for Python Embedding Scripts with Point Data
 
 In your Python Embedding script, be sure to adhere to the following requirements:
 
-1. If you are using Python Embedding with ascii2nc, your data must be in a nested list (i.e. "list of lists") representation of the MET 11-column point data format where each list is one of the 11 columns. The fastest way to achieve this is to use the Python package Pandas, and use the method to_list() on the Pandas DataFrame object. Additionally, the nested list variable must be named point_data.
-2. If you are using Python Embedding with other MET tools for point data such as plot_point_obs, point_stat, ensemble_stat, or point2grid, you must provide the point data in a special format that can be created from the MET 11-column format. This can be accomplished by creating a nested list (i.e. "list of lists") of the MET 11-column point data format and then using the helper Python function called convert_point_data(), which can be found in the met_point_obs class in ${MET_BUILD_BASE}/scripts/python/met_point_obs.py. Additionally, the variable that is returned from convert_point_data() must be named met_point_data which differs from using ascii2nc.
+1. If you are using Python Embedding with ascii2nc, your data must be in a nested list (i.e. "list of lists") representation of the MET 11-column point data format where each inner list is one observation (one row) containing the 11 columns. The fastest way to achieve this is to use the Python package Pandas, and use .values.tolist() on the Pandas DataFrame object. Additionally, the nested list variable must be named point_data.
+2. If you are using Python Embedding with other MET tools for point data such as plot_point_obs, point_stat, ensemble_stat, or point2grid, you must provide the point data in a special format that can be created from the MET 11-column format. This can be accomplished by creating a nested list (i.e. "list of lists") of the MET 11-column point data format and then using the helper Python function called convert_point_data(), which can be found in the met_point_obs module in ${MET_BUILD_BASE}/share/met/python/met_point_obs.py. Additionally, the variable that is returned from convert_point_data() must be named met_point_data which differs from using ascii2nc.
 
 .. important::
 
-   In the example for Python Embedding with point data later in this session, plot_point_obs is used. By inspecting the Python Embedding script used in that example, the details described above may become clearer.
+   In the example for Python Embedding with point data later in this session, plot_point_obs is used. By inspecting the Python Embedding script used in that example, the details described above may become clearer.
 
 Advanced Python Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In some cases, a user may require one or more Python packages that are not installed in the version of Python that was used when installing the MET tools. In this case, the user can set a special environment variable called **MET_PYTHON_EXE**, which contains the relative path to the "/bin" directory where the Python executable is that contains the Python packages the user requires.
+In some cases, a user may require one or more Python packages that are not installed in the version of Python that was used when installing the MET tools. In this case, the user can set a special environment variable called **MET_PYTHON_EXE**, which contains the full path to the Python executable (e.g. /usr/local/python3/bin/python3) that contains the Python packages the user requires.
 
 .. important::
 
-   NOTE: using MET_PYTHON_EXE will force MET to write data files to a temporary area and then read them in again, instead of receiving data directly from within memory. This may negatively effect (increase) workflow run time. In some cases this cannot be avoided (i.e. multiple users sharing a single MET installation), and allows users maximum accessibility to the Python ecosystem, but users should be aware it could increase run time.
+   NOTE: using MET_PYTHON_EXE will force MET to write data files to a temporary area and then read them in again, instead of receiving data directly from within memory. This may negatively effect (increase) workflow run time. In some cases this cannot be avoided (i.e. multiple users sharing a single MET installation), and allows users maximum accessibility to the Python ecosystem, but users should be aware it could increase run time.
 
 Setup for Python Embedding Practice
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,7 +111,7 @@ In the next two sections, you will practice using Python Embedding for both grid
 
 .. note::
 
-   Copy and rename the read_ascii_numpy.py example script included with the MET software to your directory:
+   Copy and rename the read_ascii_numpy.py example script included with the MET software to your directory:
 
 .. code-block:: text
 
@@ -119,7 +119,7 @@ In the next two sections, you will practice using Python Embedding for both grid
 
 .. note::
 
-   Copy and rename the read_ascii_point.py example script included with the MET software to your directory:
+   Copy and rename the read_ascii_point.py example script included with the MET software to your directory:
 
 .. code-block:: text
 
@@ -151,12 +151,12 @@ Python Embedding for Gridded Data
 Simple Gridded Data Example with MET Tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To demonstrate how to use Python Embedding for gridded data, you will use some test data included with the MET installation, the MET **plot_data_plane** tool, and the sample Python Embedding script named **my_gridded_pyembed.py** that you created earlier in this session. There are four required elements to the command for using Python Embedding with **plot_data_plane:**
+To demonstrate how to use Python Embedding for gridded data, you will use some MET test data included with the tutorial data (**METPLUS_DATA**), the MET **plot_data_plane** tool, and the sample Python Embedding script named **my_gridded_pyembed.py** that you created earlier in this session. There are four required elements to the command for using Python Embedding with **plot_data_plane:**
 
-1. The path to the plot_data_plane MET executable
+1. The path to the plot_data_plane MET executable
 2. The Python Embedding keyword
-3. The plot_data_plane output_filename argument
-4. The plot_data_plane field_string argument, modified for Python Embedding
+3. The plot_data_plane output_filename argument
+4. The plot_data_plane field_string argument, modified for Python Embedding
 
 **LET'S BUILD THE COMMAND!**
 
@@ -166,13 +166,13 @@ To demonstrate how to use Python Embedding for gridded data, you will use some t
 
    ${MET_BUILD_BASE}/bin/plot_data_plane
 
-**Element 2**: For this exercise, we are using **plot_data_plane** which uses gridded data as input, so the keyword will be **PYTHON_NUMPY**. The data are not contained in an Xarray object, so we will not use PYTHON_XARRAY.
+**Element 2**: For this exercise, we are using **plot_data_plane** which uses gridded data as input, so the keyword will be **PYTHON_NUMPY**. The data are not contained in an Xarray object, so we will not use PYTHON_XARRAY.
 
 .. important::
 
    PYTHON_NUMPY
 
-**Element 3**: Choose your own output filename. The **plot_data_plane** tool outputs an image in PostScript format so typically the filename will end with ".ps":
+**Element 3**: Choose your own output filename. The **plot_data_plane** tool outputs an image in PostScript format so typically the filename will end with ".ps":
 
 .. important::
 
@@ -182,7 +182,7 @@ To demonstrate how to use Python Embedding for gridded data, you will use some t
 
 .. important::
 
-   'name="my_gridded_pyembed.py ${MET_BUILD_BASE}/data/python/fcst.txt FCST_DATA";'
+   'name="my_gridded_pyembed.py ${METPLUS_DATA}/met_test/data/python/fcst.txt FCST_DATA";'
 
 **LET'S RUN THE COMMAND!**
 
@@ -192,7 +192,7 @@ Verify you are in the Python Embedding practice directory:
 
    cd ${METPLUS_TUTORIAL_DIR}/python_embed
 
-Copy each of the four elements from above to construct the full Python Embedding command for **plot_data_plane**:
+Copy each of the four elements from above to construct the full Python Embedding command for **plot_data_plane**:
 
 .. code-block:: text
 
@@ -200,7 +200,7 @@ Copy each of the four elements from above to construct the full Python Embedding
 
 **VIEW THE OUTPUT IMAGE**
 
-The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
+The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
 
 .. code-block:: text
 
@@ -212,7 +212,7 @@ The output file is a PostScript graphic file that typically can only be viewed w
 Simple Gridded Data Example with METplus Wrappers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now instead of using **plot_data_plane** directly, you will practice the above example using the METplus Wrappers. For each of the four elements shown above, the equivalent configuration items for METplus Wrappers will be described. But first, you will need to set up a basic METplus Wrappers configuration file:
+Now instead of using **plot_data_plane** directly, you will practice the above example using the METplus Wrappers. For each of the four elements shown above, the equivalent configuration items for METplus Wrappers will be described. But first, you will need to set up a basic METplus Wrappers configuration file:
 
 Verify you are in the Python Embedding practice directory:
 
@@ -220,7 +220,7 @@ Verify you are in the Python Embedding practice directory:
 
    cd ${METPLUS_TUTORIAL_DIR}/python_embed
 
-Open a new file named **my_gridded_pyembed.conf** with a text editor:
+Open a new file named **my_gridded_pyembed.conf** with a text editor:
 
 .. code-block:: text
 
@@ -237,7 +237,7 @@ Copy the following METplus configuration items into the file and save it when co
    VALID_TIME_FMT=%Y%m%d
    OUTPUT_BASE={ENV[METPLUS_TUTORIAL_DIR]}/python_embed/wrappers_gridded_output
 
-For **Element 1** above, the METplus Wrappers will find **plot_data_plane** through the **MET_INSTALL_DIR** and **PROCESS_LIST** configuration items. We also need the Wrappers to find the data through the **METPLUS_DATA**:
+For **Element 1** above, the METplus Wrappers will find **plot_data_plane** through the **MET_INSTALL_DIR** and **PROCESS_LIST** configuration items. We also need the Wrappers to find the data through the **METPLUS_DATA**:
 
 .. code-block:: text
 
@@ -245,19 +245,19 @@ For **Element 1** above, the METplus Wrappers will find **plot_data_plane** thr
    PROCESS_LIST=PlotDataPlane
    METPLUS_DATA={ENV[METPLUS_DATA]}
 
-For **Element 2** above, we will use the **PLOT_DATA_PLANE_INPUT_TEMPLATE** configuration item:
+For **Element 2** above, we will use the **PLOT_DATA_PLANE_INPUT_TEMPLATE** configuration item:
 
 .. code-block:: text
 
    PLOT_DATA_PLANE_INPUT_TEMPLATE=PYTHON_NUMPY
 
-For **Element 3** above, we will use the **PLOT_DATA_PLANE_OUTPUT_TEMPLATE** configuration item, which includes the **OUTPUT_BASE** configuration item:
+For **Element 3** above, we will use the **PLOT_DATA_PLANE_OUTPUT_TEMPLATE** configuration item, which includes the **OUTPUT_BASE** configuration item:
 
 .. code-block:: text
 
    PLOT_DATA_PLANE_OUTPUT_TEMPLATE={OUTPUT_BASE}/my_gridded_pyembed_wrappers_plot.ps
 
-For **Element 4** above, we will use the **PLOT_DATA_PLANE_FIELD_NAME** configuration item:
+For **Element 4** above, we will use the **PLOT_DATA_PLANE_FIELD_NAME** configuration item:
 
 .. code-block:: text
 
@@ -269,7 +269,7 @@ Now save the file, and run METplus wrappers:
 
    run_metplus.py -c my_gridded_pyembed.conf
 
-You can verify that the output image **my_gridded_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_data_plane** directly.
+You can verify that the output image **my_gridded_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_data_plane** directly.
 
 .. important::
 
@@ -278,14 +278,14 @@ You can verify that the output image **my_gridded_pyembed_wrappers_plot.ps** (w
 Python Embedding for Point Data
 -------------------------------
 
-Simple Gridded Data Example with MET Tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Simple Point Data Example with MET Tools
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To demonstrate how to use Python Embedding for point data, you will use some test data included with the MET installation, the MET **plot_point_obs** tool, and the sample Python Embedding script named **my_point_pyembed.py** that you created earlier in this session. There are three required elements to the command for using Python Embedding with **plot_point_obs:**
+To demonstrate how to use Python Embedding for point data, you will use some MET test data included with the tutorial data (**METPLUS_DATA**), the MET **plot_point_obs** tool, and the sample Python Embedding script named **my_point_pyembed.py** that you created earlier in this session. There are three required elements to the command for using Python Embedding with **plot_point_obs:**
 
-1. The path to the plot_point_obs MET executable
-2. The plot_point_obs nc_file argument, modified for Python Embedding
-3. The plot_point_obs ps_file argument
+1. The path to the plot_point_obs MET executable
+2. The plot_point_obs nc_file argument, modified for Python Embedding
+3. The plot_point_obs ps_file argument
 
 **LET'S BUILD THE COMMAND!**
 
@@ -295,13 +295,13 @@ To demonstrate how to use Python Embedding for point data, you will use some tes
 
    ${MET_BUILD_BASE}/bin/plot_point_obs
 
-**Element 2**: The nc_file argument for **plot_point_obs**. The nc_file argument is typically the path to a netCDF data file containing point observations in a specific MET format created by a MET tool like **pb2nc**. However, you can also replace this argument with the path to a Python Embedding script. Unlike the gridded data example above, the Python Embedding keyword is included with the Python Embedding script rather than as a separate command line element. Since you are using point data, you will use **PYTHON_NUMPY** as the Python Embedding keyword. The Python Embedding script being used here only takes a single argument that is the path to the input data file:
+**Element 2**: The nc_file argument for **plot_point_obs**. The nc_file argument is typically the path to a netCDF data file containing point observations in a specific MET format created by a MET tool like **pb2nc**. However, you can also replace this argument with the path to a Python Embedding script. Unlike the gridded data example above, the Python Embedding keyword is included with the Python Embedding script rather than as a separate command line element. Since you are using point data, you will use **PYTHON_NUMPY** as the Python Embedding keyword. The Python Embedding script being used here only takes a single argument that is the path to the input data file:
 
 .. important::
 
-   "PYTHON_NUMPY=my_point_pyembed.py {METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt"
+   "PYTHON_NUMPY=${METPLUS_TUTORIAL_DIR}/python_embed/my_point_pyembed.py ${METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt"
 
-**Element 3**: Choose your own output filename. The **plot_point_obs** tool outputs an image in PostScript format so typically the filename will end with ".ps":
+**Element 3**: Choose your own output filename. The **plot_point_obs** tool outputs an image in PostScript format so typically the filename will end with ".ps":
 
 .. important::
 
@@ -315,7 +315,7 @@ Verify you are in the Python Embedding practice directory:
 
    cd ${METPLUS_TUTORIAL_DIR}/python_embed
 
-Copy each of the four elements from above to construct the full Python Embedding command for **plot_data_plane**:
+Copy each of the three elements from above to construct the full Python Embedding command for **plot_point_obs**:
 
 .. code-block:: text
 
@@ -323,7 +323,7 @@ Copy each of the four elements from above to construct the full Python Embedding
 
 **VIEW THE OUTPUT IMAGE**
 
-The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
+The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
 
 .. code-block:: text
 
@@ -332,10 +332,10 @@ The output file is a PostScript graphic file that typically can only be viewed w
 .. figure:: ../figure/ScreenShot2023-01-24at3.07.15PM.png
    :alt: Point observation locations from sample_ascii_obs.txt plotted on a world map.
 
-Simple Gridded Data Example with METplus Wrappers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Simple Point Data Example with METplus Wrappers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now instead of using **plot_point_obs** directly, you will practice the above example using the METplus Wrappers. For each of the three elements shown above, the equivalent configuration items for METplus Wrappers will be described. But first, you will need to set up a basic METplus Wrappers configuration file:
+Now instead of using **plot_point_obs** directly, you will practice the above example using the METplus Wrappers. For each of the three elements shown above, the equivalent configuration items for METplus Wrappers will be described. But first, you will need to set up a basic METplus Wrappers configuration file:
 
 Verify you are in the Python Embedding practice directory:
 
@@ -343,7 +343,7 @@ Verify you are in the Python Embedding practice directory:
 
    cd ${METPLUS_TUTORIAL_DIR}/python_embed
 
-Open a new file named **my_point_pyembed.conf** with a text editor:
+Open a new file named **my_point_pyembed.conf** with a text editor:
 
 .. code-block:: text
 
@@ -360,20 +360,20 @@ Some basic elements are required to get the METplus wrappers to run. For this ex
    VALID_TIME_FMT=%Y%m%d
    OUTPUT_BASE={ENV[METPLUS_TUTORIAL_DIR]}/python_embed/wrappers_point_output
 
-For **Element 1** above, the METplus Wrappers will find **plot_point_obs** through the **MET_INSTALL_DIR** and **PROCESS_LIST** configuration items:
+For **Element 1** above, the METplus Wrappers will find **plot_point_obs** through the **MET_INSTALL_DIR** and **PROCESS_LIST** configuration items:
 
 .. code-block:: text
 
    MET_INSTALL_DIR={ENV[MET_BUILD_BASE]}
    PROCESS_LIST=PlotPointObs
 
-For **Element 2** above, we will use the **PLOT_POINT_OBS_INPUT_TEMPLATE** configuration item:
+For **Element 2** above, we will use the **PLOT_POINT_OBS_INPUT_TEMPLATE** configuration item:
 
 .. code-block:: text
 
    PLOT_POINT_OBS_INPUT_TEMPLATE=PYTHON_NUMPY={ENV[METPLUS_TUTORIAL_DIR]}/python_embed/my_point_pyembed.py {ENV[METPLUS_DATA]}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt
 
-For **Element 3** above, we will use the **PLOT_POINT_OBS_OUTPUT_TEMPLATE** configuration item:
+For **Element 3** above, we will use the **PLOT_POINT_OBS_OUTPUT_TEMPLATE** configuration item:
 
 .. code-block:: text
 
@@ -385,7 +385,7 @@ Now save the file, and run METplus wrappers:
 
    run_metplus.py -c my_point_pyembed.conf
 
-You can verify that the output image **my_point_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_point_obs** directly.
+You can verify that the output image **my_point_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_point_obs** directly.
 
 .. important::
 
@@ -394,12 +394,12 @@ You can verify that the output image **my_point_pyembed_wrappers_plot.ps** (whi
 Writing a Python Script for Python Embedding
 --------------------------------------------
 
-In this section, you will use Python Embedding to open a NetCDF file containing weather satellite brightness temperature data, and use **plot_data_plane** to create an image of this field. The reason you will use Python Embedding is because the brightness temperature data have units of degrees Kelvin, but you need to create an image with data plotted in degrees Celsius, so the Python Embedding script will perform the following functions:
+In this section, you will use Python Embedding to open a NetCDF file containing weather satellite brightness temperature data, and use **plot_data_plane** to create an image of this field. The reason you will use Python Embedding is because the brightness temperature data have units of degrees Kelvin, but you need to create an image with data plotted in degrees Celsius, so the Python Embedding script will perform the following functions:
 
 1. Open the NetCDF data file
 2. Convert the units of the gridded data from degrees Kelvin to degrees Celsius
 3. Construct the required data attributes
-4. Prepare the data for plot_data_plane
+4. Prepare the data for plot_data_plane
 
 Verify you are in the Python Embedding practice directory:
 
@@ -449,7 +449,7 @@ Open the file with Xarray:
 
       satellite_temperature = xr.open_dataset(input_file)
 
-Construct a Python dictionary named **attrs** that contains the required attributes needed for Python Embedding:
+Construct a Python dictionary named **attrs** that contains the required attributes needed for Python Embedding:
 
 .. admonition:: File Contents
 
@@ -465,7 +465,7 @@ Construct a Python dictionary named **attrs** that contains the required attri
       attrs['level'] = 'Surface'
       attrs['units'] = 'Celsius'
 
-Construct a Python dictionary named **grid_info** that contains the required grid information needed for Python Embedding. In this example, some of these attributes are included in the sample file being read, so we will re-use those attributes where possible:
+Construct a Python dictionary named **grid_info** that contains the required grid information needed for Python Embedding. In this example, some of these attributes are included in the sample file being read, so we will re-use those attributes where possible:
 
 .. admonition:: File Contents
 
@@ -484,14 +484,14 @@ Construct a Python dictionary named **grid_info** that contains the required g
       grid_info['lon_orient'] = float(satellite_temperature.attrs['lon_orient'])
       grid_info['d_km'] = float(satellite_temperature.attrs['d_km'])
       grid_info['r_km'] = float(satellite_temperature.attrs['r_km'])
-      grid_info['nx'] = float(1620)
-      grid_info['ny'] = float(1120)
+      grid_info['nx'] = int(1620)
+      grid_info['ny'] = int(1120)
 
 .. important::
 
-   NOTE: Constructing the grid attributes is a manual process, and requires understanding of what attributes are required by MET for the type of grid your data are on. Please refer to the MET user's guide for more information about which attributes to include based upon the grid you are using since they vary from grid to grid.
+   NOTE: Constructing the grid attributes is a manual process, and requires understanding of what attributes are required by MET for the type of grid your data are on. Please refer to the MET user's guide for more information about which attributes to include based upon the grid you are using since they vary from grid to grid.
 
-Add the **grid_info** to the **attrs** dictionary:
+Add the **grid_info** to the **attrs** dictionary:
 
 .. admonition:: File Contents
 
@@ -499,7 +499,7 @@ Add the **grid_info** to the **attrs** dictionary:
 
       attrs['grid'] = grid_info
 
-Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**. If **PYTHON_XARRAY** is requested. then the Xarray DataArray is subset so a single variable is selected, and those data are converted to Celsius and renamed to **met_data**, and then the **attrs** are added to the Xarray DataArray object. If **PYTHON_NUMPY** is requested, then the Xarray DataArray is subset so a single variable is selected, and a NumPy N-dimensional array representation is requested from Xarray using **.values** on the DataArray, and it is renamed to **met_data**. Note that for **PYTHON_NUMPY**, no **attrs** are attached to **met_data** in any manner, it is simply enough for **attrs** to exist as a variable in your Python script:
+Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**. If **PYTHON_XARRAY** is requested. then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and those data are converted to Celsius and renamed to **met_data**, and then the **attrs** are added to the Xarray DataArray object. If **PYTHON_NUMPY** is requested, then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and a NumPy N-dimensional array representation is requested from Xarray using **.values** on the DataArray, and it is renamed to **met_data**. Note that for **PYTHON_NUMPY**, no **attrs** are attached to **met_data** in any manner, it is simply enough for **attrs** to exist as a variable in your Python script:
 
 .. admonition:: File Contents
 
@@ -525,14 +525,14 @@ Use Your Python Embedding Script with MET Tools
 
 This section will largely follow the instructions in section titled "Python Embedding for Gridded Data", except you will be using your own Python Embedding script.
 
-Recall the four **Required Elements** for Python Embedding with gridded data:
+Recall the four **Required Elements** for Python Embedding with gridded data:
 
 1. The path to the MET tool executable you will be using
 2. The Python Embedding keyword
 3. The required argument for the MET tool you are using that must be modified for Python Embedding
 4. Any additional required arguments for the MET tool you are using
 
-In this section, you will use **plot_data_plane** to run your Python Embedding script. The script you wrote in the "Writing A Python Script For Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**.
+In this section, you will use **plot_data_plane** to run your Python Embedding script. The script you wrote in the "Writing A Python Script For Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**.
 
 First, verify you are in the Python Embedding practice directory:
 
@@ -547,14 +547,14 @@ PYTHON_NUMPY
 
 .. note::
 
-   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY numpy.ps 'name="practice_gridded_pyembed.py numpy";'
+   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY numpy.ps 'name="practice_gridded_pyembed.py numpy";'
 
 PYTHON_XARRAY
 ^^^^^^^^^^^^^
 
 .. note::
 
-   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_XARRAY xarray.ps 'name="practice_gridded_pyembed.py xarray";'
+   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_XARRAY xarray.ps 'name="practice_gridded_pyembed.py xarray";'
 
 The resulting image, regardless of which approach you take (except for the string annotation which will change), should look like the following:
 
@@ -563,7 +563,7 @@ The resulting image, regardless of which approach you take (except for the strin
 
 .. important::
 
-   Great work! Proceed to the next section to configure METplus Wrappers to run your Python Embedding script.
+   Great work! Proceed to the next section to configure METplus Wrappers to run your Python Embedding script.
 
 Using Your Python Embedding Script With METplus Wrappers
 --------------------------------------------------------
@@ -581,7 +581,7 @@ First, verify you are in the Python Embedding practice directory:
 PYTHON_NUMPY
 ^^^^^^^^^^^^
 
-Open a new file named **practice_gridded_pyembed_NUMPY.conf** with a text editor.
+Open a new file named **practice_gridded_pyembed_NUMPY.conf** with a text editor.
 
 .. code-block:: text
 
@@ -648,14 +648,14 @@ Copy the following METplus Wrappers configuration items into the file and save i
 
    run_metplus.py -c practice_gridded_pyembed_XARRAY.conf
 
-If you completed the previous section using your Python Embedding script directly with **plot_data_plane**, then the image you generated from either of the approaches above should identically match that and look like this:
+If you completed the previous section using your Python Embedding script directly with **plot_data_plane**, then the image you generated from either of the approaches above should identically match that and look like this:
 
 .. figure:: ../figure/ScreenShot2023-01-25at2.40.25PM.png
    :alt: Python embedding plot of the gridded satellite field over the United States.
 
 .. important::
 
-   Well done! You successfully used your Python Embedding script with METplus Wrappers!
+   Well done! You successfully used your Python Embedding script with METplus Wrappers!
 
 End of Session 9
 ----------------

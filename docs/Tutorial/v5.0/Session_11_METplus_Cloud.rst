@@ -3,7 +3,7 @@ Session 11: METplus Cloud
 
 **METplus Practical Session 11**
 
-This session will cover two METplus feature relative use cases.
+This session will cover how to access a guided tutorial EC2 instance or create your own EC2 instance on Amazon Web Services (AWS) for running the METplus tutorial.
 
 **Prerequisites: Accessing a Guided Tutorial EC2 Instance**
 
@@ -61,7 +61,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. important::
 
-   The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
+   The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
 
 .. note::
 
@@ -80,7 +80,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
-If more information is needed see the instructions in Session 1 for more information.
+If more information is needed see the instructions in the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
 The next section describes how to create your own EC2 instance and is optional
 
 .. important::
@@ -193,5 +193,9 @@ Something similar to the image below should pop up and your ip address should be
 .. figure:: ../figure/instancesummary.png
    :alt: AWS instance summary for the running tutorial instance.
 
-You may now connect to your EC2 instance the same way as you would if you were given an ip by the tutorial manager.
+You may now connect to your EC2 instance the same way as you would if you were given an ip by the tutorial manager, except that you use the key pair you selected above instead of a password:
+
+.. code-block:: text
+
+   ssh -i /path/to/<your key pair file>.pem ec2-user@<ip address>
 

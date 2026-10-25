@@ -397,7 +397,7 @@ Whenever getting started with new gridded datasets in MET, users are strongly en
 
 .. important::
 
-  In MET, the terminology **Data-Plane** means a 2-dimensional field of gridded data.
+  In MET, the terminology **Data-Plane** means a 2-dimensional field of gridded data.
 
 **Plot-Data-Plane Functionality**
 
@@ -448,9 +448,9 @@ As you'll see throughout these exercises, the behavior of the MET and METplus to
 
 In general, the name and level entries are required to extract a gridded field of data from a supported input file format. The conventions for specifying them vary based on the input file type:
 
-For GRIB1 or GRIB2 inputs, set name as the abbreviation for the desired variable or data type that appears in the GRIB tables and set level to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example 'name = "TMP"; level = "P500";' extracts 500 millibar temperature from a GRIB file.
+For GRIB1 or GRIB2 inputs, set name as the abbreviation for the desired variable or data type that appears in the GRIB tables and set level to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example 'name = "TMP"; level = "P500";' extracts 500 millibar temperature from a GRIB file.
 
-For NetCDF inputs, set name as the NetCDF variable name and level to define how to extract a 2-dimensional slice of gridded data from that variable. For example, 'name = "temperature"; level = "(0,1,*,*)";' extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indicies as constant values.
+For NetCDF inputs, set name as the NetCDF variable name and level to define how to extract a 2-dimensional slice of gridded data from that variable. For example, 'name = "temperature"; level = "(0,1,*,*)";' extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indicies as constant values.
 
 For Python embedding, set name as the python script to be run along with any arguments for that script and do not set level. For example, 'name = "read_my_data.py input.txt";' runs a python script to read data from the specified input file.
 
@@ -464,9 +464,9 @@ Since the field_string is processed using a temporary file, any syntax errors wi
 
    .. code-block:: text
 
-      ERROR  :
-      ERROR  : yyerror() -> syntax error in file "/tmp/met_config_61354_1"
-      ERROR  :
+      ERROR  :
+      ERROR  : yyerror() -> syntax error in file "/tmp/met_config_61354_1"
+      ERROR  :
 
 Error messages like this typically mean there is a problem in a configuration string or configuration file being read by MET.
 
@@ -507,7 +507,7 @@ Next, re-run at verbosity level 4 to see more detailed log message about the gri
   'name = "TMP"; level = "Z2";' -v 4
 
 It is a great idea to inspect the log messages to sanity check the metadata. Without needing to understand all the details, does the grid definition look reasonable? Are the range of values reasonable for this variable type? Are the timestamps of the data consistent with the input file name?
-Next, open the PostScript output file. On some machines, the ghostview utility (or common gv alias) can display PostScript files. On other, the display command works well. On Macs, simply run open. The example below uses gv which is available in the METplus AMI:
+Next, open the PostScript output file. On some machines, the ghostview utility (or common gv alias) can display PostScript files. On other, the display command works well. On Macs, simply run open. The example below uses gv which is available in the METplus AMI:
 
 .. code-block::
 
@@ -532,15 +532,15 @@ While this Plot-Data-Plane validation step is not necessary for every input file
 Plot NetCDF Data
 ^^^^^^^^^^^^^^^^
 
-The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
+The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
 
-As described in :ref:`The Field String <field_str>`, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
+As described in :ref:`The Field String <field_str>`, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
 
-Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from a CF-compliant NetCDF file. First run ncdump -h to take a look at the header:
+Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from a CF-compliant NetCDF file. First run ncdump -h to take a look at the header:
 
 .. code-block::
 
-  ncdump -h \
+  ncdump -h \
   ${METPLUS_DATA}/model_applications/precipitation/QPE_Data/20170510/qpe_2017051005.nc
 
 Note the following from the header:
@@ -559,13 +559,13 @@ Note the following from the header:
       // global attributes:
       :Conventions = "CF-1.0" ;
 
-The variable P06M_NONE has 3 dimensions, but the time dimension only has length 1. Therefore, setting level = "(0,*,*)"; should do the trick. Also note that the global Conventions attribute identifies this file as being CF-compliant. Let's plot it, this time adding a title:
+The variable P06M_NONE has 3 dimensions, but the time dimension only has length 1. Therefore, setting level = "(0,*,*)"; should do the trick. Also note that the global Conventions attribute identifies this file as being CF-compliant. Let's plot it, this time adding a title:
 
 .. code-block::
 
   plot_data_plane \
   ${METPLUS_DATA}/model_applications/precipitation/QPE_Data/20170510/qpe_2017051005.nc \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/qpe_2017051005.ps \
   'name = "P06M_NONE"; level = "(0,*,*)";' -title "Precipitation Forecast" -v 4
 
 Running at verbosity level 4, we see the range of values:
@@ -575,8 +575,8 @@ Running at verbosity level 4, we see the range of values:
    .. code-block:: text
 
       DEBUG 4: Data plane information:
-      DEBUG 4:       plane min: 0
-      DEBUG 4:       plane max: 101.086
+      DEBUG 4:       plane min: 0
+      DEBUG 4:       plane max: 101.086
 
 If needed, run convert to reformat:
 
@@ -590,7 +590,7 @@ The next example extracts a specific time string from a precipitation analysis d
 
 .. code-block::
 
-  ncdump -h \
+  ncdump -h \
   ${METPLUS_DATA}/model_applications/precipitation/StageIV/2017050912_st4.nc
 
 Note the following from the header:
@@ -613,7 +613,7 @@ Let's request a specific time string, specify a title, and use the same plotting
 
   plot_data_plane \
   ${METPLUS_DATA}/model_applications/precipitation/StageIV/2017050912_st4.nc \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/2017050912_st4.ps \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/2017050912_st4.ps \
   'name = "P06M_NONE"; level = "(20170510_06,*,*)";' \
   -plot_range 0 101.086 -title "Precipitation Analysis"
 
@@ -622,7 +622,7 @@ Lastly, let's plot output a NetCDF mask file that was created by an earlier vers
 
 .. code-block::
 
-  ncdump -h ${METPLUS_DATA}/met_test/data/poly/NCEP_masks/NCEP_Regions.nc
+  ncdump -h ${METPLUS_DATA}/met_test/data/poly/NCEP_masks/NCEP_Regions.nc
 
 We will plot the NCEP_Region_ID variable with only 2 dimensions:
 
@@ -637,7 +637,7 @@ Let's specify a different color table rather than using the default one.
 .. code-block::
 
   plot_data_plane \
-  ${METPLUS_DATA}/met_test/data/poly/NCEP_masks/NCEP_Regions.nc \
+  ${METPLUS_DATA}/met_test/data/poly/NCEP_masks/NCEP_Regions.nc \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/NCEP_Regions.ps \
   'name = "NCEP_Region_ID"; level = "(*,*)";' \
   -color_table $MET_BUILD_BASE/share/met/colortables/NCL_colortables/rainbow.ctable
@@ -646,7 +646,7 @@ Let's specify a different color table rather than using the default one.
 
 .. important::
 
-  When working with NetCDF files in MET, running **ncdump -h** is a great way to check their contents.
+  When working with NetCDF files in MET, running **ncdump -h** is a great way to check their contents.
 
 
 Python Embedding
@@ -674,7 +674,7 @@ Next, let's run Plot-Data-Plane using this python script to define the input dat
 
   plot_data_plane \
   PYTHON_NUMPY \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
   'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
 Since there is no input_filename to be specified as the first required argument for Plot-Data-Plane, we provide the constant string PYTHON_NUMPY in that spot. This triggers Plot-Data-Plane to interpret the field string as a python embedding script to be run. Specifying PYTHON_XARRAY also works but requires slightly different conventions in the python embedding script.
@@ -696,10 +696,10 @@ Rerunning the command from above should produce the same result, but if you look
 
   plot_data_plane \
   PYTHON_NUMPY \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
   'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
-You can find several python embedding examples on the `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/main_v5.1/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_ use case examples. 
+You can find several python embedding examples on the `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/main_v5.1/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_ use case examples. 
 
 MET Tool: Gen-Vx-Mask
 ---------------------
@@ -725,8 +725,8 @@ View the usage statement for Gen-Vx-Mask by simply typing the following:
 .. list-table:: Usage: gen_vx_mask
    :widths: auto
 
-   * - input_file
-     - Gridded data file defining the domain
+   * - input_grid
+     - Named grid, gridded data file, or explicit grid specification string defining the domain
    * - mask_file
      - Defines the masking region and varies by -type
    * - out_file
@@ -737,7 +737,9 @@ View the usage statement for Gen-Vx-Mask by simply typing the following:
      - Define field from input_file for grid point initialization values, rather than 0.
    * - [-mask_field string]
      - Define field from mask_file for data masking.
-   * - [-complement, -union, -intersection, -symdiff]
+   * - [-complement]
+     - Compute the complement of the current mask.
+   * - [-union | -intersection | -symdiff]
      - Set logic for combining input_field initialization values with the current mask values.
    * - [-thresh string]
      - Define threshold for circle, track, data, solar_alt, solar_azi, lat, and lon masking types.
@@ -758,7 +760,7 @@ View the usage statement for Gen-Vx-Mask by simply typing the following:
 
 
 
-At a minimum, the input data_file, the input mask_poly polyline file, the output netcdf_file, and the type must be passed on the command line.
+At a minimum, the input_grid, the mask_file, the output out_file, and the -type must be passed on the command line.
 
 Run Poly Type
 ^^^^^^^^^^^^^
@@ -789,7 +791,7 @@ Gen-Vx-Mask should run very quickly since the grid is coarse (185x129 points) an
   ncview CONUS_mask.nc &
 
 Notice that the bitmap has a value of 1 inside the CONUS polyline and 0 everywhere else. We'll use the CONUS mask we just defined in the next step.
-You could try running plot_data_plane to create a PostScript image of this masking region. Can you remember how?
+You could try running plot_data_plane to create a PostScript image of this masking region. Can you remember how?
 
 Notice that there are several ways that gen_vx_mask can be run to define regions of interest, some of which will be demonstrated over the next few pages.
 
@@ -799,10 +801,10 @@ Run Lat/Lon and Grid Types
 .. important::
 
   After running each of the Gen-Vx-Mask commands on this, and following, pages, users are encouraged to inspect the header of the NetCDF output file by running 
-  **ncdump -h** and view the masking regions by running **ncview** or **plot_data_plane.**
+  **ncdump -h** and view the masking regions by running **ncview** or **plot_data_plane.**
 
 
-Using a pre-defined NCEP grid from the `NCEP ON388 Grid Identification Table <https://www.nco.ncep.noaa.gov/pmb/docs/on388/tableb.html>`_, we'll create a latitude band, using the "lat" masking type, for the tropics region. Run Gen-Vx-Mask on the command line using the following command:
+Using a pre-defined NCEP grid from the `NCEP ON388 Grid Identification Table <https://www.nco.ncep.noaa.gov/pmb/docs/on388/tableb.html>`_, we'll create a latitude band, using the "lat" masking type, for the tropics region. Run Gen-Vx-Mask on the command line using the following command:
 
 .. code-block::
 
@@ -817,7 +819,7 @@ Most of the grids defined in ON388 Table B can be referenced in MET as "GNNN" wh
 
 .. code-block::
 
-  ncdump -h ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc
+  ncdump -h ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc
 
 .. admonition:: Sample Output
 
@@ -830,7 +832,7 @@ Most of the grids defined in ON388 Table B can be referenced in MET as "GNNN" wh
 
 Use the "-name" command line option, as shown below, to override this default. 
 
-To compute the intersection or union of two masks, use the output from the first run as input to the second. Run Gen-Vx-Mask on the command line using the following command, which uses the "lon" masking type:
+To compute the intersection or union of two masks, use the output from the first run as input to the second. Run Gen-Vx-Mask on the command line using the following command, which uses the "lon" masking type:
 
 .. code-block::
 
@@ -845,11 +847,12 @@ Compare this intersection output to the union of the two masks, computed below:
 .. code-block::
 
   gen_vx_mask \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \ ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_EastPac.nc \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_Tropics.nc \
+  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/G004_EastPac_union.nc \
   -type lon -thresh 'le-70 && ge-130' -union
 
-Now we'll use the "grid" masking type to select a subgrid from a larger grid. Run Gen-Vx-Mask on the command line using the following command:
+Now we'll use the "grid" masking type to select a subgrid from a larger grid. Run Gen-Vx-Mask on the command line using the following command:
 
 .. code-block::
 
@@ -875,7 +878,7 @@ Run Gen-Vx-Mask on the command line using the following command:
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/GFS_LAND.nc \
   -type data -mask_field 'name="LAND"; level="L0";' -thresh eq1 -name LAND
 
-A corresponding water mask could be created using two different methods. One way is to simply rerun the land mask command above using the -complement option:
+A corresponding water mask could be created using two different methods. One way is to simply rerun the land mask command above using the -complement option:
 
 .. code-block::
 
@@ -885,7 +888,7 @@ A corresponding water mask could be created using two different methods. One wa
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/GFS_LAND_COMP.nc \
   -type data -mask_field 'name="LAND"; level="L0";' -thresh eq1 -name LAND_COMP -complement
 
-Another way is to specify a different threshold (***eq1** instead of **eq0**) rather than taking the complement:
+Another way is to specify a different threshold (**eq0** instead of **eq1**) rather than taking the complement:
 
 .. code-block::
 
@@ -895,7 +898,7 @@ Another way is to specify a different threshold (***eq1** instead of **eq0**) r
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/GFS_WATER.nc \
   -type data -mask_field 'name="LAND"; level="L0";' -thresh eq0 -name WATER
 
-Now we'll run Gen-Vx-Mask to show where it’s daytime on a global grid:
+Now we'll run Gen-Vx-Mask to show where it’s daytime on a global grid:
 
 .. code-block::
 
@@ -930,16 +933,15 @@ Start by extracting the lat/lon locations for Hurricane Dorian:
 
 .. code-block::
 
-  cat ${METPLUS_DATA}/model_applications/medium_range/dorian_data/track_data/bal052019.dat | awk '{printf "%d %d\n", $7, $8}' | awk '{printf "%.1f %.1f\n", $1/(10), 
-  $2/(-10)}' | uniq >> ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly
+  cat ${METPLUS_DATA}/model_applications/medium_range/dorian_data/track_data/bal052019.dat | awk '{printf "%d %d\n", $7, $8}' | awk '{printf "%.1f %.1f\n", $1/(10), $2/(-10)}' | uniq >> ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly
 
 Inspect the dorian.poly file that begins with "DORIAN" and has the lat/lon storm locations on subsequent lines.
 
 .. code-block::
 
-  cat ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly
+  cat ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly
 
-Compute a mask for all grid points within 200 km of the Hurricane Dorian track. Run Gen-Vx-Mask using the following command:
+Compute a mask for all grid points within 200 km of the Hurricane Dorian track. Run Gen-Vx-Mask using the following command:
 
 .. code-block::
 
@@ -947,14 +949,13 @@ Compute a mask for all grid points within 200 km of the Hurricane Dorian track.�
   G003 \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/Dorian_Track.nc \
-  -type track -name Dorain_Track -thresh le200
+  -type track -name Dorian_Track -thresh le200
 
 Extract the first track point for Dorian and use the circle masking option to select all grid points within 500 km:
 
 .. code-block::
 
-  head -2 
-  ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly > ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian_first.poly
+  head -2 ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian.poly > ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian_first.poly
 
 Run Gen-Vx-Mask on the command line using the following command:
 
@@ -964,7 +965,7 @@ Run Gen-Vx-Mask on the command line using the following command:
   G003 \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/dorian_first.poly \
   ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_vx_mask/Dorian_Origin.nc \
-  -type circle -name Dorain_Track -thresh le500
+  -type circle -name Dorian_Origin -thresh le500
 
 The "circle" mask type draws a circle around each of the lat/lon points in the input poly file. The "circle" option may be useful when verifying within a certain radius of known radar locations. If you rerun without the "-thresh" command line option, Gen-Vx-Mask still runs but prints a warning message:
 
@@ -979,18 +980,18 @@ Can you figure out what this output file now contains? Run ncview or plot_data_p
 
 .. important::
 
-  The "-thresh" option can also be omitted from the "track", "data", "solar_alt", and "solar_azi" masking types. If no threshold is specified, a warning message is 
+  The "-thresh" option can also be omitted from the "track", "data", "solar_alt", "solar_azi", "lat", and "lon" masking types. If no threshold is specified, a warning message is 
   printed, and the raw, un-thresholded values are written to the output NetCDF file.
 
 
-Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download `Natural Earth <https://www.naturalearthdata.com/>`__ shapefiles and run Gen-Vx-Mask using the "-type shape" option.
+Gen-Vx-Mask also supports the "box", "solar_azi", and "shape" masking types, not covered in these exercises. Interested users can download `Natural Earth <https://www.naturalearthdata.com/>`__ shapefiles and run Gen-Vx-Mask using the "-type shape" option.
 
 Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 
 Run Shape Type
 ^^^^^^^^^^^^^^
 
-We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`__.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
+We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`__.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
 
 Download the Natural Earth administrative shapefiles for countries boundaries.
 
@@ -1115,8 +1116,8 @@ Set:
       fcst = {
         field = [
           {
-           name       = "APCP_12";
-           level      = [ "(*,*)" ];
+           name       = "APCP_12";
+           level      = [ "(*,*)" ];
            cat_thresh = [ >0.0, >=5.0, >=10.0 ];
           }
         ];
@@ -1172,7 +1173,7 @@ In the nbrhd dictionary, set:
 
    .. code-block:: text
 
-      width          = [ 3, 5 ];
+      width          = [ 3, 5 ];
       cov_thresh = [ >=0.5, >=0.75 ];
 
 To define two neighborhood sizes and two fractional coverage field thresholds.
@@ -1184,32 +1185,32 @@ Set:
    .. code-block:: text
 
       output_flag = {
-        fho    = NONE;
-        ctc    = BOTH;
-        cts    = BOTH;
-        mctc   = NONE;
-        mcts   = NONE;
-        cnt    = BOTH;
-        sl1l2  = BOTH;
+        fho    = NONE;
+        ctc    = BOTH;
+        cts    = BOTH;
+        mctc   = NONE;
+        mcts   = NONE;
+        cnt    = BOTH;
+        sl1l2  = BOTH;
         sal1l2 = NONE;
-        vl1l2  = NONE;
+        vl1l2  = NONE;
         val1l2 = NONE;
         vcnt   = NONE;
-        pct    = NONE;
-        pstd   = NONE;
-        pjc    = NONE;
-        prc    = NONE;
-        eclv   = NONE;
+        pct    = NONE;
+        pstd   = NONE;
+        pjc    = NONE;
+        prc    = NONE;
+        eclv   = NONE;
         nbrctc = BOTH;
         nbrcts = BOTH;
         nbrcnt = BOTH;
-        grad   = BOTH;
-        dmap   = NONE;
-        seeps  = NONE;
+        grad   = BOTH;
+        dmap   = NONE;
+        seeps  = NONE;
       }
 
 
-To compute contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), scalar partial sums (SL1L2), neighborhood contingency table counts (NBRCTC), neighborhood contingency table statistics (NBRCTS), and neighborhood continuous statistics (NBRCNT).
+To compute contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), scalar partial sums (SL1L2), neighborhood contingency table counts (NBRCTC), neighborhood contingency table statistics (NBRCTS), neighborhood continuous statistics (NBRCNT), and gradient statistics (GRAD).
 
 Run
 ^^^
@@ -1230,7 +1231,8 @@ In this example, Grid-Stat performs several verification tasks in evaluating the
 
 * For continuous statistics and partial sums (CNT and SL1L2), 15 output lines each: (1 field * 15 masking regions)
 * For contingency table counts and statistics (CTC and CTS), 45 output lines each: (1 field * 3 raw thresholds * 15 masking regions)
-* For neighborhood methods (NBRCNT, NBRCTC, and NBRCTS), 90 output lines each: (1 field * 3 raw thresholds * 2 neighborhood sizes * 15 masking regions)
+* For neighborhood continuous statistics (NBRCNT), 90 output lines: (1 field * 3 raw thresholds * 2 neighborhood sizes * 15 masking regions)
+* For neighborhood contingency table counts and statistics (NBRCTC and NBRCTS), 180 output lines each: (1 field * 3 raw thresholds * 2 neighborhood sizes * 2 coverage thresholds * 15 masking regions)
 
 To greatly increase the runtime performance of Grid-Stat, you could disable the computation of bootstrap confidence intervals in the configuration file. Edit the **GridStatConfig_tutorial** file as follows:
 
@@ -1256,8 +1258,8 @@ Output
 The output of Grid-Stat is one or more ASCII files containing statistics summarizing the verification performed and a NetCDF file containing difference fields. In this example, the output is written to the current directory, as we requested on the command line. It should now contain 10 Grid-Stat output files beginning with the **grid_stat_** prefix, one each for the CTC, CTS, CNT, SL1L2, GRAD, NBRCTC, NBRCTS, and NBRCNT ASCII files, a STAT file, and a NetCDF matched pairs file.
 The format of the CTC, CTS, CNT, and SL1L2 ASCII files will be covered for the Point-Stat tool. The neighborhood method and gradient output are unique to the Grid-Stat tool.
 
-* Rather than comparing forecast/observation values at individual grid points, the **neighborhood** method compares areas of forecast values to areas of observation values. At each grid box, a fractional coverage value is computed for each field as the number of grid points within the neighborhood (centered on the current grid point) that exceed the specified raw threshold value. The forecast/observation fractional coverage values are then compared rather than the raw values themselves.
-* **Gradient** statistics are computed on the forecast and observation gradients in the X and Y directions.
+* Rather than comparing forecast/observation values at individual grid points, the **neighborhood** method compares areas of forecast values to areas of observation values. At each grid box, a fractional coverage value is computed for each field as the proportion of grid points within the neighborhood (centered on the current grid point) that exceed the specified raw threshold value. The forecast/observation fractional coverage values are then compared rather than the raw values themselves.
+* **Gradient** statistics are computed on the forecast and observation gradients in the X and Y directions.
 
 .. note::
 
@@ -1328,8 +1330,8 @@ In METplus configuration files, the forecast and observation variables are refer
       FCST_VAR1_NAME = APCP
       FCST_VAR1_LEVELS = A03
 
-  OBS_VAR1_NAME = APCP_03
-  OBS_VAR1_LEVELS = "(*,*)"
+      OBS_VAR1_NAME = APCP_03
+      OBS_VAR1_LEVELS = "(*,*)"
 
 These relate to the following fields in the MET configuration file:
 
@@ -1378,7 +1380,7 @@ METplus is finished running when control returns to your terminal console and yo
 
 .. note::
 
-  INFO: METplus has successfully finished running for user your_name.
+  INFO: METplus has successfully finished running as user <username>(<uid>).
 
 3. **Review the output files:**
 
@@ -1396,7 +1398,7 @@ You should have output files in the following directories:
 
   grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
 
-Take a look at some of the files to see what was generated.  Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files.  If you inspect **${METPLUS_BUILD_BASE}/parm/met_config/GridStatConfig_wrapped**, you will notice that the **ctc** and **cts** line type settings are "STAT" while eclv and grad line types are set to "BOTH".
+Take a look at some of the files to see what was generated.  Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files.  If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while eclv and grad line types are set to "BOTH".
 
 .. code-block::
 
@@ -1489,12 +1491,11 @@ EXERCISE 1.2: Add_RH - Add another field to grid_stat
 
 Instructions: Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
 
-Copy the GridStat.conf configuration file and rename it to GridStat_add_rh.conf for this exercise.
+Copy the GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf configuration file and rename it to GridStat_add_rh.conf for this exercise.
 
 .. code-block::
 
-  cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf 
-  ${METPLUS_TUTORIAL_DIR}/user_config/GridStat_add_rh.conf
+  cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf ${METPLUS_TUTORIAL_DIR}/user_config/GridStat_add_rh.conf
 
 Open GridStat_add_rh.conf with an editor and add the extra information.
 
@@ -1508,7 +1509,7 @@ Open GridStat_add_rh.conf with an editor and add the extra information.
 
 .. note::
 
-  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following:  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
+  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following:  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
 
 Rerun METplus passing in your new custom config file for this exercise
 
@@ -1529,31 +1530,31 @@ Look for:
 
 .. note::
 
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
+  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
   DEBUG 1: Regridding field RH/P250 to the verification grid.
   DEBUG 1: Regridding field RH/P250 to the verification grid.
   DEBUG 2:
   DEBUG 2: --------------------------------------------------------------------------------
   DEBUG 2:
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 pairs.
-  DEBUG 2: Computing Scalar Partial Sums.
+  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
 
 Navigate to the next page for the solution to see if you were right!
 
@@ -1704,7 +1705,7 @@ Instructions: Review the list of file paths and configure a Example wrapper use 
 
   run_metplus.py \
   ${METPLUS_TUTORIAL_DIR}/user_config/Example_exercise1.4.conf \
-  ${METPLUS_TUTORIAL_DIR}/user_config/tutorial.conf
+  ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
 Navigate to the next page for the solution to see if you were right!
 
@@ -1715,8 +1716,8 @@ These are the answers to the exercises from the previous page. Feel free to ask 
 
 ANSWER 1.2: add_rh - Add another field to grid_stat
 
-Instructions: Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
-Answer: In the GridStat_add_rh.conf param file, add the following variables to the [config] section.
+Instructions: Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
+Answer: In the GridStat_add_rh.conf param file, add the following variables to the [config] section.
 
 .. note::
 

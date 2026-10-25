@@ -5,7 +5,7 @@ Session 5: MODE and MTD
 
 During this practical session, you will run the tools indicated below:
 
-Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 .. figure:: ../figure/5.0_Practical_Session_5.png
    :alt: MET tool workflow highlighting the tools used in Session 5.
@@ -101,7 +101,7 @@ MODE, the Method for Object-Based Diagnostic Evaluation, provides an object-base
 * Based on the computed interest values, match objects across fields and merge objects within the same field.
 * Write output statistics summarizing the characteristics of the single objects, the pairs of objects, and the matched/merged objects.
 
-MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
+MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
 
 **MODE USAGE**
 
@@ -141,13 +141,13 @@ MODE may be configured to use a few different sets of logic with which to perfor
 
 .. important::
 
-   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
+   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
 
 .. important::
 
-   The MODE tool usage statement also has instructions for verifying multivariables. These are the same as the MODE usage, only passing ASCII lists that contain multiple files instead of a single file.
+   The MODE tool usage statement also has instructions for verifying multivariables. These are the same as the MODE usage, only passing ASCII lists that contain multiple files instead of a single file, and without the -config_merge and -compress options.
 
-At a minimum, the input gridded fcst_file, the input gridded obs_file, and the configuration config_file must be passed in on the command line.
+At a minimum, the input gridded fcst_file, the input gridded obs_file, and the configuration config_file must be passed in on the command line.
 
 Configure
 ^^^^^^^^^
@@ -177,7 +177,7 @@ We'll be using these three configuration files during this session.
 
 .. note::
 
-   Open up the **MODEConfig_APCP_12** file to view it.
+   Open up the **MODEConfig_APCP_12** file to view it.
 
 .. code-block:: text
 
@@ -202,11 +202,11 @@ Total interest threshold for matching/merging
 
 .. important::
 
-   While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the `mode configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html#mode-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+   While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the `mode configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html#mode-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
-   At the bottom of MODE_Config_APCP_12, change "version" to "11.0"
+   At the bottom of MODEConfig_APCP_12, change "version" to "V11.0"
 
 .. admonition:: File Contents
 
@@ -219,7 +219,7 @@ Total interest threshold for matching/merging
 
 .. note::
 
-   Close MODEConfig_APCP_12.  Also change the version number in MODEConfig_APCP_24 and MODEConfig_RH.
+   Close MODEConfig_APCP_12.  Also change the version number in MODEConfig_APCP_24 and MODEConfig_RH.
 
 We'll start here using by running the configuration files we copied over, as-is.
 
@@ -273,19 +273,19 @@ These commands make use of sample data that's distributed with the MET tarball. 
 Output
 ^^^^^^
 
-The output of MODE typically consists of 4 files: 2 ASCII statistics files, 1 NetCDF object file, and 1 PostScript summary plot. The output of any of these files may be disabled using the appropriate MODE command line argument. In this example, the output is written to the current mode directory, as we requested on the command line.
+The output of MODE typically consists of 4 files: 2 ASCII statistics files, 1 NetCDF object file, and 1 PostScript summary plot. The output of the contingency table statistics file, the NetCDF object file, and the PostScript plot may be disabled using the ct_stats_flag, nc_pairs_flag, and ps_plot_flag options in the MODE configuration file, respectively. In this example, the output is written to the current mode directory, as we requested on the command line.
 The MODE output file naming convention is similar to that of the other MET tools. It contains timing information about the forecast being evaluated (forecast valid, lead, and accumulation times).
 
 .. important::
 
-   If MODE is rerun on the same fields but with a slightly different configuration, the new output will override the old output, unless it is redirected to a different directory using the **-outdir** command line argument. Users can also edit the **output_prefix** in the MODE configuration file to customize the output file names.
+   If MODE is rerun on the same fields but with a slightly different configuration, the new output will override the old output, unless it is redirected to a different directory using the **-outdir** command line argument. Users can also edit the **output_prefix** in the MODE configuration file to customize the output file names.
 
 The 4 MODE output files are described briefly below:
 
-* The PostScript file ends in .ps and is described below.
-* The NetCDF object file ends in _obj.nc and contains the object indices.
-* The ASCII contingency table statistics file and ends in _cts.txt.
-* The ASCII object statistics file ends in _obj.txt and contains all of the object and object comparison data.
+* The PostScript file ends in .ps and is described below.
+* The NetCDF object file ends in _obj.nc and contains the object indices.
+* The ASCII contingency table statistics file and ends in _cts.txt.
+* The ASCII object statistics file ends in _obj.txt and contains all of the object and object comparison data.
 
 .. note::
 
@@ -297,7 +297,7 @@ The 4 MODE output files are described briefly below:
 
 .. important::
 
-   If ghostview is not available, use **display** to view the files.  Click on the image to get a command box, then use **File -> Next** to move to the next page of the image.
+   If ghostview is not available, use **display** to view the files.  Click on the image to get a command box, then use **File -> Next** to move to the next page of the image.
 
 .. note::
 
@@ -313,7 +313,7 @@ The 4 MODE output files are described briefly below:
 
 .. note::
 
-   You may view the output NetCDF file using **ncview**. Execute the following command to view the NetCDF object output of MODE:
+   You may view the output NetCDF file using **ncview**. Execute the following command to view the NetCDF object output of MODE:
 
 .. code-block:: text
 
@@ -321,17 +321,17 @@ The 4 MODE output files are described briefly below:
 
 .. note::
 
-   Click through the 2D variable names in the ncview window to see plots of the four object fields in the file (NOTE: if a window pops up informing you "the min and max are both...", just Click "OK" and then the field will render). The **fcst_obj_id** and **obs_obj_id** contain the indices for the forecast and observation objects defined by MODE. The **fcst_clus_id** and **obs_clus_id** contain indices for the matched cluster objects.
+   Click through the 2D variable names in the ncview window to see plots of the raw, object, and cluster fields in the file (NOTE: if a window pops up informing you "the min and max are both...", just Click "OK" and then the field will render). The **fcst_obj_id** and **obs_obj_id** contain the indices for the forecast and observation objects defined by MODE. The **fcst_clus_id** and **obs_clus_id** contain indices for the matched cluster objects.
 
 What are the benefits of spatial methods over traditional statistics? The weaknesses? What are some examples where an object-based verification would be inappropriate?
 
 METplus Use Case: MODE
 ----------------------
 
-The MODE use case utilizes the MET MODE tools.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+The MODE use case utilizes the MET MODE tools.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 
-Optional: Refer to A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+Optional: Refer to A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MODE.CONF**
 
@@ -382,7 +382,7 @@ METplus is finished running when control returns to your terminal console and yo
 
    .. code-block:: text
 
-      INFO: METplus has successfully finished running as user.
+      INFO: METplus has successfully finished running as user <username>(<uid>).
 
 **REVIEW THE OUTPUT FILES**
 
@@ -427,7 +427,7 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/MODE/logs/.
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/MODE. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
+The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/MODE. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
 .. code-block:: text
 
@@ -452,9 +452,9 @@ The MODE-Time-Domain (MTD) tool was added in MET version 6.0. It applies an obje
 
 .. important::
 
-   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
+   The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
 
-At a minimum, the -fcst and -obs options must be used to specify the data to be processed. Alternatively, the -single option specifies that MTD should be run on a single dataset. The -config option specifies the name of the configuration file.
+At a minimum, the -fcst and -obs options must be used to specify the data to be processed. Alternatively, the -single option specifies that MTD should be run on a single dataset. The -config option specifies the name of the configuration file.
 
 Configure
 ^^^^^^^^^
@@ -496,7 +496,7 @@ For this tutorial, we'll configure MTD to process the same series of data we ran
 
 .. note::
 
-   Open up the **MTDConfig_tutorial** file for editing with the text editor of your choice and edit it as follows:
+   Open up the **MTDConfig_tutorial** file for editing with the text editor of your choice and edit it as follows:
 
 .. code-block:: text
 
@@ -504,7 +504,7 @@ For this tutorial, we'll configure MTD to process the same series of data we ran
 
 .. note::
 
-   Set the **fcst** dictionary as follows:
+   Set the **fcst** dictionary as follows:
 
 .. admonition:: File Contents
 
@@ -521,7 +521,7 @@ For this tutorial, we'll configure MTD to process the same series of data we ran
 
 .. note::
 
-   Set the **obs** dictionary as follows:
+   Set the **obs** dictionary as follows:
 
 .. admonition:: File Contents
 
@@ -555,7 +555,7 @@ Run
 
 .. note::
 
-   First, we need to prepare our observations by putting 1-hourly StageII precipitation forecasts into 3-hourly buckets. Create an output directory:
+   First, we need to prepare our observations by putting 1-hourly StageII precipitation observations into 3-hourly buckets. Create an output directory:
 
 .. code-block:: text
 
@@ -642,7 +642,7 @@ Just as with MODE, MTD applies a convolution operation to smooth the data. Howev
 Output
 ^^^^^^
 
-The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 NetCDF object file. MTD does not create any graphical output. In this example, the output is written to the current mtd directory as we requested on the command line.
+The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 NetCDF object file. MTD does not create any graphical output. In this example, the output is written to the current mtd directory as we requested on the command line.
 
 .. admonition:: Sample Output
 
@@ -655,16 +655,16 @@ The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 Net
       mtd_20050807_030000V_3d_single_simple.txt
       mtd_20050807_030000V_obj.nc
 
-The MTD output file naming convention begins with ``mtd_`` followed by the last valid time it encountered. The output file names may be modified using the output_prefix option in the configuration file, which should be used to prevent the output of one run from over-writing the output of a previous run. The 6 MTD output files are described briefly below:
+The MTD output file naming convention begins with ``mtd_`` followed by the first valid time of the observation data. The output file names may be modified using the output_prefix option in the configuration file, which should be used to prevent the output of one run from over-writing the output of a previous run. The 6 MTD output files are described briefly below:
 
-* The NetCDF object file ends in .nc and contains gridded fields of the raw data, simple object indices, and cluster object indices for each forecast and observed timestep.
-* The ASCII file ending with _2D.txt contains many columns similar to the output of MODE. This data summarizes the 2-dimensional object attributes for each individual time slice of the 3D forecast and observation objects.
-* The ASCII files ending with _single_simple.txt and _single_cluster.txt contain 3D space-time attributes for simple and cluster objects, respectively.
-* The ASCII files ending with _pair_simple.txt and _pair_cluster.txt contain 3D space-time attributes for pairs of simple and cluster objects, respectively.
+* The NetCDF object file ends in .nc and contains gridded fields of the raw data, simple object indices, and cluster object indices for each forecast and observed timestep.
+* The ASCII file ending with _2d.txt contains many columns similar to the output of MODE. This data summarizes the 2-dimensional object attributes for each individual time slice of the 3D forecast and observation objects.
+* The ASCII files ending with _single_simple.txt and _single_cluster.txt contain 3D space-time attributes for simple and cluster objects, respectively.
+* The ASCII files ending with _pair_simple.txt and _pair_cluster.txt contain 3D space-time attributes for pairs of simple and cluster objects, respectively.
 
 .. note::
 
-   Use the **ncview** utility to view the NetCDF object output of MTD:
+   Use the **ncview** utility to view the NetCDF object output of MTD:
 
 .. code-block:: text
 
@@ -672,7 +672,7 @@ The MTD output file naming convention begins with ``mtd_`` followed by the las
 
 .. note::
 
-   Select the variable named **fcst_raw** and click the **time** index to advance through the timesteps. Now, do the same for the **fcst_object_id** variable.
+   Select the variable named **fcst_raw** and click the **time** index to advance through the timesteps. Now, do the same for the **fcst_object_id** variable.
 
 Notice that the objects are defined in the active areas in the raw fields. Also notice some features merging (i.e. combining) as time passes while other features split (i.e. break apart). While they may be disconnected at a particular timestep, they remain part of the same space-time object.
 
@@ -688,9 +688,9 @@ METplus Use Case: MTD
 **REFERENCE MATERIAL**
 
 The MTD (Mode Time Domain) use case utilizes the MET MTD tools.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 
-Optional: Refer to the A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+Optional: Refer to the A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MTD.CONF**
 
@@ -710,12 +710,12 @@ Note that there are options to specify to run the tool with one file or two, dep
 
       MTD_SINGLE_RUN = False
       MTD_SINGLE_DATA_SRC = OBS
-      FCST_MTD_CONV_RADIUS = 0
-      FCST_MTD_CONV_THRESH = >=10
-      OBS_MTD_CONV_RADIUS = 15
-      OBS_MTD_CONV_THRESH = >=1.0
+      FCST_MTD_CONV_RADIUS = 10
+      FCST_MTD_CONV_THRESH = >=0.0
+      OBS_MTD_CONV_RADIUS = 10
+      OBS_MTD_CONV_THRESH = >=0.0
 
-Also note that there is a configuration option to run MTD variables in MTD.conf reference other config variables that have been defined in other configuration files. For example:
+Also note that variables in MTD.conf reference other config variables that have been defined in other configuration files. For example:
 
 .. admonition:: File Contents
 
@@ -723,7 +723,7 @@ Also note that there is a configuration option to run MTD variables in MTD.conf 
 
       OBS_MTD_INPUT_DIR = {INPUT_BASE}/met_test/new
 
-This references INPUT_BASE which is set in the METplus data configuration file (metplus_config/metplus_data.conf). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+This references INPUT_BASE which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 
@@ -747,7 +747,7 @@ This references INPUT_BASE which is set in the METplus data configuration file (
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/MTD
 
 METplus is finished running when control returns to your terminal console and you see the following text:
-INFO: METplus has successfully finished running as user.
+INFO: METplus has successfully finished running as user <username>(<uid>).
 
 **REVIEW THE OUTPUT FILES**
 
@@ -820,7 +820,7 @@ EXERCISE 5.1: Change Forecast Lead List to Using Intervals
 
 .. note::
 
-   **Instructions:** Modify the METplus configuration files to change the forecast leads that are processed by MTD. Following these instructions will give you more insight on how METplus configures MTD.
+   **Instructions:** Modify the METplus configuration files to change the forecast leads that are processed by MTD. Following these instructions will give you more insight on how METplus configures MTD.
 
 .. note::
 
@@ -850,20 +850,21 @@ EXERCISE 5.1: Change Forecast Lead List to Using Intervals
 
 .. note::
 
-   Close the file and rerun master_metplus passing in your new custom config file for this exercise and changing **OUTPUT_BASE** to a new location so you can keep it separate from the other runs.
+   Close the file and rerun METplus passing in your new custom config file for this exercise and changing **OUTPUT_BASE** to a new location so you can keep it separate from the other runs. Also set **SCRUB_STAGING_DIR** to False so that the staging directory, which contains the file lists, is kept after the run.
 
 .. code-block:: text
 
    run_metplus.py \
    ${METPLUS_TUTORIAL_DIR}/user_config/mtd.skip.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
-   config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip
+   config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip \
+   config.SCRUB_STAGING_DIR=False
 
 Did you see the WARNING message?
 
 .. note::
 
-   *WARNING: Could not find OBS file /d1/projects/METplus/METplus_Data/met_test/new/ST2ml2005080715_A03h.nc using template ST2ml{valid?fmt=%Y%m%d%H}_A03h.nc*
+   *WARNING: Could not find OBS_INPUT file /d1/projects/METplus/METplus_Data/met_test/new/ST2ml2005080715_A03h.nc using template ST2ml{valid?fmt=%Y%m%d%H}_A03h.nc*
 
 If you look in the data directories for this run, you will see that while the forecast for the 15 hour lead exists, the observation file does not. METplus will only add items to the MTD lists if both corresponding files are available.
 
@@ -878,11 +879,11 @@ If you look in the data directories for this run, you will see that while the fo
 
 .. code-block:: text
 
-   less ${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip/stage/file_lists/20050807060000_mtd_fcst_APCP.txt
+   less ${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip/stage/file_lists.*/20050807060000_mtd_fcst_APCP.txt
 
 .. code-block:: text
 
-   less ${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip/stage/file_lists/20050807060000_mtd_obs_APCP_03.txt
+   less ${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip/stage/file_lists.*/20050807060000_mtd_obs_APCP_03.txt
 
 .. note::
 
@@ -896,7 +897,7 @@ EXERCISE 5.2: Change Forecast Lead List to See METplus Unzip
 
 .. note::
 
-   **Instructions:** Modify the METplus configuration files to change the forecast leads that are processed by MTD. Following these instructions will give you more insight on how METplus configures MTD.
+   **Instructions:** Modify the METplus configuration files to change the forecast leads that are processed by MTD. Following these instructions will give you more insight on how METplus configures MTD.
 
 .. note::
 
@@ -922,14 +923,15 @@ EXERCISE 5.2: Change Forecast Lead List to See METplus Unzip
 
 .. note::
 
-   Close the file and rerun METplus, passing in your new custom config file and **OUTPUT_BASE** for this exercise
+   Close the file and rerun METplus, passing in your new custom config file and **OUTPUT_BASE** for this exercise, and setting **SCRUB_STAGING_DIR** to False so that the staging directory is kept after the run
 
 .. code-block:: text
 
    run_metplus.py \
    ${METPLUS_TUTORIAL_DIR}/user_config/mtd.unzip.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
-   config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/unzip
+   config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/unzip \
+   config.SCRUB_STAGING_DIR=False
 
 .. note::
 
@@ -937,9 +939,9 @@ EXERCISE 5.2: Change Forecast Lead List to See METplus Unzip
 
 .. code-block:: text
 
-   less ${METPLUS_TUTORIAL_DIR}/output/exercises/unzip/stage/file_lists/20050807030000_mtd_obs_APCP_03.txt
+   less ${METPLUS_TUTORIAL_DIR}/output/exercises/unzip/stage/file_lists.*/20050807030000_mtd_obs_APCP_03.txt
 
-Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, while the 6 hour file is under ${METPLUS_DATA}.  If you look in the data directories for this run, you will see that the 3 hour observation file is gzipped in ${METPLUS_DATA}.
+Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, while the 6 hour file is under ${METPLUS_DATA}.  If you look in the data directories for this run, you will see that the 3 hour observation file is gzipped in ${METPLUS_DATA}.
 
 .. code-block:: text
 
