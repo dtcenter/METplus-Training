@@ -448,6 +448,20 @@ various tools of METplus, you are strongly encouraged to review the
 that follows this statistical tutorial, where data is made 
 available to reproduce the guided examples.
 
+In order to better understand the delineation between METplus, MET, and
+METplus wrappers which are used requently throughout this tutorial but are
+NOT interchangeable, the following definitions are provided for clarity:
+
+* METplus is best visualized as an overarching framework with individual
+  components. It encapsulates all of the repositories: MET, METplus wrappers,
+  METdataio, METcalcpy, and METplotpy.
+* MET serves as the core statistical component that ingests the provided fields
+  and commands to compute user-requested statistics and diagnostics.
+* METplus wrappers is a suite of Python wrappers that provide low-level automation
+  of MET tools and plotting capability. While there are examples of calling METplus
+  wrappers without any underlying MET usage, these are the exception rather than
+  the rule.
+
 **MET Example of Binary Categorical Forecast Verification**
 
 This example demonstrates categorical forecast verification in MET.
