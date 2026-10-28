@@ -926,7 +926,7 @@ For this example, let’s use Point-Stat. Assume we wanted to verify a multicate
    {     
    name    = "WIND";
         level   = [ "Z10" ];     
-   cat_thresh = [ >=13.9, >=17.2, >=24.5, >=32.7 ];
+        cat_thresh = [ >=13.9, >=17.2, >=24.5, >=32.7 ];
 
    }
       ];
