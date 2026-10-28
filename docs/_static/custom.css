@@ -47,6 +47,13 @@
 }
 
 
+/* Wrap long unbroken strings (e.g. file paths) in prose and lists at all widths
+   so they stay inside the content area. */
+.rst-content p,
+.rst-content li {
+    overflow-wrap: break-word;
+}
+
 /* Keep narrow documentation pages within the viewport. Long prose identifiers
    may wrap, while commands, output, tables, and math remain scrollable. */
 @media screen and (max-width: 1100px) {

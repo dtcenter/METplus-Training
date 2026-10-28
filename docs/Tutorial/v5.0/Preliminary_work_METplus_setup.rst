@@ -947,11 +947,11 @@ Look at the MET Tool Wrapper Use Cases
 
 The **met_tool_wrapper** use case files are organized into subdirectories by wrapper, e.g. **Example** or **GridStat**. They contain METplus configuration files (ending with .conf). If a MET tool that is called by a use case uses a MET configuration file, the file used for the **met_tool_wrapper** use cases is found in **parm/met_config**.
 
-* met_tool_wrapper/Example - directory
-* met_tool_wrapper/Example/Example.conf - use case configuration file
-* met_tool_wrapper/GridStat - directory
-* met_tool_wrapper/GridStat/GridStat.conf - use case configuration file
-* parm/met_config/GridStatConfig_wrapped - MET configuration file used in the GridStat.conf use case
+* **met_tool_wrapper/Example** - directory
+* **met_tool_wrapper/Example/Example.conf** - use case configuration file
+* **met_tool_wrapper/GridStat** - directory
+* **met_tool_wrapper/GridStat/GridStat.conf** - use case configuration file
+* **parm/met_config/GridStatConfig_wrapped** - MET configuration file used in the GridStat.conf use case
 
 **MODEL APPLICATION USE CASES**
 
@@ -963,10 +963,10 @@ Look at the Model Application use cases
 
 The **model_applications** use case files are organized in directories by category, e.g. **precipitation** or **data_assimilation**. They contain METplus configuration files (ending with .conf). If additional files such as Python Embedding scripts are included with a use case, these files are found in a directory named after the METplus configuration file without the .conf extension.
 
-* model_applications/data_assimilation - directory
-* model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface.conf - use case configuration file
-* model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface - directory containing supplemental files for the use case
-* model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface/read_ioda_mpr.py - script called by the use case
+* **model_applications/data_assimilation** - directory
+* **model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface.conf** - use case configuration file
+* **model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface** - directory containing supplemental files for the use case
+* **model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface/read_ioda_mpr.py** - script called by the use case
 
 
 **EXAMPLE USE CASE (AKA "HELLO WORLD" EXAMPLE - METPLUS STYLE)**
