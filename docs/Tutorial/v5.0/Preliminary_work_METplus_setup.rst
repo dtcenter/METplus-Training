@@ -1586,10 +1586,10 @@ to:
 
    .. code-block:: text
 
-         INIT_BEG = 2022011809
-         INIT_END = 2022011815
+      INIT_BEG = 2022011809
+      INIT_END = 2022011815
 
-          to:
+to:
 
 .. admonition:: File Contents
 
