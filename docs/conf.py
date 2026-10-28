@@ -30,7 +30,11 @@ copyright = f'{release_year}, {author}'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc','sphinx.ext.intersphinx']
+extensions = ['sphinx.ext.autodoc','sphinx.ext.intersphinx','sphinx_copybutton']
+
+# Add copy buttons to code blocks, except sample output
+copybutton_selector = (':not(.admonition-sample-output)'
+                       ' > div[class^="highlight-"] div.highlight pre')
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -70,6 +74,10 @@ exclude_patterns = [
     'Featured_Topics/METplus/use_case_example_wrapper.rst',
     'Featured_Topics/METplus/use_case_mode_brightness_temperature.rst',
     'Featured_Topics/METplus/use_case_track_and_intensity.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_1.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_2a.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_2b.rst',
+    'Tutorial/tutorial_setup/tutorial_setup_3.rst'    
 ]
 
 # Suppress certain warning messages
@@ -93,6 +101,22 @@ html_css_files = ["theme_override.css", "custom.css"]
 
 # of the sidebar.
 html_logo = os.path.join('_static','METplus_logo.png')
+
+# For Read the Docs themes (sphinx_rtd_theme)
+html_theme_options = {
+    'navigation_depth': 6,
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'includehidden': True,
+}
+
+# Also set the global TOC depth
+html_sidebars = {
+    '**': ['localtoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html']
+}
+
+# This ensures deep nesting is preserved
+html_theme_options['globaltoc_maxdepth'] = 5
 
 # -- Intersphinx control -----------------------------------------------------
 intersphinx_mapping = {'numpy':("https://docs.scipy.org/doc/numpy/", None)}
