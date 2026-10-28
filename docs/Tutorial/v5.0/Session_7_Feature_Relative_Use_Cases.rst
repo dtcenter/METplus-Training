@@ -40,10 +40,10 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   METPLUS_TUTORIAL_DIR is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-   METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
-   MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
-   METPLUS_DATA is the location of the sample test data directory
+   | METPLUS_TUTORIAL_DIR is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+   | METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
+   | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
+   | METPLUS_DATA is the location of the sample test data directory
 
 .. note::
 

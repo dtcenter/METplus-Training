@@ -539,9 +539,9 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. important::
 
-   METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
-   MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
-   METPLUS_DATA is the location of the sample test data directory
+   | METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
+   | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
+   | METPLUS_DATA is the location of the sample test data directory
 
 
 
@@ -624,9 +624,9 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. important::
 
-   METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
-   MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
-   METPLUS_DATA is the location of the sample test data directory
+   | METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
+   | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
+   | METPLUS_DATA is the location of the sample test data directory
 
 
 
