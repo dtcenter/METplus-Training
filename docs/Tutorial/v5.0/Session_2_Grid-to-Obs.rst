@@ -543,7 +543,7 @@ MET Tool: ASCII2NC
 
 **ASCII2NC FUNCTIONALITY**
 
-The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Study (WWSIS) data, AirNow DailyData_v2, HourlyData, and HourlyAQObs data, National Data Buoy Center (NDBC) Standard Meteorological data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script.  Future versions of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
+The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Study (WWSIS) data, AirNow DailyData_v2, HourlyData, and HourlyAQObs data, National Data Buoy Center (NDBC) Standard Meteorological data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script. Future versions of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
 
 **MET POINT OBSERVATION FORMAT**
 
@@ -1466,7 +1466,7 @@ This use case utilizes the MET *Point-Stat* tool.
 
 .. note::
 
-  Define a unique directory under output that you will use for this use case. In the example below, we'll  override **OUTPUT_BASE** to that directory on the command line.
+  Define a unique directory under output that you will use for this use case. In the example below, we'll override **OUTPUT_BASE** to that directory on the command line.
 
 .. code-block::
 
@@ -1830,7 +1830,7 @@ Inspection of the file shows that statistics for **TMP**, **RH**, **UGRD**, **VG
 
 Open the log file and search on **TCDC**, you will see that there is an error message stating "no fields matching TCDC/L0 found" in the GFS file. That is why TCDC does not appear in the output.
 
-Look for **PRMSL/Z0** in the log file.  We can see the following:
+Look for **PRMSL/Z0** in the log file. We can see the following:
 
 .. admonition:: Sample Output
 
