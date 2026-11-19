@@ -1003,7 +1003,7 @@ Next, we'll take a look at using the "shape" masking type with Gen-Vx-Mask.
 Run Shape Type
 ^^^^^^^^^^^^^^
 
-We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`__.  While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
+We will demonstrate the Gen-Vx-Mask "shape" masking type using freely available shapefiles from `Natural Earth <https://www.naturalearthdata.com/downloads/>`__. While multiple resolutions are provided, we'll use the coarsest version for this example since it's the smallest in size.
 
 Download the Natural Earth administrative shapefiles for countries boundaries.
 
@@ -1413,7 +1413,7 @@ You should have output files in the following directories:
   * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
   * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
 
-Take a look at some of the files to see what was generated.  Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files.  If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while **eclv** and **grad** line types are set to "BOTH".
+Take a look at some of the files to see what was generated. Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files. If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while **eclv** and **grad** line types are set to "BOTH".
 
 .. code-block::
 
@@ -1526,7 +1526,7 @@ Note how the use of BOTH to specify the forecast field and observation/analysis 
 
 .. note::
 
-  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following: ``GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT``
+  Hint: Since the RH data has no climatology, you must also add an additional output line type. Both of the specified output line types (SAL1L2 and VAL1L2) require climatology. An example of an additional output line type is to add the following: ``GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT``
 
 3. **Rerun METplus passing in your new custom config file for this exercise**
 
