@@ -10,7 +10,7 @@ During this practical session, you will run the tools indicated below:
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
 
-Since you already set up your runtime enviroment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment is Set Correctly**
 
@@ -95,14 +95,14 @@ MET Tool: Stat-Analysis
 
 **STAT-ANALYSIS FUNCTIONALITY**
 
-The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any **.stat** files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional **_LINE_TYPE.txt** files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
+The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any **.stat** files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to read the optional **_LINE_TYPE.txt** files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
 
 * The **filter** job simply filters out lines from one or more STAT files that meet the filtering options specified.
 * The **summary** job operates on one or more columns of data from one or more STAT line types. It produces summary information for each column of data: mean, standard deviation, min, max, the 10th, 25th, 50th, 75th, and 90th percentiles, the interquartile range, the range, and the unweighted and weighted WMO means.
 * The **aggregate** job aggregates STAT data across multiple time steps or masking regions. For example, it can be used to sum contingency table data or partial sums across multiple lines of data. The **-line_type** argument specifies the line type to be summed.
 * The **aggregate_stat** job also aggregates STAT data, like the **aggregate** job above, but then derives statistics from that aggregated STAT data. For example, it can be used to sum contingency table data and then write out a line of the corresponding contingency table statistics. The **-line_type** and **-out_line_type** arguments are used to specify the conversion type.
 * The **ss_index** job computes a skill-score index, of which the GO Index (**go_index**) and the CBS Index (**cbs_index**) are special cases. The GO Index is a performance metric used primarily by the United States Air Force.
-* The **ramp** job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
+* The **ramp** job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used to populate a 2x2 contingency table from which categorical statistics are derived.
 
 **STAT-ANALYSIS USAGE**
 
@@ -239,7 +239,7 @@ The output was written to **aggr_ctc_lines.out**. We'll look at this file in the
    -vx_mask FULL \
    -interp_mthd NEAREST
 
-Note that we had to put double quotes (``"``) around the forecast theshold string for this to work.
+Note that we had to put double quotes (``"``) around the forecast threshold string for this to work.
 
 .. note::
 
@@ -447,7 +447,7 @@ In this use-case, Stat-Analysis is performing a simple filtering job and writing
 
       STAT_ANALYSIS_JOB1 = -job filter -dump_row [dump_row_file]
 
-Note: Several of the optional variables may be set to further stratify of the results. Lists named in **LOOP_LIST_ITEMS** are looped over, with a separate run for each item, while lists named in **GROUP_LIST_ITEMS** are grouped together into a single run.
+Note: Several of the optional variables may be set to further stratify the results. Lists named in **LOOP_LIST_ITEMS** are looped over, with a separate run for each item, while lists named in **GROUP_LIST_ITEMS** are grouped together into a single run.
 
 .. admonition:: File Contents
 
@@ -484,7 +484,7 @@ Also note: This example uses test output from the grid_stat tool
 
 3. **Review the output files:**
 
-The following output file should been generated:
+The following output file should have been generated:
 
 .. code-block:: text
 
@@ -494,7 +494,7 @@ You will see there are many line types, verification masks, interpolation method
 
 A job.out file, set by STAT_ANALYSIS_OUTPUT_TEMPLATE and passed to stat_analysis with the -out argument, is also written to ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/stat_analysis.
 
-If you look at the log file in **${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs**, you will see the how the Stat-Analysis command is built and what jobs it is processing. If you want to re-run, you can copy the call to stat_analysis and the path to the -lookin file after the **COMMAND:** (excluding the -config argument) and then everything after -job after "DEBUG 2: Processing Job 1:"
+If you look at the log file in **${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs**, you will see how the Stat-Analysis command is built and what jobs it is processing. If you want to re-run, you can copy the call to stat_analysis and the path to the -lookin file after the **COMMAND:** (excluding the -config argument) and then everything after -job after "DEBUG 2: Processing Job 1:"
 
 .. admonition:: Sample Output
 
@@ -583,7 +583,7 @@ Why is there no stat_analysis directory? Because we removed the -dump_row flag f
       DEBUG 2: For case "", found 2 unique VX_MASK values: DTC165,DTC166
       COL_NAME: TOTAL BASER BASER_NCL BASER_NCU BASER_BCL BASER_BCU FMEAN FMEAN_NCL FMEAN_NCU FMEAN_BCL FMEAN_BCU ACC ACC_NCL ACC_NCU ACC_BCL ACC_BCU FBIAS FBIAS_BCL FBIAS_BCU PODY PODY_NCL PODY_NCU PODY_BCL PODY_BCU PODN PODN_NCL PODN_NCU PODN_BCL PODN_BCU POFD POFD_NCL POFD_NCU POFD_BCL POFD_BCU FAR FAR_NCL FAR_NCU FAR_BCL FAR_BCU CSI CSI_NCL CSI_NCU CSI_BCL CSI_BCU GSS GSS_BCL GSS_BCU HK HK_NCL HK_NCU HK_BCL HK_BCU HSS HSS_BCL HSS_BCU ODDS ODDS_NCL ODDS_NCU ODDS_BCL ODDS_BCU LODDS LODDS_NCL LODDS_NCU LODDS_BCL LODDS_BCU ORSS ORSS_NCL ORSS_NCU ORSS_BCL ORSS_BCU EDS EDS_NCL EDS_NCU EDS_BCL EDS_BCU SEDS SEDS_NCL SEDS_NCU SEDS_BCL SEDS_BCU EDI EDI_NCL EDI_NCU EDI_BCL EDI_BCU SEDI SEDI_NCL SEDI_NCU SEDI_BCL SEDI_BCU BAGSS BAGSS_BCL BAGSS_BCU CTS: 12420 0.11715 0.11161 0.12292 NA NA 0.14509 0.139 0.15139 NA NA 0.96063 0.95706 0.96391 NA NA 1.23849 NA NA 0.9512 0.94727 0.95485 NA NA 0.96188 0.95837 0.96511 NA NA 0.038121 0.034894 0.041634 NA NA 0.23196 0.22462 0.23947 NA NA 0.73892 0.73112 0.74657 NA NA 0.70576 NA NA 0.91308 0.90125 0.92491 NA NA 0.8275 NA NA 491.84743 380.09404 636.458 NA NA 6.19817 5.94042 6.45592 NA NA 0.99594 0.9949 0.99699 NA NA 0.9544 0.94404 0.96477 NA NA 0.85693 0.84708 0.86678 NA NA 0.96984 0.96086 0.97881 NA NA 0.97212 0.96147 0.9782 NA NA 0.67864 NA NA
 
-These is the aggregate statistics computed from the summed CTC lines for the DTC165 and DTC166 masking regions for the threshold >=300. If you scroll down further, you will see the same info but for the threshold <300.
+These are the aggregate statistics computed from the summed CTC lines for the DTC165 and DTC166 masking regions for the threshold >=300. If you scroll down further, you will see the same info but for the threshold <300.
 
 6. **Have output written to .stat file**
 
@@ -1017,7 +1017,7 @@ Which relates to the following fields in the MET configuration file
         ];
       }
 
-Also note: Paths in SeriesAnalysis.conf may reference other config options defined in a different configuration files. For example:
+Also note: Paths in SeriesAnalysis.conf may reference other config options defined in different configuration files. For example:
 
 .. admonition:: File Contents
 
@@ -1025,7 +1025,7 @@ Also note: Paths in SeriesAnalysis.conf may reference other config options defin
 
       FCST_SERIES_ANALYSIS_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
-where **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+where **INPUT_BASE** is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 .. note::
 
@@ -1050,7 +1050,7 @@ METplus is finished running when control returns to your terminal console and yo
 
   3. **Review the output files:**
 
-You should have output file in the following directories:
+You should have an output file in the following directory:
 
 .. code-block:: text
 
@@ -1207,7 +1207,7 @@ Use the following command to generate an image of the RMSE:
    ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_RMSE.ps \
    'name="series_cnt_RMSE"; level="(*,*)";'
 
-The successful run of that command should produce an image. view it with the following command:
+The successful run of that command should produce an image. View it with the following command:
 
 .. code-block:: text
 
