@@ -9,7 +9,8 @@ During this practical session, you will run the tools indicated below:
    :alt: MET tool workflow highlighting Series-Analysis and Stat-Analysis for Session 3.
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
-Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+
+Since you already set up your runtime enviroment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment is Set Correctly**
 
@@ -21,9 +22,9 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  In the following instructions, change "/path/to" to the directory you chose.
+  **In the following instructions, change "/path/to" to the directory you chose.**
 
-**EDIT AFTER COPYING and BEFORE HITTING RETURN!**
+  **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block:: text
 
@@ -47,10 +48,10 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-  **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
-  **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
-  **METPLUS_DATA** is the location of the sample test data directory
+  | **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+  | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+  | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+  | **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
@@ -82,25 +83,26 @@ Before running the tutorial instructions, you will need to ensure that you have 
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
 See the instructions in Session 1 for more information.
+
 You are now ready to move on to the next section.
 
 .. important::
 
-  If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussion <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
+  If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
 MET Tool: Stat-Analysis
 -----------------------
 
 **STAT-ANALYSIS FUNCTIONALITY**
 
-The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any .stat files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional _LINE_TYPE.txt files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
+The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any **.stat** files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to the optional **_LINE_TYPE.txt** files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
 
-* The filter job simply filters out lines from one or more STAT files that meet the filtering options specified.
-* The summary job operates on one or more columns of data from one or more STAT line types. It produces summary information for each column of data: mean, standard deviation, min, max, the 10th, 25th, 50th, 75th, and 90th percentiles, the interquartile range, the range, and the unweighted and weighted WMO means.
-* The aggregate job aggregates STAT data across multiple time steps or masking regions. For example, it can be used to sum contingency table data or partial sums across multiple lines of data. The -line_type argument specifies the line type to be summed.
-* The aggregate_stat job also aggregates STAT data, like the aggregate job above, but then derives statistics from that aggregated STAT data. For example, it can be used to sum contingency table data and then write out a line of the corresponding contingency table statistics. The -line_type and -out_line_type arguments are used to specify the conversion type.
-* The ss_index job computes a skill-score index, of which the GO Index (go_index) and the CBS Index (cbs_index) are special cases. The GO Index is a performance metric used primarily by the United States Air Force.
-* The ramp job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
+* The **filter** job simply filters out lines from one or more STAT files that meet the filtering options specified.
+* The **summary** job operates on one or more columns of data from one or more STAT line types. It produces summary information for each column of data: mean, standard deviation, min, max, the 10th, 25th, 50th, 75th, and 90th percentiles, the interquartile range, the range, and the unweighted and weighted WMO means.
+* The **aggregate** job aggregates STAT data across multiple time steps or masking regions. For example, it can be used to sum contingency table data or partial sums across multiple lines of data. The **-line_type** argument specifies the line type to be summed.
+* The **aggregate_stat** job also aggregates STAT data, like the **aggregate** job above, but then derives statistics from that aggregated STAT data. For example, it can be used to sum contingency table data and then write out a line of the corresponding contingency table statistics. The **-line_type** and **-out_line_type** arguments are used to specify the conversion type.
+* The **ss_index** job computes a skill-score index, of which the GO Index (**go_index**) and the CBS Index (**cbs_index**) are special cases. The GO Index is a performance metric used primarily by the United States Air Force.
+* The **ramp** job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used populate a 2x2 contingency table from which categorical statistics are derived.
 
 **STAT-ANALYSIS USAGE**
 
@@ -110,36 +112,34 @@ View the usage statement for Stat-Analysis by simply typing the following:
 
    stat_analysis
 
-**Usage: stat_analysis**
-
-.. table::
+.. table:: Usage: stat_analysis
 
    +------------------------------------------+--------------------------------------------------------------------------+
-   | Argument                                 | Description                                                              |
-   +==========================================+==========================================================================+
-   | ``-lookin path``                         | Space-separated list of input paths where each is a _TYPE.txt file, STAT |
-   |                                          | file, or directory which should be searched recursively for STAT files.  |
-   |                                          | Allows the use of wildcards (required).                                  |
+   | **-lookin path**                         | **Space-separated list of input paths where each is a _TYPE.txt file,    |
+   |                                          | STAT file, or directory which should be searched recursively for         |
+   |                                          | STAT files. Allows the use of wildcards (required).**                    |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-out filename]``                      | Output path or specific filename to which output should be written       |
+   | [-out filename]                          | Output path or specific filename to which output should be written       |
    |                                          | rather than the screen (optional).                                       |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-tmp_dir path]``                      | Override the default temporary directory to be used (optional).          |
+   | [-tmp_dir path]                          | Override the default temporary directory to be used (optional).          |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-log file]``                          | Outputs log messages to the specified file                               |
+   | [-log file]                              | Outputs log messages to the specified file                               |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-v level]``                           | Level of logging                                                         |
+   | [-v level]                               | Level of logging                                                         |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-config config_file] | [JOB COMMAND LINE] (Note: "|" means "or")``                                               |
+   | **[-config config_file] | [JOB COMMAND LINE]**                                                                      |
+   |                                                                                                                     |
+   | (Note: "|" means "or")                                                                                              |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[-config config_file]``                | STATAnalysis config file containing Stat-Analysis jobs to be run.        |
+   | **[-config config_file]**                | **STATAnalysis config file containing Stat-Analysis jobs to be run.**    |
    +------------------------------------------+--------------------------------------------------------------------------+
-   | ``[JOB COMMAND LINE]``                   | All the arguments necessary to perform a single Stat-Analysis job. See   |
-   |                                          | the MET Users Guide for complete description of options.                 |
+   | **[JOB COMMAND LINE]**                   | **All the arguments necessary to perform a single Stat-Analysis job.     |
+   |                                          | See the MET Users Guide for complete description of options.**           |
    +------------------------------------------+--------------------------------------------------------------------------+
 
 
-At a minimum, you must specify at least one directory or file in which to find STAT data (using the -lookin path command line option) and either a configuration file (using the -config config_file command line option) or a job command on the command line.
+At a minimum, you must specify at least one directory or file in which to find STAT data (using the **-lookin path** command line option) and either a configuration file (using the **-config config_file** command line option) or a job command on the command line.
 
 Configure
 ^^^^^^^^^
@@ -171,7 +171,7 @@ The behavior of Stat-Analysis is controlled by the contents of the configuration
 
    vi STATAnalysisConfig_tutorial
 
-You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line.  If you go down to the jobs[] section you will see that it is empty (jobs = [];).
+You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line.  If you go down to the **jobs[]** section you will see that it is empty (jobs = [];).
 
 .. note::
 
@@ -187,11 +187,12 @@ You will see that most options are left blank, so the tool will use whatever it 
       ];
 
 The first job listed above will select out only the contingency table count lines (CTC) where the threshold applied is >273.0 over the FULL masking region. This should result in 2 lines, one for pressure levels P850-500 and one for pressure P1050-850. So this job will be aggregating contingency table counts across vertical levels.
+
 The second job listed above will perform the same aggregation as the first. However, it'll dump out the corresponding contingency table statistics derived from the aggregated counts.
 
-  .. note::
+.. note::
 
-     Close the file and run it on the next page.
+   Close the file and run it on the next page.
 
 Run on Point-Stat Output
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -221,7 +222,7 @@ The output for these two jobs are printed to the screen.
    -v 2 \
    -out aggr_ctc_lines.out
 
-The output was written to aggr_ctc_lines.out. We'll look at this file in the next section.
+The output was written to **aggr_ctc_lines.out**. We'll look at this file in the next section.
 
 .. note::
 
@@ -238,7 +239,7 @@ The output was written to aggr_ctc_lines.out. We'll look at this file in the nex
    -vx_mask FULL \
    -interp_mthd NEAREST
 
-Note that we had to put double quotes (") around the forecast theshold string for this to work.
+Note that we had to put double quotes (``"``) around the forecast theshold string for this to work.
 
 .. note::
 
@@ -284,7 +285,7 @@ Note that we had to put double quotes (") around the forecast theshold string fo
 Output
 ^^^^^^
 
-On the previous page, we generated the output file aggr_ctc_lines.out by using the -out command line argument.
+On the previous page, we generated the output file **aggr_ctc_lines.out** by using the **-out** command line argument.
 
 .. note::
 
@@ -292,9 +293,9 @@ On the previous page, we generated the output file aggr_ctc_lines.out by using t
 
 This file contains the output for the two jobs we ran through the configuration file. The output for each job consists of 3 lines as follows:
 
-#. The JOB_LIST line contains the job filtering parameters applied for this job.
-#. The COL_NAME line contains the column names for the data to follow in the next line.
-#. The third line consists of the line type generated (CTC and CTS in this case) followed by the values computed for that line type.
+#. The **JOB_LIST** line contains the job filtering parameters applied for this job.
+#. The **COL_NAME** line contains the column names for the data to follow in the next line.
+#. The third line consists of the line type generated (**CTC** and **CTS** in this case) followed by the values computed for that line type.
 
 .. note::
 
@@ -321,31 +322,33 @@ This job should aggregate 2 CTC lines for 2-meter temperature across the EAST an
 
 .. note::
 
-  Do the same aggregation as above but for the 5x5 interpolation output (i.e. 25 points instead of 1 point).
+  1. Do the same aggregation as above but for the 5x5 interpolation output (i.e. 25 points instead of 1 point).
 
 .. note::
 
-  Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat** and specify the desired **-out_line_type**.
+  2. Do the aggregation listed in (1) but compute the corresponding contingency table statistics (CTS) line. Hint: you will need to change the job type to **aggregate_stat** and specify the desired **-out_line_type**.
 
-How do the scores change when you increase the number of interpolation points? Did you expect this?
-
-.. note::
-
-  Aggregate the scalar partial sums lines (SL1L2) for 2-meter temperature across the EAST and WEST masking regions. How does aggregating the East and West domains affect the output?
+     *How do the scores change when you increase the number of interpolation points? Did you expect this?*
 
 .. note::
 
-  Do the aggregation listed in (3) but compute the corresponding continuous statistics (CNT) line. Hint: use the **aggregate_stat** job type.
+  3. Aggregate the scalar partial sums lines (SL1L2) for 2-meter temperature across the EAST and WEST masking regions.
+
+     *How does aggregating the East and West domains affect the output?*
 
 .. note::
 
-  Run an **aggregate_stat** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
+  4. Do the aggregation listed in (3) but compute the corresponding continuous statistics (CNT) line. Hint: use the **aggregate_stat** job type.
+
+.. note::
+
+  5. Run an **aggregate_stat** job directly on the matched pair data (MPR lines), and use the **-out_line_type** command line argument to select the type of output to be generated. You'll likely have to supply additional command line arguments depending on what computation you request.
 
 .. note::
 
   Now answer this question about this Stat-Analysis output:
 
-How do the scores compare to the original (separated by masking region) scores? What information is gained by aggregating the statistics?
+1. How do the scores compare to the original (separated by masking region) scores? What information is gained by aggregating the statistics?
 
 .. important::
 
@@ -358,56 +361,57 @@ How do the scores compare to the original (separated by masking region) scores? 
 Exercise Answers
 ^^^^^^^^^^^^^^^^
 
-Job Number 1:
+1. Job Number 1:
 
-.. code-block:: text
+   .. code-block:: text
 
-   stat_analysis \
-       -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
-       -job aggregate -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 -fcst_thresh ">278.0" \
-       -line_type CTC \
-       -dump_row job1_ps.stat
+      stat_analysis \
+          -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
+          -job aggregate -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 -fcst_thresh ">278.0" \
+          -line_type CTC \
+          -dump_row job1_ps.stat
 
-Job Number 2:
+2. Job Number 2:
 
-.. code-block:: text
+   .. code-block:: text
 
-   stat_analysis \
-       -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
-       -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 -fcst_thresh ">278.0" \
-       -line_type CTC -out_line_type CTS \
-       -dump_row job2_ps.stat
+      stat_analysis \
+          -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
+          -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 -fcst_thresh ">278.0" \
+          -line_type CTC -out_line_type CTS \
+          -dump_row job2_ps.stat
 
-Job Number 3:
+3. Job Number 3:
 
-.. code-block:: text
+   .. code-block:: text
 
-   stat_analysis \
-       -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
-       -job aggregate -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 \
-       -line_type SL1L2 \
-       -dump_row job3_ps.stat
+      stat_analysis \
+          -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
+          -job aggregate -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 \
+          -line_type SL1L2 \
+          -dump_row job3_ps.stat
 
-Job Number 4:
+4. Job Number 4:
 
-.. code-block:: text
+   .. code-block:: text
 
-   stat_analysis \
-       -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
-       -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 \
-       -line_type SL1L2 -out_line_type CNT \
-       -dump_row job4_ps.stat
+      stat_analysis \
+          -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
+          -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask EAST -vx_mask WEST -interp_pnts 25 \
+          -line_type SL1L2 -out_line_type CNT \
+          -dump_row job4_ps.stat
 
-This MPR job recomputes contingency table statistics for 2-meter temperature over G212 using a new threshold of ">=285":
+5. This MPR job recomputes contingency table statistics for 2-meter temperature over G212 using a new threshold of ``">=285"``:
 
-.. code-block:: text
+   .. code-block:: text
 
-   stat_analysis \
-       -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
-       -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask G212 -interp_pnts 25 \
-       -line_type MPR -out_line_type CTS \
-       -out_fcst_thresh ge285 -out_obs_thresh ge285 \
-       -dump_row job5_ps.stat
+      stat_analysis \
+          -lookin ../point_stat/point_stat_run2_360000L_20070331_120000V.stat -v 2 \
+          -job aggregate_stat -fcst_var TMP -fcst_lev Z2 -vx_mask G212 -interp_pnts 25 \
+          -line_type MPR -out_line_type CTS \
+          -out_fcst_thresh ge285 -out_obs_thresh ge285 \
+          -dump_row job5_ps.stat
+
 
 METplus Use Case: StatAnalysis
 ------------------------------
