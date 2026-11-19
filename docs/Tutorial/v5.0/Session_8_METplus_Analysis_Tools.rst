@@ -105,9 +105,9 @@ The following list shows the setting name and the setting value for each of the 
 Time Series of Categorical Statistics Plot Output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you successfully followed the instructions on the previous page, you should see a plot appear in the in the **plot** tab of the METviewer window. Your plot should look like this `PNG IMAGE <https://dtcenter.org/sites/default/files/community-code/met/online-practical/metviewer_time_series.png>`__. And here is the corresponding plot `XML File <https://dtcenter.org/sites/default/files/community-code/met/online-practical/metviewer_time_series.xml>`__.
+If you successfully followed the instructions on the previous page, you should see a plot appear in the **plot** tab of the METviewer window. Your plot should look like this `PNG IMAGE <https://dtcenter.org/sites/default/files/community-code/met/online-practical/metviewer_time_series.png>`__. And here is the corresponding plot `XML File <https://dtcenter.org/sites/default/files/community-code/met/online-practical/metviewer_time_series.xml>`__.
 
-Studying the plot shows that the Critical Success Index (CSI) decreases for higher thresholds, as if often the case. This suggests that the forecast model has more skill at lower precipitation thresholds. This contrasts with the story told by the accuracy statistic, which increases as the threshold increases. This can be explained by the simplicity of the accuracy statistic, and the effect that always predicting no event can have for extreme events.
+Studying the plot shows that the Critical Success Index (CSI) decreases for higher thresholds, as is often the case. This suggests that the forecast model has more skill at lower precipitation thresholds. This contrasts with the story told by the accuracy statistic, which increases as the threshold increases. This can be explained by the simplicity of the accuracy statistic, and the effect that always predicting no event can have for extreme events.
 
 The following section discusses the output that METviewer generates for each plot. Click through the tabs above the METviewer plot to examine each:
 
@@ -166,8 +166,8 @@ These instructions are relevant for generating the rank histogram from the comma
 
 Each histogram plot requires two configuration files, a default and custom configuration file in YAML (https://yaml.org/).  One default configuration file is used for all three histogram plots: *hist_defaults.yaml*.  This default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the hist_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, the custom configuration file must still set at least stat_input and plot_filename, because the default configuration file does not specify the location of the input data or the output plot.   The custom configuration files and sample data are located in the METplotpy/test/histogram directory of the downloaded/cloned source code.
 
-Set Up Pre-Requisites
-"""""""""""""""""""""
+Set Up Prerequisites
+""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
@@ -194,7 +194,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of n
    The following instructions are for users who have permission to create, modify, and use conda environments.  Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
-* Method 2: Using using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
+* Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
 
@@ -458,8 +458,8 @@ These instructions are relevant for generating the wind rose diagram from the co
 
 The wind rose diagram requires **two** configuration files, a *default* and *custom* configuration file in YAML (https://yaml.org/).   The default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the wind_rose_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, an empty custom configuration file can be provided (however, the user will have the sample data and output plot located in the directories specified in the default configuration file.  Some users may not have permission to do this) .  The custom configuration files and sample data are located in the METplotpy/test/wind_rose directory of the downloaded/cloned source code.  The default configuration file, wind_rose_defaults.yaml is located in the METplotpy/metplotpy/plots/config directory.
 
-Set Up Pre-Requisites
-"""""""""""""""""""""
+Set Up Prerequisites
+""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
@@ -486,7 +486,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of n
    The following instructions are for users who have permission to create, modify, and use conda environments.  Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
-* Method 2: Using using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
+* Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
 
@@ -698,8 +698,8 @@ The reformatting requires a **yaml** configuration file and an **xml** specifica
 Example of Running METreformat
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set Up Pre-Requisites
-"""""""""""""""""""""
+Set Up Prerequisites
+""""""""""""""""""""
 
 Set up the environment by following the `instructions for METplus initial set up <Preliminary_work_METplus_setup.html#metplus-initial-setup>`_. Make sure to follow the relevant instructions for **either** the **Pre-configured Environments** or **User Configured Environments,** based on your host computer. Finish by following the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` instructions.
 
@@ -772,7 +772,7 @@ Next, we need to modify the **point_stat.xml** file to include the correct direc
 
 .. important::
 
-   NOTE: You cannot use environment values to pass in the input data path, you must use the full path.
+   NOTE: You cannot use environment variables to pass in the input data path, you must use the full path.
 
 .. note::
 
@@ -849,7 +849,7 @@ That command should return a path similar to the following example:
 
 .. note::
 
-   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be would be cmd+C.)
+   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
 
 .. note::
 
@@ -961,8 +961,8 @@ You will notice that the data has been reformatted where the statistics are now 
 Generate a METplotpy Line Plot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set Up Pre-Requisites
-"""""""""""""""""""""
+Set Up Prerequisites
+""""""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_.
 
@@ -987,7 +987,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
    If you have access to conda environments, select one of the two following methods to install METplotpy:
 
 * Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
-* Method 2: Using using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
+* Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
 
@@ -1010,8 +1010,8 @@ An overview of the steps for creating this plot are:
 * Modify the yaml configuration file in the user_config directory
 * Run the Python script to create a line plot
 
-Set the PYTHONPATH and METPLOTPY_BASE Env Vars
-""""""""""""""""""""""""""""""""""""""""""""""
+Set the PYTHONPATH and METPLOTPY_BASE Environment Variables
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 For this step, you'll need to choose the appropriate command depending on how you installed METcalcpy. Read both blue instruction blocks, and proceed with the one relevant to you.
 
@@ -1079,7 +1079,7 @@ Modify the Custom Configuration File
 
    cd ${METPLUS_TUTORIAL_DIR}/metplotpy/user_config
 
-We will need to modify the output directory in the file with a full path to where we curerntly are, **${METPLUS_TUTORIAL_DIR}/metplotpy/user_config**. In order to do this, we need to copy the full path, and paste that path inside the .yaml file.
+We will need to modify the output directory in the file with a full path to where we currently are, **${METPLUS_TUTORIAL_DIR}/metplotpy/user_config**. In order to do this, we need to copy the full path, and paste that path inside the .yaml file.
 
 .. important::
 
@@ -1103,7 +1103,7 @@ That command should return a path similar to the following example:
 
 .. note::
 
-   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C on on a Mac this would be cmd+C.)
+   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
 
 .. important::
 
@@ -1147,7 +1147,7 @@ The above change will produce a red line on the final graph.
 
 .. note::
 
-   Comment out the derived_series_1 and derived_series2 by placing a # at the beginning of the line.
+   Comment out the derived_series_1 and derived_series_2 by placing a # at the beginning of the line.
 
 .. admonition:: File Contents
 
@@ -1210,7 +1210,7 @@ There is only one model in the sample data and event equalization is not needed.
 
 .. note::
 
-   Change the indy_labels to '0', '1', and '5':
+   Change the indy_label to '0', '1', and '5':
 
 .. admonition:: File Contents
 
