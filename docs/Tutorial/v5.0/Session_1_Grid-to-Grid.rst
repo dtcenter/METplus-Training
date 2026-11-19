@@ -419,12 +419,12 @@ The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from
 .. list-table:: Usage: plot_data_plane
    :widths: auto
 
-   * - input_filename
-     - Input file containing gridded data to be be plotted
-   * - output_filename
-     - Output PostScript file to be written
-   * - field_string
-     - String defining the data to be plotted
+   * - **input_filename**
+     - **Input file containing gridded data to be be plotted**
+   * - **output_filename**
+     - **Output PostScript file to be written**
+   * - **field_string**
+     - **String defining the data to be plotted**
    * - [-color_table name]
      - Overrides the default color table (optional)
    * - [-plot_range min max]
@@ -445,21 +445,21 @@ The Field String
 
 **Defining the Field String** 
 
-As you'll see throughout these exercises, the behavior of the MET and METplus tools is controlled using ASCII configuration files, and you will learn more about those options in the coming sessions. The field_string command line argument is actually processed as a miniature configuration file. In fact, that string is written to a temporary file which is then read by MET's configuration file library code.
+As you'll see throughout these exercises, the behavior of the MET and METplus tools is controlled using ASCII configuration files, and you will learn more about those options in the coming sessions. The **field_string** command line argument is actually processed as a miniature configuration file. In fact, that string is written to a temporary file which is then read by MET's configuration file library code.
 
-In general, the name and level entries are required to extract a gridded field of data from a supported input file format. The conventions for specifying them vary based on the input file type:
+In general, the **name** and **level** entries are required to extract a gridded field of data from a supported input file format. The conventions for specifying them vary based on the input file type:
 
-For GRIB1 or GRIB2 inputs, set name as the abbreviation for the desired variable or data type that appears in the GRIB tables and set level to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example 'name = "TMP"; level = "P500";' extracts 500 millibar temperature from a GRIB file.
+1. For GRIB1 or GRIB2 inputs, set **name** as the abbreviation for the desired variable or data type that appears in the GRIB tables and set **level** to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example ``'name = "TMP"; level = "P500";'`` extracts 500 millibar temperature from a GRIB file.
 
-For NetCDF inputs, set name as the NetCDF variable name and level to define how to extract a 2-dimensional slice of gridded data from that variable. For example, 'name = "temperature"; level = "(0,1,*,*)";' extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indicies as constant values.
+2. For NetCDF inputs, set **name** as the NetCDF variable name and **level** to define how to extract a 2-dimensional slice of gridded data from that variable. For example, ``'name = "temperature"; level = "(0,1,*,*)";'`` extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indicies as constant values.
 
-For Python embedding, set name as the python script to be run along with any arguments for that script and do not set level. For example, 'name = "read_my_data.py input.txt";' runs a python script to read data from the specified input file.
+3. For Python embedding, set **name** as the python script to be run along with any arguments for that script and do not set **level**. For example, ``'name = "read_my_data.py input.txt";'`` runs a python script to read data from the specified input file.
 
 Note that all field strings should be enclosed in single quotes, as shown above, so that they are processed on the command line as a single string which may contain embedded whitespace.
 
-Examples for each of these input types are provided in the coming exercises. More details about setting the field string can be found in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#configuration-file-overview>`_ section of the MET User's Guide. For example, if a field string matches multiple records in an input GRIB file, additional filtering criteria may be specified to further refine them. Additional options exist to explicitly specify the input file_type, define a function to convert the data, or define an operation to censor the data. Each configuration entry should be terminated with a semi-colon (;).
+Examples for each of these input types are provided in the coming exercises. More details about setting the field string can be found in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#configuration-file-overview>`_ section of the MET User's Guide. For example, if a field string matches multiple records in an input GRIB file, additional filtering criteria may be specified to further refine them. Additional options exist to explicitly specify the input **file_type**, define a function to **convert** the data, or define an operation to **censor** the data. Each configuration entry should be terminated with a semi-colon (;).
 
-Since the field_string is processed using a temporary file, any syntax errors will produce a parsing error log message similar to the following:
+Since the **field_string** is processed using a temporary file, any syntax errors will produce a parsing error log message similar to the following:
 
 .. admonition:: Sample Output
 
@@ -508,13 +508,14 @@ Next, re-run at verbosity level 4 to see more detailed log message about the gri
   'name = "TMP"; level = "Z2";' -v 4
 
 It is a great idea to inspect the log messages to sanity check the metadata. Without needing to understand all the details, does the grid definition look reasonable? Are the range of values reasonable for this variable type? Are the timestamps of the data consistent with the input file name?
-Next, open the PostScript output file. On some machines, the ghostview utility (or common gv alias) can display PostScript files. On other, the display command works well. On Macs, simply run open. The example below uses gv which is available in the METplus AMI:
+
+Next, open the PostScript output file. On some machines, the **ghostview** utility (or common **gv** alias) can display PostScript files. On other, the **display** command works well. On Macs, simply run **open**. The example below uses **gv** which is available in the METplus AMI:
 
 .. code-block::
 
   gv ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.ps
 
-Optionally, if the convert utility is in your path, it can be run to change the image file format. Indicate the desired output file format by specifying the suffix (.png shown below).
+Optionally, if the **convert** utility is in your path, it can be run to change the image file format. Indicate the desired output file format by specifying the suffix (.png shown below).
 
 .. code-block::
 
@@ -527,17 +528,19 @@ Optionally, if the convert utility is in your path, it can be run to change the 
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/wrfprs_TMP_2m.png
 
 The plot is created using the default color table (met_default.ctable) and is scaled to the range of valid data (275 to 305). By default, no title is provided and the input file is listed as a sub-title. Does the pattern of the data look reasonable? Does it correspond well to the background map data?
-If the plot of the data and the metadata listed in the log messages look reasonable, you can be confident that MET is reading your data well. In addition, the field_string you used to retrieve this data can be used in the configuration strings and configuration files for other MET tools.
+
+If the plot of the data and the metadata listed in the log messages look reasonable, you can be confident that MET is reading your data well. In addition, the **field_string** you used to retrieve this data can be used in the configuration strings and configuration files for other MET tools.
+
 While this Plot-Data-Plane validation step is not necessary for every input file, it is very useful when getting started with new input data sources.
 
 Plot NetCDF Data
 ^^^^^^^^^^^^^^^^
 
-The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret all NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
+The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret *all* NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
 
-As described in :ref:`The Field String <field_str>`, set name to the name of the desired NetCDF variable and level to define how to index into the dimensions of that variable. In the NetCDF level strings, use *,* to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the time dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in YYYYMMDD[_HH[MMSS]] format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
+As described in :ref:`The Field String <field_str>`, set **name** to the name of the desired NetCDF variable and **level** to define how to index into the dimensions of that variable. In the NetCDF level strings, use ``*,*`` to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the **time** dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in **YYYYMMDD[_HH[MMSS]]** format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
 
-Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from a CF-compliant NetCDF file. First run ncdump -h to take a look at the header:
+Run Plot-Data-Plane to plot quantitative precipitation estimate (QPE) data from a CF-compliant NetCDF file. First run **ncdump -h** to take a look at the header:
 
 .. code-block::
 
@@ -551,16 +554,16 @@ Note the following from the header:
    .. code-block:: text
 
       dimensions:
-      time = 1 ;
-      y = 689 ;
-      x = 1073 ;
-      ...
-      float P06M_NONE(time, y, x) ;
-      ...
-      // global attributes:
-      :Conventions = "CF-1.0" ;
+          time = 1 ;
+          y = 689 ;
+          x = 1073 ;
+          ...
+          float P06M_NONE(time, y, x) ;
+          ...
+          // global attributes:
+          :Conventions = "CF-1.0" ;
 
-The variable P06M_NONE has 3 dimensions, but the time dimension only has length 1. Therefore, setting level = "(0,*,*)"; should do the trick. Also note that the global Conventions attribute identifies this file as being CF-compliant. Let's plot it, this time adding a title:
+The variable **P06M_NONE** has 3 dimensions, but the **time** dimension only has length 1. Therefore, setting ``level = "(0,*,*)";`` should do the trick. Also note that the global **Conventions** attribute identifies this file as being CF-compliant. Let's plot it, this time adding a title:
 
 .. code-block::
 
@@ -579,7 +582,7 @@ Running at verbosity level 4, we see the range of values:
       DEBUG 4:       plane min: 0
       DEBUG 4:       plane max: 101.086
 
-If needed, run convert to reformat:
+If needed, run **convert** to reformat:
 
 .. code-block::
 
@@ -601,12 +604,12 @@ Note the following from the header:
    .. code-block:: text
 
       dimensions:
-        time = 4;
-        y = 428;
-        x = 614;
-        time1 = 1;
+        time = 4 ;
+        y = 428 ;
+        x = 614 ;
+        time1 = 1 ;
       variables:
-        float P06M_NONE(time, y, x);
+        float P06M_NONE(time, y, x) ;
 
 Let's request a specific time string, specify a title, and use the same plotting range as above, rather than defaulting to the range of input data values.
 
@@ -618,14 +621,15 @@ Let's request a specific time string, specify a title, and use the same plotting
   'name = "P06M_NONE"; level = "(20170510_06,*,*)";' \
   -plot_range 0 101.086 -title "Precipitation Analysis"
 
-If running Plot-Data-Plane for multiple output times or data sources, consider using the -plot_range option to make their color scales comparable.
+If running Plot-Data-Plane for multiple output times or data sources, consider using the **-plot_range** option to make their color scales comparable.
+
 Lastly, let's plot output a NetCDF mask file that was created by an earlier version of MET's Gen-Vx-Mask tool.
 
 .. code-block::
 
   ncdump -h ${METPLUS_DATA}/met_test/data/poly/NCEP_masks/NCEP_Regions.nc
 
-We will plot the NCEP_Region_ID variable with only 2 dimensions:
+We will plot the **NCEP_Region_ID** variable with only 2 dimensions:
 
 .. admonition:: Sample Output
 
@@ -660,6 +664,7 @@ While the MET tools can read data from a few input gridded data file types, its 
 3. Passing a list of matched forecast/observation pair values.
 
 On this page, we'll demonstrate only the first type, reading a field of gridded data values. When getting started with a new dataset via python, validating the logic by running Plot-Data-Plane is crucial. When MET reads data from flat files, important information, like the location and orientation of the data, is defined in the metadata. That is not the case for python embedding, and the responsibility for confirming those details falls to the user. So while python embedding provide extra flexibility, it also requires additional diligence.
+
 Let's run the simplest of examples using sample data included with the MET release. The first step is to confirm that python script runs by itself, outside of MET.
 
 .. code-block::
@@ -667,9 +672,9 @@ Let's run the simplest of examples using sample data included with the MET relea
   python3 ${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py \
   ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast
 
-This sample read_ascii_numpy.py script reads data from the input fcst.txt ASCII file and gives it a name, Forecast. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are details in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/main_v11.0/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
+This sample **read_ascii_numpy.py** script reads data from the input **fcst.txt** ASCII file and gives it a name, **Forecast**. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are details in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/main_v11.0/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
 
-Next, let's run Plot-Data-Plane using this python script to define the input data. As described in :ref:`The Field String <field_str>`, this is done with the name configuration string and the level string does not apply.
+Next, let's run Plot-Data-Plane using this python script to define the input data. As described in :ref:`The Field String <field_str>`, this is done with the **name** configuration string and the **level** string does not apply.
 
 .. code-block::
 
@@ -678,7 +683,8 @@ Next, let's run Plot-Data-Plane using this python script to define the input dat
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
   'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
-Since there is no input_filename to be specified as the first required argument for Plot-Data-Plane, we provide the constant string PYTHON_NUMPY in that spot. This triggers Plot-Data-Plane to interpret the field string as a python embedding script to be run. Specifying PYTHON_XARRAY also works but requires slightly different conventions in the python embedding script.
+Since there is no **input_filename** to be specified as the first required argument for Plot-Data-Plane, we provide the constant string **PYTHON_NUMPY** in that spot. This triggers Plot-Data-Plane to interpret the field string as a python embedding script to be run. Specifying **PYTHON_XARRAY** also works but requires slightly different conventions in the python embedding script.
+
 When MET is compiled, it links to python libraries that it uses to instantiate a python interpreter at runtime. That compile time instance does have a few required packages, but will likely not include all packages that every user may want to load. You may find that your python script runs fine on the command line, but Plot-Data-Plane's call to python can't load a requested module. In that case, set the ${MET_PYTHON_EXE} environment variable to tell MET which instance of python you'd like to run.
 
 .. important::
