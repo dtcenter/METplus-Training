@@ -278,7 +278,7 @@ To only keep pairs that are the intersection of the model forecast and observati
 
 Next, save the **TCPairsConfig_tutorial_run** file and exit the text editor.
 
-This run uses the default distance to land output file.  Run ncview to see it:
+This run uses the default distance to land output file. Run ncview to see it:
 
 .. code-block:: text
 
