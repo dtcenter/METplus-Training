@@ -556,9 +556,10 @@ METplus Use Case: TC-Pairs
 
    IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
-The TCPairs use case utilizes the MET TC-Pairs tool.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+The TCPairs use case utilizes the MET *TC-Pairs* tool.
+
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -650,9 +651,9 @@ Let's look at the output file:
 
 .. important::
 
-   once open use ":set nowrap" to easily view rows of data
+   once open use ``:set nowrap`` to easily view rows of data
 
-You will notice that there are two models configurations included in the first file for Hurricane Florence, CTRL and MYNN and the line type written out is TCMPR indicate it is the matched pair information. If you open up the third file, you'll notice that there is only the CTRL model listed.
+You will notice that there are two models configurations included in the first file for Hurricane Florence, **CTRL** and **MYNN** and the line type written out is **TCMPR** indicate it is the matched pair information. If you open up the third file, you'll notice that there is only the **CTRL** model listed.
 
 .. note::
 
@@ -716,16 +717,18 @@ METplus Use Case: TC-Stat
 
    IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
-The TCStat use case utilizes the MET TC-Stat tool.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+The TCStat use case utilizes the MET *TC-Stat* tool.
+
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+
 Change to the ${METPLUS_TUTORIAL_DIR}
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-See what TCStat use cases are available in met_tool_wrapper directory and run one
+1. **See what TCStat use cases are available in met_tool_wrapper directory and run one**
 
 .. code-block:: text
 
@@ -759,9 +762,9 @@ There is an example of using TC-Stat with no delineation between Extratropical C
       TC_STAT_LANDFALL_END = 00
       TC_STAT_LOOKIN_DIR = {INPUT_BASE}/met_test/tc_pairs
 
-This use case is focused on summarizing the ASPEED data. TC_STAT_LANDFALL_BEG and TC_STAT_LANDFALL_END define a window from 24 hours before landfall to landfall, but TC_STAT_LANDFALL is not set, so the MET default (landfall = FALSE) is used and no landfall filtering is applied. Keep in mind the summary information will be written out. Also, because the -dump_row flag was set, output will be placed in the file {TC_STAT_OUTPUT_DIR}/tc_stat_summary.tcst
+This use case is focused on summarizing the **ASPEED** data. TC_STAT_LANDFALL_BEG and TC_STAT_LANDFALL_END define a window from 24 hours before landfall to landfall, but TC_STAT_LANDFALL is not set, so the MET default (landfall = FALSE) is used and no landfall filtering is applied. Keep in mind the summary information will be written out. Also, because the -dump_row flag was set, output will be placed in the file **{TC_STAT_OUTPUT_DIR}/tc_stat_summary.tcst**
 
-Run the use case:
+2. **Run the use case:**
 
 .. code-block:: text
 
@@ -770,7 +773,7 @@ Run the use case:
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/TCStat
 
-Review the output and input files:
+3. **Review the output and input files:**
 
 Look at the output written to the directory specified as TC_STAT_OUTPUT_DIR
 
@@ -780,10 +783,11 @@ Look at the output written to the directory specified as TC_STAT_OUTPUT_DIR
 
 .. important::
 
-   once in vi type ":set nowrap"
+   once in vi type ``:set nowrap``
 
-You will notice this looks very similar to output from TCPairs, confirmed by noting the LINE_TYPE is TCMPR. While this is helpful, the outcome of the SUMMARY job is part of standard output from the tool, unless the -out flag is used when calling the tool. Standard output will be found in the location specified by the TC_STAT_OUTPUT_TEMPLATE. For this example, the file will be named job.out
-Open the standard output file in ${METPLUS_TUTORIAL_DIR}/output/TCStat/tc_stat/, with the filename job.out. Inside, you'll find:
+You will notice this looks very similar to output from TCPairs, confirmed by noting the **LINE_TYPE** is **TCMPR**. While this is helpful, the outcome of the **SUMMARY** job is part of standard output from the tool, unless the -out flag is used when calling the tool. Standard output will be found in the location specified by the **TC_STAT_OUTPUT_TEMPLATE**. For this example, the file will be named **job.out**
+
+Open the standard output file in **${METPLUS_TUTORIAL_DIR}/output/TCStat/tc_stat/**, with the filename job.out. Inside, you'll find:
 
 .. admonition:: Sample Output
 
@@ -792,9 +796,9 @@ Open the standard output file in ${METPLUS_TUTORIAL_DIR}/output/TCStat/tc_stat/,
       COL_NAME: COLUMN TOTAL VALID MEAN MEAN_NCL MEAN_NCU STDEV MIN P10 P25 P50 P75 P90 MAX IQR RANGE SUM TS_INT TS_IND FSP_TOTAL FSP_BEST FSP_TIES FSP
       SUMMARY: 'ASPEED' 351 0 NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA 0 0 0 NA
 
-The headers indicate that this information includes details about the distribution of data as well as measures to generate plots of Frequency of Superior Performance. The description of each column can be found at: https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html. The other notable result is that most columns are listed as NA. This is because the -column setting is listed as 'ASPEED' with quotes around the column name. The quotes appears to be an error, probably a remnant of a previous METplus version. Let's change that and see what happens.
+The headers indicate that this information includes details about the distribution of data as well as measures to generate plots of Frequency of Superior Performance. The description of each column can be found at: https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html. The other notable result is that most columns are listed as NA. This is because the -column setting is listed as ``'ASPEED'`` with quotes around the column name. The quotes appears to be an error, probably a remnant of a previous METplus version. Let's change that and see what happens.
 
-Copy METplus config file, modify and re-run
+4. **Copy METplus config file, modify and re-run**
 
 .. code-block:: text
 
@@ -822,7 +826,7 @@ Copy METplus config file, modify and re-run
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/TCStat_run2
 
-Review output
+5. **Review output**
 
 .. note::
 
@@ -836,9 +840,9 @@ Review output
       SUMMARY: ASPEED 351 351 -12.04558 -44.41459 20.32342 309.41037 -860 -384 -242 -95 226 377 886 468 1746 -4228 NA NA 0 0 0 NA
       SUMMARY: TK_ERR 351 351 42.82123 37.93854 47.70392 46.67289 0 0 11.16231 27.10901 61.31199 97.229 370.00025 50.14968 370.00025 15030.25036 NA NA 0 0 0 NA
 
-The values of ASPEED and TK_ERR are now available. Let's take one more step to demonstrate additional capability.
+The values of **ASPEED** and **TK_ERR** are now available. Let's take one more step to demonstrate additional capability.
 
-Copy METplus config file, modify and re-run
+6. **Copy METplus config file, modify and re-run**
 
 .. code-block:: text
 
@@ -866,9 +870,9 @@ Copy METplus config file, modify and re-run
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/TCStat_run3
 
-Review output
+7. **Review output**
 
-Open standard output file in ${METPLUS_TUTORIAL_DIR}/output/TCStat_run3/tc_stat under the name job.out and scroll down to the bottom.
+Open standard output file in **${METPLUS_TUTORIAL_DIR}/output/TCStat_run3/tc_stat** under the name job.out and scroll down to the bottom.
 
 .. admonition:: Sample Output
 
@@ -890,17 +894,19 @@ There are now 48 lines with lines summarizing AMAX_WIND and TK_ERR across 24 STO
 METplus Use Case: Track and Intensity Plotting
 ----------------------------------------------
 
-This is a wrapper to the MET plot_tcmpr.R, based on R-project Statistical package Rscript.  This Rscript will be deprecated in a future METplus release.
+**METPLUS USE CASE: TRACK AND INTENSITY TCMPR (TROPICAL CYCLONE MATCHED PAIR) PLOTTER**
+
+This is a wrapper to the MET plot_tcmpr.R, **based on R-project Statistical package Rscript.** This Rscript will be deprecated in a future METplus release.
 
 **REVIEW: TAKE A LOOK AT THE FOLLOWING SETTINGS**
 
-The default image resolution for the plot_tcmpr.R Rscript is set to 300, for print quality, but quite large for display purposes. The following is an R config file that is passed to the Rscript and changes the default and reduces the image size. It is a simple one line file, but go and take a look.
+The default image resolution for the **plot_tcmpr.R** Rscript is set to 300, for print quality, but quite large for display purposes. The following is an R config file that is passed to the Rscript and changes the default and reduces the image size. It is a simple one line file, but go and take a look.
 
 .. code-block:: text
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/TCMPRPlotter/TCMPRPlotterConfig_Customize
 
-The plot_tcmpr.R script knows to read this TCMPRPlotterConfig_Customize R config file since it is defined in the TCMPRPlotter.conf file.
+The plot_tcmpr.R script knows to read this **TCMPRPlotterConfig_Customize** R config file since it is defined in the **TCMPRPlotter.conf** file.
 
 .. note::
 
@@ -912,86 +918,90 @@ The plot_tcmpr.R script knows to read this TCMPRPlotterConfig_Customize R config
 
 .. important::
 
-   TCMPR_PLOTTER_PLOT_OUTPUT_DIR - directory where the final plots will be stored.
-   TCMPR_PLOTTER_TCMPR_DATA_DIR - the path to the input data, in this example, we are using the TC-Pairs output in the {INPUT_BASE}/met_test/tc_pairs/{date?fmt=%Y%m} directory.
+   | TCMPR_PLOTTER_PLOT_OUTPUT_DIR - directory where the final plots will be stored.
+   | TCMPR_PLOTTER_TCMPR_DATA_DIR - the path to the input data, in this example, we are using the TC-Pairs output in the {INPUT_BASE}/met_test/tc_pairs/{date?fmt=%Y%m} directory.
 
-Optional, Refer to the `TC-Stat tool example <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/plotting.html?highlight=plot_tcmpr#tc-stat-tool-example>`_ section of the MET Users Guide for a description of plot_tcmpr.R
-If you wish, refer to the `Format Information for TCMPR output line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/tc-pairs.html#id3>`_ table, for a tabular description of the TC-Pairs output TCST format. This Track and Intensity example does not run TC-Pairs; it reads TC-Pairs TCST files that were generated in advance. You can view these input TCST files under the ${METPLUS_DATA}/met_test/tc_pairs/201503 directory while comparing to the information in the table.
-The tcmpr defaults are used for any conf settings left as, unset, For example as: XLAB =
-The current settings in the conf files are ok and no changes are required. However, after running the exercise feel free to experiment with these settings.
-The R script that Track and Intensity runs is located in the MET installation; share/met/Rscripts/plot_tcmpr.R. The usage statement with a short description of the options for plot_tcmpr.R can be obtained by typing:
+| **Optional**, Refer to the `TC-Stat tool example <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/plotting.html?highlight=plot_tcmpr#tc-stat-tool-example>`_ section of the **MET Users Guide** for a description of plot_tcmpr.R
+| If you wish, refer to the `Format Information for TCMPR output line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/tc-pairs.html#id3>`_ table, for a tabular description of the TC-Pairs output TCST format. This Track and Intensity example does not run TC-Pairs; it reads TC-Pairs TCST files that were generated in advance. You can view these input TCST files under the **${METPLUS_DATA}/met_test/tc_pairs/201503** directory while comparing to the information in the table.
+
+| **The tcmpr defaults are used for any conf settings left as, unset, For example as: XLAB =**
+| **The current settings in the conf files are ok and no changes are required.** However, after running the exercise feel free to experiment with these settings.
+
+The R script that Track and Intensity runs is located in the MET installation; **share/met/Rscripts/plot_tcmpr.R**. The usage statement with a short description of the options for **plot_tcmpr.R** can be obtained by typing:
 
 .. code-block:: text
 
    Rscript ${MET_INSTALL_DIR}/share/met/Rscripts/plot_tcmpr.R
 
-with no additional arguments.  The usage statement can be helpful when setting some of the option in METplus, below is a description of these settings.
+**with no additional arguments.** The usage statement can be helpful when setting some of the option in METplus, below is a description of these settings.
 
 .. important::
 
    * **CONFIG_FILE** is a plotting configuration file
 
-* **PREFIX is the output file name prefix.**
+   * **PREFIX is the output file name prefix.**
 
-* **TITLE** overrides the default plot title. Bug: **CAN_NOT_HAVE_SPACES**
+   * **TITLE** overrides the default plot title. Bug: **CAN_NOT_HAVE_SPACES**
 
-* **SUBTITLE** overrides the default plot subtitle.
+   * **SUBTITLE** overrides the default plot subtitle.
 
-* **XLAB** overrides the default plot x-axis label.
+   * **XLAB** overrides the default plot x-axis label.
 
-* **YLAB** overrides the default plot y-axis label.
+   * **YLAB** overrides the default plot y-axis label.
 
-* **XLIM** is the min,max bounds for plotting the X-axis.
+   * **XLIM** is the min,max bounds for plotting the X-axis.
 
-* **YLIM** is the min,max bounds for plotting the Y-axis.
+   * **YLIM** is the min,max bounds for plotting the Y-axis.
 
-* **FILTER** is a list of filtering options for the tc_stat tool.
+   * **FILTER** is a list of filtering options for the tc_stat tool.
 
-* **FILTERED_TCST_DATA_FILE** is a tcst data file to be used instead of running the tc_stat tool.
+   * **FILTERED_TCST_DATA_FILE** is a tcst data file to be used instead of running the tc_stat tool.
 
-* **DEP_VARS** is a comma-separated list of dependent variable columns to plot.
+   * **DEP_VARS** is a comma-separated list of dependent variable columns to plot.
 
-* **SCATTER_X** is a comma-separated list of x-axis variable columns to plot.
+   * **SCATTER_X** is a comma-separated list of x-axis variable columns to plot.
 
-* **SCATTER_Y** is a comma-separated list of y-axis variable columns to plot.
+   * **SCATTER_Y** is a comma-separated list of y-axis variable columns to plot.
 
-* **SKILL_REF** is the identifier for the skill score reference.
+   * **SKILL_REF** is the identifier for the skill score reference.
 
-* **LEGEND** is a comma-separted list of strings to be used in the legend.
+   * **LEGEND** is a comma-separted list of strings to be used in the legend.
 
-* **LEAD** is a comma-separted list of lead times (h) to be plotted.
+   * **LEAD** is a comma-separted list of lead times (h) to be plotted.
 
-* **RP_DIFF** is a comma-separated list of thresholds to specify meaningful differences for the relative performance plot.
+   * **RP_DIFF** is a comma-separated list of thresholds to specify meaningful differences for the relative performance plot.
 
-* **DEMO_YR** is the demo year
+   * **DEMO_YR** is the demo year
 
-* **HFIP_BASELINE** is a string indicating whether to add the HFIP baseline and which version (no, 0, 5, 10 year goal). Note: the METplus 5.0 wrapper reads this setting from TCMPR_PLOTTER_HFIP_BSLN, so setting TCMPR_PLOTTER_HFIP_BASELINE has no effect.
+   * **HFIP_BASELINE** is a string indicating whether to add the HFIP baseline and which version (no, 0, 5, 10 year goal). Note: the METplus 5.0 wrapper reads this setting from TCMPR_PLOTTER_HFIP_BSLN, so setting TCMPR_PLOTTER_HFIP_BASELINE has no effect.
 
-* **FOOTNOTE_FLAG** to disable footnote (date).
+   * **FOOTNOTE_FLAG** to disable footnote (date).
 
-* **PLOT_CONFIG_OPTS** to read model-specific plotting options from a configuration file.
+   * **PLOT_CONFIG_OPTS** to read model-specific plotting options from a configuration file.
 
-* **SAVE_DATA** to save the filtered track data to a file instead of deleting it.
+   * **SAVE_DATA** to save the filtered track data to a file instead of deleting it.
 
-* **PLOT_TYPES** is a comma-separated list of plot types to create:
+   * **PLOT_TYPES** is a comma-separated list of plot types to create:
 
-* BOXPLOT, POINT, MEAN, MEDIAN, RELPERF, RANK, SCATTER, SKILL_MN, SKILL_MD
+     * BOXPLOT, POINT, MEAN, MEDIAN, RELPERF, RANK, SCATTER, SKILL_MN, SKILL_MD
+     * for this example, set to MEAN,MEDIAN to generate MEAN and MEDIAN plots.
 
-* for this example, set to MEAN,MEDIAN to generate MEAN and MEDIAN plots.
+   * **SERIES** is the column whose unique values define the series on the plot, optionally followed by a comma-separated list of values, including:
 
-* **SERIES** is the column whose unique values define the series on the plot,  optionally followed by a comma-separated list of values, including:
-  ALL, OTHER, and colon-separated groups.
+     ALL, OTHER, and colon-separated groups.
 
-* **SERIES_CI** is a list of true/false for confidence intervals.
+   * **SERIES_CI** is a list of true/false for confidence intervals.
 
 **RUN METPLUS: RUN TRACK AND INTENSITY USE CASE**
 
-Examples: Run the track and intensity plotting script
-Generates plots using the MET plot_tcmpr.R Rscript.
-Example 1:
-In this case, the TCMPRPlotter.conf file is configured to generate MEAN and MEDIAN plot types with TCMPR_PLOTTER_PLOT_TYPES.
+| **Examples: Run the track and intensity plotting script**
+| Generates plots using the MET **plot_tcmpr.R** Rscript.
 
-Run the following command:
+**Example 1:**
+
+In this case, the **TCMPRPlotter.conf** file is configured to generate MEAN and MEDIAN plot types with TCMPR_PLOTTER_PLOT_TYPES.
+
+**Run the following command:**
 
 .. code-block:: text
 
@@ -1000,7 +1010,7 @@ Run the following command:
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/track_and_intensity
 
-The following directory lists the files generated from running these use cases:
+**The following directory lists the files generated from running these use cases:**
 
 .. code-block:: text
 
@@ -1017,33 +1027,34 @@ The following directory lists the files generated from running these use cases:
       TK_ERR_mean.png
       TK_ERR_median.png
 
-Example 2:
-Copy the TCMPRPlotter.conf file to the user_config directory:
+**Example 2:**
+
+**Copy the TCMPRPlotter.conf file to the user_config directory:**
 
 .. code-block:: text
 
    cp ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/TCMPRPlotter/TCMPRPlotter.conf \
    ${METPLUS_TUTORIAL_DIR}/user_config/TCMPRPlotter_boxplot.conf
 
-Open the new conf file with an editor and change the list of plot types to only include BOXPLOT.
+**Open the new conf file with an editor and change the list of plot types to only include BOXPLOT.**
 
 .. code-block:: text
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/TCMPRPlotter_boxplot.conf
 
-Change this line (around line 72):
+**Change this line (around line 72):**
 
 .. note::
 
    TCMPR_PLOTTER_PLOT_TYPES = MEAN, MEDIAN
 
-to
+**to**
 
 .. note::
 
    TCMPR_PLOTTER_PLOT_TYPES = BOXPLOT
 
-Close the file and rerun METplus:
+**Close the file and rerun METplus:**
 
 .. code-block:: text
 
@@ -1052,7 +1063,7 @@ Close the file and rerun METplus:
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/track_and_intensity_boxplot
 
-The following directory lists the files generated from running this use case:
+**The following directory lists the files generated from running this use case:**
 
 .. code-block:: text
 
@@ -1069,8 +1080,8 @@ The following directory lists the files generated from running this use case:
       TK_ERR_boxplot.log
       TK_ERR_boxplot.png
 
-To view the png images generated by running these examples, use the display command.
-cd to your OUTPUT_BASE/tcmpr_plots directory.
+| **To view the png images generated by running these examples, use the display command.**
+| **cd to your OUTPUT_BASE/tcmpr_plots directory.**
 
 .. code-block:: text
 
@@ -1082,6 +1093,8 @@ cd to your OUTPUT_BASE/tcmpr_plots directory.
 
 End of Session 6
 ----------------
+
+**End of Session 6**
 
 Congratulations! You have completed Session 6!
 
