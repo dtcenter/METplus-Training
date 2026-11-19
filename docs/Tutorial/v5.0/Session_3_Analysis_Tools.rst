@@ -171,7 +171,7 @@ The behavior of Stat-Analysis is controlled by the contents of the configuration
 
    vi STATAnalysisConfig_tutorial
 
-You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line.  If you go down to the **jobs[]** section you will see that it is empty (jobs = [];).
+You will see that most options are left blank, so the tool will use whatever it finds or whatever is specified in the command or job line. If you go down to the **jobs[]** section you will see that it is empty (jobs = [];).
 
 .. note::
 
