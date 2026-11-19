@@ -647,7 +647,7 @@ Verify Environment is Set Correctly
 
 .. important::
 
-   In the following instructions, change "/path/to" to the path to your tutorial directory. EDIT AFTER COPYING and BEFORE HITTING RETURN!
+   **In the following instructions, change "/path/to" to the path to your tutorial directory.** **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block::
 
@@ -915,8 +915,8 @@ The METplus default configuration file **(defaults.conf)** is always read first.
 
 .. note::
 
-   When METplus is run, the final metplus conf file is generated here:
-   defaults.conf:METPLUS_CONF={OUTPUT_BASE}/metplus_final.conf.YYYYMMDDHHmmss
+   | When METplus is run, the final metplus conf file is generated here:
+   | defaults.conf:METPLUS_CONF=\ **{OUTPUT_BASE}/metplus_final.conf.YYYYMMDDHHmmss**
 
 .. note::
 
@@ -983,7 +983,7 @@ No changes are needed in Example.conf. Close it and continue to the next page.
 
 .. note::
 
-   Unless otherwise indicated, all directories are relative to your ${METPLUS_TUTORIAL_DIR} directory.
+   Unless otherwise indicated, all directories are relative to your **${METPLUS_TUTORIAL_DIR}** directory.
 
 
 METplus: User Configuration Settings
@@ -995,8 +995,8 @@ In this section you will modify the configuration files that will be read for ea
 
 The paths in this practical session guide assume: 
 
-* You have created a user_config directory in your  ${METPLUS_TUTORIAL_DIR} directory
-* You have added the shared METplus ush directory to your PATH (done in the Tutorial Setup script)
+* You have created a user_config directory in your **${METPLUS_TUTORIAL_DIR}** directory
+* You have added the shared METplus **ush** directory to your PATH (done in the Tutorial Setup script)
 * You are using the shared installation of MET.
 
 If not, then you need to adjust accordingly.
@@ -1012,7 +1012,7 @@ If not, then you need to adjust accordingly.
 
 .. important::
 
-   The METplus python script run_metplus.py can be run from anywhere, but for consistency, we will change to ${METPLUS_TUTORIAL_DIR} so that all the directories including user_config and output are below the working directory.
+   The METplus python script **run_metplus.py** can be run from anywhere, but for consistency, we will change to ${METPLUS_TUTORIAL_DIR} so that all the directories including user_config and output are below the working directory.
 
 .. note::
 
@@ -1055,7 +1055,7 @@ Note it ends with an error message stating that **OUTPUT_BASE** was not set corr
 
 .. important::
 
-   The values in defaults.conf are read in first when you run run_metplus.py. The settings in these files can be overridden in the use case conf files and/or a user's custom configuration file.
+   The values in **defaults.conf** are read in first when you run **run_metplus.py**. The settings in these files can be overridden in the use case conf files and/or a user's custom configuration file.
 
 Some variables in the system conf are set to '/path/to' and must be overridden to run METplus, such as **OUTPUT_BASE** in **defaults.conf**.
 
@@ -1069,7 +1069,7 @@ Some variables in the system conf are set to '/path/to' and must be overridden t
 
 .. important::
 
-   Note: The default installation of METplus has /path/to values for MET_INSTALL_DIR and INPUT_BASE. The value for MET_INSTALL_DIR is set in the shared METplus configuration when it was installed. This was done because these settings will likely be set to the same values for all users. If METplus was installed on a machine that has sample input data available, the value for INPUT_BASE is often set to that directory as well.
+   Note: The default installation of METplus has **/path/to** values for **MET_INSTALL_DIR** and **INPUT_BASE**. The value for **MET_INSTALL_DIR** is set in the shared METplus configuration when it was installed. This was done because these settings will likely be set to the same values for all users. If METplus was installed on a machine that has sample input data available, the value for **INPUT_BASE** is often set to that directory as well.
 
 .. note::
 
@@ -1083,11 +1083,11 @@ The **INPUT_BASE**, **OUTPUT_BASE**, and **MET_INSTALL_DIR** variables must all 
 
 .. important::
 
-   Note: A METplus conf file is not a shell script. You CANNOT refer to environment variables as you would in a shell script or command prompt, i.e. ${HOME}. Instead, you must reference the environment variable $HOME as {ENV[HOME]}
+   Note: A METplus conf file is not a shell script. You CANNOT refer to environment variables as you would in a shell script or command prompt, i.e. ${HOME}. Instead, you must reference the environment variable $HOME as **{ENV[HOME]}**
 
 .. important::
 
-   You can create additional configuration files to be read by the METplus wrappers to override variables. If a variable is found in multiple configuration files that were passed to METplus, the value used will be the last one read in the sequence of configuration files. See the metplus_final.conf file in the output directory to see what values were actually used for a given METplus run.
+   You can create additional configuration files to be read by the METplus wrappers to override variables. If a variable is found in multiple configuration files that were passed to METplus, **the value used will be the last one read in the sequence of configuration files.** See the **metplus_final.conf** file in the output directory to see what values were actually used for a given METplus run.
 
 We will test out using these configurations on the next page.
 
@@ -1121,9 +1121,9 @@ If you have configured METplus correctly and call **run_metplus.py** without pas
 
 .. note::
 
-   Note: The environment variable METPLUS_BUILD_BASE determines where to look for paths to use_case files. The METPLUS_TUTORIAL_DIR environment variable determines where to look for user-modified config files.
+   Note: The environment variable **METPLUS_BUILD_BASE** determines where to look for paths to use_case files. The **METPLUS_TUTORIAL_DIR** environment variable determines where to look for user-modified config files.
 
-3. Check the directory specified by the OUTPUT_BASE configuration variable. You should see that files and sub-directories have been created
+3. Check the directory specified by the **OUTPUT_BASE** configuration variable. You should see that files and sub-directories have been created
 
 .. code-block::
 
@@ -1187,7 +1187,7 @@ You will notice that METplus ran for 5 valid times, processing 4 forecast hours 
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/changed
 
-6. Check the directory that corresponds to the config.OUTPUT_BASE value that you set in the command line override. You should see that files and sub-directories have been created in the new location. Note that you can reference an environment variable when setting values on the command line.
+6. Check the directory that corresponds to the **config.OUTPUT_BASE** value that you set in the command line override. You should see that files and sub-directories have been created in the new location. Note that you can reference an environment variable when setting values on the command line.
 
 .. code-block::
 
@@ -1281,6 +1281,7 @@ to:
 .. important::
 
    Note that the valid begin and end time are now set to the same time (January 18, 2022 at 9Z) and there is only 1 forecast lead time (3 hours).
+
    Also note that "ext" stands for extension and "nc" is the typical extension for a netCDF file. The initial example demonstrates how you can have METplus loop over two types of files but the removal of "nc" results in METplus only looking for files that end with "ext".
 
 4. Call the run_metplus.py script again, this time passing in the Example_timing.conf configuration file and the tutorial.conf configuration file. You should see logs output to the screen.
@@ -1303,7 +1304,7 @@ to:
 
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
 
-6. Open Example_timing.conf again to increase the frequency of output by making the following changes:
+6. **Open Example_timing.conf again** to increase the frequency of output by making the following changes:
 
 6a. Change **VALID_END**:
 
@@ -1344,7 +1345,7 @@ to:
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 06Z and valid at 2022-01-18 09Z
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 12Z and valid at 2022-01-18 15Z
 
-8. Change the timing settings to loop by initialization (or retrospective) time. Open Example_timing.conf again and make the following changes:
+8. Change the timing settings to loop by initialization (or retrospective) time. **Open Example_timing.conf again** and make the following changes:
 
 8a. Change **LOOP_BY**:
 
@@ -1436,7 +1437,7 @@ to:
 
 .. important::
 
-   Notice that now 2 initialization times were run and the valid time was computed based on each init time and forecast lead.
+   Notice that now 2 **initialization** times were run and the **valid** time was computed based on each init time and forecast lead.
 
 .. admonition:: Sample Output
 
@@ -1445,7 +1446,7 @@ to:
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 09Z and valid at 2022-01-18 12Z
       INFO: Processing forecast lead 3 hours initialized at 2022-01-18 15Z and valid at 2022-01-18 18Z
 
-10. Change the value for LOOP_BY from INIT to its nickname RETRO. Open Example_timing.conf again and make the following changes:
+10. Change the value for **LOOP_BY** from **INIT** to its nickname **RETRO**. Open Example_timing.conf again and make the following changes:
 
 10a. Change **LOOP_BY**:
 
@@ -1473,7 +1474,7 @@ to:
 
 .. important::
 
-   Notice that the output did not change. Note that LOOP_BY can also be set to RETRO instead of INIT if that term is preferred. However, the other timing variables must start with INIT\_ and not RETRO\_. The same applies for using REALTIME instead of VALID.
+   Notice that the output did not change. Note that **LOOP_BY** can also be set to **RETRO** instead of **INIT** if that term is preferred. However, the other timing variables must start with **INIT_** and not **RETRO_**. The same applies for using **REALTIME** instead of **VALID**.
 
 
 Modifying Filename Template in Example.conf
@@ -1499,9 +1500,11 @@ The output should list:
 
 .. important::
 
-   Think about what is constant and what may change routinely:
-   nam.t00z.awip1236.tm00.20070330.grb
-   This translates into {init?fmt=%Y%m%d%H}/nam.t{init?fmt=%H}z.awip1236.tm00.{init?fmt=%Y%m%d}.grb (relative to the sample_fcst directory).  We will use this in this next exercise.
+   Think about **what is constant** and *what may change routinely*:
+
+   **nam.t**\ *00*\ **z.awip1236.tm00.**\ *20070330*\ **.grb**
+
+   This translates into *{init?fmt=%Y%m%d%H}*\ **/nam.t**\ *{init?fmt=%H}*\ **z.awip1236.tm00.**\ *{init?fmt=%Y%m%d}*\ **.grb** (relative to the sample_fcst directory). We will use this in this next exercise.
 
 2. Copy the Example_timing.conf configuration file in your user_config directory, renaming it Example_filename.conf
 
