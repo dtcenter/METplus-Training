@@ -625,9 +625,8 @@ Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions.
 
 .. important::
 
-   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-
-   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -637,7 +636,7 @@ Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions.
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-Review the basic wrapper configuration file: EnsembleStat.conf
+1. **Review the basic wrapper configuration file: EnsembleStat.conf**
 
 .. note::
 
@@ -655,9 +654,9 @@ Recall that the Ensemble-Stat tool is for verification against gridded and/or po
 
       FCST_ENSEMBLE_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
-This references INPUT_BASE which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards. This is a common practice in METplus wrappers, including the use case that we'll be running.
+This references **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards. This is a common practice in METplus wrappers, including the use case that we'll be running.
 
-Review the basic wrapper configuration file: GenEnsProd.conf
+2. **Review the basic wrapper configuration file: GenEnsProd.conf**
 
 .. note::
 
@@ -669,7 +668,7 @@ Review the basic wrapper configuration file: GenEnsProd.conf
 
 The Gen-Ens-Prod tool (and its wrapper that we're now using) is for creating ensemble products. This differs from the purpose of the Ensemble-Stat tool, so the GenEnsProd wrapper options will differ from those in the EnsembleStat wrapper.
 
-Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf
+3. **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
 
 .. note::
 
@@ -679,7 +678,7 @@ Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_Mult
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf
 
-For the use case that we will be running, three tool wrappers are called: PB2NC, EnsembleStat, and GenEnsProd. These tools will iterate over one time step, but three separate lead times. PB2NC is used as a conversion method for the input file types and was covered in a previous session. From the order of the tools in PROCESS_LIST, we see that PB2NC runs first, followed by EnsembleStat. Since that tool is for verification and statistical output, it uses observational field settings like OBS_VAR1_NAME and BOTH_VAR1_THRESH, which applies to both the forecast and observation variable 1. It also will create multiple output files for each time step processed, one for each of the requested line types:
+For the use case that we will be running, three tool wrappers are called: PB2NC, EnsembleStat, and GenEnsProd. These tools will iterate over one time step, but three separate lead times. PB2NC is used as a conversion method for the input file types and was covered in a previous session. From the order of the tools in **PROCESS_LIST**, we see that PB2NC runs first, followed by EnsembleStat. Since that tool is for verification and statistical output, it uses observational field settings like **OBS_VAR1_NAME** and **BOTH_VAR1_THRESH**, which applies to both the forecast and observation variable 1. It also will create multiple output files for each time step processed, one for each of the requested line types:
 
 .. admonition:: File Contents
 
@@ -693,7 +692,7 @@ For the use case that we will be running, three tool wrappers are called: PB2NC,
       ENSEMBLE_STAT_OUTPUT_FLAG_SSVAR = BOTH
       ENSEMBLE_STAT_OUTPUT_FLAG_RELP = BOTH
 
-GenEnsProd, on the other hand, will utilize the ``ENS_`` configuration settings, and will place all output for each time step into a single netCDF output. Those file's locations and names can be seen with the following configuration settings:
+GenEnsProd, on the other hand, will utilize the **ENS_** configuration settings, and will place all output for each time step into a single netCDF output. Those file's locations and names can be seen with the following configuration settings:
 
 .. admonition:: File Contents
 
@@ -702,11 +701,11 @@ GenEnsProd, on the other hand, will utilize the ``ENS_`` configuration settings,
       GEN_ENS_PROD_OUTPUT_DIR = {ENSEMBLE_STAT_OUTPUT_DIR}
       GEN_ENS_PROD_OUTPUT_TEMPLATE = {init?fmt=%Y%m%d%H%M}/gen_ens_prod_{ENSEMBLE_STAT_OUTPUT_PREFIX}_{valid?fmt=%Y%m%d_%H%M%S}V_ens.nc
 
-Note that the output directory is dependent on a different configuration setting, ENSEMBLE_STAT_OUTPUT_DIR. As mentioned above, this is common practice in METplus.
+Note that the output directory is dependent on a different configuration setting, **ENSEMBLE_STAT_OUTPUT_DIR**. As mentioned above, this is common practice in METplus.
 
 .. note::
 
-   **Run the use case:**
+   4. **Run the use case:**
 
 .. code-block:: text
 
@@ -723,7 +722,7 @@ METplus is finished running when control returns to your terminal console and yo
 
       INFO: METplus has successfully finished running as user <username>(<uid>).
 
-Review the output files:
+5. **Review the output files:**
 
 You should have output files in the following directories:
 
@@ -760,7 +759,7 @@ You should have output files in the following directories:
       gen_ens_prod_HRRRE_F001_ADPSFC_20180709_130000V_ens.nc
       gen_ens_prod_HRRRE_F002_ADPSFC_20180709_140000V_ens.nc
 
-We can tell from the name of the files, specifically the _F00x_ string, that three different lead times were run: 0, 1, and 2. These ended up as valid times of 12z, 13z, and 14z, as indicated by the 1x0000V strings.
+We can tell from the name of the files, specifically the **_F00x_** string, that three different lead times were run: 0, 1, and 2. These ended up as valid times of 12z, 13z, and 14z, as indicated by the **1x0000V** strings.
 
 .. note::
 
@@ -770,7 +769,7 @@ We can tell from the name of the files, specifically the _F00x_ string, that thr
 
    less ${METPLUS_TUTORIAL_DIR}/output/Ensemble/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat/201807091200/ensemble_stat_HRRRE_F000_ADPSFC_20180709_120000V.stat
 
-This stat file contains all of the statistic line types that were requested in the configuration file. If we wanted to review only one line type at a time, ECNT for example, we could instead look at the ASCII file for this lead time with the _ecnt string at the end of the file name. That file exists because the use case configuration file set:
+This stat file contains all of the statistic line types that were requested in the configuration file. If we wanted to review only one line type at a time, ECNT for example, we could instead look at the ASCII file for this lead time with the **_ecnt** string at the end of the file name. That file exists because the use case configuration file set:
 
 .. admonition:: File Contents
 
@@ -780,9 +779,9 @@ This stat file contains all of the statistic line types that were requested in t
 
 signaling that the ecnt line type results should be in the .stat file, as well as a separate ASCII file.
 
-Review the log output:
+6. **Review the log output:**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/Ensemble/logs. The filename contains a timestamp of the day and time that the use case was run.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/Ensemble/logs**. The filename contains a timestamp of the day and time that the use case was run.
 
 .. code-block:: text
 
@@ -790,13 +789,13 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/Ensemble/logs
 
 .. note::
 
-   **Review the Final Configuration File:**
+   7. **Review the Final Configuration File:**
 
 .. code-block:: text
 
    ls -1 ${METPLUS_TUTORIAL_DIR}/output/Ensemble/metplus_final.conf.*
 
-The final configuration file is called metplus_final.conf.*, where the final string is a timestamp of the day and time the use case was run, similar to the log files. This contains all of the configuration variables used in the run. If you complete a run of METplus and are unsure how the system interpreted something from the configuration file, this is a great source of information.
+The final configuration file is called **metplus_final.conf.\***, where the final string is a timestamp of the day and time the use case was run, similar to the log files. This contains all of the configuration variables used in the run. If you complete a run of METplus and are unsure how the system interpreted something from the configuration file, this is a great source of information.
 
 METplus Use Case: EnsembleStat with Multiple Variables and Leads
 ----------------------------------------------------------------
@@ -805,9 +804,8 @@ This section takes a closer look at the same use case that was run in the previo
 
 .. important::
 
-   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-
-   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -819,7 +817,7 @@ This section takes a closer look at the same use case that was run in the previo
 
 .. note::
 
-   **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
+   1. **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
 
 Open the file and look at all of the configuration variables that are defined.
 
@@ -864,7 +862,7 @@ The run time for this use case is expected to be longer, due to the multiple lea
 
 .. note::
 
-   **Run the use case:**
+   2. **Run the use case:**
 
 .. code-block:: text
 
@@ -883,7 +881,7 @@ METplus is finished running when control returns to your terminal console and yo
 
 .. note::
 
-   **Review the output files:**
+   3. **Review the output files:**
 
 You should have two directories of interest:
 
@@ -932,7 +930,7 @@ Each lead time is responsible for producing 8 files, for a total of 24 files. Th
 
 .. note::
 
-   **Compare the netCDF output to the .stat output:**
+   4. **Compare the netCDF output to the .stat output:**
 
 To better understand the difference between the FCST and ENS entries in the configuration file used by the EnsembleStat and GenEnsProd tools respectively, take a look at the netCDF file for the first lead time (0):
 
@@ -940,7 +938,8 @@ To better understand the difference between the FCST and ENS entries in the conf
 
    ncview ${METPLUS_TUTORIAL_DIR}/output/Ensemble/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField/EnsembleStat/201807091200/gen_ens_prod_HRRRE_F000_ADPSFC_20180709_120000V_ens.nc
 
-You'll notice that the majority of the extensive variables listed have the words "ENS_FREQ". This is because those variables were called with the ENSEMBLE_FLAG options: GenEnsProd will provide a summary of all fields requested across the ensemble for those ENS_VAR<n> variables.
+You'll notice that the majority of the extensive variables listed have the words ``ENS_FREQ``. This is because those variables were called with the **ENSEMBLE_FLAG** options: GenEnsProd will provide a summary of all fields requested across the ensemble for those ENS_VAR<n> variables.
+
 Now look at the .stat file for the same lead time:
 
 .. code-block:: text
@@ -952,17 +951,18 @@ In the VX_MASK column, the four mask files requested are listed, along with the 
 METplus Use Case: PQPF
 ----------------------
 
-The QPF Probabilistic use case utilizes the MET Pcp-Combine, Regrid-Data-Plane, and Grid-Stat tools.
+**METPLUS USE CASE: QPF PROBABILISTIC**
+
+The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plane*, and *Grid-Stat* tools.
 
 .. important::
 
-   **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-
-   **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE**
 
-The configuration file is located in use_cases/model_applications/precipitation and is called GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf
+The configuration file is located in use_cases/model_applications/precipitation and is called **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf**
 
 .. note::
 
@@ -981,7 +981,7 @@ Note that several processes are called in this use-case and that there is a spec
       PROCESS_LIST = PCPCombine, RegridDataPlane, GridStat
       FCST_IS_PROB = true
 
-Also note that variables in GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf reference other config variables that have been defined in configuration files. For example:
+Also note that variables in **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf** reference other config variables that have been defined in configuration files. For example:
 
 .. admonition:: File Contents
 
@@ -990,7 +990,7 @@ Also note that variables in GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf reference o
       REGRID_DATA_PLANE_VERIF_GRID = {INPUT_BASE}/model_applications/precipitation/mask/CONUS_HRRRTLE.nc
       OBS_PCP_COMBINE_INPUT_DIR = {INPUT_BASE}/model_applications/precipitation/StageIV
 
-This references INPUT_BASE which is set in the METplus tutorial.conf file (${METPLUS_TUTORIAL_DIR}/tutorial.conf). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+This references **INPUT_BASE** which is set in the METplus tutorial.conf file (**${METPLUS_TUTORIAL_DIR}/tutorial.conf**). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 
@@ -1046,7 +1046,7 @@ You should have output files in the following directories:
 
 **REVIEW THE LOG FILES**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one.
 
 .. code-block:: text
 
@@ -1058,7 +1058,7 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs. Th
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
+The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
 .. code-block:: text
 
@@ -1067,12 +1067,15 @@ The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/PQPF. 
 End of Session 4 and Additional Exercises
 -----------------------------------------
 
+**End of Session 4**
+
 Congratulations! You have completed Session 4!
+
 If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
 
 **EXERCISES FOR SESSION 4**
 
-EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
+**EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6**
 
 .. note::
 
@@ -1095,7 +1098,7 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.accum_3hr.conf
 
-.. tip::
+.. important::
 
    HINT: There is a variable in the use case configuration file named **BOTH_VAR1_LEVELS**, which applies to both the forecast and observation data, that currently contains a 6 hour accumulation.
 
@@ -1133,17 +1136,17 @@ EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
 
    Go to the next page for the solution to see if you were right!
 
-EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files
+**EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files**
 
 .. note::
 
    **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use **six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
 
-.. tip::
+.. important::
 
    Tip: Recall from the original QPF exercise that METplus used a 6 hour observation accumulation file as input to Pcp-Combine to build a 6 hour accumulation file for the example where forecast lead = 6.
 
-From the log output found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs:
+From the log output found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**:
 
 .. admonition:: Sample Output
 
@@ -1172,11 +1175,11 @@ From the log output found in ${METPLUS_TUTORIAL_DIR}/output/PQPF/logs:
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.input_1hr.conf
 
-.. tip::
+.. important::
 
    HINT 1: The variables that you need to add must go under the **[config]** section.
 
-.. tip::
+.. important::
 
    HINT 2: The **FCST_PCP_COMBINE_INPUT_ACCUMS** and **OBS_PCP_COMBINE_INPUT_ACCUMS** variables set the accumulation intervals, in order of preference, that are used from the input data for forecast and observation data respectively.
 
@@ -1215,10 +1218,12 @@ Answers to Exercises from Session 4
 
 These are the answers to the exercises from the previous page. Feel free to ask a METplus team member if you have any questions!
 
-ANSWER 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6
+**ANSWER 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6**
 
-Instructions: Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using Pcp-Combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
-Answer: In the user_config/GridStat-ensemble.accum_3hr.conf file, change the following variables in the [config] section:
+**Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using Pcp-Combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
+
+**Answer:** In the **user_config/GridStat-ensemble.accum_3hr.conf** file, change the following variables in the **[config]** section:
+
 Change:
 
 .. admonition:: File Contents
@@ -1235,10 +1240,12 @@ To:
 
       BOTH_VAR1_LEVELS = A03
 
-ANSWER 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files
+**ANSWER 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files**
 
-Instructions: Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
-Answer: In the user_config/GridStat-ensemble.input_1hr.conf file, change the following variable to the [config] section:
+**Instructions:** Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
+
+**Answer:** In the **user_config/GridStat-ensemble.input_1hr.conf** file, change the following variable to the **[config]** section:
+
 Change:
 
 .. admonition:: File Contents
