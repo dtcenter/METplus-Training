@@ -93,7 +93,7 @@ MET Tool: PCP-Combine
 
   If you are returning to the tutorial, you must source the tutorial setup script 
   before running the following instructions. If you are unsure if you have done this step,
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 We now shift to a discussion of the MET PCP-Combine tool and will practice running 
 it directly on the command line.
@@ -392,7 +392,7 @@ MET Tool: Plot-Data-Plane
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 Whenever getting started with new gridded datasets in MET, users are strongly encouraged to first run the Plot-Data-Plane tool to visualize the data. Doing so confirms that MET can read the input file, extract the desired data, and geolocate and orient it correctly. It is particularly useful in testing the configuration string needed to extract the data from the input file.
 
@@ -714,7 +714,7 @@ MET Tool: Gen-Vx-Mask
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 **Gen-Vx-Mask Functionality**
 
@@ -1042,7 +1042,7 @@ MET Tool: Grid-Stat
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 **Grid-Stat Functionality**
 
@@ -1317,7 +1317,7 @@ METplus Use Case: GridStat
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step,
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 The GridStat use case utilizes the MET *Grid-Stat* tool.
 

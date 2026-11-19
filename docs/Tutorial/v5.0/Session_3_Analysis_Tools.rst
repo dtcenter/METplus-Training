@@ -12,7 +12,7 @@ You may navigate through this tutorial by following the links at the bottom of e
 
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
-**Prerequisites: Verify Environment is Set Correctly**
+**Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -418,7 +418,7 @@ METplus Use Case: StatAnalysis
 
 .. important::
 
-   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 The StatAnalysis use case utilizes the MET *Stat-Analysis* tool.
 
@@ -953,7 +953,7 @@ METplus Use Case: SeriesAnalysis
 
 .. important::
 
-  IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 The SeriesAnalysis use case utilizes the MET *Series-Analysis* tool.
 

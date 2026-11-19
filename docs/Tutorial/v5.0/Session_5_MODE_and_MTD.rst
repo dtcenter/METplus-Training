@@ -10,7 +10,7 @@ Since you already set up your runtime enviroment in Session 1, you should be rea
 .. figure:: ../figure/5.0_Practical_Session_5.png
    :alt: MET tool workflow highlighting the tools used in Session 5.
 
-**Prerequisites: Verify Environment is Set Correctly**
+**Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 

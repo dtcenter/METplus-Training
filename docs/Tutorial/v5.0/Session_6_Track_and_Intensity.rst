@@ -10,7 +10,7 @@ Since you already set up your runtime enviroment in Session 1, you should be rea
 .. figure:: ../figure/5.0_Practical_Session_6.png
    :alt: MET tool workflow highlighting the tools used in Session 6.
 
-**Prerequisites: Verify Environment is Set Correctly**
+**Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -551,7 +551,7 @@ METplus Use Case: TC-Pairs
 
 .. important::
 
-   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 The TCPairs use case utilizes the MET TC-Pairs tool.
 Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
@@ -711,7 +711,7 @@ METplus Use Case: TC-Stat
 
 .. important::
 
-   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 The TCStat use case utilizes the MET TC-Stat tool.
 Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.

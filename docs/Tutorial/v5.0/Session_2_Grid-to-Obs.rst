@@ -15,7 +15,7 @@ You may navigate through this tutorial by following the links at the bottom of e
 
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
-**Prerequisites: Verify Environment is Set Correctly**
+**Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -101,7 +101,7 @@ MET Tool: PB2NC
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step,
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 **PB2NC FUNCTIONALITY**
 
@@ -435,7 +435,7 @@ METplus Use Case: PB2NC
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET *PB2NC* tool. 
 
@@ -539,7 +539,7 @@ MET Tool: ASCII2NC
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 **ASCII2NC FUNCTIONALITY**
 
@@ -682,13 +682,13 @@ This ASCII data only contains observations at a few locations.
 
 Next, we'll use the NetCDF output of PB2NC and ASCII2NC to perform Grid-to-Point verification using the Point-Stat tool.
 
-METplus Use Case: ASCII2NC with Python Embedding 
+METplus Use Case: ASCII2NC with Python Embedding
 ------------------------------------------------
 
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET *ASCII2NC* tool to demonstrate Python Embedding. Python embedding is a novel capability within METplus that allows a user to place a Python script into a METplus workflow. For example, if a user has a data format that is unsupported by the MET tools then a user could write their own Python file reader, and hand off the data to the MET tools within a workflow.
 
@@ -864,7 +864,7 @@ MET Tool: Point-Stat
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 **POINT-STAT FUNCTIONALITY**  
 
@@ -1445,7 +1445,7 @@ METplus Use Case: PointStat
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET *Point-Stat* tool. 
 
@@ -1570,7 +1570,7 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET *Point-Stat* tool. 
 
@@ -1758,7 +1758,7 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
 .. important::
 
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
-  please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+  please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET *Point-Stat* tool.
 

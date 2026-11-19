@@ -3,7 +3,7 @@ Session 10: Subseasonal to Seasonal
 
 **METplus Practical Session 10**
 
-**Prerequisites: Verify Environment is Set Correctly**
+**Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
@@ -78,7 +78,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 Besides setting up METplus for this session, you will also want to be sure that you have METcalcpy, METplotpy, and METdataio installed and available.
 
-If more information is needed, see the instructions in the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
+If more information is needed, see the instructions in the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
 
 You are now ready to move on to the next section.
 

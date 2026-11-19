@@ -710,7 +710,7 @@ The Python requirements for METdataio are:
 
 Make sure you have activated the conda environment for METdataio if you are working on your own host or on host 'seneca':
 
-:ref:`Setting up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
+:ref:`Setting Up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
 
 Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
 

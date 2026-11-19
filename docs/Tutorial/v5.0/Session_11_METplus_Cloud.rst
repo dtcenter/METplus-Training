@@ -80,7 +80,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
-If more information is needed see the instructions in the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
+If more information is needed see the instructions in the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
 The next section describes how to create your own EC2 instance and is optional
 
 .. important::

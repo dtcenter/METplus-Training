@@ -71,23 +71,23 @@ The following instructions are required so the commands in this tutorial can be 
 
 **PRE-CONFIGURED ENVIRONMENTS**
 
-:ref:`Setting up the Tutorial Environment on Cheyenne (NCAR) <set_tut_env_Cheyenne>`
+:ref:`Setting Up the Tutorial Environment on Cheyenne (NCAR) <set_tut_env_Cheyenne>`
 
-:ref:`Setting up the Tutorial Environment on Jet (NOAA) <set_tut_env_Jet>`
+:ref:`Setting Up the Tutorial Environment on Jet (NOAA) <set_tut_env_Jet>`
 
-:ref:`Setting up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
+:ref:`Setting Up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
 
-:ref:`Setting up the Tutorial Environment on Hera (NOAA) <set_tut_env_Hera>`
+:ref:`Setting Up the Tutorial Environment on Hera (NOAA) <set_tut_env_Hera>`
 
 **USER-CONFIGURED ENVIRONMENTS**
 
-:ref:`Setting up the Tutorial Environment (bash) <set_tut_env_bash>`
+:ref:`Setting Up the Tutorial Environment (bash) <set_tut_env_bash>`
 
-:ref:`Setting up the Tutorial Environment (csh) <set_tut_env_csh>`
+:ref:`Setting Up the Tutorial Environment (csh) <set_tut_env_csh>`
 
 .. _set_tut_env_Cheyenne:
 
-Setting up the Tutorial Environment on Cheyenne (NCAR)
+Setting Up the Tutorial Environment on Cheyenne (NCAR)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Cheyenne (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
@@ -169,11 +169,11 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Jet:
 
-Setting up the Tutorial Environment on Jet (NOAA)
+Setting Up the Tutorial Environment on Jet (NOAA)
 """""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Jet (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
@@ -230,11 +230,11 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Seneca:
 
-Setting up the Tutorial Environment on Seneca (NCAR)
+Setting Up the Tutorial Environment on Seneca (NCAR)
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Seneca (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
@@ -399,11 +399,11 @@ Now you are ready to run the METplus Analysis tutorials.
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_Hera:
 
-Setting up the Tutorial Environment on Hera (NOAA)
+Setting Up the Tutorial Environment on Hera (NOAA)
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Hera (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
@@ -462,11 +462,11 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_bash:
 
-Setting up the Tutorial Environment (bash)
+Setting Up the Tutorial Environment (bash)
 """"""""""""""""""""""""""""""""""""""""""
 
 .. important::
@@ -547,11 +547,11 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _set_tut_env_csh:
 
-Setting up the Tutorial Environment (csh)
+Setting Up the Tutorial Environment (csh)
 """""""""""""""""""""""""""""""""""""""""
 
 .. important::
@@ -632,11 +632,11 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. note::
 
-   Next navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
+   Next navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
 .. _verif_env_set_correct:
 
-Verify Environment is Set Correctly
+Verify Environment Is Set Correctly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **RUN THE TUTORIAL SETUP SCRIPT**
@@ -1618,7 +1618,7 @@ to:
       INFO: Looking in input directory for file: 2007033000/nam.t00z.awip1236.tm00.20070330.grb
 
 
-Modifying Log Timestamp using Example.conf
+Modifying Log Timestamp Using Example.conf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The METplus configuration variable named `LOG_TIMESTAMP_TEMPLATE <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#log-timestamp-template>`_ controls the timestamp that is included in the log file names. The default value of LOG_TIMESTAMP_TEMPLATE is **%Y%m%d%H%M%S**, which will include the year, month, day, hour, minute, and second when the run_metplus.py command was executed. This will create a new log file each time run_metplus.py is called from the command line.
