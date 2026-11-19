@@ -1223,7 +1223,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-**MET EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
+**MET Example of Continuous Forecast Verification**
 
 Here is an example that demonstrates deterministic forecast verification in MET.
 
@@ -1348,7 +1348,7 @@ For the CNT line type output we review the .stat file and find something similar
 
 The columns that are available in the CNT line type are listed in the MET User’s Guide `guidance for CNT line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#table-ps-format-info-cnt>`_. After the declaration of the line type (CNT), the familiar TOTAL or matched pairs column, we find a wealth of statistics including the forecast and observation means, the forecast and observation standard deviations, ME, MSE, along with all of the other statistics discussed in this section. Some of these statistics (such as the means, standard deviations, PR_CORR, ME, and ANOM_CORR) are followed by both their normal and their bootstrap lower and upper confidence limits, while others (such as MBIAS, MAE, MSE, and RMSE) have only bootstrap confidence limits. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. You’ll also note that the ranking statistics (SP_CORR and KT_CORR) are listed as NA because we did not set rank_corr_flag to TRUE in the Grid-Stat configuration file. This was done intentionally; in order to calculate ranking statistics MET needs to assign each and every matched pair a rank and then perform the calculations. With a large dataset with numerous matched pairs this can significantly increase runtime and be computationally intensive. Given our example had over 1.5 million matched pairs, these statistics are best left to a smaller domain. Let’s create that smaller domain in a METplus wrappers example!
 
-**METPLUS WRAPPER EXAMPLE OF CONTINUOUS FORECAST VERIFICATION**
+**METplus Wrapper Example of Continuous Forecast Verification**
 
 To achieve the same success as the previous example but utilizing METplus wrappers instead of MET, very few adjustments would need to be made. Because METplus wrappers have the helpful feature of chaining multiple tools together, we’ll start off by listing all of the tools we want to use. Recall that for this example, we want to include a smaller verification area to enable the rank correlation statistics as well. This results in the following process list:
 
@@ -1576,7 +1576,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
 
-**MET EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
+**MET Example of Probabilistic Forecast Verification**
 
 Here is an example that demonstrates probabilistic forecast verification using MET.
 
@@ -1721,7 +1721,7 @@ With a successful run of MET, we should find a .stat file with two rows of data;
 
 Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). The 0.231 Resolution value is also close to its largest possible value, the 0.248 Uncertainty value (remember that Resolution is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable), and the sample climatology Brier Skill Score (BSS_SMPL) is 0.922. Because MET evaluated the forecasts at the bin midpoints, this Brier score is higher than the 0.018116 that the same PCT counts give when the actual forecast probabilities (0, 0.2, 0.4, 0.6, 0.8, and 1.0) are used, a difference of about 6%. For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id14>`_ and `PSTD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id15>`_ line types.
 
-**METPLUS WRAPPER EXAMPLE OF PROBABILISTIC FORECAST VERIFICATION**
+**METplus Wrapper Example of Probabilistic Forecast Verification**
 
 To achieve the same success as the previous example, but utilizing METplus wrappers instead of MET, very few adjustments would need to be made. In fact, approaching this example utilizing the wrappers simplifies the problem, as one configuration file can be used to generate the desired output from both tools. 
 
