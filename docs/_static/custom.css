@@ -29,4 +29,53 @@
     }
 }
 
+/* Custom color for the admonition directive which allow the user to specify titles (e.g. Sample Output, File Contents) */
+.admonition.admonition-default,
+.admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention),
+.rst-content .admonition-default,
+.rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) {
+    background-color: #f3e8ff; /* Very light purple/lavender background */
+    border-color: #9b59b6;     /* Medium purple border */
+}
 
+.admonition.admonition-default > .admonition-title,
+.admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title,
+.rst-content .admonition-default > .admonition-title,
+.rst-content .admonition:not(.note):not(.warning):not(.danger):not(.tip):not(.important):not(.caution):not(.attention) > .admonition-title {
+    background-color: #9b59b6; /* Medium purple title background */
+    color: white;              /* White text for best readability against purple */
+}
+
+
+/* Wrap long unbroken strings (e.g. file paths) in prose and lists at all widths
+   so they stay inside the content area. */
+.rst-content p,
+.rst-content li {
+    overflow-wrap: break-word;
+}
+
+/* Keep narrow documentation pages within the viewport. Long prose identifiers
+   may wrap, while commands, output, tables, and math remain scrollable. */
+@media screen and (max-width: 1100px) {
+    .rst-content {
+        overflow-wrap: anywhere;
+    }
+
+    .rst-content pre {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .rst-content .math {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .rst-content .wy-table-responsive {
+        max-width: 100%;
+        overflow-x: auto !important;
+    }
+}
