@@ -971,7 +971,7 @@ The **model_applications** use case files are organized in directories by catego
 
 **EXAMPLE USE CASE (AKA "HELLO WORLD" EXAMPLE - METPLUS STYLE)**
 
-Let's look at the Example use case, ***Example.conf***, under **met_tool_wrapper/Example**
+Let's look at the Example use case, **Example.conf**, under **met_tool_wrapper/Example**
 
 .. code-block::
 
