@@ -75,7 +75,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
-If more information is needed see the instructions in Session 1 for more information.
+See the instructions in Session 1 for more information.
 
 You are now ready to move on to the next section.
 
@@ -351,7 +351,7 @@ That directory contains the following directories:
       Day2
       series_animate
 
-Day1 contain the following files:
+Day1 contains the following files:
 
 .. code-block:: text
 
