@@ -12,6 +12,7 @@ During this practical session, you will run the tools indicated below:
    :align: center
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
+
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment is Set Correctly**
@@ -24,7 +25,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  In the following instructions, change "/path/to" to the directory you chose.
+  **In the following instructions, change "/path/to" to the directory you chose.**
+
   **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block::
@@ -49,10 +51,10 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-  **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
-  **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
-  **METPLUS_DATA** is the location of the sample test data directory
+  | **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+  | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+  | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+  | **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
@@ -64,7 +66,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need   to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
@@ -84,6 +86,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
   ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
 See the instructions in Session 1 for more information.
+
 You are now ready to move on to the next section.
 
 .. important::
@@ -103,6 +106,7 @@ MET Tool: PB2NC
 **PB2NC FUNCTIONALITY**
 
 The PB2NC tool is used to stratify (i.e. subset) the contents of an input PrepBufr point observation file and reformat it into NetCDF format for use by the Point-Stat or Ensemble-Stat tool. In this session, we will run PB2NC on a PrepBufr point observation file prior to running Point-Stat. Observations may be stratified by variable type, PrepBufr message type, station identifier, a masking region, elevation, report type, vertical level category, quality mark threshold, and level of PrepBufr processing. Stratification is controlled by a configuration file and discussed on the next page.
+
 The PB2NC tool may be run on both PrepBufr and Bufr observation files. As of met-6.1, support for Bufr is limited to files containing embedded tables. Support for Bufr files using external tables will be added in a future release.
 
 For more information about the PrepBufr format, visit the `BUFRLIB documentation <https://emc.ncep.noaa.gov/emc/pages/infrastructure/bufrlib.php>`_.
@@ -122,12 +126,12 @@ For information on where to download PrepBufr files, visit the `MET Input Data <
 .. list-table:: Usage: pb2nc
    :widths: auto
 
-   * - prepbufr_file
-     - input prepbufr path/filename
-   * - netcdf_file
-     - output netcdf path/filename
-   * - config_file
-     - configuration path/filename
+   * - **prepbufr_file**
+     - **input prepbufr path/filename**
+   * - **netcdf_file**
+     - **output netcdf path/filename**
+   * - **config_file**
+     - **configuration path/filename**
    * - [-pbfile prepbufr_file]
      - additional input files
    * - [-valid_beg time]
@@ -185,7 +189,7 @@ The behavior of PB2NC is controlled by the contents of the configuration file pa
 
   vi PB2NCConfig_tutorial_run1
 
-The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the `pb2nc <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_point.html#pb2nc-configuration-file>`_ configuration file section of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ or in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html>`_.
+The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the `pb2nc configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_point.html#pb2nc-configuration-file>`_ section of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ or in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html>`_.
 
 For this tutorial, edit the **PB2NCConfig_tutorial_run1** file as follows:
 
@@ -206,8 +210,8 @@ Set:
    .. code-block:: text
 
       obs_window = {
-      beg = -1800;
-      end =  1800;
+         beg = -1800;
+         end =  1800;
       }
 
 so that only observations within 1800 second (30 minutes) of the file time will be retained.
@@ -219,8 +223,8 @@ Set:
    .. code-block:: text
 
       mask = {
-      grid = "G212";
-      poly = "";
+         grid = "G212";
+         poly = "";
       }
 
 to retain only those observations residing within NCEP Grid 212, on which the forecast data resides.
@@ -272,7 +276,7 @@ If you'd like to filter down the observations further, you may want to narrow th
 
 Output
 ^^^^^^
-When PB2NC is finished, you may view the output NetCDF file it wrote using the ncdump utility.
+When PB2NC is finished, you may view the output NetCDF file it wrote using the **ncdump** utility.
 
 .. note::
 
@@ -385,8 +389,8 @@ Set:
    .. code-block:: text
 
       obs_window = {
-      beg = -25*30;
-      end =  25*30;
+         beg = -25*30;
+         end =  25*30;
       }
 
 so that only observations 12.5 minutes before and 12.5 minutes after the top of the hour are retained (25*30 = 750 seconds).
@@ -433,10 +437,10 @@ METplus Use Case: PB2NC
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET PB2NC tool. 
+This use case utilizes the MET *PB2NC* tool. 
 
-**Optional:** Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional:** Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional:** Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional:** Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -572,12 +576,12 @@ It is the user's responsibility to get their ASCII point observations into this 
 .. list-table:: Usage: ascii2nc
    :widths: auto
 
-   * - ascii_file1 [...]
-     - One or more input ASCII path/filename
-   * - netcdf_file
-     - Output NetCDF path/filename
+   * - **ascii_file1 [...]**
+     - **One or more input ASCII path/filename**
+   * - **netcdf_file**
+     - **Output NetCDF path/filename**
    * - [-format ASCII_format]
-     - Set to met_point , little_r , surfrad , wwsis , airnowdaily_v2, airnowhourlyaqobs, airnowhourly, ndbc_standard, aeronet, aeronetv2, aeronetv3, or python
+     - Set to **met_point**, **little_r**, **surfrad**, **wwsis**, **airnowdaily_v2**, **airnowhourlyaqobs**, **airnowhourly**, **ndbc_standard**, **aeronet**, **aeronetv2**, **aeronetv3**, or **python**
    * - [-config file]
      - Configuration file to specify how observation data should be summarized
    * - [-mask_grid string]
@@ -616,7 +620,7 @@ The sample ASCII observations in the MET tarball are still identified by GRIB co
 
   Dump that file and notice that the GRIB codes in the seventh column could be replaced by corresponding variable names.
 
-For example, 52 corresponds to RH:
+For example, 52 corresponds to **RH**:
 
 .. code-block::
 
@@ -638,7 +642,7 @@ ASCII2NC should perform this reformatting step very quickly since the sample fil
 Output
 ^^^^^^
 
-When ASCII2NC is finished, you may view the output NetCDF file it wrote using the ncdump utility.
+When ASCII2NC is finished, you may view the output NetCDF file it wrote using the **ncdump** utility.
 
 .. note::
 
@@ -686,13 +690,13 @@ METplus Use Case: ASCII2NC with Python Embedding
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET ASCII2NC tool to demonstrate Python Embedding. Python embedding is a novel capability within METplus that allows a user to place a Python script into a METplus workflow. For example, if a user has a data format that is unsupported by the MET tools then a user could write their own Python file reader, and hand off the data to the MET tools within a workflow.
+This use case utilizes the MET *ASCII2NC* tool to demonstrate Python Embedding. Python embedding is a novel capability within METplus that allows a user to place a Python script into a METplus workflow. For example, if a user has a data format that is unsupported by the MET tools then a user could write their own Python file reader, and hand off the data to the MET tools within a workflow.
 
 The data utilized in this use case are the sample upper-air (ADPUPA) point observations in ASCII format that were used in the ASCII2NC section above.
 
-**Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional**: Refer to the `MET Users Guide Appendix F: Python Embedding <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixF.html>`_ for details on how Python embedding works for MET tools.
-**Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `MET Users Guide Appendix F: Python Embedding <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixF.html>`_ for details on how Python embedding works for MET tools.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -738,7 +742,7 @@ These data are already in the 11-column format that MET requires, so using Pytho
 
   less ${MET_BUILD_BASE}/share/met/python/read_ascii_point.py
 
-Since the sample data are point data, the Python module Pandas is utilized to read the ASCII data, assign column names that match the MET 11-column format, and then pass the data to the MET ASCII2NC tool.
+Since the sample data are point data, the Python module *Pandas* is utilized to read the ASCII data, assign column names that match the MET 11-column format, and then pass the data to the MET ASCII2NC tool.
 
 .. note::
 
@@ -761,7 +765,7 @@ This command utilizes the METplus wrappers to execute a Python script to read in
 
   ls ${METPLUS_TUTORIAL_DIR}/output/ASCII2NC_python_embedding/met_tool_wrapper/ASCII2NC
 
-You should see the output netCDF file (ascii2nc_python.nc), which conforms to the 11-column format required by the MET tools.
+You should see the output netCDF file (*ascii2nc_python.nc*), which conforms to the 11-column format required by the MET tools.
 
 .. note::
 
@@ -1443,8 +1447,8 @@ METplus Use Case: PointStat
 
 This use case utilizes the MET Point-Stat tool. 
 
-**Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1568,8 +1572,8 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 
 This use case utilizes the MET Point-Stat tool. 
 
-**Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1755,8 +1759,8 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
 This use case utilizes the MET Point-Stat tool. 
-**Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
