@@ -772,7 +772,7 @@ Next, we need to modify the **point_stat.xml** file to include the correct direc
 
 .. note::
 
-   To get the full path to the METPLUS_DATA environment variable, enter the following on the command line:
+   To get the full path to the **METPLUS_DATA** environment variable, enter the following on the command line:
 
 .. code-block:: text
 
@@ -794,7 +794,7 @@ Alternatively, you can open a text file and copy and paste the directory path in
 
 .. note::
 
-   Now, modify point_stat.xml, using the output from the echo command to fill the path to the Point-Stat data. Be sure to add met_reformat/point_stat path at the end:
+   Now, modify **point_stat.xml**, using the output from the echo command to fill the path to the Point-Stat data. Be sure to add *met_reformat/point_stat* path at the end:
 
 .. code-block:: text
 
@@ -829,7 +829,7 @@ Now we need to modify the **point_stat.yaml** file in a similar way to the **poi
 
 .. note::
 
-   To get the full path to the METPLUS_TUTORIAL_DIR environment variable, enter the following on the command line:
+   To get the full path to the **METPLUS_TUTORIAL_DIR** environment variable, enter the following on the command line:
 
 .. code-block:: text
 
@@ -983,7 +983,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
    If you have access to conda environments, select one of the two following methods to install METplotpy:
 
 * Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
-* Method 2: Using using PyPI (Python Package Index) enter the following:
+* Method 2: Using using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
 
@@ -1031,7 +1031,7 @@ For this step, you'll need to choose the appropriate command depending on how yo
 
 .. note::
 
-   If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH without the METcalcpy paths:
+   If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH **without** the METcalcpy paths:
 
 **bash:**
 
@@ -1107,7 +1107,7 @@ That command should return a path similar to the following example:
 
 .. note::
 
-   Open the custom_line.yaml file.
+   Open the **custom_line.yaml** file.
 
 .. code-block:: text
 
@@ -1123,6 +1123,7 @@ That command should return a path similar to the following example:
 
       colors:
       - '#ff0000'
+
       con_series:
 
 The above change will produce a red line on the final graph.
@@ -1137,6 +1138,7 @@ The above change will produce a red line on the final graph.
 
       con_series:
       - 1
+
       create_html: 'False'
 
 .. note::
@@ -1285,14 +1287,19 @@ There is only one model in the sample data and event equalization is not needed.
 
       series_line_style:
       - '-'
+
       series_line_width:
       - 1
+
       series_order:
       - 1
+
       series_symbols:
       - .
+
       series_type:
       - b
+
       series_val_1:
 
 .. note::
@@ -1321,6 +1328,7 @@ There is only one model in the sample data and event equalization is not needed.
 
       show_signif:
       - 'False'
+
       stat_input: ./line.data
 
 .. note::
@@ -1355,7 +1363,7 @@ There is only one model in the sample data and event equalization is not needed.
 
 .. note::
 
-   Save and close the custom_line.yaml file.
+   Save and close the **custom_line.yaml** file.
 
 Generate the Line Plot
 """"""""""""""""""""""
@@ -1370,7 +1378,7 @@ Generate the Line Plot
 
 .. note::
 
-   In your $METPLUS_TUTORIAL_DIR/metplotpy/user_config directory, you will now see a line.png file.  You can view the png file using an appropriate viewer, such as 'display' if on a Linux/Unix host:
+   In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now see a **line.png** file.  You can view the png file using an appropriate viewer, such as 'display' if on a Linux/Unix host:
 
 .. code-block:: text
 
@@ -1387,5 +1395,7 @@ Generate the Line Plot
 
 End of Session 8
 ----------------
+
+**End of Session 8**
 
 Congratulations! You have completed Session 8!
