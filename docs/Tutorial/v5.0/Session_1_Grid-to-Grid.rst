@@ -1321,8 +1321,8 @@ METplus Use Case: GridStat
 
 The GridStat use case utilizes the MET *Grid-Stat* tool.
 
-**Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-**Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 Change to the ${METPLUS_TUTORIAL_DIR}.
 
@@ -1366,10 +1366,10 @@ These relate to the following fields in the MET configuration file:
       }
       obs = {
         field = [
-         {
-          name = "APCP_03";
-          level = [ "(*,*)" ];
-         }
+          {
+           name = "APCP_03";
+           level = [ "(*,*)" ];
+          }
         ];
       }
 
@@ -1409,13 +1409,11 @@ You should have output files in the following directories:
 
 .. note::
 
-  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txt
+  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txt
+  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
+  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
 
-  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
-
-  grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
-
-Take a look at some of the files to see what was generated.  Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files.  If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while eclv and grad line types are set to "BOTH".
+Take a look at some of the files to see what was generated.  Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files.  If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while **eclv** and **grad** line types are set to "BOTH".
 
 .. code-block::
 
@@ -1429,7 +1427,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/GridStat/lo
 
   ls -1 ${METPLUS_TUTORIAL_DIR}/output/GridStat/logs/metplus.log.*
 
-5. **Review the Final Configuration File"**
+5. **Review the Final Configuration File**
 
 The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/GridStat**. Like the log output, the final configuration file will contain a timestamp of the time that the METplus command was executed. These configuration files will contain all of the configuration variables used in the run.
 
