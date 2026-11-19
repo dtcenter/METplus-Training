@@ -91,7 +91,7 @@ You are now ready to move on to the next section.
 MET Tool: MODE
 --------------
 
-**MODE FUNCTIONALITY**
+**MODE Functionality**
 
 MODE, the Method for Object-Based Diagnostic Evaluation, provides an object-based verification for comparing gridded forecasts to gridded observations. MODE may be used in a generalized way to compare any two fields containing data from which objects may be well defined. It has most commonly been applied to precipitation fields and radar reflectivity. The steps performed in MODE consist of:
 
@@ -104,7 +104,7 @@ MODE, the Method for Object-Based Diagnostic Evaluation, provides an object-base
 
 MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
 
-**MODE USAGE**
+**MODE Usage**
 
 .. note::
 
@@ -328,7 +328,7 @@ The MODE use case utilizes the MET *MODE* tools.
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
-**REVIEW USE CASE CONFIGURATION FILE: MODE.CONF**
+**Review Use Case Configuration File: MODE.conf**
 
 .. note::
 
@@ -350,7 +350,7 @@ The MODE use case utilizes the MET *MODE* tools.
 
 This references **INPUT_BASE** which is set in the METplus tutorial configuration file **${METPLUS_TUTORIAL_DIR}/tutorial.conf**. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
-**RUN METPLUS**
+**Run METplus**
 
 .. note::
 
@@ -379,7 +379,7 @@ METplus is finished running when control returns to your terminal console and yo
 
       INFO: METplus has successfully finished running as user <username>(<uid>).
 
-**REVIEW THE OUTPUT FILES**
+**Review the Output Files**
 
 You should have output files in the following directories:
 
@@ -404,7 +404,7 @@ You should have output files in the following directories:
 
    less ${METPLUS_TUTORIAL_DIR}/output/MODE/mode/2005080712/mode_WRF_RH_vs_WRF_RH_P500_120000L_20050807_120000V_000000A_obj.txt
 
-**REVIEW THE LOG FILES**
+**Review the Log Files**
 
 Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MODE/logs/**.
 
@@ -420,7 +420,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MODE/logs/*
 
    NOTE: If you ran METplus on a different day than today, the log file will correspond to the day you ran. Note that some computers, such as NOAA's hera are set to UTC.
 
-**REVIEW THE FINAL CONFIGURATION FILE**
+**Review the Final Configuration File**
 
 The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/MODE**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
@@ -431,11 +431,11 @@ The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/MODE
 MET Tool: MTD
 -------------
 
-**MODE-TIME-DOMAIN FUNCTIONALITY**
+**MODE-Time-Domain Functionality**
 
 The MODE-Time-Domain (MTD) tool was added in MET version 6.0. It applies an object-based verification technique in comparing a gridded forecast to a gridded analysis. It defines 3-dimensional space/time objects, tracking 2-dimensional objects through time. It writes summary object information to ASCII statistics files and writes object fields to NetCDF format. The MTD tool can be used to quantify the duration of events and timing errors.
 
-**MODE-TIME-DOMAIN USAGE**
+**MODE-Time-Domain Usage**
 
 .. note::
 
@@ -676,14 +676,14 @@ Notice the generalization of the 2D MODE object attributes to 3 dimensions. Area
 METplus Use Case: MTD
 ---------------------
 
-**REFERENCE MATERIAL**
+**Reference Material**
 
 The MTD (Mode Time Domain) use case utilizes the MET *MTD* tools.
 
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
-**REVIEW USE CASE CONFIGURATION FILE: MTD.CONF**
+**Review Use Case Configuration File: MTD.conf**
 
 .. note::
 
@@ -716,7 +716,7 @@ Also note that variables in MTD.conf reference other config variables that have 
 
 This references **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
-**RUN METPLUS**
+**Run METplus**
 
 .. note::
 
@@ -745,7 +745,7 @@ METplus is finished running when control returns to your terminal console and yo
 
       INFO: METplus has successfully finished running as user <username>(<uid>).
 
-**REVIEW THE OUTPUT FILES**
+**Review the Output Files**
 
 You should have output files including the following:
 
@@ -786,7 +786,7 @@ Take a look at some of the files to see what was generated.
 
    less ${METPLUS_TUTORIAL_DIR}/output/MTD/mtd/2005080706/mtd_WRF_APCP_vs_MC_PCP_APCP_03_A03_20050807_060000V_3d_single_simple.txt
 
-**REVIEW THE LOG FILES**
+**Review the Log Files**
 
 Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MTD/logs**. The filename contains a timestamp of the current year, month, day, hour, minute, and second.
 
@@ -798,7 +798,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MTD/logs**.
 
    NOTE: If you ran METplus on a different day than today, the log file will correspond to the day you ran.
 
-**REVIEW THE FINAL CONFIGURATION FILE**
+**Review the Final Configuration File**
 
 The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/MTD**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 

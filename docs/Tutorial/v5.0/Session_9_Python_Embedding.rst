@@ -3,7 +3,7 @@ Session 9: Python Embedding
 
 **METplus Practical Session 9**
 
-**IN THIS SESSION YOU WILL LEARN:**
+**In This Session You Will Learn:**
 
 1. What Python Embedding is
 2. How Python Embedding works for both point and gridded data with MET tools
@@ -11,7 +11,7 @@ Session 9: Python Embedding
 4. How to use your Python script with MET tools
 5. How to use your Python script with METplus Wrappers
 
-**WHAT IS PYTHON EMBEDDING?**
+**What Is Python Embedding?**
 
 Put simply, Python Embedding is a way to allow users to write their own Python scripts which can be integrated into workflows that use MET tools and METplus Wrappers. The primary ways that Python Embedding is leveraged by MET users are reading data from a format that MET tools do not support, and deriving intermediate fields within a workflow that cannot be calculated by MET tools. A simplified workflow using the MET Grid-Stat tool with Python Embedding is shown below:
 
@@ -158,7 +158,7 @@ To demonstrate how to use Python Embedding for gridded data, you will use some M
 3. The **plot_data_plane** output_filename argument
 4. The **plot_data_plane** field_string argument, modified for Python Embedding
 
-**LET'S BUILD THE COMMAND!**
+**Let's Build the Command!**
 
 **Element 1**: Use your tutorial environment variable **MET_BUILD_BASE** to access **plot_data_plane**:
 
@@ -186,7 +186,7 @@ To demonstrate how to use Python Embedding for gridded data, you will use some M
 
       'name="my_gridded_pyembed.py ${METPLUS_DATA}/met_test/data/python/fcst.txt FCST_DATA";'
 
-**LET'S RUN THE COMMAND!**
+**Let's Run the Command!**
 
 Verify you are in the Python Embedding practice directory:
 
@@ -200,7 +200,7 @@ Copy each of the four elements from above to construct the full Python Embedding
 
    ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY my_gridded_pyembed_plot.ps 'name="my_gridded_pyembed.py ${METPLUS_DATA}/met_test/data/python/fcst.txt FCST_DATA";'
 
-**VIEW THE OUTPUT IMAGE**
+**View the Output Image**
 
 The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
 
@@ -289,7 +289,7 @@ To demonstrate how to use Python Embedding for point data, you will use some MET
 2. The **plot_point_obs** nc_file argument, modified for Python Embedding
 3. The **plot_point_obs** ps_file argument
 
-**LET'S BUILD THE COMMAND!**
+**Let's Build the Command!**
 
 **Element 1**: Use your tutorial environment variable **MET_BUILD_BASE** to access **plot_point_obs**:
 
@@ -311,7 +311,7 @@ To demonstrate how to use Python Embedding for point data, you will use some MET
 
    my_point_pyembed_plot.ps
 
-**LET'S RUN THE COMMAND!**
+**Let's Run the Command!**
 
 Verify you are in the Python Embedding practice directory:
 
@@ -325,7 +325,7 @@ Copy each of the three elements from above to construct the full Python Embeddin
 
    ${MET_BUILD_BASE}/bin/plot_point_obs "PYTHON_NUMPY=${METPLUS_TUTORIAL_DIR}/python_embed/my_point_pyembed.py ${METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt" my_point_pyembed_plot.ps
 
-**VIEW THE OUTPUT IMAGE**
+**View the Output Image**
 
 The output file is a PostScript graphic file that typically can only be viewed with certain software. If you do not have a display tool that can view PostScript files, you can use the **ImageMagick** convert command to convert to a PNG file type which may be easier to view:
 

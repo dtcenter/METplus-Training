@@ -88,13 +88,13 @@ Click on a use case below to get started.
 METplus Use Case: Feature Relative (Series-Analysis by Init)
 ------------------------------------------------------------
 
-**SERIES-ANALYSIS BY INITIALIZATION TIME**
+**Series-Analysis by Initialization Time**
 
-**SETUP**
+**Setup**
 
 In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature. The tiles are then used to compute statistics using Series_Analysis. Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers.
 
-**REVIEW USE CASE CONFIGURATION FILE: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf**
+**Review Use Case Configuration File: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf**
 
 View the file and study the configuration variables that are defined.
 
@@ -131,7 +131,7 @@ The **SERIES_ANALYSIS_STAT_LIST** is set to four statistics, but can be set to m
 
 This references **OUTPUT_BASE** which you set in the tutorial configuration file (**${METPLUS_TUTORIAL_DIR}/tutorial.conf**) and override on the command line below. METplus config variables can reference other config variables, even if they are defined in a config file that is read afterwards.
 
-**RUN METPLUS**
+**Run METplus**
 
 Change to the METplus Tutorial Directory:
 
@@ -156,7 +156,7 @@ You will see output streaming to your screen. This may take up to 4 minutes to c
 
       INFO: METplus has successfully finished running.
 
-**REVIEW THE OUTPUT FILES**
+**Review the Output Files**
 
 You should have output files in the following directories from the intermediate wrappers TcPairs (tc_pairs and track_data_atcf), and TcStat and ExtractTiles (extract_tiles):
 
@@ -249,7 +249,7 @@ or
 
    Note: the **&** is used to run this command in the background
 
-**REVIEW THE LOG FILE**
+**Review the Log File**
 
 A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/logs**. The filename contains the timestamp corresponding to the current day. To view the log file:
 
@@ -257,7 +257,7 @@ A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/out
 
    ls ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/logs/metplus.log.*
 
-**REVIEW THE FINAL CONFIGURATION FILE**
+**Review the Final Configuration File**
 
 The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS** (where YYYYMMDDHHMMSS refers to year, month, day, hour, minute, second that the file was created). This contains all of the configuration variables used in the run.
 
@@ -268,9 +268,9 @@ The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS** (where YYY
 METplus Use Case: Feature Relative (Series-Analysis by Lead, by Forecast Hour Grouping)
 ---------------------------------------------------------------------------------------
 
-**SERIES-ANALYSIS BY LEAD TIME BY FORECAST HOUR GROUPING**
+**Series-Analysis by Lead Time by Forecast Hour Grouping**
 
-**SETUP**
+**Setup**
 
 In this exercise, you will perform a series analysis based on the lead time (forecast hour) of your sample data and organize your results by forecast hour groupings. This use case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png and .gif images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers. Please note that the METplus User's Guide is a work-in-progress and may have missing content.
 
@@ -280,7 +280,7 @@ Change to the METplus Tutorial Directory:
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-**REVIEW USE CASE CONFIGURATION FILE: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByLead.conf**
+**Review Use Case Configuration File: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByLead.conf**
 
 View the file and study the configuration variables that are defined.
 
@@ -300,7 +300,7 @@ Note that the Lead time groupings are specified by the **LEAD_SEQ** config optio
       LEAD_SEQ_2 = begin_end_incr(24,42,6)
       LEAD_SEQ_2_LABEL = Day2
 
-**RUN METPLUS**
+**Run METplus**
 
 Run the following command:
 
@@ -313,7 +313,7 @@ Run the following command:
 
 You will see output streaming to your screen. This may take up to 3 minutes to complete. When it is complete, your prompt returns.
 
-**REVIEW THE OUTPUT FILES**
+**Review the Output Files**
 
 You should have output directories including the following that result from running the wrappers TcPairs (track_data_atcf and tc_pairs), and TcStat and ExtractTiles (extract_tiles):
 
@@ -428,7 +428,7 @@ To watch the animations, go to **${METPLUS_TUTORIAL_DIR}/output/feature_relative
 
    firefox ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/series_analysis_lead/series_animate/series_animate_TMP_Z2_OBAR.gif
 
-**REVIEW THE LOG FILE**
+**Review the Log File**
 
 A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/logs**. The filename contains the timestamp corresponding to the current day. To view the log file:
 
@@ -436,7 +436,7 @@ A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/out
 
    ls ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_lead_fhr_groupings/logs/metplus.log.*
 
-**REVIEW THE FINAL CONFIGURATION FILE**
+**Review the Final Configuration File**
 
 The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS** (where YYYYMMDDHHMMSS refers to year, month, day, hour, minute, second that the file was created). This contains all of the configuration variables used in the run.
 

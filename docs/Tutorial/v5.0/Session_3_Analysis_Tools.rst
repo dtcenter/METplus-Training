@@ -93,7 +93,7 @@ You are now ready to move on to the next section.
 MET Tool: Stat-Analysis
 -----------------------
 
-**STAT-ANALYSIS FUNCTIONALITY**
+**Stat-Analysis Functionality**
 
 The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-Stat, Wavelet-Stat, Ensemble-Stat, and TC-Gen tools. It can also read matched pair (MPR) data passed in using Python embedding (-lookin python). It provides a way to filter their STAT data and summarize the statistical information they contain. If you pass it the name of a directory, Stat-Analysis searches that directory recursively and reads any **.stat** files it finds. Alternatively, if you pass it an explicit file name, it'll read the contents of the file regardless of the suffix, enabling it to read the optional **_LINE_TYPE.txt** files. Stat-Analysis runs one or more analysis jobs on the input data. It can be run by specifying a single analysis job on the command line or multiple analysis jobs using a configuration file. The analysis job types are summarized below:
 
@@ -104,7 +104,7 @@ The Stat-Analysis tool reads the ASCII output files from the Point-Stat, Grid-St
 * The **ss_index** job computes a skill-score index, of which the GO Index (**go_index**) and the CBS Index (**cbs_index**) are special cases. The GO Index is a performance metric used primarily by the United States Air Force.
 * The **ramp** job processes a time series of data and identifies rapid changes in the forecast and observation values. These forecast and observed ramp events are used to populate a 2x2 contingency table from which categorical statistics are derived.
 
-**STAT-ANALYSIS USAGE**
+**Stat-Analysis Usage**
 
 View the usage statement for Stat-Analysis by simply typing the following:
 
@@ -643,11 +643,11 @@ You should see the .stat file now in the stat_analysis/12Z/WRF directory
 MET Tool: Series-Analysis
 -------------------------
 
-**SERIES-ANALYSIS FUNCTIONALITY**
+**Series-Analysis Functionality**
 
 The Series-Analysis Tool accumulates statistics separately for each horizontal grid location over a series. Usually, the series is defined as a time series, however any type of series is possible, including a series of vertical levels. This differs from the Grid-Stat tool in that Grid-Stat computes statistics aggregated over a spatial masking region at a single point in time. The Series-Analysis Tool computes statistics for each individual grid point and can be used to quantify how the model performance varies over the domain.
 
-**SERIES-ANALYSIS USAGE**
+**Series-Analysis Usage**
 
 View the usage statement for Series-Analysis by simply typing the following:
 

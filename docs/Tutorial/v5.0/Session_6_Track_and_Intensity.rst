@@ -91,11 +91,11 @@ You are now ready to move on to the next section.
 MET Tool: TC-Pairs
 ------------------
 
-**TC-PAIRS FUNCTIONALITY**
+**TC-Pairs Functionality**
 
 The TC-Pairs tool provides position and intensity information for tropical cyclone forecasts in Automated Tropical Cyclone Forecast System (ATCF) format. Much like the Point-Stat tool, TC-Pairs produces matched pairs of forecast model output and an observation dataset. In the case of TC-Pairs, both the model output and observational dataset (or reference forecast) must be in ATCF format. TC-Pairs produces matched pairs for position errors, as well as wind, sea level pressure, and distance to land values for each input dataset.
 
-**TC-PAIRS USAGE**
+**TC-Pairs Usage**
 
 View the usage statement for TC-Pairs by simply typing the following:
 
@@ -339,7 +339,7 @@ Open **tc_pairs.tcst**
 MET Tool: TC-Stat
 ------------------
 
-**TC-STAT FUNCTIONALITY**
+**TC-Stat Functionality**
 
 The TC-Stat tool reads the **.tcst** output file(s) of the TC-Pairs tool. This tool provides the ability to further filter the TCST output files as well as summarize the statistical information. The TC-Stat tool reads **.tcst** files and runs one or more analysis jobs on the data. TC-Stat can be run by specifying a single job on the command line or multiple jobs using a configuration file. The TC-Stat tool is very similar to the Stat-Analysis tool. The four analysis job types are summarized below:
 
@@ -348,7 +348,7 @@ The TC-Stat tool reads the **.tcst** output file(s) of the TC-Pairs tool. This t
 * The **rirw** job identifies rapid intensification or weakening events in the forecast and analysis tracks and applies categorical verification methods.
 * The **probrirw** job applies probabilistic verification methods to evaluate probability of rapid intensification forecasts found in edeck's.
 
-**TC-STAT USAGE**
+**TC-Stat Usage**
 
 View the usage statement for TC-Stat by simply typing the following:
 
@@ -894,11 +894,11 @@ There are now 48 lines with lines summarizing AMAX_WIND and TK_ERR across 24 STO
 METplus Use Case: Track and Intensity Plotting
 ----------------------------------------------
 
-**METPLUS USE CASE: TRACK AND INTENSITY TCMPR (TROPICAL CYCLONE MATCHED PAIR) PLOTTER**
+**METplus Use Case: Track and Intensity TCMPR (Tropical Cyclone Matched Pair) Plotter**
 
 This is a wrapper to the MET plot_tcmpr.R, **based on R-project Statistical package Rscript.** This Rscript will be deprecated in a future METplus release.
 
-**REVIEW: TAKE A LOOK AT THE FOLLOWING SETTINGS**
+**Review: Take a Look at the Following Settings**
 
 The default image resolution for the **plot_tcmpr.R** Rscript is set to 300, for print quality, but quite large for display purposes. The following is an R config file that is passed to the Rscript and changes the default and reduces the image size. It is a simple one line file, but go and take a look.
 
@@ -992,7 +992,7 @@ The R script that Track and Intensity runs is located in the MET installation; *
 
    * **SERIES_CI** is a list of true/false for confidence intervals.
 
-**RUN METPLUS: RUN TRACK AND INTENSITY USE CASE**
+**Run METplus: Run Track and Intensity Use Case**
 
 | **Examples: Run the track and intensity plotting script**
 | Generates plots using the MET **plot_tcmpr.R** Rscript.

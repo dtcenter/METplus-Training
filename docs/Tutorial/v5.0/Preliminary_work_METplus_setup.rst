@@ -69,7 +69,7 @@ The following instructions are required so the commands in this tutorial can be 
 
    If you are running the tutorial instructions on your own computer, select the **bash** or **csh** instructions depending on which shell you prefer. We recommend using **bash** if you do not have a preference.
 
-**PRE-CONFIGURED ENVIRONMENTS**
+**Pre-Configured Environments**
 
 :ref:`Setting Up the Tutorial Environment on Cheyenne (NCAR) <set_tut_env_Cheyenne>`
 
@@ -79,7 +79,7 @@ The following instructions are required so the commands in this tutorial can be 
 
 :ref:`Setting Up the Tutorial Environment on Hera (NOAA) <set_tut_env_Hera>`
 
-**USER-CONFIGURED ENVIRONMENTS**
+**User-Configured Environments**
 
 :ref:`Setting Up the Tutorial Environment (bash) <set_tut_env_bash>`
 
@@ -92,7 +92,7 @@ Setting Up the Tutorial Environment on Cheyenne (NCAR)
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Cheyenne (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -128,14 +128,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -178,7 +178,7 @@ Setting Up the Tutorial Environment on Jet (NOAA)
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Jet (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -210,14 +210,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -239,7 +239,7 @@ Setting Up the Tutorial Environment on Seneca (NCAR)
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Seneca (NCAR)**. If you are running on your own computer or a NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -275,14 +275,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -408,7 +408,7 @@ Setting Up the Tutorial Environment on Hera (NOAA)
 
 The following instructions should be run if configuring the shell environment to run the METplus Tutorial on **Hera (NOAA)**. If you are running on your own computer or an NCAR machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -440,14 +440,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -473,7 +473,7 @@ Setting Up the Tutorial Environment (bash)
 
    The following instructions should be run if configuring the **bash** environment to run the METplus Tutorial on **your own computer**. If you are running on an NCAR or NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -509,14 +509,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -527,7 +527,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
    wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.bash.sh.txt>`_ -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
-**CONFIGURE THE TUTORIAL SETUP SCRIPT**
+**Configure the Tutorial Setup Script**
 
 .. note::
 
@@ -558,7 +558,7 @@ Setting Up the Tutorial Environment (csh)
 
    The following instructions should be run if configuring a **csh** environment to run the METplus Tutorial on **your own computer**. If you are running on an NCAR or NOAA machine that has been set up to run the tutorial, please go back and click the appropriate link for those instructions.
 
-**CREATE A WORKING DIRECTORY**
+**Create a Working Directory**
 
 Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you will create during the tutorial. This can be any directory that you have write permission.
 
@@ -594,14 +594,14 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
    cd METplus-5.0.0_Tutorial
 
-**CREATE DIRECTORIES FOR CONFIGURATION FILES AND OUTPUT DATA**
+**Create Directories for Configuration Files and Output Data**
 
 .. code-block::
 
    mkdir user_config
    mkdir output
 
-**OBTAIN THE TUTORIAL SETUP SCRIPT**
+**Obtain the Tutorial Setup Script**
 
 .. note::
 
@@ -612,7 +612,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
    wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-5.0.0_TutorialSetup.csh.sh.txt>`_ -O ./METplus-5.0.0_TutorialSetup.sh
    wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-5.0.0.conf -O ./tutorial.conf
 
-**CONFIGURE THE TUTORIAL SETUP SCRIPT**
+**Configure the Tutorial Setup Script**
 
 .. note::
 
@@ -639,7 +639,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 Verify Environment Is Set Correctly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**RUN THE TUTORIAL SETUP SCRIPT**
+**Run the Tutorial Setup Script**
 
 .. note::
 
@@ -656,7 +656,7 @@ Verify Environment Is Set Correctly
 
 The tutorial setup script sets the paths for **METPLUS_TUTORIAL_DIR**, **METPLUS_BUILD_BASE**, **MET_BUILD_BASE**, and **METPLUS_DATA**. It also appends the **$PATH** environment variable to include the directory where the **METplus** scripts are located. If necessary, it may also load modules needed for the **METplus** software to run correctly.
 
-**CHECK PATH**
+**Check Path**
 
 Make sure that all of the environment variables are set to the appropriate values and that the path is set up to locate the METplus components.
 
@@ -937,7 +937,7 @@ The **met_config** directory (in ${METPLUS_BUILD_BASE}/parm) contains "wrapped" 
 
 The **use_cases** directory - this is where the use cases you will be running exist. Under the **use_cases** directory are two directories: **met_tool_wrapper** and **model_applications**. The **met_tool_wrapper** directory contains use cases that run a single METplus wrapper. They are a good starting point to see how the wrapper scripts generate commands that run the MET tools. The **model_applications** directory contains more complex use cases that often run multiple wrappers and demonstrate real evaluations from users.
 
-**MET TOOL WRAPPER USE CASES**
+**MET Tool Wrapper Use Cases**
 
 Look at the MET Tool Wrapper Use Cases
 
@@ -953,7 +953,7 @@ The **met_tool_wrapper** use case files are organized into subdirectories by wra
 * **met_tool_wrapper/GridStat/GridStat.conf** - use case configuration file
 * **parm/met_config/GridStatConfig_wrapped** - MET configuration file used in the GridStat.conf use case
 
-**MODEL APPLICATION USE CASES**
+**Model Application Use Cases**
 
 Look at the Model Application use cases
 
@@ -969,7 +969,7 @@ The **model_applications** use case files are organized in directories by catego
 * **model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface/read_ioda_mpr.py** - script called by the use case
 
 
-**EXAMPLE USE CASE (AKA "HELLO WORLD" EXAMPLE - METPLUS STYLE)**
+**Example Use Case (aka "Hello World" Example - METplus Style)**
 
 Let's look at the Example use case, **Example.conf**, under **met_tool_wrapper/Example**
 

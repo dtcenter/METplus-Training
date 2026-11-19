@@ -97,11 +97,11 @@ MET Tool: Gen-Ens-Prod
 
    IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
-**GEN-ENS-PROD FUNCTIONALITY**
+**Gen-Ens-Prod Functionality**
 
 The Gen-Ens-Prod tool may be used to generate simple ensemble products from the provided ensemble forecast members. If climatological mean and standard deviation data is provided, it can be used to set thresholds for the ensemble product generation at each grid point. This tool does not provide methods to generate statistical output from the ensemble members, nor does it allow comparisons. If this is the desired outcome, Gen-Ens-Prod output can be passed to additional MET tools for further verification steps.
 
-**GEN-ENS-PROD USAGE**
+**Gen-Ens-Prod Usage**
 
 View the usage statement for Gen-Ens-Prod by simply typing the following:
 
@@ -373,11 +373,11 @@ If the differences weren't apparent before, this plot makes it very clear how us
 MET Tool: Ensemble-Stat
 -----------------------
 
-**ENSEMBLE-STAT FUNCTIONALITY**
+**Ensemble-Stat Functionality**
 
 The Ensemble-Stat tool may be used to verify the deterministic ensemble members against gridded and/or point observations. Statistics are then derived using those observations, such as rank histograms, probability integral transform histograms, spread/skill variance, relative position and continuous ranked probability score.
 
-**ENSEMBLE-STAT USAGE**
+**Ensemble-Stat Usage**
 
 View the usage statement for Ensemble-Stat by simply typing the following:
 
@@ -951,7 +951,7 @@ In the VX_MASK column, the four mask files requested are listed, along with the 
 METplus Use Case: PQPF
 ----------------------
 
-**METPLUS USE CASE: QPF PROBABILISTIC**
+**METplus Use Case: QPF Probabilistic**
 
 The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plane*, and *Grid-Stat* tools.
 
@@ -960,7 +960,7 @@ The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plan
    | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
    | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
-**REVIEW USE CASE CONFIGURATION FILE**
+**Review Use Case Configuration File**
 
 The configuration file is located in use_cases/model_applications/precipitation and is called **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf**.
 
@@ -992,7 +992,7 @@ Also note that variables in **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf** referen
 
 This references **INPUT_BASE** which is set in the METplus tutorial.conf file (**${METPLUS_TUTORIAL_DIR}/tutorial.conf**). METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
-**RUN METPLUS**
+**Run METplus**
 
 .. note::
 
@@ -1013,7 +1013,7 @@ METplus is finished running when control returns to your terminal console and yo
 
       INFO: METplus has successfully finished running.
 
-**REVIEW THE OUTPUT FILES**
+**Review the Output Files**
 
 You should have output files in the following directories:
 
@@ -1044,7 +1044,7 @@ You should have output files in the following directories:
 
    less ${METPLUS_TUTORIAL_DIR}/output/PQPF/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/GridStat/201609041200/grid_stat_PROB_PHPT_APCP_vs_STAGE4_GRIB_APCP_A06_060000L_20160904_180000V.stat
 
-**REVIEW THE LOG FILES**
+**Review the Log Files**
 
 Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run. The log file for this command will be the most recent one.
 
@@ -1056,7 +1056,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**
 
    Note: The time zone of your computer may not be the same as the time zone you are in. For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).
 
-**REVIEW THE FINAL CONFIGURATION FILE**
+**Review the Final Configuration File**
 
 The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
@@ -1073,7 +1073,7 @@ Congratulations! You have completed Session 4!
 
 If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
 
-**EXERCISES FOR SESSION 4**
+**Exercises for Session 4**
 
 **EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6**
 

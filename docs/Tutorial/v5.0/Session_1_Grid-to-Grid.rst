@@ -1617,7 +1617,7 @@ For example, override LOG_METPLUS and add more text to the filename (or even use
 
 **Log Configurations**
 
-**SEPARATE METPLUS LOGS FROM MET LOGS**
+**Separate METplus Logs from MET Logs**
 
 Setting [config] LOG_MET_OUTPUT_TO_METPLUS to no will create a separate log file for each MET application.
 
@@ -1630,7 +1630,7 @@ Setting [config] LOG_MET_OUTPUT_TO_METPLUS to no will create a separate log file
 
 For this use case, two log files will be created: metplus.log.YYYYMMDDHHMMSS and grid_stat.log.YYYYMMDDHHMMSS. If you don't see two files, make sure you put the **LOG_MET_OUTPUT_TO_METPLUS** setting **AFTER** a line with **[config]** on it.
 
-**INCREASE LOG OUTPUT LEVEL FOR MET APPLICATIONS**
+**Increase Log Output Level for MET Applications**
 
 Setting [config] LOG_MET_VERBOSITY to a number between 1 and 10 will change the logging level for the MET applications logs. Increasing the number results in more log output. The default value is 2.
 
@@ -1650,7 +1650,7 @@ You can also set [config] LOG_GRID_STAT_VERBOSITY to change the logging level fo
       [config]
       LOG_GRID_STAT_VERBOSITY = 5
 
-**INCREASE LOG OUTPUT LEVEL FOR METPLUS WRAPPERS**
+**Increase Log Output Level for METplus Wrappers**
 
 Setting [config] LOG_LEVEL will change the logging level for the METplus logs. Valid values are NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL. Logs will contain all information of the desired logging level and higher. The default value is INFO.
 
@@ -1665,7 +1665,7 @@ Setting [config] LOG_LEVEL will change the logging level for the METplus logs. V
 
   When an error occurs, boosting the log level to DEBUG will provide you with more information to help resolve the issue.
 
-**CHANGE FORMAT OF TIME IN LOGFILE NAMES**
+**Change Format of Time in Logfile Names**
 
 Setting LOG_TIMESTAMP_TEMPLATE to %Y%m%d will remove hours, minutes, and seconds from the log file time. The default value is %Y%m%d%H%M%S which results in the format YYYYMMDDHHMMSS.
 
@@ -1678,7 +1678,7 @@ Setting LOG_TIMESTAMP_TEMPLATE to %Y%m%d will remove hours, minutes, and seconds
 
 For this use case, the log files will have the format: metplus.log.YYYYMMDD
 
-**USE TIME OF DATA INSTEAD OF CURRENT TIME**
+**Use Time of Data Instead of Current Time**
 
 Setting LOG_TIMESTAMP_USE_DATATIME to yes will use the first time of your data instead of the current time.
 
@@ -1695,7 +1695,7 @@ For this use case, INIT_BEG = 2005080700, so the log files will have the format:
 
 **Instructions:** Review the list of file paths and configure an Example wrapper use case to loop over all of the files.
 
-**FILE PATHS**
+**File Paths**
 
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/00/atmos/gfs.t00z.pgrb2.0p25.f000
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/00/atmos/gfs.t00z.pgrb2.0p25.f001
@@ -1770,7 +1770,7 @@ These are the answers to the exercises from the previous page. Feel free to ask 
 
 **Instructions:** Review the list of file paths and configure an Example wrapper use case to loop over all of the files.
 
-**FILE PATHS (FOR REFERENCE)**
+**File Paths (for Reference)**
 
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/00/atmos/gfs.t00z.pgrb2.0p25.f000
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/00/atmos/gfs.t00z.pgrb2.0p25.f001

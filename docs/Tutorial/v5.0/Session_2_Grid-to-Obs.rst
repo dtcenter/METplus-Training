@@ -103,7 +103,7 @@ MET Tool: PB2NC
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step,
   please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
-**PB2NC FUNCTIONALITY**
+**PB2NC Functionality**
 
 The PB2NC tool is used to stratify (i.e. subset) the contents of an input PrepBufr point observation file and reformat it into NetCDF format for use by the Point-Stat or Ensemble-Stat tool. In this session, we will run PB2NC on a PrepBufr point observation file prior to running Point-Stat. Observations may be stratified by variable type, PrepBufr message type, station identifier, a masking region, elevation, report type, vertical level category, quality mark threshold, and level of PrepBufr processing. Stratification is controlled by a configuration file and discussed on the next page.
 
@@ -113,7 +113,7 @@ For more information about the PrepBufr format, visit the `BUFRLIB documentation
 
 For information on where to download PrepBufr files, visit the `MET Input Data <https://dtcenter.org/community-code/model-evaluation-tools-met/input-data>`_ webpage.
 
-**PB2NC USAGE**
+**PB2NC Usage**
 
 .. note::
 
@@ -541,11 +541,11 @@ MET Tool: ASCII2NC
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` page.
 
-**ASCII2NC FUNCTIONALITY**
+**ASCII2NC Functionality**
 
 The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Study (WWSIS) data, AirNow DailyData_v2, HourlyData, and HourlyAQObs data, National Data Buoy Center (NDBC) Standard Meteorological data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script. Future versions of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
 
-**MET POINT OBSERVATION FORMAT**
+**MET Point Observation Format**
 
 The MET point observation format consists of one observation value per line. Each input observation line should consist of the following 11 columns of data:
 
@@ -563,7 +563,7 @@ The MET point observation format consists of one observation value per line. Eac
 
 It is the user's responsibility to get their ASCII point observations into this format.
 
-**ASCII2NC USAGE**
+**ASCII2NC Usage**
 
 .. note::
 
@@ -870,7 +870,7 @@ MET Tool: Point-Stat
 
 The Point-Stat tool provides verification statistics for comparing gridded forecasts to observation points, as opposed to gridded analyses like Grid-Stat. The Point-Stat tool matches gridded forecasts to point observation locations using one or more configurable interpolation methods. The tool then computes a configurable set of verification statistics for these matched pairs. Continuous statistics are computed over the raw matched pair values. Categorical statistics are generally calculated by applying a threshold to the forecast and observation values. Confidence intervals, which represent a measure of uncertainty, are computed for all of the verification statistics.
 
-**POINT-STAT USAGE**
+**Point-Stat Usage**
 
 .. note::
 

@@ -12,7 +12,7 @@ This session will cover METplus analysis tools. Click on an item below to get st
 METviewer
 ---------
 
-**METVIEWER OVERVIEW**
+**METviewer Overview**
 
 METviewer is a database and display system for storing and plotting data from the MET **.stat** and MODE **_obj.txt** files. It is used heavily within the DTC and by NOAA-GSD and NOAA-EMC. While its distribution is limited, it is available to the community through a Docker container. For more information, please see:
 
@@ -24,7 +24,7 @@ Here, we will use the publicly available version of METviewer running at NCAR to
 
 METviewer reads MET verification statistics from a database and creates plots using the R statistical package. The tool includes a web application that can be accessed from a web browser to create a single plot. The specification for each plot is built using a series of controls and then serialized into XML. For each plot, METviewer generates a SQL query, an R script to create the plot, a flat file containing the data that will be plotted and the plot itself.
 
-**METVIEWER WEB APPLICATION**
+**METviewer Web Application**
 
 The following example can be run using the METviewer instance located at the link below. It is recommended to move the new tab into a new browser window, so that you can view both the example instructions and the METviewer web application side-by-side.
 
@@ -215,7 +215,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 Create the Rank Histogram Plot
 """"""""""""""""""""""""""""""
 
-**OVERVIEW OF STEPS**
+**Overview of Steps**
 
 .. important::
 
@@ -507,7 +507,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 Create the Wind Rose Diagram
 """"""""""""""""""""""""""""
 
-**OVERVIEW OF STEPS**
+**Overview of Steps**
 
 .. important::
 
