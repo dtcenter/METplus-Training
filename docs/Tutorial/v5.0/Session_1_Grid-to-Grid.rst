@@ -17,7 +17,7 @@ During the first METplus practical session, you will run the tools indicated bel
 During this practical session, please work on the **Session 1** exercises. 
 Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
 
-**TUTORIAL FORMAT**
+**Tutorial Format**
 
 Throughout this tutorial, code blocks with a white background should be
 copied from your browser (or with the copy button in the upper right corner
@@ -49,7 +49,7 @@ of the block) and pasted on the command line, e.g.:
   copy button for pasting settings into a file.
  
   
-**TUTORIAL TIPS**
+**Tutorial Tips**
 
 .. important::
 
