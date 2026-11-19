@@ -11,12 +11,13 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   1: Navigate to your tutorial directory and run the tutorial setup script.
+   **1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
-   In the following instructions, change "/path/to" to the directory you chose.
-   EDIT AFTER COPYING and BEFORE HITTING RETURN!
+   **In the following instructions, change "/path/to" to the directory you chose.**
+
+   **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block:: text
 
@@ -25,7 +26,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -40,14 +41,14 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   | METPLUS_TUTORIAL_DIR is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-   | METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
-   | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
-   | METPLUS_DATA is the location of the sample test data directory
+   | **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+   | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+   | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+   | **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
-   3: Check that the MET applications are in the path:
+   **3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -55,11 +56,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
+   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   4: Check that the correct version of run_metplus.py is in your PATH:
+   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -84,16 +85,16 @@ Click on a use case below to get started.
 
    If you discover any typos, error in the run commands, incorrect output listed, or any other issues while completing the tutorial, you are encouraged to submit your findings to the METplus team in a `GitHub Discussions <https://github.com/dtcenter/METplus/discussions>`_. Be sure to provide what session and specific page you encountered the issue on.
 
-METplus Use Case: Feature Relative (Series-Analysis by init)
+METplus Use Case: Feature Relative (Series-Analysis by Init)
 ------------------------------------------------------------
 
 **SERIES-ANALYSIS BY INITIALIZATION TIME**
 
 **SETUP**
 
-In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature.  The tiles are then used to compute statistics using Series_Analysis.  Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers.
+In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature. The tiles are then used to compute statistics using Series_Analysis. Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers.
 
-**REVIEW USE CASE CONFIGURATION FILE: FEATURE_RELATIVE.CONF**
+**REVIEW USE CASE CONFIGURATION FILE: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf**
 
 View the file and study the configuration variables that are defined.
 
@@ -119,7 +120,7 @@ This indicates that the **TC_STAT_JOB_ARGS, TC_STAT_OUTPUT_DIR,** and **TC_STAT_
 
    Instance names are a powerful option for METplus users who need to run tools multiple times with different settings for some or all of the variables between each run. Combined with options such as CUSTOM_LOOP_LIST, intricate verification tasks can be completed in a single configuration file.
 
-The **SERIES_ANALYSIS_STAT_LIST** is set to four statistics, but can be set to many more. (SERIES_ANALYSIS_STAT_LIST is deprecated in METplus 5.0; use **SERIES_ANALYSIS_OUTPUT_STATS_CNT** in new configuration files.)  The size of the tiles are configurable using the **EXTRACT_TILES** settings.  Also, note that variables in **TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf** reference other variables you defined in other configuration files. For example:
+The **SERIES_ANALYSIS_STAT_LIST** is set to four statistics, but can be set to many more. (SERIES_ANALYSIS_STAT_LIST is deprecated in METplus 5.0; use **SERIES_ANALYSIS_OUTPUT_STATS_CNT** in new configuration files.) The size of the tiles are configurable using the **EXTRACT_TILES** settings. Also, note that variables in **TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf** reference other variables you defined in other configuration files. For example:
 
 .. admonition:: File Contents
 
@@ -246,7 +247,7 @@ or
 
 .. note::
 
-   Note: the & is used to run this command in the background
+   Note: the **&** is used to run this command in the background
 
 **REVIEW THE LOG FILE**
 
@@ -264,7 +265,7 @@ The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS** (where YYY
 
    less $(ls -t ${METPLUS_TUTORIAL_DIR}/output/feature_relative_by_init/metplus_final.conf* | head -1)
 
-METplus Use Case: Feature Relative (Series-Analysis by lead, by forecast hour grouping)
+METplus Use Case: Feature Relative (Series-Analysis by Lead, by Forecast Hour Grouping)
 ---------------------------------------------------------------------------------------
 
 **SERIES-ANALYSIS BY LEAD TIME BY FORECAST HOUR GROUPING**
@@ -279,7 +280,7 @@ Change to the METplus Tutorial Directory:
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-**REVIEW USE CASE CONFIGURATION FILE: SERIES_BY_LEAD_BY_FHR_GROUPING.CONF**
+**REVIEW USE CASE CONFIGURATION FILE: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByLead.conf**
 
 View the file and study the configuration variables that are defined.
 
@@ -295,6 +296,7 @@ Note that the Lead time groupings are specified by the **LEAD_SEQ** config optio
 
       LEAD_SEQ_1 = begin_end_incr(0,18,6)
       LEAD_SEQ_1_LABEL = Day1
+
       LEAD_SEQ_2 = begin_end_incr(24,42,6)
       LEAD_SEQ_2_LABEL = Day2
 
@@ -372,6 +374,7 @@ Day1 contain the following files:
       series_F000_to_F018_TMP_Z2_TOTAL.ps
 
 The series_analysis_files_obs_init_ALL_valid_ALL_lead_ALL.txt is a text file that contains a list of the data that is included in the series analysis.
+
 Day2 contains equivalent files for forecast leads 24 to 42.
 
 The .nc files are the series analysis output generated from the MET Series-Analysis tool.
@@ -390,7 +393,7 @@ The .png and .ps files are graphics files that can be viewed using **display**:
 
 .. note::
 
-   Note: the & is used to run this command in the background
+   Note: the **&** is used to run this command in the background
 
 The series_animate directory contains the gif images of the animations:
 
@@ -435,7 +438,7 @@ A log file is generated in your logging directory: **${METPLUS_TUTORIAL_DIR}/out
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS**. (where YYYYMMDDHHMMSS refers to year, month, day, hour, minute, second that the file was created.)This contains all of the configuration variables used in the run.
+The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS** (where YYYYMMDDHHMMSS refers to year, month, day, hour, minute, second that the file was created). This contains all of the configuration variables used in the run.
 
 .. code-block:: text
 
@@ -443,6 +446,8 @@ The final configuration file is **metplus_final.conf.YYYYMMDDHHMMSS**. (where YY
 
 End of Session 7
 ----------------
+
+**End of Session 7**
 
 Congratulations! You have completed Session 7!
 
