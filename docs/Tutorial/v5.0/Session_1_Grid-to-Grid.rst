@@ -402,7 +402,7 @@ Whenever getting started with new gridded datasets in MET, users are strongly en
 
 **Plot-Data-Plane Functionality**
 
-The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from the specified input file and writes a PostScript output file containing a spatial plot of the data. It plots the data using a configurable color table that is automatically rescaled to the range of values found by default. The `ImageMagick convert <https://imagemagick.org/script/convert.php>`_ utility is recommend for converting the PostScript output file to other image file formats, if needed.
+The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from the specified input file and writes a PostScript output file containing a spatial plot of the data. It plots the data using a configurable color table that is automatically rescaled to the range of values found by default. The `ImageMagick convert <https://imagemagick.org/script/convert.php>`_ utility is recommended for converting the PostScript output file to other image file formats, if needed.
 
 **Plot-Data-Plane Usage**
 
@@ -420,7 +420,7 @@ The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from
    :widths: auto
 
    * - **input_filename**
-     - **Input file containing gridded data to be be plotted**
+     - **Input file containing gridded data to be plotted**
    * - **output_filename**
      - **Output PostScript file to be written**
    * - **field_string**
@@ -451,7 +451,7 @@ In general, the **name** and **level** entries are required to extract a gridded
 
 1. For GRIB1 or GRIB2 inputs, set **name** as the abbreviation for the desired variable or data type that appears in the GRIB tables and set **level** to a single letter (A, Z, P, L, or R) to define the level type followed by a number to define the level value. For example ``'name = "TMP"; level = "P500";'`` extracts 500 millibar temperature from a GRIB file.
 
-2. For NetCDF inputs, set **name** as the NetCDF variable name and **level** to define how to extract a 2-dimensional slice of gridded data from that variable. For example, ``'name = "temperature"; level = "(0,1,*,*)";'`` extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indicies as constant values.
+2. For NetCDF inputs, set **name** as the NetCDF variable name and **level** to define how to extract a 2-dimensional slice of gridded data from that variable. For example, ``'name = "temperature"; level = "(0,1,*,*)";'`` extracts a 2-dimensional field of data from the last two dimensions of a NetCDF temperature variable using the first two indices as constant values.
 
 3. For Python embedding, set **name** as the python script to be run along with any arguments for that script and do not set **level**. For example, ``'name = "read_my_data.py input.txt";'`` runs a python script to read data from the specified input file.
 
@@ -509,7 +509,7 @@ Next, re-run at verbosity level 4 to see more detailed log message about the gri
 
 It is a great idea to inspect the log messages to sanity check the metadata. Without needing to understand all the details, does the grid definition look reasonable? Are the range of values reasonable for this variable type? Are the timestamps of the data consistent with the input file name?
 
-Next, open the PostScript output file. On some machines, the **ghostview** utility (or common **gv** alias) can display PostScript files. On other, the **display** command works well. On Macs, simply run **open**. The example below uses **gv** which is available in the METplus AMI:
+Next, open the PostScript output file. On some machines, the **ghostview** utility (or common **gv** alias) can display PostScript files. On others, the **display** command works well. On Macs, simply run **open**. The example below uses **gv** which is available in the METplus AMI:
 
 .. code-block::
 
@@ -663,7 +663,7 @@ While the MET tools can read data from a few input gridded data file types, its 
 2. Passing a list of point observations.
 3. Passing a list of matched forecast/observation pair values.
 
-On this page, we'll demonstrate only the first type, reading a field of gridded data values. When getting started with a new dataset via python, validating the logic by running Plot-Data-Plane is crucial. When MET reads data from flat files, important information, like the location and orientation of the data, is defined in the metadata. That is not the case for python embedding, and the responsibility for confirming those details falls to the user. So while python embedding provide extra flexibility, it also requires additional diligence.
+On this page, we'll demonstrate only the first type, reading a field of gridded data values. When getting started with a new dataset via python, validating the logic by running Plot-Data-Plane is crucial. When MET reads data from flat files, important information, like the location and orientation of the data, is defined in the metadata. That is not the case for python embedding, and the responsibility for confirming those details falls to the user. So while python embedding provides extra flexibility, it also requires additional diligence.
 
 Let's run the simplest of examples using sample data included with the MET release. The first step is to confirm that python script runs by itself, outside of MET.
 
@@ -672,7 +672,7 @@ Let's run the simplest of examples using sample data included with the MET relea
   python3 ${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py \
   ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast
 
-This sample **read_ascii_numpy.py** script reads data from the input **fcst.txt** ASCII file and gives it a name, **Forecast**. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are details in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/main_v11.0/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
+This sample **read_ascii_numpy.py** script reads data from the input **fcst.txt** ASCII file and gives it a name, **Forecast**. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are detailed in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/main_v11.0/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
 
 Next, let's run Plot-Data-Plane using this python script to define the input data. As described in :ref:`The Field String <field_str>`, this is done with the **name** configuration string and the **level** string does not apply.
 
@@ -1024,15 +1024,15 @@ Re-run to compute the union with Canada (index 3).
 
 .. code-block::
 
-  gen_vx_mask G004_USA_mask.nc ne_110m_admin_0_countries.shp G004_USA_Canda_mask.nc -name USA_Canada -type shape -shapeno 3 -union -v 3
+  gen_vx_mask G004_USA_mask.nc ne_110m_admin_0_countries.shp G004_USA_Canada_mask.nc -name USA_Canada -type shape -shapeno 3 -union -v 3
 
 Re-run to add Mexico (index 27).
 
 .. code-block::
 
-  gen_vx_mask G004_USA_Canda_mask.nc ne_110m_admin_0_countries.shp G004_North_America_mask.nc -name North_America -type shape -shapeno 27 -union -v 3
+  gen_vx_mask G004_USA_Canada_mask.nc ne_110m_admin_0_countries.shp G004_North_America_mask.nc -name North_America -type shape -shapeno 27 -union -v 3
 
-The result is good but not perfect. There are a few missing grid points along the boundary. But this demonstrates how the tool works. Consider re-running all three commands again, but this time use the "-value" command line option to define the mask value to be written. Just make "-value" match the "-shapeno" option (.e.g. -value 4 for USA, -value 3 for Canada, and -value 27, for Mexico). What impact does that have on the result?
+The result is good but not perfect. There are a few missing grid points along the boundary. But this demonstrates how the tool works. Consider re-running all three commands again, but this time use the "-value" command line option to define the mask value to be written. Just make "-value" match the "-shapeno" option (e.g. -value 4 for USA, -value 3 for Canada, and -value 27, for Mexico). What impact does that have on the result?
 
 Next, we'll take a look at the functionality that Grid-Stat offers.
 
@@ -1239,7 +1239,7 @@ Next, run Grid-Stat on the command line using the following command:
 
 Grid-Stat is now performing the verification tasks we requested in the configuration file. It should take a minute or two to run. The status messages written to the screen indicate progress.
 
-In this example, Grid-Stat performs several verification tasks in evaluating the 12-hour accumulated precipiation field:
+In this example, Grid-Stat performs several verification tasks in evaluating the 12-hour accumulated precipitation field:
 
 * | For continuous statistics and partial sums (CNT and SL1L2), 15 output lines each:
   | (1 field * 15 masking regions)
@@ -1299,11 +1299,11 @@ Now dump the NetCDF header:
 
 View the NetCDF header to see how the variable names are defined.
 
-Notice how **MANY** variables there are, separate output for each of the masking regions defined. Try editing the config file again by setting :code:`apply_mask = FALSE;` and :code:`gradient = TRUE;` in the **nc_pairs_flag** dictionary. Re-run Grid-Stat and inspect the output NetCDF file. What affect did these changes have?
+Notice how **MANY** variables there are, separate output for each of the masking regions defined. Try editing the config file again by setting :code:`apply_mask = FALSE;` and :code:`gradient = TRUE;` in the **nc_pairs_flag** dictionary. Re-run Grid-Stat and inspect the output NetCDF file. What effect did these changes have?
 
 METplus Motivation
 ^^^^^^^^^^^^^^^^^^
-We have now successfully run the PCP-Combine and Grid-Stat tools to verify 12-hourly accumulated preciptation for a single output time. We did the following steps:
+We have now successfully run the PCP-Combine and Grid-Stat tools to verify 12-hourly accumulated precipitation for a single output time. We did the following steps:
 
 * Identified our forecast and observation datasets.
 * Constructed PCP-Combine commands to put them into a common accumulation interval.
@@ -1460,7 +1460,7 @@ If you have extra time, you may want to try these additional METplus exercises. 
 
   ls ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/*
 
-You will see many subdirectories with multiple files ending in .conf. The naming convention for these files are intended to provide enough meta-data to allow the user to identify an example to start from. The convention includes the [MET-Statistical-Tools]_fcstType_obsTypo_climatologyType_GeneralDescriptors_FileFormats.
+You will see many subdirectories with multiple files ending in .conf. The naming convention for these files are intended to provide enough meta-data to allow the user to identify an example to start from. The convention includes the [MET-Statistical-Tools]_fcstType_obsType_climatologyType_GeneralDescriptors_FileFormats.
 
 .. note::
 
@@ -1693,7 +1693,7 @@ For this use case, INIT_BEG = 2005080700, so the log files will have the format:
 
 **EXERCISE 1.4: Set Timing Control and Filename Templates to Find Files**
 
-**Instructions:** Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
+**Instructions:** Review the list of file paths and configure an Example wrapper use case to loop over all of the files.
 
 **FILE PATHS**
 
@@ -1768,7 +1768,7 @@ These are the answers to the exercises from the previous page. Feel free to ask 
 
 **ANSWER 1.4: Set Timing Control and Filename Templates to Find Files**
 
-**Instructions:** Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
+**Instructions:** Review the list of file paths and configure an Example wrapper use case to loop over all of the files.
 
 **FILE PATHS (FOR REFERENCE)**
 
