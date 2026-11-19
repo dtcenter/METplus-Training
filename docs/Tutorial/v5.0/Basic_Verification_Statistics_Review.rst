@@ -171,9 +171,10 @@ Numerous computationally-easy (and very popular) scalar statistics are within
 reach without too much manipulation of a contingency table’s counts.
 
 **ACCURACY (ACC)**
+
 The scalar attribute of Accuracy is measured as a simple ratio between the 
 forecasts that correctly predicted the event and the total number of occurrences 
-and non-occurrences, n. In equation format,
+and non-occurrences, *n*. In equation format,
 
 
 .. math:: \text{Accuracy } = \frac{{Hits} + {Correct\ Rejections}}{n}
@@ -389,7 +390,7 @@ or may not be available in every tool: for example, both Point-Stat and
 Grid-Stat produce CTS line types, which allow users to access the various 
 contingency table statistics for both point-based observations and gridded 
 observations. In contrast, only Ensemble-Stat and Point-Stat (when using HiRA) can generate a 
-`Ranked Probability Score (RPS) line type, <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_ 
+`Ranked Probability Score (RPS) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_,
 which provides statistics relevant 
 to the analysis of ensemble forecasts (Stat-Analysis can also aggregate RPS lines 
 or derive them from ORANK lines). If you don’t see your desired statistic in 
@@ -426,8 +427,8 @@ options, you can utilize the
 `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, 
 which lists all of the available statistics through the wrappers, including 
 which tools can output particular statistics. To access the line types 
-through the tool, select your desired tool and 
-`use this page to view a list of all available commands for that tool, <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_
+through the tool, select your desired tool and use
+`this page to view a list of all available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_.
 Once you do, you’ll see that the tool will include several options that 
 contain **_OUTPUT_FLAG_**. These options will exhibit the same behavior 
 and accept the same settings as the line types in MET’s output_flag 
@@ -585,7 +586,7 @@ adjustments is one of the many advantages of using the METplus system.
 To achieve the same outcome as the previous example but utilizing METplus 
 wrappers instead of MET, very few changes would need to be made. Starting with the 
 `standard GridStat configuration file <https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
-we would need to set the _VAR1 settings appropriately:
+we would need to set the **_VAR1** settings appropriately:
 
 .. code-block:: text
 
@@ -1244,7 +1245,7 @@ With the information above, we construct the command line argument for PCP-Combi
    -field 'name="P01M_NONE"; level="(0,*,*)";' -name "APCP_06" \
    hrefmean_2017051006_A06.nc
 
-The command above displays the required arguments for PCP-Combine’s “add” command as well as an optional argument. When using the “add” command it is required to pass a list of the input files to be processed. In this instance we used a list of files, but had the option to pass an ASCII file that contained all of the files instead. Because each of the input forecast files contain the exact same variable fields, we utilize the “-field” argument to list exactly one variable field to be processed in all files. Alternatively we could have listed the same field information (i.e. 'name="P01M_NONE"; level="(0,*,*)";') after each input file. Finally, the output file name is set to “hrefmean_2017051006_A06.nc”, which contains references to the valid time of the file contents as well as how many hours the precipitation is accumulated over. The optional argument “-name” sets the output variable field name to “APCP_06”, following GRIB standard practices.
+The command above displays the required arguments for PCP-Combine’s “add” command as well as an optional argument. When using the “add” command it is required to pass a list of the input files to be processed. In this instance we used a list of files, but had the option to pass an ASCII file that contained all of the files instead. Because each of the input forecast files contain the exact same variable fields, we utilize the “-field” argument to list exactly one variable field to be processed in all files. Alternatively we could have listed the same field information (i.e. ``'name="P01M_NONE"; level="(0,*,*)";'``) after each input file. Finally, the output file name is set to “hrefmean_2017051006_A06.nc”, which contains references to the valid time of the file contents as well as how many hours the precipitation is accumulated over. The optional argument “-name” sets the output variable field name to “APCP_06”, following GRIB standard practices.
 
 After a successful run of PCP-Combine we now have a six hour accumulation field forecast of precipitation and are ready to set our Grid-Stat configuration file. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the fcst and obs dictionaries:
 
