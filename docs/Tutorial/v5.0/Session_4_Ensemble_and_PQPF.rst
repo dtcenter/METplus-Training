@@ -614,7 +614,7 @@ In **ncview**, the random assignment of tied ranks is evident in areas of zero p
 
 Feel free to explore using this dataset. Some options to try are:
 
-* Try setting **skip_const = TRUE;** in the config file to discard points where all ensemble members and the observation are tied (i.e. zero precip).  If you want to save it to a different file, make sure you set output_prefix to something meaningful, such as ``"run2"``, or ``"skip-constant"``.
+* Try setting **skip_const = TRUE;** in the config file to discard points where all ensemble members and the observation are tied (i.e. zero precip). If you want to save it to a different file, make sure you set output_prefix to something meaningful, such as ``"run2"``, or ``"skip-constant"``.
 * Try setting **obs_thresh = [ >0.01 ];** in the config file to only consider points where the observation meets this threshold. How does this differ from using skip_const?
 * Use **wgrib** to inventory the input files and add additional entries to the **fcst.field** list. Can you process 10-meter U and V wind?
 
@@ -1046,7 +1046,7 @@ You should have output files in the following directories:
 
 **REVIEW THE LOG FILES**
 
-Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run.  The log file for this command will be the most recent one.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**. The filename contains a timestamp of the year, month, day, hour, minute, second that the METplus command was run. The log file for this command will be the most recent one.
 
 .. code-block:: text
 
@@ -1054,7 +1054,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**
 
 .. important::
 
-   Note: The time zone of your computer may not be the same as the time zone you are in.  For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).
+   Note: The time zone of your computer may not be the same as the time zone you are in. For example, hera uses UTC which is 6 hours ahead of Mountain Daylight Time and 7 hours ahead of Mountain Standard Time (the time zone in Boulder, Colorado).
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
