@@ -1003,7 +1003,7 @@ If not, then you need to adjust accordingly.
 
 .. note::
 
-   Change to the ${METPLUS_TUTORIAL_DIR} directory.  Try running run_metplus.py. You should see the usage statement output to the screen.
+   Change to the ${METPLUS_TUTORIAL_DIR} directory. Try running run_metplus.py. You should see the usage statement output to the screen.
 
 .. code-block::
 
@@ -1609,7 +1609,7 @@ to:
    ${METPLUS_TUTORIAL_DIR}/user_config/Example_filename.conf \
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf
 
-10. Review the screen output and/or log file output.  It appears it is now looking for the right file. Note that the Example wrapper only logs the file name it builds from the template; it does not check whether the file exists.
+10. Review the screen output and/or log file output. It appears it is now looking for the right file. Note that the Example wrapper only logs the file name it builds from the template; it does not check whether the file exists.
 
 .. admonition:: Sample Output
 

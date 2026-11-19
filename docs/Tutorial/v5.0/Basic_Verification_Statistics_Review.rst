@@ -14,7 +14,7 @@ More complete details on many of the techniques discussed here can be found in W
 “Statistical Methods In The Atmospheric Sciences” (2019), Jolliffe and 
 Stephenson’s “Forecast Verification; A Practitioner's Guide in Atmospheric Science” (2012) and the 
 `forecast verification web page <https://www.cawcr.gov.au/projects/verification/>`_
-hosted by Australia’s Bureau of Meteorology.  Upon completion of this session you will have 
+hosted by Australia’s Bureau of Meteorology. Upon completion of this session you will have 
 a better understanding of five of the common classification groupings for 
 meteorological verification and have access to generalized METplus examples of creating 
 statistics from those categories.
@@ -79,7 +79,7 @@ showcasing other attributes you can have a better understanding of the utility o
   value. For example, if a forecast is just as likely to predict a tornado regardless of the 
   actual observation of a tornado occurring, that forecast would have a low discrimination ability for tornadoes.
 * Sharpness – This property pertains only to the forecast with no consideration of its 
-  observational pair. If the forecast does not deviate from a consistent  (e.g., climatological) 
+  observational pair. If the forecast does not deviate from a consistent (e.g., climatological) 
   distribution, and instead sticks close to a “climatological value”, it exhibits low 
   sharpness. If the forecast has the ability to produce values different from climatology that change the distribution, then it 
   demonstrates sharpness.
@@ -264,7 +264,7 @@ accurate forecast, while a value of 0 indicates no accuracy.
 Binary Categorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Skill scores can be a more meaningful way of describing  a forecast’s quality. 
+Skill scores can be a more meaningful way of describing a forecast’s quality. 
 By definition, skill scores compare the performance of the forecasts to some 
 standard or “reference forecast” (e.g., climatology, persistence, perfect 
 forecasts, random forecasts). They often combine aspects of the previously-listed 
@@ -671,7 +671,7 @@ five, six, and so on, categories. Some statistical calculations are
 more easily computed when forecasts and observations are restricted to 
 two options (as was the case in binary categorical forecasts), so one 
 less common approach for a multi-category contingency table is to 
-process the full table  into multiple instances of 2x2 grids,  
+process the full table into multiple instances of 2x2 grids,  
 focusing on one forecast category at a time. This way, each forecasted 
 event or category can have scalar attributes calculated, as well as 
 skill scores that reflect the entire forecast’s quality across the 
@@ -987,7 +987,7 @@ The MCTS line type is also present in the .stat file as the second row. In this 
 
       V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s Z10   WIND m/s    Z10   NA FULL NEAREST     1        >=13.9,>=17.2,>=24.5,>=32.7    >=13.9,>=17.2,>=24.5,>=32.7   NA         0.05  MCTS 162016 5   0.99949  0.99937 0.99959 NA NA  0.66623 NA NA 0.34901 NA NA NA NA NA 0.99937 NA NA 0.2
 
-Compared to the statistics available in the CTS line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the  contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, each followed by its lower and upper bootstrap confidence limits. Accuracy is the only one of these with two additional columns, ahead of its bootstrap confidence limits, that give the normal confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. The Gerrity Skill Score also appears as NA: no observations fell in observed categories 3 to 5, which makes one of the D(r) terms zero, so it cannot be computed for this example. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
+Compared to the statistics available in the CTS line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, each followed by its lower and upper bootstrap confidence limits. Accuracy is the only one of these with two additional columns, ahead of its bootstrap confidence limits, that give the normal confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. The Gerrity Skill Score also appears as NA: no observations fell in observed categories 3 to 5, which makes one of the D(r) terms zero, so it cannot be computed for this example. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
 
 **METplus Wrapper Example of Multicategorical Forecast Verification**
 
@@ -1037,7 +1037,7 @@ The simplest continuous measure is the mean error (ME), which is the average dif
 
    \text{ME} = \frac{1}{n}\sum (F_i - O_i)
 
-ME can range over the real numbers and has the obvious advantage of providing immediate insight into how far away, on average, the forecast values are from their corresponding observations. It is extremely easy to calculate, with a perfect forecast (i.e., a forecast that exactly corresponds to the observations) characterized by an ME of 0. ME serves as an important measurement of arithmetic bias. As a measure of bias,  ME does not include a method for compensating for the magnitude of the differences between the forecast-observation pairs, and a forecast that has compensating errors could receive a mean error of 0. Essentially, ME provides an indication of whether a forecast has errors that - on average - are centered on zero; or if it is overforecasting or underforecasting on average. Consider the following scenario for wind speed forecasts at the same location for four different times: 
+ME can range over the real numbers and has the obvious advantage of providing immediate insight into how far away, on average, the forecast values are from their corresponding observations. It is extremely easy to calculate, with a perfect forecast (i.e., a forecast that exactly corresponds to the observations) characterized by an ME of 0. ME serves as an important measurement of arithmetic bias. As a measure of bias, ME does not include a method for compensating for the magnitude of the differences between the forecast-observation pairs, and a forecast that has compensating errors could receive a mean error of 0. Essentially, ME provides an indication of whether a forecast has errors that - on average - are centered on zero; or if it is overforecasting or underforecasting on average. Consider the following scenario for wind speed forecasts at the same location for four different times: 
 
 .. image:: ../figure/5.0_Tutorial_stats_ME_ex.png
    :alt: Example forecast and observation values for mean error
@@ -1112,7 +1112,7 @@ Another way to estimate the association between forecasts and their correspondin
 
 where di denotes the difference in ranking between the pair of datafields. 
 
-What does ranking  of matched pairs look like with actual data? Let’s use the following scenario of rainfall forecasts and the observed rainfall over a five hour period for a set location:
+What does ranking of matched pairs look like with actual data? Let’s use the following scenario of rainfall forecasts and the observed rainfall over a five hour period for a set location:
 
 .. image:: ../figure/5.0_Tutorial_stats_SPCORR_table1.png
    :alt: Sample rainfall ranks for Spearman correlation
@@ -1443,7 +1443,7 @@ We can see the smaller verification area resulted in only 1,600 matched pairs, w
 Probabilistic Forecasts
 -----------------------
 
-When reviewing the other forecast types in this tutorial, you’ll notice that all of them are deterministic (i.e., non-probabilistic) values. They have a quantitative value that can be verified with observations. Probabilistic forecasts on the other hand, do not provide a specific value relating directly to the variable (precipitation, wind speed, etc.). Instead, probabilistic forecasts provide, you guessed it, a probability of a certain event occurring. The most common probabilistic forecasts are for precipitation. Given the spatial and temporal irregularities any precipitation type could display during accumulation, probabilities are a better option for numerical models to provide for the general public. It allows the general public to decide for themselves if a 60% forecasted chance of rain is enough to warrant bringing an umbrella to the outdoor event, or if a 40% forecasted chance of snow is too much to consider going for a long hike. Consider the alternative where deterministic forecasts were used for precipitation: would it be more beneficial to hear a forecast of no precipitation for any probability less than 20% and precipitation forecasted for anything greater than 20% (i.e. a categorical forecast)?  Or maybe a scenario where the largest amount of precipitation is presented as the precipitation a given area will experience with no other information (i.e. a continuous forecast)? While they have other issues which will be explored in this section, probabilistic forecasts play an important part in weather verification statistics. Moreover, they require special measures for verification.
+When reviewing the other forecast types in this tutorial, you’ll notice that all of them are deterministic (i.e., non-probabilistic) values. They have a quantitative value that can be verified with observations. Probabilistic forecasts on the other hand, do not provide a specific value relating directly to the variable (precipitation, wind speed, etc.). Instead, probabilistic forecasts provide, you guessed it, a probability of a certain event occurring. The most common probabilistic forecasts are for precipitation. Given the spatial and temporal irregularities any precipitation type could display during accumulation, probabilities are a better option for numerical models to provide for the general public. It allows the general public to decide for themselves if a 60% forecasted chance of rain is enough to warrant bringing an umbrella to the outdoor event, or if a 40% forecasted chance of snow is too much to consider going for a long hike. Consider the alternative where deterministic forecasts were used for precipitation: would it be more beneficial to hear a forecast of no precipitation for any probability less than 20% and precipitation forecasted for anything greater than 20% (i.e. a categorical forecast)? Or maybe a scenario where the largest amount of precipitation is presented as the precipitation a given area will experience with no other information (i.e. a continuous forecast)? While they have other issues which will be explored in this section, probabilistic forecasts play an important part in weather verification statistics. Moreover, they require special measures for verification.
 
 .. _verif_stat_prob_fcst:
 
@@ -1474,7 +1474,7 @@ where the three terms are reliability, resolution, and uncertainty, respectively
 
 **RANKED PROBABILITY SCORE**
 
-A second statistical score to use for probabilistic forecasts is the Ranked Probability Score (RPS). This score differs from BS in that it allows the verification of multicategorical probabilistic forecasts where BS strictly pertains to binary probabilistic forecasts. While the RPS formula  is based on a squared error at its core (similar to BS), it remains sensitive to the distance between the forecast probability and the observed event space (1 if the event occurred, 0 if it did not) by calculating the squared errors in cumulative probabilistic forecast and observation space. This formulation is represented in the following equation
+A second statistical score to use for probabilistic forecasts is the Ranked Probability Score (RPS). This score differs from BS in that it allows the verification of multicategorical probabilistic forecasts where BS strictly pertains to binary probabilistic forecasts. While the RPS formula is based on a squared error at its core (similar to BS), it remains sensitive to the distance between the forecast probability and the observed event space (1 if the event occurred, 0 if it did not) by calculating the squared errors in cumulative probabilistic forecast and observation space. This formulation is represented in the following equation
 
 .. math::
 

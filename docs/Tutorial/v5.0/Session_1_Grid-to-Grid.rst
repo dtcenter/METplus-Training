@@ -372,10 +372,10 @@ Run the following command to derive several summary metrics for both the 10-mete
   -field 'name="VGRD"; level="Z10";' \
   derive_min_max_mean_stdev_WINDS.nc
 
-In the above example, we used a wildcard to list multiple input file names.  And we used 
-the **-field** command line option twice to specify two input fields.  For each input field, 
+In the above example, we used a wildcard to list multiple input file names. And we used 
+the **-field** command line option twice to specify two input fields. For each input field, 
 PCP-Combine loops over the input files, derives the requested metrics, and writes them to 
-the output NetCDF file.  Run ncview to visualize this output:
+the output NetCDF file. Run ncview to visualize this output:
 
 .. code-block:: text
 
