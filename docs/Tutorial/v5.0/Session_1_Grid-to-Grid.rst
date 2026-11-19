@@ -194,7 +194,7 @@ Since PCP-Combine performs a simple operation and reformatting step, no configur
   without the "\\".
 
 Both commands run the **sum** command which searches the contents of the **-pcpdir** 
-directory for the data required to create the requested accmululation interval.
+directory for the data required to create the requested accumulation interval.
 
 In the first command, PCP-Combine summed up 4 3-hourly accumulation forecast files 
 into a single 12-hour accumulation forecast. In the second command, PCP-Combine 
@@ -277,7 +277,7 @@ the last closing tick*) to change units from millimeters to inches.
 What happened to the values in the colorbar?
 
 Now, try re-running again, but add the **censor_thresh=lt1.0; censor_val=0.0;**
-options to the config string to reset any data values less 1.0 to a 
+options to the config string to reset any data values less than 1.0 to a 
 value of 0.0. How has your plot changed?
 
 .. note::
@@ -307,7 +307,7 @@ to process. The following command adds together 3-hourly precipitation from
 By default, PCP-Combine looks for accumulated precipitation, and the **03** 
 tells it to look for 3-hourly accumulations. However, that **03** string can be replaced 
 with a configuration string describing the data to be processed, which doesn't have to 
-be accumulated precipation. The configuration string should be enclosed in single quotes. 
+be accumulated precipitation. The configuration string should be enclosed in single quotes. 
 Below, we add together the U and V components of 10-meter wind from the same input file. 
 You would not typically want to do this, but this demonstrates the functionality. 
 We also use the **-name** command line option to define a descriptive output NetCDF 
@@ -334,7 +334,7 @@ above but do a subtraction instead:
   -name UGRD_MINUS_VGRD
 
 Now run Plot-Data-Plane to visualize this output. Use the **-plot_range** option 
-to specify a the desired plotting range, the **-title** option to add a title, and the 
+to specify the desired plotting range, the **-title** option to add a title, and the 
 **-color_table** option to switch from the default color table to one that's good for positive 
 and negative values:
 

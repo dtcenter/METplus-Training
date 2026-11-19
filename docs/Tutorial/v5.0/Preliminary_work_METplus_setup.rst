@@ -147,7 +147,7 @@ Create a directory called 'METplus-5.0.0_Tutorial' to hold all of the files you 
 
 .. important::
 
-   | *Run the command that corresponds your default shell.*
+   | *Run the command that corresponds to your default shell.*
    | **DO NOT RUN BOTH SETS OF COMMANDS.**
    | *If you are unsure which shell you are using, run the command "echo $SHELL" to check.*
 
@@ -317,7 +317,7 @@ Now, verify that you have a .condarc file in your /home/user directory. If the f
       - conda-forge
       - anaconda
 
-Verify that you are using the most recent version of anaconda3 in your .bashrc file. Verify that your conda_setup in your .bashrc file is using /usr/local/anaconda3/bin/conda. You should see a code block similar to following:
+Verify that you are using the most recent version of anaconda3 in your .bashrc file. Verify that your conda_setup in your .bashrc file is using /usr/local/anaconda3/bin/conda. You should see a code block similar to the following:
 
 .. admonition:: File Contents
 
@@ -325,7 +325,7 @@ Verify that you are using the most recent version of anaconda3 in your .bashrc f
 
       # >>> conda initialize >>>
       # !! Contents within this block are managed by 'conda init' !!
-      __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook'2> /dev/null)"
+      __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
       if [ $? -eq 0 ]; then
       eval "$__conda_setup"
       else
@@ -741,7 +741,7 @@ Example value:
 
    ls -1 ${MET_BUILD_BASE}
 
-Example contents
+Example contents:
 
 .. admonition:: Sample Output
 
@@ -883,7 +883,7 @@ The following content will discuss and demonstrate some of the basic concepts of
 
 As you progress through later tutorial sessions, additional examples of the METplus wrappers will be provided that focus more on their specific MET tool configurable settings and use case based examples.
 
-Proceed to the next page to start with a overview of the METplus directory layout.
+Proceed to the next page to start with an overview of the METplus directory layout.
 
 
 METplus: Directories and Configuration Files - Overview
@@ -911,7 +911,7 @@ Look at the METplus default configuration file:
 
    ls ${METPLUS_BUILD_BASE}/parm/metplus_config
 
-The METplus default configuration file **(defaults.conf)** is always read first. Any additional configuration files passed in on the command line are then processed in the order in which they are specified. This allows for each successive conf file the ability to override variables defined in any previously processed conf files. It also allows for defining and setting up conf files from a general (settings used by all use cases, ie. MET install dir) to more specific (Plot type when running track and intensity plotter) structure. The idea is to created a hiearchy of conf files that is easier to maintain, read, and manage. It is important to note, running METplus creates a single configuration file, which can be viewed to understand the result of all the conf file processing.
+The METplus default configuration file **(defaults.conf)** is always read first. Any additional configuration files passed in on the command line are then processed in the order in which they are specified. This allows for each successive conf file the ability to override variables defined in any previously processed conf files. It also allows for defining and setting up conf files from a general (settings used by all use cases, ie. MET install dir) to more specific (Plot type when running track and intensity plotter) structure. The idea is to create a hierarchy of conf files that is easier to maintain, read, and manage. It is important to note, running METplus creates a single configuration file, which can be viewed to understand the result of all the conf file processing.
 
 .. note::
 
