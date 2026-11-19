@@ -655,35 +655,30 @@ View the usage statement for Series-Analysis by simply typing the following:
 
    series_analysis
 
-**Usage: series_analysis**
+.. list-table:: Usage: series_analysis
+   :widths: auto
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
-
-   * - Argument
-     - Description
-   * - ``-fcst file_1 ... file_n``
-     - Gridded forecast files or ASCII file containing a list of file names.
-   * - ``-obs file_1 ... file_n``
-     - Gridded observation files or ASCII file containing a list of file names.
-   * - ``[-both file_1 ... file_n]``
-     - Sets the -fcst and -obs options to the same list of files (e.g. the NetCDF matched pairs files from Grid-Stat).
-   * - ``[-paired]``
-     - Indicates that the -fcst and -obs file lists are already matched up (i.e. the n-th forecast file matches the n-th observation file).
-   * - ``-out file``
-     - NetCDF output file name for the computed statistics.
-   * - ``-config file``
-     - SeriesAnalysisConfig file containing the desired configuration settings.
-   * - ``[-log file]``
+   * - **-fcst file_1 ... file_n**
+     - **Gridded forecast files or ASCII file containing a list of file names.**
+   * - **-obs file_1 ... file_n**
+     - **Gridded observation files or ASCII file containing a list of file names.**
+   * - [-both file_1 ... file_n]
+     - **Sets the -fcst and -obs options to the same list of files (e.g. the NetCDF matched pairs files from Grid-Stat).**
+   * - [-paired]
+     - **Indicates that the -fcst and -obs file lists are already matched up (i.e. the n-th forecast file matches the n-th observation file).**
+   * - **-out file**
+     - **NetCDF output file name for the computed statistics.**
+   * - **-config file**
+     - **SeriesAnalysisConfig file containing the desired configuration settings.**
+   * - [-log file]
      - Outputs log messages to the specified file
-   * - ``[-v level]``
+   * - [-v level]
      - Level of logging (optional).
-   * - ``[-compress level]``
+   * - [-compress level]
      - NetCDF compression level (optional).
 
 
-At a minimum, the -fcst, -obs (or -both), -out, and -config settings must be passed in on the command line. All forecast and observation fields must be on a common grid, either by interpolating them prior to running Series-Analysis or by using the regrid dictionary in the configuration file.
+At a minimum, the **-fcst**, **-obs** (or **-both**), **-out**, and **-config** settings must be passed in on the command line. All forecast and observation fields must be on a common grid, either by interpolating them prior to running Series-Analysis or by using the regrid dictionary in the configuration file.
 
 Configure
 ^^^^^^^^^
@@ -747,7 +742,7 @@ You may find a complete description of the configurable items in the `series_ana
              ];
           }
 
-To request the GRIB abbreviation for precipitation (APCP) accumulated over 3 hours (A3).
+To request the GRIB abbreviation for precipitation (**APCP**) accumulated over 3 hours (**A3**).
 
 .. note::
 
@@ -766,7 +761,7 @@ To request the GRIB abbreviation for precipitation (APCP) accumulated over 3 hou
              ];
           }
 
-To request the NetCDF variable named APCP_03 where its two dimensions are the gridded dimensions (*,*).
+To request the NetCDF variable named **APCP_03** where its two dimensions are the gridded dimensions (**\*,\***).
 
 .. note::
 
@@ -778,7 +773,7 @@ To request the NetCDF variable named APCP_03 where its two dimensions are the gr
 
       cat_thresh = [ >0.0, >=5.0 ];
 
-To define the categorical thresholds of interest. By defining this at the top level of config file context, these thresholds will be applied to both the fcst and obs settings.
+To define the categorical thresholds of interest. By defining this at the top level of config file context, these thresholds will be applied to both the **fcst** and **obs** settings.
 
 .. note::
 
@@ -802,7 +797,7 @@ To limit the computation of statistics to only those grid points falling inside 
 
       block_size = 10000;
 
-To process 10,000 grid points in each pass through the data. Setting block_size larger should make the tool run faster but use more memory.
+To process 10,000 grid points in each pass through the data. Setting **block_size** larger should make the tool run faster but use more memory.
 
 .. note::
 
@@ -812,7 +807,7 @@ To process 10,000 grid points in each pass through the data. Setting block_size 
 
    .. code-block:: text
 
-         fho    = [ "F_RATE", "O_RATE" ];
+             fho    = [ "F_RATE", "O_RATE" ];
              ctc    = [ "FY_OY", "FN_ON" ];
              cts    = [ "CSI", "GSS" ];
              mctc   = [];
@@ -923,13 +918,15 @@ Note that the previous set of PCP-Combine commands could easily be run by loopin
    -v 2
 
 The statistics we requested in the configuration file will be computed separately for each grid location and accumulated over a time series of eight three-hour accumulations over a 24-hour period. Each grid point will have up to 8 matched pair values.
-Note how long this command line is. Imagine how long it would be for a series of 100 files! Instead of listing all of the input files on the command line, you can list them in an ASCII file and pass that to Series-Analysis using the -fcst and -obs options.
+
+Note how long this command line is. Imagine how long it would be for a series of 100 files! Instead of listing all of the input files on the command line, you can list them in an ASCII file and pass that to Series-Analysis using the **-fcst** and **-obs** options.
 
 Output
 ^^^^^^
 
 The output of Series-Analysis is one NetCDF file containing the requested output statistics for each grid location on the same grid as the input files.
-You may view the output NetCDF file that Series-Analysis wrote using the ncdump utility. Run the following command to view the header of the NetCDF output file:
+
+You may view the output NetCDF file that Series-Analysis wrote using the **ncdump** utility. Run the following command to view the header of the NetCDF output file:
 
 .. code-block:: text
 
@@ -937,16 +934,19 @@ You may view the output NetCDF file that Series-Analysis wrote using the ncdump 
 
 In the NetCDF header, we see that the file contains many arrays of data. For each threshold (>0.0 and >=5.0), there are values for the requested statistics: F_RATE, O_RATE, FY_OY, FN_ON, CSI, and GSS. The file also contains the requested RMSE and TOTAL number of matched pairs for each grid location over the 24-hour period.
 
-Next, run the ncview utility to display the contents of the NetCDF output file:
+Next, run the **ncview** utility to display the contents of the NetCDF output file:
 
 .. code-block:: text
 
    ncview series_analysis_2005080700_2005080800_3A.nc &
 
-Click through the different variables to see how the performance varies over the domain. Looking at the series_cnt_RMSEvariable, are the errors larger in the south eastern or north western regions of the United States?
-Why does the extent of missing data increase for CSI for the higher threshold? Compare series_cts_CSI_gt0.0 to series_cts_CSI_ge5.0. (Hint: Find the definition of `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ in the MET User's Guide and look closely at the denominator.)
-Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. series_fho_O_RATE_gt0.0). Since the valid range of values for this data is 0 to 1, use that to set the -plot_range option.
-Setting block_size to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
+Click through the different variables to see how the performance varies over the domain. Looking at the **series_cnt_RMSE** variable, are the errors larger in the south eastern or north western regions of the United States?
+
+Why does the extent of missing data increase for CSI for the higher threshold? Compare **series_cts_CSI_gt0.0** to **series_cts_CSI_ge5.0**. (*Hint: Find the definition of* `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ *in the MET User's Guide and look closely at the denominator.*)
+
+Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. **series_fho_O_RATE_gt0.0**). Since the valid range of values for this data is 0 to 1, use that to set the **-plot_range** option.
+
+Setting **block_size** to 10000 still required 3 passes through our 185x129 grid (= 23865 grid points). What happens when you increase block_size to 24000 and re-run? Does it run slower or faster?
 
 METplus Use Case: SeriesAnalysis
 --------------------------------
