@@ -5,10 +5,10 @@ Session 5: MODE and MTD
 
 During this practical session, you will run the tools indicated below:
 
-Since you already set up your runtime enviroment in Session 1, you should be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
-
 .. figure:: ../figure/5.0_Practical_Session_5.png
    :alt: MET tool workflow highlighting the tools used in Session 5.
+
+Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment Is Set Correctly**
 
@@ -16,13 +16,13 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   **1:** Navigate to your tutorial directory and run the tutorial setup script.
+  **1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
-   In the following instructions, change "/path/to" to the directory you chose.
+  **In the following instructions, change "/path/to" to the directory you chose.**
 
-**EDIT AFTER COPYING and BEFORE HITTING RETURN!**
+  **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block:: text
 
@@ -31,7 +31,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+  **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -46,14 +46,14 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-   **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
-   **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
-   **METPLUS_DATA** is the location of the sample test data directory
+  | **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+  | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+  | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+  | **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
-   **3:** Check that the MET applications are in the path:
+  **3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -61,11 +61,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
+  You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
+  **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -73,7 +73,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
+  If you don't see the full path to script from the shared installation, please set it. It should look the same as the output from this command:
 
 .. code-block:: text
 
@@ -81,6 +81,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
 See the instructions in Session 1 for more information.
+
 You are now ready to move on to the next section.
 
 .. important::
@@ -113,29 +114,24 @@ MODE may be configured to use a few different sets of logic with which to perfor
 
    mode
 
-**Usage: mode**
+.. list-table:: Usage: mode
+   :widths: auto
 
-.. list-table::
-   :header-rows: 1
-   :widths: 30 70
-
-   * - Argument
-     - Description
-   * - ``fcst_file``
-     - Input gridded forecast file containing the field to be verified
-   * - ``obs_file``
-     - Input gridded observation file containing the verifying field
-   * - ``config_file``
-     - MODEConfig file containing the desired configuration settings
-   * - ``[-config_merge merge_config_file]``
+   * - **fcst_file**
+     - **Input gridded forecast file containing the field to be verified**
+   * - **obs_file**
+     - **Input gridded observation file containing the verifying field**
+   * - **config_file**
+     - **MODEConfig file containing the desired configuration settings**
+   * - [-config_merge merge_config_file]
      - Overrides the default fuzzy engine settings for merging within the fcst/obs fields (optional).
-   * - ``[-outdir path]``
+   * - [-outdir path]
      - Overrides the default output directory (optional).
-   * - ``[-log file]``
+   * - [-log file]
      - Outputs log messages to the specified file
-   * - ``[-v level]``
+   * - [-v level]
      - Level of logging
-   * - ``[-compress level]``
+   * - [-compress level]
      - NetCDF compression level
 
 
@@ -147,7 +143,7 @@ MODE may be configured to use a few different sets of logic with which to perfor
 
    The MODE tool usage statement also has instructions for verifying multivariables. These are the same as the MODE usage, only passing ASCII lists that contain multiple files instead of a single file, and without the -config_merge and -compress options.
 
-At a minimum, the input gridded fcst_file, the input gridded obs_file, and the configuration config_file must be passed in on the command line.
+At a minimum, the input gridded **fcst_file**, the input gridded **obs_file**, and the configuration **config_file** must be passed in on the command line.
 
 Configure
 ^^^^^^^^^
@@ -185,19 +181,14 @@ We'll be using these three configuration files during this session.
 
 The configuration items for MODE are used to specify how the object-based verification approach is to be performed. In MODE, as in the other MET statistics tools, you can compare any two fields. When necessary, the items in the configuration file are specified separately for the forecast and observation fields. In most cases though, users will be comparing the same forecast and observation fields. The configurable items include parameters for the following:
 
-The forecast and observation fields and vertical levels or accumulation intervals to be compared
-
+* The forecast and observation fields and vertical levels or accumulation intervals to be compared
 * Options to mask out a portion of or threshold the raw fields
-
-The forecast and observation object definition parameters
-
+* The forecast and observation object definition parameters
 * Options to filter out objects that don't meet a size or intensity criteria
 * Flags to control the logic for matching/merging
 * Weights to be applied for the fuzzy engine matching/merging algorithm
 * Interest functions to be used for the fuzzy engine matching/merging algorithm
-
-Total interest threshold for matching/merging
-
+* Total interest threshold for matching/merging
 * Various plotting options
 
 .. important::
@@ -206,15 +197,17 @@ Total interest threshold for matching/merging
 
 .. note::
 
-   At the bottom of MODEConfig_APCP_12, change "version" to "V11.0"
+   At the bottom of MODEConfig_APCP_12, change ``version`` to ``"V11.0"``
 
 .. admonition:: File Contents
 
    .. code-block:: text
 
       ////////////////////////////////////////////////////////////////////////////////
+
       output_prefix = "";
       version = "V11.0";
+
       ////////////////////////////////////////////////////////////////////////////////
 
 .. note::
@@ -268,12 +261,14 @@ If you receive error output during any of the MODE runs above that looks like th
       ERROR :
 
 You will need to follow the previous instructions and make sure the version is set to V11.0 in all of the configuration files prior to re-running the commands.
+
 These commands make use of sample data that's distributed with the MET tarball. They run MODE on 12-hour accumulated precipitation, 24-hour accumulated precipitation, and on a field of relative humidity.
 
 Output
 ^^^^^^
 
-The output of MODE typically consists of 4 files: 2 ASCII statistics files, 1 NetCDF object file, and 1 PostScript summary plot. The output of the contingency table statistics file, the NetCDF object file, and the PostScript plot may be disabled using the ct_stats_flag, nc_pairs_flag, and ps_plot_flag options in the MODE configuration file, respectively. In this example, the output is written to the current mode directory, as we requested on the command line.
+The output of MODE typically consists of 4 files: 2 ASCII statistics files, 1 NetCDF object file, and 1 PostScript summary plot. The output of the contingency table statistics file, the NetCDF object file, and the PostScript plot may be disabled using the ct_stats_flag, nc_pairs_flag, and ps_plot_flag options in the MODE configuration file, respectively. In this example, the output is written to the current **mode** directory, as we requested on the command line.
+
 The MODE output file naming convention is similar to that of the other MET tools. It contains timing information about the forecast being evaluated (forecast valid, lead, and accumulation times).
 
 .. important::
@@ -282,10 +277,10 @@ The MODE output file naming convention is similar to that of the other MET tools
 
 The 4 MODE output files are described briefly below:
 
-* The PostScript file ends in .ps and is described below.
-* The NetCDF object file ends in _obj.nc and contains the object indices.
-* The ASCII contingency table statistics file and ends in _cts.txt.
-* The ASCII object statistics file ends in _obj.txt and contains all of the object and object comparison data.
+* The PostScript file ends in **.ps** and is described below.
+* The NetCDF object file ends in **_obj.nc** and contains the object indices.
+* The ASCII contingency table statistics file and ends in **_cts.txt**.
+* The ASCII object statistics file ends in **_obj.txt** and contains all of the object and object comparison data.
 
 .. note::
 
@@ -328,10 +323,10 @@ What are the benefits of spatial methods over traditional statistics? The weakne
 METplus Use Case: MODE
 ----------------------
 
-The MODE use case utilizes the MET MODE tools.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+The MODE use case utilizes the MET *MODE* tools.
 
-Optional: Refer to A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MODE.CONF**
 
@@ -353,7 +348,7 @@ Optional: Refer to A-Z Config Glossary section of the `METplus Users Guide <http
 
       OBS_MODE_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
-This references INPUT_BASE which is the METplus tutorial configuration file ${METPLUS_TUTORIAL_DIR}/tutorial.conf. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+This references **INPUT_BASE** which is the METplus tutorial configuration file **${METPLUS_TUTORIAL_DIR}/tutorial.conf**. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 
@@ -411,7 +406,7 @@ You should have output files in the following directories:
 
 **REVIEW THE LOG FILES**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/MODE/logs/.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MODE/logs/**.
 
 .. important::
 
@@ -427,7 +422,7 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/MODE/logs/.
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration files are found in ${METPLUS_TUTORIAL_DIR}/output/MODE. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
+The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/MODE**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
 .. code-block:: text
 
