@@ -214,7 +214,7 @@ Set:
          end =  1800;
       }
 
-so that only observations within 1800 second (30 minutes) of the file time will be retained.
+so that only observations within 1800 seconds (30 minutes) of the file time will be retained.
 
 Set:
 
@@ -239,7 +239,7 @@ Set:
 
 to retain observations for specific humidity, temperature, the u-component of wind, and the v-component of wind and to derive observation values for wind speed and relative humidity.
 
-While we are request these observation variable names from the input file, the following corresponding strings will be written to the output file: SPFH, TMP, UGRD, VGRD, WIND, RH. This mapping of input PrepBufr variable names to output variable names is specified by the **obs_prepbufr_map** config file entry. This enables the new features in the current version of MET to be backward compatible with earlier versions.
+While we are requesting these observation variable names from the input file, the following corresponding strings will be written to the output file: SPFH, TMP, UGRD, VGRD, WIND, RH. This mapping of input PrepBufr variable names to output variable names is specified by the **obs_prepbufr_map** config file entry. This enables the new features in the current version of MET to be backward compatible with earlier versions.
 
 .. note::
 
@@ -543,7 +543,7 @@ MET Tool: ASCII2NC
 
 **ASCII2NC FUNCTIONALITY**
 
-The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Studay (WWSIS) data, AirNow DailyData_v2, HourlyData, and HourlyAQObs data, National Data Buoy Center (NDBC) Standard Meteorological data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script.  Future version of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
+The ASCII2NC tool reformats ASCII point observations into the intermediate NetCDF format that Point-Stat and Ensemble-Stat read. ASCII2NC simply reformats the data and does much less filtering of the observations than PB2NC does. ASCII2NC supports a simple 11-column format, described below, the Little-R format often used in data assimilation, SURFace RADiation (SURFRAD) data, Western Wind and Solar Integration Study (WWSIS) data, AirNow DailyData_v2, HourlyData, and HourlyAQObs data, National Data Buoy Center (NDBC) Standard Meteorological data, and AErosol RObotic NEtwork (Aeronet) data versions 2 and 3 format. MET version 9.0 added support for passing observations to ASCII2NC using a Python script.  Future versions of MET may be enhanced to support additional commonly used ASCII point observation formats based on community input.
 
 **MET POINT OBSERVATION FORMAT**
 
@@ -589,7 +589,7 @@ It is the user's responsibility to get their ASCII point observations into this 
    * - [-mask_poly file]
      - Polyline masking file for filtering point observations spatially
    * - [-mask_sid file|list]
-     - Specific station ID's to be used in an ASCII file or comma-separted list
+     - Specific station ID's to be used in an ASCII file or comma-separated list
    * - [-log file]
      - Outputs log messages to the specified file
    * - [-v level]
@@ -598,7 +598,7 @@ It is the user's responsibility to get their ASCII point observations into this 
      - NetCDF compression level
 
 
-At a minimum, the input **ascii_file** and the output **netcdf_file** must be passed on the command line. ASCII2NC interrogates the data to determine it's format, but the user may explicitly set it using the **-format** command line option. The **-mask_grid**, **-mask_poly**, and **-mask_sid** options can be used to filter observations spatially.
+At a minimum, the input **ascii_file** and the output **netcdf_file** must be passed on the command line. ASCII2NC interrogates the data to determine its format, but the user may explicitly set it using the **-format** command line option. The **-mask_grid**, **-mask_poly**, and **-mask_sid** options can be used to filter observations spatially.
 
 Run
 ^^^
@@ -702,7 +702,7 @@ The data utilized in this use case are the sample upper-air (ADPUPA) point obser
 
   1. **View the template Python Embedding scripts available with MET**
 
-MET includes example scripts for reading point data and gridded data (all in ASCII format). These can be used by users as a jumping-off point for developing their own Python embedding scripts, and are also used by this use case and other METplus use cases that demonstrate Python Embedding
+MET includes example scripts for reading point data and gridded data (all in ASCII format). These can be used by users as a jumping-off point for developing their own Python embedding scripts, and are also used by this use case and other METplus use cases that demonstrate Python Embedding.
 
 .. code-block::
 
@@ -771,7 +771,7 @@ You should see the output netCDF file (*ascii2nc_python.nc*), which conforms to 
 
   6. **Let's Write Some Python!**
 
-Copy the METplus use configuration file to your current working directory:
+Copy the METplus use case configuration file to your current working directory:
 
 .. code-block::
 
@@ -1596,7 +1596,7 @@ This use case utilizes the MET *Point-Stat* tool.
 .. note::
 
   | The naming convention for the use-cases is:
-  | **[statistics tool(s)]_fcst[Model]_obs[Point Data or Analysis]_[other decriptors including file format].conf**
+  | **[statistics tool(s)]_fcst[Model]_obs[Point Data or Analysis]_[other descriptors including file format].conf**
 
 .. code-block::
 
