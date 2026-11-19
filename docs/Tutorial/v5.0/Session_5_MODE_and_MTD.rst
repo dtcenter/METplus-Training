@@ -449,7 +449,7 @@ The MODE-Time-Domain (MTD) tool was added in MET version 6.0. It applies an obje
 
    The forecast and observation fields must be on the same grid. You can use **copygb** to regrid GRIB1 files, **wgrib2** to regrid GRIB2 files, or use the automated regridding functionality within the MET config files.
 
-At a minimum, the -fcst and -obs options must be used to specify the data to be processed. Alternatively, the -single option specifies that MTD should be run on a single dataset. The -config option specifies the name of the configuration file.
+At a minimum, the **-fcst** and **-obs** options must be used to specify the data to be processed. Alternatively, the **-single** option specifies that MTD should be run on a single dataset. The **-config** option specifies the name of the configuration file.
 
 Configure
 ^^^^^^^^^
@@ -476,15 +476,11 @@ The behavior of MTD is controlled by the contents of the configuration file pass
 The configuration items for MTD are used to specify how the space-time-object-based verification approach is to be performed. Just as MODE may be used to compare any two fields, the same is true of MTD. When necessary, the items in the configuration file are specified separately for the forecast and observation fields. In most cases though, users will be comparing the same forecast and observation fields. The configurable items include specifications for the following:
 
 * The verification domain.
-
-The forecast and observation fields and vertical levels or accumulation intervals to be compared.
-The forecast and observation object definition parameters.
-
+* The forecast and observation fields and vertical levels or accumulation intervals to be compared.
+* The forecast and observation object definition parameters.
 * Options to filter out objects that don't meet a minimum volume.
 * Matching/merging weights and interest functions.
-
-Total interest threshold for matching/merging.
-
+* Total interest threshold for matching/merging.
 * Flags to control output files.
 
 For this tutorial, we'll configure MTD to process the same series of data we ran through the Series-Analysis tool. Just like MODE, MTD compares a single forecast field to a single observation field in each run.
@@ -637,7 +633,7 @@ Just as with MODE, MTD applies a convolution operation to smooth the data. Howev
 Output
 ^^^^^^
 
-The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 NetCDF object file. MTD does not create any graphical output. In this example, the output is written to the current mtd directory as we requested on the command line.
+The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 NetCDF object file. MTD does not create any graphical output. In this example, the output is written to the current **mtd** directory as we requested on the command line.
 
 .. admonition:: Sample Output
 
@@ -650,12 +646,12 @@ The MTD output typically consists of 6 files: 5 ASCII statistics files and 1 Net
       mtd_20050807_030000V_3d_single_simple.txt
       mtd_20050807_030000V_obj.nc
 
-The MTD output file naming convention begins with ``mtd_`` followed by the first valid time of the observation data. The output file names may be modified using the output_prefix option in the configuration file, which should be used to prevent the output of one run from over-writing the output of a previous run. The 6 MTD output files are described briefly below:
+The MTD output file naming convention begins with **mtd_** followed by the first valid time of the observation data. The output file names may be modified using the **output_prefix** option in the configuration file, which should be used to prevent the output of one run from over-writing the output of a previous run. The 6 MTD output files are described briefly below:
 
-* The NetCDF object file ends in .nc and contains gridded fields of the raw data, simple object indices, and cluster object indices for each forecast and observed timestep.
-* The ASCII file ending with _2d.txt contains many columns similar to the output of MODE. This data summarizes the 2-dimensional object attributes for each individual time slice of the 3D forecast and observation objects.
-* The ASCII files ending with _single_simple.txt and _single_cluster.txt contain 3D space-time attributes for simple and cluster objects, respectively.
-* The ASCII files ending with _pair_simple.txt and _pair_cluster.txt contain 3D space-time attributes for pairs of simple and cluster objects, respectively.
+* The NetCDF object file ends in **.nc** and contains gridded fields of the raw data, simple object indices, and cluster object indices for each forecast and observed timestep.
+* The ASCII file ending with **_2d.txt** contains many columns similar to the output of MODE. This data summarizes the 2-dimensional object attributes for each individual time slice of the 3D forecast and observation objects.
+* The ASCII files ending with **_single_simple.txt** and **_single_cluster.txt** contain 3D space-time attributes for simple and cluster objects, respectively.
+* The ASCII files ending with **_pair_simple.txt** and **_pair_cluster.txt** contain 3D space-time attributes for pairs of simple and cluster objects, respectively.
 
 .. note::
 
@@ -682,10 +678,10 @@ METplus Use Case: MTD
 
 **REFERENCE MATERIAL**
 
-The MTD (Mode Time Domain) use case utilizes the MET MTD tools.
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+The MTD (Mode Time Domain) use case utilizes the MET *MTD* tools.
 
-Optional: Refer to the A-Z Config Glossary section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **REVIEW USE CASE CONFIGURATION FILE: MTD.CONF**
 
@@ -718,7 +714,7 @@ Also note that variables in MTD.conf reference other config variables that have 
 
       OBS_MTD_INPUT_DIR = {INPUT_BASE}/met_test/new
 
-This references INPUT_BASE which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+This references **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 **RUN METPLUS**
 
@@ -742,7 +738,12 @@ This references INPUT_BASE which is set in the tutorial.conf configuration file.
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/MTD
 
 METplus is finished running when control returns to your terminal console and you see the following text:
-INFO: METplus has successfully finished running as user <username>(<uid>).
+
+.. admonition:: Sample Output
+
+   .. code-block:: text
+
+      INFO: METplus has successfully finished running as user <username>(<uid>).
 
 **REVIEW THE OUTPUT FILES**
 
@@ -787,7 +788,7 @@ Take a look at some of the files to see what was generated.
 
 **REVIEW THE LOG FILES**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/MTD/logs. The filename contains a timestamp of the current year, month, day, hour, minute, and second.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/MTD/logs**. The filename contains a timestamp of the current year, month, day, hour, minute, and second.
 
 .. code-block:: text
 
@@ -799,7 +800,7 @@ Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/MTD/logs. The
 
 **REVIEW THE FINAL CONFIGURATION FILE**
 
-The final configuration files are found in${METPLUS_TUTORIAL_DIR}/output/MTD. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
+The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/MTD**. Similar to the log files, the configuration file contains a timestamp of the time that the METplus command was run.
 
 .. code-block:: text
 
@@ -808,10 +809,13 @@ The final configuration files are found in${METPLUS_TUTORIAL_DIR}/output/MTD. Si
 End of Session 5 and Additional Exercises
 -----------------------------------------
 
+**End of Session 5**
+
 Congratulations! You have completed Session 5!
+
 If you have extra time, you may want to try these additional METplus exercises.
 
-EXERCISE 5.1: Change Forecast Lead List to Using Intervals
+**EXERCISE 5.1: Change Forecast Lead List to Using Intervals**
 
 .. note::
 
@@ -888,7 +892,7 @@ If you look in the data directories for this run, you will see that while the fo
 
    ls ${METPLUS_TUTORIAL_DIR}/output/exercises/mtd_skip/logs/metplus.log.*
 
-EXERCISE 5.2: Change Forecast Lead List to See METplus Unzip
+**EXERCISE 5.2: Change Forecast Lead List to See METplus Unzip**
 
 .. note::
 
@@ -942,5 +946,5 @@ Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, w
 
    ls -1 ${METPLUS_DATA}/met_test/new/ST2*
 
-METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will do so automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See SCRUB_STAGING_DIR and STAGING_DIR in the `METplus User's Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_).
+METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will do so automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See **SCRUB_STAGING_DIR** and **STAGING_DIR** in the `METplus User's Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_).
 
