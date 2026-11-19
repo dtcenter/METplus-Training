@@ -11,7 +11,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. note::
 
-   1. If you are joining a guided tutorial and are using an EC2 instance you will have been given an ip address to that instance that is dedicated uniquely to you. Once you have that IP and the password associated with it you can access it with the following command
+   **1.** If you are joining a guided tutorial and are using an EC2 instance you will have been given an ip address to that instance that is dedicated uniquely to you. Once you have that IP and the password associated with it you can access it with the following command
 
 .. important::
 
@@ -27,7 +27,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. note::
 
-   2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -49,7 +49,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. note::
 
-   3: Check that the MET applications are in the path:
+   **3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -65,7 +65,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
 .. note::
 
-   4: Check that the correct version of run_metplus.py is in your PATH:
+   **4:** Check that the correct version of run_metplus.py is in your PATH:
 
 .. code-block:: text
 
@@ -81,6 +81,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
 If more information is needed see the instructions in the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
+
 The next section describes how to create your own EC2 instance and is optional
 
 .. important::
@@ -175,7 +176,7 @@ There are now two ways to get the ip address to your currently running EC2 insta
 
 .. note::
 
-   1. Click on the box labeled “Connect to your instance”
+   **1.** Click on the box labeled “Connect to your instance”
 
 Something similar to the image below should pop up and your ip address should be listed.
 
@@ -184,7 +185,7 @@ Something similar to the image below should pop up and your ip address should be
 
 .. note::
 
-   2. Navigate to the your EC2 dashboard and look at the running instances
+   **2.** Navigate to the your EC2 dashboard and look at the running instances
 
 .. note::
 
@@ -199,3 +200,9 @@ You may now connect to your EC2 instance the same way as you would if you were g
 
    ssh -i /path/to/<your key pair file>.pem ec2-user@<ip address>
 
+End of Session 11
+-----------------
+
+**End of Session 11**
+
+Congratulations! You have completed Session 11!
