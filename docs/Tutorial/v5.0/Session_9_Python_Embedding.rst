@@ -18,7 +18,7 @@ Put simply, Python Embedding is a way to allow users to write their own Python s
 .. figure:: ../figure/ScreenShot2023-01-20at1.42.43PM.png
    :alt: Python embedding passes HDF5 observations to Grid-Stat alongside GRIB forecasts.
 
-In this example, the user has a gridded analysis dataset in an HDF-5 file format ("HDF5 ANX") and a gridded forecast dataset in GRIB format ("GRIB FCST"). Grid-Stat has support to read the GRIB forecast data, but cannot read the HDF-5 data. Therefore, the user writes a Python script to open the HDF-5 file and prepare it for Grid-Stat. When Grid-Stat runs, the Python script is called and the data is handed off from the users' Python script directly to Grid-Stat in memory without writing a physical output file. There are cases when MET will write a physical file, which will be covered in the next chapter of this session along with other details of Python Embedding.
+In this example, the user has a gridded analysis dataset in an HDF-5 file format ("HDF5 ANX") and a gridded forecast dataset in GRIB format ("GRIB FCST"). Grid-Stat has support to read the GRIB forecast data, but cannot read the HDF-5 data. Therefore, the user writes a Python script to open the HDF-5 file and prepare it for Grid-Stat. When Grid-Stat runs, the Python script is called and the data is handed off from the user's Python script directly to Grid-Stat in memory without writing a physical output file. There are cases when MET will write a physical file, which will be covered in the next chapter of this session along with other details of Python Embedding.
 
 .. important::
 
@@ -49,7 +49,7 @@ Details for Python Embedding Scripts with 2D Gridded Data
 In your Python Embedding script, be sure to adhere to the following requirements:
 
 1. Your variable containing the 2D dataplane of gridded data must be named **met_data**. This applies to both NumPy N-dimensional array objects (for **PYTHON_NUMPY**), and Xarray DataArray objects (for **PYTHON_XARRAY**).
-2. For **PYTHON_NUMPY**, you must define a Python variable that is a dictionary named **attrs** in your script that contains the following keys and their respective values :
+2. For **PYTHON_NUMPY**, you must define a Python variable that is a dictionary named **attrs** in your script that contains the following keys and their respective values:
 
    * valid
    * init
@@ -61,7 +61,7 @@ In your Python Embedding script, be sure to adhere to the following requirements
    * units
    * grid
 
-3. For **PYTHON_XARRAY**, your Xarray DataArray must have a dictionary of attributes attached to it (accessible via the **.attrs** method of the DataArray object), and the keys must match the keys listed about for **PYTHON_NUMPY**.
+3. For **PYTHON_XARRAY**, your Xarray DataArray must have a dictionary of attributes attached to it (accessible via the **.attrs** method of the DataArray object), and the keys must match the keys listed above for **PYTHON_NUMPY**.
 
 .. important::
 
@@ -86,7 +86,7 @@ In some cases, a user may require one or more Python packages that are not insta
 
 .. important::
 
-   **NOTE:** using **MET_PYTHON_EXE** will force MET to write data files to a temporary area and then read them in again, instead of receiving data directly from within memory. This may negatively effect (increase) workflow run time. In some cases this cannot be avoided (i.e. multiple users sharing a single MET installation), and allows users maximum accessibility to the Python ecosystem, but users should be aware it could increase run time.
+   **NOTE:** using **MET_PYTHON_EXE** will force MET to write data files to a temporary area and then read them in again, instead of receiving data directly from within memory. This may negatively affect (increase) workflow run time. In some cases this cannot be avoided (i.e. multiple users sharing a single MET installation), and allows users maximum accessibility to the Python ecosystem, but users should be aware it could increase run time.
 
 Setup for Python Embedding Practice
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -271,7 +271,7 @@ Now save the file, and run METplus wrappers:
 
    run_metplus.py -c my_gridded_pyembed.conf
 
-You can verify that the output image **my_gridded_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_data_plane** directly.
+You can verify that the output image **my_gridded_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE** directory), exactly matches the image above when using **plot_data_plane** directly.
 
 .. important::
 
@@ -389,7 +389,7 @@ Now save the file, and run METplus wrappers:
 
    run_metplus.py -c my_point_pyembed.conf
 
-You can verify that the output image **my_point_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE**) directory, exactly matches the image above when using **plot_point_obs** directly.
+You can verify that the output image **my_point_pyembed_wrappers_plot.ps** (which is found in your METplus **OUTPUT_BASE** directory), exactly matches the image above when using **plot_point_obs** directly.
 
 .. important::
 
@@ -503,7 +503,7 @@ Add the **grid_info** to the **attrs** dictionary:
 
       attrs['grid'] = grid_info
 
-Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**. If **PYTHON_XARRAY** is requested. then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and those data are converted to Celsius and renamed to **met_data**, and then the **attrs** are added to the Xarray DataArray object. If **PYTHON_NUMPY** is requested, then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and a NumPy N-dimensional array representation is requested from Xarray using **.values** on the DataArray, and it is renamed to **met_data**. Note that for **PYTHON_NUMPY**, no **attrs** are attached to **met_data** in any manner, it is simply enough for **attrs** to exist as a variable in your Python script:
+Add an if/else block to change between **PYTHON_NUMPY** and **PYTHON_XARRAY**. If **PYTHON_XARRAY** is requested, then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and those data are converted to Celsius and renamed to **met_data**, and then the **attrs** are added to the Xarray DataArray object. If **PYTHON_NUMPY** is requested, then the Xarray Dataset is subset so a single variable is selected as an Xarray DataArray, and a NumPy N-dimensional array representation is requested from Xarray using **.values** on the DataArray, and it is renamed to **met_data**. Note that for **PYTHON_NUMPY**, no **attrs** are attached to **met_data** in any manner, it is simply enough for **attrs** to exist as a variable in your Python script:
 
 .. admonition:: File Contents
 
@@ -536,7 +536,7 @@ Recall the four **Required Elements** for Python Embedding with gridded data:
 3. The required argument for the MET tool you are using that must be modified for Python Embedding
 4. Any additional required arguments for the MET tool you are using
 
-In this section, you will use **plot_data_plane** to run your Python Embedding script. The script you wrote in the "Writing A Python Script For Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**.
+In this section, you will use **plot_data_plane** to run your Python Embedding script. The script you wrote in the "Writing a Python Script for Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**.
 
 First, verify you are in the Python Embedding practice directory:
 
@@ -578,7 +578,7 @@ Use Your Python Embedding Script with METplus Wrappers
 
 This section will largely follow the instructions in section titled "Python Embedding for Gridded Data", except you will be using your own Python Embedding script.
 
-In this section, you will use **METplus Wrappers** to run **plot_data_plane** with your Python Embedding script. The script you wrote in the "Writing A Python Script For Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**, so sample METplus wrappers configuration files are shown for both approaches below.
+In this section, you will use **METplus Wrappers** to run **plot_data_plane** with your Python Embedding script. The script you wrote in the "Writing a Python Script for Python Embedding" section supports both **PYTHON_NUMPY** and **PYTHON_XARRAY**, so sample METplus wrappers configuration files are shown for both approaches below.
 
 First, verify you are in the Python Embedding practice directory:
 
