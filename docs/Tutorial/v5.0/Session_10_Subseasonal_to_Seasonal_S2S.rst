@@ -113,7 +113,7 @@ A UserScript generates user defined commands that are run from a METplus configu
 Configuration Sections
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parenthesis after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_.
+Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label].  These sections are needed to run the same tool more than once with different settings.  Configuration sections are called from the process list by adding the label in parentheses after the tool name.  More information about these can be found in the `METplus User’s Guide section of instance names <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_.
 
 Final Considerations
 ^^^^^^^^^^^^^^^^^^^^
@@ -128,9 +128,9 @@ Run METplus for the OMI Use Case
 Configuring the METplus OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The OLR-Based MJO Index (OMI)use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI Use case we are going to run are listed in the `External Dependencies section <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.html#sphx-glr-generated-model-applications-s2s-mjo-userscript-fcstgfs-obsera-omi-py>`_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
+The OLR-Based MJO Index (OMI) use case is one of the simplest S2S use cases, so we will start there.  First, we will review the python dependencies to make sure these are available.  Python dependencies for the OMI use case we are going to run are listed in the `External Dependencies section <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.html#sphx-glr-generated-model-applications-s2s-mjo-userscript-fcstgfs-obsera-omi-py>`_.  For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
 
-This use case also requires the installation and correct environmental settings for METcalcpy, METplotpy, and METdataio. These requirements extend to having both of the respective repositories installed, as well as their corresponding _BASE environmental settings. Assuming that the instructions provided in the `METdataio tutorial section <Session_8_METplus_Analysis_Tools.html#metdataio>`_ have been followed, and the METcalcpy, METplotpy, and METdataio were installed in your ${METPLUS_TUTORIAL_DIR}, set the following commands:
+This use case also requires the installation and correct environmental settings for METcalcpy, METplotpy, and METdataio. These requirements extend to having all three of the respective repositories installed, as well as their corresponding _BASE environmental settings. Assuming that the instructions provided in the `METdataio tutorial section <Session_8_METplus_Analysis_Tools.html#metdataio>`_ have been followed, and the METcalcpy, METplotpy, and METdataio were installed in your ${METPLUS_TUTORIAL_DIR}, set the following commands:
 
 .. code-block:: text
 
@@ -157,7 +157,7 @@ This use case also requires the installation and correct environmental settings 
 
 The file shows 2 PROCESS_LIST variables, one of which is commented out. The commented out version includes pre-processing steps which can take a long time to run due to the amount of data. Those pre-processing steps create daily means of outgoing longwave radiation (OLR) for the forecast data, and then regrid the observation and model OLR. In this example, we will be omitting those steps, running only the last two steps. The last two steps create a listing of EOF input files and then run the OMI computation.
 
-In this case, creating a listing of EOF files is done in a separate step because the EOF files have different timing information than the input OLR files.  Specifically, the EOF input is one file per day of the year, whereas the OMI in this case is computed across 2 years of OLR data.   Settings for creating the list of files is given in the [create_eof_filelist] section.  The command given in USER_SCRIPT_COMMAND is irrelevant here as it does not affect the creation of the file lists.
+In this case, creating a listing of EOF files is done in a separate step because the EOF files have different timing information than the input OLR files.  Specifically, the EOF input is one file per day of the year, whereas the OMI in this case is computed across 2 years of OLR data.   Settings for creating the list of files are given in the [create_eof_filelist] section.  The command given in USER_SCRIPT_COMMAND is irrelevant here as it does not affect the creation of the file lists.
 
 Input variables to the OMI calculation are given in the [user_env_vars] section.   The first two variables, RUN_OBS and RUN_FCST (set from OBS_RUN and FCST_RUN in the [config] section), are either True or False, and tell the program whether to run model data, observations, or both.  The third variable, SCRIPT_OUTPUT_BASE gives the base location of the output.  The next variable tells the program how many observations per day are in the data.   The last set of variables give information about formatting the plotting and output file names.
 
@@ -176,7 +176,7 @@ Run METplus for the OMI Use Case
 
 .. note::
 
-   Then, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file
+   Then, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
 
 .. code-block:: text
 
@@ -198,7 +198,7 @@ Check the Output
 
 .. note::
 
-   To check the output, first go the output directory:
+   To check the output, first go to the output directory:
 
 .. code-block:: text
 
@@ -293,7 +293,7 @@ The script should run and if successful, will say:
 Check the Output
 ^^^^^^^^^^^^^^^^
 
-In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you should see three directories (logs, s2s_mid_lat, and tmp) and the METplus configuration file. Inside the s2s_mid_lat directory, there should be another directory, UserScript_fcstGFS_obsERA_WeatherRegime, that contains four files and two directories. The mpr directory contains output matched pair files for the weather regime classification and time frequency. The plots directory contains eight output plots, fcst_elbow.png fcst_eof.png fcst_freq.png fcst_kmeans.png obs_elbow.png obs_eof.png obs_freq.png obs_kmeans.png. Finally, there are two types of text output files. fcst_weather_regime_class.txt and obs_weather_regime_class.txt contain text output where each day is classified into one of the six weather regime patterns. The other two files, GFS_ERA_WRClass_240000L_MCTS.stat and GFS_ERA_WR_freq_240000L_CNT.stat, contain output from stat analysis comparing the model and observation weather regime classification and time frequencies.
+In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you should see three directories (logs, s2s_mid_lat, and tmp) and the METplus configuration file. Inside the s2s_mid_lat directory, there should be another directory, UserScript_fcstGFS_obsERA_WeatherRegime, that contains four files and two directories. The mpr directory contains output matched pair files for the weather regime classification and time frequency. The plots directory contains eight output plots, fcst_elbow.png fcst_eof.png fcst_freq.png fcst_kmeans.png obs_elbow.png obs_eof.png obs_freq.png obs_kmeans.png. Finally, there are two types of text output files. fcst_weather_regime_class.txt and obs_weather_regime_class.txt contain text output where each day is classified into one of the six weather regime patterns. The other two files, GFS_ERA_WRClass_240000L_MCTS.stat and GFS_ERA_WR_freq_240000L_CNT.stat, contain output from Stat-Analysis comparing the model and observation weather regime classification and time frequencies.
 
 End of Session 10 and Additional Exercises
 ------------------------------------------
