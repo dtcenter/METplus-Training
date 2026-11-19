@@ -1219,4 +1219,6 @@ The successful run of that command should produce an image. View it with the fol
 End of Session 3
 ----------------
 
+**End of Session 3**
+
 Congratulations! You have completed Session 3!

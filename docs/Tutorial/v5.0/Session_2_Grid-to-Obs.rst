@@ -1919,6 +1919,8 @@ There is now a line with PRMSL listed and statistics reported.
 End of Session 2 and Additional Exercises
 -----------------------------------------
 
+**End of Session 2**
+
 Congratulations! You have completed Session 2!
 
 If you have extra time, you may want to try this additional METplus exercise.
