@@ -955,7 +955,7 @@ METplus Use Case: SeriesAnalysis
 
   IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-The SeriesAnalysis use case utilizes the MET Series-Analysis tool.
+The SeriesAnalysis use case utilizes the MET *Series-Analysis* tool.
 
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
@@ -970,7 +970,7 @@ The SeriesAnalysis use case utilizes the MET Series-Analysis tool.
 
 .. note::
 
-  **Review the use case configuration file: SeriesAnalysis.conf**
+  1. **Review the use case configuration file: SeriesAnalysis.conf**
 
 .. note::
 
@@ -990,6 +990,7 @@ Note: Forecast and observation variables are referred to individually including 
 
       FCST_VAR1_NAME = APCP
       FCST_VAR1_LEVELS = A03
+
       OBS_VAR1_NAME = APCP_03
       OBS_VAR1_LEVELS = "(*,*)"
 
@@ -1024,11 +1025,11 @@ Also note: Paths in SeriesAnalysis.conf may reference other config options defin
 
       FCST_SERIES_ANALYSIS_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
-where INPUT_BASE which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
+where **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
 .. note::
 
-  **Run the use case:**
+  2. **Run the use case:**
 
 .. code-block:: text
 
@@ -1047,7 +1048,7 @@ METplus is finished running when control returns to your terminal console and yo
 
 .. note::
 
-  **Review the output files:**
+  3. **Review the output files:**
 
 You should have output file in the following directories:
 
@@ -1077,35 +1078,42 @@ You should have output file in the following directories:
       dimensions:
       lat = 129 ;
       lon = 185 ;
+
       variables:
       float lat(lat, lon) ;
       lat:long_name = "latitude" ;
       lat:units = "degrees_north" ;
       lat:standard_name = "latitude" ;
+
       float lon(lat, lon) ;
       lon:long_name = "longitude" ;
       lon:units = "degrees_east" ;
       lon:standard_name = "longitude" ;
+
       int n_series ;
       n_series:long_name = "length of series" ;
+
       float series_cnt_TOTAL(lat, lon) ;
       series_cnt_TOTAL:_FillValue = -9999.f ;
       series_cnt_TOTAL:name = "TOTAL" ;
       series_cnt_TOTAL:long_name = "Total number of matched pairs" ;
       series_cnt_TOTAL:fcst_thresh = "NA" ;
       series_cnt_TOTAL:obs_thresh = "NA" ;
+
       float series_cnt_RMSE(lat, lon) ;
       series_cnt_RMSE:_FillValue = -9999.f ;
       series_cnt_RMSE:name = "RMSE" ;
       series_cnt_RMSE:long_name = "Root mean squared error" ;
       series_cnt_RMSE:fcst_thresh = "NA" ;
       series_cnt_RMSE:obs_thresh = "NA" ;
+
       float series_cnt_FBAR(lat, lon) ;
       series_cnt_FBAR:_FillValue = -9999.f ;
       series_cnt_FBAR:name = "FBAR" ;
       series_cnt_FBAR:long_name = "Forecast mean" ;
       series_cnt_FBAR:fcst_thresh = "NA" ;
       series_cnt_FBAR:obs_thresh = "NA" ;
+
       float series_cnt_OBAR(lat, lon) ;
       series_cnt_OBAR:_FillValue = -9999.f ;
       series_cnt_OBAR:name = "OBAR" ;
@@ -1132,6 +1140,7 @@ From this output, we can see CNT line type statistics: TOTAL, RMSE, FBAR, and OB
 From the GUI that pops up, select the series_cnt_RMSE variable to view it. The image that displays is the RMSE value calculated at each grid point across the three lead times selected in the METplus configuration file.
 
 There are two more files located in the output directory that while not statistically useful, do contain information on how METplus ran the SeriesAnalysis configuration file.
+
 The forecast list file, series_analysis_files_fcst_init_20050807000000_valid_ALL_lead_ALL.txt, contains all of the files that were found fitting the input templates for the forecast files. These are controlled by FCST_SERIES_ANALYSIS_INPUT_DIR and FCST_SERIES_ANALYSIS_INPUT_TEMPLATE. In our configuration file, these are set to
 
 .. admonition:: File Contents
@@ -1151,9 +1160,9 @@ Likewise, the observation list file, series_analysis_files_obs_init_200508070000
 
 .. note::
 
-  **Review the log output:**
+  4. **Review the log output:**
 
-Log files for this run are found in ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/logs. The filename contains a timestamp of the current day.
+Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/logs**. The filename contains a timestamp of the current day.
 
 .. code-block:: text
 
@@ -1168,6 +1177,7 @@ Inside the log file all of the configuration options are listed, as well as the 
       /usr/local/met-11.0.0/bin/series_analysis -fcst /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/FCST_FILES -obs /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/OBS_FILES -out /d1/personal/user/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_sa.nc -config /usr/local/METplus-4.0.0/parm/met_config/SeriesAnalysisConfig_wrapped -v 2
 
 Note that the forecast and observation list files were passed at runtime, rather than individual files.
+
 There's also room for improvement noted in the low level verbosity comments of the log file:
 
 .. admonition:: Sample Output
@@ -1184,9 +1194,10 @@ This is a result of not setting the SERIES_ANALYSIS_BLOCK_SIZE in the METplus co
 
 .. note::
 
-  **Create imagery for a variable in the netCDF output**
+  5. **Create imagery for a variable in the netCDF output**
 
 While ncview was used to review the statistical imagery created by SeriesAnalysis, there is always the option to create an image using the Plot-Data-Plane tool. These images can be easily shared with others and used to demonstrate output in a presentation.
+
 Use the following command to generate an image of the RMSE:
 
 .. code-block:: text
