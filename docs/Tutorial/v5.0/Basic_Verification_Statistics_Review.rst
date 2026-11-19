@@ -244,8 +244,8 @@ ratio of “yes” forecasts that were not observed relative to total “yes” 
 
 **CRITICAL SUCCESS INDEX (CSI)**
 
-The Critical Success Index (CSI), also commonly known as the Threat Score, i
-s a second measure of the overall accuracy of forecasts 
+The Critical Success Index (CSI), also commonly known as the Threat Score,
+is a second measure of the overall accuracy of forecasts 
 (e.g., like the Accuracy measure mentioned earlier). Accuracy pertains to the 
 agreement of individual forecast-observation pairs, and CSI can be calculated as
 
@@ -439,8 +439,8 @@ The following two examples show a generalized method for calculating binary
 categorical statistics: one for a MET-only usage, and the same example 
 but utilizing METplus wrappers. These examples are not meant to be completely 
 reproducible by a user: No input data is provided, commands to run the 
-various tools are not given, etc. Instead, they serve as a general guide o
-f one possible setup among many that produce binary categorical statistics.
+various tools are not given, etc. Instead, they serve as a general guide
+of one possible setup among many that produce binary categorical statistics.
 
 If you are interested in reproducible, step-by-step examples of running the 
 various tools of METplus, you are strongly encouraged to review the 
@@ -449,7 +449,7 @@ that follows this statistical tutorial, where data is made
 available to reproduce the guided examples.
 
 In order to better understand the delineation between METplus, MET, and
-METplus wrappers which are used requently throughout this tutorial but are
+METplus wrappers which are used frequently throughout this tutorial but are
 NOT interchangeable, the following definitions are provided for clarity:
 
 * METplus is best visualized as an overarching framework with individual
@@ -577,8 +577,8 @@ Note that because the bootstrap library’s n_rep variable was kept at its defau
 value of 0, bootstrap methods were not used and appear as NA in the stat file. 
 While all of these statistics *could* be obtained from the CTC line type values 
 with additional post-processing, the simplicity of having all of them already 
-calculated and ready for additional group statistics or to advise forecast a
-djustments is one of the many advantages of using the METplus system.
+calculated and ready for additional group statistics or to advise forecast
+adjustments is one of the many advantages of using the METplus system.
 
 **METplus Wrapper Example of Binary Categorical Forecast Verification**
 
