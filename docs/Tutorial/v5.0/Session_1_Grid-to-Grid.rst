@@ -623,7 +623,7 @@ Let's request a specific time string, specify a title, and use the same plotting
 
 If running Plot-Data-Plane for multiple output times or data sources, consider using the **-plot_range** option to make their color scales comparable.
 
-Lastly, let's plot output a NetCDF mask file that was created by an earlier version of MET's Gen-Vx-Mask tool.
+Lastly, let's output a NetCDF mask file that was created by an earlier version of MET's Gen-Vx-Mask tool.
 
 .. code-block::
 
@@ -1460,7 +1460,7 @@ If you have extra time, you may want to try these additional METplus exercises. 
 
   ls ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/*
 
-You will see many subdirectories with multiple files ending in .conf. The naming convention for these files are intended to provide enough meta-data to allow the user to identify an example to start from. The convention includes the [MET-Statistical-Tools]_fcstType_obsType_climatologyType_GeneralDescriptors_FileFormats.
+You will see many subdirectories with multiple files ending in .conf. The naming convention for these files is intended to provide enough meta-data to allow the user to identify an example to start from. The convention includes the [MET-Statistical-Tools]_fcstType_obsType_climatologyType_GeneralDescriptors_FileFormats.
 
 .. note::
 
