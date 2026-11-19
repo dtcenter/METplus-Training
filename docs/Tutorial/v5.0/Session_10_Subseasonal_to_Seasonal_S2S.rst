@@ -1,5 +1,5 @@
-Session 10: Subseasonal to Seasonal
-===================================
+Session 10: Subseasonal to Seasonal (S2S)
+=========================================
 
 **METplus Practical Session 10**
 
@@ -9,12 +9,13 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   1: Navigate to your tutorial directory and run the tutorial setup script.
+   **1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
-   In the following instructions, change "/path/to" to the directory you chose.
-   EDIT AFTER COPYING and BEFORE HITTING RETURN!
+   **In the following instructions, change "/path/to" to the directory you chose.**
+
+   **EDIT AFTER COPYING and BEFORE HITTING RETURN!**
 
 .. code-block:: text
 
@@ -23,7 +24,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. note::
 
-   2: Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -38,14 +39,14 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   | METPLUS_TUTORIAL_DIR is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
-   | METPLUS_BUILD_BASE is the full path to the METplus installation (/path/to/METplus-X.Y)
-   | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
-   | METPLUS_DATA is the location of the sample test data directory
+   | **METPLUS_TUTORIAL_DIR** is the location of all of your tutorial work, including configuration files, output data, and any other notes you'd like to keep.
+   | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+   | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+   | **METPLUS_DATA** is the location of the sample test data directory
 
 .. note::
 
-   3: Check that the MET applications are in the path:
+   **3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -57,11 +58,11 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. important::
 
-   The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
+   The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
 .. note::
 
-   4: Check that the correct version of run_metplus.py is in your PATH:
+   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -121,7 +122,7 @@ Most of the S2S use cases require input information to the driver scripts.  This
 
 Different use cases have different python dependencies.  These are listed in the use case documentation.  The format of input data for these use cases can vary.  Currently, METdataio can read netCDF data.  However, most S2S use cases are set to use netCDF files that are in MET’s format.  This can be achieved through pre-processing steps, typically as output from Regrid-Data-Plane or PCP-Combine.
 
-Run METplus for the OMI Use-Case
+Run METplus for the OMI Use Case
 --------------------------------
 
 Configuring the METplus OMI Use Case
@@ -218,22 +219,22 @@ There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png** and *
 .. figure:: ../figure/5.0_s2s_session_img2.png
    :alt: OMI phase-space diagram for January through March 2017 for observations.
 
-obs_OMI_comp_phase.png
+   obs_OMI_comp_phase.png
 
 .. figure:: ../figure/5.0_s2s_session_img3.png
    :alt: OMI phase-space diagram for January through March 2017 for forecasts.
 
-fcst_OMI_comp_phase.png
-
-.. warning::
-
-   THE FOLLOWING CONTENT IS STILL IN DEVELOPMENT. RUN COMMANDS MAY NOT WORK AS INTENDED, INSTRUCTIONS MAY NOT BE COMPLETE, AMONG OTHER UNINTENDED EFFECTS. USERS ARE ADVISED NOT TO COMPLETE THIS PAGE'S EXERCISES UNTIL THIS BANNER IS REMOVED.
+   fcst_OMI_comp_phase.png
 
 METplus Use Case: Weather Regime
 --------------------------------
 
-Background
-^^^^^^^^^^
+.. important::
+
+   THE FOLLOWING CONTENT IS STILL IN DEVELOPMENT. RUN COMMANDS MAY NOT WORK AS INTENDED, INSTRUCTIONS MAY NOT BE COMPLETE, AMONG OTHER UNINTENDED EFFECTS. USERS ARE ADVISED NOT TO COMPLETE THIS PAGE'S EXERCISES UNTIL THIS BANNER IS REMOVED.
+
+Background on the Weather Regime Use Case
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The weather regime use case is more complicated than the OMI use case for several reasons.  The first is that the use case has more pre-processing steps.  The second is that the weather regime calculation has several steps.  Specifically, it has four calculation steps and four optional output graphics for both the model and observations.  Lastly, the use case calls Stat-Analysis on the output to create statistics.  It uses 500mb height over December, January, and February to compute patterns for weather regime classification.
 
@@ -296,4 +297,7 @@ In the ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime directory, you s
 
 End of Session 10 and Additional Exercises
 ------------------------------------------
+
+**End of Session 10**
+
 Congratulations! You have completed Session 10!
