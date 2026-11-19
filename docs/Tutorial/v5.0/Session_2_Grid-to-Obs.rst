@@ -903,7 +903,7 @@ The Point-Stat tool provides verification statistics for comparing gridded forec
      - Level of logging (optional)
 
 
-At a minimum, the input gridded **fcst_file**, the input NetCDF **obs_file** (output of PB2NC, ASCII2NC, MADIS2NC, and LIDAR2NC, last two not covered in these exercises), and the configuration **config_file** must be passed in on the command line. You may use the **-point_obs** command line argument to specify additional NetCDF observation files to be used.
+At a minimum, the input gridded **fcst_file**, the input NetCDF **obs_file** (output of PB2NC, ASCII2NC, MADIS2NC, and LIDAR2NC, *last two not covered in these exercises*), and the configuration **config_file** must be passed in on the command line. You may use the **-point_obs** command line argument to specify additional NetCDF observation files to be used.
 
 Configure
 ^^^^^^^^^
@@ -956,9 +956,9 @@ Set:
         message_type = [ "ADPUPA" ];
         field = [
           {
-           name     = "TMP";
-           level      = [ "P850-1050", "P500-850" ];
-           cat_thresh = [ <=273, >273 ];
+            name     = "TMP";
+            level      = [ "P850-1050", "P500-850" ];
+            cat_thresh = [ <=273, >273 ];
           }
         ];
       }
@@ -983,26 +983,26 @@ Set:
    .. code-block:: text
 
       output_flag = {
-        fho    = BOTH;
-        ctc    = BOTH;
-        cts    = STAT;
-        mctc   = NONE;
-        mcts   = NONE;
-        cnt    = BOTH;
-        sl1l2  = STAT;
-        sal1l2 = NONE;
-        vl1l2  = NONE;
-        val1l2 = NONE;
-        pct    = NONE;
-        pstd   = NONE;
-        pjc    = NONE;
-        prc    = NONE;
-        ecnt   = NONE;
-        eclv   = BOTH;
-        mpr    = BOTH;
+         fho    = BOTH;
+         ctc    = BOTH;
+         cts    = STAT;
+         mctc   = NONE;
+         mcts   = NONE;
+         cnt    = BOTH;
+         sl1l2  = STAT;
+         sal1l2 = NONE;
+         vl1l2  = NONE;
+         val1l2 = NONE;
+         pct    = NONE;
+         pstd   = NONE;
+         pjc    = NONE;
+         prc    = NONE;
+         ecnt   = NONE;
+         eclv   = BOTH;
+         mpr    = BOTH;
       }
 
-to indicate that the forecast-hit-observation (FHO) counts, contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), partial sums (SL1L2), economic cost/loss value (ECLV), and the matched pair data (MPR) line types should be output. Setting SL1L2 and CTS to **STAT** causes those lines to only be written to the output .stat file, while setting others to **BOTH** causes them to be written to both the **.stat** file and the optional **LINE_TYPE.txt** file.
+to indicate that the forecast-hit-observation (FHO) counts, contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), partial sums (SL1L2), economic cost/loss value (ECLV), and the matched pair data (MPR) line types should be output. Setting SL1L2 and CTS to **STAT** causes those lines to only be written to the output **.stat** file, while setting others to **BOTH** causes them to be written to both the **.stat** file and the optional **LINE_TYPE.txt** file.
 
 Set:
 
@@ -1050,27 +1050,29 @@ If you receive a syntax error such as the one listed below, review PointStatConf
 
 .. note::
 
-  | DEBUG 1: Default Config File: /usr/local/met-9.0/share/met/config/PointStatConfig_default
-  | DEBUG 1: User Config File: PointStatConfig_tutorial_run1
-  | ERROR  :
-  | ERROR  : yyerror() -> syntax error in file "/tmp/met_config_26760_0"
-  | ERROR  :&
-  | ERROR  :    line   = 59
-  | ERROR  :
-  | ERROR  :    column = 0
-  | ERROR  :
-  | ERROR  :    text   = "]"
-  | ERROR  :
-  | ERROR  :
-  | ERROR  :    ];
-  | ERROR  : _____
-  | ERROR  :
+   .. code-block:: text
+
+      DEBUG 1: Default Config File: /usr/local/met-9.0/share/met/config/PointStatConfig_default
+      DEBUG 1: User Config File: PointStatConfig_tutorial_run1
+      ERROR  :
+      ERROR  : yyerror() -> syntax error in file "/tmp/met_config_26760_0"
+      ERROR  :
+      ERROR  :    line   = 59
+      ERROR  :
+      ERROR  :    column = 0
+      ERROR  :
+      ERROR  :    text   = "]"
+      ERROR  :
+      ERROR  :
+      ERROR  :    ];
+      ERROR  : _____
+      ERROR  :
 
 .. note::
 
   Now try rerunning the command listed above, but increase the verbosity level to 3 (**-v 3**).
 
-Notice the more detailed information about which observations were used for each verification task. If you run Point-Stat and get fewer matched pairs than you expected, try using the **-v 3**  option to see why the observations were rejected.
+Notice the more detailed information about which observations were used for each verification task. If you run Point-Stat and get fewer matched pairs than you expected, try using the **-v 3** option to see why the observations were rejected.
 
 .. important::
 
@@ -1080,18 +1082,18 @@ Notice the more detailed information about which observations were used for each
 Output
 ^^^^^^
 
-The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the  **point_stat\_ prefix**, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
+The output of Point-Stat is one or more ASCII files containing statistics summarizing the verification performed. Since we wrote output to the current directory, it should now contain 6 ASCII files that begin with the **point_stat_** prefix, one each for the FHO, CTC, CNT, ECLV, and MPR types, and a sixth for the STAT file. The STAT file contains all of the output statistics while the other ASCII files contain the exact same data organized by line type.
 
 .. important::
 
-  Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much   easier to read that way:
+  Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way:
 
   * In the **kwrite** editor, select **Settings->Configure Editor**, de-select **Dynamic Word Wrap** and click **OK**.
   * In the **vi** editor, type the command **:set nowrap**. To set this as the default behavior, run the following command:
 
-  .. code-block:: text
+    .. code-block:: text
 
-    echo "set nowrap" >> ~/.exrc
+      echo "set nowrap" >> ~/.exrc
 
 .. note::
 
@@ -1135,7 +1137,7 @@ The output of Point-Stat is one or more ASCII files containing statistics summar
 
 * The columns prior to **LINE_TYPE** contain the same data as the previous file we viewed.
 * The **LINE_TYPE** column indicates that these are **CNT** continuous lines.
-* The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the `Point-Stat section <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_ of the MET User's Guide for a thorough description of the output.
+* The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the `Point-Stat section <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_ of the **MET User's Guide** for a thorough description of the output.
 * Again, confidence intervals are given for each of these statistics as described above.
 
 .. note::
@@ -1204,14 +1206,14 @@ Set:
       fcst = {
         field = [
           {
-           name       = "TMP";
-           level      = [ "Z2" ];
-           cat_thresh = [ >273,>278,>283,>288 ];
+            name       = "TMP";
+            level      = [ "Z2" ];
+            cat_thresh = [ >273, >278, >283, >288 ];
           },
           {
-           name       = "TMP";
-           level      = [ "P750-850" ];
-           cat_thresh = [ >278 ];
+            name       = "TMP";
+            level      = [ "P750-850" ];
+            cat_thresh = [ >278 ];
           }
         ];
       }
@@ -1243,11 +1245,11 @@ Set:
    .. code-block:: text
 
       mask = {
-        grid  = [ "G212" ];
-        poly  = [ "MET_BASE/poly/EAST.poly",
-                  "MET_BASE/poly/WEST.poly" ];
-        sid   = [];
-        llpnt = [];
+         grid  = [ "G212" ];
+         poly  = [ "MET_BASE/poly/EAST.poly",
+                   "MET_BASE/poly/WEST.poly" ];
+         sid   = [];
+         llpnt = [];
       }
 
 to compute statistics over the NCEP Grid 212 region and over the Eastern and Western United States, as defined by the polylines specified.
@@ -1259,18 +1261,18 @@ Set:
    .. code-block:: text
 
       interp = {
-        vld_thresh = 1.0;
-        shape       = SQUARE;
-        type = [
-          {
-           method = NEAREST;
-           width  = 1;
-          },
-          {
-           method = DW_MEAN;
-           width  = 5;
-          }
-        ];
+         vld_thresh = 1.0;
+         shape       = SQUARE;
+         type = [
+            {
+               method = NEAREST;
+               width  = 1;
+            },
+            {
+               method = DW_MEAN;
+               width  = 5;
+            }
+         ];
       }
 
 to indicate that the forecast values should be interpolated to the observation locations using the nearest neighbor method and by computing a distance-weighted average of the forecast values over the 5 by 5 box surrounding the observation location.
@@ -1282,24 +1284,24 @@ Set:
    .. code-block:: text
 
       output_flag = {
-        fho    = BOTH;
-        ctc    = BOTH;
-        cts    = BOTH;
-        mctc   = NONE;
-        mcts   = NONE;
-        cnt    = BOTH;
-        sl1l2  = BOTH;
-        sal1l2 = NONE;
-        vl1l2  = NONE;
-        val1l2 = NONE;
-        pct    = NONE;
-        pstd   = NONE;
-        pjc    = NONE;
-        prc    = NONE;
-        ecnt   = NONE;
-        eclv   = BOTH;
-        mpr    = BOTH;
-        }
+         fho    = BOTH;
+         ctc    = BOTH;
+         cts    = BOTH;
+         mctc   = NONE;
+         mcts   = NONE;
+         cnt    = BOTH;
+         sl1l2  = BOTH;
+         sal1l2 = NONE;
+         vl1l2  = NONE;
+         val1l2 = NONE;
+         pct    = NONE;
+         pstd   = NONE;
+         pjc    = NONE;
+         prc    = NONE;
+         ecnt   = NONE;
+         eclv   = BOTH;
+         mpr    = BOTH;
+      }
 
 to switch the SL1L2 and CTS output to **BOTH** and generate the optional ASCII output files for them.
 
@@ -1317,10 +1319,10 @@ to customize the output file names for this run.
 
   Let's look at our configuration selections and figure out the number of verification tasks Point-Stat will perform:
 
-* **2 fields**: TMP/Z2 and TMP/P750-850
-* **2 observing message types**: ADPUPA and ADPSFC
-* **3 masking regions**: G212, EAST.poly, and WEST.poly
-* **2 interpolations**: NEAREST width 1 (nearest-neighbor) and DW_MEAN width 5
+* **2 fields:** TMP/Z2 and TMP/P750-850
+* **2 observing message types:** ADPUPA and ADPSFC
+* **3 masking regions:** G212, EAST.poly, and WEST.poly
+* **2 interpolations:** NEAREST width 1 (nearest-neighbor) and DW_MEAN width 5
 
 Multiplying **2 * 2 * 3 * 2 = 24**. So in this example, Point-Stat will accumulate matched forecast/observation pairs into 24 groups. However, some of these groups will result in 0 matched pairs being found. To each non-zero group, the specified threshold(s) will be applied to compute contingency tables.
 
@@ -1330,7 +1332,7 @@ Multiplying **2 * 2 * 3 * 2 = 24**. So in this example, Point-Stat will accumula
 
 Rerun
 ^^^^^
-Next, run Point-Stat to compare a GRIB forecast to the NetCDF point observation output of the PB2NC tool, as opposed to the much smaller ASCII2NC output we used in the first run.
+Next, run Point-Stat to compare a GRIB forecast to the NetCDF point observation output of the PB2NC tool, *as opposed to the much smaller ASCII2NC output we used in the first run*.
 
 .. note::
 
@@ -1387,15 +1389,15 @@ Plot-Data-Plane requires an input gridded data file, an output postscript image 
 
 .. note::
 
-  Set the title to **2-m Temperature**.
+  1. Set the title to **2-m Temperature**.
 
 .. note::
 
-  Set the plotting range as **250** to **305**.
+  2. Set the plotting range as **250** to **305**.
 
 .. note::
 
-  Use the color table named **${MET_BUILD_BASE}/share/met/colortables/NCL_colortables/wgne15.ctable**
+  3. Use the color table named **${MET_BUILD_BASE}/share/met/colortables/NCL_colortables/wgne15.ctable**
 
 Next, we'll take a look at the Point-Stat output we just generated.
 
@@ -1417,8 +1419,8 @@ The format for the CTC, CTS, and CNT line types are the same. However, the numbe
 
 * The columns prior to **LINE_TYPE** contain header information.
 * The **LINE_TYPE** column indicates that these are **CTS** lines.
-* The remaining columns contain statistics derived from the threshold contingency table counts. See the `point_stat output <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#point-stat-output>`_ section of the MET User's Guide for a thorough description of the output.
-* Confidence intervals are given for each of these statistics, computed using either one or two methods. The columns ending in **_NCL** (normal confidence lower) and **_NCU** (normal confidence upper) give lower and upper confidence limits computed using assumptions of normality. The columns ending in **_BCL** (bootstrap confidence lower) and _BCU (bootstrap confidence upper) give lower and upper confidence limits computed using bootstrapping.
+* The remaining columns contain statistics derived from the threshold contingency table counts. See the `point_stat output section <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#point-stat-output>`_ of the MET User's Guide for a thorough description of the output.
+* Confidence intervals are given for each of these statistics, computed using either one or two methods. The columns ending in **_NCL** (normal confidence lower) and **_NCU** (normal confidence upper) give lower and upper confidence limits computed using assumptions of normality. The columns ending in **_BCL** (bootstrap confidence lower) and **_BCU** (bootstrap confidence upper) give lower and upper confidence limits computed using bootstrapping.
 
 .. note::
 
@@ -1445,7 +1447,7 @@ METplus Use Case: PointStat
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
+This use case utilizes the MET *Point-Stat* tool. 
 
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
@@ -1529,17 +1531,17 @@ The following is the statistical output and file are generated from the command:
 
       POINT_STAT_OUTPUT_PREFIX = run2
 
-  BOTH_VAR1_NAME = TMP
-  BOTH_VAR1_LEVELS = P750-900
-  BOTH_VAR1_THRESH = <=273,>273
+      BOTH_VAR1_NAME = TMP
+      BOTH_VAR1_LEVELS = P750-900
+      BOTH_VAR1_THRESH = <=273, >273
 
-  BOTH_VAR2_NAME = UGRD
-  BOTH_VAR2_LEVELS = Z10
-  BOTH_VAR2_THRESH = >=5
+      BOTH_VAR2_NAME = UGRD
+      BOTH_VAR2_LEVELS = Z10
+      BOTH_VAR2_THRESH = >=5
 
-  BOTH_VAR3_NAME = VGRD
-  BOTH_VAR3_LEVELS = Z10
-  BOTH_VAR3_THRESH = >=5
+      BOTH_VAR3_NAME = VGRD
+      BOTH_VAR3_LEVELS = Z10
+      BOTH_VAR3_THRESH = >=5
 
 .. note::
 
@@ -1570,7 +1572,7 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
+This use case utilizes the MET *Point-Stat* tool. 
 
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
@@ -1593,8 +1595,8 @@ This use case utilizes the MET Point-Stat tool.
 
 .. note::
 
-  The naming convention for the use-cases is:
-  **[statistics tool(s)]_fcst[Model]_obs[Point Data or Analysis]_[other decriptors including file format].conf**
+  | The naming convention for the use-cases is:
+  | **[statistics tool(s)]_fcst[Model]_obs[Point Data or Analysis]_[other decriptors including file format].conf**
 
 .. code-block::
 
@@ -1758,7 +1760,8 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
   If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, 
   please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-This use case utilizes the MET Point-Stat tool. 
+This use case utilizes the MET *Point-Stat* tool.
+
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
@@ -1782,7 +1785,7 @@ This use case utilizes the MET Point-Stat tool.
 
   less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/PointStat_fcstGFS_obsNAM_Sfc_MultiField_PrepBufr.conf
 
-Many of the options are similar, except the fields typically at the surface (BOTH_VARn_LEVELS = Z2 and Z10 or integrated BOTH_VARn_LEVELS = L0). Also, the Point-Stat MESSAGE_TYPE is set to a specific keyword ONLYSF for only surface fields. Finally, the PB2NC_INPUT_TEMPLATE includes a da_init specification in the input template to help determine the valid time of the data.
+Many of the options are similar, except the fields typically at the surface (**BOTH_VARn_LEVELS = Z2** and **Z10** or integrated **BOTH_VARn_LEVELS = L0**). Also, the Point-Stat **MESSAGE_TYPE** is set to a specific keyword **ONLYSF** for only surface fields. Finally, the **PB2NC_INPUT_TEMPLATE** includes a da_init specification in the input template to help determine the valid time of the data.
 
 .. note::
 
@@ -1867,6 +1870,7 @@ Note that **PB2NC_OBS_BUFR_VAR_LIST = PMO, TOB, TDO, UOB, VOB, PWO, TOCC, D_RH**
   convert -rotate 90 \
   ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.ps \
   ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
+
   display ${METPLUS_TUTORIAL_DIR}/output/PointStat_Sfc/nam/conus_sfc/20170601/nam.2017060100.png
 
 .. note::
@@ -1921,7 +1925,7 @@ If you have extra time, you may want to try this additional METplus exercise.
 
 The default statistics created by this exercise only dump the partial sums, so we will be also modifying the METplus configuration file to add the continuous statistics to the output. There is a little more setup in this use case, which will be instructive and demonstrate the basic structure, flexibility and setup of METplus configuration.
 
-EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file types.
+**EXERCISE 2.1: Rerun Point-Stat to produce additional continuous statistics file types.**
 
 .. note::
 
