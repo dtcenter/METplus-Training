@@ -164,7 +164,7 @@ in that value. Another term for this type of forecast is deterministic and will
 be the focus of the verification statistics in this section. For more information 
 on probabilistic forecasts and their corresponding statistics please refer to 
 the probabilistic section. When verifying binary categorical forecasts, the 
-only important factor is whether or not the event occurred: The assumed certainty 
+only important factor is whether or not the event occurred: the assumed certainty 
 in the forecast is 100%.
 
 Numerous computationally-easy (and very popular) scalar statistics are within 
@@ -187,7 +187,7 @@ forecast study (1884) is an excellent example of the need for caution, with
 Finley reporting a 96.6% Accuracy for predicting a tornado due to the overwhelming 
 count of correct negatives. Peers were quick to point out that a higher 
 Accuracy (98.2%) could have been achieved with a constant forecast of No Tornado! 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 **PROBABILITY OF DETECTION (POD)**
 
@@ -203,7 +203,7 @@ as a discrimination statistic. POD is computed as
 This measure is useful for rare events (tornadoes, 100-year floods, etc.) as it 
 will penalize (i.e. go toward 0) the forecasts when there are too many missed 
 forecasts. 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 **PROBABILITY OF FALSE DETECTION (POFD)**
 
@@ -215,7 +215,7 @@ forecasts relative to the frequency that an event does not occur.
 
 Together, POD and POFD measure forecasts’ ability to discriminate between 
 occurrences and non-occurrences of the event of interest. 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 **FREQUENCY BIAS (BIAS)**
 
@@ -226,7 +226,7 @@ forecasts to the count of “yes” events observed.
 
 This ratio does not provide specific information about the performance of individual 
 forecasts, but rather is a measure of over- or under-forecasting of the event. 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 
 **FALSE ALARM RATIO (FAR)**
@@ -239,9 +239,9 @@ that did not occur to the total number of times a “yes” forecast was made
 .. math:: \text{FAR} = \frac{False\ Alarms} {{Hits} + {False\ Alarms}}
 
 Like POFD, FAR has a negative 
-orientation: A FAR of 0 is desirable, while a FAR of 1 shows the worst possible 
+orientation: a FAR of 0 is desirable, while a FAR of 1 shows the worst possible 
 ratio of “yes” forecasts that were not observed relative to total “yes” forecasts. 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 **CRITICAL SUCCESS INDEX (CSI)**
 
@@ -257,7 +257,7 @@ forecast correctly called for an event and the total times the forecast called
 for an event or the event was observed. Thus, CSI ignores correct negatives, 
 which differentiates it from percent correct. A CSI of 1 indicates a highly 
 accurate forecast, while a value of 0 indicates no accuracy. 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 .. _binary-cat-skill-score:
 
@@ -344,7 +344,7 @@ Similar to HSS, a compact version of GSS is presented using the C1 term. This te
 
 .. math:: C_1 = \frac{(Hits + False\ Alarms) (Hits + Misses)}{n}
 
-:ref:`See how to use this statistic in METplus <METplus-solutions_bin_cat_for_verif>`!
+:ref:`See how to use this skill score in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 .. _METplus-solutions_bin_cat_for_verif:
 
@@ -373,7 +373,7 @@ interchangeable, the following definitions are provided for clarity:
 **MET SOLUTIONS**
 
 The MET User’s Guide provides an
-`Appendix that dives into all of the statistical measure that MET calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_.
+`Appendix that dives into all of the statistical measures that MET calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_.
 METplus groups statistics together by application
 and type and makes them available to METplus users via several line types. 
 For example, many of the statistics that were discussed above can be found 
@@ -439,7 +439,7 @@ METplus Examples of Binary Categorical Forecast Verification
 The following two examples show a generalized method for calculating binary 
 categorical statistics: one for a MET-only usage, and the same example 
 but utilizing METplus wrappers. These examples are not meant to be completely 
-reproducible by a user: No input data is provided, commands to run the 
+reproducible by a user: no input data is provided, commands to run the 
 various tools are not given, etc. Instead, they serve as a general guide
 of one possible setup among many that produce binary categorical statistics.
 
@@ -476,6 +476,7 @@ the **fcst** and **obs** dictionaries:
 .. code-block:: text
 
   fcst = {
+
   field = [
   {
   name = "TMP";
@@ -520,8 +521,7 @@ CTS. The CTC line would look something like:
 
 .. code-block:: text
 
-  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 
-  >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
 
 While the stat file full header column contents are discussed in the 
 `User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, 
@@ -563,11 +563,7 @@ columns of the example output, you would find:
 
 .. code-block:: text
 
-  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 
-  >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA 
-  NA 1.239329 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 
-  0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.1894936 NA NA 0.2882119 0.2594331 0.3170842 NA NA 
-  0.3186122 …
+  V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA NA 1.239329 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.1894936 NA NA 0.2882119 0.2594331 0.3170842 NA NA 0.3186122 …
 
 These columns can be understood by reviewing the MET User’s Guide 
 `guidance for CTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id8>`_. 
@@ -608,6 +604,7 @@ information must also be set accordingly:
   INIT_BEG=2023080700
   INIT_END=2023080700
   INIT_INCREMENT = 12H
+
   LEAD_SEQ = 12
 
 Finally, the desired line types need to be selected for output. 
@@ -765,7 +762,7 @@ Multicategorical Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While some statistics for multicategorical forecasts require simplifying the contingency 
-table to two-categories, and therefore only show the forecast’s quality in respect to 
+table to two categories, and therefore only show the forecast’s quality in respect to 
 the individual category, certain skill scores are designed to evaluate forecasts with 
 multiple categories, allowing the skill score to reflect the quality of the entire 
 forecast spectrum.
@@ -883,7 +880,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 * METplus is best visualized as an overarching framework with individual components. It encapsulates all of the repositories: MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
-* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule
+* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
 **MET SOLUTIONS**
 
@@ -1008,6 +1005,7 @@ Note how the BOTH option is utilized here (as opposed to individual FCST\_ and O
    INIT_BEG=2023080700
    INIT_END=2023080700
    INIT_INCREMENT = 12H
+
    LEAD_SEQ = 12
 
 Finally, the desired line types need to be selected for output. In the wrappers, that looks like this:
@@ -1079,7 +1077,8 @@ Unlike the family of mean error statistics, standard deviation focuses more on t
 
    s = \sqrt{\frac{1}{n - 1}\sum_{i=1}^{n} (v_i - \bar{v})^2}
 
-where vi is each of the *n* values in the group (the forecasts or the observations) and v̄ is the mean of those values. 
+where vi is each of the *n* values in the group (the forecasts or the observations) and v̄ is the mean of those values.
+
 :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
 **MULTIPLICATIVE BIAS**
@@ -1185,7 +1184,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 * METplus is best visualized as an overarching framework with individual components. It encapsulates all of the repositories: MET, METplus wrappers, METdataio, METcalcpy, and METplotpy.
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
-* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule
+* METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
 **MET SOLUTIONS**
 
@@ -1229,7 +1228,7 @@ Here is an example that demonstrates deterministic forecast verification in MET.
 
 For this example, let’s examine two tools, PCP-Combine and Grid-Stat. Assume we wanted to verify a 6 hour period of precipitation forecasts over the continental United States. Using these tools, we will first combine the forecast files, which are hourly forecasts, into a 6 hour summation file with PCP-Combine. Then we will use Grid-Stat to place both datasets on the same verification grid and let MET calculate the continuous statistics available in the CNT line type. Starting with PCP-Combine, we need to understand what the desired output is first to know how to properly run the tool from the command line, as PCP-Combine does not use a configuration file. As stated previously, this scenario assumes the precipitation forecasts are hourly files and need to match the 6 hour observation file time summation. `Of the four commands available in PCP-Combine <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_grid.html#pcp-combine-tool>`_, two seem to provide potential paths forward: sum and add.
 
-While there are multiple methods that may work to successfully summarize the forecast files from these two commands, let’s assume that our forecast data files contain a time reference variable that is not `CF-compliant <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#requirements-for-cf-compliant-netcdf>`_. As such, MET will be unable to determine the initialization and valid time of the files (without being explicitly set in the field array). Because the “add” command only relies on a list of files passed by the user to determine what is being summed, that is the command we will use.
+While there are multiple methods that may work to successfully summarize the forecast files from these two commands, let’s assume that our forecast data files contain a time reference variable that is not `CF-compliant <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#requirements-for-cf-compliant-netcdf>`_. As such, MET will be unable to determine the initialization and valid time of the files (without being explicitly set in the field array). Because the ``add`` command only relies on a list of files passed by the user to determine what is being summed, that is the command we will use.
 
 With the information above, we construct the command line argument for PCP-Combine to be:
 
@@ -1245,7 +1244,7 @@ With the information above, we construct the command line argument for PCP-Combi
    -field 'name="P01M_NONE"; level="(0,*,*)";' -name "APCP_06" \
    hrefmean_2017051006_A06.nc
 
-The command above displays the required arguments for PCP-Combine’s “add” command as well as an optional argument. When using the “add” command it is required to pass a list of the input files to be processed. In this instance we used a list of files, but had the option to pass an ASCII file that contained all of the files instead. Because each of the input forecast files contain the exact same variable fields, we utilize the “-field” argument to list exactly one variable field to be processed in all files. Alternatively we could have listed the same field information (i.e. ``'name="P01M_NONE"; level="(0,*,*)";'``) after each input file. Finally, the output file name is set to “hrefmean_2017051006_A06.nc”, which contains references to the valid time of the file contents as well as how many hours the precipitation is accumulated over. The optional argument “-name” sets the output variable field name to “APCP_06”, following GRIB standard practices.
+The command above displays the required arguments for PCP-Combine’s ``add`` command as well as an optional argument. When using the ``add`` command it is required to pass a list of the input files to be processed. In this instance we used a list of files, but had the option to pass an ASCII file that contained all of the files instead. Because each of the input forecast files contain the exact same variable fields, we utilize the ``-field`` argument to list exactly one variable field to be processed in all files. Alternatively we could have listed the same field information (i.e. ``'name="P01M_NONE"; level="(0,*,*)";'``) after each input file. Finally, the output file name is set to ``hrefmean_2017051006_A06.nc``, which contains references to the valid time of the file contents as well as how many hours the precipitation is accumulated over. The optional argument ``-name`` sets the output variable field name to ``APCP_06``, following GRIB standard practices.
 
 After a successful run of PCP-Combine we now have a six hour accumulation field forecast of precipitation and are ready to set our Grid-Stat configuration file. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the fcst and obs dictionaries:
 
@@ -1271,7 +1270,7 @@ After a successful run of PCP-Combine we now have a six hour accumulation field 
       ];
    }
 
-Both input files are netCDF format and so require the asterisk and parentheses method of level access. The observation input file level required a third dimension as more than one observation time is available. We used the “@” symbol to take advantage of MET’s ability to parse time dimensions by the user-desired time, which in this case was the verification time. Note how the variable field name that was set in PCP-Combine’s output file is used in the forecast field information. Because the two variable fields are not on the same grid, an independent grid is chosen as the verification grid. This is set using the in-tool method for regridding:
+Both input files are netCDF format and so require the asterisk and parentheses method of level access. The observation input file level required a third dimension as more than one observation time is available. We used the ``@`` symbol to take advantage of MET’s ability to parse time dimensions by the user-desired time, which in this case was the verification time. Note how the variable field name that was set in PCP-Combine’s output file is used in the forecast field information. Because the two variable fields are not on the same grid, an independent grid is chosen as the verification grid. This is set using the in-tool method for regridding:
 
 .. code-block::
 
@@ -1365,7 +1364,7 @@ The second listing of GridStat uses `the instance feature <https://metplus.readt
    OBS_VAR1_NAME = P06M_NONE
    OBS_VAR1_LEVELS = "({valid?fmt=%Y%m%d_%H%M%S},*,*)"
 
-We’ve utilized a different setting, FCST_PCP_COMBINE_OUTPUT_NAME, to control what forecast variable name is verified. This way if a different forecast variable were to be used in a later run (assuming it had the same level dimensions as the precipitation), the forecast variable name would only need to be changed in one place instead of multiple. We also utilize METplus wrappers' ability to set an index based on a time, behaving similarly to the “@” usage in the MET example. Now we need to create all of the settings for PCPCombine:
+We’ve utilized a different setting, FCST_PCP_COMBINE_OUTPUT_NAME, to control what forecast variable name is verified. This way if a different forecast variable were to be used in a later run (assuming it had the same level dimensions as the precipitation), the forecast variable name would only need to be changed in one place instead of multiple. We also utilize METplus wrappers' ability to set an index based on a time, behaving similarly to the ``@`` usage in the MET example. Now we need to create all of the settings for PCPCombine:
 
 .. code-block::
 
@@ -1381,7 +1380,7 @@ We’ve utilized a different setting, FCST_PCP_COMBINE_OUTPUT_NAME, to control w
    FCST_PCP_COMBINE_OUTPUT_ACCUM = 6
    FCST_PCP_COMBINE_OUTPUT_NAME = APCP_06
 
-From these settings, we see that all of the arguments from the command line for PCP-Combine are present: we will use the “add” method to loop over six netCDF files, each containing a variable field name of P01M_NONE and accumulation times of one hour. The output variable should be named APCP_06 and will be stored in the location as directed by FCST_PCP_COMBINE_OUTPUT_DIR and FCST_PCP_COMBINE_OUTPUT_TEMPLATE (not shown above).
+From these settings, we see that all of the arguments from the command line for PCP-Combine are present: we will use the ``add`` method to loop over six netCDF files, each containing a variable field name of P01M_NONE and accumulation times of one hour. The output variable should be named APCP_06 and will be stored in the location as directed by FCST_PCP_COMBINE_OUTPUT_DIR and FCST_PCP_COMBINE_OUTPUT_TEMPLATE (not shown above).
 
 Because the loop/timing information is controlled inside the configuration file for METplus wrappers (as opposed to MET’s non-looping option), that information must also be set accordingly, paying close attention that both instances of GridStat and PCPCombine will behave as expected:
 
@@ -1450,7 +1449,7 @@ When reviewing the other forecast types in this tutorial, you’ll notice that a
 Verification Statistics for Probabilistic Forecasts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The forecast types we’ve examined so far focused on dichotomous predictions of binary events (e.g.,. the tornado did or did not happen and the forecast did or did not predict the event); application of one or more thresholds; or specification of the value itself for the forecasted event (e.g.,. the observed temperature compared to a forecast of 85 degrees Fahrenheit). These forecast types determined how the verification statistics were calculated. But how are probabilistic datasets handled? When there is an uncertainty value attached to a meteorological event, what statistical measures can be used?
+The forecast types we’ve examined so far focused on dichotomous predictions of binary events (e.g., the tornado did or did not happen and the forecast did or did not predict the event); application of one or more thresholds; or specification of the value itself for the forecasted event (e.g., the observed temperature compared to a forecast of 85 degrees Fahrenheit). These forecast types determined how the verification statistics were calculated. But how are probabilistic datasets handled? When there is an uncertainty value attached to a meteorological event, what statistical measures can be used?
 
 A common method to avoid dealing directly with probabilities is to convert forecasts from probabilistic space into deterministic space using a threshold. Consider an example rainfall forecast where the original forecast field is issued in tens values of probability (0%, 10%, 20% ... 80%, 90%, 100%). This could be converted to a deterministic forecast by establishing a threshold such as “the probability of rainfall will exceed 60%”. This threshold sets up a binary forecast (probabilities at or below 60% are “no” and probabilities above 60% are “yes”) and two separate observation categories (rain was observed or rain did not occur) that all of the occurrences and non-occurrences can be placed in. While the ability to access :ref:`categorical statistics and scores <verif_stat_bin_cat_fcst>` is an obvious benefit to this approach, there are clear drawbacks to this method. The loss of probability information tied to the particular forecast value removes an immensely useful aspect of the forecast. As discussed previously, the general public may desire probability space information to make their own decisions: after all, what if someone’s tolerance for rainfall is lower than the 60% threshold used to calculate the statistics (e.g., the probability of rainfall will exceed 30%)?
 
@@ -1470,7 +1469,7 @@ Through substitutions, BS can be decomposed into three terms that describe the r
 
    \text{BS} = \frac{1}{n}\sum_{k=1}^{K} n_k (p_k - \bar{o}_k)^2 - \frac{1}{n}\sum_{k=1}^{K} n_k (\bar{o}_k - \bar{o})^2 + \bar{o}(1 - \bar{o})
 
-where the three terms are reliability, resolution, and uncertainty, respectively. Here the forecasts are grouped into K probabilistic bins: nk is the count of probabilistic forecasts that fall into bin k, pk is the forecast probability for bin k, ōk is the observed relative frequency of the event for the forecasts in bin k, and ō is the observed relative frequency of the event over all *n* forecasts. :ref:`See how to use this statistic in METplus <METplus_sol_prob_fcst_verif>`!
+where the three terms are reliability, resolution, and uncertainty, respectively. Here the forecasts are grouped into K probabilistic bins: nk is the count of probabilistic forecasts that fall into bin k, pk is the forecast probability for bin k, ōk is the observed relative frequency of the event for the forecasts in bin k, and ō is the observed relative frequency of the event over all *n* forecasts. :ref:`See how to use this statistic in METplus! <METplus_sol_prob_fcst_verif>`
 
 **RANKED PROBABILITY SCORE**
 
@@ -1480,7 +1479,7 @@ A second statistical score to use for probabilistic forecasts is the Ranked Prob
 
    \text{RPS} = \frac{1}{M - 1}\sum_{m=1}^{M} \left[\left(\sum_{i=1}^{m} p_i\right) - \left(\sum_{i=1}^{m} o_i\right)\right]^2
 
-Note how RPS reduces to BS when there are only two forecast categories evaluated. In the equation, M denotes the number of categories the forecast is divided into. The 1/(M - 1) factor matches how MET computes RPS (as the mean of the Brier scores for each of the M - 1 category thresholds), although the RPS equation in the MET User’s Guide Appendix is written without it. Because of the squared error usage, RPS is negatively oriented with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. :ref:`See how to use this statistic in METplus <METplus_sol_prob_fcst_verif>`!
+Note how RPS reduces to BS when there are only two forecast categories evaluated. In the equation, M denotes the number of categories the forecast is divided into. The 1/(M - 1) factor matches how MET computes RPS (as the mean of the Brier scores for each of the M - 1 category thresholds), although the RPS equation in the MET User’s Guide Appendix is written without it. Because of the squared error usage, RPS is negatively oriented with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. :ref:`See how to use this statistic in METplus! <METplus_sol_prob_fcst_verif>`
 
 **CONTINUOUS RANKED PROBABILITY SCORE**
 
@@ -1492,7 +1491,7 @@ Similar to the RPS’s approach to provide a probabilistic evaluation of multica
 
 In this equation we use μ and σ to denote the mean and standard deviation of the forecasts, respectively, y to denote the observed value, :math:`\Phi` to represent the cumulative distribution function (CDF) and :math:`\phi` to represent the probability density function (PDF) of the standard normal distribution. If you’ve previously evaluated meteorological forecasts, you know that the assumption that the dataset can be described by a Gaussian distribution is not always correct. Temperature and pressure variable fields, among others, can usually take advantage of this CRPS definition as they often are well fitted by a Gaussian distribution. But other important meteorological fields, such as precipitation, do not. Using statistics that are created with an incorrect assumption will produce, at best, misleading results. Be sure that your dataset follows a Gaussian distribution before relying on the above definition of CRPS!
 
-The CRPS is negatively oriented with a 0 indicating perfect accuracy. It has no upper bound and is in the units of the forecast variable; for a deterministic forecast, CRPS reduces to the mean absolute error (MAE). :ref:`See how to use this statistic in METplus <METplus_sol_prob_fcst_verif>`!
+The CRPS is negatively oriented with a 0 indicating perfect accuracy. It has no upper bound and is in the units of the forecast variable; for a deterministic forecast, CRPS reduces to the mean absolute error (MAE). :ref:`See how to use this statistic in METplus! <METplus_sol_prob_fcst_verif>`
 
 Probabilistic Skill Scores
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1532,7 +1531,9 @@ MET requires users to provide three conditions for probabilistic forecasts. The 
 
 The second condition is the thresholds to evaluate the probabilistic forecasts across. Essentially this is where METplus turns the forecast probabilities into a binned, categorical evaluation. At its most basic usage in a MET configuration file, this looks like
 
-cat_thresh = ==0.1; 
+.. code-block:: text
+
+   cat_thresh = ==0.1;
 
 which would create 10 bins of equal width. Users have multiple options for setting this threshold and should review `this section of the User’s Guide for more information <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#fcst>`_. It’s important to note that when it comes to evaluating a statistic like BS, METplus does not actually use the forecasts’ probability value; instead, it will use the midpoint of the bin width between the thresholds for the probabilistic forecasts. To understand what this looks like in METplus, let's use the previous example where 10 bins of equal width were created. When calculating BS, METplus will evaluate the first probability bin as 0.05, the midway point between the first bin (0.0 to 0.1). The next probability value would be 0.15 (the midway point between 0.1 and 0.2), and so on. MET utilizes an equation of BS that is `described in more detail in the MET Appendix <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#brier-score>`_ which evaluates to the same result as the BS equation provided in the :ref:`Verification Statistics for Probabilistic Forecasts section <verif_stat_prob_fcst>` of this guide if the midpoints of the bins are used as the probability forecast values. All of this is to stress that a proper selection of bin width (and the accompanying mid-point of those bins) will ultimately determine how meaningful your resulting BS value is; after all, what would the result be if the midpoint of a bin was 0.1 and many of the forecasts values were 0.1? What contingency table bin will they count towards?
 
@@ -1600,7 +1601,7 @@ Starting with the `general Gen-Ens-Prod configuration file <https://github.com/d
      ];
    }
 
-We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP at 2 meters above ground). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ or get a hands-on experience with the tool in :ref:`the METplus online tutorial. <MET_tool_Gen-Ens-Prod>` 
+We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP at 2 meters above ground). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ or get a hands-on experience with the tool in :ref:`the METplus online tutorial <MET_tool_Gen-Ens-Prod>`. 
 
 Let’s also utilize the regrid dictionary, since we are only interested in CONUS and the model output is global:
 
@@ -1659,7 +1660,7 @@ Now for the actual verification and statistical generation we turn to Grid-Stat.
       ];
    }
 
-In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using “==0.1” means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from :ref:`previous discussion on how MET evaluates probabilities <METplus_sol_prob_fcst_verif>` that MET will use the midpoints of each of these bins to evaluate the forecast. Note that with only 5 ensemble members, the forecast probabilities can only be 0, 0.2, 0.4, 0.6, 0.8, or 1.0, so the forecast data probabilistic resolution is 0.2 and only six of these bins will contain forecasts. MET will evaluate those forecasts at the bin midpoints (0.05, 0.25, 0.45, 0.65, 0.85, and 0.95) rather than at their actual probability values. 
+In this example we see the name of the variable field from the Gen-Ens-Prod tool’s netCDF output file, TMP_Z2_ENS_FREQ_gt10, set as the forecast field name. The prob setting informs MET to process the field as probabilistic data, which requires an appropriate categorical threshold creation. Using ``==0.1`` means MET will create 10 bins from 0 to 1, each with a width of 0.1. Recall from :ref:`previous discussion on how MET evaluates probabilities <METplus_sol_prob_fcst_verif>` that MET will use the midpoints of each of these bins to evaluate the forecast. Note that with only 5 ensemble members, the forecast probabilities can only be 0, 0.2, 0.4, 0.6, 0.8, or 1.0, so the forecast data probabilistic resolution is 0.2 and only six of these bins will contain forecasts. MET will evaluate those forecasts at the bin midpoints (0.05, 0.25, 0.45, 0.65, 0.85, and 0.95) rather than at their actual probability values. 
 
 Now let’s look at a possible setup for the obs dictionary:
 
