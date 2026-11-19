@@ -1438,21 +1438,23 @@ The final configuration files are found in **${METPLUS_TUTORIAL_DIR}/output/Grid
 End of Session 1 and Additional Exercises
 -----------------------------------------
 
+**End of Session 1**
+
 Congratulations! You have completed Session 1!
 
 If you have extra time, you may want to try these additional MET exercises:
 
-* Run Gen-Vx-Mask to create a mask for Eastern or Western United States using the polyline files in the data/poly directory. Re-run Grid-Stat using the output of Gen-Vx-Mask.
+* Run Gen-Vx-Mask to create a mask for Eastern or Western United States using the polyline files in the **data/poly** directory. Re-run Grid-Stat using the output of Gen-Vx-Mask.
 * Run Gen-Vx-Mask to exercise all the other masking types available.
-* Reconfigure and re-run Grid-Stat with the distance-map (dmap) dictionary defined, the dmap output line type enabled, and the distance_map flag is "TRUE" in the nc_pairs_flag dictionary.
+* Reconfigure and re-run Grid-Stat with the distance-map **(dmap)** dictionary defined, the **dmap** output line type enabled, and the **distance_map** flag is "TRUE" in the **nc_pairs_flag** dictionary.
 
 If you have extra time, you may want to try these additional METplus exercises. The answers are found on the next page.
 
-EXERCISE 1.1: Run a Model_Application Use-Case
+**EXERCISE 1.1: Run a Model_Application Use-Case**
 
-Instructions:
+**Instructions:**
 
-Explore the types of model_applications available
+1. **Explore the types of model_applications available**
 
 .. code-block::
 
@@ -1462,11 +1464,11 @@ You will see many subdirectories with multiple files ending in .conf. The naming
 
 .. note::
 
-  e.g. ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf
-  is running Grid-Stat on GFS forecasts and GFS analysis files and using NCEP climatology to compute statistics for multiple fields.
+  | e.g. ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf
+  | is running Grid-Stat on GFS forecasts and GFS analysis files and using NCEP climatology to compute statistics for multiple fields.
 
 
-Review the configuration file.
+2. **Review the configuration file.**
 
 Note how the use of BOTH to specify the forecast field and observation/analysis field are configured the same. Also note how there are 4 fields specified at varying levels, which will result in evaluation of 10 unique fields.
 
@@ -1487,7 +1489,7 @@ Note how the use of BOTH to specify the forecast field and observation/analysis 
       BOTH_VAR4_NAME = PRMSL
       BOTH_VAR4_LEVELS = Z0
 
-Run run_metplus.py on this use-case
+3. **Run run_metplus.py on this use-case**
 
 .. code-block::
 
@@ -1496,23 +1498,23 @@ Run run_metplus.py on this use-case
   ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
   config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/GridStat_climo
 
-Inspect the output. Note metplus_final.conf indicates the subdirectories under ${METPLUS_TUTORIAL_DIR} where the data were written out.
+4. **Inspect the output. Note metplus_final.conf indicates the subdirectories under ${METPLUS_TUTORIAL_DIR} where the data were written out.**
 
 .. code-block::
 
   ls ${METPLUS_TUTORIAL_DIR}/output/GridStat_climo
 
-EXERCISE 1.2: Add_RH - Add another field to grid_stat
+**EXERCISE 1.2: Add_RH - Add another field to grid_stat**
 
-Instructions: Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
+**Instructions:** Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
 
-Copy the GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf configuration file and rename it to GridStat_add_rh.conf for this exercise.
+1. **Copy the GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf configuration file and rename it to GridStat_add_rh.conf for this exercise.**
 
 .. code-block::
 
   cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf ${METPLUS_TUTORIAL_DIR}/user_config/GridStat_add_rh.conf
 
-Open GridStat_add_rh.conf with an editor and add the extra information.
+2. **Open GridStat_add_rh.conf with an editor and add the extra information.**
 
 .. code-block::
 
@@ -1524,9 +1526,9 @@ Open GridStat_add_rh.conf with an editor and add the extra information.
 
 .. note::
 
-  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following:  GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
+  Hint: Since the RH data has no climatology, you must also add an additional output line type.  Both of the specified output line types (SAL1L2 and VAL1L2) require climatology.  An example of an additional output line type is to add the following: ``GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT``
 
-Rerun METplus passing in your new custom config file for this exercise
+3. **Rerun METplus passing in your new custom config file for this exercise**
 
 .. code-block::
 
@@ -1545,39 +1547,41 @@ Look for:
 
 .. note::
 
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 1: Regridding field RH/P250 to the verification grid.
-  DEBUG 1: Regridding field RH/P250 to the verification grid.
-  DEBUG 2:
-  DEBUG 2: --------------------------------------------------------------------------------
-  DEBUG 2:
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-  DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
-  DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   .. code-block:: text
+
+      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 1: Regridding field RH/P250 to the verification grid.
+      DEBUG 1: Regridding field RH/P250 to the verification grid.
+      DEBUG 2:
+      DEBUG 2: --------------------------------------------------------------------------------
+      DEBUG 2:
+      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
 
 Navigate to the next page for the solution to see if you were right!
 
-EXERCISE 1.3: log_boost - Change the Logging Settings
+**EXERCISE 1.3: log_boost - Change the Logging Settings**
 
-Instructions: Modify the METplus configuration files to change the logging settings to see what is available.
+**Instructions:** Modify the METplus configuration files to change the logging settings to see what is available.
 
-Copy the tutorial.conf file to create a new custom configuration file and name it tutorial_logging.conf for this exercise.
+1. **Copy the tutorial.conf file to create a new custom configuration file and name it tutorial_logging.conf for this exercise.**
 
 .. code-block::
 
@@ -1587,12 +1591,14 @@ Set OUTPUT_BASE to a new location so you can keep it separate from the other run
 
 .. note::
 
-  [config]
-  OUTPUT_BASE = {ENV[METPLUS_TUTORIAL_DIR]}/output/exercises/log_boost
+   .. code-block:: text
+
+      [config]
+      OUTPUT_BASE = {ENV[METPLUS_TUTORIAL_DIR]}/output/exercises/log_boost
 
 The sections at the bottom of this page describe different logging configurations you can change. Play around with changing these settings and see how it affects the log output. You can refer to ${METPLUS_BUILD_BASE}/parm/metplus_config/defaults.conf to see all possible configurations that affect logging.
 
-Rerun the GridStat.conf use case passing in your new custom config file
+2. **Rerun the GridStat.conf use case passing in your new custom config file**
 
 .. code-block::
 
@@ -1600,7 +1606,7 @@ Rerun the GridStat.conf use case passing in your new custom config file
   ${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf \
   ${METPLUS_TUTORIAL_DIR}/user_config/tutorial_logging.conf
 
-Review the log output to see how things have changed from these settings
+3. **Review the log output to see how things have changed from these settings**
 
 .. code-block::
 
@@ -1617,10 +1623,12 @@ Setting [config] LOG_MET_OUTPUT_TO_METPLUS to no will create a separate log file
 
 .. note::
 
-  [config]
-  LOG_MET_OUTPUT_TO_METPLUS = no
+   .. code-block:: text
 
-For this use case, two log files will be created: metplus.log.YYYYMMDDHHMMSS and grid_stat.log.YYYYMMDDHHMMSS. If you don't see two files, make sure you put the LOG_MET_OUTPUT_TO_METPLUS setting AFTER a line with [config] on it.
+      [config]
+      LOG_MET_OUTPUT_TO_METPLUS = no
+
+For this use case, two log files will be created: metplus.log.YYYYMMDDHHMMSS and grid_stat.log.YYYYMMDDHHMMSS. If you don't see two files, make sure you put the **LOG_MET_OUTPUT_TO_METPLUS** setting **AFTER** a line with **[config]** on it.
 
 **INCREASE LOG OUTPUT LEVEL FOR MET APPLICATIONS**
 
@@ -1628,15 +1636,19 @@ Setting [config] LOG_MET_VERBOSITY to a number between 1 and 10 will change the 
 
 .. note::
 
-  [config]
-  LOG_MET_VERBOSITY = 3
+   .. code-block:: text
+
+      [config]
+      LOG_MET_VERBOSITY = 3
 
 You can also set [config] LOG_GRID_STAT_VERBOSITY to change the logging level for the GridStat log only. If set, the wrapper-specific value takes precedence over the generic LOG_MET_VERBOSITY value.
 
 .. note::
 
-  [config]
-  LOG_GRID_STAT_VERBOSITY = 5
+   .. code-block:: text
+
+      [config]
+      LOG_GRID_STAT_VERBOSITY = 5
 
 **INCREASE LOG OUTPUT LEVEL FOR METPLUS WRAPPERS**
 
@@ -1644,8 +1656,10 @@ Setting [config] LOG_LEVEL will change the logging level for the METplus logs. V
 
 .. note::
 
-  [config]
-  LOG_LEVEL = DEBUG
+   .. code-block:: text
+
+      [config]
+      LOG_LEVEL = DEBUG
 
 .. note::
 
@@ -1657,8 +1671,10 @@ Setting LOG_TIMESTAMP_TEMPLATE to %Y%m%d will remove hours, minutes, and seconds
 
 .. note::
 
-  [config]
-  LOG_TIMESTAMP_TEMPLATE = %Y%m%d
+   .. code-block:: text
+
+      [config]
+      LOG_TIMESTAMP_TEMPLATE = %Y%m%d
 
 For this use case, the log files will have the format: metplus.log.YYYYMMDD
 
@@ -1668,14 +1684,16 @@ Setting LOG_TIMESTAMP_USE_DATATIME to yes will use the first time of your data i
 
 .. note::
 
-  [config]
-  LOG_TIMESTAMP_USE_DATATIME = yes
+   .. code-block:: text
+
+      [config]
+      LOG_TIMESTAMP_USE_DATATIME = yes
 
 For this use case, INIT_BEG = 2005080700, so the log files will have the format: metplus.log.20050807 instead of using today's date (if LOG_TIMESTAMP_TEMPLATE = %Y%m%d)
 
-EXERCISE 1.4: Set Timing Control and Filename Templates to Find Files
+**EXERCISE 1.4: Set Timing Control and Filename Templates to Find Files**
 
-Instructions: Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
+**Instructions:** Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
 
 **FILE PATHS**
 
@@ -1714,7 +1732,7 @@ Instructions: Review the list of file paths and configure a Example wrapper use 
   * The forecast lead hour in the file names contain 3 digits. Use **%3H** as the format (**fmt**) to force at least 3 digits.
   * Refer to another use case configuration file or the METplus User's Guide if needed.
 
-2. Run the use case and verify that the results are as expected.
+2. **Run the use case and verify that the results are as expected.**
 
 .. code-block::
 
@@ -1729,10 +1747,11 @@ Answers to Exercises from Session 1
 
 These are the answers to the exercises from the previous page. Feel free to ask a MET representative if you have any questions!
 
-ANSWER 1.2: add_rh - Add another field to grid_stat
+**ANSWER 1.2: add_rh - Add another field to grid_stat**
 
-Instructions: Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
-Answer: In the GridStat_add_rh.conf param file, add the following variables to the [config] section.
+**Instructions:** Modify the METplus configuration files to add relative humidity (RH) at pressure levels 500 and 250 (P500 and P250) to the output.
+
+**Answer:** In the GridStat_add_rh.conf param file, add the following variables to the **[config]** section.
 
 .. note::
 
@@ -1747,9 +1766,9 @@ Answer: In the GridStat_add_rh.conf param file, add the following variables to t
 
       GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
 
-ANSWER 1.4: Set Timing Control and Filename Templates to Find Files
+**ANSWER 1.4: Set Timing Control and Filename Templates to Find Files**
 
-Instructions: Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
+**Instructions:** Review the list of file paths and configure a Example wrapper use case to loop over all of the files.
 
 **FILE PATHS (FOR REFERENCE)**
 
@@ -1766,18 +1785,23 @@ Instructions: Review the list of file paths and configure a Example wrapper use 
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/12/atmos/gfs.t12z.pgrb2.0p25.f002
 * /scratch1/NCEPDEV/rstprod/com/gfs/prod/gfs.20220112/12/atmos/gfs.t12z.pgrb2.0p25.f003
 
-Answer: The configuration file you created should look something like this:
+**Answer:** The configuration file you created should look something like this:
 
 .. code-block::
 
   [config]
+
   PROCESS_LIST = Example
+
   LOOP_BY = INIT
+
   INIT_TIME_FMT = %Y%m%d%H
   INIT_BEG = 2022011200
   INIT_END = 2022011212
   INIT_INCREMENT = 6H
+
   LEAD_SEQ = 0,1,2,3
+
   EXAMPLE_INPUT_DIR = /scratch1/NCEPDEV/rstprod/com/gfs/prod
   EXAMPLE_INPUT_TEMPLATE = gfs.{init?fmt=%Y%m%d}/{init?fmt=%H}/atmos/gfs.t{init?fmt=%H}z.pgrb2.0p25.f{lead?fmt=%3H}
 
