@@ -8,7 +8,7 @@ During this practical session, you will run the tools indicated below:
 .. figure:: ../figure/5.0_Practical_Session_4.png
    :alt: MET tool workflow highlighting the tools used in Session 4.
 
-Since you already set up your runtime enviroment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
+Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment Is Set Correctly**
 
@@ -229,7 +229,7 @@ For this tutorial, we'll configure Gen-Ens-Prod to create ensemble products for 
       ];
       }
 
-Setting **ens_thresh** at 0.5 allows half of the ensemble member files being passed at runtime to contain invalid data and before GenEnsProd quits with an error. Similarly, **vld_thresh** at 0.5 allows each grid point to have invalid data for half of the ensemble member files passed at runtime and still compute the requested products for that grid point.
+Setting **ens_thresh** at 0.5 allows half of the ensemble member files being passed at runtime to contain invalid data before GenEnsProd quits with an error. Similarly, **vld_thresh** at 0.5 allows each grid point to have invalid data for half of the ensemble member files passed at runtime and still compute the requested products for that grid point.
 
 .. note::
 
@@ -385,7 +385,7 @@ View the usage statement for Ensemble-Stat by simply typing the following:
 
    ensemble_stat
 
-At a minimum, the input gridded ensemble files and the configuration **config_file** must be passed in on the command line. You can specify the list of ensemble files to be used either as a count of the number of ensemble members followed by the file name for each (**n_ens ens_fil e_1 ... ens_file_n**) or as an ASCII file containing the names of the ensemble files to be used (**ens_file_list**). Choose whichever way is most convenient for you. The optional **-grid_obs** and **-point_obs** command line options may be used to specify gridded and/or point observations to be used for computing rank histograms and other ensemble statistics.
+At a minimum, the input gridded ensemble files and the configuration **config_file** must be passed in on the command line. You can specify the list of ensemble files to be used either as a count of the number of ensemble members followed by the file name for each (**n_ens ens_file_1 ... ens_file_n**) or as an ASCII file containing the names of the ensemble files to be used (**ens_file_list**). Choose whichever way is most convenient for you. The optional **-grid_obs** and **-point_obs** command line options may be used to specify gridded and/or point observations to be used for computing rank histograms and other ensemble statistics.
 
 As with the other MET statistics tools, all ensemble data and gridded verifying observations must be interpolated to a common grid prior to processing. This may be done using the automated **regrid** feature in the Ensemble-Stat configuration file or by running copygb and/or wgrib2 first.
 
@@ -419,7 +419,7 @@ The behavior of Ensemble-Stat is controlled by the contents of the configuration
 
    vi EnsembleStatConfig_tutorial
 
-The configurable items for Ensemble-Stat are similar to those found in Grid-Stat and Point-Stat: forecast and observation dictionaries read in the the ensemble and observation fields, respectively, while the remaining dictionaries and options control the computed statistics and the area over which those statistics are calculated.
+The configurable items for Ensemble-Stat are similar to those found in Grid-Stat and Point-Stat: forecast and observation dictionaries read in the ensemble and observation fields, respectively, while the remaining dictionaries and options control the computed statistics and the area over which those statistics are calculated.
 
 .. important::
 
@@ -536,24 +536,24 @@ The output from Ensemble-Stat is one or more ASCII files containing statistics s
 
 All of the line types are written to the file ending in **.stat**. The Ensemble-Stat tool currently writes 12 output line types: **ECNT**, **RPS**, **RHIST**, **PHIST**, **RELP**, **SSVAR**, **PCT**, **PSTD**, **PJC**, **PRC**, **ECLV**, and **ORANK**.
 
-#. The **ECNT** line type contains contains continuous ensemble statistics such as spread and skill. Ensemble-Stat uses assumed observation errors to compute both perturbed and unperturbed versions of these statistics. Statistics to which observation error have been applied can be found in columns which include the **_OERR** (for observation error) suffix.
+#. The **ECNT** line type contains continuous ensemble statistics such as spread and skill. Ensemble-Stat uses assumed observation errors to compute both perturbed and unperturbed versions of these statistics. Statistics to which observation error have been applied can be found in columns which include the **_OERR** (for observation error) suffix.
 #. The **RPS** line type contains the Ranked Probability Score, as well as the number of ensembles that were used to calculate the score, the Ranked Probability Skill Score, and the Ranked Probability Score decomposed into its terms of reliability, resolution, and uncertainty.
 #. The **RHIST** line type contains counts for a ranked histogram. This ranks each observation value relative to ensemble member values. Ideally, observation values would fall equally across all available ranks, yielding a flat rank histogram. In practice, ensembles are often under-(U shape) or over-(inverted U shape) dispersive. In the event of ties, ranks are randomly assigned.
 #. The **PHIST** line type contains counts for a probability integral transform histogram. This scales the observation ranks to a range of values between 0 and 1 and allows ensembles of different size to be compared. Similarly, when ensemble members drop out, RHIST lines cannot be aggregated together but PHIST lines can.
 #. The **RELP** line is the relative position, which indicates how often each ensemble member's value was closest to the observation's value. In the event of ties, credit is divided equally among the tied members.
 #. The **PCT** line type contains the contingency table counts for probabilistic forecasts.
 #. The **PSTD** line type is the probabilistic statistics for dichotomous outcomes for derived ensemble relative frequencies.
-#. The **PJC** line type contains joint and conditional factorization for derived ensemble relative frequencies
-#. The **PRC** line type has the receiver operating characteristic for derived ensemble relative frequencies
-#. The **ECLV** line type  is the economic cost/loss relative value for derived ensemble relative frequencies
+#. The **PJC** line type contains joint and conditional factorization for derived ensemble relative frequencies.
+#. The **PRC** line type has the receiver operating characteristic for derived ensemble relative frequencies.
+#. The **ECLV** line type is the economic cost/loss relative value for derived ensemble relative frequencies.
 #. The **ORANK** line type is similar to the matched pair (**MPR**) output of Point-Stat. For each *point* observation value, one ORANK line is written out containing the observation value, its rank, and the corresponding ensemble values for that point. When verifying against a *gridded* analysis, the ranks can be written to the NetCDF output file.
-#. The **SSVAR** line contains binned spread/skill information. For each observation location, the ensemble variance is computed at that point. Those variance values are binned based on the **ens_ssvar_bin_size** configuration setting. The skill is determined by comparing the ensemble mean value to the observation value. One **SSVAR** line is written for each bin summarizing the all the observation/ensemble mean pairs that it contains.
+#. The **SSVAR** line contains binned spread/skill information. For each observation location, the ensemble variance is computed at that point. Those variance values are binned based on the **ens_ssvar_bin_size** configuration setting. The skill is determined by comparing the ensemble mean value to the observation value. One **SSVAR** line is written for each bin summarizing all the observation/ensemble mean pairs that it contains.
 
 The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.txt**, **_phist.txt**, **_orank.txt**, **_ssvar.txt**, and **_relp.txt** files contain the same data but sorted by line type. Since so much data can be written for the ORANK line type, we recommend disabling the output of the optional text file using the **output_flag** parameter in the configuration file.
 
 .. important::
 
-   Since the lines of data in these ASCII file are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way.
+   Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way.
 
 .. note::
 
@@ -563,7 +563,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 
    vi ensemble_stat_20100101_120000V_rhist.txt
 
-* There are 6 lines in this output file resulting from using 3 verification regions in the **VX_MASK** column (**FULL**, **NWC**, and **SWC**) and two observations datasets in the **OBTYPE** column (ADPSFC point observations and gridded observations).
+* There are 6 lines in this output file resulting from using 3 verification regions in the **VX_MASK** column (**FULL**, **NWC**, and **SWC**) and two observation datasets in the **OBTYPE** column (ADPSFC point observations and gridded observations).
 * Each line contains columns for the total number of observations (TOTAL), the number of ranks (N_RANK), and the counts for each observation rank (``RANK_#``). Ensemble statistics such as CRPS, CRPSS, IGN, and SPREAD are found in the ECNT line type instead.
 * There is output for 7 ranks - since we verified a 6-member ensemble, there are 7 possible ranks the observation values could attain.
 
@@ -575,7 +575,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 
    vi ensemble_stat_20100101_120000V_phist.txt
 
-* There are 5 lines in this output file resulting from using 3 verification regions (**FULL**, **NWC**, and **SWC**) and two observations datasets (ADPSFC point observations and gridded observations), where the ADPSFC point observations for the SWC region were all zeros for which the probability integral transform is not defined.
+* There are 5 lines in this output file resulting from using 3 verification regions (**FULL**, **NWC**, and **SWC**) and two observation datasets (ADPSFC point observations and gridded observations), where the ADPSFC point observations for the SWC region were all zeros for which the probability integral transform is not defined.
 * Each line contains columns for the **BIN_SIZE** and counts for each bin. The bin size is set in the configuration file using the **ens_phist_bin_size** field. In this case, it was set to .05, therefore creating 20 bins (1/ens_phist_bin_size).
 
 .. note::
@@ -615,13 +615,13 @@ In **ncview**, the random assignment of tied ranks is evident in areas of zero p
 Feel free to explore using this dataset. Some options to try are:
 
 * Try setting **skip_const = TRUE;** in the config file to discard points where all ensemble members and the observation are tied (i.e. zero precip).  If you want to save it to a different file, make sure you set output_prefix to something meaningful, such as ``"run2"``, or ``"skip-constant"``.
-* Try setting **obs_thresh = [ >0.01 ];** in the config file to only consider points where the observation meets this threshold. How does this differ from the using skip_const?
+* Try setting **obs_thresh = [ >0.01 ];** in the config file to only consider points where the observation meets this threshold. How does this differ from using skip_const?
 * Use **wgrib** to inventory the input files and add additional entries to the **fcst.field** list. Can you process 10-meter U and V wind?
 
 METplus Use Case: GenEnsProd and EnsembleStat
 ---------------------------------------------
 
-Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions. We will review a METplus use case that calls on both of these tools and see how they interact with and compliment each other.
+Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions. We will review a METplus use case that calls on both of these tools and see how they interact with and complement each other.
 
 .. important::
 
@@ -692,7 +692,7 @@ For the use case that we will be running, three tool wrappers are called: PB2NC,
       ENSEMBLE_STAT_OUTPUT_FLAG_SSVAR = BOTH
       ENSEMBLE_STAT_OUTPUT_FLAG_RELP = BOTH
 
-GenEnsProd, on the other hand, will utilize the **ENS_** configuration settings, and will place all output for each time step into a single netCDF output. Those file's locations and names can be seen with the following configuration settings:
+GenEnsProd, on the other hand, will utilize the **ENS_** configuration settings, and will place all output for each time step into a single netCDF output. Those files' locations and names can be seen with the following configuration settings:
 
 .. admonition:: File Contents
 
@@ -825,7 +825,7 @@ Open the file and look at all of the configuration variables that are defined.
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/short_range/EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf
 
-Note that in this use case, the PB2NC GenEnsProd, and EnsembleStat tools will be called:
+Note that in this use case, the PB2NC, GenEnsProd, and EnsembleStat tools will be called:
 
 .. admonition:: File Contents
 
@@ -962,7 +962,7 @@ The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plan
 
 **REVIEW USE CASE CONFIGURATION FILE**
 
-The configuration file is located in use_cases/model_applications/precipitation and is called **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf**
+The configuration file is located in use_cases/model_applications/precipitation and is called **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf**.
 
 .. note::
 
@@ -1185,7 +1185,7 @@ From the log output found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**:
 
 .. note::
 
-   Rerun METplus passing in your new custom config file for this exercise keeping in mind to order of configuration files matters and the **OUTPUT_BASE** set on the command line will override what is in the tutorial.conf file
+   Rerun METplus passing in your new custom config file for this exercise keeping in mind the order of configuration files matters and the **OUTPUT_BASE** set on the command line will override what is in the tutorial.conf file.
 
 .. code-block:: text
 
@@ -1244,7 +1244,7 @@ To:
 
 **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use six 1 hour accumulation files instead of one 6 hour accumulation file of observation data in the PHPT vs. StageIV GRIB example.
 
-**Answer:** In the **user_config/GridStat-ensemble.input_1hr.conf** file, change the following variable to the **[config]** section:
+**Answer:** In the **user_config/GridStat-ensemble.input_1hr.conf** file, change the following variable in the **[config]** section:
 
 Change:
 
