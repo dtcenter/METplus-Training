@@ -80,9 +80,9 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    echo ${METPLUS_BUILD_BASE}/ush/run_metplus.py
    ls ${METPLUS_BUILD_BASE}/ush/run_metplus.py
 
-If more information is needed see the instructions in the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
+See the instructions in the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` section of the Preliminary Work chapter for more information.
 
-The next section describes how to create your own EC2 instance and is optional
+The next section describes how to create your own EC2 instance and is optional.
 
 .. important::
 
@@ -103,7 +103,7 @@ You can also create your own EC2 instance if you have access to your own AWS acc
 
 .. note::
 
-   Change your region in the upper right corner to Us East (N. Virginia)
+   Change your region in the upper right corner to US East (N. Virginia)
 
 .. note::
 
@@ -159,7 +159,7 @@ Allow SSH traffic from:
 
    from Anywhere to either Custom or MY IP
 
-This will limit access to this EC2 instance from much smaller subset than the entire internet.
+This will limit access to this EC2 instance from a much smaller subset than the entire internet.
 
 .. note::
 
@@ -185,7 +185,7 @@ Something similar to the image below should pop up and your ip address should be
 
 .. note::
 
-   **2.** Navigate to the your EC2 dashboard and look at the running instances
+   **2.** Navigate to your EC2 dashboard and look at the running instances
 
 .. note::
 
