@@ -150,7 +150,7 @@ Histogram
 Overview
 """"""""
 
-The histogram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/histogram directory.  Custom configuration files and sample data are located under the METplotpy/test/histogram directory.
+The histogram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/histogram directory. Custom configuration files and sample data are located under the METplotpy/test/histogram directory.
 
 There are three specialized histogram plots available:
 
@@ -162,16 +162,16 @@ Detailed information about these plots is available from Read the Docs:
 
 `https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html>`_
 
-These instructions are relevant for generating the rank histogram from the command line.  For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
+These instructions are relevant for generating the rank histogram from the command line. For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
-Each histogram plot requires two configuration files, a default and custom configuration file in YAML (https://yaml.org/).  One default configuration file is used for all three histogram plots: *hist_defaults.yaml*.  This default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the hist_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, the custom configuration file must still set at least stat_input and plot_filename, because the default configuration file does not specify the location of the input data or the output plot.   The custom configuration files and sample data are located in the METplotpy/test/histogram directory of the downloaded/cloned source code.
+Each histogram plot requires two configuration files, a default and custom configuration file in YAML (https://yaml.org/). One default configuration file is used for all three histogram plots: *hist_defaults.yaml*. This default configuration file is automatically loaded by the source code. The custom configuration file is useful for overriding the default settings in the hist_defaults.yaml configuration file. If the user chooses to use all the settings in the default configuration file, the custom configuration file must still set at least stat_input and plot_filename, because the default configuration file does not specify the location of the input data or the output plot. The custom configuration files and sample data are located in the METplotpy/test/histogram directory of the downloaded/cloned source code.
 
 Set Up Prerequisites
 """"""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
-METcalcpy is a requirement for METplotpy.  The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code.   These instructions are suitable for users that are not working within a conda environment:
+METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
 .. note::
 
@@ -191,7 +191,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of n
 
 .. note::
 
-   The following instructions are for users who have permission to create, modify, and use conda environments.  Select either Method 1 or Method 2:
+   The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
@@ -320,7 +320,7 @@ Modify custom configuration file:
 
 .. note::
 
-   Open the rank_hist.yaml file in a text editor of your choice.  Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
+   Open the rank_hist.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
 .. admonition:: File Contents
 
@@ -344,7 +344,7 @@ Save and close the rank_hist.yaml file.
 
    python $METPLOTPY_BASE/metplotpy/plots/histogram/rank_hist.py $WORKING_DIR/rank_hist.yaml
 
-In your WORKING_DIR, you will now see a rank_hist.png file.  You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
+In your WORKING_DIR, you will now see a rank_hist.png file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
 
 .. code-block:: text
 
@@ -448,22 +448,22 @@ Wind Rose
 Overview
 """"""""
 
-The wind rose diagram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/wind_rose directory.  Custom configuration files and sample data are located under the METplotpy/test/wind_rose directory.
+The wind rose diagram source code is located in the https://github.com/dtcenter/METplotpy repository, under the METplotpy/metplotpy/plots/wind_rose directory. Custom configuration files and sample data are located under the METplotpy/test/wind_rose directory.
 
 Detailed information about the wind rose diagram is available from Read the Docs:
 
 `https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html>`_
 
-These instructions are relevant for generating the wind rose diagram from the command line.  For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
+These instructions are relevant for generating the wind rose diagram from the command line. For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
-The wind rose diagram requires **two** configuration files, a *default* and *custom* configuration file in YAML (https://yaml.org/).   The default configuration file is automatically loaded by the source code.  The custom configuration file is useful for overriding the default settings in the wind_rose_defaults.yaml configuration file.  If the user chooses to use all the settings in the default configuration file, an empty custom configuration file can be provided (however, the user will have the sample data and output plot located in the directories specified in the default configuration file.  Some users may not have permission to do this) .  The custom configuration files and sample data are located in the METplotpy/test/wind_rose directory of the downloaded/cloned source code.  The default configuration file, wind_rose_defaults.yaml is located in the METplotpy/metplotpy/plots/config directory.
+The wind rose diagram requires **two** configuration files, a *default* and *custom* configuration file in YAML (https://yaml.org/). The default configuration file is automatically loaded by the source code. The custom configuration file is useful for overriding the default settings in the wind_rose_defaults.yaml configuration file. If the user chooses to use all the settings in the default configuration file, an empty custom configuration file can be provided (however, the user will have the sample data and output plot located in the directories specified in the default configuration file. Some users may not have permission to do this) . The custom configuration files and sample data are located in the METplotpy/test/wind_rose directory of the downloaded/cloned source code. The default configuration file, wind_rose_defaults.yaml is located in the METplotpy/metplotpy/plots/config directory.
 
 Set Up Prerequisites
 """"""""""""""""""""
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
 
-METcalcpy is a requirement for METplotpy.  The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code.   These instructions are suitable for users that are not working within a conda environment:
+METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
 .. note::
 
@@ -483,7 +483,7 @@ METcalcpy is a requirement for METplotpy.  The following description is one of n
 
 .. note::
 
-   The following instructions are for users who have permission to create, modify, and use conda environments.  Select either Method 1 or Method 2:
+   The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
@@ -612,7 +612,7 @@ Modify the custom configuration file:
 
 .. note::
 
-   Open the wind_rose_custom.yaml file in a text editor of your choice.  Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
+   Open the wind_rose_custom.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
 .. admonition:: File Contents
 
@@ -638,7 +638,7 @@ Save and close the wind_rose_custom.yaml file.
 
 .. note::
 
-   In your WORKING_DIR, you will now see a wind_rose_custom.png file.  You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
+   In your WORKING_DIR, you will now see a wind_rose_custom.png file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
 
 .. code-block:: text
 
@@ -1337,7 +1337,7 @@ There is only one model in the sample data and event equalization is not needed.
 
 .. note::
 
-   Modify the stat_input setting.  This is the name of the reformatted file. Replace path-to with the full path to the METplus-5.0.0_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
+   Modify the stat_input setting. This is the name of the reformatted file. Replace path-to with the full path to the METplus-5.0.0_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
 
 .. admonition:: File Contents
 
@@ -1382,7 +1382,7 @@ Generate the Line Plot
 
 .. note::
 
-   In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now see a **line.png** file.  You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
+   In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now see a **line.png** file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
 
 .. code-block:: text
 
