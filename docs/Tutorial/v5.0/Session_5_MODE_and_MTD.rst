@@ -212,7 +212,7 @@ The configuration items for MODE are used to specify how the object-based verifi
 
 .. note::
 
-   Close MODEConfig_APCP_12.  Also change the version number in MODEConfig_APCP_24 and MODEConfig_RH.
+   Close MODEConfig_APCP_12. Also change the version number in MODEConfig_APCP_24 and MODEConfig_RH.
 
 We'll start here by running the configuration files we copied over, as-is.
 
@@ -292,7 +292,7 @@ The 4 MODE output files are described briefly below:
 
 .. important::
 
-   If ghostview is not available, use **display** to view the files.  Click on the image to get a command box, then use **File -> Next** to move to the next page of the image.
+   If ghostview is not available, use **display** to view the files. Click on the image to get a command box, then use **File -> Next** to move to the next page of the image.
 
 .. note::
 
@@ -940,7 +940,7 @@ If you look in the data directories for this run, you will see that while the fo
 
    less ${METPLUS_TUTORIAL_DIR}/output/exercises/unzip/stage/file_lists.*/20050807030000_mtd_obs_APCP_03.txt
 
-Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, while the 6 hour file is under ${METPLUS_DATA}.  If you look in the data directories for this run, you will see that the 3 hour observation file is gzipped in ${METPLUS_DATA}.
+Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, while the 6 hour file is under ${METPLUS_DATA}. If you look in the data directories for this run, you will see that the 3 hour observation file is gzipped in ${METPLUS_DATA}.
 
 .. code-block:: text
 
