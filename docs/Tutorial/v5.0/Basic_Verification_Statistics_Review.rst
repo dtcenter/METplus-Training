@@ -126,7 +126,7 @@ contingency table can be utilized to quickly convey the results of multiple
 events that all used the same binary event conditions. An example 
 contingency table is shown here:
 
-.. list-table:: Example Contingency Table
+.. list-table:: Example 2x2 Contingency Table for a Binary Event
   :widths: auto
 
   * -  
@@ -170,7 +170,7 @@ in the forecast is 100%.
 Numerous computationally-easy (and very popular) scalar statistics are within 
 reach without too much manipulation of a contingency table’s counts.
 
-**ACCURACY (ACC)**
+**Accuracy (Acc)**
 
 The scalar attribute of Accuracy is measured as a simple ratio between the 
 forecasts that correctly predicted the event and the total number of occurrences 
@@ -189,7 +189,7 @@ count of correct negatives. Peers were quick to point out that a higher
 Accuracy (98.2%) could have been achieved with a constant forecast of No Tornado! 
 :ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**PROBABILITY OF DETECTION (POD)**
+**Probability of Detection (POD)**
 
 Probability of Detection (POD), also referred to as the Hit Rate, measures the 
 frequency that the forecasts were correct given that the event was 
@@ -205,7 +205,7 @@ will penalize (i.e. go toward 0) the forecasts when there are too many missed
 forecasts. 
 :ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**PROBABILITY OF FALSE DETECTION (POFD)**
+**Probability of False Detection (POFD)**
 
 A countermeasure to POD is the probability of false detection (POFD). 
 POFD (also called false alarm rate), measures the frequency of false alarm 
@@ -217,7 +217,7 @@ Together, POD and POFD measure forecasts’ ability to discriminate between
 occurrences and non-occurrences of the event of interest. 
 :ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**FREQUENCY BIAS (BIAS)**
+**Frequency Bias (Bias)**
 
 Frequency bias (a measure of, you guessed it, bias!) compares the count of “yes” 
 forecasts to the count of “yes” events observed.
@@ -229,7 +229,7 @@ forecasts, but rather is a measure of over- or under-forecasting of the event.
 :ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
 
-**FALSE ALARM RATIO (FAR)**
+**False Alarm Ratio (FAR)**
 
 The False Alarm Ratio (FAR) provides information about both the reliability and 
 resolution attributes of forecasts. It computes the ratio of “yes” forecasts 
@@ -243,7 +243,7 @@ orientation: a FAR of 0 is desirable, while a FAR of 1 shows the worst possible
 ratio of “yes” forecasts that were not observed relative to total “yes” forecasts. 
 :ref:`See how to use this statistic in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**CRITICAL SUCCESS INDEX (CSI)**
+**Critical Success Index (CSI)**
 
 The Critical Success Index (CSI), also commonly known as the Threat Score,
 is a second measure of the overall accuracy of forecasts 
@@ -279,7 +279,7 @@ Gilbert Skill Score (GSS). These measures are described here.
 
 .. _hss-skill-score:
 
-**HEIDKE SKILL SCORE (HSS)**
+**Heidke Skill Score (HSS)**
 
 The HSS measures the proportion correct relative to the expected proportion 
 correct that would be achieved by a “reference” forecast, denoted by C2 
@@ -311,7 +311,7 @@ the hss_ec_value configuration option (by default, 1 divided by the
 number of categories). 
 :ref:`See how to use these skill scores in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**HANSSEN-KUIPERS DISCRIMINANT (HK)**
+**Hanssen-Kuipers Discriminant (HK)**
 
 HK is known by several names, including the Peirce Skill Score and 
 the True Skill Statistic. This score is similar to HSS 
@@ -327,7 +327,7 @@ HK can be similarly affected by infrequent events and is suggested as a
 more useful skill score for frequent events. 
 :ref:`See how to use this skill score in METplus! <METplus-solutions_bin_cat_for_verif>`
 
-**GILBERT SKILL SCORE (GSS)**
+**Gilbert Skill Score (GSS)**
 
 Finally, GSS measures the correspondence between forecasted and observed 
 “yes” events. Sometimes called the Equitable Threat Score (ETS), GSS is 
@@ -370,7 +370,7 @@ interchangeable, the following definitions are provided for clarity:
   are examples of calling METplus wrappers without any underlying 
   MET usage, these are the exception rather than the rule.
 
-**MET SOLUTIONS**
+**MET Solutions**
 
 The MET User’s Guide provides an
 `Appendix that dives into all of the statistical measures that MET calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_.
@@ -418,7 +418,7 @@ the observations and forecasts into two mutually exclusive categories. For more
 information on the available thresholding options, please review 
 `this section of the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#configuration-file-overview>`_.
 
-**METPLUS WRAPPER SOLUTIONS**
+**METplus Wrapper Solutions**
 
 The same statistics that are available in MET are also available with 
 the METplus wrappers. To better understand how MET configuration options 
@@ -533,7 +533,7 @@ the following four columns of the CTC line type are synonymous with
 the contingency table terms, which have their corresponding MET terms 
 provided in this table for your convenience:
 
-.. list-table:: Contingency and MET Table Terms
+.. list-table:: Contingency Table Terms and the Corresponding MET CTC Columns
   :widths: auto
   :header-rows: 1
 
@@ -643,7 +643,7 @@ multiple categories, it will help to look at how the contingency table changes.
 The generalized contingency table for a three category table will look like 
 the following:
 
-.. list-table:: Generalized Contingency Table
+.. list-table:: Generalized Contingency Table for Three Categories
   :widths: auto
 
   * -  
@@ -686,7 +686,7 @@ scenario, forecasts and observations of no precipitation are ignored
 
 The contingency table would look like the following:
 
-.. list-table:: Contingency Table
+.. list-table:: Contingency Table for Rain, Snow, and Ice Pellets
   :widths: auto
 
   * -  
@@ -708,7 +708,7 @@ The contingency table would look like the following:
 
 To extract the scalar attributes for rain, the simplified, 2x2 contingency table would look like this:
 
-.. list-table:: 2x2 Contingency Table
+.. list-table:: 2x2 Contingency Table for Rain
    :widths: auto
 
    * -
@@ -767,7 +767,7 @@ the individual category, certain skill scores are designed to evaluate forecasts
 multiple categories, allowing the skill score to reflect the quality of the entire 
 forecast spectrum.
 
-**HEIDKE SKILL SCORE (HSS)**
+**Heidke Skill Score (HSS)**
 
 HSS has a general form to accommodate multicategory forecasts. While more computationally 
 intense than the 
@@ -787,7 +787,7 @@ table that had an observation of Oi, t(Fi) is the total number of forecasts in c
 t(Oi) is the total number of observations in category i, J is the number of categories, 
 and *n* is the total number of occurrences and non-occurrences.
 
-**HANSSEN-KUIPERS DISCRIMINANT (HK)**
+**Hanssen-Kuipers Discriminant (HK)**
 
 Similarly, HK is generalized to
 
@@ -795,7 +795,7 @@ Similarly, HK is generalized to
 
    HK = \frac{\frac{1}{n}\sum_{i=1}^{J} t(F_i O_i) - \frac{1}{n^2}\sum_{i=1}^{J} t(F_i) t(O_i)}{1 - \frac{1}{n^2}\sum_{i=1}^{J} (t(O_i))^2}
 
-**GERRITY SKILL SCORE**
+**Gerrity Skill Score**
 
 The Gerrity Skill Score is designed specifically for multicategory forecasts. While it 
 is not as easily calculated as HSS and HK, it is useful for demonstrating the ability of 
@@ -882,7 +882,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-**MET SOLUTIONS**
+**MET Solutions**
 
 The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <METplus-solutions_bin_cat_for_verif>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the :ref:`Verification Statistics section for Multicategorical Forecasts <ver_stat_multicat_fcst>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
@@ -891,7 +891,7 @@ The MET User’s Guide provides an `Appendix that dives into statistical measure
 * `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
 * Gerrity
 
-**METPLUS WRAPPER SOLUTIONS**
+**METplus Wrapper Solutions**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
@@ -1027,7 +1027,7 @@ Verification Statistics for Continuous Forecasts
 
 The nature of continuous forecast verification is a direct comparison of the forecast and observed values and measurement of the relationship of those two values over the real number range. We can easily infer that the scalar statistics and skill scores used for these kinds of forecasts will be different from those used for binary and multi-categorical forecasts. In fact many of the statistics that are used as “introductory statistics” are derived for continuous verification along the real number range, as continuous verification is a natural way we look at forecasts (i.e., how close or far the forecast and observed values are from each other).
 
-**MEAN ERRORS**
+**Mean Errors**
 
 The simplest continuous measure is the mean error (ME), which is the average difference between two groups of data. So when you see “error” it is simply a measure of a difference. ME is calculated as
 
@@ -1069,7 +1069,7 @@ The final error statistic to discuss is Root Mean Squared Error (RMSE). One of t
 
 Similar to MSE, RMSE penalizes larger error magnitudes than smaller ones, and like MSE, RMSE provides no information on the sign (positive or negative) of the errors. It has the same range of values as MSE and a perfect forecast score would be an RMSE of zero. :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`
 
-**STANDARD DEVIATIONS**
+**Standard Deviations**
 
 Unlike the family of mean error statistics, standard deviation focuses more on the individual groups of value sources; namely, the forecasts and observations. Standard deviations are a measure of how the variability of the values in a dataset differs from the average of their respective group. So keep in mind the general equation provided below can be applied to both observations and forecasts (and in some cases it may be meaningful to compare the standard deviation of the forecasts to the standard deviation of the observations):
 
@@ -1081,7 +1081,7 @@ where vi is each of the *n* values in the group (the forecasts or the observatio
 
 :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
-**MULTIPLICATIVE BIAS**
+**Multiplicative Bias**
 
 Like some of the other verification statistics for continuous forecasts, multiplicative bias (MBIAS) measures the ratio of the average forecast to the average observation. MBIAS is the ratio between these two averages, calculated using the following formula and has a range of all real numbers:
 
@@ -1091,7 +1091,7 @@ Like some of the other verification statistics for continuous forecasts, multipl
 
 MBIAS has some of the same drawbacks as ME. In particular, MBIAS does not indicate the magnitudes of the forecast errors, which allows a perfect score of 1 to be achieved if the forecast errors compensate for each other (see the example for ME above for more information). It is recommended that any variable fields that utilize MBIAS contain all the same value signs (e.g. positive or negative) as mixing value signs together (for example, temperatures) would result in strange or unusable MBIAS results that included even more value compensation. :ref:`See how to use this statistic in METplus! <METplus_sol_cont_fcst_verif>`
 
-**CORRELATION COEFFICIENTS (PEARSON, SPEARMAN RANK, AND KENDALL'S TAU)**
+**Correlation Coefficients (Pearson, Spearman Rank, and Kendall's Tau)**
 
 Because continuous forecasts and observations exist on the same real value spectrum, measurements of the association of the forecast-observation pairs create a vital foundation for verification statistics. Three measures of correlation (Pearson, Spearman Rank, and Kendall's Tau) measure this relationship in different ways: Pearson measures linear association, while Spearman Rank and Kendall's Tau use ranks to measure monotonic association.
 
@@ -1153,7 +1153,7 @@ Where ti is the number of ranks that are involved in a given tie, and the sum is
 
 where x refers to the forecast ranks and y refers to the observed ranks. Counting the pairs in the table above gives 7 concordant pairs (N_C = 7) and 1 discordant pair (N_D = 1). Using this slightly modified equation, we find a 𝝉b value of 0.67. As 𝝉 has the same range as SP_CORR (-1 to 1), a value of 0.67 shows some positive correlation between the two datasets. MET’s KT_CORR uses this 𝝉b form, which adjusts for ties, although the MET User’s Guide Appendix shows only the first form of 𝝉 above (sometimes called 𝝉a). :ref:`See how to use these statistics in METplus! <METplus_sol_cont_fcst_verif>`
 
-**ANOMALY CORRELATION**
+**Anomaly Correlation**
 
 While similar to the traditional correlation coefficient, anomaly correlation is a somewhat different formulation: rather than directly comparing the pairs of forecast and observation values relative to the respective group averages, as is the case in PR_CORR, anomaly correlation is a measure of the deviations of forecast and observation values from climatological averages. Utilizing this third independent dataset for comparisons highlights any pattern of departures from the climatology, a correspondence of the forecast anomalies to the observed anomalies.
 
@@ -1186,7 +1186,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-**MET SOLUTIONS**
+**MET Solutions**
 
 The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id10>`_, which logically groups together statistics based on continuous variable fields.
 
@@ -1205,7 +1205,7 @@ As for the previous statistics that were discussed, here’s a link to the User�
 * `𝝉 or KT_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#kendall-s-tau-statistic-tau>`_
 * `ANOM_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#anomaly-correlation-coefficient>`_
 
-**METPLUS WRAPPER SOLUTIONS**
+**METplus Wrapper Solutions**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
@@ -1453,7 +1453,7 @@ The forecast types we’ve examined so far focused on dichotomous predictions of
 
 A common method to avoid dealing directly with probabilities is to convert forecasts from probabilistic space into deterministic space using a threshold. Consider an example rainfall forecast where the original forecast field is issued in tens values of probability (0%, 10%, 20% ... 80%, 90%, 100%). This could be converted to a deterministic forecast by establishing a threshold such as “the probability of rainfall will exceed 60%”. This threshold sets up a binary forecast (probabilities at or below 60% are “no” and probabilities above 60% are “yes”) and two separate observation categories (rain was observed or rain did not occur) that all of the occurrences and non-occurrences can be placed in. While the ability to access :ref:`categorical statistics and scores <verif_stat_bin_cat_fcst>` is an obvious benefit to this approach, there are clear drawbacks to this method. The loss of probability information tied to the particular forecast value removes an immensely useful aspect of the forecast. As discussed previously, the general public may desire probability space information to make their own decisions: after all, what if someone’s tolerance for rainfall is lower than the 60% threshold used to calculate the statistics (e.g., the probability of rainfall will exceed 30%)?
 
-**BRIER SCORE**
+**Brier Score**
 
 One popular score for probability forecasts is the Brier Score (BS). Effectively a Mean Squared Error calculation, it is a scalar value of forecast accuracy that conveys the magnitude of the probability errors in the forecast.
 
@@ -1471,7 +1471,7 @@ Through substitutions, BS can be decomposed into three terms that describe the r
 
 where the three terms are reliability, resolution, and uncertainty, respectively. Here the forecasts are grouped into K probabilistic bins: nk is the count of probabilistic forecasts that fall into bin k, pk is the forecast probability for bin k, ōk is the observed relative frequency of the event for the forecasts in bin k, and ō is the observed relative frequency of the event over all *n* forecasts. :ref:`See how to use this statistic in METplus! <METplus_sol_prob_fcst_verif>`
 
-**RANKED PROBABILITY SCORE**
+**Ranked Probability Score**
 
 A second statistical score to use for probabilistic forecasts is the Ranked Probability Score (RPS). This score differs from BS in that it allows the verification of multicategorical probabilistic forecasts where BS strictly pertains to binary probabilistic forecasts. While the RPS formula is based on a squared error at its core (similar to BS), it remains sensitive to the distance between the forecast probability and the observed event space (1 if the event occurred, 0 if it did not) by calculating the squared errors in cumulative probabilistic forecast and observation space. This formulation is represented in the following equation
 
@@ -1481,7 +1481,7 @@ A second statistical score to use for probabilistic forecasts is the Ranked Prob
 
 Note how RPS reduces to BS when there are only two forecast categories evaluated. In the equation, M denotes the number of categories the forecast is divided into. The 1/(M - 1) factor matches how MET computes RPS (as the mean of the Brier scores for each of the M - 1 category thresholds), although the RPS equation in the MET User’s Guide Appendix is written without it. Because of the squared error usage, RPS is negatively oriented with a 0 indicating perfect accuracy and 1 showing complete inaccuracy. :ref:`See how to use this statistic in METplus! <METplus_sol_prob_fcst_verif>`
 
-**CONTINUOUS RANKED PROBABILITY SCORE**
+**Continuous Ranked Probability Score**
 
 Similar to the RPS’s approach to provide a probabilistic evaluation of multicategorical forecasts and the BS formulation as a statistic for binary probabilistic forecasts, the Continuous Ranked Probability Score (CRPS) provides a statistical measure for forecasts in the continuous probabilistic space. Theoretically this is equivalent to evaluating multicategorical forecasts that extend across an infinite number of categories that are infinitesimally small. When it comes to application, the CRPS of an ensemble can be computed exactly from the empirical distribution of its members, which MET reports as CRPS_EMP (along with an adjusted, or fair, version called CRPS_EMP_FAIR). A closed form of CRPS can also be written by assuming a Gaussian (i.e. normal) distribution in the dataset, which MET reports as CRPS, and is presented as
 
@@ -1498,7 +1498,7 @@ Probabilistic Skill Scores
 
 Some of the previously mentioned verification statistics for probabilistic forecasts can be used to compute skill scores that are regularly used. All of these skill scores use the same general equation format of comparing their respective score results to a base or reference forecast, which can be climatology, a “random” forecast, or any other comparison that could provide useful information.
 
-**BRIER SKILL SCORE**
+**Brier Skill Score**
 
 The Brier Skill Score (BSS) measures the relative skill of the forecast compared to a reference forecast. Its equation is simple and follows the general skill score format:
 
@@ -1508,7 +1508,7 @@ The Brier Skill Score (BSS) measures the relative skill of the forecast compared
 
 Compared to the BS equation, the range of values for BSS differs: the range is from negative infinity to 1, with 1 showing a perfect skill and 0 showing no discernable skill compared to a reference forecast. :ref:`See how to use this skill score in METplus! <METplus_sol_prob_fcst_verif>`
 
-**RANKED PROBABILITY SKILL SCORE**
+**Ranked Probability Skill Score**
 
 Similar to the BSS, the Ranked Probability Skill Score (RPSS) follows the general skill score equation formulation, allowing a comparison between a chosen reference forecast and the forecast of interest:
 
@@ -1547,7 +1547,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 * MET serves as the core statistical component that ingests the provided fields and commands to compute user-requested statistics and diagnostics.
 * METplus wrappers is a suite of Python wrappers that provide low-level automation of MET tools and plotting capability. While there are examples of calling METplus wrappers without any underlying MET usage, these are the exception rather than the rule.
 
-**MET SOLUTIONS**
+**MET Solutions**
 
 The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates, as well as the line type it is a part of <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_. Statistics are grouped together by application and type and are available to METplus users in line types. For the probabilistic-related statistics discussed in this section of the tutorial, MET provides the `Contingency Table Counts for Probabilistic forecasts (PCT) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id14>`_, and the `Contingency Table Statistics for Probabilistic forecasts (PSTD) line types <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id15>`_. The PCT line type is critical for checking if the thresholds for the probabilistic forecasts and observations produced contingency table counts that reflect what the user is looking for in probabilistic verification. Remember that these counts are ultimately what determine the statistical values found in the PSTD line type.
 
@@ -1559,7 +1559,7 @@ As for the statistics that were discussed in the Verification Statistics section
 * `BSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#brier-skill-score-bss>`_
 * `CRPSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#crps-skill-score>`_
 
-**METPLUS WRAPPER SOLUTIONS**
+**METplus Wrapper Solutions**
 
 The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
