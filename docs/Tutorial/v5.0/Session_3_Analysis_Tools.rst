@@ -420,11 +420,10 @@ METplus Use Case: StatAnalysis
 
    IMPORTANT NOTE: If you are returning to the tutorial, you must source the tutorial setup script before running the following instructions. If you are unsure if you have done this step, please navigate to the :ref:`Verify Environment is Set Correctly <verif_env_set_correct>` page.
 
-The StatAnalysis use case utilizes the MET Stat-Analysis tool.
+The StatAnalysis use case utilizes the MET *Stat-Analysis* tool.
 
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-
-Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -434,7 +433,7 @@ Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-Review the use case configuration file: StatAnalysis.conf
+1. **Review the use case configuration file: StatAnalysis.conf**
 
 In this use-case, Stat-Analysis is performing a simple filtering job and writing the data out to a .stat file using dump_row.
 
@@ -448,7 +447,7 @@ In this use-case, Stat-Analysis is performing a simple filtering job and writing
 
       STAT_ANALYSIS_JOB1 = -job filter -dump_row [dump_row_file]
 
-Note: Several of the optional variables may be set to further stratify of the results. Lists named in LOOP_LIST_ITEMS are looped over, with a separate run for each item, while lists named in GROUP_LIST_ITEMS are grouped together into a single run.
+Note: Several of the optional variables may be set to further stratify of the results. Lists named in **LOOP_LIST_ITEMS** are looped over, with a separate run for each item, while lists named in **GROUP_LIST_ITEMS** are grouped together into a single run.
 
 .. admonition:: File Contents
 
@@ -474,7 +473,7 @@ Also note: This example uses test output from the grid_stat tool
 
       MODEL1_STAT_ANALYSIS_LOOKIN_DIR = {INPUT_BASE}/met_test/out/grid_stat
 
-Run the use case:
+2. **Run the use case:**
 
 .. code-block:: text
 
@@ -483,7 +482,7 @@ Run the use case:
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/StatAnalysis
 
-Review the output files:
+3. **Review the output files:**
 
 The following output file should been generated:
 
@@ -491,9 +490,11 @@ The following output file should been generated:
 
    vi ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/stat_analysis/12Z/WRF/WRF_2005080712.stat
 
-You will see there are many line types, verification masks, interpolation methods, and thresholds in the filtered file. NOTE: use ":" then "set nowrap" to be able to easily see the full line
+You will see there are many line types, verification masks, interpolation methods, and thresholds in the filtered file. NOTE: use ``:`` then ``set nowrap`` to be able to easily see the full line
+
 A job.out file, set by STAT_ANALYSIS_OUTPUT_TEMPLATE and passed to stat_analysis with the -out argument, is also written to ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/stat_analysis.
-If you look at the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs, you will see the how the Stat-Analysis command is built and what jobs it is processing. If you want to re-run, you can copy the call to stat_analysis and the path to the -lookin file after the "COMMAND:" (excluding the -config argument) and then everything after -job after "DEBUG 2: Processing Job 1:"
+
+If you look at the log file in **${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs**, you will see the how the Stat-Analysis command is built and what jobs it is processing. If you want to re-run, you can copy the call to stat_analysis and the path to the -lookin file after the **COMMAND:** (excluding the -config argument) and then everything after -job after "DEBUG 2: Processing Job 1:"
 
 .. admonition:: Sample Output
 
@@ -508,7 +509,7 @@ If you look at the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis/logs,
       DEBUG 2:
       DEBUG 2: Processing Job 1: -job filter -model WRF -fcst_valid_beg 20050807_120000 -fcst_valid_end 20050807_120000 -fcst_valid_hour 120000 -fcst_init_hour 000000 -fcst_init_hour 120000 -fcst_var TMP -obtype ANALYS -dump_row /d1/personal/jensen/tutorial/METplus-4.0.0_Tutorial/output/StatAnalysis/stat_analysis/12Z/WRF/WRF_2005080712.stat
 
-Copy METplus config file to aggregate statistics, and re-run
+4. **Copy METplus config file to aggregate statistics, and re-run**
 
 .. code-block:: text
 
@@ -547,7 +548,7 @@ Copy METplus config file to aggregate statistics, and re-run
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run2
 
-Review Directory and Log File
+5. **Review Directory and Log File**
 
 .. note::
 
@@ -565,7 +566,7 @@ Which returns something that looks like the following:
 
       logs     metplus_final.conf.YYYYMMDDHHMMSS     tmp
 
-Why is there no stat_analysis directory? Because we removed the -dump_row flag from the STAT_ANALYSIS_JOB1 line and removed the STAT_ANALYSIS_OUTPUT_TEMPLATE value. So did anything happen? The answer is yes. There is a command line option called "-out" controlled by STAT_ANALYSIS_OUTPUT_TEMPLATE which allows a user to define the name of an output filename to capture the aggregation in a file. If the "-out" option is not set, the output is written to the screen as standard output. Let's check the log file in ${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run2/logs to see if the output is captured there.
+Why is there no stat_analysis directory? Because we removed the -dump_row flag from the STAT_ANALYSIS_JOB1 line and removed the STAT_ANALYSIS_OUTPUT_TEMPLATE value. So did anything happen? The answer is yes. There is a command line option called ``-out`` controlled by STAT_ANALYSIS_OUTPUT_TEMPLATE which allows a user to define the name of an output filename to capture the aggregation in a file. If the ``-out`` option is not set, the output is written to the screen as standard output. Let's check the log file in **${METPLUS_TUTORIAL_DIR}/output/StatAnalysis_run2/logs** to see if the output is captured there.
 
 .. note::
 
@@ -584,7 +585,7 @@ Why is there no stat_analysis directory? Because we removed the -dump_row flag f
 
 These is the aggregate statistics computed from the summed CTC lines for the DTC165 and DTC166 masking regions for the threshold >=300. If you scroll down further, you will see the same info but for the threshold <300.
 
-Have output written to .stat file
+6. **Have output written to .stat file**
 
 .. note::
 
@@ -956,9 +957,8 @@ METplus Use Case: SeriesAnalysis
 
 The SeriesAnalysis use case utilizes the MET Series-Analysis tool.
 
-Optional: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-
-Optional: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
