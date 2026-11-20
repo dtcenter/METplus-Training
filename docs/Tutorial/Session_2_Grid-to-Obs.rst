@@ -31,8 +31,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block::
 
-  cd /path/to/METplus-5.0.0_Tutorial
-  source METplus-5.0.0_TutorialSetup.sh
+  cd /path/to/METplus-|metplus_version|_Tutorial
+  source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -171,7 +171,7 @@ Configure
   mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/pb2nc
 
-The behavior of PB2NC is controlled by the contents of the configuration file passed to it on the command line. The default PB2NC configuration may be found in the `data/config/PB2NCConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PB2NCConfig_default>`_ file.
+The behavior of PB2NC is controlled by the contents of the configuration file passed to it on the command line. The default PB2NC configuration may be found in the `data/config/PB2NCConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/PB2NCConfig_default>`_ file.
 
 .. note::
 
@@ -189,7 +189,7 @@ The behavior of PB2NC is controlled by the contents of the configuration file pa
 
   vi PB2NCConfig_tutorial_run1
 
-The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the `pb2nc configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_point.html#pb2nc-configuration-file>`_ section of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ or in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html>`_.
+The configurable items for PB2NC are used to filter out the PrepBufr observations that should be retained or derived. You may find a complete description of the configurable items in the `pb2nc configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/reformat_point.html#pb2nc-configuration-file>`_ section of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ or in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html>`_.
 
 For this tutorial, edit the **PB2NCConfig_tutorial_run1** file as follows:
 
@@ -439,8 +439,8 @@ METplus Use Case: PB2NC
 
 This use case utilizes the MET *PB2NC* tool. 
 
-| **Optional:** Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional:** Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional:** Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional:** Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -694,9 +694,9 @@ This use case utilizes the MET *ASCII2NC* tool to demonstrate Python Embedding. 
 
 The data utilized in this use case are the sample upper-air (ADPUPA) point observations in ASCII format that were used in the ASCII2NC section above.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `MET Users Guide Appendix F: Python Embedding <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixF.html>`_ for details on how Python embedding works for MET tools.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `MET Users Guide Appendix F: Python Embedding <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixF.html>`_ for details on how Python embedding works for MET tools.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -732,7 +732,7 @@ In this use case, *read_ascii_point.py* is used to read the sample upper-air poi
 
   head -3 ${METPLUS_DATA}/met_test/data/sample_obs/ascii/sample_ascii_obs.txt
 
-These data are already in the 11-column format that MET requires, so using Python Embedding is fairly straightforward. If your data do not follow this format, some pre-processing of the data will be required to align your data to the required format. To learn more about what the 11 columns are and what MET expects each column to represent, please reference `this table <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_point.html#table-reformat-point-ascii2nc-format>`_ from the MET users guide.
+These data are already in the 11-column format that MET requires, so using Python Embedding is fairly straightforward. If your data do not follow this format, some pre-processing of the data will be required to align your data to the required format. To learn more about what the 11 columns are and what MET expects each column to represent, please reference `this table <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/reformat_point.html#table-reformat-point-ascii2nc-format>`_ from the MET users guide.
 
 .. note::
 
@@ -918,7 +918,7 @@ Configure
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/point_stat
 
 The behavior of Point-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Point-Stat configuration file may be found in the 
-`data/config/PointStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/PointStatConfig_default>`_ file.
+`data/config/PointStatConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/PointStatConfig_default>`_ file.
 
 The configurable items for Point-Stat are used to specify how the verification is to be performed. The configurable items include specifications for the following:
 
@@ -1137,7 +1137,7 @@ The output of Point-Stat is one or more ASCII files containing statistics summar
 
 * The columns prior to **LINE_TYPE** contain the same data as the previous file we viewed.
 * The **LINE_TYPE** column indicates that these are **CNT** continuous lines.
-* The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the `Point-Stat section <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_ of the **MET User's Guide** for a thorough description of the output.
+* The remaining columns contain continuous statistics derived from the raw forecast/observation pairs. See the CNT OUTPUT FORMAT section in the `Point-Stat section <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html>`_ of the **MET User's Guide** for a thorough description of the output.
 * Again, confidence intervals are given for each of these statistics as described above.
 
 .. note::
@@ -1419,7 +1419,7 @@ The format for the CTC, CTS, and CNT line types are the same. However, the numbe
 
 * The columns prior to **LINE_TYPE** contain header information.
 * The **LINE_TYPE** column indicates that these are **CTS** lines.
-* The remaining columns contain statistics derived from the threshold contingency table counts. See the `point_stat output section <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#point-stat-output>`_ of the MET User's Guide for a thorough description of the output.
+* The remaining columns contain statistics derived from the threshold contingency table counts. See the `point_stat output section <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#point-stat-output>`_ of the MET User's Guide for a thorough description of the output.
 * Confidence intervals are given for each of these statistics, computed using either one or two methods. The columns ending in **_NCL** (normal confidence lower) and **_NCU** (normal confidence upper) give lower and upper confidence limits computed using assumptions of normality. The columns ending in **_BCL** (bootstrap confidence lower) and **_BCU** (bootstrap confidence upper) give lower and upper confidence limits computed using bootstrapping.
 
 .. note::
@@ -1449,8 +1449,8 @@ METplus Use Case: PointStat
 
 This use case utilizes the MET *Point-Stat* tool. 
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1574,8 +1574,8 @@ METplus Use Case: PointStat - Standard Verification of Global Upper Air
 
 This use case utilizes the MET *Point-Stat* tool. 
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -1591,7 +1591,7 @@ This use case utilizes the MET *Point-Stat* tool.
 
 .. note::
 
-  View the `Medium Range Weather application use-case for upper air <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/medium_range/PointStat_fcstGFS_obsGDAS_UpperAir_MultiField_PrepBufr.html#sphx-glr-generated-model-applications-medium-range-pointstat-fcstgfs-obsgdas-upperair-multifield-prepbufr-py>`_ using GDAS PrepBUFR observations, GFS global forecast, and evaluating multiple fields.
+  View the `Medium Range Weather application use-case for upper air <https://metplus.readthedocs.io/en/|metplus_branch|/generated/model_applications/medium_range/PointStat_fcstGFS_obsGDAS_UpperAir_MultiField_PrepBufr.html#sphx-glr-generated-model-applications-medium-range-pointstat-fcstgfs-obsgdas-upperair-multifield-prepbufr-py>`_ using GDAS PrepBUFR observations, GFS global forecast, and evaluating multiple fields.
 
 .. note::
 
@@ -1657,7 +1657,7 @@ This may take a few minutes to run.
 
   less ${METPLUS_TUTORIAL_DIR}/output/PointStat_UpperAir/gdas/point_stat_000000L_20170601_000000V.stat
 
-If you scroll down to the middle of the file, you will notice the statistics line-type starts alternating from SL1L2 (partial_sums for continuous statistics) to VL1L2 (partial_sums for vector continuous statistics). If you scroll over, you will see that the lines are different lengths. The MET Users' Guide explains what statistics are reported in each line. See `point-stat output <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#point-stat-output>`_ in the MET User's Guide.
+If you scroll down to the middle of the file, you will notice the statistics line-type starts alternating from SL1L2 (partial_sums for continuous statistics) to VL1L2 (partial_sums for vector continuous statistics). If you scroll over, you will see that the lines are different lengths. The MET Users' Guide explains what statistics are reported in each line. See `point-stat output <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#point-stat-output>`_ in the MET User's Guide.
 
 .. admonition:: Sample Output
 
@@ -1762,8 +1762,8 @@ METplus Use Case: PointStat - Standard Verification for CONUS Surface
 
 This use case utilizes the MET *Point-Stat* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 

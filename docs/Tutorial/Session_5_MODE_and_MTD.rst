@@ -26,8 +26,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -102,7 +102,7 @@ MODE, the Method for Object-Based Diagnostic Evaluation, provides an object-base
 * Based on the computed interest values, match objects across fields and merge objects within the same field.
 * Write output statistics summarizing the characteristics of the single objects, the pairs of objects, and the matched/merged objects.
 
-MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
+MODE may be configured to use a few different sets of logic with which to perform matching and merging. In this tutorial, we'll use the most simple approach, but users are encouraged to read the MODE chapter of the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/mode.html>`_ for a more thorough description of MODE's capabilities.
 
 **MODE Usage**
 
@@ -157,7 +157,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/mode
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/mode
 
-The behavior of MODE is controlled by the contents of the configuration file passed to it on the command line. The default MODE configuration file may be found in the `data/config/MODEConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/MODEConfig_default>`_ file.
+The behavior of MODE is controlled by the contents of the configuration file passed to it on the command line. The default MODE configuration file may be found in the `data/config/MODEConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/MODEConfig_default>`_ file.
 
 .. note::
 
@@ -193,11 +193,11 @@ The configuration items for MODE are used to specify how the object-based verifi
 
 .. important::
 
-   While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the `mode configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/mode.html#mode-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+   While the MODE configuration file contains many options, beginning users will typically only need to modify a few of them. You may find a complete description of the configurable items in the `mode configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/mode.html#mode-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
-   At the bottom of MODEConfig_APCP_12, change ``version`` to ``"V11.0"``
+   At the bottom of MODEConfig_APCP_12, change ``version`` to ``"V|metplus_short|"``
 
 .. admonition:: File Contents
 
@@ -206,7 +206,7 @@ The configuration items for MODE are used to specify how the object-based verifi
       ////////////////////////////////////////////////////////////////////////////////
 
       output_prefix = "";
-      version = "V11.0";
+      version = "V|metplus_short|";
 
       ////////////////////////////////////////////////////////////////////////////////
 
@@ -257,10 +257,10 @@ If you receive error output during any of the MODE runs above that looks like th
    .. code-block:: text
 
       ERROR :
-      ERROR : check_met_version() -> The version number listed in the config file (V8.1) is not compatible with the current version of the code (V11.0.0).
+      ERROR : check_met_version() -> The version number listed in the config file (V8.1) is not compatible with the current version of the code (V|metplus_version|).
       ERROR :
 
-You will need to follow the previous instructions and make sure the version is set to V11.0 in all of the configuration files prior to re-running the commands.
+You will need to follow the previous instructions and make sure the version is set to V|metplus_short| in all of the configuration files prior to re-running the commands.
 
 These commands make use of sample data that's distributed with the MET tarball. They run MODE on 12-hour accumulated precipitation, 24-hour accumulated precipitation, and on a field of relative humidity.
 
@@ -325,8 +325,8 @@ METplus Use Case: MODE
 
 The MODE use case utilizes the MET *MODE* tools.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **Review Use Case Configuration File: MODE.conf**
 
@@ -463,7 +463,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/mtd
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/mtd
 
-The behavior of MTD is controlled by the contents of the configuration file passed to it on the command line. The default MTD configuration file may be found in the `data/config/MTDConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/MTDConfig_default>`_ file.
+The behavior of MTD is controlled by the contents of the configuration file passed to it on the command line. The default MTD configuration file may be found in the `data/config/MTDConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/MTDConfig_default>`_ file.
 
 .. note::
 
@@ -680,8 +680,8 @@ METplus Use Case: MTD
 
 The MTD (Mode Time Domain) use case utilizes the MET *MTD* tools.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the **A-Z Config Glossary** section of the `METplus Users Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ for a reference to METplus variables used in this use case.
 
 **Review Use Case Configuration File: MTD.conf**
 
@@ -946,5 +946,5 @@ Notice that the path of the 3 hour file is under your ${METPLUS_TUTORIAL_DIR}, w
 
    ls -1 ${METPLUS_DATA}/met_test/new/ST2*
 
-METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will uncompress them automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See **SCRUB_STAGING_DIR** and **STAGING_DIR** in the `METplus User's Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_).
+METplus can recognize that files with gz, bzip2, or zip extensions are compressed and will uncompress them automatically, placing the uncompressed file in the staging directory so that METplus doesn't modify any data in the input directory. METplus can be configured to scrub the staging directory after the run completes to save space, or leave the files so that they may be used by subsequent METplus runs without having to uncompress again (See **SCRUB_STAGING_DIR** and **STAGING_DIR** in the `METplus User's Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_).
 

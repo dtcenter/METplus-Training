@@ -21,8 +21,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -92,7 +92,7 @@ METplus Use Case: Feature Relative (Series-Analysis by Init)
 
 **Setup**
 
-In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature. The tiles are then used to compute statistics using Series_Analysis. Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers.
+In this exercise, you will perform a series analysis based on the init time of your sample data. This use case focuses on using the latitude and longitude pairs for a "feature", such as a tropical cyclone or extra-tropical cyclone, to identify a user-specified tile around the feature. The tiles are then used to compute statistics using Series_Analysis. Therefore, this use-case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/index.html>`_ for more details about the wrappers.
 
 **Review Use Case Configuration File: TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf**
 
@@ -102,7 +102,7 @@ View the file and study the configuration variables that are defined.
 
    less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/TCStat_SeriesAnalysis_fcstGFS_obsGFS_FeatureRelative_SeriesByInit.conf
 
-Note the configuration settings for this complex use-case. The **PROCESS_LIST** contains 5 items, 2 of which are the same wrapper, TCStat. Since METplus version 4.0.0 was released, users have had the ability to run multiple instances of a given tool using an instance name. The METplus User's Guide describes in detail how to use `Instance Names in the Process List <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_ to configure two or more instances of the same tool with different settings.
+Note the configuration settings for this complex use-case. The **PROCESS_LIST** contains 5 items, 2 of which are the same wrapper, TCStat. Since METplus version 4.0.0 was released, users have had the ability to run multiple instances of a given tool using an instance name. The METplus User's Guide describes in detail how to use `Instance Names in the Process List <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_ to configure two or more instances of the same tool with different settings.
 
 For this example, the **[for_series_analysis]** instance of TCStat, which runs after the initial TCStat instance and an ExtractTiles instance, will inherit all of the settings from the initial TCStat instance. Then, it will override those settings with any of the settings found in the **[for_series_analysis]** section. Looking at the configuration file, we see the following:
 
@@ -272,7 +272,7 @@ METplus Use Case: Feature Relative (Series-Analysis by Lead, by Forecast Hour Gr
 
 **Setup**
 
-In this exercise, you will perform a series analysis based on the lead time (forecast hour) of your sample data and organize your results by forecast hour groupings. This use case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png and .gif images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/index.html>`_ for more details about the wrappers. Please note that the METplus User's Guide is a work-in-progress and may have missing content.
+In this exercise, you will perform a series analysis based on the lead time (forecast hour) of your sample data and organize your results by forecast hour groupings. This use case utilizes the MET Tc-Pairs, Tc-Stat, Regrid-Data-Plane (run by the ExtractTiles wrapper), Series-Analysis, and Plot-Data-Plane tools (plus ImageMagick convert to create the .png and .gif images), and the METplus wrappers: TcPairs, ExtractTiles, TcStat, and SeriesAnalysis. Please refer to the `MET User's Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools and the `METplus Users Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/index.html>`_ for more details about the wrappers. Please note that the METplus User's Guide is a work-in-progress and may have missing content.
 
 Change to the METplus Tutorial Directory:
 

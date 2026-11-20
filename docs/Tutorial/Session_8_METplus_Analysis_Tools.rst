@@ -661,11 +661,11 @@ METreformat Overview
 
 The METreformat Python package was developed to assist in the generation of METplotpy line plots using MET Point-Stat .stat files. METreformat is located in the `METdataio repository <https://github.com/dtcenter/METdataio>`_ and utilizes the METdbLoad package for reading Point-Stat files.
 
-The initial versions of the METviewer tool read MET verification statistics output from a database and created plots using R script for statistics and plotting. METplotpy and METcalcpy Python packages were developed to remove the dependency on R for plotting and statistics. METviewer now utilizes METplotpy Python scripts. The METplotpy plots that are available in METviewer are located in the `/metplotpy/plots <https://github.com/dtcenter/METplotpy/tree/main_v2.0/metplotpy/plots>`_ directory of the METplotpy repository. The METplotpy repository also hosts contributed plots that are not available through the METviewer tool. These plots are located in a different directory in the METplotpy repository.
+The initial versions of the METviewer tool read MET verification statistics output from a database and created plots using R script for statistics and plotting. METplotpy and METcalcpy Python packages were developed to remove the dependency on R for plotting and statistics. METviewer now utilizes METplotpy Python scripts. The METplotpy plots that are available in METviewer are located in the `/metplotpy/plots <https://github.com/dtcenter/METplotpy/tree/|metplus_branch|/metplotpy/plots>`_ directory of the METplotpy repository. The METplotpy repository also hosts contributed plots that are not available through the METviewer tool. These plots are located in a different directory in the METplotpy repository.
 
-METviewer generates plots based on the database "view" of the input data. Reformatting the MET Point-Stat **.stat** files into the same format used by METviewer bypasses the need for METviewer and its database. For additional information about METviewer, please refer to the `METviewer User's Guide <https://metplus.readthedocs.io/projects/metviewer/en/main_v5.1/Users_Guide/index.html>`_.
+METviewer generates plots based on the database "view" of the input data. Reformatting the MET Point-Stat **.stat** files into the same format used by METviewer bypasses the need for METviewer and its database. For additional information about METviewer, please refer to the `METviewer User's Guide <https://metplus.readthedocs.io/projects/metviewer/en/|metplus_branch|/Users_Guide/index.html>`_.
 
-The MET Point-Stat data consists of numerous columns with each statistic represented by a column. The various normal and bootstrap confidence limits are each represented by corresponding columns. Upon inspection of a Point-Stat .stat file, there are numerous columns, many of which may be lacking a column label. For additional information about the line types in MET Point-Stat, please refer to all of the `tables <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id5>`_ in the `MET User's Guide for Point-Stat <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html>`_.
+The MET Point-Stat data consists of numerous columns with each statistic represented by a column. The various normal and bootstrap confidence limits are each represented by corresponding columns. Upon inspection of a Point-Stat .stat file, there are numerous columns, many of which may be lacking a column label. For additional information about the line types in MET Point-Stat, please refer to all of the `tables <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id5>`_ in the `MET User's Guide for Point-Stat <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html>`_.
 
 The METviewer database "view" consists of individual statistics that are collected into the **stat_name** and the **stat_value** columns. The normal and bootstrap confidence levels are collected into one of four columns:
 
@@ -788,7 +788,7 @@ That command should return a path similar to the following example:
 
    .. code-block:: text
 
-      /d1/projects/METplus/METplus_Data.v5.0
+      /d1/projects/METplus/METplus_Data.v|metplus_short|
 
 .. note::
 
@@ -809,7 +809,7 @@ Alternatively, you can open a text file and copy and paste the directory path in
    .. code-block:: text
 
       <load_spec>
-              <folder_tmpl>/d1/projects/METplus/METplus_Data.v5.0/met_reformat/point_stat</folder_tmpl>
+              <folder_tmpl>/d1/projects/METplus/METplus_Data.v|metplus_short|/met_reformat/point_stat</folder_tmpl>
               <verbose>true</verbose>
               <load_val>
                       <field name="met_tool">
@@ -845,7 +845,7 @@ That command should return a path similar to the following example:
 
    .. code-block:: text
 
-      /d1/personal/user/METplus-5.0.0_Tutorial
+      /d1/personal/user/METplus-|metplus_version|_Tutorial
 
 .. note::
 
@@ -863,9 +863,9 @@ That command should return a path similar to the following example:
 
    .. code-block:: text
 
-          output_dir: /d1/personal/user/METplus-5.0.0_Tutorial/metdataio
+          output_dir: /d1/personal/user/METplus-|metplus_version|_Tutorial/metdataio
           output_filename: point_stat_reformatted.txt
-          xml_spec_file: /d1/personal/user/METplus-5.0.0_Tutorial/metdataio/user_config/point_stat.xml
+          xml_spec_file: /d1/personal/user/METplus-|metplus_version|_Tutorial/metdataio/user_config/point_stat.xml
 
 In the above example, the **output_dir** entry of **/path/to/output_dir** was replaced with the full path of the **METPLUS_TUTORIAL_DIR/metdataio**. The **xml_spec_file** entry replaced **/path/to/xml_spec_file/<xml filename>.xml** with the full path of the **METPLUS_TUTORIAL_DIR/metdataio/user_config** along with the **point_stat file name. NOTE: make sure you have one space between the colon (:) and your settings.**
 
@@ -1099,7 +1099,7 @@ That command should return a path similar to the following example:
 
    .. code-block:: text
 
-      /d1/personal/user/METplus-5.0.0_Tutorial/metplotpy/user_config
+      /d1/personal/user/METplus-|metplus_version|_Tutorial/metplotpy/user_config
 
 .. note::
 
@@ -1279,7 +1279,7 @@ There is only one model in the sample data and event equalization is not needed.
 
    .. code-block:: text
 
-      plot_filename: /d1/personal/user/METplus-5.0.0_Tutorial/metplotpy/user_config/line.png
+      plot_filename: /d1/personal/user/METplus-|metplus_version|_Tutorial/metplotpy/user_config/line.png
 
 .. note::
 
@@ -1337,13 +1337,13 @@ There is only one model in the sample data and event equalization is not needed.
 
 .. note::
 
-   Modify the stat_input setting. This is the name of the reformatted file. Replace path-to with the full path to the METplus-5.0.0_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
+   Modify the stat_input setting. This is the name of the reformatted file. Replace path-to with the full path to the METplus-|metplus_version|_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
 
 .. admonition:: File Contents
 
    .. code-block:: text
 
-      stat_input: path-to/METplus-5.0.0_Tutorial/metdataio/point_stat_reformatted.txt
+      stat_input: path-to/METplus-|metplus_version|_Tutorial/metdataio/point_stat_reformatted.txt
 
 .. note::
 

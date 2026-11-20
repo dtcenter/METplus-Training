@@ -19,8 +19,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -108,12 +108,12 @@ A driver script is a python script that differs from the METplus wrappers. This 
 Basic Information on UserScripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#userscript>`_.
+A UserScript generates user defined commands that are run from a METplus configuration file. Running a command from a METplus configuration file (as opposed to using a command line) has added benefits. These include access to METplus timing controls and filename templates. Additionally, running a command with a UserScript allows the user to link runs of METplus with other calculations or plotting scripts in any order. For the S2S use cases, UserScripts will typically call a driver script which then processes metrics, diagnostics, and/or graphics depending on the setup of the driver script. More information about the configuration and variables can be found in the `UserScript section of the METplus User’s Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/wrappers.html#userscript>`_.
 
 Configuration Sections
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label]. These sections are needed to run the same tool more than once with different settings. Configuration sections are called from the process list by adding the label in parentheses after the tool name. More information about these can be found in the `METplus User’s Guide section of instance names <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_.
+Many of the S2S scripts use configuration sections. A configuration section is a part of the file following a label in the format of [my_new_label]. These sections are needed to run the same tool more than once with different settings. Configuration sections are called from the process list by adding the label in parentheses after the tool name. More information about these can be found in the `METplus User’s Guide section of instance names <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_.
 
 Final Considerations
 ^^^^^^^^^^^^^^^^^^^^
@@ -128,7 +128,7 @@ Run METplus for the OMI Use Case
 Configuring the METplus OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The OLR-Based MJO Index (OMI) use case is one of the simplest S2S use cases, so we will start there. First, we will review the python dependencies to make sure these are available. Python dependencies for the OMI use case we are going to run are listed in the `External Dependencies section <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.html#sphx-glr-generated-model-applications-s2s-mjo-userscript-fcstgfs-obsera-omi-py>`_. For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
+The OLR-Based MJO Index (OMI) use case is one of the simplest S2S use cases, so we will start there. First, we will review the python dependencies to make sure these are available. Python dependencies for the OMI use case we are going to run are listed in the `External Dependencies section <https://metplus.readthedocs.io/en/|metplus_branch|/generated/model_applications/s2s_mjo/UserScript_fcstGFS_obsERA_OMI.html#sphx-glr-generated-model-applications-s2s-mjo-userscript-fcstgfs-obsera-omi-py>`_. For this case, we need to have numpy, netCDF4, datetime, xarray, matplotlib, scipy and pandas available.
 
 This use case also requires the installation and correct environmental settings for METcalcpy, METplotpy, and METdataio. These requirements extend to having all three of the respective repositories installed, as well as their corresponding _BASE environmental settings. Assuming that the instructions provided in the `METdataio tutorial section <Session_8_METplus_Analysis_Tools.html#metdataio>`_ have been followed, and the METcalcpy, METplotpy, and METdataio were installed in your ${METPLUS_TUTORIAL_DIR}, set the following commands:
 
@@ -241,7 +241,7 @@ The weather regime use case is more complicated than the OMI use case for severa
 Configure the Weather Regime Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure the weather regime use case, first check the `python dependencies in the online User's Guide <https://metplus.readthedocs.io/en/main_v5.1/generated/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.html#sphx-glr-generated-model-applications-s2s-mid-lat-userscript-fcstgfs-obsera-weatherregime-py>`_. The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
+To configure the weather regime use case, first check the `python dependencies in the online User's Guide <https://metplus.readthedocs.io/en/|metplus_branch|/generated/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.html#sphx-glr-generated-model-applications-s2s-mid-lat-userscript-fcstgfs-obsera-weatherregime-py>`_. The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
 
 .. note::
 

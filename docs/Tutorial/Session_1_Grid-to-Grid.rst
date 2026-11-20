@@ -457,7 +457,7 @@ In general, the **name** and **level** entries are required to extract a gridded
 
 Note that all field strings should be enclosed in single quotes, as shown above, so that they are processed on the command line as a single string which may contain embedded whitespace.
 
-Examples for each of these input types are provided in the coming exercises. More details about setting the field string can be found in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#configuration-file-overview>`_ section of the MET User's Guide. For example, if a field string matches multiple records in an input GRIB file, additional filtering criteria may be specified to further refine them. Additional options exist to explicitly specify the input **file_type**, define a function to **convert** the data, or define an operation to **censor** the data. Each configuration entry should be terminated with a semi-colon (;).
+Examples for each of these input types are provided in the coming exercises. More details about setting the field string can be found in the `Configuration File Overview <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#configuration-file-overview>`_ section of the MET User's Guide. For example, if a field string matches multiple records in an input GRIB file, additional filtering criteria may be specified to further refine them. Additional options exist to explicitly specify the input **file_type**, define a function to **convert** the data, or define an operation to **censor** the data. Each configuration entry should be terminated with a semi-colon (;).
 
 Since the **field_string** is processed using a temporary file, any syntax errors will produce a parsing error log message similar to the following:
 
@@ -536,7 +536,7 @@ While this Plot-Data-Plane validation step is not necessary for every input file
 Plot NetCDF Data
 ^^^^^^^^^^^^^^^^
 
-The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret *all* NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
+The NetCDF file format is very flexible and enables the creation of self-describing data files. However, that flexibility makes it impossible to write general purpose software to interpret *all* NetCDF files. For that reason, MET supports a few types of NetCDF file formats, but does not support all NetCDF files, in general. It can ingest NetCDF files that follow the `Climate-Forecast Convention <https://cfconventions.org/>`_, are created by the `WRF-Interp <https://www2.mmm.ucar.edu/wrf/users/download/get_sources_pproc_util.html>`_ utility, or are created by other MET tools. Additional details can be found in the `MET Data I/O <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/data_io.html#met-data-i-o>`_ chapter of the MET User's Guide.
 
 As described in :ref:`The Field String <field_str>`, set **name** to the name of the desired NetCDF variable and **level** to define how to index into the dimensions of that variable. In the NetCDF level strings, use ``*,*`` to indicate the two gridded dimensions. For other, non-gridded dimensions, pick a 0-based integer to specify the value to be used for that dimension. For the **time** dimension, if present, selecting a 0-based integer does work, however you can also specify a time string in **YYYYMMDD[_HH[MMSS]]** format. The square braces indicate optional elements of the format. So 19770807, 19770807_12, and 19770807_120000 are all valid time strings. It is often easier to specify a time string directly rather than finding the integer index corresponding to that time string.
 
@@ -657,7 +657,7 @@ Let's specify a different color table rather than using the default one.
 Python Embedding
 ^^^^^^^^^^^^^^^^
 While the MET tools can read data from a few input gridded data file types, its ability to read data in memory from python greatly enhances its utility. Support for python embedding is optional, and must be enabled at compilation time as described in 
-`Appendix F <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixF.html>`_ of the MET User's Guide. MET supports three types of python embedding:
+`Appendix F <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixF.html>`_ of the MET User's Guide. MET supports three types of python embedding:
 
 1. Reading a field of gridded data values.
 2. Passing a list of point observations.
@@ -672,7 +672,7 @@ Let's run the simplest of examples using sample data included with the MET relea
   python3 ${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py \
   ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast
 
-This sample **read_ascii_numpy.py** script reads data from the input **fcst.txt** ASCII file and gives it a name, **Forecast**. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are detailed in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/main_v11.0/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
+This sample **read_ascii_numpy.py** script reads data from the input **fcst.txt** ASCII file and gives it a name, **Forecast**. Always run new python scripts on the command line first to confirm there aren't any syntax errors in the script itself. The required conventions for the python script are detailed in the `Python Embedding for 2D Data <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixF.html#python-embedding-for-2d-data>`_ section of the MET User's Guide.
 
 Next, let's run Plot-Data-Plane using this python script to define the input data. As described in :ref:`The Field String <field_str>`, this is done with the **name** configuration string and the **level** string does not apply.
 
@@ -706,7 +706,7 @@ Rerunning the command from above should produce the same result, but if you look
   ${METPLUS_TUTORIAL_DIR}/output/met_output/plot_data_plane/python_fcst.ps \
   'name = "${METPLUS_DATA}/met_test/scripts/python/read_ascii_numpy.py ${METPLUS_DATA}/met_test/data/python/fcst.txt Forecast";'
 
-You can find several python embedding examples on the `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/main_v5.1/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_ use case examples. 
+You can find several python embedding examples on the `Sample Analysis Scripts <https://dtcenter.org/community-code/model-evaluation-tools-met/sample-analysis-scripts>`_ page of the MET website. Each example includes both a python script and sample input data file. Please also see `METplus Python Embedding <https://metplus.readthedocs.io/en/|metplus_branch|/search.html?q=PythonEmbeddingFileUseCase&check_keywords=yes&area=default>`_ use case examples. 
 
 MET Tool: Gen-Vx-Mask
 ---------------------
@@ -1094,7 +1094,7 @@ Start by making an output directory for Grid-Stat and changing directories:
   mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/grid_stat
   cd ${METPLUS_TUTORIAL_DIR}/output/met_output/grid_stat
 
-The behavior of Grid-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Grid-Stat configuration file may be found in the `data/config/GridStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_ file. Prior to modifying the configuration file, users are advised to make a copy of the default:
+The behavior of Grid-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Grid-Stat configuration file may be found in the `data/config/GridStatConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GridStatConfig_default>`_ file. Prior to modifying the configuration file, users are advised to make a copy of the default:
 
 .. code-block::
 
@@ -1115,7 +1115,7 @@ The configurable items for Grid-Stat are used to specify how the verification is
 * The smoothing methods to be applied (as opposed to interpolation methods)
 * The types of verification methods to be used
 
-You may find a complete description of the configurable items in the `grid_stat configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/grid-stat.html#grid-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `grid_stat configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/grid-stat.html#grid-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 For this tutorial, we'll configure Grid-Stat to verify the 12-hour accumulated precipitation output of PCP-Combine. We'll be using Grid-Stat to verify a single field using NetCDF input for both the forecast and observation files. However, Grid-Stat may in general be used to verify an arbitrary number of fields. Edit the **GridStatConfig_tutorial** file as follows:
 
@@ -1321,8 +1321,8 @@ METplus Use Case: GridStat
 
 The GridStat use case utilizes the MET *Grid-Stat* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 Change to the ${METPLUS_TUTORIAL_DIR}.
 

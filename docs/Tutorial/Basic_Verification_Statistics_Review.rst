@@ -373,7 +373,7 @@ interchangeable, the following definitions are provided for clarity:
 **MET Solutions**
 
 The MET User’s Guide provides an
-`Appendix that dives into all of the statistical measures that MET calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_.
+`Appendix that dives into all of the statistical measures that MET calculates <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_.
 METplus groups statistics together by application
 and type and makes them available to METplus users via several line types. 
 For example, many of the statistics that were discussed above can be found 
@@ -384,39 +384,39 @@ the aptly named Contingency Table Counts (CTC) line type.
 
 The line types that are output by MET depend on your selection of the appropriate 
 line type using the 
-`output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#output-flag>`_. 
+`output_flag dictionary <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#output-flag>`_. 
 Note that certain line types may 
 or may not be available in every tool: for example, both Point-Stat and 
 Grid-Stat produce CTS line types, which allow users to access the various 
 contingency table statistics for both point-based observations and gridded 
 observations. In contrast, only Ensemble-Stat and Point-Stat (when using HiRA) can generate a 
-`Ranked Probability Score (RPS) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_,
+`Ranked Probability Score (RPS) line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/ensemble-stat.html#ensemble-stat-output>`_,
 which provides statistics relevant 
 to the analysis of ensemble forecasts (Stat-Analysis can also aggregate RPS lines 
 or derive them from ORANK lines). If you don’t see your desired statistic in 
 the line type or tool you’d expect it to be in, be sure to 
-`check the Appendix <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_ 
+`check the Appendix <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_ 
 to see if the statistic is available in MET and which line type it’s currently grouped with.
 
 As for the categorical statistics that were just discussed, here’s a link to the 
 User’s Guide Appendix entry that discusses their use in MET:
 
-* `Accuracy <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#accuracy>`_
-* `POD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#probability-of-detection-pod>`_
-* `POFD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
-* `Bias <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#frequency-bias>`_ 
-* `FAR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
-* `CSI <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
-* `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
-* `HSS_EC <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
-* `HK <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
-* `GSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
+* `Accuracy <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#accuracy>`_
+* `POD <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#probability-of-detection-pod>`_
+* `POFD <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#probability-of-false-detection-pofd>`_ 
+* `Bias <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#frequency-bias>`_ 
+* `FAR <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#false-alarm-ratio-far>`_ 
+* `CSI <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#critical-success-index-csi>`_ 
+* `HSS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
+* `HSS_EC <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`_ (HSS Expected Correct)
+* `HK <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
+* `GSS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#gilbert-skill-score-gss>`_
 
 Remember that for categorical statistics, including those that are associated with 
 probabilistic datasets, you will need to provide an appropriate threshold that divides 
 the observations and forecasts into two mutually exclusive categories. For more 
 information on the available thresholding options, please review 
-`this section of the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#configuration-file-overview>`_.
+`this section of the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#configuration-file-overview>`_.
 
 **METplus Wrapper Solutions**
 
@@ -424,11 +424,11 @@ The same statistics that are available in MET are also available with
 the METplus wrappers. To better understand how MET configuration options 
 for the selection of statistics translate to METplus wrapper configuration 
 options, you can utilize the 
-`Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, 
+`Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, 
 which lists all of the available statistics through the wrappers, including 
 which tools can output particular statistics. To access the line types 
 through the tool, select your desired tool and use
-`this page to view a list of all available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_.
+`this page to view a list of all available commands for that tool <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/wrappers.html#python-wrappers>`_.
 Once you do, you’ll see that the tool will include several options that 
 contain **_OUTPUT_FLAG_**. These options will exhibit the same behavior 
 and accept the same settings as the line types in MET’s output_flag 
@@ -469,7 +469,7 @@ This example demonstrates categorical forecast verification in MET.
 
 For this example, let’s examine Grid-Stat. Assume we wanted to verify a binary 
 temperature forecast of greater than 86 degrees Fahrenheit. Starting with the 
-`general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, 
+`general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GridStatConfig_default>`_, 
 the following would resemble the minimum necessary settings/changes for 
 the **fcst** and **obs** dictionaries:
 
@@ -524,7 +524,7 @@ CTS. The CTC line would look something like:
   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 >86.0 >86.0 NA NA CTC 5287 3055 1155 342 735 0.5
 
 While the stat file full header column contents are discussed in the 
-`User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, 
+`User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, 
 the CTC line types are the final 6 columns of the line, beginning after 
 the “CTC” column. The first value is MET’s TOTAL column which is the 
 “total number of matched pairs”. You might better recognize this value 
@@ -549,10 +549,10 @@ provided in this table for your convenience:
     - FN_ON
 
 Further descriptions of each of the CTC columns can be found in the 
-`MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id7>`_. 
+`MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id7>`_. 
 Note that the final column of the CTC line type, EC_VALUE, is the 
 expected-correct rate by chance that is used to compute the 
-`HSS_EC skill score <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`__ 
+`HSS_EC skill score <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`__ 
 in the CTS line type. It is set by the hss_ec_value configuration option and 
 defaults to 1 divided by the number of categories (0.5 for a 2x2 table).
 
@@ -566,7 +566,7 @@ columns of the example output, you would find:
   V11.0.1 MODEL NA 120000 20230807_120000 20230807_120000 000000 20230807_120000 20230807_120000 TMP F Z0 TMP F Z0 ANALYS FULL NEAREST 1 >86.0 >86.0 NA 0.05 CTS 5287 0.6425194 0.6317458 0.6601522 NA NA 0.7962928 0.790018 0.8124981 NA NA 0.7168527 0.7009421 0.7403918 NA NA 1.239329 NA NA 0.8993230 0.8856721 0.9185127 NA NA 0.3888888 0.3687421 0.4002371 NA NA 0.6111111 0.5986821 0.6276488 NA NA 0.2743468 0.2664871 0.2953748 NA NA 0.6711336 0.6479211 0.7001821 NA NA 0.1894936 NA NA 0.2882119 0.2594331 0.3170842 NA NA 0.3186122 …
 
 These columns can be understood by reviewing the MET User’s Guide 
-`guidance for CTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id8>`_. 
+`guidance for CTS line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id8>`_. 
 After the familiar TOTAL or *n* column, we find statistics such as 
 Base Rate, forecast mean, Accuracy, plus many more, all with their appropriate 
 lower and upper confidence intervals and the bootstrap confidence intervals. 
@@ -581,7 +581,7 @@ adjustments is one of the many advantages of using the METplus system.
 
 To achieve the same outcome as the previous example but utilizing METplus 
 wrappers instead of MET, very few changes would need to be made. Starting with the 
-`standard GridStat configuration file <https://github.com/dtcenter/METplus/blob/main_v5.1/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
+`standard GridStat configuration file <https://github.com/dtcenter/METplus/blob/|metplus_branch|/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf>`_, 
 we would need to set the **_VAR1** settings appropriately:
 
 .. code-block:: text
@@ -884,16 +884,16 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET Solutions**
 
-The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <METplus-solutions_bin_cat_for_verif>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the :ref:`Verification Statistics section for Multicategorical Forecasts <ver_stat_multicat_fcst>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
+The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. To delineate between the calculation method for binary categorical and multicategorical forecast skill scores, METplus has two pairs of separate, but similar line types. As discussed in detail in the :ref:`Binary Categorical forecasts section <METplus-solutions_bin_cat_for_verif>`, the Contingency Table Statistics (CTS) line type and Contingency Table Counts (CTC) line type are for users who want single category forecast statistics. It’s important to note that the CTS line type must also be utilized by users who want scalar statistics from multicategorical forecasts, except for Accuracy. To accomplish this, simply follow the guidance listed in the :ref:`Verification Statistics section for Multicategorical Forecasts <ver_stat_multicat_fcst>`. The complements to CTS and CTC in the multicategory group are the aptly named Multicategory Contingency Table Statistics (MCTS) line type and Multicategory Contingency Table Counts (MCTC) line type. Similar to the CTC, MCTC allows direct access to each of the counts from the contingency table of multicategorical forecasts. MCTS contains all of the skill scores that were discussed in the Multicategorical Verification statistics section, as well as the scalar statistic Accuracy, which are linked to their appendix description here for your convenience (except for Gerrity, which does not appear in the appendix):
 
-* `Acc <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#accuracy>`_
-* `HK <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
-* `HSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
+* `Acc <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#accuracy>`_
+* `HK <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#hanssen-kuipers-discriminant-hk>`__
+* `HSS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#heidke-skill-score-hss>`__
 * Gerrity
 
 **METplus Wrapper Solutions**
 
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
+The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the statistics available through the wrappers, including which tools can output which statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_, which will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples of Multicategorical Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -914,7 +914,7 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 Here is an example that demonstrates multicategorical forecast verification in MET.
 
-For this example, let’s use Point-Stat. Assume we wanted to verify a multicategory forecast of wind speeds over the ocean. Specifically of interest are speed thresholds of near gale force (13.9 m/s), gale force (17.2 m/s), tropical storm (24.5 m/s), and hurricane (32.7 m/s). Starting with the `general Point-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/PointStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the **fcst** and **obs** dictionaries:
+For this example, let’s use Point-Stat. Assume we wanted to verify a multicategory forecast of wind speeds over the ocean. Specifically of interest are speed thresholds of near gale force (13.9 m/s), gale force (17.2 m/s), tropical storm (24.5 m/s), and hurricane (32.7 m/s). Starting with the `general Point-Stat configuration file <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/PointStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the **fcst** and **obs** dictionaries:
 
 .. code-block::
 
@@ -968,13 +968,13 @@ In this example, we have told MET to output the MCTC and MCTS line types, which 
    with V11.1.1 because they were produced with MET version 11.1.1. The column layout 
    of these line types is the same in MET 11.0.
 
-While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
+While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
 
 .. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex2.png
    :alt: Example multicategorical verification counts
    :align: center
 
-Note that the final column of the MCTC line type, EC_VALUE, is the expected-correct rate by chance that is used to compute the `HSS_EC skill score <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`__ in the MCTS line type. It is set by the hss_ec_value configuration option and defaults to 1 divided by the number of categories (0.2 for the 5x5 table in this example).
+Note that the final column of the MCTC line type, EC_VALUE, is the expected-correct rate by chance that is used to compute the `HSS_EC skill score <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#heidke-skill-score-expected-correct-hss-ec>`__ in the MCTS line type. It is set by the hss_ec_value configuration option and defaults to 1 divided by the number of categories (0.2 for the 5x5 table in this example).
 
 The MCTS line type is also present in the .stat file as the second row. In this example, the contents would be:
 
@@ -984,7 +984,7 @@ The MCTS line type is also present in the .stat file as the second row. In this 
 
       V11.1.1 MODEL   NA   120000 20230807_120000 20230807_120000 000000   20230807_120000 20230807_120000 WIND  m/s Z10   WIND m/s    Z10   NA FULL NEAREST     1        >=13.9,>=17.2,>=24.5,>=32.7    >=13.9,>=17.2,>=24.5,>=32.7   NA         0.05  MCTS 162016 5   0.99949  0.99937 0.99959 NA NA  0.66623 NA NA 0.34901 NA NA NA NA NA 0.99937 NA NA 0.2
 
-Compared to the statistics available in the CTS line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, each followed by its lower and upper bootstrap confidence limits. Accuracy is the only one of these with two additional columns, ahead of its bootstrap confidence limits, that give the normal confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. The Gerrity Skill Score also appears as NA: no observations fell in observed categories 3 to 5, which makes one of the D(r) terms zero, so it cannot be computed for this example. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
+Compared to the statistics available in the CTS line type for dichotomous categorical forecasts, fewer verification statistics can be applied to a multicategorical contingency table, since most of the contingency table verification statistics require a simplified 2x2 contingency table. The columns that are available in the MCTS line type are listed in the `MET User’s Guide guidance for the MCTS line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id13>`_. After the declaration of the line type (MCTS), the familiar TOTAL or *n* column, and the number of bins created from the thresholds provided, we find Accuracy, HK, HSS, the Gerrity Skill Score, and HSS_EC, each followed by its lower and upper bootstrap confidence limits. Accuracy is the only one of these with two additional columns, ahead of its bootstrap confidence limits, that give the normal confidence limits. Note that because the bootstrap library’s **n_rep** variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. The Gerrity Skill Score also appears as NA: no observations fell in observed categories 3 to 5, which makes one of the D(r) terms zero, so it cannot be computed for this example. While all of these statistics *could* be obtained from the MCTC line type values with additional post-processing, the simplicity of having all of them already calculated and ready for additional group statistics or to advise forecast adjustments is one of the many advantages of using the METplus system.
 
 **METplus Wrapper Example of Multicategorical Forecast Verification**
 
@@ -1188,26 +1188,26 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET Solutions**
 
-The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id10>`_, which logically groups together statistics based on continuous variable fields.
+The MET User’s Guide provides an `Appendix that dives into each and every statistical measure that it calculates <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_, as well as the line type it is a part of. Statistics are grouped together by application and type and are available to METplus users in line types. For example, many of the statistics that were discussed above can be found in the `Continuous Statistics (CNT) line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id10>`_, which logically groups together statistics based on continuous variable fields.
 
-For MET, which line types are output depends on your selection of the appropriate line type using the output_flag dictionary. Note that certain line types may or may not be available in every tool: for example, both Point-Stat and Grid-Stat produce CNT line types, which allows users access to the various continuous statistics for both point-based observations and gridded observations. But only Ensemble-Stat and Point-Stat (when using HiRA) can generate a Ranked Probability Score (RPS) line type which contains statistics relevant to the analysis of ensemble forecasts (Stat-Analysis can also aggregate RPS lines or derive them from ORANK lines). If you don’t see your desired statistic in the line type or tool you’d expect it to be in, be sure to check `the Appendix <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_ to see if the statistic is available in MET and which line type it’s currently grouped with.
+For MET, which line types are output depends on your selection of the appropriate line type using the output_flag dictionary. Note that certain line types may or may not be available in every tool: for example, both Point-Stat and Grid-Stat produce CNT line types, which allows users access to the various continuous statistics for both point-based observations and gridded observations. But only Ensemble-Stat and Point-Stat (when using HiRA) can generate a Ranked Probability Score (RPS) line type which contains statistics relevant to the analysis of ensemble forecasts (Stat-Analysis can also aggregate RPS lines or derive them from ORANK lines). If you don’t see your desired statistic in the line type or tool you’d expect it to be in, be sure to check `the Appendix <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_ to see if the statistic is available in MET and which line type it’s currently grouped with.
 
 As for the previous statistics that were discussed, here’s a link to the User’s Guide Appendix entry that discusses its use in MET:
 
-* `ME <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#mean-error-me>`_
-* `MAE <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#mean-absolute-error-mae>`_
-* `MSE <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#mean-squared-error-mse>`_
-* `RMSE <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#root-mean-squared-error-rmse>`_
-* `S <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#forecast-standard-deviation>`_ (note that the linked s is for forecast; the observation s2 is just below it)
-* `MBIAS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#multiplicative-bias>`_
-* `PR_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#pearson-correlation-coefficient>`_
-* `SP_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#spearman-rank-correlation-coefficient-rho-s>`_
-* `𝝉 or KT_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#kendall-s-tau-statistic-tau>`_
-* `ANOM_CORR <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#anomaly-correlation-coefficient>`_
+* `ME <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#mean-error-me>`_
+* `MAE <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#mean-absolute-error-mae>`_
+* `MSE <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#mean-squared-error-mse>`_
+* `RMSE <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#root-mean-squared-error-rmse>`_
+* `S <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#forecast-standard-deviation>`_ (note that the linked s is for forecast; the observation s2 is just below it)
+* `MBIAS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#multiplicative-bias>`_
+* `PR_CORR <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#pearson-correlation-coefficient>`_
+* `SP_CORR <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#spearman-rank-correlation-coefficient-rho-s>`_
+* `𝝉 or KT_CORR <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#kendall-s-tau-statistic-tau>`_
+* `ANOM_CORR <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#anomaly-correlation-coefficient>`_
 
 **METplus Wrapper Solutions**
 
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
+The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples of Continuous Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1226,9 +1226,9 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 Here is an example that demonstrates deterministic forecast verification in MET.
 
-For this example, let’s examine two tools, PCP-Combine and Grid-Stat. Assume we wanted to verify a 6 hour period of precipitation forecasts over the continental United States. Using these tools, we will first combine the forecast files, which are hourly forecasts, into a 6 hour summation file with PCP-Combine. Then we will use Grid-Stat to place both datasets on the same verification grid and let MET calculate the continuous statistics available in the CNT line type. Starting with PCP-Combine, we need to understand what the desired output is first to know how to properly run the tool from the command line, as PCP-Combine does not use a configuration file. As stated previously, this scenario assumes the precipitation forecasts are hourly files and need to match the 6 hour observation file time summation. `Of the four commands available in PCP-Combine <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/reformat_grid.html#pcp-combine-tool>`_, two seem to provide potential paths forward: sum and add.
+For this example, let’s examine two tools, PCP-Combine and Grid-Stat. Assume we wanted to verify a 6 hour period of precipitation forecasts over the continental United States. Using these tools, we will first combine the forecast files, which are hourly forecasts, into a 6 hour summation file with PCP-Combine. Then we will use Grid-Stat to place both datasets on the same verification grid and let MET calculate the continuous statistics available in the CNT line type. Starting with PCP-Combine, we need to understand what the desired output is first to know how to properly run the tool from the command line, as PCP-Combine does not use a configuration file. As stated previously, this scenario assumes the precipitation forecasts are hourly files and need to match the 6 hour observation file time summation. `Of the four commands available in PCP-Combine <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/reformat_grid.html#pcp-combine-tool>`_, two seem to provide potential paths forward: sum and add.
 
-While there are multiple methods that may work to successfully summarize the forecast files from these two commands, let’s assume that our forecast data files contain a time reference variable that is not `CF-compliant <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/data_io.html#requirements-for-cf-compliant-netcdf>`_. As such, MET will be unable to determine the initialization and valid time of the files (without being explicitly set in the field array). Because the ``add`` command only relies on a list of files passed by the user to determine what is being summed, that is the command we will use.
+While there are multiple methods that may work to successfully summarize the forecast files from these two commands, let’s assume that our forecast data files contain a time reference variable that is not `CF-compliant <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/data_io.html#requirements-for-cf-compliant-netcdf>`_. As such, MET will be unable to determine the initialization and valid time of the files (without being explicitly set in the field array). Because the ``add`` command only relies on a list of files passed by the user to determine what is being summed, that is the command we will use.
 
 With the information above, we construct the command line argument for PCP-Combine to be:
 
@@ -1246,7 +1246,7 @@ With the information above, we construct the command line argument for PCP-Combi
 
 The command above displays the required arguments for PCP-Combine’s ``add`` command as well as an optional argument. When using the ``add`` command it is required to pass a list of the input files to be processed. In this instance we used a list of files, but had the option to pass an ASCII file that contained all of the files instead. Because each of the input forecast files contain the exact same variable fields, we utilize the ``-field`` argument to list exactly one variable field to be processed in all files. Alternatively we could have listed the same field information (i.e. ``'name="P01M_NONE"; level="(0,*,*)";'``) after each input file. Finally, the output file name is set to ``hrefmean_2017051006_A06.nc``, which contains references to the valid time of the file contents as well as how many hours the precipitation is accumulated over. The optional argument ``-name`` sets the output variable field name to ``APCP_06``, following GRIB standard practices.
 
-After a successful run of PCP-Combine we now have a six hour accumulation field forecast of precipitation and are ready to set our Grid-Stat configuration file. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the fcst and obs dictionaries:
+After a successful run of PCP-Combine we now have a six hour accumulation field forecast of precipitation and are ready to set our Grid-Stat configuration file. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GridStatConfig_default>`_, the following would resemble minimum necessary settings/changes for the fcst and obs dictionaries:
 
 .. code-block::
 
@@ -1345,7 +1345,7 @@ For the CNT line type output we review the .stat file and find something similar
    wrappers example below) is set by the **model** entry in the MET configuration file, 
    or by MODEL in METplus wrappers, which is not shown in these examples.
 
-The columns that are available in the CNT line type are listed in the MET User’s Guide `guidance for CNT line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#table-ps-format-info-cnt>`_. After the declaration of the line type (CNT), the familiar TOTAL or matched pairs column, we find a wealth of statistics including the forecast and observation means, the forecast and observation standard deviations, ME, MSE, along with all of the other statistics discussed in this section. Some of these statistics (such as the means, standard deviations, PR_CORR, ME, and ANOM_CORR) are followed by both their normal and their bootstrap lower and upper confidence limits, while others (such as MBIAS, MAE, MSE, and RMSE) have only bootstrap confidence limits. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. You’ll also note that the ranking statistics (SP_CORR and KT_CORR) are listed as NA because we did not set rank_corr_flag to TRUE in the Grid-Stat configuration file. This was done intentionally; in order to calculate ranking statistics MET needs to assign each and every matched pair a rank and then perform the calculations. With a large dataset with numerous matched pairs this can significantly increase runtime and be computationally intensive. Given our example had over 1.5 million matched pairs, these statistics are best left to a smaller domain. Let’s create that smaller domain in a METplus wrappers example!
+The columns that are available in the CNT line type are listed in the MET User’s Guide `guidance for CNT line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#table-ps-format-info-cnt>`_. After the declaration of the line type (CNT), the familiar TOTAL or matched pairs column, we find a wealth of statistics including the forecast and observation means, the forecast and observation standard deviations, ME, MSE, along with all of the other statistics discussed in this section. Some of these statistics (such as the means, standard deviations, PR_CORR, ME, and ANOM_CORR) are followed by both their normal and their bootstrap lower and upper confidence limits, while others (such as MBIAS, MAE, MSE, and RMSE) have only bootstrap confidence limits. Note that because the bootstrap library’s n_rep variable was kept at its default value of 0, bootstrap methods were not used and appear as NA in the stat file. You’ll also note that the ranking statistics (SP_CORR and KT_CORR) are listed as NA because we did not set rank_corr_flag to TRUE in the Grid-Stat configuration file. This was done intentionally; in order to calculate ranking statistics MET needs to assign each and every matched pair a rank and then perform the calculations. With a large dataset with numerous matched pairs this can significantly increase runtime and be computationally intensive. Given our example had over 1.5 million matched pairs, these statistics are best left to a smaller domain. Let’s create that smaller domain in a METplus wrappers example!
 
 **METplus Wrapper Example of Continuous Forecast Verification**
 
@@ -1355,7 +1355,7 @@ To achieve the same success as the previous example but utilizing METplus wrappe
 
    PROCESS_LIST = PCPCombine, GridStat, GridStat(rank)
 
-The second listing of GridStat uses `the instance feature <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_ to allow a second run of Grid-Stat with different settings. Now we need to set the _VAR1 settings appropriately:
+The second listing of GridStat uses `the instance feature <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/systemconfiguration.html#instance-names-in-process-list>`_ to allow a second run of Grid-Stat with different settings. Now we need to set the _VAR1 settings appropriately:
 
 .. code-block::
 
@@ -1410,7 +1410,7 @@ And set the [rank] instance up as follows:
    GRID_STAT_MET_CONFIG_OVERRIDES = rank_corr_flag = TRUE;
    GRID_STAT_OUTPUT_TEMPLATE = {init?fmt=%Y%m%d%H%M}_rank
 
-For this instance of GridStat, we’ve set our own verification area using the `grid definition option <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixB.html#grid-specification-strings>`_, and utilized the `OVERRIDES option <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/systemconfiguration.html#met-config-overrides>`_ to set the rank_corr_flag option, which is currently not a METplus wrapper option, to TRUE. Because both GridStat instances will create CNT output, the [rank] instance CNT output would normally overwrite the first GridStat instance. To avoid this, we create a new output template for the [rank] instance of GridStat to follow, preserving both files.
+For this instance of GridStat, we’ve set our own verification area using the `grid definition option <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixB.html#grid-specification-strings>`_, and utilized the `OVERRIDES option <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/systemconfiguration.html#met-config-overrides>`_ to set the rank_corr_flag option, which is currently not a METplus wrapper option, to TRUE. Because both GridStat instances will create CNT output, the [rank] instance CNT output would normally overwrite the first GridStat instance. To avoid this, we create a new output template for the [rank] instance of GridStat to follow, preserving both files.
 
 Finally, the desired line types and nc_pairs_flag settings need to be selected for output. This can be done outside of the [rank] instance, as any setting that is not overwritten by an instance further down the configuration file will be propagated to all applicable tools in the configuration file:
 
@@ -1527,7 +1527,7 @@ If you utilize METplus verification capabilities to evaluate probabilistic forec
 
 MET is coded to utilize categorical forecasts, creating contingency tables and using the counts in each of the contingency table cells (hits, misses, false alarms, and correct rejections) to calculate the desired verification statistics. This use extends to probabilistic forecasts as well and aids in the decomposition of statistics such as Brier Score (BS) into reliability, resolution, and uncertainty (more information on that :ref:`decomposition can be found here <verif_stat_prob_fcst>`). 
 
-MET requires users to provide three conditions for probabilistic forecasts. The first of these conditions is a forecast variable that contains probabilities, defined on a scale from 0 to 1 (MET will also rescale probabilities given on a scale from 0 to 100). The observations do not need to be 0 or 1; MET uses the observation threshold described in the final condition below to decide whether the event occurred. In MET, this boolean is **prob** and METplus Wrappers utilizes the variable FCST_IS_PROB. In MET **prob** can also be defined as a dictionary with more information on how to process the probabilistic field; `please review this section of the User’s Guide for information <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#fcst>`_.
+MET requires users to provide three conditions for probabilistic forecasts. The first of these conditions is a forecast variable that contains probabilities, defined on a scale from 0 to 1 (MET will also rescale probabilities given on a scale from 0 to 100). The observations do not need to be 0 or 1; MET uses the observation threshold described in the final condition below to decide whether the event occurred. In MET, this boolean is **prob** and METplus Wrappers utilizes the variable FCST_IS_PROB. In MET **prob** can also be defined as a dictionary with more information on how to process the probabilistic field; `please review this section of the User’s Guide for information <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#fcst>`_.
 
 The second condition is the thresholds to evaluate the probabilistic forecasts across. Essentially this is where METplus turns the forecast probabilities into a binned, categorical evaluation. At its most basic usage in a MET configuration file, this looks like
 
@@ -1535,7 +1535,7 @@ The second condition is the thresholds to evaluate the probabilistic forecasts a
 
    cat_thresh = ==0.1;
 
-which would create 10 bins of equal width. Users have multiple options for setting this threshold and should review `this section of the User’s Guide for more information <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#fcst>`_. It’s important to note that when it comes to evaluating a statistic like BS, METplus does not actually use the forecasts’ probability value; instead, it will use the midpoint of the bin width between the thresholds for the probabilistic forecasts. To understand what this looks like in METplus, let's use the previous example where 10 bins of equal width were created. When calculating BS, METplus will evaluate the first probability bin as 0.05, the midway point between the first bin (0.0 to 0.1). The next probability value would be 0.15 (the midway point between 0.1 and 0.2), and so on. MET utilizes an equation of BS that is `described in more detail in the MET Appendix <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#brier-score>`_ which evaluates to the same result as the BS equation provided in the :ref:`Verification Statistics for Probabilistic Forecasts section <verif_stat_prob_fcst>` of this guide if the midpoints of the bins are used as the probability forecast values. All of this is to stress that a proper selection of bin width (and the accompanying mid-point of those bins) will ultimately determine how meaningful your resulting BS value is; after all, what would the result be if the midpoint of a bin was 0.1 and many of the forecasts values were 0.1? What contingency table bin will they count towards?
+which would create 10 bins of equal width. Users have multiple options for setting this threshold and should review `this section of the User’s Guide for more information <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#fcst>`_. It’s important to note that when it comes to evaluating a statistic like BS, METplus does not actually use the forecasts’ probability value; instead, it will use the midpoint of the bin width between the thresholds for the probabilistic forecasts. To understand what this looks like in METplus, let's use the previous example where 10 bins of equal width were created. When calculating BS, METplus will evaluate the first probability bin as 0.05, the midway point between the first bin (0.0 to 0.1). The next probability value would be 0.15 (the midway point between 0.1 and 0.2), and so on. MET utilizes an equation of BS that is `described in more detail in the MET Appendix <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#brier-score>`_ which evaluates to the same result as the BS equation provided in the :ref:`Verification Statistics for Probabilistic Forecasts section <verif_stat_prob_fcst>` of this guide if the midpoints of the bins are used as the probability forecast values. All of this is to stress that a proper selection of bin width (and the accompanying mid-point of those bins) will ultimately determine how meaningful your resulting BS value is; after all, what would the result be if the midpoint of a bin was 0.1 and many of the forecasts values were 0.1? What contingency table bin will they count towards?
 
 The final condition users need to provide to MET for probabilistic forecasts is a threshold for the observations. As alluded to in the second condition, users can create any number of thresholds to evaluate the probabilistic forecasts. Combined with the observation threshold which determines an event observation from non-event observation, an Nx2 contingency table will be created, where N is the number of probabilistic bins for the forecasts and 2 is the event, non-event threshold set on the observations.
 
@@ -1549,19 +1549,19 @@ In order to better understand the delineation between METplus, MET, and METplus 
 
 **MET Solutions**
 
-The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates, as well as the line type it is a part of <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html>`_. Statistics are grouped together by application and type and are available to METplus users in line types. For the probabilistic-related statistics discussed in this section of the tutorial, MET provides the `Contingency Table Counts for Probabilistic forecasts (PCT) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id14>`_, and the `Contingency Table Statistics for Probabilistic forecasts (PSTD) line types <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id15>`_. The PCT line type is critical for checking if the thresholds for the probabilistic forecasts and observations produced contingency table counts that reflect what the user is looking for in probabilistic verification. Remember that these counts are ultimately what determine the statistical values found in the PSTD line type.
+The MET User’s Guide provides an `Appendix that dives into statistical measures that it calculates, as well as the line type it is a part of <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html>`_. Statistics are grouped together by application and type and are available to METplus users in line types. For the probabilistic-related statistics discussed in this section of the tutorial, MET provides the `Contingency Table Counts for Probabilistic forecasts (PCT) line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id14>`_, and the `Contingency Table Statistics for Probabilistic forecasts (PSTD) line types <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id15>`_. The PCT line type is critical for checking if the thresholds for the probabilistic forecasts and observations produced contingency table counts that reflect what the user is looking for in probabilistic verification. Remember that these counts are ultimately what determine the statistical values found in the PSTD line type.
 
-As for the statistics that were discussed in the Verification Statistics section, the following are links to the User’s Guide Appendix entry that discusses their use in MET. Note that Continuous Ranked Probability Score (CRPS) and Continuous Ranked Probability Skill Score (CRPSS) appear in `the Ensemble Continuous Statistics (ECNT) line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#id2>`_, which is written by the Ensemble-Stat tool and by Point-Stat when using HiRA, while Ranked Probability Score (RPS) and Ranked Probability Skill Score (RPSS) appear in their own `Ranked Probability Score (RPS) line type output <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#id3>`_ that is also written by Ensemble-Stat and by Point-Stat when using HiRA. Stat-Analysis can also aggregate both line types and derive them from ORANK lines. RPSS is not discussed in the MET User’s Guide Appendix and is not linked below, while discussion of CRPSS is provided to users in the existing documentation in the MET User’s Guide Appendix:
+As for the statistics that were discussed in the Verification Statistics section, the following are links to the User’s Guide Appendix entry that discusses their use in MET. Note that Continuous Ranked Probability Score (CRPS) and Continuous Ranked Probability Skill Score (CRPSS) appear in `the Ensemble Continuous Statistics (ECNT) line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/ensemble-stat.html#id2>`_, which is written by the Ensemble-Stat tool and by Point-Stat when using HiRA, while Ranked Probability Score (RPS) and Ranked Probability Skill Score (RPSS) appear in their own `Ranked Probability Score (RPS) line type output <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/ensemble-stat.html#id3>`_ that is also written by Ensemble-Stat and by Point-Stat when using HiRA. Stat-Analysis can also aggregate both line types and derive them from ORANK lines. RPSS is not discussed in the MET User’s Guide Appendix and is not linked below, while discussion of CRPSS is provided to users in the existing documentation in the MET User’s Guide Appendix:
 
-* `BS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#brier-score>`_
-* `RPS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#rps>`_
-* `CRPS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#crps>`_
-* `BSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#brier-skill-score-bss>`_
-* `CRPSS <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#crps-skill-score>`_
+* `BS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#brier-score>`_
+* `RPS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#rps>`_
+* `CRPS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#crps>`_
+* `BSS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#brier-skill-score-bss>`_
+* `CRPSS <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#crps-skill-score>`_
 
 **METplus Wrapper Solutions**
 
-The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
+The same statistics that are available in MET are also available with the METplus wrappers. To better understand how MET configuration options for statistics translate to METplus wrapper configuration options, you can utilize the `Statistics and Diagnostics Section of the METplus wrappers User’s Guide <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/statistics_list.html#metplus-statistics-diagnostics>`_, which lists all of the available statistics through the wrappers, including what tools can output what statistics. To access the line type through the tool, find your desired tool in the `list of available commands for that tool <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/wrappers.html#python-wrappers>`_. Once you do, you’ll see the tool will have several options that contain _OUTPUT_FLAG_. These will exhibit the same behavior and accept the same settings as the line types in MET’s output_flag dictionary, so be sure to review the available settings to get the line type output you want.
 
 METplus Examples of Probabilistic Forecast Verification
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1583,7 +1583,7 @@ Here is an example that demonstrates probabilistic forecast verification using M
 
 For this example, we will use two tools: Gen-Ens-Prod, which will be used to create uncalibrated probability forecasts, and Grid-Stat, which will verify the forecast probabilities against an observational dataset. The “uncalibrated” term means that the probabilities gathered from Gen-Ens-Prod may be biased and will not perfectly reflect the true probabilities of the forecasted event. We’ll verify the probability of a CONUS 2 meter temperature field from a global ensemble with 5 members with a threshold of greater than 10 degrees Celsius. Note that the Brier score and the other statistics in the PSTD line type do not assume a Gaussian distribution, so the same approach could also be used for non-Gaussian variable fields such as precipitation.
 
-Starting with the `general Gen-Ens-Prod configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GenEnsProdConfig_default>`_, the following would resemble the minimum necessary settings/changes for the ens dictionary:
+Starting with the `general Gen-Ens-Prod configuration file <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GenEnsProdConfig_default>`_, the following would resemble the minimum necessary settings/changes for the ens dictionary:
 
 .. code-block::
 
@@ -1601,7 +1601,7 @@ Starting with the `general Gen-Ens-Prod configuration file <https://github.com/d
      ];
    }
 
-We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP at 2 meters above ground). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html>`_ or get a hands-on experience with the tool in :ref:`the METplus online tutorial <MET_tool_Gen-Ens-Prod>`. 
+We can see right away that Gen-Ens-Prod is different from most MET tools; it utilizes only one dictionary to process fields (as opposed to the typical forecast and observation fields). This is by design and follows the guidance that Gen-Ens-Prod generates ensemble products, rather than verifying ensemble forecasts (which is left for Ensemble-Stat). Even with this slight change, the name and level entries are still set the same as they would be in any MET tool; that is, according to the information in the input files (e.g., a variable field named TMP at 2 meters above ground). The cat_thresh entry reflects an interest in 2 meter temperatures greater than 10 degrees Celsius. We’ve also included a convert function which will convert the field from its normal output of Kelvin to degrees Celsius. If you’re interested in learning more about this tool, including in-depth explanations of the various settings, please review the `MET User’s Guide entry for Gen-Ens-Prod <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/gen-ens-prod.html>`_ or get a hands-on experience with the tool in :ref:`the METplus online tutorial <MET_tool_Gen-Ens-Prod>`. 
 
 Let’s also utilize the regrid dictionary, since we are only interested in CONUS and the model output is global:
 
@@ -1615,7 +1615,7 @@ Let’s also utilize the regrid dictionary, since we are only interested in CONU
       shape   = SQUARE;
    }
 
-More discussion on how to properly use the regrid dictionary and all of its associated settings can be found in `the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/config_options.html#regrid>`_.
+More discussion on how to properly use the regrid dictionary and all of its associated settings can be found in `the MET User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/config_options.html#regrid>`_.
 
 All that’s left before running the tool is to set up the ensemble_flag dictionary correctly:
 
@@ -1645,7 +1645,7 @@ The output from Gen-Ens-Prod is a netCDF file whose content would contain a vari
 
 With this new MET field output, we can verify this uncalibrated probabilistic forecast for 2 meter temperatures greater than 10 degrees Celsius against an observation dataset in Grid-Stat.
 
-Now for the actual verification and statistical generation we turn to Grid-Stat. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GridStatConfig_default>`_, let’s review how we might set the fcst dictionary:
+Now for the actual verification and statistical generation we turn to Grid-Stat. Starting with the `general Grid-Stat configuration file <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GridStatConfig_default>`_, let’s review how we might set the fcst dictionary:
 
 .. code-block::
 
@@ -1720,7 +1720,7 @@ With a successful run of MET, we should find a .stat file with two rows of data;
 
       ==0.10000   >10     NA      0.05  PSTD   103936 11 0.53987   0.53684  0.5429 0.0019261 0.231 0.24841 0.99209   0.019338   0.013009 0.025667 NA NA NA NA   0.92215 0   0.1 0.2 0.3   0.4   0.5 0.6 0.7 0.8 0.9 1
 
-Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). The 0.231 Resolution value is also close to its largest possible value, the 0.248 Uncertainty value (remember that Resolution is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable), and the sample climatology Brier Skill Score (BSS_SMPL) is 0.922. Because MET evaluated the forecasts at the bin midpoints, this Brier score is higher than the 0.018116 that the same PCT counts give when the actual forecast probabilities (0, 0.2, 0.4, 0.6, 0.8, and 1.0) are used, a difference of about 6%. For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id14>`_ and `PSTD <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/point-stat.html#id15>`_ line types.
+Note that the rows have been truncated and would normally hold more information to the left of the FCST_THRESH entry. But from this snippet we see that there were 103,936 matched pairs for the comparison, with PCT line type showing many of the observations falling in the “no” category of the 0 to 0.1 bin and the “yes” category of the 0.9 to 1.0 bin. In fact, less than seven percent of the matched pairs fell into categories outside of these two. This distribution tells us that the model was very confident in its probabilities, supported by the observations. This is reflected in the outstanding statistical values of the PSTD line type, including a 0.0019261 Reliability value (recall that a zero is ideal and indicates less differences between the average forecast probability and the observed average frequency) and a near-perfect Brier score of 0.019338 (0 being a perfect score). The 0.231 Resolution value is also close to its largest possible value, the 0.248 Uncertainty value (remember that Resolution is the measure of the forecast’s ability to resolve different observational distributions given a change in the forecast value, and a larger value is desirable), and the sample climatology Brier Skill Score (BSS_SMPL) is 0.922. Because MET evaluated the forecasts at the bin midpoints, this Brier score is higher than the 0.018116 that the same PCT counts give when the actual forecast probabilities (0, 0.2, 0.4, 0.6, 0.8, and 1.0) are used, a difference of about 6%. For a complete list of all of the statistics given in these two line types, review the MET User’s Guide entries for the `PCT <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id14>`_ and `PSTD <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#id15>`_ line types.
 
 **METplus Wrapper Example of Probabilistic Forecast Verification**
 

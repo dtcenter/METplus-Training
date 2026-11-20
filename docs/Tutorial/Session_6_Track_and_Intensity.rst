@@ -26,8 +26,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -210,7 +210,7 @@ Start by making an output directory for TC-Pairs and changing directories:
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/tc_pairs
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/tc_pairs
 
-Like the Point-Stat tool, the TC-Pairs tool is controlled by the contents of the configuration file passed to it on the command line. The default TC-Pairs configuration file may be found in the `data/config/TCPairsConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/TCPairsConfig_default>`_ file.
+Like the Point-Stat tool, the TC-Pairs tool is controlled by the contents of the configuration file passed to it on the command line. The default TC-Pairs configuration file may be found in the `data/config/TCPairsConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/TCPairsConfig_default>`_ file.
 
 The configurable items for TC-Pairs are used to specify which data are ingested and how the input data are filtered. The configurable items include specifications for the following:
 
@@ -311,7 +311,7 @@ There should be an output file "tc_pairs.tcst" in the directory, where .tcst sta
 Output
 ^^^^^^
 
-The output of TC-Pairs is an ASCII file containing matched pairs for each of the models requested. In this example, the output is written to the **tc_pairs.tcst** file as we requested on the command line. This output file is in TCST format, which is similar to the STAT output from the Point-Stat and Grid-Stat tools. For more header information on the TCST format, see the `tc_pairs output <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/tc-pairs.html?highlight=tcst#tc-pairs-output>`_ section of the MET User's Guide.
+The output of TC-Pairs is an ASCII file containing matched pairs for each of the models requested. In this example, the output is written to the **tc_pairs.tcst** file as we requested on the command line. This output file is in TCST format, which is similar to the STAT output from the Point-Stat and Grid-Stat tools. For more header information on the TCST format, see the `tc_pairs output <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/tc-pairs.html?highlight=tcst#tc-pairs-output>`_ section of the MET User's Guide.
 
 .. important::
 
@@ -392,7 +392,7 @@ Start by making an output directory for TC-Stat and changing directories:
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/tc_stat
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/tc_stat
 
-The behavior of TC-Stat is controlled by the contents of the configuration file or the job command passed to it on the command line. The default TC-Stat configuration may be found in the `data/config/TCStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/TCStatConfig_default>`_ file. Make a copy of the default configuration file and make the following modifications:
+The behavior of TC-Stat is controlled by the contents of the configuration file or the job command passed to it on the command line. The default TC-Stat configuration may be found in the `data/config/TCStatConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/TCStatConfig_default>`_ file. Make a copy of the default configuration file and make the following modifications:
 
 .. code-block:: text
 
@@ -558,8 +558,8 @@ METplus Use Case: TC-Pairs
 
 The TCPairs use case utilizes the MET *TC-Pairs* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -719,8 +719,8 @@ METplus Use Case: TC-Stat
 
 The TCStat use case utilizes the MET *TC-Stat* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 Change to the ${METPLUS_TUTORIAL_DIR}
 
@@ -796,7 +796,7 @@ Open the standard output file in **${METPLUS_TUTORIAL_DIR}/output/TCStat/tc_stat
       COL_NAME: COLUMN TOTAL VALID MEAN MEAN_NCL MEAN_NCU STDEV MIN P10 P25 P50 P75 P90 MAX IQR RANGE SUM TS_INT TS_IND FSP_TOTAL FSP_BEST FSP_TIES FSP
       SUMMARY: 'ASPEED' 351 0 NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA 0 0 0 NA
 
-The headers indicate that this information includes details about the distribution of data as well as measures to generate plots of Frequency of Superior Performance. The description of each column can be found at: https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html. The other notable result is that most columns are listed as NA. This is because the -column setting is listed as ``'ASPEED'`` with quotes around the column name. The quotes appear to be an error, probably a remnant of a previous METplus version. Let's change that and see what happens.
+The headers indicate that this information includes details about the distribution of data as well as measures to generate plots of Frequency of Superior Performance. The description of each column can be found at: https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html. The other notable result is that most columns are listed as NA. This is because the -column setting is listed as ``'ASPEED'`` with quotes around the column name. The quotes appear to be an error, probably a remnant of a previous METplus version. Let's change that and see what happens.
 
 4. **Copy METplus config file, modify and re-run**
 
@@ -921,8 +921,8 @@ The plot_tcmpr.R script knows to read this **TCMPRPlotterConfig_Customize** R co
    | TCMPR_PLOTTER_PLOT_OUTPUT_DIR - directory where the final plots will be stored.
    | TCMPR_PLOTTER_TCMPR_DATA_DIR - the path to the input data, in this example, we are using the TC-Pairs output in the {INPUT_BASE}/met_test/tc_pairs/{date?fmt=%Y%m} directory.
 
-| **Optional**, Refer to the `TC-Stat tool example <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/plotting.html?highlight=plot_tcmpr#tc-stat-tool-example>`_ section of the **MET Users Guide** for a description of plot_tcmpr.R
-| If you wish, refer to the `Format Information for TCMPR output line type <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/tc-pairs.html#id3>`_ table, for a tabular description of the TC-Pairs output TCST format. This Track and Intensity example does not run TC-Pairs; it reads TC-Pairs TCST files that were generated in advance. You can view these input TCST files under the **${METPLUS_DATA}/met_test/tc_pairs/201503** directory while comparing to the information in the table.
+| **Optional**, Refer to the `TC-Stat tool example <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/plotting.html?highlight=plot_tcmpr#tc-stat-tool-example>`_ section of the **MET Users Guide** for a description of plot_tcmpr.R
+| If you wish, refer to the `Format Information for TCMPR output line type <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/tc-pairs.html#id3>`_ table, for a tabular description of the TC-Pairs output TCST format. This Track and Intensity example does not run TC-Pairs; it reads TC-Pairs TCST files that were generated in advance. You can view these input TCST files under the **${METPLUS_DATA}/met_test/tc_pairs/201503** directory while comparing to the information in the table.
 
 | **The tcmpr defaults are used for any conf settings left unset, for example: XLAB =**
 | **The current settings in the conf files are ok and no changes are required.** However, after running the exercise feel free to experiment with these settings.

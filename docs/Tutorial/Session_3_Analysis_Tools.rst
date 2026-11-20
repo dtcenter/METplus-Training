@@ -28,8 +28,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -153,7 +153,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/stat_analysis
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/stat_analysis
 
-The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/STATAnalysisConfig_default>`_ file.
+The behavior of Stat-Analysis is controlled by the contents of the configuration file or the job command passed to it on the command line. The default Stat-Analysis configuration may be found in the `data/config/StatAnalysisConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/STATAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -422,8 +422,8 @@ METplus Use Case: StatAnalysis
 
 The StatAnalysis use case utilizes the MET *Stat-Analysis* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -692,7 +692,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/series_analysis
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/series_analysis
 
-The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the `data/config/SeriesAnalysisConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/SeriesAnalysisConfig_default>`_ file.
+The behavior of Series-Analysis is controlled by the contents of the configuration file passed to it on the command line. The default Series-Analysis configuration file may be found in the `data/config/SeriesAnalysisConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/SeriesAnalysisConfig_default>`_ file.
 
 .. note::
 
@@ -711,7 +711,7 @@ The configurable items for Series-Analysis are used to specify how the verificat
 * The smoothing methods to be applied.
 * The types of statistics to be computed.
 
-You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/series-analysis.html#series-analysis-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+You may find a complete description of the configurable items in the `series_analysis configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/series-analysis.html#series-analysis-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 .. note::
 
@@ -942,7 +942,7 @@ Next, run the **ncview** utility to display the contents of the NetCDF output fi
 
 Click through the different variables to see how the performance varies over the domain. Looking at the **series_cnt_RMSE** variable, are the errors larger in the south eastern or north western regions of the United States?
 
-Why does the extent of missing data increase for CSI for the higher threshold? Compare **series_cts_CSI_gt0.0** to **series_cts_CSI_ge5.0**. (*Hint: Find the definition of* `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/appendixC.html#critical-success-index-csi>`_ *in the MET User's Guide and look closely at the denominator.*)
+Why does the extent of missing data increase for CSI for the higher threshold? Compare **series_cts_CSI_gt0.0** to **series_cts_CSI_ge5.0**. (*Hint: Find the definition of* `Critical Success index (CSI) <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/appendixC.html#critical-success-index-csi>`_ *in the MET User's Guide and look closely at the denominator.*)
 
 Try running Plot-Data-Plane to visualize the observation rate variable for non-zero precipitation (i.e. **series_fho_O_RATE_gt0.0**). Since the valid range of values for this data is 0 to 1, use that to set the **-plot_range** option.
 
@@ -957,8 +957,8 @@ METplus Use Case: SeriesAnalysis
 
 The SeriesAnalysis use case utilizes the MET *Series-Analysis* tool.
 
-| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+| **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+| **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 

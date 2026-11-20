@@ -116,7 +116,7 @@ In the community AMIs tab there will be a list of prior and current METplus tuto
 
 .. note::
 
-   Click on the select button next to METplus 5.0 Tutorial
+   Click on the select button next to METplus |metplus_short| Tutorial
 
 .. note::
 
@@ -131,11 +131,11 @@ You should see a screen similar to the one below.
 
    Fill in the Name and Tags box
 
-You should create a name that is descriptive and unique like METplus 5.0 ``<Your Name>``.
+You should create a name that is descriptive and unique like METplus |metplus_short| ``<Your Name>``.
 
 **Pre Filled Fields:**
 
-AMI from catalog – METplus 5.0 Tutorial
+AMI from catalog – METplus |metplus_short| Tutorial
 
 Instance type – t2.micro
 

@@ -26,8 +26,8 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
 .. code-block:: text
 
-   cd /path/to/METplus-5.0.0_Tutorial
-   source METplus-5.0.0_TutorialSetup.sh
+   cd /path/to/METplus-|metplus_version|_Tutorial
+   source METplus-|metplus_version|_TutorialSetup.sh
 
 .. note::
 
@@ -142,7 +142,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_ens_prod
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/gen_ens_prod
 
-Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the contents of the configuration file passed to it on the command line. The default Gen-Ens-Prod configuration file may be found in the `data/config/GenEnsProdConfig_default <https://github.com/dtcenter/MET/blob/main_v11.1/data/config/GenEnsProdConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/GenEnsProdConfig\*** files.
+Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the contents of the configuration file passed to it on the command line. The default Gen-Ens-Prod configuration file may be found in the `data/config/GenEnsProdConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GenEnsProdConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/GenEnsProdConfig\*** files.
 
 .. note::
 
@@ -204,7 +204,7 @@ The configuration file also does not have the ability to request statistical lin
 
 .. important::
 
-  You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/gen-ens-prod.html#gen-ens-prod-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+  You may find a complete description of the configurable items in the `gen_ens_prod configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/gen-ens-prod.html#gen-ens-prod-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 For this tutorial, we'll configure Gen-Ens-Prod to create ensemble products for 24-hour accumulated precipitation. While we'll run Gen-Ens-Prod on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're using consists of 6 members defined over the west coast of the United States.
 
@@ -401,7 +401,7 @@ Configure
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/ensemble_stat
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/ensemble_stat
 
-The behavior of Ensemble-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Ensemble-Stat configuration file may be found in the `data/config/EnsembleStatConfig_default <https://github.com/dtcenter/MET/blob/main_v11.0/data/config/EnsembleStatConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/EnsembleStatConfig\*** files.
+The behavior of Ensemble-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Ensemble-Stat configuration file may be found in the `data/config/EnsembleStatConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/EnsembleStatConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/EnsembleStatConfig\*** files.
 
 .. note::
 
@@ -423,7 +423,7 @@ The configurable items for Ensemble-Stat are similar to those found in Grid-Stat
 
 .. important::
 
-   You may find a complete description of the configurable items in the `ensemble_stat configuration file <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/ensemble-stat.html#ensemble-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
+   You may find a complete description of the configurable items in the `ensemble_stat configuration file <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/ensemble-stat.html#ensemble-stat-configuration-file>`_ section of the MET User's Guide. Please take some time to review them.
 
 For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated precipitation. While we'll run Ensemble-Stat on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're verifying consists of 6 members defined over the west coast of the United States.
 
@@ -625,8 +625,8 @@ Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions.
 
 .. important::
 
-   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -804,8 +804,8 @@ This section takes a closer look at the same use case that was run in the previo
 
 .. important::
 
-   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 .. note::
 
@@ -957,8 +957,8 @@ The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plan
 
 .. important::
 
-   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/main_v11.1/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
-   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/main_v5.1/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
+   | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
+   | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
 **Review Use Case Configuration File**
 
