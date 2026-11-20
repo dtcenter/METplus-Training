@@ -94,7 +94,7 @@ The S2S metrics added to the METplus system differ from other use cases in that 
 
 A driver script is a python script that differs from the METplus wrappers. This script calls specific programs located in multiple repositories such as METcalcpy, METplotpy and METdataio. It can call scripts from one repository, or from multiple repositories multiple times, with the order and setup varying for each use case. A driver script is unique to the metrics and plots desired, and is different for different use cases. The figure below shows an example of how a driver script handles data for a use case with one call to a script in METdataio, METcalcpy, and METplotpy to produce an output graphic that displays a calculated index.
 
-.. figure:: ../figure/5.0_s2s_session_img1.png
+.. figure:: figure/s2s_session_img1.png
    :alt: S2S driver workflow: METdataio reads MET NetCDF as xarray, METcalcpy calculates metrics, and METplotpy creates graphics.
 
 Basic Information on UserScripts
@@ -196,12 +196,12 @@ To check the output, we need to find the plots:
 
 There should be 2 plots inside this directory, **fcst_OMI_comp_phase.png** and **obs_OMI_comp_phase.png**. The graphics should match those displayed below.
 
-.. figure:: ../figure/5.0_s2s_session_img2.png
+.. figure:: figure/s2s_session_img2.png
    :alt: OMI phase-space diagram for January through March 2017 for observations.
 
    obs_OMI_comp_phase.png
 
-.. figure:: ../figure/5.0_s2s_session_img3.png
+.. figure:: figure/s2s_session_img3.png
    :alt: OMI phase-space diagram for January through March 2017 for forecasts.
 
    fcst_OMI_comp_phase.png

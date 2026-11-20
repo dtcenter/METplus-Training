@@ -5,7 +5,7 @@ Session 3: Analysis Tools
 
 During this practical session, you will run the tools indicated below:
 
-.. figure:: ../figure/5.0_Practical_Session_3.png
+.. figure:: figure/Practical_Session_3.png
    :alt: MET tool workflow highlighting Series-Analysis and Stat-Analysis for Session 3.
 
 You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
@@ -1097,7 +1097,7 @@ The successful run of that command should produce an image. View it with the fol
 
    display ${METPLUS_TUTORIAL_DIR}/output/SeriesAnalysis/met_tool_wrapper/SeriesAnalysis/2005080700_RMSE.ps
 
-.. figure:: ../figure/2005080700_RMSE.png
+.. figure:: figure/2005080700_RMSE.png
    :alt: Series-Analysis root mean squared error plotted at each grid point.
 
 End of Session 3

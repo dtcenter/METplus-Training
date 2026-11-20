@@ -10,7 +10,7 @@ Session 1: Grid-to-Grid
 
 During the first METplus practical session, you will run the tools indicated below:
 
-.. image:: ../figure/5.0_Practical_Session_1.png
+.. image:: figure/Practical_Session_1.png
    :alt: MET tools used in practical session 1
    :align: center
 

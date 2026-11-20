@@ -7,7 +7,7 @@ Session 2: Grid-to-Obs
 
 During this practical session, you will run the tools indicated below:
 
-.. image:: ../figure/5.0_Practical_Session_2.png
+.. image:: figure/Practical_Session_2.png
    :alt: MET tools used in practical session 2
    :align: center
 

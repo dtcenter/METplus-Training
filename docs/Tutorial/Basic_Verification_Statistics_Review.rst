@@ -933,7 +933,7 @@ For this example, let’s use Point-Stat. Assume we wanted to verify a multicate
 
 In this example, the forecast field name in the forecast input file is named WIND, and is set accordingly in the **fcst** dictionary. Wind speed is one of the unique variables in METplus that can be calculated from the u and v components of a grib1 or grib2 file if wind speed is not present in the file. Assuming the forecast input file is in a grib1 or grib2 format, MET will first check if a variable field WIND is present; if it is, MET will use the values in that field for analysis. If not, MET will check for the u-component (UGRD) and v-component (VGRD) fields and if found, compute the wind speed field for analysis. A **level** of Z10 is used to grab the vertical level of 10 that WIND appears on, which for this input file corresponds to the 10 meter level. Finally, **cat_thresh**, which controls the categorical threshold used to create the multicategory contingency table, is set to four separate thresholds, with each value corresponding to one of the wind speed thresholds of interest. The example’s chosen thresholds assume that the wind speed units in the file are in meters per second. All of the additional **fcst** field entries from the general Point-Stat configuration file were removed. Note how MET uses four thresholds to create five unique, discrete bins of wind speeds with a contingency table that would look like the following:
 
-.. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex.png
+.. image:: figure/Tutorial_stats_multicat_table_METex.png
    :alt: Example multicategorical contingency counts
    :align: center
 
@@ -970,7 +970,7 @@ In this example, we have told MET to output the MCTC and MCTS line types, which 
 
 While the stat file full header column contents are discussed in the `User’s Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/point-stat.html#table-ps-header-info-point-stat-out>`_, the MCTC line types are the final columns of the line beginning after the “MCTC” column. The first value is MET’s TOTAL column which is the “total number of matched pairs”. You might better recognize this value as *n*, the summation of every cell in the contingency table. The following value is the number of dimensions or bins of the contingency table. As discussed above, providing four categorical thresholds creates a 5x5 contingency table. That means that we expect, and receive, 25 cells of data that make up the contingency table. They are listed starting with the lowest forecast and observation threshold pair, with increasing observation thresholds starting first. For the contingency table provided in this example, it would look like the following:
 
-.. image:: ../figure/5.0_Tutorial_stats_multicat_table_METex2.png
+.. image:: figure/Tutorial_stats_multicat_table_METex2.png
    :alt: Example multicategorical verification counts
    :align: center
 
@@ -1037,7 +1037,7 @@ The simplest continuous measure is the mean error (ME), which is the average dif
 
 ME can range over the real numbers and has the obvious advantage of providing immediate insight into how far away, on average, the forecast values are from their corresponding observations. It is extremely easy to calculate, with a perfect forecast (i.e., a forecast that exactly corresponds to the observations) characterized by an ME of 0. ME serves as an important measurement of arithmetic bias. As a measure of bias, ME does not include a method for compensating for the magnitude of the differences between the forecast-observation pairs, and a forecast that has compensating errors could receive a mean error of 0. Essentially, ME provides an indication of whether a forecast has errors that - on average - are centered on zero; or if it is overforecasting or underforecasting on average. Consider the following scenario for wind speed forecasts at the same location for four different times: 
 
-.. image:: ../figure/5.0_Tutorial_stats_ME_ex.png
+.. image:: figure/Tutorial_stats_ME_ex.png
    :alt: Example forecast and observation values for mean error
    :align: center
 
@@ -1113,13 +1113,13 @@ where di denotes the difference in ranking between the pair of datafields.
 
 What does ranking of matched pairs look like with actual data? Let’s use the following scenario of rainfall forecasts and the observed rainfall over a five hour period for a set location:
 
-.. image:: ../figure/5.0_Tutorial_stats_SPCORR_table1.png
+.. image:: figure/Tutorial_stats_SPCORR_table1.png
    :alt: Sample rainfall ranks for Spearman correlation
    :align: center
 
 Using a ranking system for the datasets where the smallest value is assigned 1 and everything greater than that value is assigned a value that is integer-based, monotonically increasing by 1 (with tied values sharing the average of their ranks, so the two 0.0” observations each receive a rank of 1.5), the data table above would be transformed into the following ranks:
 
-.. image:: ../figure/5.0_Tutorial_stats_SPCORR_table2.png
+.. image:: figure/Tutorial_stats_SPCORR_table2.png
    :alt: Ranked forecast and observation rainfall values
    :align: center
 
@@ -1135,7 +1135,7 @@ In the equation, N_C is a count of the concordant pairs, and N_D is a count of t
 
 To show how 𝝉 is calculated, let’s return to the previous example used to calculate SP_CORR. Because we’re using the same rainfall values, the rankings of those values will also be the same. For the simplicity of counting concordant and discordant pairs, the forecast ranks have been arranged in increasing order (which explains why Hour 5 is now preceding Hour 1):
 
-.. image:: ../figure/5.0_Tutorial_stats_SPCORR_table3.png
+.. image:: figure/Tutorial_stats_SPCORR_table3.png
    :alt: Concordant and discordant rank pairs
    :align: center
 
@@ -1319,7 +1319,7 @@ All that’s left is to run MET with a command line prompt:
 
 The resulting two files have a wealth of information and statistics. The netCDF output contains our visual confirmation that the forecast and observation input fields were interpreted correctly by MET, as well as the difference between the two fields which is provided below:
 
-.. image:: ../figure/5.0_Tutorial_stats_MET_CNT_output_ex.png
+.. image:: figure/Tutorial_stats_MET_CNT_output_ex.png
    :alt: Example MET continuous statistics output
    :align: center
 
@@ -1639,7 +1639,7 @@ In the first half of this example, we have told MET to create a CONUS 2 meter te
 
 The output from Gen-Ens-Prod is a netCDF file whose content would contain a variable field as described above. It should look something like the following:
 
-.. image:: ../figure/5.0_Tutorial_stats_prob_pic1.png
+.. image:: figure/Tutorial_stats_prob_pic1.png
    :alt: Gen-Ens-Prod probabilistic temperature field
    :align: center
 

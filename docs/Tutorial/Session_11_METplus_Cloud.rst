@@ -93,7 +93,7 @@ Change your region in the upper right corner to US East (N. Virginia)
 
 Type METplus in the search box
 
-.. figure:: ../figure/awscatalog_0.png
+.. figure:: figure/awscatalog_0.png
    :alt: AWS AMI catalog search results for METplus tutorials.
 
 In the community AMIs tab there will be a list of prior and current METplus tutorials.
@@ -104,7 +104,7 @@ Click on the button labeled Launch Instance with AMI
 
 You should see a screen similar to the one below.
 
-.. figure:: ../figure/launchami_crop.png
+.. figure:: figure/launchami_crop.png
    :alt: AWS launch instance form for the METplus tutorial AMI.
 
 Fill in the Name and Tags box
@@ -141,7 +141,7 @@ The right hand column should have a summary of the choices you made above.
 
 Once launched you will see a screen similar to below.
 
-.. figure:: ../figure/launchedaws.png
+.. figure:: figure/launchedaws.png
    :alt: AWS confirmation that the tutorial instance has launched.
 
 There are now two ways to get the ip address to your currently running EC2 instance.
@@ -150,14 +150,14 @@ There are now two ways to get the ip address to your currently running EC2 insta
 
 Something similar to the image below should pop up and your ip address should be listed.
 
-.. figure:: ../figure/connecttoinstance.png
+.. figure:: figure/connecttoinstance.png
    :alt: AWS instance connection information including the instance IP address.
 
 **2.** Navigate to your EC2 dashboard and look at the running instances
 
 Click on the Instance ID link for your newly created instance that hopefully has a descriptive name and you will see the ip address contained in the screen it takes you to.
 
-.. figure:: ../figure/instancesummary.png
+.. figure:: figure/instancesummary.png
    :alt: AWS instance summary for the running tutorial instance.
 
 You may now connect to your EC2 instance the same way as you would if you were given an ip by the tutorial manager, except that you use the key pair you selected above instead of a password:

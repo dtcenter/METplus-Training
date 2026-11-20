@@ -160,7 +160,7 @@ There are three specialized histogram plots available:
 
 Detailed information about these plots is available from Read the Docs:
 
-`https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/histogram.html>`_
+`https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/histogram.html <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/histogram.html>`_
 
 These instructions are relevant for generating the rank histogram from the command line. For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
@@ -169,7 +169,7 @@ Each histogram plot requires two configuration files, a default and custom confi
 Set Up Prerequisites
 """"""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_
 
 METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
@@ -185,11 +185,11 @@ Clone the METcalcpy repository to a directory where you have read/write permissi
 
 .. code-block:: text
 
-   git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METcalcpy
 
 The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
-* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
+* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
@@ -204,7 +204,7 @@ Clone the METplotpy repository to a directory where you have read/write permissi
 
 .. code-block:: text
 
-   git clone -b main_v2.0 https://github.com/dtcenter/METplotpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METplotpy
 
 Create the Rank Histogram Plot
 """"""""""""""""""""""""""""""
@@ -338,7 +338,7 @@ In your WORKING_DIR, you will now see a rank_hist.png file. You can view the png
 
 **Your histogram will look like the following:**
 
-.. figure:: ../figure/rank_hist.png
+.. figure:: figure/rank_hist.png
    :alt: Rank histogram generated from the tutorial ensemble data.
 
 Create the Relative Frequency Histogram and Probability Histogram
@@ -410,12 +410,12 @@ You will see the rel_hist.png and prob_hist.png files in your WORKING_DIR. Your 
 
 **Relative Frequency Histogram:**
 
-.. figure:: ../figure/rel_hist.png
+.. figure:: figure/rel_hist.png
    :alt: Relative frequency histogram generated from the tutorial ensemble data.
 
 **Probability Histogram:**
 
-.. figure:: ../figure/prob_hist.png
+.. figure:: figure/prob_hist.png
    :alt: Probability histogram generated from the tutorial ensemble data.
 
 Wind Rose
@@ -428,7 +428,7 @@ The wind rose diagram source code is located in the https://github.com/dtcenter/
 
 Detailed information about the wind rose diagram is available from Read the Docs:
 
-`https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/wind_rose.html>`_
+`https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/wind_rose.html <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/wind_rose.html>`_
 
 These instructions are relevant for generating the wind rose diagram from the command line. For METplotpy version 2.0, development was performed with Python 3.8 and related third-party packages (i.e. Python packages outside the Python standard library).
 
@@ -437,7 +437,7 @@ The wind rose diagram requires **two** configuration files, a *default* and *cus
 Set Up Prerequisites
 """"""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_
 
 METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
@@ -453,11 +453,11 @@ Clone the METcalcpy repository to a directory where you have read/write permissi
 
 .. code-block:: text
 
-   git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METcalcpy
 
 The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
-* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
+* Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
@@ -472,7 +472,7 @@ Clone the METplotpy repository to a directory where you have read/write permissi
 
 .. code-block:: text
 
-   git clone -b main_v2.0 https://github.com/dtcenter/METplotpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METplotpy
 
 Create the Wind Rose Diagram
 """"""""""""""""""""""""""""
@@ -606,7 +606,7 @@ In your WORKING_DIR, you will now see a wind_rose_custom.png file. You can view 
 
 **Your wind rose diagram will look like the following:**
 
-.. figure:: ../figure/wind_rose.png
+.. figure:: figure/wind_rose.png
    :alt: Wind rose showing the tutorial wind direction and speed distributions.
 
 METdataio
@@ -632,7 +632,7 @@ The METviewer database "view" consists of individual statistics that are collect
 
 The METreformat package replicates this format.
 
-Generic instructions for reformatting a sample MET Point-Stat .stat file are available on Read the Docs: `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_.
+Generic instructions for reformatting a sample MET Point-Stat .stat file are available on Read the Docs: `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/|metplus_branch|/Users_Guide/reformat_point_stat_data.html>`_.
 
 The Point-Stat line types that are currently supported in METreformat are as follows:
 
@@ -657,7 +657,7 @@ Example of Running METreformat
 Set Up Prerequisites
 """"""""""""""""""""
 
-Set up the environment by following the `instructions for METplus initial set up <Preliminary_work_METplus_setup.html#metplus-initial-setup>`_. Make sure to follow the relevant instructions for **either** the **Pre-configured Environments** or **User Configured Environments,** based on your host computer. Finish by following the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` instructions.
+Set up the environment by following the `instructions for METplus initial set up <Preliminary_work_METplus_setup.html#metplus-initial-setup>`_. Make sure to select the tab for your host computer. Finish by following the :ref:`Verify Environment Is Set Correctly <verif_env_set_correct>` instructions.
 
 The Python requirements for METdataio are:
 
@@ -670,9 +670,9 @@ The Python requirements for METdataio are:
 
 Make sure you have activated the conda environment for METdataio if you are working on your own host or on host 'seneca':
 
-:ref:`Setting Up the Tutorial Environment on Seneca (NCAR) <set_tut_env_Seneca>`
+:ref:`Conda Environment for the METplus Analysis and S2S Sessions on Seneca <set_tut_env_Seneca>`
 
-Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
+Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/|metplus_branch|/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
 
 Clone the METdataio repository to a local directory:
 
@@ -680,7 +680,7 @@ Clone the METdataio repository to a local directory:
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/metdataio
    cd ${METPLUS_TUTORIAL_DIR}/metdataio
-   git clone -b main_v2.0 https://github.com/dtcenter/METdataio
+   git clone -b |metplus_branch| https://github.com/dtcenter/METdataio
 
 Reformat MET Point-Stat .stat Files
 """""""""""""""""""""""""""""""""""
@@ -888,9 +888,9 @@ Generate a METplotpy Line Plot
 Set Up Prerequisites
 """"""""""""""""""""
 
-The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_.
+The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_.
 
-If you are working on a host that does not have the necessary Python packages installed, create your own conda environment using the instructions provided by the :ref:`Seneca host instructions <set_tut_env_Seneca>` as guidance.
+If you are working on a host that does not have the necessary Python packages installed, create your own conda environment using the instructions provided by the :ref:`Seneca conda environment instructions <set_tut_env_Seneca>` as guidance.
 
 Continue working in the bash shell.
 
@@ -902,11 +902,11 @@ Clone the METcalcpy repository to a local directory:
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/metcalcpy
    cd ${METPLUS_TUTORIAL_DIR}/metcalcpy
-   git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METcalcpy
 
 If you have access to conda environments, select one of the two following methods to install METplotpy:
 
-* Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
+* Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
 
 .. code-block:: text
@@ -919,7 +919,7 @@ Clone the METplotpy repository to a local directory:
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/metplotpy
    cd ${METPLUS_TUTORIAL_DIR}/metplotpy
-   git clone -b main_v2.0 https://github.com/dtcenter/METplotpy
+   git clone -b |metplus_branch| https://github.com/dtcenter/METplotpy
 
 An overview of the steps for creating this plot are:
 
@@ -1254,7 +1254,7 @@ In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now 
 
 **Your line plot will look like the following:**
 
-.. figure:: ../figure/line.png
+.. figure:: figure/line.png
    :alt: METplotpy line plot generated from reformatted Point-Stat data.
 
 End of Session 8

@@ -5,7 +5,7 @@ Session 5: MODE and MTD
 
 During this practical session, you will run the tools indicated below:
 
-.. figure:: ../figure/5.0_Practical_Session_5.png
+.. figure:: figure/Practical_Session_5.png
    :alt: MET tool workflow highlighting the tools used in Session 5.
 
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.

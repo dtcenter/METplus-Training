@@ -15,7 +15,7 @@ Session 9: Python Embedding
 
 Put simply, Python Embedding is a way to allow users to write their own Python scripts which can be integrated into workflows that use MET tools and METplus Wrappers. The primary ways that Python Embedding is leveraged by MET users are reading data from a format that MET tools do not support, and deriving intermediate fields within a workflow that cannot be calculated by MET tools. A simplified workflow using the MET Grid-Stat tool with Python Embedding is shown below:
 
-.. figure:: ../figure/ScreenShot2023-01-20at1.42.43PM.png
+.. figure:: figure/ScreenShot2023-01-20at1.42.43PM.png
    :alt: Python embedding passes HDF5 observations to Grid-Stat alongside GRIB forecasts.
 
 In this example, the user has a gridded analysis dataset in an HDF-5 file format ("HDF5 ANX") and a gridded forecast dataset in GRIB format ("GRIB FCST"). Grid-Stat has support to read the GRIB forecast data, but cannot read the HDF-5 data. Therefore, the user writes a Python script to open the HDF-5 file and prepare it for Grid-Stat. When Grid-Stat runs, the Python script is called and the data is handed off from the user's Python script directly to Grid-Stat in memory without writing a physical output file. There are cases when MET will write a physical file, which will be covered in the next chapter of this session along with other details of Python Embedding.
@@ -198,7 +198,7 @@ The output file is a PostScript graphic file that typically can only be viewed w
 
    convert -rotate 90 -background white my_gridded_pyembed_plot.ps my_gridded_pyembed_plot.png
 
-.. figure:: ../figure/ScreenShot2023-01-24at11.10.12AM.png
+.. figure:: figure/ScreenShot2023-01-24at11.10.12AM.png
    :alt: Gridded Python embedding example displaying the word Test over North America.
 
 Simple Gridded Data Example with METplus Wrappers
@@ -323,7 +323,7 @@ The output file is a PostScript graphic file that typically can only be viewed w
 
    convert -rotate 90 -background white my_point_pyembed_plot.ps my_point_pyembed_plot.png
 
-.. figure:: ../figure/ScreenShot2023-01-24at3.07.15PM.png
+.. figure:: figure/ScreenShot2023-01-24at3.07.15PM.png
    :alt: Point observation locations from sample_ascii_obs.txt plotted on a world map.
 
 Simple Point Data Example with METplus Wrappers
@@ -552,7 +552,7 @@ PYTHON_XARRAY
 
 The resulting image, regardless of which approach you take (except for the string annotation which will change), should look like the following:
 
-.. figure:: ../figure/ScreenShot2023-01-25at2.40.25PM.png
+.. figure:: figure/ScreenShot2023-01-25at2.40.25PM.png
    :alt: Python embedding plot of the gridded satellite field over the United States.
 
 .. important::
@@ -640,7 +640,7 @@ Now save the file, and run METplus wrappers:
 
 If you completed the previous section using your Python Embedding script directly with **plot_data_plane**, then the image you generated from either of the approaches above should identically match that and look like this:
 
-.. figure:: ../figure/ScreenShot2023-01-25at2.40.25PM.png
+.. figure:: figure/ScreenShot2023-01-25at2.40.25PM.png
    :alt: Python embedding plot of the gridded satellite field over the United States.
 
 .. important::
