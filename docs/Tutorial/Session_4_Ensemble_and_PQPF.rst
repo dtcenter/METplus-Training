@@ -14,9 +14,7 @@ Since you already set up your runtime environment in **Session 1**, you **should
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
-.. note::
-
-  **1:** Navigate to your tutorial directory and run the tutorial setup script.
+**1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
@@ -29,9 +27,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    cd /path/to/METplus-|metplus_version|_Tutorial
    source METplus-|metplus_version|_TutorialSetup.sh
 
-.. note::
-
-  **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -51,9 +47,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
   | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
   | **METPLUS_DATA** is the location of the sample test data directory
 
-.. note::
-
-  **3:** Check that the MET applications are in the path:
+**3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -63,9 +57,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
-.. note::
-
-  **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
+**4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -133,9 +125,7 @@ Gen-Ens-Prod has additional optional settings. These include the **-ctrl file**,
 Configure
 ^^^^^^^^^
 
-.. note::
-
-   Start by making an output directory for Gen-Ens-Prod and changing directories:
+Start by making an output directory for Gen-Ens-Prod and changing directories:
 
 .. code-block:: text
 
@@ -144,17 +134,13 @@ Configure
 
 Similar to other MET tools, the behavior of Gen-Ens-Prod is controlled by the contents of the configuration file passed to it on the command line. The default Gen-Ens-Prod configuration file may be found in the `data/config/GenEnsProdConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/GenEnsProdConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/GenEnsProdConfig\*** files.
 
-.. note::
-
-   Prior to modifying the configuration file, users are advised to make a copy of the default:
+Prior to modifying the configuration file, users are advised to make a copy of the default:
 
 .. code-block:: text
 
    cp ${MET_BUILD_BASE}/share/met/config/GenEnsProdConfig_default GenEnsProdConfig_tutorial
 
-.. note::
-
-   Open up the **GenEnsProdConfig_tutorial** file for editing with your preferred text editor.
+Open up the **GenEnsProdConfig_tutorial** file for editing with your preferred text editor.
 
 .. code-block:: text
 
@@ -208,9 +194,7 @@ The configuration file also does not have the ability to request statistical lin
 
 For this tutorial, we'll configure Gen-Ens-Prod to create ensemble products for 24-hour accumulated precipitation. While we'll run Gen-Ens-Prod on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're using consists of 6 members defined over the west coast of the United States.
 
-.. note::
-
-   In the **ens** dictionary, set
+In the **ens** dictionary, set
 
 .. admonition:: File Contents
 
@@ -231,9 +215,7 @@ For this tutorial, we'll configure Gen-Ens-Prod to create ensemble products for 
 
 Setting **ens_thresh** at 0.5 allows half of the ensemble member files being passed at runtime to contain invalid data before GenEnsProd quits with an error. Similarly, **vld_thresh** at 0.5 allows each grid point to have invalid data for half of the ensemble member files passed at runtime and still compute the requested products for that grid point.
 
-.. note::
-
-   In the **ensemble_flag** dictionary, set
+In the **ensemble_flag** dictionary, set
 
 .. admonition:: File Contents
 
@@ -258,16 +240,12 @@ Setting **ens_thresh** at 0.5 allows half of the ensemble member files being pas
 
 These products will be output to the netCDF designated at runtime with the **-out** flag. They will show a small sample of the options from Gen-Ens-Prod, as well as highlighting how the output changes when one of the files is entered as the control ensemble member, which will be done later this session.
 
-.. note::
-
-   Save and close this file.
+Save and close this file.
 
 Run
 ^^^
 
-.. note::
-
-   Let's run Gen-Ens-Prod on the command line using the following command:
+Let's run Gen-Ens-Prod on the command line using the following command:
 
 .. code-block:: text
 
@@ -286,9 +264,7 @@ Output
 
 As mentioned previously, Gen-Ens-Prod only produces 1 netCDF output file. This file contains all of the requested products that were made in the configuration file.
 
-.. note::
-
-   Let's take a look at the contents of the file:
+Let's take a look at the contents of the file:
 
 .. code-block:: text
 
@@ -296,9 +272,7 @@ As mentioned previously, Gen-Ens-Prod only produces 1 netCDF output file. This f
 
 Note that the file contains 9 variables: the latitude and longitudes, the ensemble mean and standard deviation, the ensemble valid data count, and the four categorical thresholds that were set, all with the prefix **APCP_24_A24_ENS_FREQ_**. These thresholds act as uncalibrated probability forecasts and can be verified against observational datasets with other MET tools.
 
-.. note::
-
-   Now let's visually inspect the file contents with a graphical viewer:
+Now let's visually inspect the file contents with a graphical viewer:
 
 .. code-block:: text
 
@@ -313,9 +287,7 @@ Rerun
 
 Now that we've seen the output for Gen-Ens-Prod without any control ensemble members, let's change the run slightly by selecting one of the previous ensemble members as the control. Because the required changes will be performed in the run command, no edits will be made to the configuration file.
 
-.. note::
-
-   Run the following command. Note the change to the wildcards, additional flag, and change in output file name:
+Run the following command. Note the change to the wildcards, additional flag, and change in output file name:
 
 .. code-block:: text
 
@@ -328,9 +300,7 @@ Now that we've seen the output for Gen-Ens-Prod without any control ensemble mem
 
 When MET has successfully finished running, 1 new netCDF file will be in the current directory containing the same ensemble products that were available in the first run. However, the output is now changed by using one of the original ensemble members as the control member.
 
-.. note::
-
-   Take a look at the contents of the new netCDF file with ncview:
+Take a look at the contents of the new netCDF file with ncview:
 
 .. code-block:: text
 
@@ -340,9 +310,7 @@ You'll see as you click through the variables that the only difference between t
 
 To better illustrate the difference in the **APCP_24_A24_ENS_STDEV** products, let's calculate the difference of the two fields using PCP-Combine, and plot the results using Plot-Data-Plane.
 
-.. note::
-
-   Use the following command to subtract the control standard deviation field from the full ensemble standard deviation field, saving it to the netCDF file and variable name provided:
+Use the following command to subtract the control standard deviation field from the full ensemble standard deviation field, saving it to the netCDF file and variable name provided:
 
 .. code-block:: text
 
@@ -351,18 +319,14 @@ To better illustrate the difference in the **APCP_24_A24_ENS_STDEV** products, l
    GenEnsProd_APCP24_run2_ctrl.nc 'name="APCP_24_A24_ENS_STDEV"; level="(*,*)";' \
    Full_Ensemble_STDDEV_minus_ctrl_STDDEV.nc -name STDDEV_DIFF
 
-.. note::
-
-   Now, take the PCP-Combine output and create a plot of the results:
+Now, take the PCP-Combine output and create a plot of the results:
 
 .. code-block:: text
 
    plot_data_plane Full_Ensemble_STDDEV_minus_ctrl_STDDEV.nc STDDEV_diff.ps \
    'name="STDDEV_DIFF"; level="(*,*)";'
 
-.. note::
-
-   Finally, view the contents of the plot:
+Finally, view the contents of the plot:
 
 .. code-block:: text
 
@@ -392,9 +356,7 @@ As with the other MET statistics tools, all ensemble data and gridded verifying 
 Configure
 ^^^^^^^^^
 
-.. note::
-
-   Start by making an output directory for Ensemble-Stat and changing directories:
+Start by making an output directory for Ensemble-Stat and changing directories:
 
 .. code-block:: text
 
@@ -403,17 +365,13 @@ Configure
 
 The behavior of Ensemble-Stat is controlled by the contents of the configuration file passed to it on the command line. The default Ensemble-Stat configuration file may be found in the `data/config/EnsembleStatConfig_default <https://github.com/dtcenter/MET/blob/|metplus_branch|/data/config/EnsembleStatConfig_default>`_ file. The configurations used by the test script may be found in the **scripts/config/EnsembleStatConfig\*** files.
 
-.. note::
-
-   Prior to modifying the configuration file, users are advised to make a copy of the default:
+Prior to modifying the configuration file, users are advised to make a copy of the default:
 
 .. code-block:: text
 
    cp ${MET_BUILD_BASE}/share/met/config/EnsembleStatConfig_default EnsembleStatConfig_tutorial
 
-.. note::
-
-   Open up the **EnsembleStatConfig_tutorial** file for editing with your preferred text editor.
+Open up the **EnsembleStatConfig_tutorial** file for editing with your preferred text editor.
 
 .. code-block:: text
 
@@ -427,13 +385,9 @@ The configurable items for Ensemble-Stat are similar to those found in Grid-Stat
 
 For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated precipitation. While we'll run Ensemble-Stat on a single field, please note that it may be configured to operate on multiple fields. The ensemble we're verifying consists of 6 members defined over the west coast of the United States.
 
-.. note::
+Edit the **EnsembleStatConfig_tutorial** file as follows:
 
-   Edit the **EnsembleStatConfig_tutorial** file as follows:
-
-.. note::
-
-   In the **fcst** dictionary, set
+In the **fcst** dictionary, set
 
 .. admonition:: File Contents
 
@@ -448,9 +402,7 @@ For this tutorial, we'll configure Ensemble-Stat to verify 24-hour accumulated p
 
 To verify the 24-hour accumulated precipitation fields.
 
-.. note::
-
-   In the **observation filtering options**, set:
+In the **observation filtering options**, set:
 
 .. admonition:: File Contents
 
@@ -460,9 +412,7 @@ To verify the 24-hour accumulated precipitation fields.
 
 To verify against surface observations.
 
-.. note::
-
-   In the **field entry** section, set:
+In the **field entry** section, set:
 
 .. admonition:: File Contents
 
@@ -472,9 +422,7 @@ To verify against surface observations.
 
 To specify thresholds to use for computation of the Ranked Probability Score (RPS). Note that RPS output is only written when rps is enabled in the output_flag dictionary, which this tutorial leaves set to NONE.
 
-.. note::
-
-   In the **mask** dictionary, set
+In the **mask** dictionary, set
 
 .. admonition:: File Contents
 
@@ -485,9 +433,7 @@ To specify thresholds to use for computation of the Ranked Probability Score (RP
 
 To also verify over the northwest coast (NWC) and southwest coast (SWC) subregions.
 
-.. note::
-
-   Set:
+Set:
 
 .. admonition:: File Contents
 
@@ -504,16 +450,12 @@ To also verify over the northwest coast (NWC) and southwest coast (SWC) subregio
 
 To compute continuous ensemble statistics (ECNT), ranked histogram (RHIST), probability integral transform histogram (PHIST), observation ranks (ORANK), spread-skill variance (SSVAR), and relative position (RELP).
 
-.. note::
-
-   Save and close this file.
+Save and close this file.
 
 Run
 ^^^
 
-.. note::
-
-   Next, run Ensemble-Stat on the command line using the following command, using wildcards to list the 6 input ensemble member files:
+Next, run Ensemble-Stat on the command line using the following command, using wildcards to list the 6 input ensemble member files:
 
 .. code-block:: text
 
@@ -555,9 +497,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 
    Since the lines of data in these ASCII files are so long, we strongly recommend configuring your text editor to **NOT** use dynamic word wrapping. The files will be much easier to read that way.
 
-.. note::
-
-   Open up the **ensemble_stat_20100101_120000V_rhist.txt** RHIST file using the text editor of your choice and note the following:
+Open up the **ensemble_stat_20100101_120000V_rhist.txt** RHIST file using the text editor of your choice and note the following:
 
 .. code-block:: text
 
@@ -567,9 +507,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 * Each line contains columns for the total number of observations (TOTAL), the number of ranks (N_RANK), and the counts for each observation rank (``RANK_#``). Ensemble statistics such as CRPS, CRPSS, IGN, and SPREAD are found in the ECNT line type instead.
 * There is output for 7 ranks - since we verified a 6-member ensemble, there are 7 possible ranks the observation values could attain.
 
-.. note::
-
-   Close this file, and open up the **ensemble_stat_20100101_120000V_phist.txt** PHIST file, and note the following:
+Close this file, and open up the **ensemble_stat_20100101_120000V_phist.txt** PHIST file, and note the following:
 
 .. code-block:: text
 
@@ -578,9 +516,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 * There are 5 lines in this output file resulting from using 3 verification regions (**FULL**, **NWC**, and **SWC**) and two observation datasets (ADPSFC point observations and gridded observations), where the ADPSFC point observations for the SWC region were all zeros for which the probability integral transform is not defined.
 * Each line contains columns for the **BIN_SIZE** and counts for each bin. The bin size is set in the configuration file using the **ens_phist_bin_size** field. In this case, it was set to .05, therefore creating 20 bins (1/ens_phist_bin_size).
 
-.. note::
-
-   Close this file, and open up the **ensemble_stat_20100101_120000V_orank.txt** ORANK file, and note the following:
+Close this file, and open up the **ensemble_stat_20100101_120000V_orank.txt** ORANK file, and note the following:
 
 .. code-block:: text
 
@@ -590,9 +526,7 @@ The STAT file contains all the ASCII output while the **_ecnt.txt**, **_rhist.tx
 * Each line contains 50 columns, including header information, the observation location and value, its rank, and the 6 values for the ensemble members at that point.
 * When there are *ties*, Ensemble-Stat randomly assigns a rank from all the possible choices. This can be seen in the **SWC** masking region where all of the observed values are 0 and the ensemble forecasts are 0 as well. Ensemble-Stat randomly assigns a rank between 1 and 7.
 
-.. note::
-
-   Use the **ncview** utility to view the NetCDF gridded observation rank file:
+Use the **ncview** utility to view the NetCDF gridded observation rank file:
 
 .. code-block:: text
 
@@ -608,9 +542,7 @@ This file is only created when you've verified using gridded observations (-grid
 
 In **ncview**, the random assignment of tied ranks is evident in areas of zero precipitation.
 
-.. note::
-
-   Close this file.
+Close this file.
 
 Feel free to explore using this dataset. Some options to try are:
 
@@ -628,9 +560,7 @@ Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions.
    | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
    | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
-.. note::
-
-   Change to the ${METPLUS_TUTORIAL_DIR} directory:
+Change to the ${METPLUS_TUTORIAL_DIR} directory:
 
 .. code-block:: text
 
@@ -638,9 +568,7 @@ Both the Ensemble-Stat tool and Gen-Ens-Prod tool have METplus wrapper versions.
 
 1. **Review the basic wrapper configuration file: EnsembleStat.conf**
 
-.. note::
-
-   Open the file and look at all of the configuration variables that are defined.
+Open the file and look at all of the configuration variables that are defined.
 
 .. code-block:: text
 
@@ -658,9 +586,7 @@ This references **INPUT_BASE** which is set in the tutorial.conf configuration f
 
 2. **Review the basic wrapper configuration file: GenEnsProd.conf**
 
-.. note::
-
-   Open the file and look at all of the configuration options.
+Open the file and look at all of the configuration options.
 
 .. code-block:: text
 
@@ -670,9 +596,7 @@ The Gen-Ens-Prod tool (and its wrapper that we're now using) is for creating ens
 
 3. **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
 
-.. note::
-
-   Open the use case configuration file:
+Open the use case configuration file:
 
 .. code-block:: text
 
@@ -703,9 +627,7 @@ GenEnsProd, on the other hand, will utilize the **ENS_** configuration settings,
 
 Note that the output directory is dependent on a different configuration setting, **ENSEMBLE_STAT_OUTPUT_DIR**. As mentioned above, this is common practice in METplus.
 
-.. note::
-
-   4. **Run the use case:**
+4. **Run the use case:**
 
 .. code-block:: text
 
@@ -761,9 +683,7 @@ You should have output files in the following directories:
 
 We can tell from the name of the files, specifically the **_F00x_** string, that three different lead times were run: 0, 1, and 2. These ended up as valid times of 12z, 13z, and 14z, as indicated by the **1x0000V** strings.
 
-.. note::
-
-   Take a look at some of the files to see what was generated.
+Take a look at some of the files to see what was generated.
 
 .. code-block:: text
 
@@ -787,9 +707,7 @@ Log files for this run are found in **${METPLUS_TUTORIAL_DIR}/output/Ensemble/lo
 
    ls -1 ${METPLUS_TUTORIAL_DIR}/output/Ensemble/logs/metplus.log.*
 
-.. note::
-
-   7. **Review the Final Configuration File:**
+7. **Review the Final Configuration File:**
 
 .. code-block:: text
 
@@ -807,17 +725,13 @@ This section takes a closer look at the same use case that was run in the previo
    | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
    | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
-.. note::
-
-   Change to the ${METPLUS_TUTORIAL_DIR} directory:
+Change to the ${METPLUS_TUTORIAL_DIR} directory:
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-.. note::
-
-   1. **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
+1. **Review the use case configuration file: EnsembleStat_fcstHRRRE_obsHRRRE_Sfc_MultiField.conf**
 
 Open the file and look at all of the configuration variables that are defined.
 
@@ -860,9 +774,7 @@ Given the lead times and INIT time, the tools will loop over the following valid
 
 The run time for this use case is expected to be longer, due to the multiple lead times, two MET tools, and 5 variables at multiple thresholds being analyzed.
 
-.. note::
-
-   2. **Run the use case:**
+2. **Run the use case:**
 
 .. code-block:: text
 
@@ -879,9 +791,7 @@ METplus is finished running when control returns to your terminal console and yo
 
       INFO: METplus has successfully finished running.
 
-.. note::
-
-   3. **Review the output files:**
+3. **Review the output files:**
 
 You should have two directories of interest:
 
@@ -928,9 +838,7 @@ You'll see 3 output files, corresponding to the three lead times that were run. 
 
 Each lead time is responsible for producing 8 files, for a total of 24 files. These were all requested with the ENSEMBLE_STAT_OUTPUT_FLAG options, with the exception of the .stat and .nc files.
 
-.. note::
-
-   4. **Compare the netCDF output to the .stat output:**
+4. **Compare the netCDF output to the .stat output:**
 
 To better understand the difference between the FCST and ENS entries in the configuration file used by the EnsembleStat and GenEnsProd tools respectively, take a look at the netCDF file for the first lead time (0):
 
@@ -964,9 +872,7 @@ The QPF Probabilistic use case utilizes the MET *Pcp-Combine*, *Regrid-Data-Plan
 
 The configuration file is located in use_cases/model_applications/precipitation and is called **GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf**.
 
-.. note::
-
-   Open the file and look at all of the configuration variables that are defined.
+Open the file and look at all of the configuration variables that are defined.
 
 .. code-block:: text
 
@@ -994,9 +900,7 @@ This references **INPUT_BASE** which is set in the METplus tutorial.conf file (*
 
 **Run METplus**
 
-.. note::
-
-   Run the following command:
+Run the following command:
 
 .. code-block:: text
 
@@ -1036,9 +940,7 @@ You should have output files in the following directories:
       grid_stat_PROB_PHPT_APCP_vs_STAGE4_GRIB_APCP_A06_070000L_20160904_190000V_pstd.txt
       grid_stat_PROB_PHPT_APCP_vs_STAGE4_GRIB_APCP_A06_070000L_20160904_190000V.stat
 
-.. note::
-
-   Take a look at some of the files to see what was generated.
+Take a look at some of the files to see what was generated.
 
 .. code-block:: text
 
@@ -1077,22 +979,16 @@ If you have extra time, you may want to try these additional METplus exercises. 
 
 **EXERCISE 4.1: accum_3hr - Build a 3 Hour Accumulation Instead of 6**
 
-.. note::
+**Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using pcp_combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
 
-   **Instructions:** Modify the METplus configuration files to build a 3 hour accumulation instead of a 6 hour accumulation from observation data using pcp_combine in the PHPT vs. StageIV GRIB example. Then compare 3 hour accumulations in the forecast and observation data with grid_stat.
-
-.. note::
-
-   Copy your custom configuration file and rename it to **GridStat-ensemble.accum_3hr.conf** for this exercise.
+Copy your custom configuration file and rename it to **GridStat-ensemble.accum_3hr.conf** for this exercise.
 
 .. code-block:: text
 
    cp ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB.conf \
    ${METPLUS_TUTORIAL_DIR}/user_config/GridStat-ensemble.accum_3hr.conf
 
-.. note::
-
-   Open **GridStat-ensemble.accum_3hr.conf** with an editor and change values.
+Open **GridStat-ensemble.accum_3hr.conf** with an editor and change values.
 
 .. code-block:: text
 
@@ -1102,9 +998,7 @@ If you have extra time, you may want to try these additional METplus exercises. 
 
    HINT: There is a variable in the use case configuration file named **BOTH_VAR1_LEVELS**, which applies to both the forecast and observation data, that currently contains a 6 hour accumulation.
 
-.. note::
-
-   Rerun METplus passing in your new custom config file, **tutorial.conf**, and setting the new **OUTPUT_BASE** for this exercise.
+Rerun METplus passing in your new custom config file, **tutorial.conf**, and setting the new **OUTPUT_BASE** for this exercise.
 
 .. code-block:: text
 
@@ -1113,9 +1007,7 @@ If you have extra time, you may want to try these additional METplus exercises. 
    ${METPLUS_TUTORIAL_DIR}/tutorial.conf \
    config.OUTPUT_BASE=${METPLUS_TUTORIAL_DIR}/output/exercises/accum_3hr
 
-.. note::
-
-   Review the log file. You should see Pcp-Combine read 3 files and run Grid-Stat comparing both 3 hour accumulations.
+Review the log file. You should see Pcp-Combine read 3 files and run Grid-Stat comparing both 3 hour accumulations.
 
 .. code-block:: text
 
@@ -1132,15 +1024,11 @@ If you have extra time, you may want to try these additional METplus exercises. 
       DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/accum_3hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A03h
       DEBUG 2: Writing output variable "APCP_03" for the "sum" of "APCP/A01".
 
-.. note::
-
-   Go to the next page for the solution to see if you were right!
+Go to the next page for the solution to see if you were right!
 
 **EXERCISE 4.2: input_1hr - Force Pcp-Combine to only use 1 hour accumulation files**
 
-.. note::
-
-   **Instructions:** Modify the METplus configuration files to force Pcp-Combine to use **six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
+**Instructions:** Modify the METplus configuration files to force Pcp-Combine to use **six 1 hour accumulation files instead of one 6 hour accumulation file** of observation data in the PHPT vs. StageIV GRIB example.
 
 .. important::
 
@@ -1158,18 +1046,14 @@ From the log output found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**:
       DEBUG 1: Creating output file: /path/to/tutorial/output/PQPF/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
       DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A06".
 
-.. note::
-
-   Copy your custom configuration file and rename it to **GridStat-ensemble.input_1hr.conf** for this exercise.
+Copy your custom configuration file and rename it to **GridStat-ensemble.input_1hr.conf** for this exercise.
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}/user_config
    cp GridStat-ensemble.accum_3hr.conf GridStat-ensemble.input_1hr.conf
 
-.. note::
-
-   Open **GridStat-ensemble.input_1hr.conf** with an editor and add the extra information.
+Open **GridStat-ensemble.input_1hr.conf** with an editor and add the extra information.
 
 .. code-block:: text
 
@@ -1183,9 +1067,7 @@ From the log output found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**:
 
    HINT 2: The **FCST_PCP_COMBINE_INPUT_ACCUMS** and **OBS_PCP_COMBINE_INPUT_ACCUMS** variables set the accumulation intervals, in order of preference, that are used from the input data for forecast and observation data respectively.
 
-.. note::
-
-   Rerun METplus passing in your new custom config file for this exercise keeping in mind the order of configuration files matters and the **OUTPUT_BASE** set on the command line will override what is in the tutorial.conf file.
+Rerun METplus passing in your new custom config file for this exercise keeping in mind the order of configuration files matters and the **OUTPUT_BASE** set on the command line will override what is in the tutorial.conf file.
 
 .. code-block:: text
 
@@ -1209,9 +1091,7 @@ From the log output found in **${METPLUS_TUTORIAL_DIR}/output/PQPF/logs**:
       DEBUG 1: Creating output file: /path/to/tutorial/output/exercises/input_1hr/model_applications/precipitation/GridStat_fcstHRRR-TLE_obsStgIV_GRIB/StageIV_grib/bucket/20160904/ST4.2016090418_A06h
       DEBUG 2: Writing output variable "APCP_06" for the "sum" of "APCP/A01".
 
-.. note::
-
-   Go to the next page for the solution to see if you were right!
+Go to the next page for the solution to see if you were right!
 
 Answers to Exercises from Session 4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

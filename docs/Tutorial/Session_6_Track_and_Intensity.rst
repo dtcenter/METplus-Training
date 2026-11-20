@@ -14,9 +14,7 @@ Since you already set up your runtime environment in **Session 1**, you **should
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
-.. note::
-
-  **1:** Navigate to your tutorial directory and run the tutorial setup script.
+**1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
@@ -29,9 +27,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    cd /path/to/METplus-|metplus_version|_Tutorial
    source METplus-|metplus_version|_TutorialSetup.sh
 
-.. note::
-
-  **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -51,9 +47,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
   | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
   | **METPLUS_DATA** is the location of the sample test data directory
 
-.. note::
-
-  **3:** Check that the MET applications are in the path:
+**3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -63,9 +57,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
   You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
-.. note::
-
-  **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
+**4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -232,9 +224,7 @@ Next, open up the **TCPairsConfig_tutorial_run** file for editing and modify it 
 
    vi TCPairsConfig_tutorial_run
 
-.. note::
-
-   Set the model and basin entries:
+Set the model and basin entries:
 
 .. admonition:: File Contents
 
@@ -245,9 +235,7 @@ Next, open up the **TCPairsConfig_tutorial_run** file for editing and modify it 
 
 To identify the models that we want to verify, as well as the basin. The three models identified are all U.S. operational models: HWRF, GFS (GFSO), and GFDL. MET automatically replaces "AVN" with "GFS" when reading ATCF data, so any AVNO tracks in the input files are processed as GFSO. Any field left blank will assume no restrictions.
 
-.. note::
-
-   Set the following in the consensus library:
+Set the following in the consensus library:
 
 .. admonition:: File Contents
 
@@ -264,9 +252,7 @@ To identify the models that we want to verify, as well as the basin. The three m
 
 To compute a user defined consensus named "CONS". The membership of the consensus are the three listed models, none are required, but 2 must be present to calculate the consensus.
 
-.. note::
-
-   Update the match_points entry to:
+Update the match_points entry to:
 
 .. admonition:: File Contents
 
@@ -404,9 +390,7 @@ Open up the **TCStatConfig_tutorial** file for editing with your preferred text 
 
    vi TCStatConfig_tutorial
 
-.. note::
-
-   Set the following variables:
+Set the following variables:
 
 .. admonition:: File Contents
 
@@ -420,9 +404,7 @@ To only parse over two of the three model names in the **tc_pairs.tcst** file. T
 
 Many of the filter options are left blank, indicating TC-Stat should parse over all available fields. You will notice many more available filter options beyond what was available with the TCPairsConfig.
 
-.. note::
-
-   Now, scroll all the way to the bottom of the TCStatConfig, and you will find the **jobs[]** section. Edit this section as follows, then save and close the editor:
+Now, scroll all the way to the bottom of the TCStatConfig, and you will find the **jobs[]** section. Edit this section as follows, then save and close the editor:
 
 .. admonition:: File Contents
 
@@ -561,17 +543,13 @@ The TCPairs use case utilizes the MET *TC-Pairs* tool.
 | **Optional**: Refer to the `MET Users Guide <https://metplus.readthedocs.io/projects/met/en/|metplus_branch|/Users_Guide/index.html>`_ for a description of the MET tools used in this use case.
 | **Optional**: Refer to the `METplus Config Glossary <https://metplus.readthedocs.io/en/|metplus_branch|/Users_Guide/glossary.html>`_ section of the METplus Users Guide for a reference to METplus variables used in this use case.
 
-.. note::
-
-   Change to the ${METPLUS_TUTORIAL_DIR}
+Change to the ${METPLUS_TUTORIAL_DIR}
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-.. note::
-
-   See what TCPairs use cases are available in met_tool_wrapper directory and run one
+See what TCPairs use cases are available in met_tool_wrapper directory and run one
 
 .. code-block:: text
 
@@ -586,9 +564,7 @@ There is an example of using TC-Pairs to match Extratropical Cyclones as well as
       TCPairs_extra_tropical.conf
       TCPairs_tropical.conf
 
-.. note::
-
-   Open the TCPairs_tropical.conf file and look at what is set.
+Open the TCPairs_tropical.conf file and look at what is set.
 
 .. code-block:: text
 
@@ -630,9 +606,7 @@ An example of the track files found in each of these directories is:
 
       six06l.2018083018.trak.hwrf.atcfunix
 
-.. note::
-
-   Run the use case:
+Run the use case:
 
 .. code-block:: text
 
@@ -655,9 +629,7 @@ Let's look at the output file:
 
 You will notice that there are two model configurations included in the first file for Hurricane Florence, **CTRL** and **MYNN** and the line type written out is **TCMPR**, indicating it is the matched pair information. If you open up the third file, you'll notice that there is only the **CTRL** model listed.
 
-.. note::
-
-   Look at the input files to get a sense of what data are available.
+Look at the input files to get a sense of what data are available.
 
 .. code-block:: text
 
@@ -668,9 +640,7 @@ You will notice that there are two model configurations included in the first fi
 
 You will see that the files are in the ATCF file format. Also note: in the files in the CTRL directory, the model listed in the 5th column is HLAT. Similarly, in the H19C directory, the model is CTRL; in the H19M directory it is MYNN, and in the MYNN directory, it is HLMY. While this is confusing in some ways, it does demonstrate that the TC-Pairs tool does not look at the directory structure and naming convention of the input files, but rather the model information included in the ATCF "a-decks", which is the traditional naming convention for files with forecast tracks.
 
-.. note::
-
-   Copy METplus config file to write out all model types, and re-run
+Copy METplus config file to write out all model types, and re-run
 
 .. code-block:: text
 
@@ -683,9 +653,7 @@ You will see that the files are in the ATCF file format. Also note: in the files
 
 The TC_PAIRS_ADECK_TEMPLATE includes MODEL in the path, so we will leave MYNN and CTRL in the list.
 
-.. note::
-
-   Remove MYGF and add HLMY and HLAT and then rerun
+Remove MYGF and add HLMY and HLAT and then rerun
 
 .. admonition:: File Contents
 
@@ -742,9 +710,7 @@ There is an example of using TC-Stat with no delineation between Extratropical C
 
       TCStat.conf
 
-.. note::
-
-   Open the TCStat.conf file and look at what is set.
+Open the TCStat.conf file and look at what is set.
 
 .. code-block:: text
 
@@ -809,9 +775,7 @@ The headers indicate that this information includes details about the distributi
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/TCStat_run2.conf
 
-.. note::
-
-   Remove the quotes as well as add a few more columns to summarize, including track error (**TK_ERR**)
+Remove the quotes as well as add a few more columns to summarize, including track error (**TK_ERR**)
 
 .. admonition:: File Contents
 
@@ -828,9 +792,7 @@ The headers indicate that this information includes details about the distributi
 
 5. **Review output**
 
-.. note::
-
-   Open the standard output file in **${METPLUS_TUTORIAL_DIR}/output/TCStat_run2/tc_stat** under filename job.out and scroll down to the bottom.
+Open the standard output file in **${METPLUS_TUTORIAL_DIR}/output/TCStat_run2/tc_stat** under filename job.out and scroll down to the bottom.
 
 .. admonition:: Sample Output
 
@@ -853,9 +815,7 @@ The values of **ASPEED** and **TK_ERR** are now available. Let's take one more s
 
    vi ${METPLUS_TUTORIAL_DIR}/user_config/TCStat_run3.conf
 
-.. note::
-
-   Replace **ASPEED**, which is many times not available in ATCF format with **AMAX_WIND**, which is more readily available and then stratify by **STORM_NAME**
+Replace **ASPEED**, which is many times not available in ATCF format with **AMAX_WIND**, which is more readily available and then stratify by **STORM_NAME**
 
 .. admonition:: File Contents
 
@@ -908,13 +868,11 @@ The default image resolution for the **plot_tcmpr.R** Rscript is set to 300, for
 
 The plot_tcmpr.R script knows to read this **TCMPRPlotterConfig_Customize** R config file since it is defined in the **TCMPRPlotter.conf** file.
 
-.. note::
+.. code-block:: text
 
    TCMPR_PLOTTER_CONFIG_FILE = {PARM_BASE}/use_cases/met_tool_wrapper/TCMPRPlotter/TCMPRPlotterConfig_Customize
 
-.. note::
-
-   Note: If you modify the **TCMPR_PLOTTER_CONFIG_FILE** variable and leave it undefined (not set), METplus will report the error "TCMPR_PLOTTER_CONFIG_FILE must be set" and the use case will not run.
+Note: If you modify the **TCMPR_PLOTTER_CONFIG_FILE** variable and leave it undefined (not set), METplus will report the error "TCMPR_PLOTTER_CONFIG_FILE must be set" and the use case will not run.
 
 .. important::
 
@@ -1044,13 +1002,13 @@ In this case, the **TCMPRPlotter.conf** file is configured to generate MEAN and 
 
 **Change this line (around line 72):**
 
-.. note::
+.. code-block:: text
 
    TCMPR_PLOTTER_PLOT_TYPES = MEAN, MEDIAN
 
 **to**
 
-.. note::
+.. code-block:: text
 
    TCMPR_PLOTTER_PLOT_TYPES = BOXPLOT
 

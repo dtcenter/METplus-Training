@@ -9,9 +9,7 @@ This session will cover two METplus feature relative use cases.
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
-.. note::
-
-   **1:** Navigate to your tutorial directory and run the tutorial setup script.
+**1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
@@ -24,9 +22,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    cd /path/to/METplus-|metplus_version|_Tutorial
    source METplus-|metplus_version|_TutorialSetup.sh
 
-.. note::
-
-   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -46,9 +42,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
    | **METPLUS_DATA** is the location of the sample test data directory
 
-.. note::
-
-   **3:** Check that the MET applications are in the path:
+**3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -58,9 +52,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    You should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
-.. note::
-
-   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
+**4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 

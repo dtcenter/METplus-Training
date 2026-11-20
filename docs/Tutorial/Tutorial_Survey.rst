@@ -5,9 +5,7 @@ Tutorial Survey
 
 Thank you for your time and attention. We really enjoyed teaching you about METplus.
 
-.. note::
-
-   Please take some time to fill out the `METplus Tutorial Survey <https://forms.gle/xXuUagPgU5J7PcK6A>`_ to suggest improvements!
+Please take some time to fill out the `METplus Tutorial Survey <https://forms.gle/xXuUagPgU5J7PcK6A>`_ to suggest improvements!
 
 If you have more questions in your use of METplus, please:
 

@@ -173,9 +173,7 @@ The Python requirements for METplotpy are found in the User's Guide, under the `
 
 METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
-.. note::
-
-   Clone the METcalcpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METcalcpy source code):
+Clone the METcalcpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METcalcpy source code):
 
 .. code-block:: text
 
@@ -189,9 +187,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
 
-.. note::
-
-   The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
+The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
@@ -200,9 +196,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    pip install metcalcpy==2.0.1
 
-.. note::
-
-   Clone the METplotpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METplotpy source code):
+Clone the METplotpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METplotpy source code):
 
 .. code-block:: text
 
@@ -226,9 +220,7 @@ Create the Rank Histogram Plot
    * modify the location of the input data and output plot in the custom configuration file
    * run the Python script to generate the rank histogram plot
 
-.. note::
-
-   Create the working directory where you have read/write permissions:
+Create the working directory where you have read/write permissions:
 
 .. code-block:: text
 
@@ -236,9 +228,7 @@ Create the Rank Histogram Plot
 
 replace /path/to/working_dir with the path leading to the working directory.
 
-.. note::
-
-   Set the PYTHONPATH, METPLOTPY_BASE, and WORKING_DIR environment variables. If you used Method 1 above, or if you are not working within a conda environment:
+Set the PYTHONPATH, METPLOTPY_BASE, and WORKING_DIR environment variables. If you used Method 1 above, or if you are not working within a conda environment:
 
 **csh:**
 
@@ -268,9 +258,7 @@ replace /path/to/working_dir with the path leading to the working directory.
 
    export WORKING_DIR=/path/to/working_dir/histogram
 
-.. note::
-
-   If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH without the METcalcpy paths:
+If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH without the METcalcpy paths:
 
 **csh:**
 
@@ -300,9 +288,7 @@ replace /path/to/working_dir with the path leading to the working directory.
 
    export WORKING_DIR=/path/to/working_dir/histogram
 
-.. note::
-
-   Copy data and custom config file to WORKING_DIR:
+Copy data and custom config file to WORKING_DIR:
 
 .. code-block:: text
 
@@ -318,9 +304,7 @@ replace /path/to/working_dir with the path leading to the working directory.
 
 Modify custom configuration file:
 
-.. note::
-
-   Open the rank_hist.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
+Open the rank_hist.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
 .. admonition:: File Contents
 
@@ -336,9 +320,7 @@ Modify custom configuration file:
 
 Save and close the rank_hist.yaml file.
 
-.. note::
-
-   Generate the rank histogram plot:
+Generate the rank histogram plot:
 
 .. code-block:: text
 
@@ -362,9 +344,7 @@ In your WORKING_DIR, you will now see a rank_hist.png file. You can view the png
 Create the Relative Frequency Histogram and Probability Histogram
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. note::
-
-   Repeat the steps for the rank histogram, except copy the following to the WORKING_DIR:
+Repeat the steps for the rank histogram, except copy the following to the WORKING_DIR:
 
 **Relative frequency histogram**:
 
@@ -386,9 +366,7 @@ Create the Relative Frequency Histogram and Probability Histogram
 
    cp $METPLOTPY_BASE/test/histogram/prob_hist.yaml $WORKING_DIR
 
-.. note::
-
-   Make the same modifications in the rel_hist.yaml and prob_hist.yaml files to the stat_input and plot_filename settings.
+Make the same modifications in the rel_hist.yaml and prob_hist.yaml files to the stat_input and plot_filename settings.
 
 **Relative frequency histogram**:
 
@@ -414,9 +392,7 @@ Create the Relative Frequency Histogram and Probability Histogram
 
       plot_filename: /path/to/working_dir/histogram/prob_hist.png
 
-.. note::
-
-   Generate the Relative Frequency and Probability Histogram plots using these Python scripts:
+Generate the Relative Frequency and Probability Histogram plots using these Python scripts:
 
 **Relative frequency histogram:**
 
@@ -465,9 +441,7 @@ The Python requirements for METplotpy are found in the User's Guide, under the `
 
 METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
-.. note::
-
-   Clone the METcalcpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METcalcpy source code):
+Clone the METcalcpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METcalcpy source code):
 
 .. code-block:: text
 
@@ -481,9 +455,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
 
-.. note::
-
-   The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
+The following instructions are for users who have permission to create, modify, and use conda environments. Select either Method 1 or Method 2:
 
 * Method 1: Follow instructions in Section 1.1.2 of the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html>`_ of the METplotpy User's Guide
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
@@ -492,9 +464,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    pip install metcalcpy==2.0.1
 
-.. note::
-
-   Clone the METplotpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METplotpy source code):
+Clone the METplotpy repository to a directory where you have read/write permissions (replace */path/to/code* with the full path to where you are saving the METplotpy source code):
 
 .. code-block:: text
 
@@ -518,9 +488,7 @@ Create the Wind Rose Diagram
    * modify the location of the input data and output plot in the custom configuration file
    * run the Python script to generate the wind rose diagram
 
-.. note::
-
-   Create the working directory where you have read/write permissions:
+Create the working directory where you have read/write permissions:
 
 .. code-block:: text
 
@@ -528,9 +496,7 @@ Create the Wind Rose Diagram
 
 Replace */path/to/working_dir* with the full path to the working directory.
 
-.. note::
-
-   Set the PYTHONPATH, METPLOTPY_BASE, and WORKING_DIR environment variables. If you used Method 1 above, or if you are not working within a conda environment:
+Set the PYTHONPATH, METPLOTPY_BASE, and WORKING_DIR environment variables. If you used Method 1 above, or if you are not working within a conda environment:
 
 **csh:**
 
@@ -560,9 +526,7 @@ Replace */path/to/working_dir* with the full path to the working directory.
 
    export WORKING_DIR=/path/to/working_dir/wind_rose
 
-.. note::
-
-   If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH without the METcalcpy paths:
+If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH without the METcalcpy paths:
 
 **csh:**
 
@@ -592,9 +556,7 @@ Replace */path/to/working_dir* with the full path to the working directory.
 
    export WORKING_DIR=/path/to/working_dir/wind_rose
 
-.. note::
-
-   Copy data and custom config file to WORKING_DIR:
+Copy data and custom config file to WORKING_DIR:
 
 .. code-block:: text
 
@@ -610,9 +572,7 @@ Replace */path/to/working_dir* with the full path to the working directory.
 
 Modify the custom configuration file:
 
-.. note::
-
-   Open the wind_rose_custom.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
+Open the wind_rose_custom.yaml file in a text editor of your choice. Modify the stat_input and plot_filename to point explicitly to the location of the input data you copied and the name and location of the output plot:
 
 .. admonition:: File Contents
 
@@ -628,17 +588,13 @@ Modify the custom configuration file:
 
 Save and close the wind_rose_custom.yaml file.
 
-.. note::
-
-   Generate the wind rose diagram:
+Generate the wind rose diagram:
 
 .. code-block:: text
 
    python $METPLOTPY_BASE/metplotpy/plots/wind_rose/wind_rose.py $WORKING_DIR/wind_rose_custom.yaml
 
-.. note::
-
-   In your WORKING_DIR, you will now see a wind_rose_custom.png file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
+In your WORKING_DIR, you will now see a wind_rose_custom.png file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
 
 .. code-block:: text
 
@@ -718,9 +674,7 @@ Make sure you have activated the conda environment for METdataio if you are work
 
 Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/main_v2.1/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
 
-.. note::
-
-   Clone the METdataio repository to a local directory:
+Clone the METdataio repository to a local directory:
 
 .. code-block:: text
 
@@ -738,9 +692,7 @@ An overview of the steps for running this example are:
 * Modify the yaml configuration and xml specification files in the user_config directory
 * Run the Python script to reformat the sample data
 
-.. note::
-
-   Set the METDATAIO_BASE and PYTHONPATH environment variables, using only the commands appropriate to your environment.
+Set the METDATAIO_BASE and PYTHONPATH environment variables, using only the commands appropriate to your environment.
 
 Work in bash shell, at the command line, enter the following:
 
@@ -758,9 +710,7 @@ Work in bash shell, at the command line, enter the following:
 
    export PYTHONPATH=$METDATAIO_BASE:$METDATAIO_BASE/METdbLoad:$METDATAIO_BASE/METdbLoad/ush
 
-.. note::
-
-   Copy the yaml configuration and xml specification files to the new directory:
+Copy the yaml configuration and xml specification files to the new directory:
 
 .. code-block:: text
 
@@ -774,9 +724,7 @@ Next, we need to modify the **point_stat.xml** file to include the correct direc
 
    NOTE: You cannot use environment variables to pass in the input data path, you must use the full path.
 
-.. note::
-
-   To get the full path to the **METPLUS_DATA** environment variable, enter the following on the command line:
+To get the full path to the **METPLUS_DATA** environment variable, enter the following on the command line:
 
 .. code-block:: text
 
@@ -790,15 +738,11 @@ That command should return a path similar to the following example:
 
       /d1/projects/METplus/METplus_Data.v|metplus_short|
 
-.. note::
-
-   Using the appropriate keyboard shortcuts and/or mouse click options for your operating system, copy this path into computer memory. (So for windows, this would be a ctrl+C and on a Mac this would be cmd+C.)
+Using the appropriate keyboard shortcuts and/or mouse click options for your operating system, copy this path into computer memory. (So for windows, this would be a ctrl+C and on a Mac this would be cmd+C.)
 
 Alternatively, you can open a text file and copy and paste the directory path into the text file for easy use.
 
-.. note::
-
-   Now, modify **point_stat.xml**, using the output from the echo command to fill the path to the Point-Stat data. Be sure to add *met_reformat/point_stat* path at the end:
+Now, modify **point_stat.xml**, using the output from the echo command to fill the path to the Point-Stat data. Be sure to add *met_reformat/point_stat* path at the end:
 
 .. code-block:: text
 
@@ -821,9 +765,7 @@ Alternatively, you can open a text file and copy and paste the directory path in
 
 All we have done in the file is replace the content between the ``<folder_tmpl>`` and ``</folder_tmpl>`` with the full path to the data, complete with the **met_reformat/point_stat** subdirectories.
 
-.. note::
-
-   Save your changes and close the file.
+Save your changes and close the file.
 
 Now we need to modify the **point_stat.yaml** file in a similar way to the **point_stat.xml** file. In order to do this, we need to obtain a full path to the **$METPLUS_TUTORIAL_DIR**, copy it, and paste that path inside the .yaml file in multiple areas.
 
@@ -831,9 +773,7 @@ Now we need to modify the **point_stat.yaml** file in a similar way to the **poi
 
    NOTE: You cannot use environment variables to pass directory paths, you must use the full path.
 
-.. note::
-
-   To get the full path to the **METPLUS_TUTORIAL_DIR** environment variable, enter the following on the command line:
+To get the full path to the **METPLUS_TUTORIAL_DIR** environment variable, enter the following on the command line:
 
 .. code-block:: text
 
@@ -847,13 +787,9 @@ That command should return a path similar to the following example:
 
       /d1/personal/user/METplus-|metplus_version|_Tutorial
 
-.. note::
+Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
 
-   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
-
-.. note::
-
-   Modify the yaml configuration file in the $METPLUS_TUTORIAL_DIR/metdataio/user_config directory with the following updates:
+Modify the yaml configuration file in the $METPLUS_TUTORIAL_DIR/metdataio/user_config directory with the following updates:
 
 .. code-block:: text
 
@@ -869,15 +805,11 @@ That command should return a path similar to the following example:
 
 In the above example, the **output_dir** entry of **/path/to/output_dir** was replaced with the full path of the **METPLUS_TUTORIAL_DIR/metdataio**. The **xml_spec_file** entry replaced **/path/to/xml_spec_file/<xml filename>.xml** with the full path of the **METPLUS_TUTORIAL_DIR/metdataio/user_config** along with the **point_stat file name. NOTE: make sure you have one space between the colon (:) and your settings.**
 
-.. note::
-
-   Save your changes and close the file.
+Save your changes and close the file.
 
 We are now ready to generate the reformatted file from the sample Point-Stat files in the **METPLUS_DATA/met_reformat/point_stat** directory. To understand how the file changes, we will look at a .stat file that has not been reformatted.
 
-.. note::
-
-   Open one of the .stat files
+Open one of the .stat files
 
 .. code-block:: text
 
@@ -885,17 +817,13 @@ We are now ready to generate the reformatted file from the sample Point-Stat fil
 
 Observe how there are numerous columns of data, some of which are lacking descriptive names (i.e. the columns following 'LINE_TYPE'). This can be a confusing file to read for users that are unfamiliar with .stat file layouts.
 
-.. note::
-
-   Close the file by entering the following:
+Close the file by entering the following:
 
 .. code-block:: text
 
    :q!
 
-.. note::
-
-   From any directory, run the following from the command line:
+From any directory, run the following from the command line:
 
 .. code-block:: text
 
@@ -944,9 +872,7 @@ The following will be sent to the terminal and are generated by METdbLoad (the w
 
 A text file will be created in the **$METPLUS_TUTORIAL_DIR/metdataio** directory named **point_stat_reformatted.txt** (as specified in the **point_stat.yaml** config file).
 
-.. note::
-
-   Open the point_stat_reformatted.txt file.
+Open the point_stat_reformatted.txt file.
 
 .. code-block:: text
 
@@ -954,9 +880,7 @@ A text file will be created in the **$METPLUS_TUTORIAL_DIR/metdataio** directory
 
 You will notice that the data has been reformatted where the statistics are now under stat_name and stat_value, and the presence of the stat_bcl, stat_bcu, stat_ncl, and stat_ncu columns. All columns have names.
 
-.. note::
-
-   Close the file.
+Close the file.
 
 Generate a METplotpy Line Plot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -972,9 +896,7 @@ Continue working in the bash shell.
 
 METcalcpy is a requirement for METplotpy. The following description is one of numerous methods to set up the working environment to utilize METcalcpy from the METplotpy source code. These instructions are suitable for users that are not working within a conda environment:
 
-.. note::
-
-   Clone the METcalcpy repository to a local directory:
+Clone the METcalcpy repository to a local directory:
 
 .. code-block:: text
 
@@ -982,9 +904,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
    cd ${METPLUS_TUTORIAL_DIR}/metcalcpy
    git clone -b main_v2.0 https://github.com/dtcenter/METcalcpy
 
-.. note::
-
-   If you have access to conda environments, select one of the two following methods to install METplotpy:
+If you have access to conda environments, select one of the two following methods to install METplotpy:
 
 * Method 1: Follow instructions in the Installation section of the METplotpy User's Guide: `Install METcalcpy in the conda environment <https://metplus.readthedocs.io/projects/metplotpy/en/main_v2.1/Users_Guide/installation.html#install-metcalcpy-in-the-conda-environment>`_.
 * Method 2: Using PyPI (**Py**\ thon **P**\ ackage **I**\ ndex) enter the following:
@@ -993,9 +913,7 @@ METcalcpy is a requirement for METplotpy. The following description is one of nu
 
    pip install metcalcpy==2.0.1
 
-.. note::
-
-   Clone the METplotpy repository to a local directory:
+Clone the METplotpy repository to a local directory:
 
 .. code-block:: text
 
@@ -1015,9 +933,7 @@ Set the PYTHONPATH and METPLOTPY_BASE Environment Variables
 
 For this step, you'll need to choose the appropriate command depending on how you installed METcalcpy. Read both blue instruction blocks, and proceed with the one relevant to you.
 
-.. note::
-
-   If you used Method 1 above, or if you are not working within a conda environment:
+If you used Method 1 above, or if you are not working within a conda environment:
 
 **bash:**
 
@@ -1033,9 +949,7 @@ For this step, you'll need to choose the appropriate command depending on how yo
 
    export PYTHONPATH=$METCALCPY_BASE:$METCALCPY_BASE/metcalcpy:$METPLOTPY_BASE:$METPLOTPY_BASE/metplotpy:$METPLOTPY_BASE/metplotpy/plots
 
-.. note::
-
-   If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH **without** the METcalcpy paths:
+If you installed METcalcpy using Method 2 above (i.e. PyPI and pip), then set the PYTHONPATH **without** the METcalcpy paths:
 
 **bash:**
 
@@ -1052,17 +966,13 @@ Copy Custom Config File to user_config
 
 To get this started, we need to create a **user_config** directory.
 
-.. note::
-
-   Create a new user_config directory by entering the following command:
+Create a new user_config directory by entering the following command:
 
 .. code-block:: text
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/metplotpy/user_config
 
-.. note::
-
-   Now copy the .yaml file to the user_config directory.
+Now copy the .yaml file to the user_config directory.
 
 .. code-block:: text
 
@@ -1071,9 +981,7 @@ To get this started, we need to create a **user_config** directory.
 Modify the Custom Configuration File
 """"""""""""""""""""""""""""""""""""
 
-.. note::
-
-   Change directory to the user_config directory.
+Change directory to the user_config directory.
 
 .. code-block:: text
 
@@ -1085,9 +993,7 @@ We will need to modify the output directory in the file with a full path to wher
 
    NOTE: You cannot use environment variables to pass directory paths, you must use the full path.
 
-.. note::
-
-   To get the full path to the current location, enter the following on the command line:
+To get the full path to the current location, enter the following on the command line:
 
 .. code-block:: text
 
@@ -1101,25 +1007,19 @@ That command should return a path similar to the following example:
 
       /d1/personal/user/METplus-|metplus_version|_Tutorial/metplotpy/user_config
 
-.. note::
-
-   Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
+Using the appropriate keyboard shortcuts and/or mouse click options for your software version, copy this path into computer memory. (So for windows, this would be a ctrl+C or on a Mac this would be cmd+C.)
 
 .. important::
 
    The sample data only contains one model, therefore only one line can be created on the line plot. Many of the following file edits will reflect this.
 
-.. note::
-
-   Open the **custom_line.yaml** file.
+Open the **custom_line.yaml** file.
 
 .. code-block:: text
 
    vi ${METPLUS_TUTORIAL_DIR}/metplotpy/user_config/custom_line.yaml
 
-.. note::
-
-   Use the first color in the list and delete the rest.
+Use the first color in the list and delete the rest.
 
 .. admonition:: File Contents
 
@@ -1132,9 +1032,7 @@ That command should return a path similar to the following example:
 
 The above change will produce a red line on the final graph.
 
-.. note::
-
-   Set up the series ordering (con_series) by removing four settings, leaving only one setting:
+Set up the series ordering (con_series) by removing four settings, leaving only one setting:
 
 .. admonition:: File Contents
 
@@ -1145,9 +1043,7 @@ The above change will produce a red line on the final graph.
 
       create_html: 'False'
 
-.. note::
-
-   Comment out the derived_series_1 and derived_series_2 by placing a # at the beginning of the line.
+Comment out the derived_series_1 and derived_series_2 by placing a # at the beginning of the line.
 
 .. admonition:: File Contents
 
@@ -1159,9 +1055,7 @@ The above change will produce a red line on the final graph.
       # - DIFF
       #derived_series_2: []
 
-.. note::
-
-   Set event_equal to 'False'.
+Set event_equal to 'False'.
 
 .. admonition:: File Contents
 
@@ -1171,9 +1065,7 @@ The above change will produce a red line on the final graph.
 
 There is only one model in the sample data and event equalization is not needed.
 
-.. note::
-
-   Edit the fcst variable fcst_var_val_1 from RH to WIND, and statistic MAE to F_RATE.
+Edit the fcst variable fcst_var_val_1 from RH to WIND, and statistic MAE to F_RATE.
 
 .. admonition:: File Contents
 
@@ -1183,9 +1075,7 @@ There is only one model in the sample data and event equalization is not needed.
         WIND:
         - F_RATE
 
-.. note::
-
-   Comment out the fcst_var_val_2 and its settings by placing a # at the beginning of the line.
+Comment out the fcst_var_val_2 and its settings by placing a # at the beginning of the line.
 
 .. admonition:: File Contents
 
@@ -1195,9 +1085,7 @@ There is only one model in the sample data and event equalization is not needed.
       # TMP:
       # - ME
 
-.. note::
-
-   Edit the fcst_level (fcst_lev_0) under the fixed_vars_vals_input setting from Z02 to Z10.
+Edit the fcst_level (fcst_lev_0) under the fixed_vars_vals_input setting from Z02 to Z10.
 
 .. admonition:: File Contents
 
@@ -1208,9 +1096,7 @@ There is only one model in the sample data and event equalization is not needed.
            fcst_lev_0:
             - Z10
 
-.. note::
-
-   Change the indy_label to '0', '1', and '5':
+Change the indy_label to '0', '1', and '5':
 
 .. admonition:: File Contents
 
@@ -1221,9 +1107,7 @@ There is only one model in the sample data and event equalization is not needed.
       - '1'
       - '5'
 
-.. note::
-
-   Change the indy_vals values to '0', '10000', and '50000' to plot the 0, 10000, and 50000 fcst lead points.
+Change the indy_vals values to '0', '10000', and '50000' to plot the 0, 10000, and 50000 fcst lead points.
 
 .. admonition:: File Contents
 
@@ -1234,9 +1118,7 @@ There is only one model in the sample data and event equalization is not needed.
       - '10000'
       - '50000'
 
-.. note::
-
-   Change the list_stat_1 statistics value from MAE to F_RATE and remove the -ME from the list_stat_2 setting.
+Change the list_stat_1 statistics value from MAE to F_RATE and remove the -ME from the list_stat_2 setting.
 
 .. admonition:: File Contents
 
@@ -1247,9 +1129,7 @@ There is only one model in the sample data and event equalization is not needed.
       list_stat_2:
       list_static_val:
 
-.. note::
-
-   Under the plot_ci setting, keep only one of the -std values and delete the remaining four.
+Under the plot_ci setting, keep only one of the -std values and delete the remaining four.
 
 .. admonition:: File Contents
 
@@ -1259,9 +1139,7 @@ There is only one model in the sample data and event equalization is not needed.
       - std
       plot_disp:
 
-.. note::
-
-   Remove four of the - 'True' entries under the plot_disp so only one value of - 'True' remains.
+Remove four of the - 'True' entries under the plot_disp so only one value of - 'True' remains.
 
 .. admonition:: File Contents
 
@@ -1271,9 +1149,7 @@ There is only one model in the sample data and event equalization is not needed.
       - 'True'
       plot_filename: ./line.png
 
-.. note::
-
-   Set the path to the output plot file, replacing the ./ in ./line.png with the path that was copied prior to editing this file:
+Set the path to the output plot file, replacing the ./ in ./line.png with the path that was copied prior to editing this file:
 
 .. admonition:: File Contents
 
@@ -1281,9 +1157,7 @@ There is only one model in the sample data and event equalization is not needed.
 
       plot_filename: /d1/personal/user/METplus-|metplus_version|_Tutorial/metplotpy/user_config/line.png
 
-.. note::
-
-   Remove four of the values under each of the following entries series_line_style, keeping only one:
+Remove four of the values under each of the following entries series_line_style, keeping only one:
 
 .. admonition:: File Contents
 
@@ -1306,9 +1180,7 @@ There is only one model in the sample data and event equalization is not needed.
 
       series_val_1:
 
-.. note::
-
-   Change the model setting under series_val_1 to FV3_GFS_v15p2_CONUS_25km and comment out the settings for series_val_2 (or remove them).
+Change the model setting under series_val_1 to FV3_GFS_v15p2_CONUS_25km and comment out the settings for series_val_2 (or remove them).
 
 .. admonition:: File Contents
 
@@ -1322,9 +1194,7 @@ There is only one model in the sample data and event equalization is not needed.
       # - CONTROL
       # - GTS
 
-.. note::
-
-   Remove four of the settings under show_signif, keeping one setting:
+Remove four of the settings under show_signif, keeping one setting:
 
 .. admonition:: File Contents
 
@@ -1335,9 +1205,7 @@ There is only one model in the sample data and event equalization is not needed.
 
       stat_input: ./line.data
 
-.. note::
-
-   Modify the stat_input setting. This is the name of the reformatted file. Replace path-to with the full path to the METplus-|metplus_version|_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
+Modify the stat_input setting. This is the name of the reformatted file. Replace path-to with the full path to the METplus-|metplus_version|_Tutorial (working) directory. Do NOT use environment variables, use actual paths.
 
 .. admonition:: File Contents
 
@@ -1345,9 +1213,7 @@ There is only one model in the sample data and event equalization is not needed.
 
       stat_input: path-to/METplus-|metplus_version|_Tutorial/metdataio/point_stat_reformatted.txt
 
-.. note::
-
-   Comment out or remove the lines settings at the end of the config file.
+Comment out or remove the lines settings at the end of the config file.
 
 .. admonition:: File Contents
 
@@ -1365,24 +1231,18 @@ There is only one model in the sample data and event equalization is not needed.
       # position: "18"
       # type: vert_line
 
-.. note::
-
-   Save and close the **custom_line.yaml** file.
+Save and close the **custom_line.yaml** file.
 
 Generate the Line Plot
 """"""""""""""""""""""
 
-.. note::
-
-   From any directory, enter the following from the command line:
+From any directory, enter the following from the command line:
 
 .. code-block:: text
 
    python $METPLOTPY_BASE/metplotpy/plots/line/line.py $METPLUS_TUTORIAL_DIR/metplotpy/user_config/custom_line.yaml
 
-.. note::
-
-   In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now see a **line.png** file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
+In your **$METPLUS_TUTORIAL_DIR/metplotpy/user_config** directory, you will now see a **line.png** file. You can view the png file using an appropriate viewer, such as ``display`` if on a Linux/Unix host:
 
 .. code-block:: text
 

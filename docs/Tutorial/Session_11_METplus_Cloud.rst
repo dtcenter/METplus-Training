@@ -9,9 +9,7 @@ This session will cover how to access a guided tutorial EC2 instance or create y
 
 Running the tutorial in the cloud requires a cloud instance. Currently we are only supporting Amazon Web Services tutorial instances.
 
-.. note::
-
-   **1.** If you are joining a guided tutorial and are using an EC2 instance you will have been given an ip address to that instance that is dedicated uniquely to you. Once you have that IP and the password associated with it you can access it with the following command
+**1.** If you are joining a guided tutorial and are using an EC2 instance you will have been given an ip address to that instance that is dedicated uniquely to you. Once you have that IP and the password associated with it you can access it with the following command
 
 .. important::
 
@@ -25,9 +23,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
    ssh ec2-user@<ip address>
 
-.. note::
-
-   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -47,9 +43,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
    | MET_BUILD_BASE is the full path to the MET installation (/path/to/met-X.Y)
    | METPLUS_DATA is the location of the sample test data directory
 
-.. note::
-
-   **3:** Check that the MET applications are in the path:
+**3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -63,9 +57,7 @@ Running the tutorial in the cloud requires a cloud instance. Currently we are on
 
    The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in MET_BUILD_BASE. If it does not, you will need to either reload the met module, or add ${MET_BUILD_BASE}/bin to your PATH.
 
-.. note::
-
-   **4:** Check that the correct version of run_metplus.py is in your PATH:
+**4:** Check that the correct version of run_metplus.py is in your PATH:
 
 .. code-block:: text
 
@@ -93,43 +85,29 @@ Create Your Own EC2 Instance
 
 You can also create your own EC2 instance if you have access to your own AWS account and space.
 
-.. note::
+Log into your AWS dashboard
 
-   Log into your AWS dashboard
+Click on the AMI Catalog link in the left column of the dashboard
 
-.. note::
+Change your region in the upper right corner to US East (N. Virginia)
 
-   Click on the AMI Catalog link in the left column of the dashboard
-
-.. note::
-
-   Change your region in the upper right corner to US East (N. Virginia)
-
-.. note::
-
-   Type METplus in the search box
+Type METplus in the search box
 
 .. figure:: ../figure/awscatalog_0.png
    :alt: AWS AMI catalog search results for METplus tutorials.
 
 In the community AMIs tab there will be a list of prior and current METplus tutorials.
 
-.. note::
+Click on the select button next to METplus |metplus_short| Tutorial
 
-   Click on the select button next to METplus |metplus_short| Tutorial
-
-.. note::
-
-   Click on the button labeled Launch Instance with AMI
+Click on the button labeled Launch Instance with AMI
 
 You should see a screen similar to the one below.
 
 .. figure:: ../figure/launchami_crop.png
    :alt: AWS launch instance form for the METplus tutorial AMI.
 
-.. note::
-
-   Fill in the Name and Tags box
+Fill in the Name and Tags box
 
 You should create a name that is descriptive and unique like METplus |metplus_short| ``<Your Name>``.
 
@@ -147,23 +125,17 @@ fields should all be populated and not necessary to change
 
 **The Key pair field** needs to be chosen. You will have already set up a key pair when you created your AWS space which is out of the scope of this tutorial.
 
-.. note::
-
-   Select the drop down menu and pick the key pair you wish to use
+Select the drop down menu and pick the key pair you wish to use
 
 **The Network settings field area** can be used as is but we suggest changing the
 
 Allow SSH traffic from:
 
-.. note::
-
-   from Anywhere to either Custom or MY IP
+from Anywhere to either Custom or MY IP
 
 This will limit access to this EC2 instance from a much smaller subset than the entire internet.
 
-.. note::
-
-   Click on the “launch instance” button on the right hand column.
+Click on the “launch instance” button on the right hand column.
 
 The right hand column should have a summary of the choices you made above.
 
@@ -174,22 +146,16 @@ Once launched you will see a screen similar to below.
 
 There are now two ways to get the ip address to your currently running EC2 instance.
 
-.. note::
-
-   **1.** Click on the box labeled “Connect to your instance”
+**1.** Click on the box labeled “Connect to your instance”
 
 Something similar to the image below should pop up and your ip address should be listed.
 
 .. figure:: ../figure/connecttoinstance.png
    :alt: AWS instance connection information including the instance IP address.
 
-.. note::
+**2.** Navigate to your EC2 dashboard and look at the running instances
 
-   **2.** Navigate to your EC2 dashboard and look at the running instances
-
-.. note::
-
-   Click on the Instance ID link for your newly created instance that hopefully has a descriptive name and you will see the ip address contained in the screen it takes you to.
+Click on the Instance ID link for your newly created instance that hopefully has a descriptive name and you will see the ip address contained in the screen it takes you to.
 
 .. figure:: ../figure/instancesummary.png
    :alt: AWS instance summary for the running tutorial instance.

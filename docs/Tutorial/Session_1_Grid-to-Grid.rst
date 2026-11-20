@@ -32,11 +32,6 @@ of the block) and pasted on the command line, e.g.:
   Text in **GREEN boxes** contains important information, expert hints or 
   helpful links. Please read carefully.
 
-.. note::
-
-  Text in **BLUE boxes** are instructions for the user to perform some action
-  or edit (add or modify) a specific file on your system.
-
 .. admonition:: Sample Output
 	   
   Text in **PURPLE boxes** titled Sample Output is output from a command
@@ -260,16 +255,14 @@ through Plot-Data-Plane first:
 
     display sample_fcst_12L_2005080712V_12A.ps &
 
-.. note::
+Another option is to create a PNG file from the PS file, 
+also rotating it to appear the right way:
 
-  Another option is to create a PNG file from the PS file, 
-  also rotating it to appear the right way:
+.. code-block:: text
 
-  .. code-block:: text
-
-    convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \
-    sample_fcst_12L_2005080712V_12A.png
-    display sample_fcst_12L_2005080712V_12A.png
+  convert -rotate 90 sample_fcst_12L_2005080712V_12A.ps \
+  sample_fcst_12L_2005080712V_12A.png
+  display sample_fcst_12L_2005080712V_12A.png
 
 Next try re-running the command list above, but add the **convert(x)=x/25.4;**
 function to the config string (*Hint: after the level setting and ; but before 
@@ -406,9 +399,7 @@ The Plot-Data-Plane tool reads a single 2-dimensional field of gridded data from
 
 **Plot-Data-Plane Usage**
 
-.. note::
-
-  View the usage statement for Plot-Data-Plane by simply typing the following:
+View the usage statement for Plot-Data-Plane by simply typing the following:
 
 
 
@@ -1121,47 +1112,43 @@ For this tutorial, we'll configure Grid-Stat to verify the 12-hour accumulated p
 
 Set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      fcst = {
-        field = [
-          {
-           name       = "APCP_12";
-           level      = [ "(*,*)" ];
-           cat_thresh = [ >0.0, >=5.0, >=10.0 ];
-          }
-        ];
-      }
-      obs = fcst;
+   fcst = {
+     field = [
+       {
+        name       = "APCP_12";
+        level      = [ "(*,*)" ];
+        cat_thresh = [ >0.0, >=5.0, >=10.0 ];
+       }
+     ];
+   }
+   obs = fcst;
 
 To verify the field of precipitation accumulated over 12 hours using the 3 thresholds specified.
 
 Set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      mask = {
-        grid = [];
-        poly = [ "../gen_vx_mask/CONUS_mask.nc",
-                 "MET_BASE/poly/NWC.poly",
-                 "MET_BASE/poly/SWC.poly",
-                 "MET_BASE/poly/GRB.poly",
-                 "MET_BASE/poly/SWD.poly",
-                 "MET_BASE/poly/NMT.poly",
-                 "MET_BASE/poly/SMT.poly",
-                 "MET_BASE/poly/NPL.poly",
-                 "MET_BASE/poly/SPL.poly",
-                 "MET_BASE/poly/MDW.poly",
-                 "MET_BASE/poly/LMV.poly",
-                 "MET_BASE/poly/GAC.poly",
-                 "MET_BASE/poly/APL.poly",
-                 "MET_BASE/poly/NEC.poly",
-                 "MET_BASE/poly/SEC.poly" ];
-      }
+   mask = {
+     grid = [];
+     poly = [ "../gen_vx_mask/CONUS_mask.nc",
+              "MET_BASE/poly/NWC.poly",
+              "MET_BASE/poly/SWC.poly",
+              "MET_BASE/poly/GRB.poly",
+              "MET_BASE/poly/SWD.poly",
+              "MET_BASE/poly/NMT.poly",
+              "MET_BASE/poly/SMT.poly",
+              "MET_BASE/poly/NPL.poly",
+              "MET_BASE/poly/SPL.poly",
+              "MET_BASE/poly/MDW.poly",
+              "MET_BASE/poly/LMV.poly",
+              "MET_BASE/poly/GAC.poly",
+              "MET_BASE/poly/APL.poly",
+              "MET_BASE/poly/NEC.poly",
+              "MET_BASE/poly/SEC.poly" ];
+   }
 
 To accumulate statistics over the Continental United States (CONUS) and the 14 NCEP verification regions in the United States defined by the polylines specified. To see a plot of these regions, execute the following command:
 
@@ -1171,55 +1158,49 @@ To accumulate statistics over the Continental United States (CONUS) and the 14 N
 
 In the boot dictionary, set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      n_rep = 500;
+   n_rep = 500;
 
 To turn on the computation of bootstrap confidence intervals using 500 replicates.
 
 In the nbrhd dictionary, set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      width          = [ 3, 5 ];
-      cov_thresh = [ >=0.5, >=0.75 ];
+   width          = [ 3, 5 ];
+   cov_thresh = [ >=0.5, >=0.75 ];
 
 To define two neighborhood sizes and two fractional coverage field thresholds.
 
 Set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      output_flag = {
-        fho    = NONE;
-        ctc    = BOTH;
-        cts    = BOTH;
-        mctc   = NONE;
-        mcts   = NONE;
-        cnt    = BOTH;
-        sl1l2  = BOTH;
-        sal1l2 = NONE;
-        vl1l2  = NONE;
-        val1l2 = NONE;
-        vcnt   = NONE;
-        pct    = NONE;
-        pstd   = NONE;
-        pjc    = NONE;
-        prc    = NONE;
-        eclv   = NONE;
-        nbrctc = BOTH;
-        nbrcts = BOTH;
-        nbrcnt = BOTH;
-        grad   = BOTH;
-        dmap   = NONE;
-        seeps  = NONE;
-      }
+   output_flag = {
+     fho    = NONE;
+     ctc    = BOTH;
+     cts    = BOTH;
+     mctc   = NONE;
+     mcts   = NONE;
+     cnt    = BOTH;
+     sl1l2  = BOTH;
+     sal1l2 = NONE;
+     vl1l2  = NONE;
+     val1l2 = NONE;
+     vcnt   = NONE;
+     pct    = NONE;
+     pstd   = NONE;
+     pjc    = NONE;
+     prc    = NONE;
+     eclv   = NONE;
+     nbrctc = BOTH;
+     nbrcts = BOTH;
+     nbrcnt = BOTH;
+     grad   = BOTH;
+     dmap   = NONE;
+     seeps  = NONE;
+   }
 
 
 To compute contingency table counts (CTC), contingency table statistics (CTS), continuous statistics (CNT), scalar partial sums (SL1L2), neighborhood contingency table counts (NBRCTC), neighborhood contingency table statistics (NBRCTS), neighborhood continuous statistics (NBRCNT), and gradient statistics (GRAD).
@@ -1258,11 +1239,9 @@ To greatly increase the runtime performance of Grid-Stat, you could disable the 
 
 In the **boot** dictionary, set:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      n_rep = 0;
+   n_rep = 0;
 
 To disable the computation of bootstrap confidence intervals.
 
@@ -1340,47 +1319,41 @@ Open the file and look at all of the configuration variables that are defined. T
 
 In METplus configuration files, the forecast and observation variables are referred to individually, including reference to both the NAMES and LEVELS.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
+   FCST_VAR1_NAME = APCP
+   FCST_VAR1_LEVELS = A03
 
-      FCST_VAR1_NAME = APCP
-      FCST_VAR1_LEVELS = A03
-
-      OBS_VAR1_NAME = APCP_03
-      OBS_VAR1_LEVELS = "(*,*)"
+   OBS_VAR1_NAME = APCP_03
+   OBS_VAR1_LEVELS = "(*,*)"
 
 These relate to the following fields in the MET configuration file:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      fcst = {
-        field = [
-          {
-           name = "APCP";
-           level = [ "A03" ];
-          }
-        ];
-      }
-      obs = {
-        field = [
-          {
-           name = "APCP_03";
-           level = [ "(*,*)" ];
-          }
-        ];
-      }
+   fcst = {
+     field = [
+       {
+        name = "APCP";
+        level = [ "A03" ];
+       }
+     ];
+   }
+   obs = {
+     field = [
+       {
+        name = "APCP_03";
+        level = [ "(*,*)" ];
+       }
+     ];
+   }
 
 
 Paths in GridStat.conf may reference other config options defined in a different configuration file. For example:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      FCST_GRID_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
+   FCST_GRID_STAT_INPUT_DIR = {INPUT_BASE}/met_test/data/sample_fcst
 
 where **INPUT_BASE** which is set in the tutorial.conf configuration file. METplus config variables can reference other config variables even if they are defined in a config file that is read afterwards.
 
@@ -1395,9 +1368,7 @@ where **INPUT_BASE** which is set in the tutorial.conf configuration file. METpl
 
 METplus is finished running when control returns to your terminal console and you see the following text:
 
-.. note::
-
-  INFO: METplus has successfully finished running as user <username>(<uid>).
+INFO: METplus has successfully finished running as user <username>(<uid>).
 
 3. **Review the output files:**
 
@@ -1407,11 +1378,9 @@ You should have output files in the following directories:
 
   ls ${METPLUS_TUTORIAL_DIR}/output/GridStat/met_tool_wrapper/GridStat/GridStat/2005080700
 
-.. note::
-
-  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txt
-  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
-  * grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
+* grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_eclv.txt
+* grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V.stat
+* grid_stat_WRF_APCP_vs_MC_PCP_APCP_03_120000L_20050807_120000V_grad.txt
 
 Take a look at some of the files to see what was generated. Beyond the .stat file, the Economic Cost/Loss Value (eclv) and Gradient (grad) line types were also written to separate .txt files. If you inspect **${METPLUS_BUILD_BASE}/parm/use_cases/met_tool_wrapper/GridStat/GridStat.conf**, you will notice that the **ctc** and **cts** line type settings are "STAT" while **eclv** and **grad** line types are set to "BOTH".
 
@@ -1476,18 +1445,16 @@ Note how the use of BOTH to specify the forecast field and observation/analysis 
 
   less ${METPLUS_BUILD_BASE}/parm/use_cases/model_applications/medium_range/GridStat_fcstGFS_obsGFS_climoNCEP_MultiField.conf
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      BOTH_VAR1_NAME = TMP
-      BOTH_VAR1_LEVELS = P850, P500, P250
-      BOTH_VAR2_NAME = UGRD
-      BOTH_VAR2_LEVELS = P850, P500, P250
-      BOTH_VAR3_NAME = VGRD
-      BOTH_VAR3_LEVELS = P850, P500, P250
-      BOTH_VAR4_NAME = PRMSL
-      BOTH_VAR4_LEVELS = Z0
+   BOTH_VAR1_NAME = TMP
+   BOTH_VAR1_LEVELS = P850, P500, P250
+   BOTH_VAR2_NAME = UGRD
+   BOTH_VAR2_LEVELS = P850, P500, P250
+   BOTH_VAR3_NAME = VGRD
+   BOTH_VAR3_LEVELS = P850, P500, P250
+   BOTH_VAR4_NAME = PRMSL
+   BOTH_VAR4_LEVELS = Z0
 
 3. **Run run_metplus.py on this use-case**
 
@@ -1545,35 +1512,33 @@ You should see the relative humidity field appear in the log output from grid_st
 
 Look for:
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 1: Regridding field RH/P250 to the verification grid.
-      DEBUG 1: Regridding field RH/P250 to the verification grid.
-      DEBUG 2:
-      DEBUG 2: --------------------------------------------------------------------------------
-      DEBUG 2:
-      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
-      DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
-      DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P500 versus RH/P500, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 1: Regridding field RH/P250 to the verification grid.
+   DEBUG 1: Regridding field RH/P250 to the verification grid.
+   DEBUG 2:
+   DEBUG 2: --------------------------------------------------------------------------------
+   DEBUG 2:
+   DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region FULL, using 10512 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region NHX, using 3600 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region SHX, using 3600 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region TRO, using 2448 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
+   DEBUG 2: Processing RH/P250 versus RH/P250, for smoothing method NEAREST(1), over region PNA, using 1311 matched pairs.
+   DEBUG 2: Computing Scalar Partial Sums and Continuous Statistics.
 
 Navigate to the next page for the solution to see if you were right!
 
@@ -1589,12 +1554,10 @@ Navigate to the next page for the solution to see if you were right!
 
 Set OUTPUT_BASE to a new location so you can keep it separate from the other runs.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      OUTPUT_BASE = {ENV[METPLUS_TUTORIAL_DIR]}/output/exercises/log_boost
+   [config]
+   OUTPUT_BASE = {ENV[METPLUS_TUTORIAL_DIR]}/output/exercises/log_boost
 
 The sections at the bottom of this page describe different logging configurations you can change. Play around with changing these settings and see how it affects the log output. You can refer to ${METPLUS_BUILD_BASE}/parm/metplus_config/defaults.conf to see all possible configurations that affect logging.
 
@@ -1621,12 +1584,10 @@ For example, override LOG_METPLUS and add more text to the filename (or even use
 
 Setting [config] LOG_MET_OUTPUT_TO_METPLUS to no will create a separate log file for each MET application.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_MET_OUTPUT_TO_METPLUS = no
+   [config]
+   LOG_MET_OUTPUT_TO_METPLUS = no
 
 For this use case, two log files will be created: metplus.log.YYYYMMDDHHMMSS and grid_stat.log.YYYYMMDDHHMMSS. If you don't see two files, make sure you put the **LOG_MET_OUTPUT_TO_METPLUS** setting **AFTER** a line with **[config]** on it.
 
@@ -1634,32 +1595,26 @@ For this use case, two log files will be created: metplus.log.YYYYMMDDHHMMSS and
 
 Setting [config] LOG_MET_VERBOSITY to a number between 1 and 10 will change the logging level for the MET applications logs. Increasing the number results in more log output. The default value is 2.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_MET_VERBOSITY = 3
+   [config]
+   LOG_MET_VERBOSITY = 3
 
 You can also set [config] LOG_GRID_STAT_VERBOSITY to change the logging level for the GridStat log only. If set, the wrapper-specific value takes precedence over the generic LOG_MET_VERBOSITY value.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_GRID_STAT_VERBOSITY = 5
+   [config]
+   LOG_GRID_STAT_VERBOSITY = 5
 
 **Increase Log Output Level for METplus Wrappers**
 
 Setting [config] LOG_LEVEL will change the logging level for the METplus logs. Valid values are NOTSET, DEBUG, INFO, WARNING, ERROR, CRITICAL. Logs will contain all information of the desired logging level and higher. The default value is INFO.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_LEVEL = DEBUG
+   [config]
+   LOG_LEVEL = DEBUG
 
 .. note::
 
@@ -1669,12 +1624,10 @@ Setting [config] LOG_LEVEL will change the logging level for the METplus logs. V
 
 Setting LOG_TIMESTAMP_TEMPLATE to %Y%m%d will remove hours, minutes, and seconds from the log file time. The default value is %Y%m%d%H%M%S which results in the format YYYYMMDDHHMMSS.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_TIMESTAMP_TEMPLATE = %Y%m%d
+   [config]
+   LOG_TIMESTAMP_TEMPLATE = %Y%m%d
 
 For this use case, the log files will have the format: metplus.log.YYYYMMDD
 
@@ -1682,12 +1635,10 @@ For this use case, the log files will have the format: metplus.log.YYYYMMDD
 
 Setting LOG_TIMESTAMP_USE_DATATIME to yes will use the first time of your data instead of the current time.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      [config]
-      LOG_TIMESTAMP_USE_DATATIME = yes
+   [config]
+   LOG_TIMESTAMP_USE_DATATIME = yes
 
 For this use case, INIT_BEG = 2005080700, so the log files will have the format: metplus.log.20050807 instead of using today's date (if LOG_TIMESTAMP_TEMPLATE = %Y%m%d)
 
@@ -1753,18 +1704,14 @@ These are the answers to the exercises from the previous page. Feel free to ask 
 
 **Answer:** In the GridStat_add_rh.conf param file, add the following variables to the **[config]** section.
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
+   BOTH_VAR5_NAME = RH
+   BOTH_VAR5_LEVELS = P500, P250
 
-      BOTH_VAR5_NAME = RH
-      BOTH_VAR5_LEVELS = P500, P250
+.. code-block:: text
 
-.. note::
-
-   .. code-block:: text
-
-      GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
+   GRID_STAT_OUTPUT_FLAG_SL1L2 = STAT
 
 **ANSWER 1.4: Set Timing Control and Filename Templates to Find Files**
 

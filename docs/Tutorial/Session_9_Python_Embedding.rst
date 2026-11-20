@@ -93,41 +93,31 @@ Setup for Python Embedding Practice
 
 In the next two sections, you will practice using Python Embedding for both gridded and point data using MET tools directly and also via METplus Wrappers. To prepare for those sections, please follow the setup instructions below:
 
-.. note::
-
-   In your tutorial directory, make a new directory to hold Python scripts that you will use to demonstrate Python Embedding:
+In your tutorial directory, make a new directory to hold Python scripts that you will use to demonstrate Python Embedding:
 
 .. code-block:: text
 
    mkdir ${METPLUS_TUTORIAL_DIR}/python_embed
 
-.. note::
-
-   Change to the directory you just created:
+Change to the directory you just created:
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}/python_embed
 
-.. note::
-
-   Copy and rename the **read_ascii_numpy.py** example script included with the MET software to your directory:
+Copy and rename the **read_ascii_numpy.py** example script included with the MET software to your directory:
 
 .. code-block:: text
 
    cp ${MET_BUILD_BASE}/share/met/python/read_ascii_numpy.py ./my_gridded_pyembed.py
 
-.. note::
-
-   Copy and rename the **read_ascii_point.py** example script included with the MET software to your directory:
+Copy and rename the **read_ascii_point.py** example script included with the MET software to your directory:
 
 .. code-block:: text
 
    cp ${MET_BUILD_BASE}/share/met/python/read_ascii_point.py ./my_point_pyembed.py
 
-.. note::
-
-   Set your **PYTHONPATH** variable to include a required Python module to demonstrate Python Embedding with point data:
+Set your **PYTHONPATH** variable to include a required Python module to demonstrate Python Embedding with point data:
 
 csh:
 
@@ -385,7 +375,7 @@ For **Element 3** above, we will use the **PLOT_POINT_OBS_OUTPUT_TEMPLATE** conf
 
 Now save the file, and run METplus wrappers:
 
-.. note::
+.. code-block:: text
 
    run_metplus.py -c my_point_pyembed.conf
 
@@ -549,20 +539,16 @@ Now try both of the sample commands below to run your Python Embedding script:
 PYTHON_NUMPY
 ^^^^^^^^^^^^
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY numpy.ps 'name="practice_gridded_pyembed.py numpy";'
+   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_NUMPY numpy.ps 'name="practice_gridded_pyembed.py numpy";'
 
 PYTHON_XARRAY
 ^^^^^^^^^^^^^
 
-.. note::
+.. code-block:: text
 
-   .. code-block:: text
-
-      ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_XARRAY xarray.ps 'name="practice_gridded_pyembed.py xarray";'
+   ${MET_BUILD_BASE}/bin/plot_data_plane PYTHON_XARRAY xarray.ps 'name="practice_gridded_pyembed.py xarray";'
 
 The resulting image, regardless of which approach you take (except for the string annotation which will change), should look like the following:
 
@@ -613,9 +599,7 @@ Copy the following METplus Wrappers configuration items into the file and save i
       PLOT_DATA_PLANE_OUTPUT_TEMPLATE={OUTPUT_BASE}/practice_pyembed_wrappers_numpy_plot.ps
       PLOT_DATA_PLANE_FIELD_NAME={ENV[METPLUS_TUTORIAL_DIR]}/python_embed/practice_gridded_pyembed.py numpy
 
-.. note::
-
-   Now save the file, and run METplus wrappers:
+Now save the file, and run METplus wrappers:
 
 .. code-block:: text
 
@@ -648,9 +632,7 @@ Copy the following METplus Wrappers configuration items into the file and save i
       PLOT_DATA_PLANE_OUTPUT_TEMPLATE={OUTPUT_BASE}/practice_pyembed_wrappers_xarray_plot.ps
       PLOT_DATA_PLANE_FIELD_NAME={ENV[METPLUS_TUTORIAL_DIR]}/python_embed/practice_gridded_pyembed.py xarray
 
-.. note::
-
-   Now save the file, and run METplus wrappers:
+Now save the file, and run METplus wrappers:
 
 .. code-block:: text
 

@@ -7,9 +7,7 @@ Session 10: Subseasonal to Seasonal (S2S)
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
 
-.. note::
-
-   **1:** Navigate to your tutorial directory and run the tutorial setup script.
+**1:** Navigate to your tutorial directory and run the tutorial setup script.
 
 .. important::
 
@@ -22,9 +20,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    cd /path/to/METplus-|metplus_version|_Tutorial
    source METplus-|metplus_version|_TutorialSetup.sh
 
-.. note::
-
-   **2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
+**2:** Check that you have environment variables set correctly. If any of these variables are not set, navigate back to the METplus Setup section of the tutorial.
 
 .. code-block:: text
 
@@ -44,9 +40,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
    | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
    | **METPLUS_DATA** is the location of the sample test data directory
 
-.. note::
-
-   **3:** Check that the MET applications are in the path:
+**3:** Check that the MET applications are in the path:
 
 .. code-block:: text
 
@@ -60,9 +54,7 @@ Before running the tutorial instructions, you will need to ensure that you have 
 
    The first command should show you the directory where point_stat lives. In the second command you should see the usage statement for Point-Stat. The version number listed should correspond to the version listed in **MET_BUILD_BASE**. If it does not, you will need to either reload the met module, or add **${MET_BUILD_BASE}/bin** to your PATH.
 
-.. note::
-
-   **4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
+**4:** Check that the correct version of **run_metplus.py** is in your **PATH**:
 
 .. code-block:: text
 
@@ -139,17 +131,13 @@ This use case also requires the installation and correct environmental settings 
    export METDATAIO_BASE=${METPLUS_TUTORIAL_DIR}/metdataio/METdataio
    export PYTHONPATH=$METDATAIO_BASE:$METCALCPY_BASE:$METPLOTPY_BASE
 
-.. note::
-
-   Next, let’s create a directory for the output:
+Next, let’s create a directory for the output:
 
 .. code-block:: text
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/omi
 
-.. note::
-
-   Then, we will review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
+Then, we will review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
 
 .. code-block:: text
 
@@ -166,17 +154,13 @@ The information to run the OMI calculation is given in the [script_omi] section.
 Run METplus for the OMI Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-
-   To run METplus, first change to the tutorial directory:
+To run METplus, first change to the tutorial directory:
 
 .. code-block:: text
 
    cd ${METPLUS_TUTORIAL_DIR}
 
-.. note::
-
-   Then, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
+Then, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
 
 .. code-block:: text
 
@@ -196,9 +180,7 @@ The script should run and if successful, will say:
 Check the Output
 ^^^^^^^^^^^^^^^^
 
-.. note::
-
-   To check the output, first go to the output directory:
+To check the output, first go to the output directory:
 
 .. code-block:: text
 
@@ -206,9 +188,7 @@ Check the Output
 
 Here you should see three directories (logs, s2s_mjo, and tmp) and the METplus configuration file.
 
-.. note::
-
-   To check the output, we need to find the plots:
+To check the output, we need to find the plots:
 
 .. code-block:: text
 
@@ -243,18 +223,14 @@ Configure the Weather Regime Use Case
 
 To configure the weather regime use case, first check the `python dependencies in the online User's Guide <https://metplus.readthedocs.io/en/|metplus_branch|/generated/model_applications/s2s_mid_lat/UserScript_fcstGFS_obsERA_WeatherRegime.html#sphx-glr-generated-model-applications-s2s-mid-lat-userscript-fcstgfs-obsera-weatherregime-py>`_. The required python packages are numpy, netCDF4, datetime, pylab, scipy, sklearn, eofs, and matplotlib.
 
-.. note::
-
-   Then, return to the tutorial directory and create a directory for the output:
+Then, return to the tutorial directory and create a directory for the output:
 
 .. code-block:: text
 
    mkdir -p ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime
    cd ${METPLUS_TUTORIAL_DIR}/output/met_output/weather_regime
 
-.. note::
-
-   Next, let's review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
+Next, let's review the configuration file. The command examples show vim, but any text editor could be used in place of vim:
 
 .. code-block:: text
 
@@ -271,9 +247,7 @@ The information to run the Weather Regime calculation is given in the [script_wr
 Run METplus for the Weather Regime Use Case
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-
-   To run METplus, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
+To run METplus, run the following command, which uses config.OUTPUT_BASE to change the output location. Alternatively, users could change the OUTPUT_BASE by editing the location in the tutorial.conf file:
 
 .. code-block:: text
 
