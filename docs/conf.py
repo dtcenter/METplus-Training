@@ -25,6 +25,22 @@ release_year = '2020'
 release_date = f'{release_year}0810'
 copyright = f'{release_year}, {author}'
 
+# -- Software version covered by the tutorial --------------------------------
+# Update these for each new METplus release. Every |placeholder| below is
+# replaced throughout the docs, including inside code blocks and link URLs
+# (see substitute_versions() at the bottom of this file).
+metplus_version = '13.0.0'   # shared by all METplus components (MET, METplotpy, ...)
+
+def _short(v):
+    """'13.0.0' -> '13.0'"""
+    return '.'.join(v.split('.')[:2])
+
+version_substitutions = {
+    '|metplus_version|': metplus_version,                     # 13.0.0
+    '|metplus_short|':   _short(metplus_version),             # 13.0
+    '|metplus_branch|':  f'main_v{_short(metplus_version)}',  # main_v13.0
+}
+
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -128,8 +144,25 @@ numfig_format = {
 }
 
 # -- Include the CSS -------------------------------------------------------------------
+def substitute_versions(app, docname, source):
+    """Replace version placeholders in the raw source before parsing.
+
+    Unlike rst_epilog substitutions, this also works inside code blocks,
+    parsed-literals, inline literals, bold text and hyperlink URLs.
+    """
+    text = source[0]
+    for placeholder, value in version_substitutions.items():
+        text = text.replace(placeholder, value)
+    source[0] = text
+
 def setup(app):
     app.add_css_file("custom.css")
+    app.connect('source-read', substitute_versions)
+    app.connect('include-read',
+                lambda app, path, docname, content:
+                    substitute_versions(app, docname, content))
+    # Registering the values makes Sphinx rebuild every page when they change.
+    app.add_config_value('metplus_version', metplus_version, 'env')
 
 # -- linkcheck builder configuration ----------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
