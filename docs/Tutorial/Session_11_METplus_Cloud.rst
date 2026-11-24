@@ -5,6 +5,8 @@ Session 11: METplus Cloud
 
 This session will cover how to access a guided tutorial EC2 instance or create your own EC2 instance on Amazon Web Services (AWS) for running the METplus tutorial.
 
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
+
 **Prerequisites: Accessing a Guided Tutorial EC2 Instance**
 
 Running the tutorial in the cloud requires a cloud instance. Currently we are only supporting Amazon Web Services tutorial instances.

@@ -5,6 +5,8 @@ Session 7: Feature Relative Use Cases
 
 This session will cover two METplus feature relative use cases.
 
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
+
 **Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.

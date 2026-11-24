@@ -8,6 +8,8 @@ During this practical session, you will run the tools indicated below:
 .. figure:: figure/Practical_Session_5.png
    :alt: MET tool workflow highlighting the tools used in Session 5.
 
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
+
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 
 **Prerequisites: Verify Environment Is Set Correctly**

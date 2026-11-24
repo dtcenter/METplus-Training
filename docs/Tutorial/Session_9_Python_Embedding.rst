@@ -3,6 +3,8 @@ Session 9: Python Embedding
 
 **METplus Practical Session 9**
 
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
+
 **In This Session You Will Learn:**
 
 1. What Python Embedding is

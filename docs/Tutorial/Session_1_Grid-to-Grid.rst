@@ -15,7 +15,8 @@ During the first METplus practical session, you will run the tools indicated bel
    :align: center
 
 During this practical session, please work on the **Session 1** exercises. 
-Proceed through the tutorial exercises by following the navigation links at the bottom of each page.
+
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
 
 **Tutorial Format**
 

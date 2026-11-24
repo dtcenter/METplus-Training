@@ -65,7 +65,7 @@ Follow the steps below to create a working directory and obtain the tutorial set
 
 .. important::
 
-   **Pre-configured environments** (Casper, Ursa, and Seneca) already have METplus, MET, and the sample data installed. If you are running the tutorial on **your own computer**, select the **bash** or **csh** tab depending on which shell you prefer. We recommend using **bash** if you do not have a preference.
+   **Pre-configured environments** (Casper, Ursa, and Seneca) already have METplus, MET, and the sample data installed. If you are running the tutorial on **your own computer**, select the **Own computer (bash or csh)** tab and follow the instructions for the shell you prefer. We recommend using **bash** if you do not have a preference.
 
 **Create a Working Directory**
 
@@ -105,9 +105,11 @@ Change directory into the tutorial directory.
 Copy the tutorial setup shell script to configure your runtime environment for use with METplus. You will also copy over a METplus .conf file that you will use to run. Select the tab for your environment:
 
 .. tab-set::
+   :sync-group: platform
 
 
    .. tab-item:: Casper (NCAR)
+      :sync: casper-ncar
 
       .. code-block::
 
@@ -132,6 +134,7 @@ Copy the tutorial setup shell script to configure your runtime environment for u
          cp /glade/p/ral/jntp/MET/METplus/Tutorial_Files/METplus-|metplus_version|_Tutorial_Files/METplus-|metplus_version|_TutorialSetup.cheyenne.csh ./METplus-|metplus_version|_TutorialSetup.sh
 
    .. tab-item:: Ursa (NOAA)
+      :sync: ursa-noaa
 
       .. code-block::
 
@@ -139,158 +142,157 @@ Copy the tutorial setup shell script to configure your runtime environment for u
          cp /lfs1/HFIP/dtc-hurr/METplus/METplus-|metplus_version|_Tutorial_Files/tutorial-|metplus_version|.conf ./tutorial.conf
 
    .. tab-item:: Seneca (NCAR)
+      :sync: seneca-ncar
 
       .. code-block::
 
          cp /d1/projects/METplus/METplus-|metplus_version|_Tutorial_Files/METplus-|metplus_version|_TutorialSetup.seneca.`basename $SHELL` ./METplus-|metplus_version|_TutorialSetup.sh
          cp /d1/projects/METplus/METplus-|metplus_version|_Tutorial_Files/tutorial-|metplus_version|.conf ./tutorial.conf
 
-      If you plan to run the METplus Analysis Tools or S2S sessions, also follow the :ref:`optional conda environment setup <set_tut_env_Seneca>` below.
+      .. _set_tut_env_Seneca:
+
+      **(Optional) Conda Environment for the METplus Analysis and S2S Sessions**
+
+
+      Due to the need for external package dependencies for the METplus Analysis and s2s sections, the following instructions are also necessary. If you do not plan on executing the commands of those sections, you can skip these steps.
+
+      First, ensure that you are running the bash environment:
+
+      .. code-block::
+
+         bash
+
+      Now, verify that you have a .condarc file in your /home/user directory. If the file does not exist, create one. In that file, you will need the following entries, in the exact same format (dashes and colons):
+
+      .. admonition:: File Contents
+
+         .. code-block:: text
+
+            channels:
+            - defaults
+            - conda-forge
+            - anaconda
+
+      Verify that you are using the most recent version of anaconda3 in your .bashrc file. Verify that your conda_setup in your .bashrc file is using /nrit/ral/anaconda3/bin/conda. You should see a code block similar to the following:
+
+      .. admonition:: File Contents
+
+         .. code-block:: text
+
+            # >>> conda initialize >>>
+            # !! Contents within this block are managed by 'conda init' !!
+            __conda_setup="$('/nrit/ral/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+            if [ $? -eq 0 ]; then
+            eval "$__conda_setup"
+            else
+            if [ -f "/nrit/ral/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/nrit/ral/anaconda3/etc/profile.d/conda.sh"
+            else
+            export PATH="/nrit/ral/anaconda3/bin:$PATH"
+            fi
+            fi
+            unset __conda_setup
+            # <<< conda initialize <<<
+
+      If you do have to make any changes to your .bashrc file, it would be best at this point to sign out, then sign back into your Seneca connection from the terminal. Errors have been found to happen even after sourcing your .bashrc file for the updated content.
+
+      From the command line, enter the following:
+
+      .. code-block::
+
+         /nrit/ral/anaconda3/bin/conda create -n metplus_analysis_tutorial_env python=3.8 mamba -y
+
+      If this was successful, you will see the following at the end of the output streamed to the screen:
+
+      .. admonition:: Sample Output
+
+         .. code-block:: text
+
+            Downloading and Extracting Packages
+            Preparing transaction: done
+            Verifying transaction: done
+            Executing transaction: done
+            #
+            # To activate this environment, use
+            #
+            # $ conda activate metplus_analysis_tutorial_env
+            #
+            # To deactivate an active environment, use
+            #
+            # $ conda deactivate
+
+      This creates a basic Python 3.8 conda environment named ‘metplus_analysis_tutorial_env’ that contains mamba (to accelerate installing the remaining Python packages).
+
+      Activate this environment by running the following from the command line:
+
+      .. code-block::
+
+         conda activate metplus_analysis_tutorial_env
+
+      Install the following packages to the conda environment by running the following from the command line (using mamba to speed up the installation):
+
+      .. code-block::
+
+         mamba install imageio=2.19.3 imutils=0.5.4 matplotlib=3.5.2 metpy=1.3.1 netcdf4=1.6.2 numpy=1.24.2 pandas=1.5.1 pint=0.19.2 plotly=5.9.0 pytest=7.2.1 python-kaleido=0.2.1 pyyaml=6.0 scikit-image=0.19.3 scipy=1.8.1 lxml=4.9.1 eofs=1.4.0 scikit-learn=1.2.0 -y
+
+      You will see many lines of information streaming to your screen. You will see the following output to your screen if everything was successful:
+
+      .. admonition:: Sample Output
+
+         .. parsed-literal::
+
+            Preparing transaction: done
+            Verifying transaction: done
+            Executing transaction: /
+            Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
+            More details are available `here: https://intel.github.io/scikit-learn-intelex <https://intel.github.io/scikit-learn-intelex>`_
+            For example:
+            $ conda install scikit-learn-intelex
+            $ python -m sklearnex my_application.py
+            done
+
+      Now you are ready to run the METplus Analysis tutorials.
 
    .. tab-item:: GAEA (NOAA)
+      :sync: gaea-noaa
 
       .. code-block::
 
          cp /scratch1/BMC/dtc/METplus/METplus-|metplus_version|_Tutorial_Files/METplus-|metplus_version|_TutorialSetup.hera.`basename $SHELL` ./METplus-|metplus_version|_TutorialSetup.sh
          cp /scratch1/BMC/dtc/METplus/METplus-|metplus_version|_Tutorial_Files/tutorial-|metplus_version|.conf ./tutorial.conf
 
-   .. tab-item:: Own computer (bash)
+   .. tab-item:: Own computer (bash or csh)
+      :sync: own-computer
+
+      Run only the commands for the shell you use.
+
+      **bash**
 
       .. parsed-literal::
 
          wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-|metplus_version|_TutorialSetup.bash.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-|metplus_version|_TutorialSetup.bash.sh.txt>`_ -O ./METplus-|metplus_version|_TutorialSetup.sh
          wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-|metplus_version|.conf -O ./tutorial.conf
 
-      Then :ref:`configure the tutorial setup script <configure_tut_setup>`.
-
-   .. tab-item:: Own computer (csh)
+      **csh**
 
       .. parsed-literal::
 
          wget `https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-|metplus_version|_TutorialSetup.csh.sh.txt <https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/METplus-|metplus_version|_TutorialSetup.csh.sh.txt>`_ -O ./METplus-|metplus_version|_TutorialSetup.sh
          wget https://dtcenter.org/sites/default/files/community-code/metplus/tutorial-data/tutorial-|metplus_version|.conf -O ./tutorial.conf
 
-      Then :ref:`configure the tutorial setup script <configure_tut_setup>`.
+      **Configure the Tutorial Setup Script**
 
-.. _configure_tut_setup:
+      Open the tutorial setup script with the editor of your choice and modify the values for **METPLUS_BUILD_BASE**, **MET_BUILD_BASE**, and **METPLUS_DATA**.
 
-**Configure the Tutorial Setup Script (own computer only)**
+      .. code-block::
 
-If you are running on your own computer, open the tutorial setup script with the editor of your choice and modify the values for **METPLUS_BUILD_BASE**, **MET_BUILD_BASE**, and **METPLUS_DATA**. This step is not needed on the pre-configured environments.
+         vi METplus-|metplus_version|_TutorialSetup.sh
 
-.. code-block::
+      .. important::
 
-   vi METplus-|metplus_version|_TutorialSetup.sh
-
-.. important::
-
-   | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
-   | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
-   | **METPLUS_DATA** is the location of the sample test data directory
-
-.. _set_tut_env_Seneca:
-
-(Optional) Conda Environment for the METplus Analysis and S2S Sessions on Seneca
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Due to the need for external package dependencies for the METplus Analysis and s2s sections, the following instructions are also necessary. If you do not plan on executing the commands of those sections, you can skip these steps.
-
-First, ensure that you are running the bash environment:
-
-.. code-block::
-
-   bash
-
-Now, verify that you have a .condarc file in your /home/user directory. If the file does not exist, create one. In that file, you will need the following entries, in the exact same format (dashes and colons):
-
-.. admonition:: File Contents
-
-   .. code-block:: text
-
-      channels:
-      - defaults
-      - conda-forge
-      - anaconda
-
-Verify that you are using the most recent version of anaconda3 in your .bashrc file. Verify that your conda_setup in your .bashrc file is using /usr/local/anaconda3/bin/conda. You should see a code block similar to the following:
-
-.. admonition:: File Contents
-
-   .. code-block:: text
-
-      # >>> conda initialize >>>
-      # !! Contents within this block are managed by 'conda init' !!
-      __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-      if [ $? -eq 0 ]; then
-      eval "$__conda_setup"
-      else
-      if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-      . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-      else
-      export PATH="/usr/local/anaconda3/bin:$PATH"
-      fi
-      fi
-      unset __conda_setup
-      # <<< conda initialize <<<
-
-If you do have to make any changes to your .bashrc file, it would be best at this point to sign out, then sign back into your Seneca connection from the terminal. Errors have been found to happen even after sourcing your .bashrc file for the updated content.
-
-From the command line, enter the following:
-
-.. code-block::
-
-   /usr/local/anaconda3/bin/conda create -n metplus_analysis_tutorial_env python=3.8 mamba -y
-
-If this was successful, you will see the following at the end of the output streamed to the screen:
-
-.. admonition:: Sample Output
-
-   .. code-block:: text
-
-      Downloading and Extracting Packages
-      Preparing transaction: done
-      Verifying transaction: done
-      Executing transaction: done
-      #
-      # To activate this environment, use
-      #
-      # $ conda activate metplus_analysis_tutorial_env
-      #
-      # To deactivate an active environment, use
-      #
-      # $ conda deactivate
-
-This creates a basic Python 3.8 conda environment named ‘metplus_analysis_tutorial_env’ that contains mamba (to accelerate installing the remaining Python packages).
-
-Activate this environment by running the following from the command line:
-
-.. code-block::
-
-   conda activate metplus_analysis_tutorial_env
-
-Install the following packages to the conda environment by running the following from the command line (using mamba to speed up the installation):
-
-.. code-block::
-
-   mamba install imageio=2.19.3 imutils=0.5.4 matplotlib=3.5.2 metpy=1.3.1 netcdf4=1.6.2 numpy=1.24.2 pandas=1.5.1 pint=0.19.2 plotly=5.9.0 pytest=7.2.1 python-kaleido=0.2.1 pyyaml=6.0 scikit-image=0.19.3 scipy=1.8.1 lxml=4.9.1 eofs=1.4.0 scikit-learn=1.2.0 -y
-
-You will see many lines of information streaming to your screen. You will see following output to your screen if everything was successful:
-
-.. admonition:: Sample Output
-
-   .. parsed-literal::
-
-      Preparing transaction: done
-      Verifying transaction: done
-      Executing transaction: /
-      Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
-      More details are available `here: https://intel.github.io/scikit-learn-intelex <https://intel.github.io/scikit-learn-intelex>`_
-      For example:
-      $ conda install scikit-learn-intelex
-      $ python -m sklearnex my_application.py
-      done
-
-Now you are ready to run the METplus Analysis tutorials.
+         | **METPLUS_BUILD_BASE** is the full path to the METplus installation (/path/to/METplus-X.Y)
+         | **MET_BUILD_BASE** is the full path to the MET installation (/path/to/met-X.Y)
+         | **METPLUS_DATA** is the location of the sample test data directory
 
 Next, verify that your environment is set correctly.
 

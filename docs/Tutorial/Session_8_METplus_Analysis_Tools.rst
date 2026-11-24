@@ -3,7 +3,9 @@ Session 8: METplus Analysis Tools
 
 **METplus Practical Session 8**
 
-This session will cover METplus analysis tools. Click on an item below to get started.
+This session will cover METplus analysis tools.
+
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
 
 .. important::
 
@@ -670,7 +672,7 @@ The Python requirements for METdataio are:
 
 Make sure you have activated the conda environment for METdataio if you are working on your own host or on host 'seneca':
 
-:ref:`Conda Environment for the METplus Analysis and S2S Sessions on Seneca <set_tut_env_Seneca>`
+`Conda Environment for the METplus Analysis and S2S Sessions on Seneca <Preliminary_work_METplus_setup.html?platform=seneca-ncar#set-tut-env-seneca>`_
 
 Please refer to the `METdataio User's Guide <https://metplus.readthedocs.io/projects/metdataio/en/|metplus_branch|/Users_Guide/reformat_point_stat_data.html>`_ for more information on METdataio.
 
@@ -890,7 +892,7 @@ Set Up Prerequisites
 
 The Python requirements for METplotpy are found in the User's Guide, under the `Installation section <https://metplus.readthedocs.io/projects/metplotpy/en/|metplus_branch|/Users_Guide/installation.html>`_.
 
-If you are working on a host that does not have the necessary Python packages installed, create your own conda environment using the instructions provided by the :ref:`Seneca conda environment instructions <set_tut_env_Seneca>` as guidance.
+If you are working on a host that does not have the necessary Python packages installed, create your own conda environment using the instructions provided by the `Seneca conda environment instructions <Preliminary_work_METplus_setup.html?platform=seneca-ncar#set-tut-env-seneca>`__ as guidance.
 
 Continue working in the bash shell.
 

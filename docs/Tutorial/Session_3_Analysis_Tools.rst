@@ -8,7 +8,7 @@ During this practical session, you will run the tools indicated below:
 .. figure:: figure/Practical_Session_3.png
    :alt: MET tool workflow highlighting Series-Analysis and Stat-Analysis for Session 3.
 
-You may navigate through this tutorial by following the links at the bottom of each page or by using the menu navigation.
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
 
 Since you already set up your runtime environment in **Session 1**, you **should** be ready to go! To be sure, run through the following instructions to check that your environment is set correctly.
 

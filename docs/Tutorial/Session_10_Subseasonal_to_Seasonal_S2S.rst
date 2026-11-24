@@ -3,6 +3,8 @@ Session 10: Subseasonal to Seasonal (S2S)
 
 **METplus Practical Session 10**
 
+You may navigate through this tutorial by using the menu navigation on the left sidebar.
+
 **Prerequisites: Verify Environment Is Set Correctly**
 
 Before running the tutorial instructions, you will need to ensure that you have a few environment variables set up correctly. If they are not set correctly, the tutorial instructions will not work properly.
